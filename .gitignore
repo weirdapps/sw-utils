@@ -1,0 +1,9 @@
+# generated deliverables (regenerate via scripts) — keep the playbook only
+output/*.json
+.playwright-mcp/
+__pycache__/
+*.pyc
+.DS_Store
+# never commit secrets / session ids
+*.session
+.env
