@@ -75,3 +75,17 @@ const api=(p,b)=>fetch("https://api.hotutils.com/Production/"+p,{method:"POST",c
 2. `base64 -i output/upload_payload.json | tr -d '\n'` → inline as `B64` → `const P=JSON.parse(decodeURIComponent(escape(atob(B64))));`
 3. loop `P` → create each (see generate_hotutils.py payload shape: `{n,sz,ct,cat,u:[[baseid,name],...]}`).
 4. verify: list → count per `category`.
+
+---
+## §5 — Push squads INTO THE GAME (in-game squad presets)
+Writes squads to the game's in-game Squad-preset system (organized in **tabs**). NOT the GAC board.
+- **`squads/game/get` {sessionId}** → `{tabs:[{id,name,unique,combatType,squads:[{name,units[]}]}]}` = current in-game tabs.
+- **`squads/game/set` {sessionId, tabs:[...]}** — per-tab UPSERT (tabs you don't send are preserved):
+  - **create** a tab: `{id:null, name, unique:true, combatType:1, squads:[{name, unitBaseIds:[...]}]}`
+  - **update** a tab: same but with the existing `id`.
+  - **delete** a tab: `{id:<existing>, name, unique, combatType:1, void:true, squads:[]}` (works on non-empty tabs; to clear a stray EMPTY dup, repurpose it by id then void the other).
+- **LIMITS (learned the hard way):**
+  - **Fleets can't be pushed** — API errors `"Currently only character squad presets are supported"`. combatType:2 is rejected. Set fleets manually in-game.
+  - **Preset NAME length is short** (~16 chars). Long names → `INVALID_SQUAD_PRESET_NAME_LENGTH_KEY`. Use short names (tab already gives format+phase), e.g. `D1 Stranger`, `O1 SEE`.
+  - `id:null` always creates a NEW tab (no by-name dedup) — don't push the same tab twice or you get duplicates; update by id instead.
+- Done 2026-07-18: pushed 4 char tabs (GAC 5v5/3v3 - Defense/Offense = 56 squads). Fleets left for manual in-game placement.
