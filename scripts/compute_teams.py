@@ -13,7 +13,13 @@ Output: data/gac_result.json  (consumed by generate_hotutils.py)
 Board counts + reserve list are CONFIG below — update when your league/board changes.
 Everything is data-driven; no hardcoded teams.
 """
-import json, re, os
+import json, re, os, shutil
+from datetime import datetime
+try:
+    from zoneinfo import ZoneInfo
+    _TODAY = datetime.now(ZoneInfo("Europe/Athens")).strftime("%Y-%m-%d")
+except Exception:
+    _TODAY = datetime.now().strftime("%Y-%m-%d")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -118,8 +124,15 @@ for fmt in ("5v5", "3v3"):
     result[fmt] = {"defense": dfn, "offense": off, "gaps": gaps,
                    "unique_units": len(used)}
 
-json.dump(result, open(os.path.join(DATA, "gac_result.json"), "w"), indent=1)
+out_path = os.path.join(DATA, "gac_result.json")
+json.dump(result, open(out_path, "w"), indent=1)
+
+# archive this run so delta_check.py can compare seasons
+hist_dir = os.path.join(DATA, "history", _TODAY)
+os.makedirs(hist_dir, exist_ok=True)
+shutil.copy(out_path, os.path.join(hist_dir, "gac_result.json"))
+
 for fmt in ("5v5", "3v3"):
     print(f"{fmt}: defense {len(result[fmt]['defense'])}/{BOARD[fmt]['def']}  "
           f"offense {len(result[fmt]['offense'])}  unique units {result[fmt]['unique_units']}")
-print("wrote data/gac_result.json")
+print(f"wrote data/gac_result.json  (archived to data/history/{_TODAY}/)")

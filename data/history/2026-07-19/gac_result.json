@@ -1,0 +1,839 @@
+{
+ "5v5": {
+  "defense": [
+   {
+    "rate": 57,
+    "seen": "29.8K",
+    "seenN": 29800.0,
+    "ban": 25.21,
+    "units": [
+     "STRANGER",
+     "LUMINARAUNDULI",
+     "MAULHATEFUELED",
+     "STARKILLER",
+     "VISASMARR"
+    ]
+   },
+   {
+    "rate": 31,
+    "seen": "13.3K",
+    "seenN": 13300.0,
+    "ban": 42.42,
+    "units": [
+     "GLREY",
+     "50RT",
+     "BENSOLO",
+     "CALKESTIS",
+     "GENERALKENOBI"
+    ]
+   },
+   {
+    "rate": 25,
+    "seen": "120K",
+    "seenN": 120000.0,
+    "ban": 47.44,
+    "units": [
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER",
+     "OPERATIVE",
+     "SCORCH"
+    ]
+   },
+   {
+    "rate": 24,
+    "seen": "53.8K",
+    "seenN": 53800.0,
+    "ban": 48.76,
+    "units": [
+     "CASSIANUNDERCOVER",
+     "CINTA",
+     "KLEYA",
+     "LUTHENRAEL",
+     "VEL"
+    ]
+   },
+   {
+    "rate": 21,
+    "seen": "20.6K",
+    "seenN": 20600.0,
+    "ban": 50.01,
+    "units": [
+     "BAYLANSKOLL",
+     "DENGAR",
+     "HONDO",
+     "MARROK",
+     "SHINHATI"
+    ]
+   },
+   {
+    "rate": 20,
+    "seen": "49.9K",
+    "seenN": 49900.0,
+    "ban": 49.88,
+    "units": [
+     "EMPERORPALPATINE",
+     "GRANDMOFFTARKIN",
+     "MARAJADE",
+     "ROYALGUARD",
+     "VADERDUELSEND"
+    ]
+   },
+   {
+    "rate": 19,
+    "seen": "59.3K",
+    "seenN": 59300.0,
+    "ban": 51.42,
+    "units": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "EMBO",
+     "KRRSANTAN",
+     "UNDERCOVERLANDO"
+    ]
+   },
+   {
+    "rate": 19,
+    "seen": "22K",
+    "seenN": 22000.0,
+    "ban": 48.26,
+    "units": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO",
+     "JUHANI"
+    ]
+   },
+   {
+    "rate": 19,
+    "seen": "17.8K",
+    "seenN": 17800.0,
+    "ban": 50.54,
+    "units": [
+     "MAJORPARTAGAZ",
+     "DEDRAMEERO",
+     "DIRECTORKRENNIC",
+     "IMPERIALPROBEDROID",
+     "KXSECURITYDROID"
+    ]
+   },
+   {
+    "rate": 18,
+    "seen": "128K",
+    "seenN": 128000.0,
+    "ban": 52.21,
+    "units": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA",
+     "HUYANG",
+     "PADAWANSABINE"
+    ]
+   },
+   {
+    "rate": 13,
+    "seen": "15.7K",
+    "seenN": 15700.0,
+    "ban": 55.33,
+    "units": [
+     "FINN",
+     "EPIXFINN",
+     "EPIXPOE",
+     "ROSETICO",
+     "ZORIIBLISS_V2"
+    ]
+   }
+  ],
+  "offense": [
+   {
+    "rate": 96,
+    "seen": "10.5K",
+    "seenN": 10500.0,
+    "ban": 60.82,
+    "units": [
+     "GLLEIA",
+     "C3POCHEWBACCA",
+     "CAPTAINDROGAN",
+     "CAPTAINREX",
+     "R2D2_LEGENDARY"
+    ]
+   },
+   {
+    "rate": 90,
+    "seen": "90.9K",
+    "seenN": 90900.0,
+    "ban": 55.57,
+    "units": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "FOSITHTROOPER",
+     "GENERALHUX",
+     "KYLORENUNMASKED"
+    ]
+   },
+   {
+    "rate": 90,
+    "seen": "29.1K",
+    "seenN": 29100.0,
+    "ban": 58.27,
+    "units": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA",
+     "MACEWINDU",
+     "PADMEAMIDALA"
+    ]
+   },
+   {
+    "rate": 87,
+    "seen": "51K",
+    "seenN": 51000.0,
+    "ban": 55.51,
+    "units": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION",
+     "DARTHTALON",
+     "SAVAGEOPRESS"
+    ]
+   },
+   {
+    "rate": 86,
+    "seen": "58K",
+    "seenN": 58000.0,
+    "ban": 53.93,
+    "units": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK",
+     "DARTHREVAN",
+     "SITHMARAUDER"
+    ]
+   },
+   {
+    "rate": 86,
+    "seen": "27.9K",
+    "seenN": 27900.0,
+    "ban": 55.88,
+    "units": [
+     "DOCTORAPHRA",
+     "B2SUPERBATTLEDROID",
+     "BT1",
+     "IG90",
+     "TRIPLEZERO"
+    ]
+   },
+   {
+    "rate": 86,
+    "seen": "25.5K",
+    "seenN": 25500.0,
+    "ban": 56.16,
+    "units": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ]
+   },
+   {
+    "rate": 86,
+    "seen": "17.5K",
+    "seenN": 17500.0,
+    "ban": 56.4,
+    "units": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ]
+   },
+   {
+    "rate": 83,
+    "seen": "15.2K",
+    "seenN": 15200.0,
+    "ban": 54.18,
+    "units": [
+     "DARTHBANE",
+     "SITHTROOPER"
+    ]
+   },
+   {
+    "rate": 82,
+    "seen": "14.8K",
+    "seenN": 14800.0,
+    "ban": 53.13,
+    "units": [
+     "QUEENAMIDALA",
+     "BADBATCHECHO",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN",
+     "SHAAKTI"
+    ]
+   },
+   {
+    "rate": 81,
+    "seen": "57.4K",
+    "seenN": 57400.0,
+    "ban": 49.05,
+    "units": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408",
+     "CT5555",
+     "CT7567"
+    ]
+   },
+   {
+    "rate": 80,
+    "seen": "26.3K",
+    "seenN": 26300.0,
+    "ban": 50.21,
+    "units": [
+     "GRANDMASTERLUKE",
+     "GRANDMASTERYODA",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ]
+   },
+   {
+    "rate": 76,
+    "seen": "55.7K",
+    "seenN": 55700.0,
+    "ban": 48.35,
+    "units": [
+     "MANDALORBOKATAN",
+     "BOKATAN",
+     "IG12",
+     "PAZVIZSLA",
+     "THEMANDALORIANBESKARARMOR"
+    ]
+   },
+   {
+    "rate": 64,
+    "seen": "32.1K",
+    "seenN": 32100.0,
+    "ban": 41.72,
+    "units": [
+     "GREATMOTHERS",
+     "DEATHTROOPERPERIDEA",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT",
+     "NIGHTTROOPER"
+    ]
+   },
+   {
+    "rate": 55,
+    "seen": "12.7K",
+    "seenN": 12700.0,
+    "ban": 38.09,
+    "units": [
+     "WAMPA"
+    ]
+   }
+  ],
+  "gaps": {
+   "def": [
+    {
+     "rate": 34,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 21,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 19,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Brutus",
+      "Captain Silvo",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 17,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Brutus",
+      "Captain Silvo",
+      "SM33",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 15,
+     "leader": "MAZKANATA",
+     "missing": [
+      "MAZKANATA",
+      "Captain Ithano",
+      "Kix",
+      "Quiggold"
+     ]
+    },
+    {
+     "rate": 13,
+     "leader": "JEDIMASTERMACEWINDU",
+     "missing": [
+      "JEDIMASTERMACEWINDU",
+      "Jocasta Nu"
+     ]
+    },
+    {
+     "rate": 7,
+     "leader": "JEDIMASTERMACEWINDU",
+     "missing": [
+      "JEDIMASTERMACEWINDU",
+      "Jocasta Nu"
+     ]
+    }
+   ],
+   "off": [
+    {
+     "rate": 86,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 82,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 75,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Brutus",
+      "Captain Silvo",
+      "SM33",
+      "Vane"
+     ]
+    }
+   ]
+  },
+  "unique_units": 120
+ },
+ "3v3": {
+  "defense": [
+   {
+    "rate": 38,
+    "seen": "16K",
+    "seenN": 16000.0,
+    "ban": 34.84,
+    "units": [
+     "CASSIANUNDERCOVER",
+     "KLEYA",
+     "LUTHENRAEL"
+    ]
+   },
+   {
+    "rate": 37,
+    "seen": "30.5K",
+    "seenN": 30500.0,
+    "ban": 33.38,
+    "units": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ]
+   },
+   {
+    "rate": 33,
+    "seen": "78.2K",
+    "seenN": 78200.0,
+    "ban": 37.09,
+    "units": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ]
+   },
+   {
+    "rate": 29,
+    "seen": "101K",
+    "seenN": 101000.0,
+    "ban": 38.78,
+    "units": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ]
+   },
+   {
+    "rate": 29,
+    "seen": "22.7K",
+    "seenN": 22700.0,
+    "ban": 38.46,
+    "units": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ]
+   },
+   {
+    "rate": 25,
+    "seen": "120K",
+    "seenN": 120000.0,
+    "ban": 42.54,
+    "units": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ]
+   },
+   {
+    "rate": 25,
+    "seen": "64.3K",
+    "seenN": 64300.0,
+    "ban": 42.0,
+    "units": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ]
+   },
+   {
+    "rate": 23,
+    "seen": "57.4K",
+    "seenN": 57400.0,
+    "ban": 42.33,
+    "units": [
+     "EMPERORPALPATINE",
+     "MARAJADE",
+     "VADERDUELSEND"
+    ]
+   },
+   {
+    "rate": 22,
+    "seen": "79K",
+    "seenN": 79000.0,
+    "ban": 43.62,
+    "units": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ]
+   },
+   {
+    "rate": 19,
+    "seen": "22.3K",
+    "seenN": 22300.0,
+    "ban": 43.8,
+    "units": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ]
+   },
+   {
+    "rate": 18,
+    "seen": "89.5K",
+    "seenN": 89500.0,
+    "ban": 45.58,
+    "units": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ]
+   },
+   {
+    "rate": 18,
+    "seen": "25.7K",
+    "seenN": 25700.0,
+    "ban": 45.99,
+    "units": [
+     "MAJORPARTAGAZ",
+     "DEDRAMEERO",
+     "KXSECURITYDROID"
+    ]
+   },
+   {
+    "rate": 18,
+    "seen": "15.6K",
+    "seenN": 15600.0,
+    "ban": 44.74,
+    "units": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ]
+   },
+   {
+    "rate": 17,
+    "seen": "37.8K",
+    "seenN": 37800.0,
+    "ban": 46.01,
+    "units": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ]
+   },
+   {
+    "rate": 16,
+    "seen": "13.8K",
+    "seenN": 13800.0,
+    "ban": 46.61,
+    "units": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ]
+   }
+  ],
+  "offense": [
+   {
+    "rate": 96,
+    "seen": "15.8K",
+    "seenN": 15800.0,
+    "ban": 56.18,
+    "units": [
+     "SITHPALPATINE"
+    ]
+   },
+   {
+    "rate": 93,
+    "seen": "29.3K",
+    "seenN": 29300.0,
+    "ban": 51.11,
+    "units": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ]
+   },
+   {
+    "rate": 92,
+    "seen": "20.6K",
+    "seenN": 20600.0,
+    "ban": 52.17,
+    "units": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ]
+   },
+   {
+    "rate": 88,
+    "seen": "47.6K",
+    "seenN": 47600.0,
+    "ban": 48.77,
+    "units": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ]
+   },
+   {
+    "rate": 88,
+    "seen": "23.5K",
+    "seenN": 23500.0,
+    "ban": 48.82,
+    "units": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ]
+   },
+   {
+    "rate": 87,
+    "seen": "21.3K",
+    "seenN": 21300.0,
+    "ban": 46.93,
+    "units": [
+     "DARTHNIHILUS",
+     "DARTHTRAYA",
+     "SAVAGEOPRESS"
+    ]
+   },
+   {
+    "rate": 86,
+    "seen": "78.3K",
+    "seenN": 78300.0,
+    "ban": 48.05,
+    "units": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ]
+   },
+   {
+    "rate": 85,
+    "seen": "79.7K",
+    "seenN": 79700.0,
+    "ban": 46.34,
+    "units": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ]
+   },
+   {
+    "rate": 82,
+    "seen": "32.7K",
+    "seenN": 32700.000000000004,
+    "ban": 46.71,
+    "units": [
+     "ADMIRALRADDUS",
+     "CASSIANANDOR",
+     "JYNERSO"
+    ]
+   },
+   {
+    "rate": 81,
+    "seen": "50.2K",
+    "seenN": 50200.0,
+    "ban": 44.06,
+    "units": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ]
+   },
+   {
+    "rate": 81,
+    "seen": "14.6K",
+    "seenN": 14600.0,
+    "ban": 46.63,
+    "units": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ]
+   },
+   {
+    "rate": 78,
+    "seen": "14.9K",
+    "seenN": 14900.0,
+    "ban": 43.82,
+    "units": [
+     "DASHRENDAR",
+     "CHEWBACCALEGENDARY",
+     "HANSOLO"
+    ]
+   },
+   {
+    "rate": 76,
+    "seen": "121K",
+    "seenN": 121000.0,
+    "ban": 44.87,
+    "units": [
+     "WAMPA"
+    ]
+   },
+   {
+    "rate": 74,
+    "seen": "19.4K",
+    "seenN": 19400.0,
+    "ban": 41.99,
+    "units": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90"
+    ]
+   },
+   {
+    "rate": 73,
+    "seen": "65.8K",
+    "seenN": 65800.0,
+    "ban": 40.33,
+    "units": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ]
+   }
+  ],
+  "gaps": {
+   "def": [
+    {
+     "rate": 38,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 31,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Quiggold",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 30,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "SM33",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 27,
+     "leader": "GLHONDO",
+     "missing": [
+      "GLHONDO",
+      "Captain Silvo",
+      "Vane"
+     ]
+    },
+    {
+     "rate": 22,
+     "leader": "CC-2224 \"Cody\"",
+     "missing": [
+      "Kix"
+     ]
+    },
+    {
+     "rate": 18,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 12,
+     "leader": "MAZKANATA",
+     "missing": [
+      "MAZKANATA",
+      "Captain Ithano",
+      "Quiggold"
+     ]
+    },
+    {
+     "rate": 12,
+     "leader": "Kelleran Beq",
+     "missing": [
+      "Jocasta Nu"
+     ]
+    }
+   ],
+   "off": [
+    {
+     "rate": 87,
+     "leader": "THIRDSISTER",
+     "missing": [
+      "THIRDSISTER"
+     ]
+    }
+   ]
+  },
+  "unique_units": 85
+ }
+}
