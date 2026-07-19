@@ -1,143 +1,143 @@
-# Grounded Mod Plan — GAC units (current vs swgoh.gg best-mods)
+# Accurate Mod Gap Report — GAC (current vs swgoh.gg best-mods)
 
-Units analysed: 135  |  OK: 0  |  need set change: 117  |  unleveled mods: 47  |  not full 6-dot: 129  |  missing Speed arrow: 125  |  no mods: 0
+Units: 135 | fully OK: 0 | wrong set: 117 | missing Speed arrow: 72 | low speed(<180): 135 | unleveled: 47 | not full 6-dot: 129
 
-Priority order: current season is **3v3**, so 3v3-DEF > 3v3-OFF > 5v5-DEF > 5v5-OFF.
+Priority: current season **3v3** first. 'Action' lists what to fix, most-impactful first.
 
-| Team | Unit | Current sets | Target sets | Mod-speed | Action |
-|---|---|---|---|---|---|
-| 3v3-DEF | APPO | Healthx6 | Offense+CritChance | 350000 | set have[Healthx6] want[Offense+CritChance]; no Speed arrow; unleveled(min L3); only 0/6 six-dot |
-| 3v3-DEF | BASTILASHAN | Healthx4,Potencyx2 | Health+Speed | 1000000 | set have[Healthx4,Potencyx2] want[Health+Speed]; no Speed arrow; only 1/6 six-dot |
-| 3v3-DEF | BAYLANSKOLL | Healthx2,Speedx4 | Health+Speed | 1030000 | no Speed arrow; only 1/6 six-dot |
-| 3v3-DEF | BENSOLO | Healthx2,Offensex4 | Offense+Potency | 990000 | set have[Healthx2,Offensex4] want[Offense+Potency]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | BOUSHH | Speedx4,Tenacityx2 | Speed+Potency | 1080000 | set have[Speedx4,Tenacityx2] want[Speed+Potency]; no Speed arrow; only 1/6 six-dot |
-| 3v3-DEF | CAPTAINDROGAN | Healthx2,Offensex4 | Offense+CritChance | 980000 | set have[Healthx2,Offensex4] want[Offense+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | CASSIANUNDERCOVER | Healthx2,CritDamagex4 | Speed+Potency | 100000 | set have[Healthx2,CritDamagex4] want[Speed+Potency]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | DARTHREVAN | CritChancex2,CritDamagex4 | Offense+CritChance | 1330000 | set have[CritChancex2,CritDamagex4] want[Offense+CritChance]; no Speed arrow; only 4/6 six-dot |
-| 3v3-DEF | DEDRAMEERO | Healthx2,CritDamagex4 | Health+Speed | 70000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | EMPERORPALPATINE | Offensex4,Potencyx2 | Speed+Potency | 770000 | set have[Offensex4,Potencyx2] want[Speed+Potency]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | EZRAEXILE | Healthx2,Speedx4 | Health+Health+Health | 1030000 | set have[Healthx2,Speedx4] want[Health+Health+Health]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | GLAHSOKATANO | Defensex6 | Health+Speed | 1300000 | set have[Defensex6] want[Health+Speed]; no Speed arrow; only 5/6 six-dot |
-| 3v3-DEF | GLLEIA | Defensex2,CritDamagex4 | Health+Speed | 1280000 | set have[Defensex2,CritDamagex4] want[Health+Speed]; no Speed arrow |
-| 3v3-DEF | GLREY | Healthx6 | Health+Speed | 480000 | set have[Healthx6] want[Health+Speed]; no Speed arrow |
-| 3v3-DEF | GREATMOTHERS | Healthx2,Speedx4 | Health+Speed | 870000 | no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | HUYANG | Healthx2,Speedx4 | Offense+CritChance | 400000 | set have[Healthx2,Speedx4] want[Offense+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | JABBATHEHUTT | Healthx6 | Health+Speed | 1130000 | set have[Healthx6] want[Health+Speed]; no Speed arrow |
-| 3v3-DEF | JEDIKNIGHTREVAN | Defensex2,CritDamagex4 | Offense+CritChance | 1160000 | set have[Defensex2,CritDamagex4] want[Offense+CritChance]; no Speed arrow; only 2/6 six-dot |
-| 3v3-DEF | KLEYA | Healthx2,Speedx4 | Offense+Potency | 0 | set have[Healthx2,Speedx4] want[Offense+Potency]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | KRRSANTAN | Defensex6 | Health+Health+Defense | 770000 | set have[Defensex6] want[Health+Health+Defense]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | KXSECURITYDROID | Healthx2,Speedx4 | Health+Health+Tenacity | 30000 | set have[Healthx2,Speedx4] want[Health+Health+Tenacity]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | LORDVADER | Speedx4,Tenacityx2 | Health+Speed | 1150000 | set have[Speedx4,Tenacityx2] want[Health+Speed]; no Speed arrow; only 4/6 six-dot |
-| 3v3-DEF | LUMINARAUNDULI | Healthx6 | Health+Speed | 200000 | set have[Healthx6] want[Health+Speed]; no Speed arrow; unleveled(min L6); only 0/6 six-dot |
-| 3v3-DEF | LUTHENRAEL | Speedx4,Potencyx2 | Health+Speed | 460000 | set have[Speedx4,Potencyx2] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | MAJORPARTAGAZ | Healthx2,CritDamagex4 | Health+Speed | 30000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | MARAJADE | Speedx4,Potencyx2 | Speed+CritChance | 850000 | set have[Speedx4,Potencyx2] want[Speed+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | MARROK | Healthx4,Defensex2 | Health+Potency+Potency | 950000 | set have[Healthx4,Defensex2] want[Health+Potency+Potency]; no Speed arrow; only 1/6 six-dot |
-| 3v3-DEF | MASTERQUIGON | Healthx2,Speedx4 | Defense+Speed | 860000 | set have[Healthx2,Speedx4] want[Defense+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | MAULHATEFUELED | Healthx2,CritDamagex4 | Health+Health+Health | 0 | set have[Healthx2,CritDamagex4] want[Health+Health+Health]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | MISSIONVAO | Speedx4,Tenacityx2 | CritChance+CritDamage | 80000 | set have[Speedx4,Tenacityx2] want[CritChance+CritDamage]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | MORGANELSBETH | Healthx2,Speedx4 | Health+Health+Defense | 890000 | set have[Healthx2,Speedx4] want[Health+Health+Defense]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | NIGHTSISTERSPIRIT | Offensex4,CritChancex2 | Offense+Potency | 230000 | set have[Offensex4,CritChancex2] want[Offense+Potency]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | OPERATIVE | Healthx6 | Health+Speed | 460000 | set have[Healthx6] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | PADAWANOBIWAN | Offensex4,Potencyx2 | Health+CritDamage | 190000 | set have[Offensex4,Potencyx2] want[Health+CritDamage]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | PRINCESSLEIA | Healthx2,Offensex4 | CritChance+CritDamage | 280000 | set have[Healthx2,Offensex4] want[CritChance+CritDamage]; no Speed arrow; unleveled(min L9); only 0/6 six-dot |
-| 3v3-DEF | QUEENAMIDALA | Healthx4,Defensex2 | Health+Speed | 1150000 | set have[Healthx4,Defensex2] want[Health+Speed]; no Speed arrow; only 2/6 six-dot |
-| 3v3-DEF | R2D2_LEGENDARY | Healthx2,Potencyx2,Tenacityx2 | Speed+Potency | 1070000 | set have[Healthx2,Potencyx2,Tenacityx2] want[Speed+Potency]; no Speed arrow; only 1/6 six-dot |
-| 3v3-DEF | SATELESHAN | Healthx2,Speedx4 | Health+Speed | 50000 | no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | SHINHATI | Healthx6 | CritChance+CritDamage | 710000 | set have[Healthx6] want[CritChance+CritDamage]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | STARKILLER | Healthx2,Offensex4 | Health+CritDamage | 1340000 | set have[Healthx2,Offensex4] want[Health+CritDamage]; no Speed arrow; only 4/6 six-dot |
-| 3v3-DEF | STORMTROOPERHAN | Healthx2,Potencyx4 | Speed+Potency | 160000 | set have[Healthx2,Potencyx4] want[Speed+Potency]; only 0/6 six-dot |
-| 3v3-DEF | STORMTROOPERLUKE | Healthx2,CritDamagex4 | Health+Speed | 80000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | STRANGER | Healthx2,CritDamagex4 | Health+Speed | 260000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-DEF | VADERDUELSEND | Healthx2,CritDamagex4 | Health+Offense | 40000 | set have[Healthx2,CritDamagex4] want[Health+Offense]; unleveled(min L12); only 0/6 six-dot |
-| 3v3-DEF | ZAALBAR | Healthx6 | Health+Health+Health | 0 | unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | ADMIRALRADDUS | Healthx6 | Health+Speed | 440000 | set have[Healthx6] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | BASTILASHANDARK | Healthx2,Speedx4 | Health+Speed | 1060000 | no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | BOSSNASS | Speedx4,Tenacityx2 | Health+Health+Potency | 300000 | set have[Speedx4,Tenacityx2] want[Health+Health+Potency]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | BT1 | Healthx2,Offensex4 | Offense+CritChance | 280000 | set have[Healthx2,Offensex4] want[Offense+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | CAPTAINTARPALS | Healthx6 | Speed+CritChance | 70000 | set have[Healthx6] want[Speed+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | CASSIANANDOR | Potencyx6 | Offense+Potency | 270000 | set have[Potencyx6] want[Offense+Potency]; no Speed arrow; unleveled(min L3); only 0/6 six-dot |
-| 3v3-OFF | CEREJUNDA | Healthx4,Defensex2 | Health+Health+Health | 430000 | set have[Healthx4,Defensex2] want[Health+Health+Health]; only 0/6 six-dot |
-| 3v3-OFF | CHEWBACCALEGENDARY | Offensex4,CritChancex2 | CritChance+CritDamage | 1010000 | set have[Offensex4,CritChancex2] want[CritChance+CritDamage]; no Speed arrow; only 1/6 six-dot |
-| 3v3-OFF | COMMANDERAHSOKA | Speedx4,Potencyx2 | Health+Speed | 1230000 | set have[Speedx4,Potencyx2] want[Health+Speed]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | CT5555 | Healthx6 | Defense+Defense+Tenacity | 450000 | set have[Healthx6] want[Defense+Defense+Tenacity]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | CT7567 | Defensex2,CritChancex2,Tenacityx2 | Health+Speed | 1160000 | set have[Defensex2,CritChancex2,Tenacityx2] want[Health+Speed]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | DARKREY | Healthx6 | CritChance+CritDamage | 950000 | set have[Healthx6] want[CritChance+CritDamage]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | DARTHBANE | Healthx4,CritChancex2 | Health+Health+Health | 750000 | set have[Healthx4,CritChancex2] want[Health+Health+Health]; no Speed arrow; only 4/6 six-dot |
-| 3v3-OFF | DARTHMALAK | Defensex2,Speedx4 | Tenacity+Tenacity+Tenacity | 340000 | set have[Defensex2,Speedx4] want[Tenacity+Tenacity+Tenacity]; no Speed arrow; unleveled(min L12); only 1/6 six-dot |
-| 3v3-OFF | DARTHMALGUS | Healthx4,Defensex2 | Health+Health+Health | 830000 | set have[Healthx4,Defensex2] want[Health+Health+Health]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | DARTHNIHILUS | Healthx2,Tenacityx4 | Speed+Tenacity | 500000 | set have[Healthx2,Tenacityx4] want[Speed+Tenacity]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | DARTHTRAYA | Healthx2,Potencyx2,Tenacityx2 | Offense+CritChance | 990000 | set have[Healthx2,Potencyx2,Tenacityx2] want[Offense+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | DASHRENDAR | Defensex2,CritDamagex4 | Speed+CritChance | 490000 | set have[Defensex2,CritDamagex4] want[Speed+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | DOCTORAPHRA | Potencyx6 | Potency+Potency+Potency | 890000 | no Speed arrow; only 1/6 six-dot |
-| 3v3-OFF | GENERALHUX | Healthx4,Tenacityx2 | Speed+Tenacity | 1010000 | set have[Healthx4,Tenacityx2] want[Speed+Tenacity]; no Speed arrow; unleveled(min L9); only 0/6 six-dot |
-| 3v3-OFF | GENERALSKYWALKER | Defensex2,Speedx4 | Health+Speed | 1120000 | set have[Defensex2,Speedx4] want[Health+Speed]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | GRANDMASTERLUKE | Healthx2,Speedx4 | Health+Health+Health | 1490000 | set have[Healthx2,Speedx4] want[Health+Health+Health] |
-| 3v3-OFF | HANSOLO | Offensex4,Defensex2 | CritChance+CritDamage | 1110000 | set have[Offensex4,Defensex2] want[CritChance+CritDamage]; no Speed arrow; only 2/6 six-dot |
-| 3v3-OFF | IG12 | Healthx6 | Health+Speed | 750000 | set have[Healthx6] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | IG90 | Healthx2,CritDamagex4 | Speed+CritChance | 0 | set have[Healthx2,CritDamagex4] want[Speed+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | JARJARBINKS | Speedx4,Potencyx2 | Speed+Potency | 830000 | no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | JEDIKNIGHTCAL | Healthx2,Offensex4 | Health+Speed | 460000 | set have[Healthx2,Offensex4] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | JEDIKNIGHTLUKE | Offensex4,Tenacityx2 | Offense+CritChance | 880000 | set have[Offensex4,Tenacityx2] want[Offense+CritChance]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | JEDIMASTERKENOBI | Healthx2,Speedx4 | Health+Speed | 1460000 | no Speed arrow |
-| 3v3-OFF | JYNERSO | Speedx4,CritChancex2 | Speed+Tenacity | 150000 | set have[Speedx4,CritChancex2] want[Speed+Tenacity]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | MACEWINDU | Healthx2,Potencyx2,Tenacityx2 | Health+Health+Health | 640000 | set have[Healthx2,Potencyx2,Tenacityx2] want[Health+Health+Health]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | MANDALORBOKATAN | Offensex4,Defensex2 | Health+Offense | 470000 | set have[Offensex4,Defensex2] want[Health+Offense]; no Speed arrow; unleveled(min L12); only 3/6 six-dot |
-| 3v3-OFF | MAULS7 | Healthx2,Offensex4 | Health+Health+Health | 910000 | set have[Healthx2,Offensex4] want[Health+Health+Health]; no Speed arrow; only 3/6 six-dot |
-| 3v3-OFF | PAZVIZSLA | Healthx6 | Health+Health+Health | 190000 | no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | SAVAGEOPRESS | Healthx6 | Health+CritDamage | 30000 | set have[Healthx6] want[Health+CritDamage]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 3v3-OFF | SITHASSASSIN | Speedx4,Tenacityx2 | Speed+CritChance | 470000 | set have[Speedx4,Tenacityx2] want[Speed+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 3v3-OFF | SITHPALPATINE | Healthx2,CritDamagex4 | Health+Speed | 1000000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; only 5/6 six-dot |
-| 3v3-OFF | SUPREMELEADERKYLOREN | Healthx2,Speedx4 | Health+Speed | 1150000 | no Speed arrow |
-| 3v3-OFF | TARONMALICOS | Healthx2,Offensex4 | Offense+CritChance | 1050000 | set have[Healthx2,Offensex4] want[Offense+CritChance]; no Speed arrow; only 2/6 six-dot |
-| 3v3-OFF | WAMPA | Healthx2,Offensex4 | Offense+CritChance | 160000 | set have[Healthx2,Offensex4] want[Offense+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | 50RT | Healthx2,Defensex4 | CritChance+CritDamage | 380000 | set have[Healthx2,Defensex4] want[CritChance+CritDamage]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | CALKESTIS | Healthx6 | Health+Health+Potency | 0 | set have[Healthx6] want[Health+Health+Potency]; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | CINTA | Healthx2,CritDamagex4 | CritChance+CritDamage | 120000 | set have[Healthx2,CritDamagex4] want[CritChance+CritDamage]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | DENGAR | CritChancex4,Potencyx2 | CritChance+CritDamage | 360000 | set have[CritChancex4,Potencyx2] want[CritChance+CritDamage]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | DIRECTORKRENNIC | Healthx2,Defensex2,CritChancex2 | Speed+CritChance | 290000 | set have[Healthx2,Defensex2,CritChancex2] want[Speed+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | DISGUISEDCLONETROOPER | Offensex4,CritChancex2 | Speed+Potency | 390000 | set have[Offensex4,CritChancex2] want[Speed+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | EMBO | Defensex2,CritDamagex4 | CritChance+CritDamage | 880000 | set have[Defensex2,CritDamagex4] want[CritChance+CritDamage]; no Speed arrow; only 1/6 six-dot |
-| 5v5-DEF | EPIXFINN | Speedx4,CritChancex2 | Speed+CritChance | 870000 | no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | EPIXPOE | Defensex2,CritDamagex4 | Offense+Potency | 1050000 | set have[Defensex2,CritDamagex4] want[Offense+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | FINN | Offensex4,CritChancex2 | Potency+Potency+Potency | 70000 | set have[Offensex4,CritChancex2] want[Potency+Potency+Potency]; no Speed arrow; only 1/6 six-dot |
-| 5v5-DEF | GENERALKENOBI | Healthx2,Defensex4 | Tenacity+Tenacity+Tenacity | 600000 | set have[Healthx2,Defensex4] want[Tenacity+Tenacity+Tenacity]; no Speed arrow; only 2/6 six-dot |
-| 5v5-DEF | GENERALSYNDULLA | CritChancex2,Potencyx2,Tenacityx2 | Health+Speed | 740000 | set have[CritChancex2,Potencyx2,Tenacityx2] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | GRANDMOFFTARKIN | Healthx2,CritChancex2,Tenacityx2 | Speed+Potency | 670000 | set have[Healthx2,CritChancex2,Tenacityx2] want[Speed+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | HONDO | Healthx2,CritDamagex4 | Health+Speed | 450000 | set have[Healthx2,CritDamagex4] want[Health+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | IMPERIALPROBEDROID | Healthx6 | Speed+Potency | 130000 | set have[Healthx6] want[Speed+Potency]; no Speed arrow; unleveled(min L6); only 0/6 six-dot |
-| 5v5-DEF | JOLEEBINDO | Healthx4,Tenacityx2 | Health+Health+Health | 400000 | set have[Healthx4,Tenacityx2] want[Health+Health+Health]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | JUHANI | Defensex2,Speedx4 | Tenacity+Tenacity+Tenacity | 160000 | set have[Defensex2,Speedx4] want[Tenacity+Tenacity+Tenacity]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | PADAWANSABINE | Offensex4,Defensex2 | Offense+CritChance | 850000 | set have[Offensex4,Defensex2] want[Offense+CritChance]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | ROSETICO | Healthx4,Potencyx2 | CritChance+CritChance+CritChance | 420000 | set have[Healthx4,Potencyx2] want[CritChance+CritChance+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | ROYALGUARD | Healthx6 | Defense+Defense+Defense | 50000 | set have[Healthx6] want[Defense+Defense+Defense]; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | SCORCH | Defensex6 | Health+Health+Defense | 630000 | set have[Defensex6] want[Health+Health+Defense]; no Speed arrow; only 0/6 six-dot |
-| 5v5-DEF | UNDERCOVERLANDO | CritChancex2,CritDamagex4 | Offense+CritChance | 730000 | set have[CritChancex2,CritDamagex4] want[Offense+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | VEL | Healthx2,Speedx4 | Offense+CritChance | 50000 | set have[Healthx2,Speedx4] want[Offense+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | VISASMARR | Healthx4,Tenacityx2 | Health+Speed | 530000 | set have[Healthx4,Tenacityx2] want[Health+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-DEF | ZORIIBLISS_V2 | Speedx4,Tenacityx2 | Speed+Potency | 850000 | set have[Speedx4,Tenacityx2] want[Speed+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | AHSOKATANO | Healthx2,CritDamagex4 | Offense+CritChance | 1040000 | set have[Healthx2,CritDamagex4] want[Offense+CritChance]; no Speed arrow; only 1/6 six-dot |
-| 5v5-OFF | ARCTROOPER501ST | Offensex4,CritChancex2 | Offense+CritChance | 410000 | no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-OFF | B2SUPERBATTLEDROID | Healthx6 | Potency+Potency+Potency | 30000 | set have[Healthx6] want[Potency+Potency+Potency]; unleveled(min L12); only 0/6 six-dot |
-| 5v5-OFF | BADBATCHECHO | Speedx4,CritChancex2 | Speed+Potency | 590000 | set have[Speedx4,CritChancex2] want[Speed+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | BOKATAN | Healthx2,CritDamagex4 | Health+CritDamage | 830000 | no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | BOOMADIER | Healthx6 | Speed+CritChance | 70000 | set have[Healthx6] want[Speed+CritChance]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-OFF | C3POCHEWBACCA | Healthx2,Offensex4 | CritChance+CritDamage | 560000 | set have[Healthx2,Offensex4] want[CritChance+CritDamage]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | CAPTAINREX | Healthx2,CritChancex2,Potencyx2 | Speed+Potency | 880000 | set have[Healthx2,CritChancex2,Potencyx2] want[Speed+Potency]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | CT210408 | Offensex4,Tenacityx2 | Offense+CritChance | 270000 | set have[Offensex4,Tenacityx2] want[Offense+CritChance]; no Speed arrow; only 1/6 six-dot |
-| 5v5-OFF | DARTHSION | Healthx2,Defensex4 | Defense+Speed | 290000 | set have[Healthx2,Defensex4] want[Defense+Speed]; no Speed arrow; unleveled(min L12); only 0/6 six-dot |
-| 5v5-OFF | DARTHTALON | Healthx2,Offensex4 | Health+Offense | 370000 | no Speed arrow; unleveled(min L6); only 0/6 six-dot |
-| 5v5-OFF | DEATHTROOPERPERIDEA | Defensex2,CritDamagex4 | CritChance+CritDamage | 1000000 | set have[Defensex2,CritDamagex4] want[CritChance+CritDamage]; no Speed arrow; only 1/6 six-dot |
-| 5v5-OFF | FOSITHTROOPER | Healthx2,Offensex4 | CritDamage+Tenacity | 70000 | set have[Healthx2,Offensex4] want[CritDamage+Tenacity]; no Speed arrow; unleveled(min L3); only 0/6 six-dot |
-| 5v5-OFF | GRANDMASTERYODA | Offensex4,CritChancex2 | Offense+CritChance | 630000 | no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | GUNGANPHALANX | Healthx2,Speedx4 | Health+Health+Tenacity | 190000 | set have[Healthx2,Speedx4] want[Health+Health+Tenacity]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | HERMITYODA | Speedx4,CritChancex2 | Health+Speed | 970000 | set have[Speedx4,CritChancex2] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | KYLORENUNMASKED | Healthx4,Defensex2 | Defense+Defense+Defense | 320000 | set have[Healthx4,Defensex2] want[Defense+Defense+Defense]; only 2/6 six-dot |
-| 5v5-OFF | NIGHTTROOPER | Healthx6 | Offense+CritChance | 760000 | set have[Healthx6] want[Offense+CritChance]; no Speed arrow; only 1/6 six-dot |
-| 5v5-OFF | PADMEAMIDALA | Healthx2,Speedx4 | Health+Health+Health | 590000 | set have[Healthx2,Speedx4] want[Health+Health+Health]; no Speed arrow; only 1/6 six-dot |
-| 5v5-OFF | SHAAKTI | Healthx6 | Health+Speed | 930000 | set have[Healthx6] want[Health+Speed]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | SITHMARAUDER | CritChancex2,CritDamagex4 | CritChance+CritDamage | 600000 | no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | SITHTROOPER | Defensex6 | Defense+Defense+Defense | 290000 | unleveled(min L12); only 0/6 six-dot |
-| 5v5-OFF | THEMANDALORIANBESKARARMOR | Healthx2,Offensex4 | Offense+Tenacity | 880000 | set have[Healthx2,Offensex4] want[Offense+Tenacity]; no Speed arrow; only 0/6 six-dot |
-| 5v5-OFF | TRIPLEZERO | Speedx4,Potencyx2 | Speed+Potency | 580000 | no Speed arrow; unleveled(min L3); only 0/6 six-dot |
-| 5v5-OFF | WATTAMBOR | Healthx6 | Speed+Tenacity | 770000 | set have[Healthx6] want[Speed+Tenacity]; no Speed arrow; unleveled(min L3); only 0/6 six-dot |
+| Team | Unit | Speed | Current sets | Action |
+|---|---|---|---|---|
+| 3v3-DEF | CC-1119 "Appo" | 35 | Healthx6 | set→Offense+CritChance (have Healthx6); add Speed arrow; low speed (35); level mods (min L3); slice to 6-dot (0/6) |
+| 3v3-DEF | Bastila Shan | 100 | Healthx4,Potencyx2 | set→Health+Speed (have Healthx4,Potencyx2); low speed (100); slice to 6-dot (1/6) |
+| 3v3-DEF | Baylan Skoll | 103 | Speedx4,Healthx2 | low speed (103); slice to 6-dot (1/6) |
+| 3v3-DEF | Ben Solo | 99 | Offensex4,Healthx2 | set→Offense+Potency (have Offensex4,Healthx2); low speed (99); slice to 6-dot (0/6) |
+| 3v3-DEF | Boushh (Leia Organa) | 108 | Speedx4,Tenacityx2 | set→Speed+Potency (have Speedx4,Tenacityx2); low speed (108); slice to 6-dot (1/6) |
+| 3v3-DEF | Captain Drogan | 98 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); low speed (98); slice to 6-dot (0/6) |
+| 3v3-DEF | Cassian Andor (Undercover) | 10 | CritDamagex4,Healthx2 | set→Speed+Potency (have CritDamagex4,Healthx2); add Speed arrow; low speed (10); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Darth Revan | 133 | CritDamagex4,CritChancex2 | set→Offense+CritChance (have CritDamagex4,CritChancex2); low speed (133); slice to 6-dot (4/6) |
+| 3v3-DEF | Dedra Meero | 7 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (7); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Emperor Palpatine | 77 | Offensex4,Potencyx2 | set→Speed+Potency (have Offensex4,Potencyx2); low speed (77); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Ezra Bridger (Exile) | 103 | Speedx4,Healthx2 | set→Health+Health+Health (have Speedx4,Healthx2); low speed (103); slice to 6-dot (0/6) |
+| 3v3-DEF | Ahsoka Tano | 130 | Defensex6 | set→Health+Speed (have Defensex6); low speed (130); slice to 6-dot (5/6) |
+| 3v3-DEF | Leia Organa | 128 | CritDamagex4,Defensex2 | set→Health+Speed (have CritDamagex4,Defensex2); low speed (128) |
+| 3v3-DEF | Rey | 48 | Healthx6 | set→Health+Speed (have Healthx6); add Speed arrow; low speed (48) |
+| 3v3-DEF | Great Mothers | 87 | Speedx4,Healthx2 | low speed (87); slice to 6-dot (0/6) |
+| 3v3-DEF | Huyang | 40 | Speedx4,Healthx2 | set→Offense+CritChance (have Speedx4,Healthx2); add Speed arrow; low speed (40); slice to 6-dot (0/6) |
+| 3v3-DEF | Jabba the Hutt | 113 | Healthx6 | set→Health+Speed (have Healthx6); low speed (113) |
+| 3v3-DEF | Jedi Knight Revan | 116 | CritDamagex4,Defensex2 | set→Offense+CritChance (have CritDamagex4,Defensex2); low speed (116); slice to 6-dot (2/6) |
+| 3v3-DEF | Kleya Marki | 0 | Speedx4,Healthx2 | set→Offense+Potency (have Speedx4,Healthx2); add Speed arrow; low speed (0); slice to 6-dot (0/6) |
+| 3v3-DEF | Krrsantan | 77 | Defensex6 | set→Health+Health+Defense (have Defensex6); low speed (77); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | KX Security Droid | 3 | Speedx4,Healthx2 | set→Health+Health+Tenacity (have Speedx4,Healthx2); add Speed arrow; low speed (3); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Lord Vader | 115 | Speedx4,Tenacityx2 | set→Health+Speed (have Speedx4,Tenacityx2); low speed (115); slice to 6-dot (4/6) |
+| 3v3-DEF | Luminara Unduli | 20 | Healthx6 | set→Health+Speed (have Healthx6); add Speed arrow; low speed (20); level mods (min L6); slice to 6-dot (0/6) |
+| 3v3-DEF | Luthen Rael | 46 | Speedx4,Potencyx2 | set→Health+Speed (have Speedx4,Potencyx2); add Speed arrow; low speed (46); slice to 6-dot (0/6) |
+| 3v3-DEF | Major Partagaz | 3 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (3); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Mara Jade, The Emperor's Hand | 85 | Speedx4,Potencyx2 | set→Speed+CritChance (have Speedx4,Potencyx2); low speed (85); slice to 6-dot (0/6) |
+| 3v3-DEF | Marrok | 95 | Healthx4,Defensex2 | set→Health+Potency+Potency (have Healthx4,Defensex2); low speed (95); slice to 6-dot (1/6) |
+| 3v3-DEF | Master Qui-Gon | 86 | Speedx4,Healthx2 | set→Defense+Speed (have Speedx4,Healthx2); low speed (86); slice to 6-dot (0/6) |
+| 3v3-DEF | Maul (Hate-Fueled) | 0 | CritDamagex4,Healthx2 | set→Health+Health+Health (have CritDamagex4,Healthx2); add Speed arrow; low speed (0); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Mission Vao | 8 | Speedx4,Tenacityx2 | set→CritChance+CritDamage (have Speedx4,Tenacityx2); add Speed arrow; low speed (8); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Morgan Elsbeth | 89 | Speedx4,Healthx2 | set→Health+Health+Defense (have Speedx4,Healthx2); low speed (89); slice to 6-dot (0/6) |
+| 3v3-DEF | Nightsister Spirit | 23 | Offensex4,CritChancex2 | set→Offense+Potency (have Offensex4,CritChancex2); add Speed arrow; low speed (23); slice to 6-dot (0/6) |
+| 3v3-DEF | CX-2 | 46 | Healthx6 | set→Health+Speed (have Healthx6); add Speed arrow; low speed (46); slice to 6-dot (0/6) |
+| 3v3-DEF | Padawan Obi-Wan | 19 | Offensex4,Potencyx2 | set→Health+CritDamage (have Offensex4,Potencyx2); add Speed arrow; low speed (19); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Princess Leia | 28 | Offensex4,Healthx2 | set→CritChance+CritDamage (have Offensex4,Healthx2); add Speed arrow; low speed (28); level mods (min L9); slice to 6-dot (0/6) |
+| 3v3-DEF | Queen Amidala | 115 | Healthx4,Defensex2 | set→Health+Speed (have Healthx4,Defensex2); low speed (115); slice to 6-dot (2/6) |
+| 3v3-DEF | R2-D2 | 107 | Healthx2,Potencyx2,Tenacityx2 | set→Speed+Potency (have Healthx2,Potencyx2,Tenacityx2); low speed (107); slice to 6-dot (1/6) |
+| 3v3-DEF | Satele Shan | 5 | Speedx4,Healthx2 | add Speed arrow; low speed (5); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Shin Hati | 71 | Healthx6 | set→CritChance+CritDamage (have Healthx6); low speed (71); slice to 6-dot (0/6) |
+| 3v3-DEF | Starkiller | 134 | Offensex4,Healthx2 | set→Health+CritDamage (have Offensex4,Healthx2); low speed (134); slice to 6-dot (4/6) |
+| 3v3-DEF | Stormtrooper Han | 16 | Potencyx4,Healthx2 | set→Speed+Potency (have Potencyx4,Healthx2); low speed (16); slice to 6-dot (0/6) |
+| 3v3-DEF | Stormtrooper Luke | 8 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (8); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | The Stranger | 26 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (26); slice to 6-dot (0/6) |
+| 3v3-DEF | Darth Vader (Duel's End) | 4 | CritDamagex4,Healthx2 | set→Health+Offense (have CritDamagex4,Healthx2); low speed (4); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-DEF | Zaalbar | 0 | Healthx6 | low speed (0); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Admiral Raddus | 44 | Healthx6 | set→Health+Speed (have Healthx6); add Speed arrow; low speed (44); slice to 6-dot (0/6) |
+| 3v3-OFF | Bastila Shan (Fallen) | 106 | Speedx4,Healthx2 | low speed (106); slice to 6-dot (0/6) |
+| 3v3-OFF | Boss Nass | 30 | Speedx4,Tenacityx2 | set→Health+Health+Potency (have Speedx4,Tenacityx2); add Speed arrow; low speed (30); slice to 6-dot (0/6) |
+| 3v3-OFF | BT-1 | 28 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); add Speed arrow; low speed (28); slice to 6-dot (0/6) |
+| 3v3-OFF | Captain Tarpals | 7 | Healthx6 | set→Speed+CritChance (have Healthx6); add Speed arrow; low speed (7); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Cassian Andor | 27 | Potencyx6 | set→Offense+Potency (have Potencyx6); add Speed arrow; low speed (27); level mods (min L3); slice to 6-dot (0/6) |
+| 3v3-OFF | Cere Junda | 43 | Healthx4,Defensex2 | set→Health+Health+Health (have Healthx4,Defensex2); low speed (43); slice to 6-dot (0/6) |
+| 3v3-OFF | Chewbacca | 101 | Offensex4,CritChancex2 | set→CritChance+CritDamage (have Offensex4,CritChancex2); low speed (101); slice to 6-dot (1/6) |
+| 3v3-OFF | Commander Ahsoka Tano | 123 | Speedx4,Potencyx2 | set→Health+Speed (have Speedx4,Potencyx2); low speed (123); slice to 6-dot (3/6) |
+| 3v3-OFF | CT-5555 "Fives" | 45 | Healthx6 | set→Defense+Defense+Tenacity (have Healthx6); add Speed arrow; low speed (45); slice to 6-dot (0/6) |
+| 3v3-OFF | CT-7567 "Rex" | 116 | Defensex2,CritChancex2,Tenacityx2 | set→Health+Speed (have Defensex2,CritChancex2,Tenacityx2); low speed (116); slice to 6-dot (3/6) |
+| 3v3-OFF | Rey (Dark Side Vision) | 95 | Healthx6 | set→CritChance+CritDamage (have Healthx6); low speed (95); slice to 6-dot (0/6) |
+| 3v3-OFF | Darth Bane | 75 | Healthx4,CritChancex2 | set→Health+Health+Health (have Healthx4,CritChancex2); add Speed arrow; low speed (75); slice to 6-dot (4/6) |
+| 3v3-OFF | Darth Malak | 34 | Speedx4,Defensex2 | set→Tenacity+Tenacity+Tenacity (have Speedx4,Defensex2); add Speed arrow; low speed (34); level mods (min L12); slice to 6-dot (1/6) |
+| 3v3-OFF | Darth Malgus | 83 | Healthx4,Defensex2 | set→Health+Health+Health (have Healthx4,Defensex2); low speed (83); slice to 6-dot (3/6) |
+| 3v3-OFF | Darth Nihilus | 50 | Tenacityx4,Healthx2 | set→Speed+Tenacity (have Tenacityx4,Healthx2); add Speed arrow; low speed (50); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Darth Traya | 99 | Healthx2,Potencyx2,Tenacityx2 | set→Offense+CritChance (have Healthx2,Potencyx2,Tenacityx2); low speed (99); slice to 6-dot (0/6) |
+| 3v3-OFF | Dash Rendar | 49 | CritDamagex4,Defensex2 | set→Speed+CritChance (have CritDamagex4,Defensex2); add Speed arrow; low speed (49); slice to 6-dot (0/6) |
+| 3v3-OFF | Doctor Aphra | 89 | Potencyx6 | low speed (89); slice to 6-dot (1/6) |
+| 3v3-OFF | General Hux | 101 | Healthx4,Tenacityx2 | set→Speed+Tenacity (have Healthx4,Tenacityx2); low speed (101); level mods (min L9); slice to 6-dot (0/6) |
+| 3v3-OFF | General Skywalker | 112 | Speedx4,Defensex2 | set→Health+Speed (have Speedx4,Defensex2); low speed (112); slice to 6-dot (3/6) |
+| 3v3-OFF | Jedi Master Luke Skywalker | 149 | Speedx4,Healthx2 | set→Health+Health+Health (have Speedx4,Healthx2); low speed (149) |
+| 3v3-OFF | Han Solo | 111 | Offensex4,Defensex2 | set→CritChance+CritDamage (have Offensex4,Defensex2); low speed (111); slice to 6-dot (2/6) |
+| 3v3-OFF | IG-12 & Grogu | 75 | Healthx6 | set→Health+Speed (have Healthx6); low speed (75); slice to 6-dot (0/6) |
+| 3v3-OFF | IG-90 | 0 | CritDamagex4,Healthx2 | set→Speed+CritChance (have CritDamagex4,Healthx2); add Speed arrow; low speed (0); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Jar Jar Binks | 83 | Speedx4,Potencyx2 | low speed (83); slice to 6-dot (0/6) |
+| 3v3-OFF | Jedi Knight Cal Kestis | 46 | Offensex4,Healthx2 | set→Health+Speed (have Offensex4,Healthx2); add Speed arrow; low speed (46); slice to 6-dot (0/6) |
+| 3v3-OFF | Jedi Knight Luke Skywalker | 88 | Offensex4,Tenacityx2 | set→Offense+CritChance (have Offensex4,Tenacityx2); add Speed arrow; low speed (88); slice to 6-dot (3/6) |
+| 3v3-OFF | Jedi Master Kenobi | 146 | Speedx4,Healthx2 | low speed (146) |
+| 3v3-OFF | Jyn Erso | 15 | Speedx4,CritChancex2 | set→Speed+Tenacity (have Speedx4,CritChancex2); add Speed arrow; low speed (15); slice to 6-dot (0/6) |
+| 3v3-OFF | Mace Windu | 64 | Healthx2,Potencyx2,Tenacityx2 | set→Health+Health+Health (have Healthx2,Potencyx2,Tenacityx2); add Speed arrow; low speed (64); slice to 6-dot (0/6) |
+| 3v3-OFF | Bo-Katan (Mand'alor) | 47 | Offensex4,Defensex2 | set→Health+Offense (have Offensex4,Defensex2); add Speed arrow; low speed (47); level mods (min L12); slice to 6-dot (3/6) |
+| 3v3-OFF | Maul | 91 | Offensex4,Healthx2 | set→Health+Health+Health (have Offensex4,Healthx2); add Speed arrow; low speed (91); slice to 6-dot (3/6) |
+| 3v3-OFF | Paz Vizsla | 19 | Healthx6 | add Speed arrow; low speed (19); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Savage Opress | 3 | Healthx6 | set→Health+CritDamage (have Healthx6); add Speed arrow; low speed (3); level mods (min L12); slice to 6-dot (0/6) |
+| 3v3-OFF | Sith Assassin | 47 | Speedx4,Tenacityx2 | set→Speed+CritChance (have Speedx4,Tenacityx2); add Speed arrow; low speed (47); slice to 6-dot (0/6) |
+| 3v3-OFF | Sith Eternal Emperor | 100 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (100); slice to 6-dot (5/6) |
+| 3v3-OFF | Supreme Leader Kylo Ren | 115 | Speedx4,Healthx2 | low speed (115) |
+| 3v3-OFF | Taron Malicos | 105 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); low speed (105); slice to 6-dot (2/6) |
+| 3v3-OFF | Wampa | 16 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); add Speed arrow; low speed (16); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | 50R-T | 38 | Defensex4,Healthx2 | set→CritChance+CritDamage (have Defensex4,Healthx2); add Speed arrow; low speed (38); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Cal Kestis | 0 | Healthx6 | set→Health+Health+Potency (have Healthx6); low speed (0); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Cinta Kaz | 12 | CritDamagex4,Healthx2 | set→CritChance+CritDamage (have CritDamagex4,Healthx2); add Speed arrow; low speed (12); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Dengar | 36 | CritChancex4,Potencyx2 | set→CritChance+CritDamage (have CritChancex4,Potencyx2); add Speed arrow; low speed (36); slice to 6-dot (0/6) |
+| 5v5-DEF | Director Krennic | 29 | Healthx2,Defensex2,CritChancex2 | set→Speed+CritChance (have Healthx2,Defensex2,CritChancex2); add Speed arrow; low speed (29); slice to 6-dot (0/6) |
+| 5v5-DEF | Disguised Clone Trooper | 39 | Offensex4,CritChancex2 | set→Speed+Potency (have Offensex4,CritChancex2); add Speed arrow; low speed (39); slice to 6-dot (0/6) |
+| 5v5-DEF | Embo | 88 | CritDamagex4,Defensex2 | set→CritChance+CritDamage (have CritDamagex4,Defensex2); low speed (88); slice to 6-dot (1/6) |
+| 5v5-DEF | Resistance Hero Finn | 87 | Speedx4,CritChancex2 | low speed (87); slice to 6-dot (0/6) |
+| 5v5-DEF | Resistance Hero Poe | 105 | CritDamagex4,Defensex2 | set→Offense+Potency (have CritDamagex4,Defensex2); low speed (105); slice to 6-dot (0/6) |
+| 5v5-DEF | Finn | 7 | Offensex4,CritChancex2 | set→Potency+Potency+Potency (have Offensex4,CritChancex2); add Speed arrow; low speed (7); slice to 6-dot (1/6) |
+| 5v5-DEF | General Kenobi | 60 | Defensex4,Healthx2 | set→Tenacity+Tenacity+Tenacity (have Defensex4,Healthx2); add Speed arrow; low speed (60); slice to 6-dot (2/6) |
+| 5v5-DEF | General Syndulla | 74 | CritChancex2,Potencyx2,Tenacityx2 | set→Health+Speed (have CritChancex2,Potencyx2,Tenacityx2); add Speed arrow; low speed (74); slice to 6-dot (0/6) |
+| 5v5-DEF | Grand Moff Tarkin | 67 | Healthx2,CritChancex2,Tenacityx2 | set→Speed+Potency (have Healthx2,CritChancex2,Tenacityx2); add Speed arrow; low speed (67); slice to 6-dot (0/6) |
+| 5v5-DEF | Hondo Ohnaka | 45 | CritDamagex4,Healthx2 | set→Health+Speed (have CritDamagex4,Healthx2); add Speed arrow; low speed (45); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Imperial Probe Droid | 13 | Healthx6 | set→Speed+Potency (have Healthx6); add Speed arrow; low speed (13); level mods (min L6); slice to 6-dot (0/6) |
+| 5v5-DEF | Jolee Bindo | 40 | Healthx4,Tenacityx2 | set→Health+Health+Health (have Healthx4,Tenacityx2); add Speed arrow; low speed (40); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Juhani | 16 | Speedx4,Defensex2 | set→Tenacity+Tenacity+Tenacity (have Speedx4,Defensex2); add Speed arrow; low speed (16); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Padawan Sabine Wren | 85 | Offensex4,Defensex2 | set→Offense+CritChance (have Offensex4,Defensex2); low speed (85); slice to 6-dot (0/6) |
+| 5v5-DEF | Rose Tico | 42 | Healthx4,Potencyx2 | set→CritChance+CritChance+CritChance (have Healthx4,Potencyx2); add Speed arrow; low speed (42); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Royal Guard | 5 | Healthx6 | set→Defense+Defense+Defense (have Healthx6); low speed (5); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | RC-1262 "Scorch" | 63 | Defensex6 | set→Health+Health+Defense (have Defensex6); add Speed arrow; low speed (63); slice to 6-dot (0/6) |
+| 5v5-DEF | Skiff Guard (Lando Calrissian) | 73 | CritDamagex4,CritChancex2 | set→Offense+CritChance (have CritDamagex4,CritChancex2); add Speed arrow; low speed (73); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Vel Sartha | 5 | Speedx4,Healthx2 | set→Offense+CritChance (have Speedx4,Healthx2); add Speed arrow; low speed (5); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Visas Marr | 53 | Healthx4,Tenacityx2 | set→Health+Speed (have Healthx4,Tenacityx2); add Speed arrow; low speed (53); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-DEF | Zorii Bliss | 85 | Speedx4,Tenacityx2 | set→Speed+Potency (have Speedx4,Tenacityx2); low speed (85); slice to 6-dot (0/6) |
+| 5v5-OFF | Ahsoka Tano (Snips) | 104 | CritDamagex4,Healthx2 | set→Offense+CritChance (have CritDamagex4,Healthx2); low speed (104); slice to 6-dot (1/6) |
+| 5v5-OFF | ARC Trooper | 41 | Offensex4,CritChancex2 | add Speed arrow; low speed (41); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-OFF | B2 Super Battle Droid | 3 | Healthx6 | set→Potency+Potency+Potency (have Healthx6); low speed (3); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-OFF | Echo | 59 | Speedx4,CritChancex2 | set→Speed+Potency (have Speedx4,CritChancex2); add Speed arrow; low speed (59); slice to 6-dot (0/6) |
+| 5v5-OFF | Bo-Katan Kryze | 83 | CritDamagex4,Healthx2 | low speed (83); slice to 6-dot (0/6) |
+| 5v5-OFF | Gungan Boomadier | 7 | Healthx6 | set→Speed+CritChance (have Healthx6); add Speed arrow; low speed (7); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-OFF | Threepio & Chewie | 56 | Offensex4,Healthx2 | set→CritChance+CritDamage (have Offensex4,Healthx2); add Speed arrow; low speed (56); slice to 6-dot (0/6) |
+| 5v5-OFF | Captain Rex | 88 | Healthx2,CritChancex2,Potencyx2 | set→Speed+Potency (have Healthx2,CritChancex2,Potencyx2); low speed (88); slice to 6-dot (0/6) |
+| 5v5-OFF | CT-21-0408 "Echo" | 27 | Offensex4,Tenacityx2 | set→Offense+CritChance (have Offensex4,Tenacityx2); add Speed arrow; low speed (27); slice to 6-dot (1/6) |
+| 5v5-OFF | Darth Sion | 29 | Defensex4,Healthx2 | set→Defense+Speed (have Defensex4,Healthx2); add Speed arrow; low speed (29); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-OFF | Darth Talon | 37 | Offensex4,Healthx2 | add Speed arrow; low speed (37); level mods (min L6); slice to 6-dot (0/6) |
+| 5v5-OFF | Death Trooper (Peridea) | 100 | CritDamagex4,Defensex2 | set→CritChance+CritDamage (have CritDamagex4,Defensex2); low speed (100); slice to 6-dot (1/6) |
+| 5v5-OFF | Sith Trooper | 7 | Offensex4,Healthx2 | set→CritDamage+Tenacity (have Offensex4,Healthx2); add Speed arrow; low speed (7); level mods (min L3); slice to 6-dot (0/6) |
+| 5v5-OFF | Grand Master Yoda | 63 | Offensex4,CritChancex2 | add Speed arrow; low speed (63); slice to 6-dot (0/6) |
+| 5v5-OFF | Gungan Phalanx | 19 | Speedx4,Healthx2 | set→Health+Health+Tenacity (have Speedx4,Healthx2); add Speed arrow; low speed (19); slice to 6-dot (0/6) |
+| 5v5-OFF | Hermit Yoda | 97 | Speedx4,CritChancex2 | set→Health+Speed (have Speedx4,CritChancex2); low speed (97); slice to 6-dot (0/6) |
+| 5v5-OFF | Kylo Ren (Unmasked) | 32 | Healthx4,Defensex2 | set→Defense+Defense+Defense (have Healthx4,Defensex2); low speed (32); slice to 6-dot (2/6) |
+| 5v5-OFF | Night Trooper | 76 | Healthx6 | set→Offense+CritChance (have Healthx6); low speed (76); slice to 6-dot (1/6) |
+| 5v5-OFF | Padmé Amidala | 59 | Speedx4,Healthx2 | set→Health+Health+Health (have Speedx4,Healthx2); add Speed arrow; low speed (59); slice to 6-dot (1/6) |
+| 5v5-OFF | Shaak Ti | 93 | Healthx6 | set→Health+Speed (have Healthx6); low speed (93); slice to 6-dot (0/6) |
+| 5v5-OFF | Sith Marauder | 60 | CritDamagex4,CritChancex2 | add Speed arrow; low speed (60); slice to 6-dot (0/6) |
+| 5v5-OFF | Sith Empire Trooper | 29 | Defensex6 | low speed (29); level mods (min L12); slice to 6-dot (0/6) |
+| 5v5-OFF | The Mandalorian (Beskar Armor) | 88 | Offensex4,Healthx2 | set→Offense+Tenacity (have Offensex4,Healthx2); low speed (88); slice to 6-dot (0/6) |
+| 5v5-OFF | 0-0-0 | 58 | Speedx4,Potencyx2 | add Speed arrow; low speed (58); level mods (min L3); slice to 6-dot (0/6) |
+| 5v5-OFF | Wat Tambor | 77 | Healthx6 | set→Speed+Tenacity (have Healthx6); low speed (77); level mods (min L3); slice to 6-dot (0/6) |
