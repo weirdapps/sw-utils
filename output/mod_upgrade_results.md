@@ -33,3 +33,8 @@ Leftover materials only allow pushing low mods 5E→5C (≈0 GAC value), so exec
 Farm **T06_02** (6-dot slice-up) and **T05_06** (promotions) first — they're the binding constraints.
 Then re-run `scripts/slice_plan.py` on a fresh `data/mods_full_*.json` and execute the queue again.
 API recipes + payloads in `memory/notes.md`.
+
+
+## Follow-up actions 2026-07-20 (later)
+- **Leveled 92 sub-15 mods on GAC-squad chars to level 15** (batch `mods/level` requestType 3). Cost 16.16M credits (121.7M left). All confirmed level 15.
+- **Calibration blocked:** attempted a speed calibration sweep over 58 6-dot mods (50 never-calibrated). After the earlier gains (Rey 23->26) the game service returns `GOHServiceCall Error [40]` on every reroll (daily calibration cap; persists past a 20s pause). Resume after daily reset (~07:00 Athens).
