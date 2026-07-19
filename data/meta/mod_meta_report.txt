@@ -1,0 +1,335 @@
+# swgoh.gg /stats/mod-meta-report/ — grounded best-mods (all units), July 2026
+# format: BASE_ID|sets(+)|Receiver/arrow|Holo-Array/triangle|Data-Bus/circle|Multiplexer/cross
+# (square/Transmitter always Offense%, diamond/Processor always Defense%; not shown)
+TRIPLEZERO|Speed+Potency|Speed|Offense|Health|Potency
+4LOM|Speed+Tenacity|Speed|Health|Protection|Tenacity
+50RT|CritChance+CritDamage|Speed|Critical Chance / Health|Health|Potency
+ARCTROOPER501ST|Offense+CritChance|Speed|Offense / Critical Damage|Protection|Offense
+AAYLASECURA|CritChance+CritChance+Potency|Speed|Critical Damage|Protection / Health|Protection / Offense
+ADMIRALACKBAR|Health+Speed|Speed|Protection|Protection|Protection
+ADMIRALPIETT|Health+Speed|Speed|Defense|Health|Defense
+ADMIRALRADDUS|Health+Speed|Speed|Defense|Health|Defense
+TRENCH|Health+Speed|Speed|Health|Health|Protection / Potency
+GLAHSOKATANO|Health+Speed|Speed|Health|Health|Health
+FULCRUMAHSOKA|CritChance+CritDamage|Speed|Critical Damage|Protection / Health|Offense / Protection
+AHSOKATANO|Offense+CritChance|Speed|Critical Damage|Health|Health
+AMILYNHOLDO|Health+Health+Health|Protection / Speed|Protection|Protection|Protection
+ASAJVENTRESS|Offense+CritChance|Speed|Offense|Protection|Offense
+ASAJJDARKDISCIPLE|Offense+CritChance|Speed / Health|Health|Health|Health
+AURRA_SING|CritChance+CritDamage|Speed|Critical Damage / Offense|Protection|Potency
+B1BATTLEDROIDV2|Offense+Potency|Speed|Offense|Protection|Offense
+B2SUPERBATTLEDROID|Potency+Potency+Potency|Critical Avoidance|Protection|Protection|Potency
+BB8|Speed+Tenacity|Speed|Critical Chance|Protection|Protection
+BT1|Offense+CritChance|Speed|Offense|Health|Offense
+BARRISSOFFEE|Health+Health+Health|Speed|Health|Health / Protection|Health
+BASTILASHAN|Health+Speed|Speed|Protection|Protection|Protection
+BASTILASHANDARK|Health+Speed|Speed|Protection|Protection|Protection
+BATCHERS3|Speed+CritChance|Speed|Offense|Protection / Health|Offense
+BAYLANSKOLL|Health+Speed|Speed|Protection|Protection|Protection
+BAZEMALBUS|Health+Health+Health|Protection|Protection|Protection|Protection
+BENSOLO|Offense+Potency|Speed|Offense|Health|Offense
+BIGGSDARKLIGHTER|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+BISTAN|Potency+Potency+Potency|Speed|Critical Damage / Protection|Protection|Potency
+MANDALORBOKATAN|Health+Offense|Speed|Offense|Health|Offense
+BOKATAN|Health+CritDamage|Speed|Critical Damage|Health|Offense
+BOBAFETT|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+BOBAFETTSCION|CritChance+CritDamage|Speed|Critical Chance / Critical Damage|Protection|Offense
+BODHIROOK|Speed+Potency|Speed|Critical Chance / Protection|Protection|Potency
+BOSSNASS|Health+Health+Potency|Speed|Protection|Protection|Protection / Potency
+BOSSK|Defense+Speed|Speed|Protection|Protection|Protection
+BOUSHH|Speed+Potency|Speed|Critical Damage|Protection|Potency
+BRUTUS|Offense+CritChance|Speed|Offense|Health|Offense
+C3POLEGENDARY|Speed+Potency|Speed|Protection|Health|Potency
+APPO|Offense+CritChance|Speed|Critical Damage|Protection|Offense
+CC2224|Speed+CritChance|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+CT210408|Offense+CritChance|Speed|Critical Chance / Critical Damage|Health|Tenacity
+CT5555|Defense+Defense+Tenacity|Speed|Protection|Protection|Protection
+CT7567|Health+Speed|Speed|Protection|Protection|Protection
+OPERATIVE|Health+Speed|Speed|Health / Protection|Protection / Health|Protection / Health
+CADBANE|CritChance+CritDamage|Speed|Critical Damage|Protection|Potency / Protection
+CALKESTIS|Health+Health+Potency|Health|Health|Health|Health
+CANDEROUSORDO|Offense+Tenacity|Speed|Critical Damage|Protection|Protection / Offense
+CARSONTEVA|||||
+CAPTAINDROGAN|Offense+CritChance|Speed|Critical Damage|Protection / Health|Offense
+CAPTAINENOCH|Health+Speed|Speed|Offense|Health|Offense
+HOTHHAN|Health+Speed|Speed|Protection|Protection|Protection
+ITHANO|Offense+CritChance|Speed|Critical Damage|Protection|Offense
+PHASMA|Speed+Potency|Speed|Critical Damage|Protection|Protection
+CAPTAINREX|Speed+Potency|Speed|Critical Chance|Health|Potency
+CAPTAINSILVO|Health+Speed|Speed|Health|Health|Protection / Health
+CAPTAINTARPALS|Speed+CritChance|Speed|Critical Chance|Protection|Health / Offense
+CARADUNE|Health+Health+Health|Speed|Protection|Protection|Tenacity
+CARTHONASI|CritDamage+Potency|Speed|Critical Damage|Protection|Offense
+CASSIANANDOR|Offense+Potency|Speed|Protection|Protection|Potency
+CASSIANUNDERCOVER|Speed+Potency|Speed|Health|Health|Health
+CEREJUNDA|Health+Health+Health|Protection|Protection|Protection|Protection
+CHEWBACCALEGENDARY|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+CHIEFCHIRPA|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection
+CHIEFNEBIT|Health+Health+Health|Critical Avoidance|Protection|Protection|Protection
+CHIRRUTIMWE|Offense+Tenacity|Speed|Critical Damage|Protection|Protection / Offense
+CHOPPERS3|Defense+Speed|Protection / Speed|Protection|Protection|Protection
+CINTA|CritChance+CritDamage|Speed|Offense / Critical Damage|Protection / Health|Offense
+CLONESERGEANTPHASEI|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+CLONEWARSCHEWBACCA|Defense+Defense+Defense|Critical Avoidance|Protection / Health|Protection|Protection / Tenacity
+COBBVANTH|Health+Speed|Speed|Critical Damage|Protection / Health|Offense
+COLONELSTARCK|Speed+CritChance|Speed|Critical Damage|Protection|Protection / Offense
+BISHOP|||||
+COMMANDERAHSOKA|Health+Speed|Speed|Critical Damage|Health|Offense
+COMMANDERLUKESKYWALKER|CritDamage+Potency|Speed|Critical Damage|Protection|Offense
+CORUSCANTUNDERWORLDPOLICE|Speed+Potency|Speed|Critical Damage / Protection|Protection / Health|Potency
+COUNTDOOKU|Speed+Potency|Speed|Critical Damage|Protection|Potency
+CROSSHAIRS3|Offense+CritChance|Offense / Speed|Critical Damage|Health|Offense
+DARKTROOPER|Offense+Tenacity|Speed|Offense|Health|Offense
+MOFFGIDEONS3|Health+Health+Health|Speed|Protection|Protection|Protection
+DARTHBANE|Health+Health+Health|Speed / Health|Health|Health|Health
+DARTHMALAK|Tenacity+Tenacity+Tenacity|Speed|Protection|Protection|Tenacity / Protection
+DARTHMALGUS|Health+Health+Health|Speed|Health|Health|Health
+MAUL|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+DARTHNIHILUS|Speed+Tenacity|Speed|Critical Damage|Protection|Protection
+DARTHREVAN|Offense+CritChance|Speed|Offense / Critical Damage|Protection|Offense
+DARTHSIDIOUS|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+DARTHSION|Defense+Speed|Speed|Protection|Protection|Offense
+DARTHTALON|Health+Offense|Speed|Offense|Protection|Offense
+DARTHTRAYA|Offense+CritChance|Speed|Offense|Protection|Offense / Health
+VADER|Speed+CritChance|Speed|Critical Damage|Protection|Protection
+VADERDUELSEND|Health+Offense|Health|Offense|Protection|Protection / Offense
+DASHRENDAR|Speed+CritChance|Speed|Critical Chance|Health|Potency / Offense
+DATHCHA|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection
+DEATHTROOPER|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+DEATHTROOPERPERIDEA|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Health|Offense
+DEDRAMEERO|Health+Speed|Speed|Health|Protection|Health
+DENGAR|CritChance+CritDamage|Speed|Critical Chance / Critical Damage|Protection|Protection / Potency
+DEPABILLABA|Offense+CritChance|Speed|Critical Damage|Protection|Offense
+DIRECTORKRENNIC|Speed+CritChance|Speed|Critical Damage|Protection|Protection
+DISGUISEDCLONETROOPER|Speed+Potency|Speed|Offense|Health|Potency
+DOCTORAPHRA|Potency+Potency+Potency|Speed|Offense|Health / Protection|Potency
+DROIDEKA|Offense+CritChance|Offense / Speed|Offense|Protection|Offense
+BADBATCHECHO|Speed+Potency|Speed|Health|Protection|Tenacity
+EETHKOTH|Health+Health+Health|Critical Avoidance|Protection|Protection|Protection
+EIGHTHBROTHER|CritChance+CritDamage|Speed|Critical Damage|Health|Potency
+EMBO|CritChance+CritDamage|Speed|Critical Damage / Protection|Protection|Protection
+EMPERORPALPATINE|Speed+Potency|Speed|Protection|Protection|Protection / Potency
+ENFYSNEST|Speed+Potency|Speed|Critical Damage|Protection / Health|Tenacity / Protection
+EWOKELDER|Health+Speed|Speed|Critical Damage|Protection|Protection
+EWOKSCOUT|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+EZRABRIDGERS3|Offense+CritChance|Speed|Critical Damage|Protection|Protection
+EZRAEXILE|Health+Health+Health|Speed|Critical Chance / Health|Health|Health
+FENNECSHAND|CritChance+CritDamage|Speed|Critical Damage / Offense|Health|Offense
+FIFTHBROTHER|Health+Speed|Speed|Protection|Protection|Potency
+FINN|Potency+Potency+Potency|Speed|Protection|Protection|Potency
+FIRSTORDEREXECUTIONER|Health+Health+CritChance|Speed|Critical Damage|Protection / Health|Health / Protection
+FIRSTORDEROFFICERMALE|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+FIRSTORDERSPECIALFORCESPILOT|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+FIRSTORDERTROOPER|Defense+Defense+Defense|Speed / Protection|Protection|Protection|Protection
+FIRSTORDERTIEPILOT|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+GAMORREANGUARD|Potency+Potency+Potency|Critical Avoidance|Protection|Protection|Protection / Tenacity
+GARSAXON|Offense+Potency|Speed|Critical Damage / Protection|Protection|Tenacity / Protection
+ZEBS3|Health+CritDamage|Speed|Critical Damage|Protection|Protection / Tenacity
+GRIEVOUS|Health+CritDamage|Critical Avoidance|Critical Damage / Health|Health|Health
+GENERALHUX|Speed+Tenacity|Speed|Protection|Protection|Protection / Health
+GENERALKENOBI|Tenacity+Tenacity+Tenacity|Speed / Protection|Protection|Protection|Tenacity
+GENERALSKYWALKER|Health+Speed|Speed|Protection|Protection|Protection
+GENERALSYNDULLA|Health+Speed|Speed|Health|Protection / Health|Protection / Offense
+VEERS|Speed+CritChance|Speed|Critical Damage|Protection|Protection / Offense
+GEONOSIANBROODALPHA|Speed+Tenacity|Speed|Protection|Protection|Tenacity
+GEONOSIANSOLDIER|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+GEONOSIANSPY|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+GRANDADMIRALTHRAWN|Speed+CritChance|Speed|Critical Damage|Protection|Protection
+GRANDINQUISITOR|Offense+Tenacity|Speed|Offense / Critical Damage|Protection|Offense
+GRANDMASTERYODA|Offense+CritChance|Speed|Offense|Protection|Offense
+GRANDMOFFTARKIN|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+GREATMOTHERS|Health+Speed|Speed|Health|Health / Protection|Offense
+GREEDO|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Potency / Protection
+GREEFKARGA|Health+Speed|Speed|Protection / Critical Chance|Protection|Protection
+GOPHERANTS|||||
+BOOMADIER|Speed+CritChance|Speed|Critical Damage|Protection|Offense
+GUNGANPHALANX|Health+Health+Tenacity|Speed|Health|Health|Protection
+HK47|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+HANSOLO|CritChance+CritDamage|Speed|Critical Damage|Protection|Offense / Protection
+HERASYNDULLAS3|Speed+Potency|Speed|Protection|Protection|Potency
+HERMITYODA|Health+Speed|Speed|Protection / Health|Protection|Protection
+HONDO|Health+Speed|Speed|Protection / Health|Health|Protection
+HOTHREBELSCOUT|CritChance+CritDamage|Speed|Critical Chance / Critical Damage|Protection|Protection / Offense
+HOTHREBELSOLDIER|Health+Health+Health|Protection|Protection|Protection|Protection
+BADBATCHHUNTER|CritChance+CritDamage|Speed|Critical Damage|Protection|Offense / Potency
+HUNTERS3|Speed+Potency|Speed|Health|Protection|Potency
+HUYANG|Offense+CritChance|Speed|Health|Health|Health / Protection
+MAGNAGUARD|Tenacity+Tenacity+Tenacity|Speed|Protection|Protection|Tenacity
+IG11|Health+Health+Potency|Speed|Health|Health|Health
+IG12|Health+Speed|Speed|Health|Health|Health
+IG86SENTINELDROID|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection / Health|Health / Protection
+IG88|CritChance+CritDamage|Speed|Critical Damage|Protection|Potency / Protection
+IG90|Speed+CritChance|Speed|Critical Chance|Health|Potency
+IDENVERSIOEMPIRE|CritDamage+Potency|Speed|Critical Damage|Health|Potency
+IMAGUNDI|Health+Health+Health|Critical Avoidance|Protection|Protection|Protection
+IMPERIALPROBEDROID|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+IMPERIALSUPERCOMMANDO|Offense+Potency|Speed|Critical Damage / Critical Chance|Protection|Offense / Protection
+INQUISITORBARRISS|Health+Speed|Speed|Critical Chance|Health|Protection
+JABBATHEHUTT|Health+Speed|Speed|Health|Health|Health
+JANGOFETT|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+JARJARBINKS|Speed+Potency|Speed|Protection / Health|Protection / Health|Potency
+JAWA|Offense+Potency|Speed|Critical Damage|Protection|Protection
+JAWAENGINEER|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+JAWASCAVENGER|Speed+Potency|Speed|Protection / Critical Chance|Protection|Potency
+JEDIKNIGHTCONSULAR|Health+Speed|Speed|Protection|Protection|Protection
+ANAKINKNIGHT|Health+Health+Health|Speed|Critical Damage|Health|Health
+JEDIKNIGHTCAL|Health+Speed|Speed|Critical Damage / Critical Chance|Health|Health
+JEDIKNIGHTGUARDIAN|Health+Health+CritChance|Speed|Critical Damage|Protection / Health|Tenacity
+JEDIKNIGHTLUKE|Offense+CritChance|Speed|Critical Damage / Offense|Protection|Offense
+JEDIKNIGHTREVAN|Offense+CritChance|Speed|Critical Chance|Protection|Protection
+JEDIMASTERKENOBI|Health+Speed|Speed|Critical Damage|Health|Offense
+GRANDMASTERLUKE|Health+Health+Health|Protection / Speed|Protection|Protection|Protection
+JEDIMASTERMACEWINDU|Health+Offense|Speed|Critical Damage|Health|Offense
+JOCASTANU|Health+Offense|Speed|Protection|Protection|Protection
+JOLEEBINDO|Health+Health+Health|Speed|Critical Damage|Protection|Protection
+JUHANI|Tenacity+Tenacity+Tenacity|Speed|Protection|Protection|Protection
+JYNERSO|Speed+Tenacity|Speed|Critical Chance / Protection|Protection|Potency
+K2SO|Tenacity+Tenacity+Tenacity|Protection|Protection|Protection|Protection
+KXSECURITYDROID|Health+Health+Tenacity|Speed|Health|Health|Tenacity
+KANANJARRUSS3|Health+Health+Tenacity|Protection|Protection|Protection|Protection
+KELLERANBEQ|Health+Speed|Speed|Protection / Critical Damage|Protection / Health|Protection / Health
+KIADIMUNDI|CritChance+CritDamage|Speed|Critical Damage|Protection / Health|Offense
+KITFISTO|Health+CritDamage|Speed|Critical Damage|Protection / Health|Tenacity / Protection
+KIX|Health+Speed|Speed|Health / Protection|Health / Protection|Health
+KLEYA|Offense+Potency|Speed|Protection|Protection|Offense
+KRRSANTAN|Health+Health+Defense|Speed|Health|Health|Health
+KUIIL|Speed+Potency|Speed|Health|Health|Potency
+KYLEKATARN|Offense+Defense|Speed|Critical Damage|Health|Offense
+KYLOREN|Offense+Tenacity|Speed|Critical Damage|Protection|Protection
+KYLORENUNMASKED|Defense+Defense+Defense|Protection / Speed|Protection / Health|Protection|Protection / Health
+L3_37|Health+Health+Health|Protection|Protection|Protection|Protection
+ADMINISTRATORLANDO|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+GLLEIA|Health+Speed|Speed|Health|Health|Health
+LOBOT|Health+Speed|Speed|Protection|Protection|Protection / Health
+LOGRAY|CritChance+CritChance+CritChance|Speed|Critical Damage / Critical Chance|Protection|Protection / Potency
+LORDVADER|Health+Speed|Speed|Critical Damage|Protection|Protection
+LUKESKYWALKER|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection
+LUMINARAUNDULI|Health+Speed|Speed|Protection|Protection / Health|Protection / Health
+LUTHENRAEL|Health+Speed|Speed|Health|Health|Potency
+MACEWINDU|Health+Health+Health|Speed|Critical Damage|Protection|Protection
+MAGMATROOPER|Offense+Tenacity|Speed|Critical Damage|Protection|Protection / Offense
+MAJORPARTAGAZ|Health+Speed|Speed|Protection|Protection|Tenacity
+MARAJADE|Speed+CritChance|Speed|Critical Chance|Health|Potency
+MARROK|Health+Potency+Potency|Speed|Health|Health|Protection / Potency
+MASTERQUIGON|Defense+Speed|Speed|Health|Protection / Health|Protection / Health
+MAULS7|Health+Health+Health|Speed|Health / Offense|Health|Health / Offense
+MAULHATEFUELED|Health+Health+Health|Speed|Protection / Health|Protection / Health|Protection / Health
+MAZKANATA|Health+Speed|Speed|Health|Health / Protection|Health / Protection
+MERRIN|Health+Potency+Tenacity|Protection|Protection|Protection|Potency
+MISSIONVAO|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+HUMANTHUG|Speed+Potency|Speed|Critical Damage / Protection|Protection|Potency
+MOFFGIDEONS1|Speed+Tenacity|Speed|Protection / Health|Health|Tenacity
+MONMOTHMA|Speed+Tenacity|Speed|Protection / Health|Health|Tenacity
+MORGANELSBETH|Health+Health+Defense|Speed|Protection|Health|Health
+MOTHERTALZIN|Offense+Potency|Speed|Offense|Protection|Offense / Potency
+NIGHTTROOPER|Offense+CritChance|Speed / Health|Health|Health|Offense / Protection
+NIGHTSISTERACOLYTE|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Offense / Protection
+NIGHTSISTERINITIATE|Health+Offense|Speed|Critical Damage|Protection|Protection / Tenacity
+NIGHTSISTERSPIRIT|Offense+Potency|Speed|Critical Damage|Protection|Offense / Protection
+NIGHTSISTERZOMBIE|Defense+Speed|Speed|Protection / Health|Protection|Health / Protection
+NINTHSISTER|Tenacity+Tenacity+Tenacity|Speed|Health|Health|Tenacity
+NUTEGUNRAY|Speed+Potency|Speed|Protection|Protection|Potency
+OLDBENKENOBI|Defense+Defense+Potency|Protection / Speed|Protection|Protection|Protection
+DAKA|Health+Speed|Speed|Protection / Health|Protection / Health|Health / Protection
+BADBATCHOMEGA|CritChance+CritDamage|Speed|Critical Damage|Protection|Offense / Potency
+OMEGAS3|Speed+Tenacity|Speed|Critical Chance|Protection|Tenacity
+PADAWANOBIWAN|Health+CritDamage|Speed|Critical Damage|Protection / Health|Offense
+PADAWANSABINE|Offense+CritChance|Speed / Health|Critical Chance|Health|Health
+PADMEAMIDALA|Health+Health+Health|Speed|Health|Health|Potency
+PAO|Offense+Tenacity|Speed|Critical Damage|Protection|Offense / Protection
+PAPLOO|Defense+Defense+Defense|Speed / Protection|Protection|Protection|Protection
+PAZVIZSLA|Health+Health+Health|Speed|Protection|Protection|Protection
+GLHONDO|Health+Speed|Speed|Health|Health|Health
+PLOKOON|Health+Health+Potency|Speed|Critical Damage|Protection|Protection / Tenacity
+POE|Speed+Potency|Speed|Protection|Protection|Potency
+POGGLETHELESSER|Health+Speed|Speed|Protection|Protection|Protection
+PRINCESSKNEESAA|CritChance+CritDamage|Speed|Critical Chance|Protection|Health
+PRINCESSLEIA|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+QIRA|Speed+CritChance|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+QUEENAMIDALA|Health+Speed|Speed|Health|Health|Health / Potency
+QUIGONJINN|Speed+CritChance|Speed|Critical Damage|Protection|Offense / Protection
+QUIGGOLD|Health+Health+Defense|Speed|Protection|Health|Protection / Health
+R2D2_LEGENDARY|Speed+Potency|Speed|Critical Damage|Protection|Protection
+R5D4|||||
+SCORCH|Health+Health+Defense|Speed|Health|Health|Protection
+RANGETROOPER|Offense+Tenacity|Speed|Critical Damage|Protection|Offense / Protection
+HOTHLEIA|CritChance+CritDamage|Speed|Critical Chance|Protection|Protection / Offense
+EPIXFINN|Speed+CritChance|Speed|Critical Damage|Protection / Health|Offense
+EPIXPOE|Offense+Potency|Speed|Critical Damage|Protection / Health|Potency
+RESISTANCEPILOT|Speed+Potency|Speed|Critical Damage / Protection|Protection|Potency
+RESISTANCETROOPER|Offense+Potency|Speed|Critical Damage|Protection|Protection / Offense
+GLREY|Health+Speed|Speed|Health / Critical Damage|Health|Offense
+DARKREY|CritChance+CritDamage|Speed|Critical Damage|Health|Offense / Health
+REYJEDITRAINING|CritChance+CritDamage|Speed|Critical Damage|Protection|Potency
+REY|Offense+Tenacity|Speed|Critical Damage|Protection|Protection / Offense
+ROSETICO|CritChance+CritChance+CritChance|Speed|Critical Damage|Protection|Protection / Potency
+RACCOON|||||
+ROYALGUARD|Defense+Defense+Defense|Critical Avoidance|Protection / Health|Protection|Protection
+SM33|Health+Offense|Speed|Critical Damage / Offense|Health|Offense
+STAP|CritChance+CritDamage|Speed|Critical Damage|Protection / Health|Offense
+SABINEWRENS3|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+SANASTARROS|Offense+Potency|Health / Speed|Health|Health|Health / Protection
+SATELESHAN|Health+Speed|Speed / Protection|Protection|Protection|Protection
+SAVAGEOPRESS|Health+CritDamage|Speed|Critical Damage / Health|Health / Protection|Health / Protection
+SAWGERRERA|Health+Speed|Speed|Health|Health|Health
+SCARIFREBEL|Defense+Defense+Defense|Critical Avoidance / Speed|Protection / Health|Protection|Protection / Tenacity
+SCOUTTROOPER_V3|Speed+Potency|Speed|Critical Damage|Protection|Offense
+SECONDSISTER|Offense+CritChance|Speed|Critical Damage|Health|Potency
+SEVENTHSISTER|Health+Speed|Speed|Protection|Health|Tenacity
+SHAAKTI|Health+Speed|Speed|Health|Health|Health
+SHINHATI|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Health
+SHORETROOPER|Health+Health+Health|Protection|Protection|Protection|Protection
+SITHASSASSIN|Speed+CritChance|Speed|Critical Damage|Protection|Offense / Protection
+SITHTROOPER|Defense+Defense+Defense|Protection|Protection|Protection|Protection
+SITHPALPATINE|Health+Speed|Speed|Health|Health|Health / Offense
+SITHMARAUDER|CritChance+CritDamage|Speed|Critical Damage|Protection|Offense / Protection
+FOSITHTROOPER|CritDamage+Tenacity|Speed|Critical Damage / Protection|Protection|Offense
+UNDERCOVERLANDO|Offense+CritChance|Speed|Offense|Health|Offense
+SNOWTROOPER|CritChance+CritDamage|Speed|Critical Damage / Critical Chance|Protection|Protection / Offense
+REMNANTSNOWCOMMANDER|||||
+STARKILLER|Health+CritDamage|Speed|Critical Damage|Health / Protection|Offense
+STORMTROOPER|Defense+Defense+Defense|Protection / Speed|Protection / Defense|Protection|Protection / Defense
+STORMTROOPERHAN|Speed+Potency|Protection / Critical Avoidance|Protection|Protection|Protection
+STORMTROOPERLUKE|Health+Speed|Speed|Protection|Protection|Protection
+SUNFAC|Defense+Defense+Defense|Speed / Critical Avoidance|Protection|Protection|Protection
+SUPREMELEADERKYLOREN|Health+Speed|Speed|Critical Damage|Health|Offense
+T3_M4|Speed+CritChance|Speed|Protection|Protection|Potency / Protection
+TIEFIGHTERPILOT|Speed+CritChance|Speed|Critical Damage|Protection|Protection / Offense
+TALIA|Health+Speed|Speed|Offense / Protection|Protection|Protection / Health
+TARFFUL|Health+Health+Defense|Speed|Health|Health|Protection / Tenacity
+TARONMALICOS|Offense+CritChance|Speed|Critical Damage|Health|Offense
+BADBATCHTECH|Speed+Potency|Speed|Health|Health|Potency
+TEEBO|Potency+Potency+Potency|Speed|Protection|Protection|Potency
+VANGUARDTEMPLEGUARD|Health+Health+Health|Speed|Health|Health|Protection
+ARMORER|Health+Speed|Speed|Defense|Health|Defense
+THEMANDALORIAN|Health+CritDamage|Speed|Critical Damage|Health|Offense
+THEMANDALORIANBESKARARMOR|Offense+Tenacity|Speed|Offense|Protection|Tenacity / Offense
+STRANGER|Health+Speed|Speed|Critical Damage|Health|Health
+THIRDSISTER|Health+Offense|Speed|Critical Damage / Health|Health|Health
+C3POCHEWBACCA|CritChance+CritDamage|Speed|Critical Damage / Offense|Protection|Offense
+TUSKENCHIEFTAIN|Health+Health+Tenacity|Speed|Health|Health|Protection
+TUSKENRAIDER|Offense+Tenacity|Speed|Critical Damage|Protection|Protection / Offense
+TUSKENSHAMAN|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+TUSKENHUNTRESS|CritChance+CritDamage|Speed|Critical Damage|Protection|Offense
+URORRURRR|Health+Speed|Speed|Protection|Protection|Protection
+UGNAUGHT|Speed+Potency|Speed|Critical Damage / Critical Chance|Protection / Health|Potency
+YOUNGCHEWBACCA|Health+Health+Health|Health / Protection|Health / Protection|Health|Health / Protection
+VANE|Health+Health+Tenacity|Critical Avoidance|Health|Health / Protection|Tenacity
+VEL|Offense+CritChance|Speed / Health|Health|Protection|Defense
+SMUGGLERCHEWBACCA|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+SMUGGLERHAN|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+VISASMARR|Health+Speed|Speed|Health / Protection|Health / Protection|Health / Protection
+WAMPA|Offense+CritChance|Speed|Offense / Health|Protection / Health|Offense / Tenacity
+WATTAMBOR|Speed+Tenacity|Speed|Health|Health|Tenacity
+WEDGEANTILLES|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+WICKET|CritChance+CritDamage|Speed|Critical Damage|Protection|Protection / Offense
+BADBATCHWRECKER|Tenacity+Tenacity+Tenacity|Speed / Protection|Protection|Protection|Tenacity
+WRECKERS3|Health+Health+Tenacity|Speed|Health|Health|Protection / Defense
+YODACHEWBACCA|Health+Health+Defense|Speed|Health|Protection|Health
+YOUNGHAN|Offense+CritChance|Speed|Offense|Protection|Offense
+YOUNGLANDO|Offense+CritChance|Speed|Offense|Protection|Offense
+ZAALBAR|Health+Health+Health|Protection|Protection|Protection|Protection
+ZAMWESELL|Speed+Potency|Speed|Protection / Critical Damage|Protection|Potency
+RANGERZEB|||||
+ZORIIBLISS_V2|Speed+Potency|Speed|Health|Health|Health
+ZUCKUSS|Speed+Tenacity|Speed|Defense / Protection|Protection|Protection / Health
