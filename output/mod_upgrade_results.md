@@ -37,4 +37,4 @@ API recipes + payloads in `memory/notes.md`.
 
 ## Follow-up actions 2026-07-20 (later)
 - **Leveled 92 sub-15 mods on GAC-squad chars to level 15** (batch `mods/level` requestType 3). Cost 16.16M credits (121.7M left). All confirmed level 15.
-- **Calibration blocked:** attempted a speed calibration sweep over 58 6-dot mods (50 never-calibrated). After the earlier gains (Rey 23->26) the game service returns `GOHServiceCall Error [40]` on every reroll (daily calibration cap; persists past a 20s pause). Resume after daily reset (~07:00 Athens).
+- **Calibration blocked = OUT OF MATERIAL (not a daily cap):** the calibration material is **Micro Attenuators** (`summary.currency` id 41), which my slicing-only tracker didn't watch. Had 1000 → **5 left** (need ≥15 for one more). `GOHServiceCall Error [40]` = insufficient attenuators. Only Rey (23→26) landed before it ran dry. **Refill: Mod Battles Map 9 (in-game only)**, then resume the sweep over the 50 never-calibrated 6A mods (target flat→speed).
