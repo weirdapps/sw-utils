@@ -6,6 +6,15 @@ swgoh.gg meta + the player's live roster, and pushes them into **HotUtils** as o
 "Grounded" is the whole point: every defense pick is a top-**Hold%** team on swgoh.gg and every
 offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same way, they see the same teams.
 
+> **Read `memory/notes.md` FIRST.** It's the durable knowledge base — live board counts, GL allocation,
+> every HotUtils API recipe (squads, in-game presets, mods slice/calibrate/level) and the gotchas learned
+> the hard way. `scripts/browser_recipes.md` has the copy-paste browser JS. This CLAUDE.md is the map;
+> notes.md is the territory. Session ids rotate — recapture each session (browser_recipes.md §4).
+
+## What this repo can do (two pipelines)
+1. **Build GAC teams** (grounded squads + fleets → HotUtils groups + in-game presets) — see workflow below.
+2. **Optimize mods** for those teams (move → slice → calibrate → level) — see "Mod optimization" below.
+
 ## Player
 - **Astra** · ally **145357294** · GAC league **Kyber 3** (climbing to Kyber 2) · ~14M GP.
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
@@ -34,6 +43,22 @@ Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — th
 Squads: `GAC 5v5 - Defense` · `GAC 5v5 - Offense` · `GAC 3v3 - Defense` · `GAC 3v3 - Offense`.
 Fleets: `GAC Fleet - Defense` · `GAC Fleet - Offense` (full ~8-ship lineups).
 HotUtils accepts arbitrary category strings and shows them as filter groups.
+
+## Mod optimization (move → slice → calibrate → level)
+Full API payloads, material recipes, and every gotcha are in `memory/notes.md`. Summary of the pipeline:
+1. **Placement** — drive the **Grandivory optimizer** inside HotUtils (`/mods/optimizer`) with the GAC priority
+   order; "Optimize my mods!" (the `!` button, not the nav tab) → "Move mods in-game". If it errors
+   `Row not found`, the HotUtils data is stale → "Fetch my data" → re-optimize → retry (partial-applies persist).
+2. **Rank** what to upgrade: `python3 scripts/slice_plan.py` → `output/slice_queue.json` (defense chars →
+   offense → rest, by speed secondary). `scripts/level_priority.py` = which sub-15 mods to level.
+   `scripts/mod_targets.py` + `mod_analysis.py` = grounded best-mod targets vs current (from swgoh.gg mod-meta).
+3. **Execute via HotUtils API** (mods full data at `account/data/all` → `d.data.mods.mods`):
+   - **Slice/promote:** `mods/tier {modIds,getAllData:true}` — one tier/call. ⚠️ **`simulation:true` is NOT a dry run — it really slices.**
+   - **Level to 15:** `mods/level {modIds,requestType:3}` (credits only). **Slicing requires level 15 first.**
+   - **Calibrate → speed:** `mods/reroll {modId,stat:5}` → `mods/acceptreroll {keepMod}`.
+4. **Binding materials** (the real limits, from live diffs): 6-dot slice → **T06_02**; promote 5A→6E → **T05_06**;
+   5-dot→5A → **T05_03/04**; **calibration → Micro Attenuators = `summary.currency` id 41** (farm in-game: Mod Battles Map 9).
+   When a material runs out the API returns `responseCode 2 / GOHServiceCall Error [40]`. Latest state: see `output/mod_upgrade_results.md`.
 
 ## Conventions
 - Data-driven only — NO hardcoded teams in compute (teams come from the meta files ∩ roster).
