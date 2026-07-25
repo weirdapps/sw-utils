@@ -20,7 +20,7 @@ OUT = os.path.join(ROOT, "output")
 os.makedirs(OUT, exist_ok=True)
 
 res = json.load(open(os.path.join(DATA, "gac_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260718.json")))
+roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260725.json")))
 info = {u["b"]: u for u in roster["units"]}
 name = {u["b"]: u["n"] for u in roster["units"]}
 gp = roster["meta"]["gp"]

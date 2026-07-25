@@ -29,7 +29,7 @@ META = os.path.join(DATA, "meta")
 BOARD = {"5v5": {"def": 11, "off": 16}, "3v3": {"def": 15, "off": 18}}
 # Pure attack GLs: reserved for offense before defense claims units (weak defenders anyway).
 RESERVE = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE", "SUPREMELEADERKYLOREN"]
-ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260718.json")
+ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260725.json")
 # meta files: (format, perspective) -> filename in data/meta/
 META_FILES = {
     ("5v5", "def"): "meta_5v5_defense_s80.json",   # JSON (rows[].hold/units) from swgoh.gg

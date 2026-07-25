@@ -75,3 +75,35 @@ Calibration **deliberately skipped** (15 attenuators = only 1 attempt; saved for
 Farm **T05_06** (master binding) + **Micro Attenuators** (Mod Battles Map 9). Then:
 `HU_SID=<live> python3 scripts/pull_mods.py && python3 scripts/slice_plan.py && HU_SID=<live> python3 scripts/execute_upgrades.py --dry`
 Baylan Skoll is mid-slice at 6C — finishing it to 6A is the top queued item. Then calibrate the defense 6A pool.
+
+---
+
+# Audit session — 2026-07-25 (Astra) — full mods + squads + fleets management pass
+
+Browser-free HotUtils API (curl/urllib) for mods + Playwright same-origin fetch for swgoh.gg.
+Session captured via Discord silent SSO (chrome-devtools). **Net game-state change: none** — the
+account was already optimal; every remaining lever is farming-gated or deferred by user choice.
+
+## Mods — confirmed materially exhausted (no action possible)
+Fresh `account/refresh` (gameDataAgeUtc 2026-07-25T00:09 — no in-game play since the 03:00 run):
+
+| material | qty | gate |
+|---|--:|---|
+| **T05_06** (master binding) | **3** | promotes + every 6-dot slice step — OUT |
+| T06_02 | 84 | 6-dot slice (stranded behind T05_06) |
+| PROMO_T5_T6 | 528 | stranded |
+| Micro Attenuators (cur 41) | 15 | 1 calibration attempt only |
+| credits | 139.2M | — |
+
+- Live `mods/tier` on **Baylan Skoll 6C→6A** returned `rc=2 "Not enough player currency!"` — 3× T05_06 can't cover one step. Promotes: **0** possible.
+- 6A = **86**, 6-dot = 134 (unchanged since 03:00). **0 sub-15 mods on GAC chars** (all 220 sub-15 are 5-dot filler → leveling would waste credits).
+- **Calibration: SAVED** (user) — 15 attenuators = 1 attempt (~25%); saving for a farmed sweep of the ~50 uncalibrated 6A defense mods.
+
+## Squads / fleets — verified current, NO rebuild
+- swgoh.gg season unchanged: **S80** (5v5) / **S79** (3v3), not rolled.
+- Roster refreshed → 2026-07-25: +103K GP; +Cobb Vanth (filler); 19 relic/star bumps to units **already on the board** (Cassian UC r6→8, Kleya r6→7, Luthen r5→7, Ben Solo/Boushh r7→8, Leviathan 6★→7★).
+- Recompute (fresh roster + fresh S80/S79 meta): **5v5 & 3v3 DEFENSE identical** to the live HotUtils board. Offense = same real teams (clean full-size); live board's extras are harmless partial-team reference lines. No new GL / squad-defining unit; **gaps unchanged** (GL Hondo, Third Sister, Profundity).
+- Mod-placement re-optimization: **DEFERRED** (user) — only ~12 mods changed tier since the Jul 19 optimize; best ROI after the next farmed slice batch.
+
+## Repo refreshed
+roster 20260725; fresh meta (4 files, S80/S79); gac_result recompute (archived to history/2026-07-25); deliverables regenerated (playbook.html + payload, offense now clean 12/13); compute_teams.py + generate_hotutils.py ROSTER_FILE bumped to 20260725.
