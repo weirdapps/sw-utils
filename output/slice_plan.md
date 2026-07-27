@@ -1,21 +1,21 @@
 # Slice / calibrate priority queue
 
-Source: `mods_full_20260725.json` · 1887 equipped mods
+Source: `mods_full_20260727.json` · 1887 equipped mods
 
 
 ## Materials on hand
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 528 | 943 | 84 | 104 | 186 | 466/378/273/329/420/3 | 139,237,082 |
+| 528 | 933 | 89 | 110 | 186 | 466/388/303/329/426/15 | 150,156,262 |
 
 ## Queue: 1801 upgradeable mods (not yet 6A)
 
 By importance × action:
 
 - **DEFENSE**: 6-dot slice-up=18, 5A->6 promote=153, 5-dot slice-up=201
-- **offense**: 6-dot slice-up=19, 5A->6 promote=166, 5-dot slice-up=169
-- **other**: 6-dot slice-up=11, 5A->6 promote=261, 5-dot slice-up=803
+- **offense**: 6-dot slice-up=19, 5A->6 promote=163, 5-dot slice-up=157
+- **other**: 6-dot slice-up=11, 5A->6 promote=264, 5-dot slice-up=815
 
 ## Top 40 in queue (execute in this order)
 
