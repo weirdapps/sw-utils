@@ -31,9 +31,10 @@ UID = os.environ.get("HU_UID", "898a36a3-948a-4a8a-9798-7a1552b042a8")
 SID = os.environ.get("HU_SID", "")
 DRY = "--dry" in sys.argv
 
-STEP6_T0602 = 20      # T06_02 per 6-dot tier-step (binding)
-PROMO_T0506 = 50      # T05_06 per 5A->6E promote (binding)
-PROMO_PROMO = 20      # PROMO_T5_T6 per promote
+STEP6_T0602 = 20      # T06_02 per 6-dot tier-step (gates slicing)
+STEP6_T0506 = 10      # T05_06 per 6-dot tier-step (also consumes master binding)
+PROMO_T0506 = 76      # T05_06 per 5A->6E promote (binding; grounded 2026-07-27 diff)
+PROMO_PROMO = 27      # PROMO_T5_T6 per promote (grounded)
 MARGIN = 0.90         # only plan up to 90% of a binding material
 
 
@@ -88,7 +89,10 @@ def build_plan(d, nm, defense, offense):
             slice_plan.append((m, steps))
 
     # --- PROMOTE plan (T05_06 + PROMO) ---
-    cap = min(int(mats["T05_06"] * MARGIN) // PROMO_T0506, mats["PROMO_T5_T6"] // PROMO_PROMO)
+    # T05_06 is shared with slicing: subtract what the slice plan will consume first.
+    t0506_used_by_slices = sum(steps for _, steps in slice_plan) * STEP6_T0506
+    t0506_for_promotes = max(0, int(mats["T05_06"] * MARGIN) - t0506_used_by_slices)
+    cap = min(t0506_for_promotes // PROMO_T0506, mats["PROMO_T5_T6"] // PROMO_PROMO)
     da = sorted([m for m in mods if m["imp"] == 0 and m["dots"] == 5 and m["tier"] == 5],
                 key=lambda m: -m["spd"])
     promote_plan = da[:cap]
