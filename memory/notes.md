@@ -21,8 +21,8 @@
 - Defense: Lord Vader, GL Rey, GL Ahsoka, Jabba (+ GL Leia in 3v3).
 
 ## Fleets (grounded caps from /gac/ship-counters; reinforcements = faction meta from owned ships)
-- Defense: Leviathan (81%), Negotiator (87%), Home One (90%).
-- Offense: Executor, Malevolence, Raddus.
+- Defense: Leviathan (82%), Negotiator (90%), Home One (91%). Offense: Executor, Malevolence, Raddus.
+- **Re-verified 2026-07-31** (/gac/ship-counters, current season): owned-capital hold ranking = Leviathan 82 < Executor 87 < Negotiator 90 = Chimaera 90 < Home One 91 < Endurance 92 < Executrix 93 < Raddus 94 < Malevolence 95 < Finalizer 98. Profundity 78 = best (unowned gap). Allocation unchanged: Executor reserved for offense (premier attacker); Chimaera's Imperial ships collide with Executor so Home One stays the 3rd defense (no-ship-reuse).
 - All 6 fleets share no ship (single-use). Malevolence fleet = 6 ships (all owned Separatist).
 
 ## HotUtils
