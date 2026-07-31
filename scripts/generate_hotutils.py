@@ -20,7 +20,7 @@ OUT = os.path.join(ROOT, "output")
 os.makedirs(OUT, exist_ok=True)
 
 res = json.load(open(os.path.join(DATA, "gac_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260725.json")))
+roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260731.json")))
 info = {u["b"]: u for u in roster["units"]}
 name = {u["b"]: u["n"] for u in roster["units"]}
 gp = roster["meta"]["gp"]
@@ -76,11 +76,11 @@ def why(b):
 # capital + starting-3, so reinforcement ships are standard faction-fleet meta from the owned roster.
 FLEETS = {
     "GAC Fleet - Defense": [
-        ("Fleet D1 Leviathan (81%)", ["CAPITALLEVIATHAN", "SCYTHE", "TIESILENCER", "EMPERORSSHUTTLE",
+        ("Fleet D1 Leviathan (82%)", ["CAPITALLEVIATHAN", "SCYTHE", "TIESILENCER", "EMPERORSSHUTTLE",
                                        "COMMANDSHUTTLE", "TIEFIGHTERFOSF", "TIEFIGHTERFIRSTORDER", "SITHFIGHTER"]),
-        ("Fleet D2 Negotiator (87%)", ["CAPITALNEGOTIATOR", "JEDISTARFIGHTERAHSOKATANO", "JEDISTARFIGHTERANAKIN",
+        ("Fleet D2 Negotiator (90%)", ["CAPITALNEGOTIATOR", "JEDISTARFIGHTERAHSOKATANO", "JEDISTARFIGHTERANAKIN",
                                        "BLADEOFDORIN", "JEDISTARFIGHTERCONSULAR", "ARC170REX", "ARC170CLONESERGEANT", "YWINGCLONEWARS"]),
-        ("Fleet D3 Home One (90%)", ["CAPITALMONCALAMARICRUISER", "BWINGREBEL", "XWINGRED3", "XWINGRED2",
+        ("Fleet D3 Home One (91%)", ["CAPITALMONCALAMARICRUISER", "BWINGREBEL", "XWINGRED3", "XWINGRED2",
                                      "GHOST", "PHANTOM2", "YWINGREBEL", "XWINGRESISTANCE"]),
     ],
     "GAC Fleet - Offense": [

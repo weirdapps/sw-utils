@@ -1,378 +1,380 @@
 {
- "season": "SEASON_80",
- "pulled": "2026-07-25",
- "rows": [
-  {
-   "hold": "57%",
-   "seen": "29.8K",
-   "banners": "25.21",
-   "units": [
-    "STRANGER",
-    "LUMINARAUNDULI",
-    "MAULHATEFUELED",
-    "STARKILLER",
-    "VISASMARR"
-   ]
-  },
-  {
-   "hold": "48%",
-   "seen": "40.5K",
-   "banners": "32.7",
-   "units": [
-    "STRANGER",
-    "BARRISSOFFEE",
-    "MAULHATEFUELED",
-    "STARKILLER",
-    "VISASMARR"
-   ]
-  },
-  {
-   "hold": "34%",
-   "seen": "16.4K",
-   "banners": "41.8",
-   "units": [
-    "THIRDSISTER",
-    "FIFTHBROTHER",
-    "GRANDINQUISITOR",
-    "INQUISITORBARRISS",
-    "SEVENTHSISTER"
-   ]
-  },
-  {
-   "hold": "31%",
-   "seen": "13.3K",
-   "banners": "42.42",
-   "units": [
-    "GLREY",
-    "50RT",
-    "BENSOLO",
-    "CALKESTIS",
-    "GENERALKENOBI"
-   ]
-  },
-  {
-   "hold": "25%",
-   "seen": "120K",
-   "banners": "47.44",
-   "units": [
-    "LORDVADER",
-    "APPO",
-    "DISGUISEDCLONETROOPER",
-    "OPERATIVE",
-    "SCORCH"
-   ]
-  },
-  {
-   "hold": "24%",
-   "seen": "53.8K",
-   "banners": "48.76",
-   "units": [
-    "CASSIANUNDERCOVER",
-    "CINTA",
-    "KLEYA",
-    "LUTHENRAEL",
-    "VEL"
-   ]
-  },
-  {
-   "hold": "21%",
-   "seen": "37.6K",
-   "banners": "49.43",
-   "units": [
-    "THIRDSISTER",
-    "EIGHTHBROTHER",
-    "FIFTHBROTHER",
-    "GRANDINQUISITOR",
-    "SEVENTHSISTER"
-   ]
-  },
-  {
-   "hold": "21%",
-   "seen": "20.6K",
-   "banners": "50.01",
-   "units": [
-    "BAYLANSKOLL",
-    "DENGAR",
-    "HONDO",
-    "MARROK",
-    "SHINHATI"
-   ]
-  },
-  {
-   "hold": "20%",
-   "seen": "49.9K",
-   "banners": "49.88",
-   "units": [
-    "EMPERORPALPATINE",
-    "GRANDMOFFTARKIN",
-    "MARAJADE",
-    "ROYALGUARD",
-    "VADERDUELSEND"
-   ]
-  },
-  {
-   "hold": "20%",
-   "seen": "13K",
-   "banners": "49.79",
-   "units": [
-    "SAWGERRERA",
-    "BAZEMALBUS",
-    "CHIRRUTIMWE",
-    "KYLEKATARN",
-    "LUTHENRAEL"
-   ]
-  },
-  {
-   "hold": "20%",
-   "seen": "10.3K",
-   "banners": "50.34",
-   "units": [
-    "EMPERORPALPATINE",
-    "ADMIRALPIETT",
-    "MARAJADE",
-    "ROYALGUARD",
-    "VADERDUELSEND"
-   ]
-  },
-  {
-   "hold": "19%",
-   "seen": "22.2K",
-   "banners": "51.19",
-   "units": [
-    "GLHONDO",
-    "BRUTUS",
-    "CAPTAINSILVO",
-    "HONDO",
-    "VANE"
-   ]
-  },
-  {
-   "hold": "19%",
-   "seen": "17.8K",
-   "banners": "50.54",
-   "units": [
-    "MAJORPARTAGAZ",
-    "DEDRAMEERO",
-    "DIRECTORKRENNIC",
-    "IMPERIALPROBEDROID",
-    "KXSECURITYDROID"
-   ]
-  },
-  {
-   "hold": "19%",
-   "seen": "22K",
-   "banners": "48.26",
-   "units": [
-    "SATELESHAN",
-    "BASTILASHAN",
-    "JEDIKNIGHTREVAN",
-    "JOLEEBINDO",
-    "JUHANI"
-   ]
-  },
-  {
-   "hold": "19%",
-   "seen": "59.3K",
-   "banners": "51.42",
-   "units": [
-    "JABBATHEHUTT",
-    "BOUSHH",
-    "EMBO",
-    "KRRSANTAN",
-    "UNDERCOVERLANDO"
-   ]
-  },
-  {
-   "hold": "18%",
-   "seen": "128K",
-   "banners": "52.21",
-   "units": [
-    "GLAHSOKATANO",
-    "EZRAEXILE",
-    "GENERALSYNDULLA",
-    "HUYANG",
-    "PADAWANSABINE"
-   ]
-  },
-  {
-   "hold": "17%",
-   "seen": "82.2K",
-   "banners": "51.67",
-   "units": [
-    "GLHONDO",
-    "BRUTUS",
-    "CAPTAINSILVO",
-    "SM33",
-    "VANE"
-   ]
-  },
-  {
-   "hold": "16%",
-   "seen": "43.5K",
-   "banners": "53.11",
-   "units": [
-    "JABBATHEHUTT",
-    "BOBAFETT",
-    "BOUSHH",
-    "KRRSANTAN",
-    "UNDERCOVERLANDO"
-   ]
-  },
-  {
-   "hold": "16%",
-   "seen": "14K",
-   "banners": "53.96",
-   "units": [
-    "QUEENAMIDALA",
-    "GRANDMASTERYODA",
-    "MASTERQUIGON",
-    "PADAWANOBIWAN",
-    "SHAAKTI"
-   ]
-  },
-  {
-   "hold": "15%",
-   "seen": "15.3K",
-   "banners": "53.85",
-   "units": [
-    "MAZKANATA",
-    "HONDO",
-    "ITHANO",
-    "KIX",
-    "QUIGGOLD"
-   ]
-  },
-  {
-   "hold": "13%",
-   "seen": "15.7K",
-   "banners": "55.33",
-   "units": [
-    "FINN",
-    "EPIXFINN",
-    "EPIXPOE",
-    "ROSETICO",
-    "ZORIIBLISS_V2"
-   ]
-  },
-  {
-   "hold": "13%",
-   "seen": "60.9K",
-   "banners": "54.41",
-   "units": [
-    "JEDIMASTERMACEWINDU",
-    "AAYLASECURA",
-    "DEPABILLABA",
-    "JOCASTANU",
-    "VANGUARDTEMPLEGUARD"
-   ]
-  },
-  {
-   "hold": "13%",
-   "seen": "11.9K",
-   "banners": "53.78",
-   "units": [
-    "GREATMOTHERS",
-    "DEATHTROOPERPERIDEA",
-    "MERRIN",
-    "MORGANELSBETH",
-    "NIGHTTROOPER"
-   ]
-  },
-  {
-   "hold": "12%",
-   "seen": "25.1K",
-   "banners": "54.88",
-   "units": [
-    "DARTHMALGUS",
-    "BASTILASHANDARK",
-    "DARTHMALAK",
-    "DARTHREVAN",
-    "SITHMARAUDER"
-   ]
-  },
-  {
-   "hold": "11%",
-   "seen": "10.6K",
-   "banners": "55.82",
-   "units": [
-    "GENERALSKYWALKER",
-    "ARCTROOPER501ST",
-    "CT210408",
-    "CT5555",
-    "CT7567"
-   ]
-  },
-  {
-   "hold": "10%",
-   "seen": "18.8K",
-   "banners": "55.86",
-   "units": [
-    "GREATMOTHERS",
-    "DEATHTROOPERPERIDEA",
-    "MORGANELSBETH",
-    "NIGHTSISTERSPIRIT",
-    "NIGHTTROOPER"
-   ]
-  },
-  {
-   "hold": "9%",
-   "seen": "10.8K",
-   "banners": "58.13",
-   "units": [
-    "GRIEVOUS",
-    "B1BATTLEDROIDV2",
-    "B2SUPERBATTLEDROID",
-    "DROIDEKA",
-    "MAGNAGUARD"
-   ]
-  },
-  {
-   "hold": "8%",
-   "seen": "53.8K",
-   "banners": "57.9",
-   "units": [
-    "BOSSNASS",
-    "BOOMADIER",
-    "CAPTAINTARPALS",
-    "GUNGANPHALANX",
-    "JARJARBINKS"
-   ]
-  },
-  {
-   "hold": "8%",
-   "seen": "10.1K",
-   "banners": "58.82",
-   "units": [
-    "OMEGAS3",
-    "BATCHERS3",
-    "CROSSHAIRS3",
-    "HUNTERS3",
-    "WRECKERS3"
-   ]
-  },
-  {
-   "hold": "7%",
-   "seen": "11.4K",
-   "banners": "59.09",
-   "units": [
-    "FINN",
-    "EPIXFINN",
-    "EPIXPOE",
-    "POE",
-    "ZORIIBLISS_V2"
-   ]
-  },
-  {
-   "hold": "7%",
-   "seen": "14.4K",
-   "banners": "58.19",
-   "units": [
-    "JEDIMASTERMACEWINDU",
-    "DEPABILLABA",
-    "JOCASTANU",
-    "KELLERANBEQ",
-    "VANGUARDTEMPLEGUARD"
-   ]
-  }
- ]
+  "season": "SEASON_80",
+  "format": "5v5",
+  "perspective": "defense",
+  "pulled": "2026-07-31b",
+  "rows": [
+    {
+      "hold": "57%",
+      "seen": "29.8K",
+      "banners": "25.21",
+      "units": [
+        "STRANGER",
+        "LUMINARAUNDULI",
+        "MAULHATEFUELED",
+        "STARKILLER",
+        "VISASMARR"
+      ]
+    },
+    {
+      "hold": "48%",
+      "seen": "40.5K",
+      "banners": "32.7",
+      "units": [
+        "STRANGER",
+        "BARRISSOFFEE",
+        "MAULHATEFUELED",
+        "STARKILLER",
+        "VISASMARR"
+      ]
+    },
+    {
+      "hold": "34%",
+      "seen": "16.4K",
+      "banners": "41.8",
+      "units": [
+        "THIRDSISTER",
+        "FIFTHBROTHER",
+        "GRANDINQUISITOR",
+        "INQUISITORBARRISS",
+        "SEVENTHSISTER"
+      ]
+    },
+    {
+      "hold": "31%",
+      "seen": "13.3K",
+      "banners": "42.42",
+      "units": [
+        "GLREY",
+        "50RT",
+        "BENSOLO",
+        "CALKESTIS",
+        "GENERALKENOBI"
+      ]
+    },
+    {
+      "hold": "25%",
+      "seen": "120K",
+      "banners": "47.44",
+      "units": [
+        "LORDVADER",
+        "APPO",
+        "DISGUISEDCLONETROOPER",
+        "OPERATIVE",
+        "SCORCH"
+      ]
+    },
+    {
+      "hold": "24%",
+      "seen": "53.8K",
+      "banners": "48.76",
+      "units": [
+        "CASSIANUNDERCOVER",
+        "CINTA",
+        "KLEYA",
+        "LUTHENRAEL",
+        "VEL"
+      ]
+    },
+    {
+      "hold": "21%",
+      "seen": "37.6K",
+      "banners": "49.43",
+      "units": [
+        "THIRDSISTER",
+        "EIGHTHBROTHER",
+        "FIFTHBROTHER",
+        "GRANDINQUISITOR",
+        "SEVENTHSISTER"
+      ]
+    },
+    {
+      "hold": "21%",
+      "seen": "20.6K",
+      "banners": "50.01",
+      "units": [
+        "BAYLANSKOLL",
+        "DENGAR",
+        "HONDO",
+        "MARROK",
+        "SHINHATI"
+      ]
+    },
+    {
+      "hold": "20%",
+      "seen": "49.9K",
+      "banners": "49.88",
+      "units": [
+        "EMPERORPALPATINE",
+        "GRANDMOFFTARKIN",
+        "MARAJADE",
+        "ROYALGUARD",
+        "VADERDUELSEND"
+      ]
+    },
+    {
+      "hold": "20%",
+      "seen": "13K",
+      "banners": "49.79",
+      "units": [
+        "SAWGERRERA",
+        "BAZEMALBUS",
+        "CHIRRUTIMWE",
+        "KYLEKATARN",
+        "LUTHENRAEL"
+      ]
+    },
+    {
+      "hold": "20%",
+      "seen": "10.3K",
+      "banners": "50.34",
+      "units": [
+        "EMPERORPALPATINE",
+        "ADMIRALPIETT",
+        "MARAJADE",
+        "ROYALGUARD",
+        "VADERDUELSEND"
+      ]
+    },
+    {
+      "hold": "19%",
+      "seen": "22.2K",
+      "banners": "51.19",
+      "units": [
+        "GLHONDO",
+        "BRUTUS",
+        "CAPTAINSILVO",
+        "HONDO",
+        "VANE"
+      ]
+    },
+    {
+      "hold": "19%",
+      "seen": "17.8K",
+      "banners": "50.54",
+      "units": [
+        "MAJORPARTAGAZ",
+        "DEDRAMEERO",
+        "DIRECTORKRENNIC",
+        "IMPERIALPROBEDROID",
+        "KXSECURITYDROID"
+      ]
+    },
+    {
+      "hold": "19%",
+      "seen": "22K",
+      "banners": "48.26",
+      "units": [
+        "SATELESHAN",
+        "BASTILASHAN",
+        "JEDIKNIGHTREVAN",
+        "JOLEEBINDO",
+        "JUHANI"
+      ]
+    },
+    {
+      "hold": "19%",
+      "seen": "59.3K",
+      "banners": "51.42",
+      "units": [
+        "JABBATHEHUTT",
+        "BOUSHH",
+        "EMBO",
+        "KRRSANTAN",
+        "UNDERCOVERLANDO"
+      ]
+    },
+    {
+      "hold": "18%",
+      "seen": "128K",
+      "banners": "52.21",
+      "units": [
+        "GLAHSOKATANO",
+        "EZRAEXILE",
+        "GENERALSYNDULLA",
+        "HUYANG",
+        "PADAWANSABINE"
+      ]
+    },
+    {
+      "hold": "17%",
+      "seen": "82.2K",
+      "banners": "51.67",
+      "units": [
+        "GLHONDO",
+        "BRUTUS",
+        "CAPTAINSILVO",
+        "SM33",
+        "VANE"
+      ]
+    },
+    {
+      "hold": "16%",
+      "seen": "43.5K",
+      "banners": "53.11",
+      "units": [
+        "JABBATHEHUTT",
+        "BOBAFETT",
+        "BOUSHH",
+        "KRRSANTAN",
+        "UNDERCOVERLANDO"
+      ]
+    },
+    {
+      "hold": "16%",
+      "seen": "14K",
+      "banners": "53.96",
+      "units": [
+        "QUEENAMIDALA",
+        "GRANDMASTERYODA",
+        "MASTERQUIGON",
+        "PADAWANOBIWAN",
+        "SHAAKTI"
+      ]
+    },
+    {
+      "hold": "15%",
+      "seen": "15.3K",
+      "banners": "53.85",
+      "units": [
+        "MAZKANATA",
+        "HONDO",
+        "ITHANO",
+        "KIX",
+        "QUIGGOLD"
+      ]
+    },
+    {
+      "hold": "13%",
+      "seen": "15.7K",
+      "banners": "55.33",
+      "units": [
+        "FINN",
+        "EPIXFINN",
+        "EPIXPOE",
+        "ROSETICO",
+        "ZORIIBLISS_V2"
+      ]
+    },
+    {
+      "hold": "13%",
+      "seen": "60.9K",
+      "banners": "54.41",
+      "units": [
+        "JEDIMASTERMACEWINDU",
+        "AAYLASECURA",
+        "DEPABILLABA",
+        "JOCASTANU",
+        "VANGUARDTEMPLEGUARD"
+      ]
+    },
+    {
+      "hold": "13%",
+      "seen": "11.9K",
+      "banners": "53.78",
+      "units": [
+        "GREATMOTHERS",
+        "DEATHTROOPERPERIDEA",
+        "MERRIN",
+        "MORGANELSBETH",
+        "NIGHTTROOPER"
+      ]
+    },
+    {
+      "hold": "12%",
+      "seen": "25.1K",
+      "banners": "54.88",
+      "units": [
+        "DARTHMALGUS",
+        "BASTILASHANDARK",
+        "DARTHMALAK",
+        "DARTHREVAN",
+        "SITHMARAUDER"
+      ]
+    },
+    {
+      "hold": "11%",
+      "seen": "10.6K",
+      "banners": "55.82",
+      "units": [
+        "GENERALSKYWALKER",
+        "ARCTROOPER501ST",
+        "CT210408",
+        "CT5555",
+        "CT7567"
+      ]
+    },
+    {
+      "hold": "10%",
+      "seen": "18.8K",
+      "banners": "55.86",
+      "units": [
+        "GREATMOTHERS",
+        "DEATHTROOPERPERIDEA",
+        "MORGANELSBETH",
+        "NIGHTSISTERSPIRIT",
+        "NIGHTTROOPER"
+      ]
+    },
+    {
+      "hold": "9%",
+      "seen": "10.8K",
+      "banners": "58.13",
+      "units": [
+        "GRIEVOUS",
+        "B1BATTLEDROIDV2",
+        "B2SUPERBATTLEDROID",
+        "DROIDEKA",
+        "MAGNAGUARD"
+      ]
+    },
+    {
+      "hold": "8%",
+      "seen": "53.8K",
+      "banners": "57.9",
+      "units": [
+        "BOSSNASS",
+        "BOOMADIER",
+        "CAPTAINTARPALS",
+        "GUNGANPHALANX",
+        "JARJARBINKS"
+      ]
+    },
+    {
+      "hold": "8%",
+      "seen": "10.1K",
+      "banners": "58.82",
+      "units": [
+        "OMEGAS3",
+        "BATCHERS3",
+        "CROSSHAIRS3",
+        "HUNTERS3",
+        "WRECKERS3"
+      ]
+    },
+    {
+      "hold": "7%",
+      "seen": "11.4K",
+      "banners": "59.09",
+      "units": [
+        "FINN",
+        "EPIXFINN",
+        "EPIXPOE",
+        "POE",
+        "ZORIIBLISS_V2"
+      ]
+    },
+    {
+      "hold": "7%",
+      "seen": "14.4K",
+      "banners": "58.19",
+      "units": [
+        "JEDIMASTERMACEWINDU",
+        "DEPABILLABA",
+        "JOCASTANU",
+        "KELLERANBEQ",
+        "VANGUARDTEMPLEGUARD"
+      ]
+    }
+  ]
 }

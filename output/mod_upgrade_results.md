@@ -1,4 +1,39 @@
-# Mod session — 2026-07-27 (Astra) — LATEST · TWO batches (placement re-opt + farmed-material upgrades)
+# Mod session — 2026-07-31 (Astra) — LATEST · season-roll rebuild + farmed-material upgrades
+
+100% browser-free API for slice/promote/calibrate; Grandivory (embedded) for placement.
+Context: swgoh.gg 3v3 season rolled S79→S81; full GAC board rebuilt first (see memory/notes.md).
+
+## Score delta (session start -> end)
+| metric | start | end | Δ |
+|---|--:|--:|--:|
+| **HotUtils modScore** | 2.34 | 2.35 | +0.01 (coarse) |
+| 6A (6-dot gold) | 88 | **89** | +1 (Jabba) |
+| 6-dot total | 136 | **140** | +4 (Great Mothers ×2, Baylan ×2 → 6E) |
+| plusSpeed | 15,267 | 15,276 | +9 |
+| Micro Attenuators | 186 | 86 | −100 (4 cal attempts) |
+| T05_06 | 422 | 182 | −240 |
+| T06_02 | 71 | 31 | −40 (Jabba slice, now the binding gate) |
+| credits | 148.04M | 146.83M | −1.21M |
+
+## What happened
+- **Materials farmed since 7/27** (the farming gate the last session waited on): T05_06 55→422, attenuators 14→186, PROMO→584. T06_02 (71) is now the binding constraint for 6-dot slicing.
+- **Slice/promote (defense-first, 5/5 clean):** Jabba the Hutt sliced 6-dot t3→**6A** (2 steps, 40 T06_02); Great Mothers ×2 + Baylan Skoll ×2 promoted 5A→**6E**. Executor T06_02-bound (only Jabba could finish to 6A) and T05_06-bound (~4 promotes at 0.90 margin).
+- **Calibration: 0/4** (Ahsoka 19, Starkiller 21, Lord Vader 22, Leia 23 — all reverted, spd intact). Targeted the highest-headroom rr-eligible 6A defense mods (headroom≥7). **Cumulative 0/10.** Verdict reconfirmed: reroll redistribution reliably lands lower on decent-speed (19+) mods → **stop calibrating them**; ~86 attenuators reserved for future low-speed 6A mods.
+- **Placement re-opt: APPLIED ✓ (+5.04%).** First attempt (+5.63%, 1376 mods) **BLOCKED** by *"Minimum of 10 available inventory spaces required"* (unequipped inventory 495/500 = 5 free; pre-flight → nothing moved, no cr spent). **`mods/sell` API does NOT work** (rc1 "MODS SOLD" but reverts on CG sync — verified). Plessas **sold 36 junk mods in-game** → 459/500 (41 free) → re-fetched via HotUtils (2345 mods) → re-generated GAC list → re-optimized → **Move mods in-game SUCCESS.**
+  - Result: set-value **248,473→260,987 (+5.04%)**, **plusSpeed 15,276→16,436 (+1,160)**, **modScore 2.35→2.84**, gearScore 7.67, speed15 262→321, speed10 486→553. Move cost **5.5M cr** (149.0M→143.45M). gameDataAgeUtc fresh (18:04).
+
+## Full-session net (start → end)
+- **6A 88→89, 6-dot 136→140, plusSpeed 15,048*→16,436, modScore 2.34→2.84.** (*7/27 start ref.)
+- Materials spent: T06_02 71→31, T05_06 422→182, PROMO 584→494, attenuators 186→86 (cal 0/4). Credits ~148M→143.45M (upgrades + 5.5M move, minus ~2.2M from selling 36 junk mods). Mods 2381→2345.
+
+## To resume (next session)
+1. **Placement is CURRENT** — re-run only after the next real slice/calibrate batch.
+2. Farm **T06_02** (the binding gate at 31 — Mod Battles Sector 9) to slice more 6E→6A; T05_06 (182) + PROMO (494) are ample behind it.
+3. To free mod-inventory space, sell junk **in-game** (HotUtils `mods/sell` API is a no-op — see memory/notes.md).
+
+---
+
+# Mod session — 2026-07-27 (Astra) · TWO batches (placement re-opt + farmed-material upgrades)
 
 100% browser-free API for upgrades; Grandivory (standalone bridge URL) for placement.
 Two batches: (1) early — full placement re-opt + calibration attempts; (2) after Plessas farmed
