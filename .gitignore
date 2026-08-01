@@ -7,3 +7,7 @@ __pycache__/
 # never commit secrets / session ids
 *.session
 .env
+.venv/
+.pytest_cache/
+tests/fixtures/
+output/brief_*.html

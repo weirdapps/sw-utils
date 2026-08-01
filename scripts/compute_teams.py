@@ -13,7 +13,9 @@ Output: data/gac_result.json  (consumed by generate_hotutils.py)
 Board counts + reserve list are CONFIG below — update when your league/board changes.
 Everything is data-driven; no hardcoded teams.
 """
-import json, re, os, shutil
+import json, os, shutil
+import swgoh_data
+import swgoh_meta
 from datetime import datetime
 try:
     from zoneinfo import ZoneInfo
@@ -30,6 +32,7 @@ BOARD = {"5v5": {"def": 11, "off": 16}, "3v3": {"def": 15, "off": 18}}
 # Pure attack GLs: reserved for offense before defense claims units (weak defenders anyway).
 RESERVE = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE", "SUPREMELEADERKYLOREN"]
 ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260731.json")
+ALLYCODE = "145357294"  # Astra — live roster via comlink; ROSTER_FILE = offline fallback
 # meta files: (format, perspective) -> filename in data/meta/
 META_FILES = {
     ("5v5", "def"): "meta_5v5_defense_s80.json",   # JSON (rows[].hold/units) from swgoh.gg
@@ -38,44 +41,17 @@ META_FILES = {
     ("3v3", "off"): "meta_off3v3.txt",
 }
 
-# ---- roster ----
-r = json.load(open(ROSTER_FILE))
+# ---- roster (live comlink via swgoh_data; falls back to ROSTER_FILE if comlink is down) ----
+r = swgoh_data.load_roster(ALLYCODE, fallback_file=ROSTER_FILE)
+print(f"roster source: {r.get('meta', {}).get('source', '?')}  units={len(r['units'])}")
 units = r["units"]
-name = {u["b"]: u["n"] for u in units}
+# names: full unit map (resolves UNOWNED gap units) overlaid with current roster names
+name = {b: v["n"] for b, v in swgoh_data.load_name_type_map().items()}
+name.update({u["b"]: u["n"] for u in units})
 owned_g13 = {u["b"] for u in units if u["ct"] == 1 and u["g"] >= 13}
 
 
-def seen_num(s):
-    s = str(s).replace(",", "").strip()
-    m = re.match(r"([\d.]+)([KM]?)", s)
-    if not m:
-        return 0
-    v = float(m.group(1))
-    return v * 1e6 if m.group(2) == "M" else v * 1e3 if m.group(2) == "K" else v
-
-
-def parse_txt(path):
-    out = []
-    for line in open(path):
-        line = line.strip()
-        if not line or line.startswith("ROWS="):
-            continue
-        rate, seen, ban, csv = line.split("|")
-        out.append({"rate": int(rate.replace("%", "")), "seen": seen, "seenN": seen_num(seen),
-                    "ban": float(ban), "units": csv.split(",")})
-    return out
-
-
-def parse_json_def(path):
-    d = json.load(open(path))
-    return [{"rate": int(x["hold"].replace("%", "")), "seen": x["seen"], "seenN": seen_num(x["seen"]),
-             "ban": float(x["banners"]), "units": x["units"]} for x in d["rows"]]
-
-
-meta = {}
-for key, fn in META_FILES.items():
-    p = os.path.join(META, fn)
-    meta[key] = parse_json_def(p) if fn.endswith(".json") else parse_txt(p)
+meta = swgoh_meta.load_meta(META_FILES, META)
 
 
 def fieldable(sq):
