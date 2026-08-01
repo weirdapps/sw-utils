@@ -1,15 +1,47 @@
 {
+"1JAC": {
+"ct": 1,
+"n": "1-JAC"
+},
 "4LOM": {
 "ct": 1,
 "n": "4-LOM"
+},
+"501ARCTROOPER501ST": {
+"ct": 1,
+"n": "501st ARC Trooper"
+},
+"501ST": {
+"ct": 1,
+"n": "501st Clone Battalion"
 },
 "50RT": {
 "ct": 1,
 "n": "50R-T"
 },
+"AAT": {
+"ct": 1,
+"n": "AAT"
+},
+"AAT_CANNON_LEFT": {
+"ct": 1,
+"n": "AAT (Left Cannon)"
+},
+"AAT_CANNON_RIGHT": {
+"ct": 1,
+"n": "AAT (Right Cannon)"
+},
+"AAT_TURRET": {
+"ct": 1,
+"n": "AAT (Main Cannon)"
+},
 "AAYLASECURA": {
 "ct": 1,
 "n": "Aayla Secura"
+},
+"ACKLAY": {
+"ct": 1,
+"n": "Acklay"
 },
 "ADMINISTRATORLANDO": {
 "ct": 1,
@@ -27,9 +59,21 @@
 "ct": 1,
 "n": "Admiral Raddus"
 },
+"AGENKOLAR": {
+"ct": 1,
+"n": "Agen Kolar"
+},
 "AHSOKATANO": {
 "ct": 1,
-"n": "Ahsoka Tano (Snips)"
+"n": "Ahsoka Tano"
+},
+"AJUNTAPALL": {
+"ct": 1,
+"n": "Ajunta Pall"
+},
+"AJUNTAPALLSPIRIT": {
+"ct": 1,
+"n": "Spirit of Ajunta Pall"
 },
 "AMILYNHOLDO": {
 "ct": 1,
@@ -39,9 +83,37 @@
 "ct": 1,
 "n": "Jedi Knight Anakin"
 },
+"ANAKINPADAWAN": {
+"ct": 1,
+"n": "Padawan Anakin Skywalker"
+},
 "APPO": {
 "ct": 1,
 "n": "CC-1119 \"Appo\""
+},
+"APPRENTICECONSULAR": {
+"ct": 1,
+"n": "Jedi Knight Apprentice"
+},
+"APPRENTICEGUARDIAN": {
+"ct": 1,
+"n": "Apprentice Guardian"
+},
+"APPRENTICESAGE": {
+"ct": 1,
+"n": "Apprentice Sage"
+},
+"APPRENTICESENTINEL": {
+"ct": 1,
+"n": "Apprentice Sentinel"
+},
+"APPRENTICEVANGUARD": {
+"ct": 1,
+"n": "Apprentice Vanguard"
+},
+"ARC170": {
+"ct": 1,
+"n": "Arc-170"
 },
 "ARC170CLONESERGEANT": {
 "ct": 2,
@@ -51,9 +123,17 @@
 "ct": 2,
 "n": "Rex's ARC-170"
 },
+"ARCTROOPER": {
+"ct": 1,
+"n": "Clone ARC Trooper"
+},
 "ARCTROOPER501ST": {
 "ct": 1,
 "n": "ARC Trooper"
+},
+"ARENAFOE": {
+"ct": 1,
+"n": "Arena Combatant"
 },
 "ARMORER": {
 "ct": 1,
@@ -67,13 +147,65 @@
 "ct": 1,
 "n": "Asajj Ventress"
 },
+"ASSAULTDROIDMK1": {
+"ct": 1,
+"n": "Assault Droid Mk I"
+},
+"ASSAULTDROIDMK4": {
+"ct": 1,
+"n": "Assault Droid Mk IV"
+},
+"ATST": {
+"ct": 1,
+"n": "Imperial AT-ST"
+},
+"ATSTDRIVER": {
+"ct": 1,
+"n": "AT-ST Driver"
+},
+"AURRASING": {
+"ct": 1,
+"n": "Aurra Sing"
+},
 "AURRA_SING": {
 "ct": 1,
 "n": "Aurra Sing"
 },
+"AWING": {
+"ct": 1,
+"n": "A-wing"
+},
+"AWING_OTFALCON": {
+"ct": 1,
+"n": "A-wing Interceptor"
+},
+"B1BATTLEDROID": {
+"ct": 1,
+"n": "B1 Battle Droid"
+},
 "B1BATTLEDROIDV2": {
 "ct": 1,
 "n": "B1 Battle Droid"
+},
+"B1COMMANDERRAID": {
+"ct": 1,
+"n": "Geonosis B1 Battle Droid Commander"
+},
+"B1HEAVYGUNNER": {
+"ct": 1,
+"n": "B1 Heavy Gunner"
+},
+"B1RAID": {
+"ct": 1,
+"n": "Geonosis B1 Battle Droid"
+},
+"B2ROCKET": {
+"ct": 1,
+"n": "B2 Rocket Trooper"
+},
+"B2ROCKETDROID": {
+"ct": 1,
+"n": "B2 Rocket Droid"
 },
 "B2SUPERBATTLEDROID": {
 "ct": 1,
@@ -127,9 +259,33 @@
 "ct": 1,
 "n": "BB-8"
 },
+"BEEDO": {
+"ct": 1,
+"n": "Beedo"
+},
+"BELBULLAB22SOULLESSONE": {
+"ct": 1,
+"n": "Belbullab-22 [i]Souless One[/i]"
+},
+"BENDAKSTARKILLER": {
+"ct": 1,
+"n": "Bendak Starkiller"
+},
 "BENSOLO": {
 "ct": 1,
 "n": "Ben Solo"
+},
+"BENSOLOEXEGOL": {
+"ct": 1,
+"n": "Ben Solo"
+},
+"BESPINLUKE": {
+"ct": 1,
+"n": "Rebel Luke Skywalker"
+},
+"BESPINWINGGUARD": {
+"ct": 1,
+"n": "Bespin Wing Guard"
 },
 "BIGGSDARKLIGHTER": {
 "ct": 1,
@@ -146,6 +302,14 @@
 "BLADEOFDORIN": {
 "ct": 2,
 "n": "Plo Koon's Jedi Starfighter"
+},
+"BLASTERTURRET501ST": {
+"ct": 1,
+"n": "Blaster Turret"
+},
+"BLAST_DOOR": {
+"ct": 1,
+"n": "Blast Door"
 },
 "BOBAFETT": {
 "ct": 1,
@@ -187,11 +351,39 @@
 "ct": 1,
 "n": "BT-1"
 },
+"BUNDLEOFEXPLOSIVES": {
+"ct": 1,
+"n": "Bundle of Explosives"
+},
+"BWING": {
+"ct": 1,
+"n": "B-wing"
+},
 "BWINGREBEL": {
 "ct": 2,
 "n": "Rebel B-wing"
 },
+"BWING_OTFALCON": {
+"ct": 1,
+"n": "B-wing Starfighter"
+},
+"BXCOMMANDODROID": {
+"ct": 1,
+"n": "Commando Droid"
+},
+"BXSERIESCOMMANDODROID": {
+"ct": 1,
+"n": "BX-series Commando Droid"
+},
+"C3PO": {
+"ct": 1,
+"n": "C-3PO"
+},
 "C3POCHEWBACCA": {
+"ct": 1,
+"n": "Threepio & Chewie"
+},
+"C3POCHEWBACCA_V2": {
 "ct": 1,
 "n": "Threepio & Chewie"
 },
@@ -207,13 +399,25 @@
 "ct": 1,
 "n": "Cal Kestis"
 },
+"CALONORD": {
+"ct": 1,
+"n": "Calo Nord"
+},
 "CANDEROUSORDO": {
 "ct": 1,
 "n": "Canderous Ordo"
 },
+"CANTINAKEEPER": {
+"ct": 1,
+"n": "Cantina Keeper"
+},
 "CAPITALCHIMAERA": {
 "ct": 2,
 "n": "Chimaera"
+},
+"CAPITALDROIDCONTROLSHIP": {
+"ct": 1,
+"n": "Saak'ak"
 },
 "CAPITALEXECUTOR": {
 "ct": 2,
@@ -242,6 +446,14 @@
 "CAPITALNEGOTIATOR": {
 "ct": 2,
 "n": "Negotiator"
+},
+"CAPITALNEGOTIATOR_TERRITORYBATTLE_MIXED": {
+"ct": 1,
+"n": "Venator-class Star Destroyer"
+},
+"CAPITALPROFUNDITY": {
+"ct": 1,
+"n": "Profundity"
 },
 "CAPITALRADDUS": {
 "ct": 2,
@@ -275,9 +487,33 @@
 "ct": 1,
 "n": "Cara Dune"
 },
+"CARLISTRIEEKAN": {
+"ct": 1,
+"n": "Carlist Rieekan"
+},
 "CARSONTEVA": {
 "ct": 1,
 "n": "Captain Carson Teva"
+},
+"CARTELBRUISER": {
+"ct": 1,
+"n": "Cartel Bruiser"
+},
+"CARTELSABOTEUR": {
+"ct": 1,
+"n": "Cartel Saboteur"
+},
+"CARTELSABOTEUR_GERLON": {
+"ct": 1,
+"n": "Gerlon Two-Fingers"
+},
+"CARTELSPY": {
+"ct": 1,
+"n": "Cartel Spy"
+},
+"CARTELSPY_DEADEYE_DUNCAN": {
+"ct": 1,
+"n": "Deadeye Duncan"
 },
 "CARTHONASI": {
 "ct": 1,
@@ -287,17 +523,37 @@
 "ct": 1,
 "n": "Cassian Andor"
 },
+"CASSIANANDOR_TRANSFORM_MAGMATROOPER": {
+"ct": 1,
+"n": "Magmatrooper (Cassian Andor)"
+},
+"CASSIANANDOR_TRANSFORM_SNOWTROOPEROPS": {
+"ct": 1,
+"n": "Snowtrooper Ops (Cassian Andor)"
+},
+"CASSIANANDOR_TRANSFORM_WATTAMBOR": {
+"ct": 1,
+"n": "Wat Tambor (Cassian Andor)"
+},
 "CASSIANUNDERCOVER": {
 "ct": 1,
 "n": "Cassian Andor (Undercover)"
 },
+"CC10994GREY": {
+"ct": 1,
+"n": "CC-10/994 \"Grey\""
+},
 "CC2224": {
 "ct": 1,
-"n": "CC-2224 \"Cody\""
+"n": "CC2224 \"Commander Cody\""
 },
 "CEREJUNDA": {
 "ct": 1,
 "n": "Cere Junda"
+},
+"CHEWBACCA": {
+"ct": 1,
+"n": "Chewbacca"
 },
 "CHEWBACCALEGENDARY": {
 "ct": 1,
@@ -323,9 +579,53 @@
 "ct": 1,
 "n": "Cinta Kaz"
 },
+"CLASH_ARCTROOPER501ST": {
+"ct": 1,
+"n": "501st ARC Trooper"
+},
+"CLONECAPTAIN212": {
+"ct": 1,
+"n": "212th Captain"
+},
+"CLONECAPTAINPHASEI": {
+"ct": 1,
+"n": "Clone Captain - Phase I"
+},
+"CLONECOMMANDERPHASEI": {
+"ct": 1,
+"n": "Clone Commander - Phase I"
+},
+"CLONELIEUTENANTPHASEI": {
+"ct": 1,
+"n": "Clone Lieutenant - Phase I"
+},
+"CLONEMEDIC": {
+"ct": 1,
+"n": "Clone Trooper Medic"
+},
+"CLONEPRIVATEPHASEI": {
+"ct": 1,
+"n": "Clone Private - Phase I"
+},
 "CLONESERGEANTPHASEI": {
 "ct": 1,
 "n": "Clone Sergeant - Phase I"
+},
+"CLONETROOPER212_GLE": {
+"ct": 1,
+"n": "212th Clone Trooper"
+},
+"CLONETROOPERP2": {
+"ct": 1,
+"n": "Depa's Clone Trooper"
+},
+"CLONETROOPERP2_FOREST": {
+"ct": 1,
+"n": "Clone Scout Trooper"
+},
+"CLONEVETERAN212_GLE": {
+"ct": 1,
+"n": "212th Veteran"
 },
 "CLONEWARSCHEWBACCA": {
 "ct": 1,
@@ -343,6 +643,10 @@
 "ct": 2,
 "n": "Comeuppance"
 },
+"COMMANDBATTLEDROID": {
+"ct": 1,
+"n": "Command Battle Droid"
+},
 "COMMANDERAHSOKA": {
 "ct": 1,
 "n": "Commander Ahsoka Tano"
@@ -350,6 +654,14 @@
 "COMMANDERLUKESKYWALKER": {
 "ct": 1,
 "n": "Commander Luke Skywalker"
+},
+"COMMANDERLUKESKYWALKER_HOTH": {
+"ct": 1,
+"n": "Commander Luke Skywalker (Hoth)"
+},
+"COMMANDODROIDDIPLOMAT": {
+"ct": 1,
+"n": "Commando Droid Diplomat"
 },
 "COMMANDSHUTTLE": {
 "ct": 2,
@@ -359,9 +671,45 @@
 "ct": 1,
 "n": "Coruscant Underworld Police"
 },
+"CORUSCANTUNDERWORLDPOLICE__CAPT": {
+"ct": 1,
+"n": "Police Captain"
+},
+"CORUSCANTUNDERWORLDPOLICE__LT": {
+"ct": 1,
+"n": "Police Lieutenant"
+},
+"CORUSCANTUNDERWORLDPOLICE__SGT": {
+"ct": 1,
+"n": "Police Sergeant"
+},
+"CORUSCANT_CLONE_CAPTAIN": {
+"ct": 1,
+"n": "Coruscant Guard Captain"
+},
+"CORUSCANT_CLONE_TROOPER": {
+"ct": 1,
+"n": "Coruscant Guard Clone Trooper"
+},
+"CORUSCANT_CLONE_VETERAN": {
+"ct": 1,
+"n": "Coruscant Guard Veteran"
+},
 "COUNTDOOKU": {
 "ct": 1,
 "n": "Count Dooku"
+},
+"CRITCHANCE": {
+"ct": 1,
+"n": "CRIT CHANCE"
+},
+"CRITDAMAGE": {
+"ct": 1,
+"n": "CRIT DAMAGE"
+},
+"CROSSHAIR": {
+"ct": 1,
+"n": "CT-9904 \u201cCrosshair\u201d"
 },
 "CROSSHAIRS3": {
 "ct": 1,
@@ -370,6 +718,10 @@
 "CT210408": {
 "ct": 1,
 "n": "CT-21-0408 \"Echo\""
+},
+"CT2187_JEK": {
+"ct": 1,
+"n": "CT-2187 \"Jek\""
 },
 "CT5555": {
 "ct": 1,
@@ -383,6 +735,10 @@
 "ct": 1,
 "n": "Old Daka"
 },
+"DARKBARRISSOFFEE": {
+"ct": 1,
+"n": "Dark Side Barriss Offee"
+},
 "DARKREY": {
 "ct": 1,
 "n": "Rey (Dark Side Vision)"
@@ -394,6 +750,10 @@
 "DARTHBANE": {
 "ct": 1,
 "n": "Darth Bane"
+},
+"DARTHJARJAR": {
+"ct": 1,
+"n": "Darth Jar Jar"
 },
 "DARTHMALAK": {
 "ct": 1,
@@ -419,11 +779,19 @@
 "ct": 1,
 "n": "Darth Sion"
 },
+"DARTHSION_SITHRAID": {
+"ct": 1,
+"n": "Darth Sion"
+},
 "DARTHTALON": {
 "ct": 1,
 "n": "Darth Talon"
 },
 "DARTHTRAYA": {
+"ct": 1,
+"n": "Darth Traya"
+},
+"DARTHTRAYA_SITHRAID": {
 "ct": 1,
 "n": "Darth Traya"
 },
@@ -447,6 +815,26 @@
 "ct": 1,
 "n": "Dedra Meero"
 },
+"DEFENSE": {
+"ct": 1,
+"n": "DEFENSE"
+},
+"DELTA7BAZUREANGEL": {
+"ct": 1,
+"n": "Anakin's Delta-7B"
+},
+"DELTA7BBLADEDORIN": {
+"ct": 1,
+"n": "Plo Koon's Delta-7B"
+},
+"DELTA7BJEDISTARFIGHTER": {
+"ct": 1,
+"n": "Aayla Secura's Delta-7B"
+},
+"DELTA7JEDISTARFIGHTER": {
+"ct": 1,
+"n": "Delta-7 Jedi Starfighter"
+},
 "DENGAR": {
 "ct": 1,
 "n": "Dengar"
@@ -467,9 +855,33 @@
 "ct": 1,
 "n": "Doctor Aphra"
 },
+"DROCHCLASSBOARDINGSHIP": {
+"ct": 1,
+"n": "Droch-class Boarding Ship"
+},
+"DROIDBOMBER": {
+"ct": 1,
+"n": "Hyena Bomber Droid"
+},
 "DROIDEKA": {
 "ct": 1,
 "n": "Droideka"
+},
+"DROIDTRIFIGHTER": {
+"ct": 1,
+"n": "Droid Tri-fighter"
+},
+"DROID_COMBATREMOTE": {
+"ct": 1,
+"n": "Training Remote"
+},
+"DROID_DLC13MINING": {
+"ct": 1,
+"n": "DLC-13 Mining Droid"
+},
+"DRYAX": {
+"ct": 1,
+"n": "Dryax"
 },
 "EBONHAWK": {
 "ct": 2,
@@ -495,6 +907,26 @@
 "ct": 2,
 "n": "Emperor's Shuttle"
 },
+"ENDANGEREDJEDI": {
+"ct": 1,
+"n": "Endangered Jedi"
+},
+"ENDORLEIA": {
+"ct": 1,
+"n": "Endor Leia"
+},
+"ENDORREBELOFFICER": {
+"ct": 1,
+"n": "Endor Rebel Officer"
+},
+"ENDORREBELSCOUT": {
+"ct": 1,
+"n": "Endor Rebel Scout"
+},
+"ENDORREBELSOLDIER": {
+"ct": 1,
+"n": "Endor Rebel Soldier"
+},
 "ENFYSNEST": {
 "ct": 1,
 "n": "Enfys Nest"
@@ -507,6 +939,14 @@
 "ct": 1,
 "n": "Resistance Hero Poe"
 },
+"ETA2JEDIINTERCEPTOR": {
+"ct": 1,
+"n": "ETA-2 Jedi Interceptor"
+},
+"EVENPIELL": {
+"ct": 1,
+"n": "Even Piell"
+},
 "EWOKELDER": {
 "ct": 1,
 "n": "Ewok Elder"
@@ -515,6 +955,22 @@
 "ct": 1,
 "n": "Ewok Scout"
 },
+"EWOKSCOUT_DEADLY": {
+"ct": 1,
+"n": "Ewok Scout"
+},
+"EWOKWARRIOR": {
+"ct": 1,
+"n": "Ewok Warrior"
+},
+"EWOKWARRIOR_DEADLY": {
+"ct": 1,
+"n": "Ewok Warrior"
+},
+"EZRABRIDGER": {
+"ct": 1,
+"n": "Ezra Bridger"
+},
 "EZRABRIDGERS3": {
 "ct": 1,
 "n": "Ezra Bridger"
@@ -522,6 +978,10 @@
 "EZRAEXILE": {
 "ct": 1,
 "n": "Ezra Bridger (Exile)"
+},
+"FALLENBARRISSOFFEE": {
+"ct": 1,
+"n": "Asajj Ventress??"
 },
 "FENNECSHAND": {
 "ct": 1,
@@ -559,9 +1019,45 @@
 "ct": 1,
 "n": "First Order Stormtrooper"
 },
+"FIRSTORDERTROOPERCOMMANDER": {
+"ct": 1,
+"n": "First Order Stormtrooper Commander"
+},
+"FISTO_KIT": {
+"ct": 1,
+"n": "Kit Fisto"
+},
+"FN2199": {
+"ct": 1,
+"n": "FN-2199"
+},
+"FORAIDER": {
+"ct": 1,
+"n": "First Order Raider"
+},
+"FORIOTCONTROLSTORMTROOPER": {
+"ct": 1,
+"n": "FO Riot Control Stormtrooper"
+},
 "FOSITHTROOPER": {
 "ct": 1,
 "n": "Sith Trooper"
+},
+"FOSNOWTROOPER": {
+"ct": 1,
+"n": "First Order Snowtrooper"
+},
+"FOSNOWTROOPEROFFICER": {
+"ct": 1,
+"n": "First Order Snowtrooper Officer"
+},
+"FOTF_DEVASTATOR": {
+"ct": 1,
+"n": "Devastator"
+},
+"FOX_501ST": {
+"ct": 1,
+"n": "CT-0000/1010 \"Fox\""
 },
 "FULCRUMAHSOKA": {
 "ct": 1,
@@ -571,9 +1067,37 @@
 "ct": 2,
 "n": "Fury-class Interceptor"
 },
+"GALENERSO": {
+"ct": 1,
+"n": "Galen Erso"
+},
+"GAMORREANBOSS": {
+"ct": 1,
+"n": "Gamorrean Boss"
+},
+"GAMORREANBRUTE": {
+"ct": 1,
+"n": "Gamorrean Brute"
+},
+"GAMORREANCAPTAIN": {
+"ct": 1,
+"n": "Gamorrean Captain"
+},
 "GAMORREANGUARD": {
 "ct": 1,
 "n": "Gamorrean Guard"
+},
+"GAMORREANTHUG": {
+"ct": 1,
+"n": "Gamorrean Thug"
+},
+"GAMORREAN_HONDO_MARQUEE": {
+"ct": 1,
+"n": "[c][/c]\"Jabba the Hutt\""
+},
+"GARAZEBORRELIOS": {
+"ct": 1,
+"n": "Garazeb 'Zeb' Orrelios"
 },
 "GARSAXON": {
 "ct": 1,
@@ -591,6 +1115,10 @@
 "ct": 1,
 "n": "General Kenobi"
 },
+"GENERALKENOBIECHOES": {
+"ct": 1,
+"n": "Fractured Echo of Strength"
+},
 "GENERALSKYWALKER": {
 "ct": 1,
 "n": "General Skywalker"
@@ -599,9 +1127,25 @@
 "ct": 1,
 "n": "General Syndulla"
 },
+"GENERIC_BOUNTYHUNTER": {
+"ct": 1,
+"n": "Bounty Hunter"
+},
 "GEONOSIANBROODALPHA": {
 "ct": 1,
 "n": "Geonosian Brood Alpha"
+},
+"GEONOSIANBRUTE": {
+"ct": 1,
+"n": "Geonosian Brute"
+},
+"GEONOSIANCOMMANDER": {
+"ct": 1,
+"n": "Geonosian Commander"
+},
+"GEONOSIANFIGHTER": {
+"ct": 1,
+"n": "Geonosian Fighter"
 },
 "GEONOSIANSOLDIER": {
 "ct": 1,
@@ -627,9 +1171,25 @@
 "ct": 2,
 "n": "Ghost"
 },
+"GINIVEXCLASSSTARFIGHTER": {
+"ct": 1,
+"n": "Ginivex-class Starfighter"
+},
 "GLAHSOKATANO": {
 "ct": 1,
 "n": "Ahsoka Tano"
+},
+"GLAHSOKA_CORUSCANT_CLONE_TROOPERS_GLE_CT": {
+"ct": 1,
+"n": "Coruscant Clone Troopers"
+},
+"GLAHSOKA_EC_BAYLANSKOLL": {
+"ct": 1,
+"n": "Ahsoka Tano"
+},
+"GLHONDO": {
+"ct": 1,
+"n": "Pirate King Hondo Ohnaka"
 },
 "GLLEIA": {
 "ct": 1,
@@ -655,6 +1215,10 @@
 "ct": 1,
 "n": "Jedi Master Luke Skywalker"
 },
+"GRANDMASTERLUKECRAIT": {
+"ct": 1,
+"n": "Jedi Master Luke Skywalker (Heroic)"
+},
 "GRANDMASTERYODA": {
 "ct": 1,
 "n": "Grand Master Yoda"
@@ -671,6 +1235,10 @@
 "ct": 1,
 "n": "Greedo"
 },
+"GREEDO_HONDO_MARQUEE": {
+"ct": 1,
+"n": "[c][/c]\"Boba Fett, I Think\""
+},
 "GREEFKARGA": {
 "ct": 1,
 "n": "Greef Karga"
@@ -679,13 +1247,37 @@
 "ct": 1,
 "n": "General Grievous"
 },
+"GUIDE_TERRITORY_BATTLE_MISSION": {
+"ct": 1,
+"n": "{0} - {1}"
+},
 "GUNGANPHALANX": {
 "ct": 1,
 "n": "Gungan Phalanx"
 },
+"HACKEDCOMMANDODROID": {
+"ct": 1,
+"n": "Hacked Commando Droid"
+},
 "HANSOLO": {
 "ct": 1,
 "n": "Han Solo"
+},
+"HAXIONBOUNTYDROID": {
+"ct": 1,
+"n": "Haxion Brood Bounty Droid"
+},
+"HAXIONBOUNTYDROIDCAPTAIN": {
+"ct": 1,
+"n": "Haxion Brood Droid Captain"
+},
+"HEALTH": {
+"ct": 1,
+"n": "HEALTH"
+},
+"HERASYNDULLA": {
+"ct": 1,
+"n": "Hera Syndulla"
 },
 "HERASYNDULLAS3": {
 "ct": 1,
@@ -695,9 +1287,25 @@
 "ct": 1,
 "n": "Hermit Yoda"
 },
+"HH87STARHOPPER": {
+"ct": 1,
+"n": "HH-87 Starhopper"
+},
 "HK47": {
 "ct": 1,
 "n": "HK-47"
+},
+"HKDROID": {
+"ct": 1,
+"n": "HK-series Assassin Droid"
+},
+"HMPDROIDGUNSHIP": {
+"ct": 1,
+"n": "HMP Droid Gunship"
+},
+"HMPDROIDGUNSHIP_TB": {
+"ct": 1,
+"n": "HMP Droid Gunship"
 },
 "HONDO": {
 "ct": 1,
@@ -709,7 +1317,23 @@
 },
 "HOTHLEIA": {
 "ct": 1,
-"n": "Rebel Officer Leia Organa"
+"n": "Hoth Leia"
+},
+"HOTHLEIA_JKL_EVENT": {
+"ct": 1,
+"n": "Rebel Officer Leia Organa (Bespin)"
+},
+"HOTHLEIA_SPECIAL": {
+"ct": 1,
+"n": "[99FF33]Rebel Officer Leia Organa Shards[-]"
+},
+"HOTHREBELLUKE": {
+"ct": 1,
+"n": "Hoth Rebel Luke"
+},
+"HOTHREBELOFFICER": {
+"ct": 1,
+"n": "Hoth Rebel Commander"
 },
 "HOTHREBELSCOUT": {
 "ct": 1,
@@ -727,9 +1351,25 @@
 "ct": 1,
 "n": "Mob Enforcer"
 },
+"HUMANTHUG_HONDO_MARQUEE": {
+"ct": 1,
+"n": "[c][/c]\"Jabba's Majordomo\""
+},
+"HUMANTHUG_ICE": {
+"ct": 1,
+"n": "Ice"
+},
 "HUNTERS3": {
 "ct": 1,
 "n": "Hunter (Mercenary)"
+},
+"HURID327": {
+"ct": 1,
+"n": "HURID-327"
+},
+"HUTTSLAYERLEIA": {
+"ct": 1,
+"n": "Huttslayer Leia"
 },
 "HUYANG": {
 "ct": 1,
@@ -739,6 +1379,10 @@
 "ct": 2,
 "n": "Hyena Bomber"
 },
+"HYENACLASSBOMBER": {
+"ct": 1,
+"n": "Hyena Class Bomber"
+},
 "IDENVERSIOEMPIRE": {
 "ct": 1,
 "n": "Iden Versio"
@@ -746,6 +1390,10 @@
 "IG11": {
 "ct": 1,
 "n": "IG-11"
+},
+"IG11_MANDALORIAN_JOURNEY": {
+"ct": 1,
+"n": "IG-11 (Bounty Hunter)"
 },
 "IG12": {
 "ct": 1,
@@ -771,13 +1419,57 @@
 "ct": 1,
 "n": "Ima-Gun Di"
 },
+"IMPERIALARMOREDCOMMANDO": {
+"ct": 1,
+"n": "Imperial Armored Commando"
+},
+"IMPERIALARMOREDCOMMANDO_WAVE1": {
+"ct": 1,
+"n": "Imperial Armored Commando - Wave 1"
+},
+"IMPERIALARMOREDCOMMANDO_WAVE2": {
+"ct": 1,
+"n": "Imperial Armored Commando - Wave 2"
+},
+"IMPERIALARMOREDCOMMANDO_WAVE3": {
+"ct": 1,
+"n": "Imperial Armored Commando - Wave 3"
+},
+"IMPERIALARMOREDCOMMANDO_WAVE4": {
+"ct": 1,
+"n": "Imperial Armored Commando - Wave 4"
+},
+"IMPERIALMERCLEADER": {
+"ct": 1,
+"n": "Imperial Merc Leader"
+},
+"IMPERIALOFFICER": {
+"ct": 1,
+"n": "Imperial Officer"
+},
 "IMPERIALPROBEDROID": {
+"ct": 1,
+"n": "Imperial Probe Droid"
+},
+"IMPERIALPROBEDROID_SPECIAL": {
+"ct": 1,
+"n": "[99FF33]Imperial Probe Droid Shards[-]"
+},
+"IMPERIALSCOUTDROID": {
 "ct": 1,
 "n": "Imperial Probe Droid"
 },
 "IMPERIALSUPERCOMMANDO": {
 "ct": 1,
 "n": "Imperial Super Commando"
+},
+"INCINERATORTROOPER": {
+"ct": 1,
+"n": "Incinerator Trooper"
+},
+"INQUISITOR": {
+"ct": 1,
+"n": "Inquisitor"
 },
 "INQUISITORBARRISS": {
 "ct": 1,
@@ -787,9 +1479,25 @@
 "ct": 1,
 "n": "Captain Ithano"
 },
+"JABBAENFORCER": {
+"ct": 1,
+"n": "Jabba's Enforcer"
+},
+"JABBAPIRATE": {
+"ct": 1,
+"n": "Jabba's Spy"
+},
 "JABBATHEHUTT": {
 "ct": 1,
 "n": "Jabba the Hutt"
+},
+"JABBATHUG": {
+"ct": 1,
+"n": "Jabba's Guard"
+},
+"JABBAWEEQUAYPIRATE": {
+"ct": 1,
+"n": "Weequay Saboteur"
 },
 "JANGOFETT": {
 "ct": 1,
@@ -811,6 +1519,10 @@
 "ct": 1,
 "n": "Jawa Scavenger"
 },
+"JAXXON": {
+"ct": 1,
+"n": "Jaxxon"
+},
 "JEDIKNIGHTCAL": {
 "ct": 1,
 "n": "Jedi Knight Cal Kestis"
@@ -831,9 +1543,57 @@
 "ct": 1,
 "n": "Jedi Knight Revan"
 },
+"JEDIKNIGHTSAGE": {
+"ct": 1,
+"n": "Jedi Knight Sage"
+},
+"JEDIKNIGHTSENTINEL": {
+"ct": 1,
+"n": "Jedi Sentinel"
+},
+"JEDIKNIGHTVANGUARD": {
+"ct": 1,
+"n": "Jedi Vanguard"
+},
+"JEDILEIA": {
+"ct": 1,
+"n": "Leia (Jedi Training)"
+},
+"JEDIMASTERCONSULAR": {
+"ct": 1,
+"n": "Jedi Master Consular"
+},
+"JEDIMASTERGUARDIAN": {
+"ct": 1,
+"n": "Jedi Master Guardian"
+},
 "JEDIMASTERKENOBI": {
 "ct": 1,
 "n": "Jedi Master Kenobi"
+},
+"JEDIMASTERKENOBIECHOES": {
+"ct": 1,
+"n": "Fractured Echo of Power"
+},
+"JEDIMASTERMACEWINDU": {
+"ct": 1,
+"n": "Jedi Master Mace Windu"
+},
+"JEDIMASTERSAGE": {
+"ct": 1,
+"n": "Jedi Master Sage"
+},
+"JEDIMASTERSENTINEL": {
+"ct": 1,
+"n": "Jedi Master Sentinel"
+},
+"JEDIMASTERVANGUARD": {
+"ct": 1,
+"n": "Jedi Master Vanguard"
+},
+"JEDISTARFIGHTER": {
+"ct": 1,
+"n": "Jedi Starfighter"
 },
 "JEDISTARFIGHTERAHSOKATANO": {
 "ct": 2,
@@ -841,11 +1601,43 @@
 },
 "JEDISTARFIGHTERANAKIN": {
 "ct": 2,
-"n": "Anakin's Eta-2 Starfighter"
+"n": "Jedi Knight Anakin's Starfighter"
 },
 "JEDISTARFIGHTERCONSULAR": {
 "ct": 2,
 "n": "Jedi Consular's Starfighter"
+},
+"JEDISTARFIGHTERYODA": {
+"ct": 1,
+"n": "Yoda's Jedi Starfighter"
+},
+"JEDISTARFIGHTER_GENERALSKYWALKER": {
+"ct": 1,
+"n": "Anakin's Delta-7B Starfighter"
+},
+"JEDI_TEMPLEGUARD": {
+"ct": 1,
+"n": "Jedi Temple Guard"
+},
+"JKL_GR75": {
+"ct": 1,
+"n": "GR-75"
+},
+"JMK_501_GLE_ARCT": {
+"ct": 1,
+"n": "501st ARC Trooper"
+},
+"JMK_501_GLE_CAP": {
+"ct": 1,
+"n": "501st Captain"
+},
+"JMK_501_GLE_CT": {
+"ct": 1,
+"n": "501st Clone Trooper"
+},
+"JMK_501_GLE_VET": {
+"ct": 1,
+"n": "501st Veteran"
 },
 "JOCASTANU": {
 "ct": 1,
@@ -854,6 +1646,10 @@
 "JOLEEBINDO": {
 "ct": 1,
 "n": "Jolee Bindo"
+},
+"JOTAZ": {
+"ct": 1,
+"n": "Jotaz"
 },
 "JUHANI": {
 "ct": 1,
@@ -867,17 +1663,49 @@
 "ct": 1,
 "n": "K-2SO"
 },
+"KALANI": {
+"ct": 1,
+"n": "General Kalani"
+},
+"KALLUS": {
+"ct": 1,
+"n": "Kallus"
+},
+"KANANJARRUS": {
+"ct": 1,
+"n": "Kanan Jarrus"
+},
 "KANANJARRUSS3": {
 "ct": 1,
 "n": "Kanan Jarrus"
+},
+"KANANJARRUS_DISGUISED": {
+"ct": 1,
+"n": "Kanan Jarrus (Disguised)"
+},
+"KANANJARRUS_POSSESSED": {
+"ct": 1,
+"n": "Kanan Jarrus (Possessed)"
+},
+"KARIS": {
+"ct": 1,
+"n": "Karis"
 },
 "KELLERANBEQ": {
 "ct": 1,
 "n": "Kelleran Beq"
 },
+"KENOBI": {
+"ct": 1,
+"n": "Obi-Wan"
+},
 "KIADIMUNDI": {
 "ct": 1,
 "n": "Ki-Adi-Mundi"
+},
+"KIADIMUNDI_SPECIAL": {
+"ct": 1,
+"n": "[99FF33]Ki-Adi-Mundi Shards[-]"
 },
 "KITFISTO": {
 "ct": 1,
@@ -887,9 +1715,57 @@
 "ct": 1,
 "n": "Kix"
 },
+"KLATOOINIAN": {
+"ct": 1,
+"n": "Klatooinian Raider"
+},
+"KLATOOINIAN_BANDIT": {
+"ct": 1,
+"n": "Klatooinian Bandit"
+},
+"KLATOOINIAN_BRUISER": {
+"ct": 1,
+"n": "Klatooinian Bruiser"
+},
+"KLATOOINIAN_CAPTAIN": {
+"ct": 1,
+"n": "Raider Captain"
+},
 "KLEYA": {
 "ct": 1,
 "n": "Kleya Marki"
+},
+"KNIGHTFALL_TROOPER": {
+"ct": 1,
+"n": "Knightfall Trooper"
+},
+"KOTORTURRET": {
+"ct": 1,
+"n": "Turret"
+},
+"KOTORTURRET_BLASTER": {
+"ct": 1,
+"n": "Blaster Turret"
+},
+"KOTORTURRET_CRYO": {
+"ct": 1,
+"n": "Cryo Turret"
+},
+"KOTORTURRET_FLAME": {
+"ct": 1,
+"n": "Flame Turret"
+},
+"KOTORTURRET_ION": {
+"ct": 1,
+"n": "Ion Turret"
+},
+"KOTORTURRET_SONIC": {
+"ct": 1,
+"n": "Sonic Turret"
+},
+"KRAYTDRAGON": {
+"ct": 1,
+"n": "Krayt Dragon"
 },
 "KRRSANTAN": {
 "ct": 1,
@@ -898,6 +1774,10 @@
 "KUIIL": {
 "ct": 1,
 "n": "Kuiil"
+},
+"KXDROID": {
+"ct": 1,
+"n": "KX-series Security Droid"
 },
 "KXSECURITYDROID": {
 "ct": 1,
@@ -915,9 +1795,33 @@
 "ct": 1,
 "n": "Kylo Ren (Unmasked)"
 },
+"KYLOREN_FORCEDUEL": {
+"ct": 1,
+"n": "Kylo Ren (Force Duel)"
+},
+"KYLOREN_KEFBIR": {
+"ct": 1,
+"n": "Kylo Ren (Kef Bir)"
+},
 "L3_37": {
 "ct": 1,
 "n": "L3-37"
+},
+"LATTSRAZZI": {
+"ct": 1,
+"n": "Latts Razzi"
+},
+"LEIAJEDITRAINING": {
+"ct": 1,
+"n": "Leia (Jedi Training)"
+},
+"LIEUTENANTCOWELL": {
+"ct": 1,
+"n": "Lieutenant Cowell"
+},
+"LIGHTSABER": {
+"ct": 1,
+"n": "Lightsaber"
 },
 "LOBOT": {
 "ct": 1,
@@ -931,9 +1835,85 @@
 "ct": 1,
 "n": "Lord Vader"
 },
+"LORE_AJUNTAPALLSPIRIT": {
+"ct": 1,
+"n": "Ajunta Pall"
+},
+"LORE_ASSAULTDROIDMK1": {
+"ct": 1,
+"n": "Assault Droid Mk I"
+},
+"LORE_ASSAULTDROIDMK4": {
+"ct": 1,
+"n": "Assault Droid Mk IV"
+},
+"LORE_BENDAKSTARKILLER": {
+"ct": 1,
+"n": "Bendak Starkiller"
+},
+"LORE_CALONORD": {
+"ct": 1,
+"n": "Calo Nord"
+},
+"LORE_CANDEROUS": {
+"ct": 1,
+"n": "Canderous Ordo"
+},
+"LORE_CARTH": {
+"ct": 1,
+"n": "Carth Onasi"
+},
+"LORE_FALLENBASTILA": {
+"ct": 1,
+"n": "Bastila Shan"
+},
+"LORE_FALLENBASTILA02": {
+"ct": 1,
+"n": "Bastila Shan (Fallen)"
+},
+"LORE_HK47": {
+"ct": 1,
+"n": "HK-47"
+},
+"LORE_JOLEE": {
+"ct": 1,
+"n": "Jolee"
+},
+"LORE_JUHANI": {
+"ct": 1,
+"n": "Juhani"
+},
+"LORE_JUHANI02": {
+"ct": 1,
+"n": "Juhani"
+},
+"LORE_KOTORTURRET": {
+"ct": 1,
+"n": "Turret"
+},
+"LORE_SITHCOMMANDO": {
+"ct": 1,
+"n": "Sith Commando"
+},
+"LORE_SITHSOLDIER": {
+"ct": 1,
+"n": "Sith Soldier"
+},
+"LUCE": {
+"ct": 1,
+"n": "Luce"
+},
 "LUKESKYWALKER": {
 "ct": 1,
-"n": "Luke Skywalker (Farmboy)"
+"n": "Luke Skywalker"
+},
+"LUKESTARKILLER": {
+"ct": 1,
+"n": "Starkiller (Luke Concept)"
+},
+"LUKE_BESPIN": {
+"ct": 1,
+"n": "Bespin Luke"
 },
 "LUMINARAUNDULI": {
 "ct": 1,
@@ -962,6 +1942,10 @@
 "MANDALORBOKATAN": {
 "ct": 1,
 "n": "Bo-Katan (Mand'alor)"
+},
+"MANDALORIAN_JOURNEY_ATST": {
+"ct": 1,
+"n": "AT-ST Raider"
 },
 "MARAJADE": {
 "ct": 1,
@@ -995,9 +1979,29 @@
 "ct": 1,
 "n": "Maul"
 },
+"MAZKANATA": {
+"ct": 1,
+"n": "Maz Kanata"
+},
+"MERCENARYCOMMANDER": {
+"ct": 1,
+"n": "Mercenary Commander"
+},
+"MERCENARYLIEUTENANT": {
+"ct": 1,
+"n": "Mercenary Lieutenant"
+},
+"MERCENARYRAIDER": {
+"ct": 1,
+"n": "Mercenary Raider"
+},
 "MERRIN": {
 "ct": 1,
 "n": "Merrin"
+},
+"MFALCON": {
+"ct": 1,
+"n": "[i]Millennium Falcon[/i]"
 },
 "MG100STARFORTRESSSF17": {
 "ct": 2,
@@ -1009,7 +2013,7 @@
 },
 "MILLENNIUMFALCONEP7": {
 "ct": 2,
-"n": "Rey's Millennium Falcon"
+"n": "Millennium Falcon (Ep VII)"
 },
 "MILLENNIUMFALCONPRISTINE": {
 "ct": 2,
@@ -1039,6 +2043,30 @@
 "ct": 1,
 "n": "Mother Talzin"
 },
+"MUDHORN_PVE": {
+"ct": 1,
+"n": "Mudhorn"
+},
+"NAALETH": {
+"ct": 1,
+"n": "Naa'leth"
+},
+"NABOOROYALN1STARFIGHTER": {
+"ct": 1,
+"n": "Naboo Royal N-1 Starfighter"
+},
+"NABOOSECURITY": {
+"ct": 1,
+"n": "Naboo Security Guard"
+},
+"NABOOSECURITYOFFICER": {
+"ct": 1,
+"n": "Naboo Security Officer"
+},
+"NEXU": {
+"ct": 1,
+"n": "Nexu"
+},
 "NIGHTSISTERACOLYTE": {
 "ct": 1,
 "n": "Nightsister Acolyte"
@@ -1059,6 +2087,22 @@
 "ct": 1,
 "n": "Night Trooper"
 },
+"NIKSANT": {
+"ct": 1,
+"n": "Endor Rebel Commando"
+},
+"NIKTOBRUISER_PVE": {
+"ct": 1,
+"n": "Nikto Bruiser"
+},
+"NIKTOHEAVYGUNNER_PVE": {
+"ct": 1,
+"n": "Nikto Heavy Gunner"
+},
+"NIKTOTHUG_PVE": {
+"ct": 1,
+"n": "Nikto Thug"
+},
 "NINTHSISTER": {
 "ct": 1,
 "n": "Ninth Sister"
@@ -1066,6 +2110,58 @@
 "NUTEGUNRAY": {
 "ct": 1,
 "n": "Nute Gunray"
+},
+"OBJECT_ALTAR": {
+"ct": 1,
+"n": "Spirit Altar"
+},
+"OBJECT_CAPTIVE_JEDI": {
+"ct": 1,
+"n": "Captive Jedi"
+},
+"OBJECT_CRATE": {
+"ct": 1,
+"n": "Supply Crate"
+},
+"OBJECT_FLAME": {
+"ct": 1,
+"n": "Spirit Flame"
+},
+"OBJECT_IMP_EXPLOSIVES_CRATE": {
+"ct": 1,
+"n": "Imperial Explosives Crate"
+},
+"OBJECT_IMP_SUPPLY_CRATE": {
+"ct": 1,
+"n": "Imperial Supply Crate"
+},
+"OBJECT_IMP_WEAPONS_CRATE": {
+"ct": 1,
+"n": "Imperial Weapons Crate"
+},
+"OBJECT_JEDI_CAGE": {
+"ct": 1,
+"n": "Stasis Field"
+},
+"OBJECT_PROP_CONDUIT": {
+"ct": 1,
+"n": "Conduit"
+},
+"OBJECT_PROP_CRATE": {
+"ct": 1,
+"n": "Crate"
+},
+"OBJECT_PROP_WEAPONSCACHE": {
+"ct": 1,
+"n": "Weapons Cache"
+},
+"OBJECT_TIEFIMP": {
+"ct": 1,
+"n": "Parked TIE Fighter"
+},
+"OFFENSE": {
+"ct": 1,
+"n": "OFFENSE"
 },
 "OLDBENKENOBI": {
 "ct": 1,
@@ -1075,6 +2171,18 @@
 "ct": 1,
 "n": "Omega (Fugitive)"
 },
+"OOMCOMMANDBATTLEDROID": {
+"ct": 1,
+"n": "OOM Command Battle Droid"
+},
+"OOMPILOTBATTLEDROID": {
+"ct": 1,
+"n": "OOM Pilot Battle Droid"
+},
+"OOMSECURITYBATTLEDROID": {
+"ct": 1,
+"n": "OOM Battle Droid"
+},
 "OPERATIVE": {
 "ct": 1,
 "n": "CX-2"
@@ -1083,17 +2191,37 @@
 "ct": 2,
 "n": "Outrider"
 },
+"P38FIGHTER": {
+"ct": 1,
+"n": "P-38 Fighter"
+},
+"PADAWANANAKIN": {
+"ct": 1,
+"n": "Padawan Anakin"
+},
 "PADAWANOBIWAN": {
 "ct": 1,
 "n": "Padawan Obi-Wan"
 },
+"PADAWANOBIWANECHOES": {
+"ct": 1,
+"n": "Fractured Echo of Passion"
+},
 "PADAWANSABINE": {
+"ct": 1,
+"n": "Padawan Sabine Wren"
+},
+"PADAWANSABINE_EC_BAYLANSKOLL": {
 "ct": 1,
 "n": "Padawan Sabine Wren"
 },
 "PADMEAMIDALA": {
 "ct": 1,
 "n": "Padm\u00e9 Amidala"
+},
+"PADME_GEONOSIS": {
+"ct": 1,
+"n": "Geonosis Padm\u00e9"
 },
 "PAO": {
 "ct": 1,
@@ -1102,6 +2230,10 @@
 "PAPLOO": {
 "ct": 1,
 "n": "Paploo"
+},
+"PARTISANFIGHTER": {
+"ct": 1,
+"n": "Partisan Fighter"
 },
 "PAZVIZSLA": {
 "ct": 1,
@@ -1115,6 +2247,34 @@
 "ct": 1,
 "n": "Captain Phasma"
 },
+"PIRATEATST": {
+"ct": 1,
+"n": "Pirate AT-ST"
+},
+"PIRATEBRUISER": {
+"ct": 1,
+"n": "Pirate Bruiser"
+},
+"PIRATEENFORCER": {
+"ct": 1,
+"n": "Pirate Enforcer"
+},
+"PIRATEENFORCER_TWITCH": {
+"ct": 1,
+"n": "Twitch"
+},
+"PIRATELEADER": {
+"ct": 1,
+"n": "Pirate Leader"
+},
+"PIRATESABOTEUR": {
+"ct": 1,
+"n": "Pirate Saboteur"
+},
+"PIRATESPY": {
+"ct": 1,
+"n": "Pirate Spy"
+},
 "PLOKOON": {
 "ct": 1,
 "n": "Plo Koon"
@@ -1127,6 +2287,18 @@
 "ct": 1,
 "n": "Poggle the Lesser"
 },
+"PONDOBABA": {
+"ct": 1,
+"n": "Pondo Baba"
+},
+"PONDS": {
+"ct": 1,
+"n": "CT-411 \"Ponds\""
+},
+"POTENCY": {
+"ct": 1,
+"n": "POTENCY"
+},
 "PRINCESSKNEESAA": {
 "ct": 1,
 "n": "Princess Kneesaa"
@@ -1135,9 +2307,41 @@
 "ct": 1,
 "n": "Princess Leia"
 },
+"PROMOBOTCUNNING_TWOSTAR": {
+"ct": 1,
+"n": "T-II Red Promotion Droid"
+},
+"PROMOBOTFOCUS_TWOSTAR": {
+"ct": 1,
+"n": "T-II Yellow Promotion Droid"
+},
+"PROMOBOTMIGHT_TWOSTAR": {
+"ct": 1,
+"n": "T-II Blue Promotion Droid"
+},
+"PROMOBOTTOUGH_TWOSTAR": {
+"ct": 1,
+"n": "T-II Green Promotion Droid"
+},
+"PROMOBOTWISDOM_TWOSTAR": {
+"ct": 1,
+"n": "T-III Purple Promotion Droid"
+},
 "PUNISHINGONE": {
 "ct": 2,
 "n": "Punishing One"
+},
+"PURGETROOPER": {
+"ct": 1,
+"n": "Purge Trooper"
+},
+"PYKESARISACLASSGUNSHIP": {
+"ct": 1,
+"n": "Pyke Sarisa-Class Gunship"
+},
+"PYKESENTINEL": {
+"ct": 1,
+"n": "Pyke Sentinel"
 },
 "QIRA": {
 "ct": 1,
@@ -1147,6 +2351,10 @@
 "ct": 1,
 "n": "Queen Amidala"
 },
+"QUEENAMIHANDMAIDENDECOY": {
+"ct": 1,
+"n": "Handmaiden Decoy"
+},
 "QUIGGOLD": {
 "ct": 1,
 "n": "Quiggold"
@@ -1154,6 +2362,10 @@
 "QUIGONJINN": {
 "ct": 1,
 "n": "Qui-Gon Jinn"
+},
+"R2D2": {
+"ct": 1,
+"n": "R2-D2"
 },
 "R2D2_LEGENDARY": {
 "ct": 1,
@@ -1163,9 +2375,33 @@
 "ct": 1,
 "n": "R5-D4"
 },
+"R5D56": {
+"ct": 1,
+"n": "R5-D56"
+},
 "RACCOON": {
 "ct": 1,
 "n": "Rotta the Hutt"
+},
+"RAIDER": {
+"ct": 1,
+"n": "Raider"
+},
+"RAIDERELITE": {
+"ct": 1,
+"n": "Raider Elite"
+},
+"RAIDERMARSHALL": {
+"ct": 1,
+"n": "Raider Marshal"
+},
+"RAIDERRALLYMASTER": {
+"ct": 1,
+"n": "Raider Rally Master"
+},
+"RANCOR": {
+"ct": 1,
+"n": "Rancor"
 },
 "RANGERZEB": {
 "ct": 1,
@@ -1183,9 +2419,53 @@
 "ct": 2,
 "n": "Razor Crest"
 },
+"REBELMERCSPY": {
+"ct": 1,
+"n": "Rebel Merc Spy"
+},
+"REBELOFFICER": {
+"ct": 1,
+"n": "Rebel Officer"
+},
+"REBELPILOT": {
+"ct": 1,
+"n": "Rebel Pilot"
+},
+"REBELPILOT_DISGUISED": {
+"ct": 1,
+"n": "Rebel Pilot (Disguised)"
+},
+"REBELSOLDIER": {
+"ct": 1,
+"n": "Rebel Soldier"
+},
+"REBELTROOPER": {
+"ct": 1,
+"n": "Rebel Trooper"
+},
+"REEK": {
+"ct": 1,
+"n": "Reek"
+},
 "REMNANTSNOWCOMMANDER": {
 "ct": 1,
 "n": "Snowtrooper Commander"
+},
+"REMNANT_STORMTROOPER": {
+"ct": 1,
+"n": "Remnant Stormtrooper"
+},
+"REMNANT_STORMTROOPER_COMMANDER": {
+"ct": 1,
+"n": "Remnant Stormtrooper Commander"
+},
+"REMNANT_STORMTROOPER_SCOUT": {
+"ct": 1,
+"n": "Recon Remnant Stormtrooper"
+},
+"REPUBLICMERCENFORCER": {
+"ct": 1,
+"n": "Republic Merc Enforcer"
 },
 "RESISTANCEPILOT": {
 "ct": 1,
@@ -1195,13 +2475,37 @@
 "ct": 1,
 "n": "Resistance Trooper"
 },
+"REVAN": {
+"ct": 1,
+"n": "Revan"
+},
+"REX": {
+"ct": 1,
+"n": "CT-7567 \"Rex\""
+},
 "REY": {
 "ct": 1,
-"n": "Rey (Scavenger)"
+"n": "Rey"
+},
+"REYEXEGOL": {
+"ct": 1,
+"n": "Rey"
 },
 "REYJEDITRAINING": {
 "ct": 1,
 "n": "Rey (Jedi Training)"
+},
+"REYLIGHTSABER": {
+"ct": 1,
+"n": "Rey (Starkiller Base)"
+},
+"REY_FORCEDUEL": {
+"ct": 1,
+"n": "Rey (Force Duel)"
+},
+"REY_KEFBIR": {
+"ct": 1,
+"n": "Rey (Kef Bir)"
 },
 "ROGUEONESHIP": {
 "ct": 2,
@@ -1215,13 +2519,49 @@
 "ct": 1,
 "n": "Royal Guard"
 },
+"ROYALGUARDCAPTAIN": {
+"ct": 1,
+"n": "Royal Guard Captain"
+},
+"SABINEWREN": {
+"ct": 1,
+"n": "Sabine Wren"
+},
 "SABINEWRENS3": {
 "ct": 1,
 "n": "Sabine Wren"
 },
+"SABINEWREN_POSSESSED": {
+"ct": 1,
+"n": "Sabine Wren (Possessed)"
+},
+"SAESEETIIN": {
+"ct": 1,
+"n": "Saesee Tiin"
+},
+"SALVAGED_DROID": {
+"ct": 1,
+"n": "Salvaged Droid"
+},
 "SANASTARROS": {
 "ct": 1,
 "n": "Sana Starros"
+},
+"SANDTROOPER": {
+"ct": 1,
+"n": "Sandtrooper"
+},
+"SANDTROOPERCAPTAIN": {
+"ct": 1,
+"n": "Sandtrooper Captain"
+},
+"SANDTROOPERCOMMANDER": {
+"ct": 1,
+"n": "Sandtrooper Commander"
+},
+"SANDTROOPERSCOUT": {
+"ct": 1,
+"n": "Sandtrooper Scout"
 },
 "SATELESHAN": {
 "ct": 1,
@@ -1243,6 +2583,34 @@
 "ct": 1,
 "n": "RC-1262 \"Scorch\""
 },
+"SCOUTTROOPER": {
+"ct": 1,
+"n": "Scout Trooper"
+},
+"SCOUTTROOPERSPOTTER": {
+"ct": 1,
+"n": "Scout Trooper (Spotter)"
+},
+"SCOUTTROOPER_AP_1982": {
+"ct": 1,
+"n": "Scout Trooper (AP-1982)"
+},
+"SCOUTTROOPER_COMMANDER": {
+"ct": 1,
+"n": "Scout Trooper Commander"
+},
+"SCOUTTROOPER_JS_1975": {
+"ct": 1,
+"n": "Scout Trooper (JS-1975)"
+},
+"SCOUTTROOPER_RECRUIT": {
+"ct": 1,
+"n": "Scout Trooper Recruit"
+},
+"SCOUTTROOPER_SHADOW": {
+"ct": 1,
+"n": "Shadow Scout Trooper"
+},
 "SCOUTTROOPER_V3": {
 "ct": 1,
 "n": "Scout Trooper"
@@ -1255,6 +2623,10 @@
 "ct": 1,
 "n": "Second Sister"
 },
+"SEPERATISTMERCSPY": {
+"ct": 1,
+"n": "Separatist Merc Spy"
+},
 "SEVENTHSISTER": {
 "ct": 1,
 "n": "Seventh Sister"
@@ -1262,6 +2634,34 @@
 "SHAAKTI": {
 "ct": 1,
 "n": "Shaak Ti"
+},
+"SHAHANALAMA": {
+"ct": 1,
+"n": "Shahan Alama"
+},
+"SHIELDDROID_MK1": {
+"ct": 1,
+"n": "Shield Generator Droid MK1"
+},
+"SHIELDDROID_MK2": {
+"ct": 1,
+"n": "Shield Generator Droid MK2"
+},
+"SHIELDDROID_MK3": {
+"ct": 1,
+"n": "Shield Generator Droid MK3"
+},
+"SHIELDDROID_MK4": {
+"ct": 1,
+"n": "Shield Generator Droid MK4"
+},
+"SHIELDDROID_MK5": {
+"ct": 1,
+"n": "Shield Generator Droid MK5"
+},
+"SHIELDGENERATORGUNGAN": {
+"ct": 1,
+"n": "Shield Generator"
 },
 "SHINHATI": {
 "ct": 1,
@@ -1279,6 +2679,10 @@
 "ct": 2,
 "n": "B-28 Extinction-class Bomber"
 },
+"SITHCOMMANDO": {
+"ct": 1,
+"n": "Sith Commando"
+},
 "SITHFIGHTER": {
 "ct": 2,
 "n": "Sith Fighter"
@@ -1291,9 +2695,25 @@
 "ct": 1,
 "n": "Sith Marauder"
 },
+"SITHMARAUDER_SITHRAID": {
+"ct": 1,
+"n": "Sith Marauder"
+},
 "SITHPALPATINE": {
 "ct": 1,
 "n": "Sith Eternal Emperor"
+},
+"SITHPALPATINEFP": {
+"ct": 1,
+"n": "Sith Eternal Emperor (Restored)"
+},
+"SITHPLUNDERER": {
+"ct": 1,
+"n": "Sith Plunderer"
+},
+"SITHSOLDIER": {
+"ct": 1,
+"n": "Sith Soldier"
 },
 "SITHSUPREMACYCLASS": {
 "ct": 2,
@@ -1307,6 +2727,10 @@
 "ct": 2,
 "n": "Slave I"
 },
+"SM33": {
+"ct": 1,
+"n": "SM-33"
+},
 "SMUGGLERCHEWBACCA": {
 "ct": 1,
 "n": "Veteran Smuggler Chewbacca"
@@ -1315,9 +2739,41 @@
 "ct": 1,
 "n": "Veteran Smuggler Han Solo"
 },
+"SNIPERDROID": {
+"ct": 1,
+"n": "Sniper Droid"
+},
 "SNOWTROOPER": {
 "ct": 1,
 "n": "Snowtrooper"
+},
+"SNOWTROOPERCOMMANDER": {
+"ct": 1,
+"n": "Snowtrooper Commander"
+},
+"SNOWTROOPEROPERATIVE": {
+"ct": 1,
+"n": "Snowtrooper Operative"
+},
+"SNOWTROOPEROPS": {
+"ct": 1,
+"n": "Snowtrooper Ops"
+},
+"SNOWTROOPERSCOUT": {
+"ct": 1,
+"n": "Snowtrooper Scout"
+},
+"SOULLESSONE": {
+"ct": 1,
+"n": "Soulless One"
+},
+"SPEED": {
+"ct": 1,
+"n": "SPEED"
+},
+"SS54ASSAULTSHIP": {
+"ct": 1,
+"n": "SS-51 Assault Ship"
 },
 "STAP": {
 "ct": 1,
@@ -1331,6 +2787,14 @@
 "ct": 1,
 "n": "Stormtrooper"
 },
+"STORMTROOPERCOMMANDER": {
+"ct": 1,
+"n": "Stormtrooper Commander"
+},
+"STORMTROOPERCONCEPT": {
+"ct": 1,
+"n": "Stormtrooper (Concept)"
+},
 "STORMTROOPERHAN": {
 "ct": 1,
 "n": "Stormtrooper Han"
@@ -1339,13 +2803,49 @@
 "ct": 1,
 "n": "Stormtrooper Luke"
 },
+"STORMTROOPERSCOUT": {
+"ct": 1,
+"n": "Recon Stormtrooper"
+},
 "STRANGER": {
 "ct": 1,
 "n": "The Stranger"
 },
+"SUGI": {
+"ct": 1,
+"n": "Sugi"
+},
 "SUNFAC": {
 "ct": 1,
 "n": "Sun Fac"
+},
+"SUPPORTDROID": {
+"ct": 1,
+"n": "Support Droid"
+},
+"SUPPORTDROIDBLUE": {
+"ct": 1,
+"n": "Reinforcing Support Droid"
+},
+"SUPPORTDROIDGREEN": {
+"ct": 1,
+"n": "Healing Support Droid"
+},
+"SUPPORTDROIDPURPLE": {
+"ct": 1,
+"n": "Enhancing Support Droid"
+},
+"SUPPORTDROIDRED": {
+"ct": 1,
+"n": "Combat Support Droid"
+},
+"SUPPORTDROIDYELLOW": {
+"ct": 1,
+"n": "Restraining Support Droid"
+},
+"SUPPORTDROID_MK5": {
+"ct": 1,
+"n": "Support Droid MK5"
 },
 "SUPREMELEADERKYLOREN": {
 "ct": 1,
@@ -1355,21 +2855,85 @@
 "ct": 1,
 "n": "T3-M4"
 },
+"T65XWING": {
+"ct": 1,
+"n": "T-65 X-wing"
+},
 "TALIA": {
 "ct": 1,
 "n": "Talia"
+},
+"TARENTATEK": {
+"ct": 1,
+"n": "Terentatek"
 },
 "TARFFUL": {
 "ct": 1,
 "n": "Tarfful"
 },
+"TARISGANG": {
+"ct": 1,
+"n": "Gang Member"
+},
 "TARONMALICOS": {
 "ct": 1,
 "n": "Taron Malicos"
 },
+"TARONMALICOS_HJ_JEDIKNIGHTCAL": {
+"ct": 1,
+"n": "Taron Malicos"
+},
+"TB3_CHIATA": {
+"ct": 1,
+"n": "Jedi General Chiata"
+},
+"TB3_MARSEPH": {
+"ct": 1,
+"n": "Padawan Marseph"
+},
+"TB_CLONECAPTAIN": {
+"ct": 1,
+"n": "Clone Captain"
+},
+"TB_CLONECOMMANDER": {
+"ct": 1,
+"n": "Clone Commander"
+},
+"TB_CLONELIEUTENANT": {
+"ct": 1,
+"n": "Clone Lieutenant"
+},
+"TB_CLONESERGEANT": {
+"ct": 1,
+"n": "Clone Sergeant"
+},
+"TB_CLONESHARPSHOOTER": {
+"ct": 1,
+"n": "Clone Sharpshooter"
+},
+"TB_CLONETROOPER": {
+"ct": 1,
+"n": "Clone Trooper"
+},
+"TB_FIVES": {
+"ct": 1,
+"n": "CT-27-5555 \"Fives\""
+},
+"TB_JEDIGUARDIAN": {
+"ct": 1,
+"n": "Jedi Guardian"
+},
+"TB_OBIWANKENOBI": {
+"ct": 1,
+"n": "Obi-Wan Kenobi"
+},
 "TEEBO": {
 "ct": 1,
 "n": "Teebo"
+},
+"TENACITY": {
+"ct": 1,
+"n": "TENACITY"
 },
 "THEMANDALORIAN": {
 "ct": 1,
@@ -1379,9 +2943,29 @@
 "ct": 1,
 "n": "The Mandalorian (Beskar Armor)"
 },
+"THERONIN": {
+"ct": 1,
+"n": "The Ronin"
+},
+"THETACLASST2C": {
+"ct": 1,
+"n": "Theta Class T-2C"
+},
+"THIRDSISTER": {
+"ct": 1,
+"n": "Third Sister"
+},
+"THIRDSISTER_SPECIAL": {
+"ct": 1,
+"n": "[99FF33]Third Sister Shards[-]"
+},
 "TIEADVANCED": {
 "ct": 2,
 "n": "TIE Advanced x1"
+},
+"TIEBOMBER": {
+"ct": 1,
+"n": "TIE Bomber"
 },
 "TIEBOMBERIMPERIAL": {
 "ct": 2,
@@ -1423,6 +3007,46 @@
 "ct": 2,
 "n": "TIE Silencer"
 },
+"TIE_ADVANCED": {
+"ct": 1,
+"n": "TIE Advanced x1"
+},
+"TIE_FIGHTER": {
+"ct": 1,
+"n": "TIE Fighter"
+},
+"TIE_INTERCEPTOR": {
+"ct": 1,
+"n": "TIE Interceptor"
+},
+"TIONMEDON": {
+"ct": 1,
+"n": "Tion Medon"
+},
+"TKTROOPER": {
+"ct": 1,
+"n": "TK Stormtrooper"
+},
+"TOMBGUARDIAN": {
+"ct": 1,
+"n": "Eilram Tomb Guardian"
+},
+"TOMBGUARDIAN_COLISEUM": {
+"ct": 1,
+"n": "Zeffo Tomb Guardian"
+},
+"TOMBGUARDIAN_MIKTRULL": {
+"ct": 1,
+"n": "Miktrull Tomb Guardian"
+},
+"TPMJEDIKNIGHTLUKESKYWALKER": {
+"ct": 1,
+"n": "Jedi Knight Luke Skywalker"
+},
+"TRAINING_DROID": {
+"ct": 1,
+"n": "Training Droid"
+},
 "TRENCH": {
 "ct": 1,
 "n": "Admiral Trench"
@@ -1431,9 +3055,25 @@
 "ct": 1,
 "n": "0-0-0"
 },
+"TSERIESTACTICALDROID": {
+"ct": 1,
+"n": "T-Series Tactical Droid"
+},
+"TUSKENBRUTE": {
+"ct": 1,
+"n": "Tusken Brute"
+},
+"TUSKENCHAMPION": {
+"ct": 1,
+"n": "Tusken Champion"
+},
 "TUSKENCHIEFTAIN": {
 "ct": 1,
 "n": "Tusken Chieftain"
+},
+"TUSKENELDER": {
+"ct": 1,
+"n": "Tusken Elder"
 },
 "TUSKENHUNTRESS": {
 "ct": 1,
@@ -1451,6 +3091,10 @@
 "ct": 1,
 "n": "Ugnaught"
 },
+"UGNAUGHT_PIRATE": {
+"ct": 1,
+"n": "Ugnaught Pirate"
+},
 "UMBARANSTARFIGHTER": {
 "ct": 2,
 "n": "Umbaran Starfighter"
@@ -1458,6 +3102,10 @@
 "UNDERCOVERLANDO": {
 "ct": 1,
 "n": "Skiff Guard (Lando Calrissian)"
+},
+"UNSTABLEBOMBDROID": {
+"ct": 1,
+"n": "Unstable Bomb Droid"
 },
 "URORRURRR": {
 "ct": 1,
@@ -1470,6 +3118,14 @@
 "UWINGSCARIF": {
 "ct": 2,
 "n": "Bistan's U-wing"
+},
+"V19TORRENTFIGHTER": {
+"ct": 1,
+"n": "V-19 Torrent Fighter"
+},
+"V19TORRENTSTARFIGHTER": {
+"ct": 1,
+"n": "V-19 Torrent Starfighter"
 },
 "VADER": {
 "ct": 1,
@@ -1487,7 +3143,19 @@
 "ct": 1,
 "n": "Temple Guard"
 },
+"VCX100": {
+"ct": 1,
+"n": "VCX-100"
+},
+"VCX100GHOST": {
+"ct": 1,
+"n": "VCX-100 Ghost"
+},
 "VEERS": {
+"ct": 1,
+"n": "General Veers"
+},
+"VEERS_GENERAL": {
 "ct": 1,
 "n": "General Veers"
 },
@@ -1495,9 +3163,21 @@
 "ct": 1,
 "n": "Vel Sartha"
 },
+"VENATORCLASSDESTROYER": {
+"ct": 1,
+"n": "Venator-class Star Destroyer"
+},
+"VIPER": {
+"ct": 1,
+"n": "Viper"
+},
 "VISASMARR": {
 "ct": 1,
 "n": "Visas Marr"
+},
+"VULTURECLASSDROIDSTARFIGHTER": {
+"ct": 1,
+"n": "Vulture Class Droid Starfighter"
 },
 "VULTUREDROID": {
 "ct": 2,
@@ -1511,9 +3191,17 @@
 "ct": 1,
 "n": "Wat Tambor"
 },
+"WATTAMBOR_SPECIAL": {
+"ct": 1,
+"n": "[99FF33]Wat Tambor Shards[-]"
+},
 "WEDGEANTILLES": {
 "ct": 1,
 "n": "Wedge Antilles"
+},
+"WEEQUAYPIRATE": {
+"ct": 1,
+"n": "Weequay Pirate"
 },
 "WICKET": {
 "ct": 1,
@@ -1525,7 +3213,11 @@
 },
 "XANADUBLOOD": {
 "ct": 2,
-"n": "Xanadu Blood"
+"n": "[i]Xanadu Blood[/i]"
+},
+"XWING": {
+"ct": 1,
+"n": "X-wing"
 },
 "XWINGBLACKONE": {
 "ct": 2,
@@ -1547,6 +3239,10 @@
 "ct": 1,
 "n": "Yoda & Chewie"
 },
+"YODADSV": {
+"ct": 1,
+"n": "Yoda (Dark Side Vision)"
+},
 "YOUNGCHEWBACCA": {
 "ct": 1,
 "n": "Vandor Chewbacca"
@@ -1559,6 +3255,18 @@
 "ct": 1,
 "n": "Young Lando Calrissian"
 },
+"YT2400": {
+"ct": 1,
+"n": "YT-2400"
+},
+"YV666": {
+"ct": 1,
+"n": "YV-666"
+},
+"YWING": {
+"ct": 1,
+"n": "Y-wing"
+},
 "YWINGCLONEWARS": {
 "ct": 2,
 "n": "BTL-B Y-wing Starfighter"
@@ -1567,17 +3275,37 @@
 "ct": 2,
 "n": "Rebel Y-wing"
 },
+"YWING_OTFALCON": {
+"ct": 1,
+"n": "Y-wing Starfighter"
+},
+"Z95HEADHUNTER": {
+"ct": 1,
+"n": "Z-95 Headhunter"
+},
 "ZAALBAR": {
 "ct": 1,
 "n": "Zaalbar"
+},
+"ZAALBAR_BROKEN": {
+"ct": 1,
+"n": "Zaalbar (Broken)"
 },
 "ZAMWESELL": {
 "ct": 1,
 "n": "Zam Wesell"
 },
+"ZEALOTTEMPLEGUARD": {
+"ct": 1,
+"n": "Temple Guard Zealot"
+},
 "ZEBS3": {
 "ct": 1,
 "n": "Garazeb \"Zeb\" Orrelios"
+},
+"ZORIIBLISS": {
+"ct": 1,
+"n": "Zorii Bliss"
 },
 "ZORIIBLISS_V2": {
 "ct": 1,

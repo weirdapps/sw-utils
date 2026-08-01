@@ -87,3 +87,23 @@ def test_load_roster_falls_back_to_file_when_comlink_down(monkeypatch, tmp_path)
     out = sd.load_roster("145357294", fallback_file=str(f))
     assert out["units"][0]["b"] == "X"
     assert out["meta"]["source"] == "file-fallback"
+
+
+def test_parse_localization_splits_on_first_pipe_only():
+    text = "# comment line\nUNIT_TS_NAME|Third Sister\nQUOTE|a|b|c\n\n"
+    m = sd._parse_localization(text)
+    assert m["UNIT_TS_NAME"] == "Third Sister"
+    assert m["QUOTE"] == "a|b|c"          # only the first pipe separates key from value
+    assert all(not k.startswith("#") for k in m)
+
+
+def test_name_map_from_localization_extracts_unit_names():
+    loc = {"UNIT_THIRDSISTER_NAME": "Third Sister",
+           "UNIT_GLHONDO_NAME": "Pirate King Hondo Ohnaka",
+           "SOME_OTHER_KEY": "ignore me",
+           "UNIT_BLANK_NAME": ""}
+    m = sd.name_map_from_localization(loc)
+    assert m["THIRDSISTER"]["n"] == "Third Sister"
+    assert m["GLHONDO"]["n"] == "Pirate King Hondo Ohnaka"
+    assert "BLANK" not in m                   # empty names skipped
+    assert all("UNIT_" not in b for b in m)   # baseId extracted, not the raw key

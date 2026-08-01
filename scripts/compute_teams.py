@@ -44,7 +44,9 @@ META_FILES = {
 r = swgoh_data.load_roster(ALLYCODE, fallback_file=ROSTER_FILE)
 print(f"roster source: {r.get('meta', {}).get('source', '?')}  units={len(r['units'])}")
 units = r["units"]
-name = {u["b"]: u["n"] for u in units}
+# names: full unit map (resolves UNOWNED gap units) overlaid with current roster names
+name = {b: v["n"] for b, v in swgoh_data.load_name_type_map().items()}
+name.update({u["b"]: u["n"] for u in units})
 owned_g13 = {u["b"] for u in units if u["ct"] == 1 and u["g"] >= 13}
 
 
