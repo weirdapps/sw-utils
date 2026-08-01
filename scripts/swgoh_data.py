@@ -33,16 +33,13 @@ DEFAULT_MAP = os.path.join(ROOT, "data", "name_type_map.json")
 DEFAULT_COMLINK_URL = os.environ.get("COMLINK_URL", "http://localhost:3000")
 
 
-def _relic_level(unit):
-    """comlink relic.currentTier is the displayed relic level + 2 (None if unset)."""
+def _relic_tier(unit):
+    """comlink relic.currentTier verbatim (matches the swgoh.gg `rt` field, verified
+    live against the 397-unit roster); None when the unit has no relic object."""
     relic = unit.get("relic")
     if not relic:
         return None
-    tier = relic.get("currentTier")
-    if tier is None:
-        return None
-    level = tier - 2
-    return level if level > 0 else None
+    return relic.get("currentTier")
 
 
 def map_roster(player, name_type_map):
@@ -61,7 +58,7 @@ def map_roster(player, name_type_map):
             "ct": info.get("ct", 1),
             "g": u.get("currentTier"),
             "r": u.get("currentRarity"),
-            "rt": _relic_level(u),
+            "rt": _relic_tier(u),
         })
     return {
         "meta": {

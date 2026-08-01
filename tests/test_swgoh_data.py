@@ -34,10 +34,17 @@ def test_maps_core_identity_and_gear():
     assert u["r"] == 7
 
 
-def test_relic_tier_offset():
-    # comlink relic.currentTier is the displayed relic level + 2
-    player = {"rosterUnit": [_unit("GRANDMASTERLUKE:SEVENSTAR", relic_tier=11)]}
-    assert sd.map_roster(player, NAME_TYPE_MAP)["units"][0]["rt"] == 9
+def test_relic_tier_is_raw_current_tier():
+    # file convention (verified live vs 397-unit roster): rt == comlink
+    # relic.currentTier verbatim, no offset.
+    player = {"rosterUnit": [_unit("GRANDMASTERLUKE:SEVENSTAR", relic_tier=12)]}
+    assert sd.map_roster(player, NAME_TYPE_MAP)["units"][0]["rt"] == 12
+
+
+def test_locked_relic_kept_as_tier_one():
+    # pre-G13 units report relic.currentTier == 1 (locked); the file keeps it.
+    player = {"rosterUnit": [_unit("GRANDMASTERLUKE:SEVENSTAR", tier=7, relic_tier=1)]}
+    assert sd.map_roster(player, NAME_TYPE_MAP)["units"][0]["rt"] == 1
 
 
 def test_ship_has_no_relic_level():
