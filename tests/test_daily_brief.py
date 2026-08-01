@@ -28,3 +28,9 @@ def test_brief_sections_takes_top_n_farm():
     s = daily_brief.brief_sections({}, farm, top_n=1)
     assert len(s["farm"]) == 1
     assert s["farm"][0]["unit"] == "THIRDSISTER"
+
+
+def test_brief_sections_includes_events():
+    evs = [{"name": "GL Event", "date": "20260806", "category": "LEGENDARY EVENT"}]
+    s = daily_brief.brief_sections({}, [], events_list=evs)
+    assert s["events"] == evs

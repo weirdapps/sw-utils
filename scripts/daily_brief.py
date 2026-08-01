@@ -15,6 +15,7 @@ import os
 from datetime import datetime
 
 import advisor
+import events
 
 try:
     from zoneinfo import ZoneInfo
@@ -27,8 +28,8 @@ GAC_RESULT = os.path.join(ROOT, "data", "gac_result.json")
 OUT_DIR = os.path.join(ROOT, "output")
 
 
-def brief_sections(gac_result, farm_ranked, top_n=8):
-    """Pure assembly: fold the board summary + top farm targets into section data."""
+def brief_sections(gac_result, farm_ranked, events_list=None, top_n=8):
+    """Pure assembly: fold board summary + top farm targets + upcoming events."""
     board = {}
     for fmt, d in gac_result.items():
         board[fmt] = {
@@ -36,7 +37,7 @@ def brief_sections(gac_result, farm_ranked, top_n=8):
             "off_count": len(d.get("offense", [])),
             "unique": d.get("unique_units"),
         }
-    return {"board": board, "farm": farm_ranked[:top_n]}
+    return {"board": board, "farm": farm_ranked[:top_n], "events": events_list or []}
 
 
 def _farm_line(e):
@@ -57,6 +58,12 @@ def render_terminal(sections):
     lines.append("Farm priority (unlock the most board):")
     for e in sections["farm"]:
         lines.append(f"  • {_farm_line(e)}")
+    if sections.get("events"):
+        lines.append("")
+        lines.append("Upcoming events:")
+        for e in sections["events"][:10]:
+            star = " ⭐" if events.is_notable(e) else ""
+            lines.append(f"  {events.fmt_date(e.get('date'))}  {e.get('name', '?')}  [{e.get('category', '?')}]{star}")
     return "\n".join(lines)
 
 
@@ -73,6 +80,11 @@ def render_html(sections, date=_TODAY):
         else:
             tag = f"in {e['also_needed_in']} gap-teams, best {e['best_rate']}%"
         farm.append(f"<li><b>{e['unit']}</b> — {tag}</li>")
+    evs = []
+    for e in sections.get("events", []):
+        star = " ⭐" if events.is_notable(e) else ""
+        evs.append(f"<li>{events.fmt_date(e.get('date'))} — {e.get('name', '?')} <i>[{e.get('category', '?')}]</i>{star}</li>")
+    events_html = f"<h2>Upcoming events</h2><ul>{''.join(evs)}</ul>" if evs else ""
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <title>SWGOH daily brief {date}</title>
 <style>body{{font-family:-apple-system,Segoe UI,Arial,sans-serif;color:#333;max-width:760px;margin:2rem auto;padding:0 1rem}}
@@ -83,14 +95,20 @@ li{{margin:.25rem 0}}</style></head><body>
 <table><tr><th>format</th><th>defense</th><th>offense</th><th>unique units</th></tr>{''.join(rows)}</table>
 <h2>Farm priority (unlock the most board)</h2>
 <ul>{''.join(farm)}</ul>
-<p style="color:#999;font-size:.85rem">Pending sections: mod-material status (needs live HotUtils session) · event countdowns (A4).</p>
+{events_html}
+<p style="color:#999;font-size:.85rem">Pending: mod-material status (needs live HotUtils session).</p>
 </body></html>"""
 
 
 def main():
     gac = json.load(open(GAC_RESULT))
     farm = advisor.farm_priority(gac)
-    sections = brief_sections(gac, farm)
+    try:
+        evs = events.upcoming_events()
+    except Exception as exc:
+        evs = []
+        print(f"(events unavailable: {exc})")
+    sections = brief_sections(gac, farm, evs)
     print(render_terminal(sections))
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, f"brief_{_TODAY}.html")
