@@ -34,3 +34,9 @@ def test_brief_sections_includes_events():
     evs = [{"name": "GL Event", "date": "20260806", "category": "LEGENDARY EVENT"}]
     s = daily_brief.brief_sections({}, [], events_list=evs)
     assert s["events"] == evs
+
+
+def test_brief_sections_includes_relic():
+    relic = [{"unit": "Ace", "rt": 3, "best_rate": 86, "in_teams": 2}]
+    s = daily_brief.brief_sections({}, [], relic_list=relic)
+    assert s["relic"] == relic

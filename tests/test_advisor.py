@@ -37,3 +37,20 @@ def test_aggregates_across_formats_and_perspectives():
 
 def test_empty_gaps_returns_empty():
     assert advisor.farm_priority(_gac({"5v5": {"def": [], "off": []}})) == []
+
+
+def test_relic_priority_flags_low_relic_board_units_by_importance():
+    gac = {"5v5": {"defense": [{"rate": 86, "units": ["A", "B"]}],
+                   "offense": [{"rate": 50, "units": ["A"]}], "gaps": {}}}
+    roster = {"units": [{"b": "A", "n": "Ace", "rt": 3}, {"b": "B", "n": "Bee", "rt": 7}]}
+    out = advisor.relic_priority(gac, roster, target=7)
+    assert [e["unit"] for e in out] == ["Ace"]   # B already at relic 7 -> excluded
+    assert out[0]["best_rate"] == 86             # ranked by the strongest team it holds
+    assert out[0]["rt"] == 3
+
+
+def test_relic_priority_ignores_units_missing_from_roster():
+    gac = {"3v3": {"defense": [{"rate": 40, "units": ["OWNED", "UNOWNED"]}], "offense": [], "gaps": {}}}
+    roster = {"units": [{"b": "OWNED", "n": "Owned", "rt": 2}]}
+    out = advisor.relic_priority(gac, roster, target=7)
+    assert [e["unit"] for e in out] == ["Owned"]  # UNOWNED has no relic data -> skipped

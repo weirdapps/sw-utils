@@ -13,8 +13,9 @@ Output: data/gac_result.json  (consumed by generate_hotutils.py)
 Board counts + reserve list are CONFIG below — update when your league/board changes.
 Everything is data-driven; no hardcoded teams.
 """
-import json, re, os, shutil
+import json, os, shutil
 import swgoh_data
+import swgoh_meta
 from datetime import datetime
 try:
     from zoneinfo import ZoneInfo
@@ -50,37 +51,7 @@ name.update({u["b"]: u["n"] for u in units})
 owned_g13 = {u["b"] for u in units if u["ct"] == 1 and u["g"] >= 13}
 
 
-def seen_num(s):
-    s = str(s).replace(",", "").strip()
-    m = re.match(r"([\d.]+)([KM]?)", s)
-    if not m:
-        return 0
-    v = float(m.group(1))
-    return v * 1e6 if m.group(2) == "M" else v * 1e3 if m.group(2) == "K" else v
-
-
-def parse_txt(path):
-    out = []
-    for line in open(path):
-        line = line.strip()
-        if not line or line.startswith("ROWS="):
-            continue
-        rate, seen, ban, csv = line.split("|")
-        out.append({"rate": int(rate.replace("%", "")), "seen": seen, "seenN": seen_num(seen),
-                    "ban": float(ban), "units": csv.split(",")})
-    return out
-
-
-def parse_json_def(path):
-    d = json.load(open(path))
-    return [{"rate": int(x["hold"].replace("%", "")), "seen": x["seen"], "seenN": seen_num(x["seen"]),
-             "ban": float(x["banners"]), "units": x["units"]} for x in d["rows"]]
-
-
-meta = {}
-for key, fn in META_FILES.items():
-    p = os.path.join(META, fn)
-    meta[key] = parse_json_def(p) if fn.endswith(".json") else parse_txt(p)
+meta = swgoh_meta.load_meta(META_FILES, META)
 
 
 def fieldable(sq):

@@ -48,6 +48,32 @@ def farm_priority(gac_result):
     return sorted(agg.values(), key=_sort_key)
 
 
+def relic_priority(gac_result, roster, target=9):
+    """Rank your FIELDED board units that sit below a relic target, by the strongest
+    team they hold. Board units are already G13 (board rule), so relic is the next
+    lever — reinforce your highest-value walls/attackers first. Default target 9 is
+    the practical floor for a strong (Kyber) account; laggards at relic 7-8 surface.
+
+    Returns [{unit, rt, best_rate, in_teams}] sorted best-first.
+    """
+    rt_by_b = {u["b"]: u.get("rt") for u in roster.get("units", [])}
+    name_by_b = {u["b"]: u.get("n", u["b"]) for u in roster.get("units", [])}
+    agg = {}
+    for _fmt, d in gac_result.items():
+        for persp in ("defense", "offense"):
+            for team in d.get(persp, []):
+                rate = team.get("rate", 0)
+                for b in team.get("units", []):
+                    rt = rt_by_b.get(b)
+                    if rt is None or rt >= target:  # unowned or already at target
+                        continue
+                    e = agg.setdefault(b, {"unit": name_by_b.get(b, b), "rt": rt,
+                                           "best_rate": 0, "in_teams": 0})
+                    e["best_rate"] = max(e["best_rate"], rate)
+                    e["in_teams"] += 1
+    return sorted(agg.values(), key=lambda x: (-x["best_rate"], x["rt"]))
+
+
 def load_gac_result(path=GAC_RESULT):
     with open(path) as f:
         return json.load(f)

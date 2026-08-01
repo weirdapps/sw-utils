@@ -10,12 +10,14 @@ and event countdowns (A4). Kept out of v1 so the brief runs with zero secrets.
 
 Usage:  python3 scripts/daily_brief.py
 """
+import glob
 import json
 import os
 from datetime import datetime
 
 import advisor
 import events
+import swgoh_data
 
 try:
     from zoneinfo import ZoneInfo
@@ -28,8 +30,8 @@ GAC_RESULT = os.path.join(ROOT, "data", "gac_result.json")
 OUT_DIR = os.path.join(ROOT, "output")
 
 
-def brief_sections(gac_result, farm_ranked, events_list=None, top_n=8):
-    """Pure assembly: fold board summary + top farm targets + upcoming events."""
+def brief_sections(gac_result, farm_ranked, events_list=None, relic_list=None, top_n=8):
+    """Pure assembly: fold board summary + farm targets + events + relic priority."""
     board = {}
     for fmt, d in gac_result.items():
         board[fmt] = {
@@ -37,7 +39,8 @@ def brief_sections(gac_result, farm_ranked, events_list=None, top_n=8):
             "off_count": len(d.get("offense", [])),
             "unique": d.get("unique_units"),
         }
-    return {"board": board, "farm": farm_ranked[:top_n], "events": events_list or []}
+    return {"board": board, "farm": farm_ranked[:top_n],
+            "events": events_list or [], "relic": relic_list or []}
 
 
 def _farm_line(e):
@@ -64,6 +67,11 @@ def render_terminal(sections):
         for e in sections["events"][:10]:
             star = " ⭐" if events.is_notable(e) else ""
             lines.append(f"  {events.fmt_date(e.get('date'))}  {e.get('name', '?')}  [{e.get('category', '?')}]{star}")
+    if sections.get("relic"):
+        lines.append("")
+        lines.append("Relic priority (reinforce your best board units):")
+        for e in sections["relic"][:8]:
+            lines.append(f"  {e['unit']} (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams")
     return "\n".join(lines)
 
 
@@ -85,6 +93,10 @@ def render_html(sections, date=_TODAY):
         star = " ⭐" if events.is_notable(e) else ""
         evs.append(f"<li>{events.fmt_date(e.get('date'))} — {e.get('name', '?')} <i>[{e.get('category', '?')}]</i>{star}</li>")
     events_html = f"<h2>Upcoming events</h2><ul>{''.join(evs)}</ul>" if evs else ""
+    relic = []
+    for e in sections.get("relic", []):
+        relic.append(f"<li><b>{e['unit']}</b> (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams</li>")
+    relic_html = f"<h2>Relic priority</h2><ul>{''.join(relic)}</ul>" if relic else ""
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <title>SWGOH daily brief {date}</title>
 <style>body{{font-family:-apple-system,Segoe UI,Arial,sans-serif;color:#333;max-width:760px;margin:2rem auto;padding:0 1rem}}
@@ -95,6 +107,7 @@ li{{margin:.25rem 0}}</style></head><body>
 <table><tr><th>format</th><th>defense</th><th>offense</th><th>unique units</th></tr>{''.join(rows)}</table>
 <h2>Farm priority (unlock the most board)</h2>
 <ul>{''.join(farm)}</ul>
+{relic_html}
 {events_html}
 <p style="color:#999;font-size:.85rem">Pending: mod-material status (needs live HotUtils session).</p>
 </body></html>"""
@@ -108,7 +121,14 @@ def main():
     except Exception as exc:
         evs = []
         print(f"(events unavailable: {exc})")
-    sections = brief_sections(gac, farm, evs)
+    try:
+        rosters = sorted(glob.glob(os.path.join(ROOT, "data", "roster", "*.json")))
+        roster = swgoh_data.load_roster(fallback_file=rosters[-1] if rosters else None)
+        relic = advisor.relic_priority(gac, roster)
+    except Exception as exc:
+        relic = []
+        print(f"(relic priority unavailable: {exc})")
+    sections = brief_sections(gac, farm, evs, relic)
     print(render_terminal(sections))
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, f"brief_{_TODAY}.html")

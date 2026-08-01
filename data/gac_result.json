@@ -336,23 +336,23 @@
    "def": [
     {
      "rate": 34,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
      "rate": 21,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
      "rate": 19,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
+      "Pirate King Hondo Ohnaka",
       "Brutus",
       "Captain Silvo",
       "Vane"
@@ -360,20 +360,20 @@
     },
     {
      "rate": 17,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
+      "Pirate King Hondo Ohnaka",
       "Brutus",
       "Captain Silvo",
-      "SM33",
+      "SM-33",
       "Vane"
      ]
     },
     {
      "rate": 15,
-     "leader": "MAZKANATA",
+     "leader": "Maz Kanata",
      "missing": [
-      "MAZKANATA",
+      "Maz Kanata",
       "Captain Ithano",
       "Kix",
       "Quiggold"
@@ -381,17 +381,17 @@
     },
     {
      "rate": 13,
-     "leader": "JEDIMASTERMACEWINDU",
+     "leader": "Jedi Master Mace Windu",
      "missing": [
-      "JEDIMASTERMACEWINDU",
+      "Jedi Master Mace Windu",
       "Jocasta Nu"
      ]
     },
     {
      "rate": 7,
-     "leader": "JEDIMASTERMACEWINDU",
+     "leader": "Jedi Master Mace Windu",
      "missing": [
-      "JEDIMASTERMACEWINDU",
+      "Jedi Master Mace Windu",
       "Jocasta Nu"
      ]
     }
@@ -399,26 +399,26 @@
    "off": [
     {
      "rate": 86,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
      "rate": 82,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
      "rate": 75,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
+      "Pirate King Hondo Ohnaka",
       "Brutus",
       "Captain Silvo",
-      "SM33",
+      "SM-33",
       "Vane"
      ]
     }
@@ -778,17 +778,17 @@
     },
     {
      "rate": 17,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
+      "Pirate King Hondo Ohnaka",
       "Vane"
      ]
     },
     {
      "rate": 13,
-     "leader": "JEDIMASTERMACEWINDU",
+     "leader": "Jedi Master Mace Windu",
      "missing": [
-      "JEDIMASTERMACEWINDU"
+      "Jedi Master Mace Windu"
      ]
     },
     {
@@ -800,34 +800,34 @@
     },
     {
      "rate": 11,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
      "rate": 9,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
-      "SM33",
+      "Pirate King Hondo Ohnaka",
+      "SM-33",
       "Vane"
      ]
     },
     {
      "rate": 9,
-     "leader": "GLHONDO",
+     "leader": "Pirate King Hondo Ohnaka",
      "missing": [
-      "GLHONDO",
+      "Pirate King Hondo Ohnaka",
       "Brutus",
       "Vane"
      ]
     },
     {
      "rate": 9,
-     "leader": "MAZKANATA",
+     "leader": "Maz Kanata",
      "missing": [
-      "MAZKANATA",
+      "Maz Kanata",
       "Captain Ithano",
       "Quiggold"
      ]
@@ -836,9 +836,9 @@
    "off": [
     {
      "rate": 79,
-     "leader": "THIRDSISTER",
+     "leader": "Third Sister",
      "missing": [
-      "THIRDSISTER"
+      "Third Sister"
      ]
     },
     {
