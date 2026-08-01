@@ -85,6 +85,21 @@ def get_roster(allycode, url=None, name_type_map=None):
     return map_roster(player, name_type_map or load_name_type_map())
 
 
+def load_roster(allycode="145357294", fallback_file=None, url=None):
+    """Prefer a fresh comlink pull; fall back to a saved roster file if comlink is
+    unreachable (or its client/lib is unavailable). Lets the pipeline keep running
+    offline while always preferring live data when a comlink server is up."""
+    try:
+        return get_roster(allycode, url=url)
+    except Exception:
+        if not fallback_file:
+            raise
+        with open(fallback_file) as f:
+            data = json.load(f)
+        data.setdefault("meta", {})["source"] = "file-fallback"
+        return data
+
+
 if __name__ == "__main__":
     import sys
     ally = sys.argv[1] if len(sys.argv) > 1 else "145357294"

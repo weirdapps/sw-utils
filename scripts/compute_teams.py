@@ -14,6 +14,7 @@ Board counts + reserve list are CONFIG below — update when your league/board c
 Everything is data-driven; no hardcoded teams.
 """
 import json, re, os, shutil
+import swgoh_data
 from datetime import datetime
 try:
     from zoneinfo import ZoneInfo
@@ -30,6 +31,7 @@ BOARD = {"5v5": {"def": 11, "off": 16}, "3v3": {"def": 15, "off": 18}}
 # Pure attack GLs: reserved for offense before defense claims units (weak defenders anyway).
 RESERVE = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE", "SUPREMELEADERKYLOREN"]
 ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260731.json")
+ALLYCODE = "145357294"  # Astra — live roster via comlink; ROSTER_FILE = offline fallback
 # meta files: (format, perspective) -> filename in data/meta/
 META_FILES = {
     ("5v5", "def"): "meta_5v5_defense_s80.json",   # JSON (rows[].hold/units) from swgoh.gg
@@ -38,8 +40,9 @@ META_FILES = {
     ("3v3", "off"): "meta_off3v3.txt",
 }
 
-# ---- roster ----
-r = json.load(open(ROSTER_FILE))
+# ---- roster (live comlink via swgoh_data; falls back to ROSTER_FILE if comlink is down) ----
+r = swgoh_data.load_roster(ALLYCODE, fallback_file=ROSTER_FILE)
+print(f"roster source: {r.get('meta', {}).get('source', '?')}  units={len(r['units'])}")
 units = r["units"]
 name = {u["b"]: u["n"] for u in units}
 owned_g13 = {u["b"] for u in units if u["ct"] == 1 and u["g"] >= 13}

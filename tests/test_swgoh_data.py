@@ -5,6 +5,8 @@ map_roster() is the pure mapping from a comlink /player response to the
 offline with synthetic comlink units built from the authoritative openapi
 `Unit` schema (definitionId, currentTier, currentRarity, relic.currentTier).
 """
+import json
+
 import swgoh_data as sd
 
 # baseId -> {name, combatType}; combatType 1=character, 2=ship
@@ -68,3 +70,20 @@ def test_meta_carries_name_and_count():
     meta = sd.map_roster(player, NAME_TYPE_MAP)["meta"]
     assert meta["name"] == "Astra"
     assert meta["count"] == 2
+
+
+def test_load_roster_prefers_comlink(monkeypatch):
+    sentinel = {"meta": {"source": "comlink"}, "units": [{"b": "Y"}]}
+    monkeypatch.setattr(sd, "get_roster", lambda *a, **k: sentinel)
+    assert sd.load_roster("145357294", fallback_file="/nonexistent") is sentinel
+
+
+def test_load_roster_falls_back_to_file_when_comlink_down(monkeypatch, tmp_path):
+    def boom(*a, **k):
+        raise ConnectionError("comlink unreachable")
+    monkeypatch.setattr(sd, "get_roster", boom)
+    f = tmp_path / "roster.json"
+    f.write_text(json.dumps({"meta": {}, "units": [{"b": "X", "n": "X", "ct": 1, "g": 13}]}))
+    out = sd.load_roster("145357294", fallback_file=str(f))
+    assert out["units"][0]["b"] == "X"
+    assert out["meta"]["source"] == "file-fallback"
