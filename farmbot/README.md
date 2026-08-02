@@ -42,4 +42,13 @@ Config `nodes` entries: `{ "campaign": <name>, "node": <id>, ["chapter": <n>], "
 
 ## Safety model
 Every tap is gated by a template match (never blind-taps). Hard `max_actions` cap.
-Energy-out on a node is detected and skipped (never refreshes with crystals).
+When energy is too low to sim, MULTI SIM opens a **"Purchase Energy" crystal prompt** — the
+macro detects this (`energy_out` = its CANCEL button), taps **CANCEL** (never PURCHASE), and
+recovers to the hub. It never spends crystals. Verified live: an energy-out run left the crystal
+balance unchanged.
+
+## Status
+Live-validated on BlueStacks Air (Astra, 2026-08-02): full navigation + a real Multi-Sim (11
+battles), the energy-out→CANCEL path (crystals unchanged), and halt-on-unknown all confirmed on
+device. Templates captured for the Cantina 1-A flow; other campaigns/nodes need their
+`campaign_<name>` / `node_<id>` / `chapter_tab_<n>` templates captured the same way.
