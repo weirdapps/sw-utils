@@ -1,57 +1,87 @@
 from collections import namedtuple
-from farmbot.tasks import EnergyDumpTask, Summary
+
+from farmbot.tasks import EnergyDumpTask
 
 M = namedtuple("M", ["cx", "cy", "confidence"])
-NODES = [{"campaign": "cantina", "node": "5-D", "sim": "max"}]
+
+# The templates present on the real happy-path flow for one cantina node "1-A" (no chapter).
+FLOW = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
+        "node_1-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
+NODE = {"campaign": "cantina", "node": "1-A", "sim": "max"}
 
 
-def make_look(present):
-    """Return a `look` that yields a Match for any template name in `present`, else None."""
+def scripted_look(present, sequences=None):
+    """Return a `look(name, timeout)` that yields a Match for names in `present`.
+
+    `sequences` (name -> list[bool]) overrides `present` for that template on a
+    per-call basis (True = present that call), so a test can make e.g. sim_confirm
+    absent for node 1 and present for node 2.
+    """
+    seqs = {k: iter(v) for k, v in (sequences or {}).items()}
+
     def look(name, timeout):
+        if name in seqs:
+            try:
+                return M(10, 20, 0.99) if next(seqs[name]) else None
+            except StopIteration:
+                pass
         return M(10, 20, 0.99) if name in present else None
+
     return look
 
 
-ALL_TPLS = {"home", "campaign_cantina", "node_5-D", "sim_button", "sim_max",
-            "sim_confirm", "rewards", "back"}
-
-
-def test_happy_path_taps_and_counts_one_sim():
+def test_happy_path_seven_taps_one_sim():
     taps = []
-    task = EnergyDumpTask(NODES, make_look(ALL_TPLS), lambda x, y: taps.append((x, y)))
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: taps.append((x, y)))
     s = task.run()
     assert s.stopped_reason == "complete"
     assert s.nodes_attempted == 1
     assert s.sims_done == 1
-    # taps = CAMPAIGN, NODE, SIM, MAX, CONFIRM, REWARDS, BACK = 7 (2 HOME verifies don't tap)
-    assert len(taps) == 7
+    assert s.energy_out_nodes == 0
     assert s.halted is False
+    # taps = OPEN_CAMPAIGNS, SELECT_CAMPAIGN, SELECT_NODE, OPEN_MULTISIM,
+    #        CONFIRM_SIM, REWARDS, RETURN_HOME = 7 (HOME + CAMPAIGNS_MENU verify only)
+    assert len(taps) == 7
+
+
+def test_chapter_adds_one_tap():
+    node = {"campaign": "cantina", "chapter": 1, "node": "1-A", "sim": "max"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(FLOW | {"chapter_tab_1"}),
+                          lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.sims_done == 1
+    assert len(taps) == 8       # + SELECT_CHAPTER
 
 
 def test_unknown_screen_halts():
     halts = []
-    present = ALL_TPLS - {"sim_button"}          # SIM screen never appears, not energy-out
-    task = EnergyDumpTask(NODES, make_look(present), lambda x, y: None,
-                          halt=lambda state: halts.append(state))
+    present = FLOW - {"multi_sim"}       # panel reached but MULTI SIM never appears (not energy-out)
+    task = EnergyDumpTask([NODE], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st))
     s = task.run()
     assert s.halted is True
-    assert s.halt_state == "SIM_BUTTON"
+    assert s.halt_state == "OPEN_MULTISIM"
     assert s.stopped_reason == "halt"
-    assert halts == ["SIM_BUTTON"]
+    assert halts == ["OPEN_MULTISIM"]
 
 
-def test_energy_out_skips_node_without_halting():
-    present = (ALL_TPLS - {"sim_confirm"}) | {"energy_out"}   # confirm absent, energy-out shown
-    task = EnergyDumpTask(NODES, make_look(present), lambda x, y: None)
+def test_energy_out_skips_and_recovers_without_halting():
+    # confirm absent + energy_out shown -> skip; recover via dialog_close + home_button.
+    present = (FLOW - {"sim_confirm"}) | {"energy_out", "dialog_close"}
+    taps = []
+    task = EnergyDumpTask([NODE], scripted_look(present), lambda x, y: taps.append((x, y)))
     s = task.run()
     assert s.halted is False
     assert s.energy_out_nodes == 1
     assert s.sims_done == 0
     assert s.stopped_reason == "complete"
+    # 4 nav taps before confirm + 2 recovery taps (dialog_close, home_button)
+    assert len(taps) == 6
 
 
-def test_kill_switch_stops_before_next_node():
-    task = EnergyDumpTask(NODES, make_look(ALL_TPLS), lambda x, y: None,
+def test_kill_switch_before_first_node():
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: None,
                           should_stop=lambda: True)
     s = task.run()
     assert s.stopped_reason == "killed"
@@ -59,23 +89,33 @@ def test_kill_switch_stops_before_next_node():
 
 
 def test_action_cap_stops_run():
-    task = EnergyDumpTask(NODES, make_look(ALL_TPLS), lambda x, y: None, max_actions=3)
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: None, max_actions=3)
     s = task.run()
     assert s.stopped_reason == "cap"
     assert s.sims_done == 0
 
 
-def test_run_is_reentrant_second_run_matches_first():
-    # max_actions=10 lets one run (7 taps) complete cleanly, but if the action
-    # counter isn't reset it carries over and trips the cap partway through run #2.
-    taps = []
-    task = EnergyDumpTask(NODES, make_look(ALL_TPLS),
-                          lambda x, y: taps.append((x, y)), max_actions=10)
+def test_run_is_reentrant():
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: None)
     s1 = task.run()
-    n1 = len(taps)
     s2 = task.run()
-    n2 = len(taps) - n1
-    assert s1.stopped_reason == "complete" and s1.sims_done == 1 and n1 == 7
-    assert s2 == s1                 # identical Summary — counters not inflated
-    assert s2.stopped_reason == "complete" and s2.sims_done == 1
-    assert n2 == 7                  # second run taps the full node, cap not tripped
+    assert (s1.nodes_attempted, s1.sims_done) == (1, 1)
+    assert (s2.nodes_attempted, s2.sims_done) == (1, 1)
+    assert s2 == s1                 # identical Summary — counters not inflated across runs
+
+
+def test_multi_node_continues_after_energy_out():
+    n1 = {"campaign": "cantina", "node": "1-A", "sim": "max"}
+    n2 = {"campaign": "light", "node": "1-A", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
+               "campaign_light", "node_1-A", "multi_sim", "rewards", "home_button",
+               "dialog_close", "energy_out"}
+    # sim_confirm: absent for node 1 (-> energy-out), present for node 2 (-> sim)
+    look = scripted_look(present, sequences={"sim_confirm": [False, True]})
+    task = EnergyDumpTask([n1, n2], look, lambda x, y: None)
+    s = task.run()
+    assert s.nodes_attempted == 2
+    assert s.energy_out_nodes == 1
+    assert s.sims_done == 1
+    assert s.halted is False
+    assert s.stopped_reason == "complete"

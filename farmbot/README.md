@@ -10,14 +10,29 @@ Never spends crystals; never touches PvP (Arena/GAC/TW).
 4. `.venv/bin/pip install -r farmbot/requirements.txt`
 5. `cp farmbot/config.example.json farmbot/config.json`; set `device_serial` and your 3★ `nodes`.
 
+## Real energy-dump flow (validated live)
+Each node is an independent journey that starts and ends at the hub:
+```
+HOME (verify) -> tap Campaigns -> Campaigns menu (verify) -> tap <campaign> PLAY
+  -> [optional: tap chapter tab] -> tap node icon -> tap MULTI SIM
+  -> SIM dialog (auto-filled to max energy) -> tap green SIM -> rewards -> tap home button
+```
+Multi Sim pre-fills the quantity to the max the current energy allows, so there is no
+"set max" step. Energy-out = the confirm is unavailable while an `energy_out` marker shows;
+that node is skipped (never refreshed with crystals) and the run recovers to the hub.
+
 ## Capture templates (supervised, one-time per game build)
-For each screen the flow needs — `home`, `campaign_<name>`, `node_<id>`, `sim_button`,
-`sim_max`, `sim_confirm`, `rewards`, `back`, `energy_out` — navigate the emulator to that
-screen, then:
+Reusable (shared across all energy types): `home`, `campaigns_entry`, `campaigns_menu`,
+`multi_sim`, `sim_confirm`, `rewards`, `dialog_close`, `home_button`, `energy_out`.
+Per node: `campaign_<name>` (e.g. `campaign_cantina`, `campaign_light`, `campaign_dark`,
+`campaign_fleet`), `node_<id>` (e.g. `node_1-A`), and `chapter_tab_<n>` if the node config
+sets a `chapter`. Navigate the emulator to each screen, then:
 ```
 .venv/bin/python -m farmbot.run --capture
 ```
 Enter the template name and the crop box. Templates land in `farmbot/templates/`.
+
+Config `nodes` entries: `{ "campaign": <name>, "node": <id>, ["chapter": <n>], "sim": "max" }`.
 
 ## Run
 - Dry run (prints the node plan, taps nothing): `.venv/bin/python -m farmbot.run --dry-run`
