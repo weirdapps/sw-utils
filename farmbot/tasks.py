@@ -108,6 +108,17 @@ class EnergyDumpTask:
         self._actions = 0
 
     def _steps_for(self, node):
+        """Dispatch an ordered Step list by the entry's kind (default energy_node)."""
+        kind = node.get("kind", "energy_node")
+        builders = {
+            "energy_node": self._steps_energy_node,
+        }
+        builder = builders.get(kind)
+        if builder is None:
+            raise ValueError(f"unknown routine kind: {kind!r}")
+        return builder(node)
+
+    def _steps_energy_node(self, node):
         """Build the ordered Step list for one node from its compact config entry.
 
         node = {"campaign": <name>, "node": <id>, ["difficulty": "hard"], ["chapter": <n>], "sim": "max"}

@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+import pytest
+
 from farmbot.tasks import EnergyDumpTask
 
 M = namedtuple("M", ["cx", "cy", "confidence"])
@@ -321,3 +323,15 @@ def test_chapter_tab_found_after_swipe():
     assert s.halted is False
     assert s.sims_done == 1
     assert len(swipes) >= 1
+
+
+def test_unknown_kind_raises():
+    task = EnergyDumpTask([{"kind": "bogus"}], scripted_look(set()), lambda x, y: None)
+    with pytest.raises(ValueError):
+        task.run()
+
+
+def test_explicit_energy_node_kind_still_simms():
+    node = {"kind": "energy_node", "campaign": "cantina", "node": "1-A", "sim": "max"}
+    task = EnergyDumpTask([node], scripted_look(FLOW), lambda x, y: None)
+    assert task.run().sims_done == 1
