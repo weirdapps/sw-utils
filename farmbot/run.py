@@ -16,7 +16,7 @@ DEFAULT_CONFIG = os.path.join(ROOT, "config.json")
 TEMPLATE_DIR = os.path.join(ROOT, "templates")
 HALT_DIR = os.path.join(ROOT, "halts")
 STOP_FILE = os.path.join(ROOT, "STOP")
-_REQUIRED = ("device_serial", "caps", "vision", "nodes")
+_REQUIRED = ("device_serial", "caps", "vision")
 
 
 def parse_args(argv=None):
@@ -34,7 +34,14 @@ def load_config(path):
     for key in _REQUIRED:
         if key not in cfg:
             raise ValueError(f"config missing required key: {key}")
+    if "routine" not in cfg and "nodes" not in cfg:
+        raise ValueError("config missing required key: routine (or nodes)")
     return cfg
+
+
+def routine_of(cfg):
+    """The ordered routine entries: prefer the canonical `routine`, fall back to the `nodes` alias."""
+    return cfg.get("routine", cfg.get("nodes")) or []
 
 
 def make_kill_switch(stop_file):
@@ -107,7 +114,7 @@ def main(argv=None):
 
     if args.dry_run:
         print("DRY RUN — nodes:")
-        for n in cfg["nodes"]:
+        for n in routine_of(cfg):
             print(f"  {n}")
         return 0
 
@@ -124,7 +131,7 @@ def main(argv=None):
             print(f"HALT at {state} — saved {path}")
 
     task = EnergyDumpTask(
-        cfg["nodes"], look, adb.tap,
+        routine_of(cfg), look, adb.tap,
         should_stop=make_kill_switch(STOP_FILE),
         halt=halt,
         max_actions=cfg["caps"]["max_actions"],

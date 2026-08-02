@@ -62,3 +62,32 @@ def test_make_swipe_directions():
     sw("right")
     assert calls[0] == (1400, 500)   # "left" reveals later nodes: drag content far->near
     assert calls[1] == (500, 1400)   # "right" reveals earlier nodes: near->far
+
+
+def test_load_config_accepts_routine_key(tmp_path):
+    p = tmp_path / "c.json"
+    p.write_text(json.dumps({
+        "device_serial": "s",
+        "caps": {"max_actions": 10, "action_delay_ms": [1, 2]},
+        "vision": {"match_threshold": 0.9, "step_timeout_s": 5, "energy_out_timeout_s": 1},
+        "routine": [{"kind": "collect", "claim": "login_claim"}],
+    }))
+    cfg = run.load_config(str(p))
+    assert run.routine_of(cfg)[0]["kind"] == "collect"
+
+
+def test_load_config_missing_routine_and_nodes_raises(tmp_path):
+    p = tmp_path / "c.json"
+    p.write_text(json.dumps({
+        "device_serial": "s",
+        "caps": {"max_actions": 10, "action_delay_ms": [1, 2]},
+        "vision": {"match_threshold": 0.9, "step_timeout_s": 5, "energy_out_timeout_s": 1},
+    }))
+    with pytest.raises(ValueError):
+        run.load_config(str(p))
+
+
+def test_routine_of_prefers_routine_over_nodes():
+    assert run.routine_of({"routine": [1], "nodes": [2, 3]}) == [1]
+    assert run.routine_of({"nodes": [2, 3]}) == [2, 3]
+    assert run.routine_of({}) == []
