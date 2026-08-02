@@ -11,3 +11,7 @@ __pycache__/
 .pytest_cache/
 tests/fixtures/
 output/brief_*.html
+# farmbot runtime
+farmbot/halts/
+farmbot/config.json
+farmbot/STOP
