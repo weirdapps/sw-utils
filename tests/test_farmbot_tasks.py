@@ -394,3 +394,30 @@ def test_collect_does_not_tap_when_only_non_free_control_present():
     assert s.collected == 0
     assert s.nothing_to_collect == 1
     assert len(taps) == 1                # only RETURN_HOME
+
+
+def test_challenge_sim_happy_path_disjoint_from_sims_done():
+    node = {"kind": "challenge_sim", "challenge": "challenge_ability_mats"}
+    present = {"home", "challenges_entry", "challenges_menu", "challenge_ability_mats",
+              "multi_sim", "sim_confirm", "rewards", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.challenges_simmed == 1
+    assert s.sims_done == 0            # disjoint from energy sims
+    assert len(taps) == 6             # open, select, multisim, confirm, rewards, home
+
+
+def test_challenge_not_three_starred_skips_without_battle():
+    node = {"kind": "challenge_sim", "challenge": "challenge_ability_mats"}
+    present = {"home", "challenges_entry", "challenges_menu", "challenge_ability_mats",
+              "challenge_locked", "home_button"}          # no multi_sim/sim_confirm
+    taps, halts = [], []
+    task = EnergyDumpTask([node], scripted_look(present),
+                          lambda x, y: taps.append((x, y)), halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is False
+    assert halts == []
+    assert s.skipped_nodes == 1
+    assert s.challenges_simmed == 0

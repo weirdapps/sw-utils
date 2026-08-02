@@ -40,6 +40,11 @@ TPL_HARD_DEPLETED = "hard_depleted"      # a Hard node with its 5 daily attempts
                                          # shows a refresh timer + 💎200 instead of MULTI SIM. This is
                                          # a MARKER only — NEVER tapped, so crystals are never spent.
 
+TPL_CHALLENGES_ENTRY = "challenges_entry"  # the "Challenges" button on the hub
+TPL_CHALLENGES_MENU = "challenges_menu"    # the Challenges menu is open (verify only)
+TPL_CHALLENGE_LOCKED = "challenge_locked"  # a challenge not yet 3-starred: no MULTI SIM. MARKER only
+                                           # (never tapped) so a real battle is never started.
+
 # Popups that can cover the hub (login/era calendars, GoH newsletter). Their close controls are
 # distinctive and safe to tap; a template that isn't captured yet simply never matches (no-op).
 DEFAULT_POPUP_CLOSERS = ("popup_close", "newsletter_close")
@@ -119,6 +124,7 @@ class EnergyDumpTask:
         builders = {
             "energy_node": self._steps_energy_node,
             "collect": self._steps_collect,
+            "challenge_sim": self._steps_challenge_sim,
         }
         builder = builders.get(kind)
         if builder is None:
@@ -188,6 +194,25 @@ class EnergyDumpTask:
         steps.append(Step("COLLECT_REWARDS", TPL_REWARDS, optional=True))
         steps.append(Step("RETURN_HOME", TPL_HOME_BUTTON))
         return steps
+
+    def _steps_challenge_sim(self, node):
+        """A Daily Challenge Multi-Sim on the Challenges screen (not the Campaigns menu). Reuses the
+        sim chrome (multi_sim/sim_confirm/rewards). A challenge not yet 3-starred shows no MULTI SIM;
+        if a challenge_locked marker is present we skip (never battle), else the uncaptured screen
+        safe-halts. Uses mark='challenges_simmed' (not mark_sim) to stay disjoint from energy sims."""
+        return [
+            Step("HOME", TPL_HOME, tap=False),
+            Step("OPEN_CHALLENGES", TPL_CHALLENGES_ENTRY),
+            Step("CHALLENGES_MENU", TPL_CHALLENGES_MENU, tap=False),
+            Step("SELECT_CHALLENGE", node["challenge"], ensure=TPL_MULTI_SIM,
+                 ensure_extra=(TPL_CHALLENGE_LOCKED,), scrollable=True),
+            Step("OPEN_MULTISIM", TPL_MULTI_SIM,
+                 skip_marker=TPL_CHALLENGE_LOCKED, skip_tap=False, skip_counter="skipped_nodes"),
+            Step("CONFIRM_SIM", TPL_SIM_CONFIRM, mark="challenges_simmed",
+                 skip_marker=TPL_ENERGY_OUT, skip_tap=True, skip_counter="energy_out_nodes"),
+            Step("REWARDS", TPL_REWARDS),
+            Step("RETURN_HOME", TPL_HOME_BUTTON),
+        ]
 
     def _tap(self, match, offset=(0, 0)):
         self.tapper(match.cx + offset[0], match.cy + offset[1])
