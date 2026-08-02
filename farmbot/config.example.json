@@ -1,0 +1,9 @@
+{
+  "device_serial": "emulator-5554",
+  "caps": { "max_actions": 400, "action_delay_ms": [700, 1800] },
+  "vision": { "match_threshold": 0.88, "step_timeout_s": 10.0, "energy_out_timeout_s": 2.0 },
+  "nodes": [
+    { "campaign": "cantina", "node": "5-D", "sim": "max" },
+    { "campaign": "dark", "difficulty": "hard", "node": "6-E", "sim": "max" }
+  ]
+}
