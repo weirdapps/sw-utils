@@ -71,6 +71,8 @@ class Step:
     skip_marker: Optional[str] = None   # template absent + this present => skip node (not halt)
     skip_tap: bool = False           # tap skip_marker (e.g. energy_out CANCEL) vs just recover home
     skip_counter: str = "skipped_nodes"  # which Summary counter to bump on a skip
+    mark: Optional[str] = None            # on a successful tap, bump this Summary counter
+    optional_counter: Optional[str] = None  # when an `optional` step is skipped (absent), bump this
 
 
 @dataclass
@@ -79,6 +81,10 @@ class Summary:
     sims_done: int = 0
     energy_out_nodes: int = 0
     hard_depleted_nodes: int = 0
+    collected: int = 0
+    challenges_simmed: int = 0
+    energy_claimed: int = 0
+    nothing_to_collect: int = 0
     skipped_nodes: int = 0
     halted: bool = False
     halt_state: Optional[str] = None
@@ -112,6 +118,7 @@ class EnergyDumpTask:
         kind = node.get("kind", "energy_node")
         builders = {
             "energy_node": self._steps_energy_node,
+            "collect": self._steps_collect,
         }
         builder = builders.get(kind)
         if builder is None:
@@ -163,6 +170,23 @@ class EnergyDumpTask:
             Step("REWARDS", TPL_REWARDS),
             Step("RETURN_HOME", TPL_HOME_BUTTON),
         ]
+        return steps
+
+    def _steps_collect(self, node):
+        """A tap-to-collect daily: HOME -> [nav taps] -> CLAIM (skip if absent = nothing to collect)
+        -> dismiss any reward popup -> RETURN_HOME. Only the FREE claim template is a tap target, so
+        a crystal-cost variant is never pressed (it simply won't match). `count`>1 taps the claim
+        repeatedly (stacked gifts), stopping when absent. `counter` books to a specific Summary
+        field (e.g. energy_claimed); default is `collected`."""
+        steps = [Step("HOME", TPL_HOME, tap=False)]
+        for i, tpl in enumerate(node.get("nav", [])):
+            steps.append(Step(f"NAV_{i}", tpl, scrollable=node.get("scrollable", False)))
+        counter = node.get("counter", "collected")
+        for i in range(node.get("count", 1)):
+            steps.append(Step(f"CLAIM_{i}", node["claim"], optional=True, mark=counter,
+                              optional_counter=("nothing_to_collect" if i == 0 else None)))
+        steps.append(Step("COLLECT_REWARDS", TPL_REWARDS, optional=True))
+        steps.append(Step("RETURN_HOME", TPL_HOME_BUTTON))
         return steps
 
     def _tap(self, match, offset=(0, 0)):
@@ -237,6 +261,8 @@ class EnergyDumpTask:
                 if m is None and step.scrollable:
                     m = self._scroll_find(step.template)   # target may be off-screen; swipe-scan
                 if m is None and step.optional:
+                    if step.optional_counter:
+                        self._bump(s, step.optional_counter)
                     continue   # step not applicable (e.g. already on the wanted difficulty)
                 if m is None:
                     # Expected interruption (energy-out / depleted Hard): marker present => skip node.
@@ -264,6 +290,8 @@ class EnergyDumpTask:
                     self._tap(m, step.tap_offset)
                     if step.mark_sim:
                         s.sims_done += 1
+                    if step.mark:
+                        self._bump(s, step.mark)
                     if step.ensure:
                         # some taps toggle a panel (e.g. tapping an already-selected node
                         # closes its detail panel); re-tap until the expected panel appears.

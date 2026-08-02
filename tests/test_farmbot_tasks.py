@@ -335,3 +335,62 @@ def test_explicit_energy_node_kind_still_simms():
     node = {"kind": "energy_node", "campaign": "cantina", "node": "1-A", "sim": "max"}
     task = EnergyDumpTask([node], scripted_look(FLOW), lambda x, y: None)
     assert task.run().sims_done == 1
+
+
+def test_collect_happy_path():
+    node = {"kind": "collect", "nav": ["inbox_entry"], "claim": "login_claim"}
+    present = {"home", "inbox_entry", "login_claim", "rewards", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.collected == 1
+    assert s.nothing_to_collect == 0
+    assert len(taps) == 4        # nav + claim + reward-dismiss + home
+
+
+def test_collect_nothing_to_collect_when_claim_absent():
+    node = {"kind": "collect", "nav": ["inbox_entry"], "claim": "login_claim"}
+    present = {"home", "inbox_entry", "home_button"}   # no claim, no reward popup
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.collected == 0
+    assert s.nothing_to_collect == 1
+    assert len(taps) == 2        # nav + home only (claim + reward optional-skipped)
+
+
+def test_collect_count_claims_until_absent():
+    node = {"kind": "collect", "nav": [], "claim": "gift_claim", "count": 3}
+    present = {"home", "home_button"}
+    look = scripted_look(present, sequences={"gift_claim": [True, True, False]})
+    taps = []
+    task = EnergyDumpTask([node], look, lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.collected == 2
+    assert s.nothing_to_collect == 0     # first claim present => i==0 did not book "nothing"
+    assert len(taps) == 3                # 2 claims + home
+
+
+def test_collect_free_energy_books_energy_claimed():
+    node = {"kind": "collect", "nav": [], "claim": "energy_free_claim", "counter": "energy_claimed"}
+    present = {"home", "energy_free_claim", "home_button"}
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.energy_claimed == 1
+    assert s.collected == 0
+
+
+def test_collect_does_not_tap_when_only_non_free_control_present():
+    # A paid/"buy" control is present but the FREE claim template is absent -> nothing collected,
+    # nothing tapped except the return-home. Proves paid controls are never tap targets.
+    node = {"kind": "collect", "nav": [], "claim": "store_free_claim"}
+    present = {"home", "store_buy_crystals", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.collected == 0
+    assert s.nothing_to_collect == 1
+    assert len(taps) == 1                # only RETURN_HOME
