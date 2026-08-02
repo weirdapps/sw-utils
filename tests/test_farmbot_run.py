@@ -91,3 +91,17 @@ def test_routine_of_prefers_routine_over_nodes():
     assert run.routine_of({"routine": [1], "nodes": [2, 3]}) == [1]
     assert run.routine_of({"nodes": [2, 3]}) == [2, 3]
     assert run.routine_of({}) == []
+
+
+def test_parse_args_daily_flag():
+    assert run.parse_args(["--daily"]).daily is True
+    assert run.parse_args([]).daily is False
+
+
+def test_format_summary_includes_collector_counts():
+    out = run.format_summary(Summary(collected=3, challenges_simmed=2, energy_claimed=1,
+                                     nothing_to_collect=4, stopped_reason="complete"))
+    assert "collected=3" in out
+    assert "challenges_simmed=2" in out
+    assert "energy_claimed=1" in out
+    assert "nothing_to_collect=4" in out

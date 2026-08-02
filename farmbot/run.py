@@ -23,6 +23,8 @@ def parse_args(argv=None):
     p = argparse.ArgumentParser(description="SWGOH energy-dump macro (PvE only).")
     p.add_argument("--config", default=DEFAULT_CONFIG)
     p.add_argument("--dump", action="store_true", help="run the energy dump (default action)")
+    p.add_argument("--daily", action="store_true",
+                   help="run the full daily routine (all kinds); alias of --dump")
     p.add_argument("--capture", action="store_true", help="capture a template instead of running")
     p.add_argument("--dry-run", action="store_true", help="print the plan, tap nothing")
     return p.parse_args(argv)
@@ -84,9 +86,11 @@ def make_swipe(adb, y=560, near=500, far=1400, ms=400):
 
 def format_summary(summary):
     return (f"nodes_attempted={summary.nodes_attempted} sims_done={summary.sims_done} "
+            f"collected={summary.collected} challenges_simmed={summary.challenges_simmed} "
+            f"energy_claimed={summary.energy_claimed} nothing_to_collect={summary.nothing_to_collect} "
             f"energy_out_nodes={summary.energy_out_nodes} "
-            f"hard_depleted_nodes={summary.hard_depleted_nodes} halted={summary.halted} "
-            f"halt_state={summary.halt_state} reason={summary.stopped_reason}")
+            f"hard_depleted_nodes={summary.hard_depleted_nodes} skipped_nodes={summary.skipped_nodes} "
+            f"halted={summary.halted} halt_state={summary.halt_state} reason={summary.stopped_reason}")
 
 
 def main(argv=None):
