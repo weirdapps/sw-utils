@@ -6,7 +6,7 @@ M = namedtuple("M", ["cx", "cy", "confidence"])
 
 # The templates present on the real happy-path flow for one cantina node "1-A" (no chapter).
 FLOW = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
-        "node_1-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
+        "node_cantina_1-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
 NODE = {"campaign": "cantina", "node": "1-A", "sim": "max"}
 
 
@@ -108,8 +108,8 @@ def test_multi_node_continues_after_energy_out():
     n1 = {"campaign": "cantina", "node": "1-A", "sim": "max"}
     n2 = {"campaign": "light", "node": "1-A", "sim": "max"}
     present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
-               "campaign_light", "node_1-A", "multi_sim", "rewards", "home_button",
-               "energy_out"}
+               "campaign_light", "node_cantina_1-A", "node_light_1-A", "multi_sim", "rewards",
+               "home_button", "energy_out"}
     # sim_confirm: absent for node 1 (-> energy-out), present for node 2 (-> sim)
     look = scripted_look(present, sequences={"sim_confirm": [False, True]})
     task = EnergyDumpTask([n1, n2], look, lambda x, y: None)
@@ -142,3 +142,37 @@ def test_node_tap_retries_until_panel_opens():
     assert s.halted is False
     assert s.sims_done == 1
     assert len(taps) == 8        # 7 happy-path taps + 1 node re-tap
+
+
+def test_hard_difficulty_adds_toggle_tap():
+    node = {"campaign": "light", "difficulty": "hard", "chapter": 1, "node": "1-D", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_light", "hard_tab",
+              "chapter_tab_1", "node_light_1-D", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+    assert len(taps) == 9        # +SELECT_DIFFICULTY vs the 8-tap chaptered non-hard flow
+
+
+def test_scrollable_node_found_after_swipe():
+    present = FLOW - {"node_cantina_1-A"}                    # node not in initial view
+    look = scripted_look(present, sequences={"node_cantina_1-A": [False, True]})  # appears after a swipe
+    swipes = []
+    task = EnergyDumpTask([NODE], look, lambda x, y: None, swipe=lambda d: swipes.append(d))
+    s = task.run()
+    assert s.halted is False
+    assert s.sims_done == 1
+    assert len(swipes) >= 1
+
+
+def test_scroll_gives_up_and_halts():
+    present = FLOW - {"node_cantina_1-A"}                    # node never appears
+    halts, swipes = [], []
+    task = EnergyDumpTask([NODE], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st), swipe=lambda d: swipes.append(d))
+    s = task.run()
+    assert s.halted is True
+    assert s.halt_state == "SELECT_NODE"
+    assert len(swipes) == 6                          # exhausted the default scroll_scan

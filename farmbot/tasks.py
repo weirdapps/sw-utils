@@ -24,6 +24,7 @@ TPL_REWARDS = "rewards"                  # the post-sim rewards popup CONTINUE b
 TPL_HOME_BUTTON = "home_button"          # the house icon that returns to the hub
 TPL_ENERGY_OUT = "energy_out"            # the CANCEL button of the "Purchase Energy" prompt shown
                                          # when energy is too low to sim — tapping it cancels (never PURCHASE)
+TPL_HARD_TAB = "hard_tab"                # the "Hard" difficulty toggle on LS/DS/Fleet campaign maps
 
 
 @dataclass
@@ -36,6 +37,7 @@ class Step:
     mark_sim: bool = False       # a successful tap here counts as one sim dump
     ensure: Optional[str] = None   # after the tap, this template must appear; if not, re-tap
     ensure_retries: int = 2      # extra taps allowed to make `ensure` appear (taps can toggle a panel)
+    scrollable: bool = False     # if the template isn't visible, swipe-scan the map to find it
 
 
 @dataclass
@@ -51,7 +53,9 @@ class Summary:
 class EnergyDumpTask:
     def __init__(self, nodes, look, tapper, should_stop=lambda: False,
                  halt=lambda state: None, max_actions=400, timeout=10.0,
-                 energy_out_timeout=2.0, delay=lambda: None):
+                 energy_out_timeout=2.0, delay=lambda: None,
+                 swipe=lambda direction: None,
+                 scroll_scan=("right", "right", "left", "left", "left", "left")):
         self.nodes = nodes
         self.look = look
         self.tapper = tapper
@@ -61,13 +65,16 @@ class EnergyDumpTask:
         self.timeout = timeout
         self.energy_out_timeout = energy_out_timeout
         self.delay = delay
+        self.swipe = swipe
+        self.scroll_scan = scroll_scan   # directions to try when a scrollable node isn't in view
         self._actions = 0
 
     def _steps_for(self, node):
         """Build the ordered Step list for one node from its compact config entry.
 
-        node = {"campaign": <name>, "node": <id>, ["chapter": <n>], "sim": "max"}
-        Per-node templates are named campaign_<name>, chapter_tab_<n>, node_<id>.
+        node = {"campaign": <name>, "node": <id>, ["difficulty": "hard"], ["chapter": <n>], "sim": "max"}
+        Per-node templates: campaign_<name>, hard_tab (if difficulty), chapter_tab_<n>,
+        node_<campaign>_<id> (campaign-scoped so e.g. Cantina 1-A and Fleet 1-A don't collide).
         """
         steps = [
             Step("HOME", TPL_HOME, tap=False),
@@ -78,10 +85,13 @@ class EnergyDumpTask:
             # across cards so they can't be matched directly). Title center y~254, PLAY y~927.
             Step("SELECT_CAMPAIGN", f"campaign_{node['campaign']}", tap_offset=(0, 673)),
         ]
+        if node.get("difficulty") == "hard":
+            steps.append(Step("SELECT_DIFFICULTY", TPL_HARD_TAB))  # LS/DS/Fleet Hard toggle
         if node.get("chapter") is not None:
             steps.append(Step("SELECT_CHAPTER", f"chapter_tab_{node['chapter']}"))
         steps += [
-            Step("SELECT_NODE", f"node_{node['node']}", ensure=TPL_MULTI_SIM),
+            Step("SELECT_NODE", f"node_{node['campaign']}_{node['node']}",
+                 ensure=TPL_MULTI_SIM, scrollable=True),
             Step("OPEN_MULTISIM", TPL_MULTI_SIM),
             Step("CONFIRM_SIM", TPL_SIM_CONFIRM, energy_out_here=True, mark_sim=True),
             Step("REWARDS", TPL_REWARDS),
@@ -101,6 +111,19 @@ class EnergyDumpTask:
         if m is not None:
             self._tap(m)
 
+    def _scroll_find(self, template):
+        """Swipe the node map to bring an off-screen node into view, re-looking after each swipe.
+        Swipes don't count toward the action cap (they're navigation, not sim actions)."""
+        for direction in self.scroll_scan:
+            if self.should_stop() or self._actions >= self.max_actions:
+                return None
+            self.swipe(direction)
+            self.delay()
+            m = self.look(template, self.energy_out_timeout)
+            if m is not None:
+                return m
+        return None
+
     def run(self):
         self._actions = 0        # reset so run() is re-entrant (a re-run doesn't inherit the prior tap count)
         s = Summary()
@@ -117,6 +140,8 @@ class EnergyDumpTask:
                     s.stopped_reason = "killed"
                     return s
                 m = self.look(step.template, self.timeout)
+                if m is None and step.scrollable:
+                    m = self._scroll_find(step.template)   # node may be off-screen; swipe-scan
                 if m is None:
                     if step.energy_out_here:
                         eo = self.look(TPL_ENERGY_OUT, self.energy_out_timeout)

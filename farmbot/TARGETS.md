@@ -70,12 +70,18 @@ drops), and early-chapter nodes require horizontal **scroll** to reach.
 - ✅ **Cantina campaign-node flow validated live** (chapter-1, Multi-Sim, energy-out→CANCEL).
 - ⏳ Each target area above still needs a **capture pass** (navigate → screenshot → crop
   `campaign_*` / `node_*` / `chapter_tab_*` templates → verify), the same way Cantina 1-A was done.
-- ⚙️ State-machine extensions before some areas work:
-  - **Normal/Hard difficulty toggle** (LS/DS/Fleet Hard nodes — most shard farms are Hard).
-  - **Chapter-tab scroll + horizontal node scroll** (early nodes like Cantina 3-B and later tabs
-    like Stage 9 are off the initial view; confirmed live on Cantina ch3 where 3-G was selected).
-  - **Known-popup dismissal** — login/offer calendars auto-pop and are "unknown screens"; the
-    macro halts safely on them, but unattended runs want an auto-dismiss for common popups.
+- ✅ **Normal/Hard difficulty toggle** — DONE (`difficulty: "hard"` → taps `hard_tab`);
+  nav validated live on LS Hard ch1.
+- ✅ **Node scroll** — DONE (`SELECT_NODE` swipe-scans when a node isn't in the initial view).
+- ⚙️ Still needed before some areas run:
+  - **Depleted-Hard-node skip** — Hard nodes are **5 attempts/day**; when used up the panel shows
+    a `1h 12m / 💎200` refresh instead of MULTI SIM. The macro **safe-halts** on it (looks for
+    `multi_sim`, never taps the 💎200 refresh) — but a graceful skip-to-next-node (like energy-out)
+    is wanted. **Blocked live-validation of a Hard sim today: LS Hard 1-D was already depleted.**
+  - **Known-popup dismissal** — the hub is popup-prone: **3 distinct auto-popups seen in one
+    session** (login calendar, era-level calendar, GoH newsletter). Each is an "unknown screen"
+    the macro safe-halts on; unattended runs need an auto-dismiss (close-X) for common popups.
+  - **Chapter-tab scroll** for tabs beyond the visible 1–8 (e.g. Cantina Stage 9).
   - **Mod Battles flow** — separate area + Mod Energy; its UI may differ from the Campaigns flow.
 
 ## Recommended build order
