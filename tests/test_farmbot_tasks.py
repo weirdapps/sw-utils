@@ -9,6 +9,11 @@ FLOW = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
         "node_cantina_1-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
 NODE = {"campaign": "cantina", "node": "1-A", "sim": "max"}
 
+# A Hard node (LS Hard 1-D): adds hard_tab + chapter_tab_1 to the flow.
+HARD_NODE = {"campaign": "light", "difficulty": "hard", "chapter": 1, "node": "1-D", "sim": "max"}
+HARD_FLOW = {"home", "campaigns_entry", "campaigns_menu", "campaign_light", "hard_tab",
+             "chapter_tab_1", "node_light_1-D", "multi_sim", "sim_confirm", "rewards", "home_button"}
+
 
 def scripted_look(present, sequences=None):
     """Return a `look(name, timeout)` that yields a Match for names in `present`.
@@ -156,6 +161,40 @@ def test_hard_difficulty_adds_toggle_tap():
     assert len(taps) == 9        # +SELECT_DIFFICULTY vs the 8-tap chaptered non-hard flow
 
 
+def test_difficulty_toggle_skipped_when_already_on_wanted_difficulty():
+    # Game remembers difficulty. If already on Hard, the unselected HARD button isn't shown, so the
+    # optional SELECT_DIFFICULTY step is skipped rather than halting.
+    node = {"campaign": "light", "difficulty": "hard", "chapter": 1, "node": "1-D", "sim": "max"}
+    present = HARD_FLOW - {"hard_tab"}          # already on Hard
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+    assert len(taps) == 8                       # no difficulty toggle tap (vs 9 when it's present)
+
+
+def test_normal_node_taps_normal_toggle_when_on_difficulty_campaign():
+    # A Normal LS/DS/Fleet node ensures Normal is selected via the (optional) normal_tab.
+    node = {"campaign": "light", "difficulty": "normal", "chapter": 1, "node": "1-A", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_light", "normal_tab",
+               "chapter_tab_1", "node_light_1-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+    assert len(taps) == 9                       # includes the normal_tab tap
+
+
+def test_cantina_has_no_difficulty_step():
+    # Cantina/Mod have no Normal/Hard toggle: a missing normal_tab/hard_tab must not matter.
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: None)  # FLOW has no *_tab
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+
+
 def test_scrollable_node_found_after_swipe():
     present = FLOW - {"node_cantina_1-A"}                    # node not in initial view
     look = scripted_look(present, sequences={"node_cantina_1-A": [False, True]})  # appears after a swipe
@@ -176,3 +215,109 @@ def test_scroll_gives_up_and_halts():
     assert s.halted is True
     assert s.halt_state == "SELECT_NODE"
     assert len(swipes) == 6                          # exhausted the default scroll_scan
+
+
+def test_hard_depleted_skips_and_recovers_without_halting():
+    # A Hard node whose 5 daily attempts are used up: the panel shows a refresh timer + 💎200
+    # instead of MULTI SIM. hard_depleted present, multi_sim/sim_confirm absent -> skip, not halt,
+    # and NEVER tap the panel (skip_tap=False) so the 💎200 refresh is never pressed.
+    present = (HARD_FLOW - {"multi_sim", "sim_confirm"}) | {"hard_depleted"}
+    taps, halts = [], []
+    task = EnergyDumpTask([HARD_NODE], scripted_look(present),
+                          lambda x, y: taps.append((x, y)), halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is False
+    assert halts == []
+    assert s.hard_depleted_nodes == 1
+    assert s.sims_done == 0
+    assert s.stopped_reason == "complete"
+    # OPEN_CAMPAIGNS, SELECT_CAMPAIGN, SELECT_DIFFICULTY, SELECT_CHAPTER, SELECT_NODE, home_button = 6
+    # (no OPEN_MULTISIM/CONFIRM tap; SELECT_NODE ensure is satisfied by hard_depleted so it doesn't re-tap)
+    assert len(taps) == 6
+
+
+def test_hard_depleted_multi_node_continues_to_next():
+    # Two depleted Hard nodes: skip the first, recover, skip the second — never halt. State is
+    # stable per frame (no MULTI SIM ever appears, hard_depleted always shows), as on a real device.
+    n2 = {"campaign": "light", "difficulty": "hard", "chapter": 1, "node": "1-E", "sim": "max"}
+    present = (HARD_FLOW - {"multi_sim", "sim_confirm"}) | {"hard_depleted", "node_light_1-E"}
+    task = EnergyDumpTask([HARD_NODE, n2], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.nodes_attempted == 2
+    assert s.hard_depleted_nodes == 2
+    assert s.sims_done == 0
+    assert s.halted is False
+    assert s.stopped_reason == "complete"
+
+
+def test_popup_dismissed_then_proceeds():
+    # A hub popup covers HOME on the first look; popup_close present -> tap it -> HOME appears -> proceed.
+    look = scripted_look(FLOW, sequences={"home": [False, True], "popup_close": [True, False]})
+    taps = []
+    task = EnergyDumpTask([NODE], look, lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.sims_done == 1
+    assert len(taps) == 8            # 1 popup dismiss + 7 happy-path taps
+
+
+def test_popup_dismiss_gives_up_and_halts():
+    # HOME never appears and no known popup closer is present -> halt at HOME.
+    present = FLOW - {"home"}
+    halts = []
+    task = EnergyDumpTask([NODE], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is True
+    assert s.halt_state == "HOME"
+    assert halts == ["HOME"]
+
+
+def test_mod_chapter_uses_scoped_tab_template():
+    # Mod Battles tier tabs are campaign-scoped: chapter 2 -> chapter_tab_mod_2, NOT chapter_tab_2.
+    node = {"campaign": "mod", "chapter": 2, "node": "2-F", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_mod", "chapter_tab_mod_2",
+               "node_mod_2-F", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    # chapter_tab_2 (generic) present too — must be ignored in favor of the scoped one.
+    task = EnergyDumpTask([node], scripted_look(present | {"chapter_tab_2"}), lambda x, y: None)
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+
+
+def test_mod_chapter_halts_if_only_generic_tab_present():
+    # Proves the scoping is real: with ONLY the generic chapter_tab_2 (no scoped one), mod halts.
+    node = {"campaign": "mod", "chapter": 2, "node": "2-F", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_mod", "chapter_tab_2",
+               "node_mod_2-F", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    halts = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is True
+    assert s.halt_state == "SELECT_CHAPTER"
+
+
+def test_standard_chapter_uses_generic_tab_template():
+    # LS/DS/Cantina/Fleet share the generic chapter_tab_<n>.
+    node = {"campaign": "cantina", "chapter": 3, "node": "3-B", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina", "chapter_tab_3",
+               "node_cantina_3-B", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.sims_done == 1
+    assert s.halted is False
+
+
+def test_chapter_tab_found_after_swipe():
+    # A high chapter tab isn't in the initial view; SELECT_CHAPTER swipe-scans to reveal it.
+    node = {"campaign": "cantina", "chapter": 9, "node": "9-A", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
+               "node_cantina_9-A", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    look = scripted_look(present, sequences={"chapter_tab_9": [False, True]})  # appears after a swipe
+    swipes = []
+    task = EnergyDumpTask([node], look, lambda x, y: None, swipe=lambda d: swipes.append(d))
+    s = task.run()
+    assert s.halted is False
+    assert s.sims_done == 1
+    assert len(swipes) >= 1

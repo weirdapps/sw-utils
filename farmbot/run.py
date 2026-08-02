@@ -77,7 +77,8 @@ def make_swipe(adb, y=560, near=500, far=1400, ms=400):
 
 def format_summary(summary):
     return (f"nodes_attempted={summary.nodes_attempted} sims_done={summary.sims_done} "
-            f"energy_out_nodes={summary.energy_out_nodes} halted={summary.halted} "
+            f"energy_out_nodes={summary.energy_out_nodes} "
+            f"hard_depleted_nodes={summary.hard_depleted_nodes} halted={summary.halted} "
             f"halt_state={summary.halt_state} reason={summary.stopped_reason}")
 
 
