@@ -67,8 +67,8 @@ def test_unknown_screen_halts():
 
 
 def test_energy_out_skips_and_recovers_without_halting():
-    # confirm absent + energy_out shown -> skip; recover via dialog_close + home_button.
-    present = (FLOW - {"sim_confirm"}) | {"energy_out", "dialog_close"}
+    # confirm absent + energy_out (Purchase prompt) shown -> tap CANCEL + home_button; no halt.
+    present = (FLOW - {"sim_confirm"}) | {"energy_out"}
     taps = []
     task = EnergyDumpTask([NODE], scripted_look(present), lambda x, y: taps.append((x, y)))
     s = task.run()
@@ -76,7 +76,7 @@ def test_energy_out_skips_and_recovers_without_halting():
     assert s.energy_out_nodes == 1
     assert s.sims_done == 0
     assert s.stopped_reason == "complete"
-    # 4 nav taps before confirm + 2 recovery taps (dialog_close, home_button)
+    # 4 nav taps before confirm + 2 recovery taps (energy_out=CANCEL, home_button)
     assert len(taps) == 6
 
 
@@ -109,7 +109,7 @@ def test_multi_node_continues_after_energy_out():
     n2 = {"campaign": "light", "node": "1-A", "sim": "max"}
     present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina",
                "campaign_light", "node_1-A", "multi_sim", "rewards", "home_button",
-               "dialog_close", "energy_out"}
+               "energy_out"}
     # sim_confirm: absent for node 1 (-> energy-out), present for node 2 (-> sim)
     look = scripted_look(present, sequences={"sim_confirm": [False, True]})
     task = EnergyDumpTask([n1, n2], look, lambda x, y: None)
@@ -119,3 +119,26 @@ def test_multi_node_continues_after_energy_out():
     assert s.sims_done == 1
     assert s.halted is False
     assert s.stopped_reason == "complete"
+
+
+def test_campaign_tap_uses_play_offset():
+    # SELECT_CAMPAIGN matches the title but taps the PLAY button below it (offset 0,+673),
+    # because tapping the title only flips the card. Match center is (10,20) here.
+    taps = []
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: taps.append((x, y)))
+    task.run()
+    assert (10, 20 + 673) in taps
+    assert taps.count((10, 693)) == 1
+
+
+def test_node_tap_retries_until_panel_opens():
+    # Tapping an already-selected node can toggle its panel shut. SELECT_NODE ensures
+    # MULTI SIM appears; here multi_sim is absent on the first check then present after a re-tap.
+    taps = []
+    present = FLOW | {"multi_sim"}                       # fallback True after the sequence
+    look = scripted_look(present, sequences={"multi_sim": [False, True]})
+    task = EnergyDumpTask([NODE], look, lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.sims_done == 1
+    assert len(taps) == 8        # 7 happy-path taps + 1 node re-tap
