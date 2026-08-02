@@ -67,7 +67,16 @@ drops), and early-chapter nodes require horizontal **scroll** to reach.
 - (Slave I 2-B / TIE Advanced 4-B are already owned → skip unless farming to 7★.)
 
 ## Capture / build status
-- ✅ **Cantina campaign-node flow validated live** (chapter-1, Multi-Sim, energy-out→CANCEL).
+- ✅ **Full pipeline validated live across all paths** (2026-08-02): Cantina Normal Multi-Sim,
+  **Fleet HARD Multi-Sim** (real sim), the full **rewards→CONTINUE→home** loop, **energy-out→CANCEL**
+  (crystals safe), halt-on-unknown, campaign-menu **scroll**, and the **Hard toggle**.
+- ✅ **Mod Battles is a 5th card in the Campaigns menu** (Mod Energy, 42/42 star) → the mod-material
+  bottleneck is sim-able via the **same flow**, not a separate area. `campaign_mod` captured.
+- ✅ Templates so far: full chrome (home/campaigns/multi_sim/sim_confirm/rewards/home_button/
+  energy_out/hard_tab/chapter_tab_1/popup_close) + campaign_{cantina,light,dark,fleet,mod} +
+  nodes {cantina_1-A, light_1-D (Kix), fleet_1-E}.
+- ⏳ Remaining = mostly **per-node icon capture** for each target (the macro scrolls to find a node
+  but needs its `node_<campaign>_<id>` icon; uncaptured → safe-halt).
 - ⏳ Each target area above still needs a **capture pass** (navigate → screenshot → crop
   `campaign_*` / `node_*` / `chapter_tab_*` templates → verify), the same way Cantina 1-A was done.
 - ✅ **Normal/Hard difficulty toggle** — DONE (`difficulty: "hard"` → taps `hard_tab`);
