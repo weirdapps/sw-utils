@@ -2,8 +2,11 @@
   "device_serial": "emulator-5554",
   "caps": { "max_actions": 400, "action_delay_ms": [700, 1800] },
   "vision": { "match_threshold": 0.88, "step_timeout_s": 10.0, "energy_out_timeout_s": 2.0 },
-  "nodes": [
-    { "campaign": "cantina", "chapter": 1, "node": "1-A", "sim": "max" },
-    { "campaign": "light", "chapter": 1, "node": "1-A", "sim": "max" }
+  "routine": [
+    { "kind": "energy_node", "campaign": "cantina", "chapter": 1, "node": "1-A", "sim": "max", "for": "Cantina energy dump (kind optional; energy_node is the default)" },
+    { "kind": "collect", "name": "login_reward", "nav": ["inbox_entry"], "claim": "login_claim", "for": "daily login calendar reward" },
+    { "kind": "collect", "name": "arena_payout_squad", "nav": ["arena_entry", "squad_arena_tab"], "claim": "arena_payout_claim", "for": "squad arena daily payout (collect-only, never battles)" },
+    { "kind": "collect", "name": "free_energy", "nav": [], "claim": "energy_free_claim", "counter": "energy_claimed", "count": 2, "for": "timed free-energy grants; books to energy_claimed; skipped if not yet available" },
+    { "kind": "challenge_sim", "challenge": "challenge_ability_mats", "for": "daily ability-mat challenge, Multi-Sim (needs 3 stars)" }
   ]
 }
