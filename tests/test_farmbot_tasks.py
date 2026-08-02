@@ -63,3 +63,19 @@ def test_action_cap_stops_run():
     s = task.run()
     assert s.stopped_reason == "cap"
     assert s.sims_done == 0
+
+
+def test_run_is_reentrant_second_run_matches_first():
+    # max_actions=10 lets one run (7 taps) complete cleanly, but if the action
+    # counter isn't reset it carries over and trips the cap partway through run #2.
+    taps = []
+    task = EnergyDumpTask(NODES, make_look(ALL_TPLS),
+                          lambda x, y: taps.append((x, y)), max_actions=10)
+    s1 = task.run()
+    n1 = len(taps)
+    s2 = task.run()
+    n2 = len(taps) - n1
+    assert s1.stopped_reason == "complete" and s1.sims_done == 1 and n1 == 7
+    assert s2 == s1                 # identical Summary — counters not inflated
+    assert s2.stopped_reason == "complete" and s2.sims_done == 1
+    assert n2 == 7                  # second run taps the full node, cap not tripped

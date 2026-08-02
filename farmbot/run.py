@@ -106,8 +106,9 @@ def main(argv=None):
         try:
             adb.screencap().save(path)
         except Exception as exc:  # noqa: BLE001 — best-effort screenshot on halt
-            print(f"halt screenshot failed: {exc}")
-        print(f"HALT at {state} — saved {path}")
+            print(f"HALT at {state} — screenshot failed: {exc}")
+        else:
+            print(f"HALT at {state} — saved {path}")
 
     task = EnergyDumpTask(
         cfg["nodes"], look, adb.tap,

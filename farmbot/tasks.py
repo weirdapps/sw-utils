@@ -51,6 +51,7 @@ class EnergyDumpTask:
         ]
 
     def run(self):
+        self._actions = 0        # reset so run() is re-entrant (a re-run doesn't inherit the prior tap count)
         s = Summary()
         for node in self.nodes:
             if self.should_stop():
