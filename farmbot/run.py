@@ -63,6 +63,18 @@ def make_delay(action_delay_ms, sleeper=time.sleep, rng=random.uniform):
     return delay
 
 
+def make_swipe(adb, y=560, near=500, far=1400, ms=400):
+    """Horizontal node-map swipes. 'left' reveals later nodes (drag content left);
+    'right' reveals earlier nodes."""
+    def swipe(direction):
+        if direction == "left":
+            adb.swipe(far, y, near, y, ms)
+        else:
+            adb.swipe(near, y, far, y, ms)
+
+    return swipe
+
+
 def format_summary(summary):
     return (f"nodes_attempted={summary.nodes_attempted} sims_done={summary.sims_done} "
             f"energy_out_nodes={summary.energy_out_nodes} halted={summary.halted} "
@@ -118,6 +130,7 @@ def main(argv=None):
         timeout=vcfg.get("step_timeout_s", 10.0),
         energy_out_timeout=vcfg.get("energy_out_timeout_s", 2.0),
         delay=make_delay(cfg["caps"]["action_delay_ms"]),
+        swipe=make_swipe(adb),
     )
     summary = task.run()
     print(format_summary(summary))

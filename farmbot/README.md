@@ -25,8 +25,9 @@ that node is skipped (never refreshed with crystals) and the run recovers to the
 Reusable (shared across all energy types): `home`, `campaigns_entry`, `campaigns_menu`,
 `multi_sim`, `sim_confirm`, `rewards`, `dialog_close`, `home_button`, `energy_out`.
 Per node: `campaign_<name>` (e.g. `campaign_cantina`, `campaign_light`, `campaign_dark`,
-`campaign_fleet`), `node_<id>` (e.g. `node_1-A`), and `chapter_tab_<n>` if the node config
-sets a `chapter`. Navigate the emulator to each screen, then:
+`campaign_fleet`), `node_<campaign>_<id>` (campaign-scoped, e.g. `node_cantina_1-A`,
+`node_light_1-D` — so Cantina 1-A and Fleet 1-A don't collide), `chapter_tab_<n>` if the node
+sets a `chapter`, and `hard_tab` if it sets `"difficulty": "hard"` (LS/DS/Fleet Hard nodes). Navigate the emulator to each screen, then:
 ```
 .venv/bin/python -m farmbot.run --capture
 ```

@@ -48,3 +48,17 @@ def test_make_delay_sleeps_within_range():
 def test_format_summary_mentions_counts():
     out = run.format_summary(Summary(nodes_attempted=2, sims_done=5, stopped_reason="complete"))
     assert "2" in out and "5" in out and "complete" in out
+
+
+def test_make_swipe_directions():
+    calls = []
+
+    class FakeADB:
+        def swipe(self, x1, y1, x2, y2, ms):
+            calls.append((x1, x2))
+
+    sw = run.make_swipe(FakeADB(), near=500, far=1400)
+    sw("left")
+    sw("right")
+    assert calls[0] == (1400, 500)   # "left" reveals later nodes: drag content far->near
+    assert calls[1] == (500, 1400)   # "right" reveals earlier nodes: near->far
