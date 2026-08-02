@@ -1,6 +1,7 @@
 """vision.py — OpenCV template matching. Device/image concerns live here (with adb)."""
 import glob
 import os
+import time
 from collections import namedtuple
 
 import cv2
@@ -35,3 +36,15 @@ def load_templates(dir_path):
         stem = os.path.splitext(os.path.basename(path))[0]
         out[stem] = to_gray(Image.open(path).convert("RGB"))
     return out
+
+
+def wait_for(screen_provider, template, timeout=10.0, interval=0.5, threshold=0.88,
+             finder=find, clock=time.monotonic, sleeper=time.sleep):
+    start = clock()
+    while True:
+        m = finder(screen_provider(), template, threshold)
+        if m is not None:
+            return m
+        if clock() - start >= timeout:
+            return None
+        sleeper(interval)
