@@ -83,7 +83,8 @@ class EnergyDumpTask:
             # Match the distinctive campaign title, then tap the PLAY button below it
             # (tapping the title/artwork only flips the card; PLAY buttons are identical
             # across cards so they can't be matched directly). Title center y~254, PLAY y~927.
-            Step("SELECT_CAMPAIGN", f"campaign_{node['campaign']}", tap_offset=(0, 673)),
+            Step("SELECT_CAMPAIGN", f"campaign_{node['campaign']}", tap_offset=(0, 673),
+                 scrollable=True),   # Fleet/Mod cards start off-screen in the Campaigns menu
         ]
         if node.get("difficulty") == "hard":
             steps.append(Step("SELECT_DIFFICULTY", TPL_HARD_TAB))  # LS/DS/Fleet Hard toggle
