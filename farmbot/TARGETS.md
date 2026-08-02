@@ -16,9 +16,30 @@ The marquee GAC-unlock gaps can't be automated here; they need manual event/shop
 | Jedi Master Mace Windu | Legendary event "Beset on All Sides" |
 | Profundity (capital ship) | Journey Guide monthly event / crystals |
 
-Ownership note (roster 20260731): 4-LOM, Slave I, TIE Advanced, Vane, Brutus, Captain Silvo,
-Cobb Vanth are **already owned** — the advisor flagged them as "can't field the meta team," not
-"unowned," so no unlock-farm applies.
+Ownership note (roster 20260731): several advisor "gaps" are already owned (the advisor flags
+"can't field the meta team," not "unowned"). BUT owned ≠ 7★ — units/ships **below 7 stars still
+want shard farming**, which is the real top priority below.
+
+## ⭐ Under-7★ shard farms — VERIFIED nodes (top priority)
+Astra's owned-but-under-7★ units/ships, each with a live-verified (swgoh.gg, 2026-08-02) sim-able
+shard node. This is the concrete list to wire once templates are captured.
+
+| Target | Stars | Node | Energy |
+|--------|-------|------|--------|
+| Vane (GL Hondo crew) | 2★ | **Cantina 3-B** | Cantina |
+| Captain Silvo (GL Hondo crew) | 2★ | **Cantina 6-A** | Cantina |
+| Brutus (GL Hondo crew) | 2★ | **Fleet Hard 2-A** | Fleet |
+| Captain Ithano | 4★ | **Fleet Hard 1-A** | Fleet |
+| Quiggold | 3★ | **Fleet Hard 3-D** | Fleet |
+| Raven's Claw (ship) | 6★ | **Fleet Hard 2-E** | Fleet |
+| MG-100 StarFortress SF-17 (ship) | 5★ | **Fleet Hard 2-D** | Fleet |
+| Kix | 4★ | **LS Hard 1-D** | Normal |
+| Hyena Bomber (ship) | 6★ | **DS Hard 8-B** | Normal |
+| Mara Jade Skywalker | 4★ | — pack/crystals only, **NOT sim-able** | — |
+
+Fleet energy is the bottleneck (5 of 9). Node ids need a **final on-device confirm** at capture
+time — the node's *reward icon* is the source of truth (the node's character art ≠ the shard it
+drops), and early-chapter nodes require horizontal **scroll** to reach.
 
 ## Sim-able targets (what the macro will actually farm), by priority
 
@@ -49,13 +70,17 @@ Cobb Vanth are **already owned** — the advisor flagged them as "can't field th
 - ✅ **Cantina campaign-node flow validated live** (chapter-1, Multi-Sim, energy-out→CANCEL).
 - ⏳ Each target area above still needs a **capture pass** (navigate → screenshot → crop
   `campaign_*` / `node_*` / `chapter_tab_*` templates → verify), the same way Cantina 1-A was done.
-- ⚙️ Likely small state-machine extensions before some areas work:
-  - **Normal/Hard difficulty toggle** (LS/DS/Fleet Hard nodes).
-  - **Chapter-tab scroll** (Cantina Stage 9 is beyond the visible 1–8 tabs; far nodes need scroll).
+- ⚙️ State-machine extensions before some areas work:
+  - **Normal/Hard difficulty toggle** (LS/DS/Fleet Hard nodes — most shard farms are Hard).
+  - **Chapter-tab scroll + horizontal node scroll** (early nodes like Cantina 3-B and later tabs
+    like Stage 9 are off the initial view; confirmed live on Cantina ch3 where 3-G was selected).
+  - **Known-popup dismissal** — login/offer calendars auto-pop and are "unknown screens"; the
+    macro halts safely on them, but unattended runs want an auto-dismiss for common popups.
   - **Mod Battles flow** — separate area + Mod Energy; its UI may differ from the Campaigns flow.
 
 ## Recommended build order
-1. **Mod Battles Tier 2** (biggest bottleneck) — explore its UI + capture + validate.
-2. **Cantina Stage 8/9** — add chapter-tab (+scroll) capture.
-3. **Gear nodes** (LS/DS Hard) — add the Normal/Hard toggle.
-4. **Fleet Hard 3-D** (Sith Infiltrator) — Fleet area + Hard toggle.
+1. **Cantina shard nodes** (Vane 3-B, Silvo 6-A) — proven flow; add chapter-tab + node scroll.
+2. **Fleet Hard shard nodes** (Ithano 1-A, Brutus 2-A, MG-100 2-D, Raven's Claw 2-E, Quiggold 3-D)
+   — new Fleet area + Normal/Hard toggle; 5 nodes = biggest single batch of value.
+3. **LS/DS Hard shard nodes** (Kix → LS Hard 1-D, Hyena Bomber → DS Hard 8-B) — Normal/Hard toggle.
+4. **Materials** — Mod Battles Tier 2 (mod bottleneck) + Cantina Stage 8/9 (omicron/zeta) + gear.
