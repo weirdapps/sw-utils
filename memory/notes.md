@@ -261,3 +261,40 @@ spend crystals). **Suite 95 → 104.** Research → `docs/swgoh-endgame-daily-20
   runs the whole PvE day. **2 Daily Quests stay manual by design** (open Data Card + buy 3 shipments =
   currency spend) plus **1 arena battle** (PvP) — bot reports these, never does them.
 - Tune DS ch8 nav; add a mod node that isn't attempt-capped (or accept Mod cap).
+
+## 2026-08-03 (session 3) — LIVE template capture + dailies executed on Astra
+Drove Astra's live BlueStacks via ADB to capture every sim/auto-battle template AND do the dailies.
+**Crystals 5,045 UNCHANGED throughout** (rail held). All templates self-match conf=1.0. Branch
+`farmbot-full-daily` (PR #14).
+
+### Done live (real loot)
+- **Coliseum auto-battle → 100% score (15,000, up from 2,141)**: coliseum_tile → BATTLE(5) →
+  team-select deploy → in-battle AUTO + 4X → VICTORY → CONTINUE. Full auto-battle proven end-to-end.
+- **All Daily Challenges MULTI-SIM'd** (Events → Challenges → MULTI SIM → 14 battles): gear salvage
+  (Mk VIII/IV/V) + challenge crate. One tap sims ALL challenges.
+- Earlier: energy dumped (Cantina 53→2, Fleet 27→4, Normal 60→47); 1 Daily Quest claimed (+300 EP).
+- Raid (Order 66) + Galactic War: already done today (raid BATTLE greyed / GW "Restart"), so no-op.
+
+### Templates captured + committed (self-match 1.0)
+- auto-battle chrome (REUSABLE across modes): `battle_start` (green BATTLE word), `battle_auto`
+  (AUTO toggle), `victory` (results CONTINUE).
+- Coliseum: `coliseum_tile`. Challenges: `events_entry`, `challenges_tab`, `challenges_menu`,
+  `challenges_multisim`, `challenges_sim_confirm`. Raids: `raids_tab`, `raid_active`.
+- **`home` recaptured to the player-badge overlay = PAN-INVARIANT** (matches the hub at any pan;
+  rejects battle/menu). Fixes HOME-verify halts after a pan.
+
+### Engine change
+- `_steps_challenge_sim` rewired to the real bulk flow (Events→Challenges→MULTI SIM→confirm→rewards;
+  greyed MULTI SIM ⇒ optional skip). Suite 104 green. config.json (local) += challenge_sim + Coliseum.
+
+### KEY LIMITATION discovered (the next fix) — 3D pannable hub
+The cantina hub is a wide horizontal **panorama** (Arenas/Coliseum → Campaigns → Events/Scavenger/GW
+→ Raids/Guilds). Persistent OVERLAYS (player badge, left rail, energy, home button, Quests) are
+stable, but the 3D game-mode **consoles** (Events, GW) render at **pan-dependent position, scale, AND
+tap-target** — so template match + tap is unreliable off the default pan. Energy + Coliseum work
+because `coliseum_tile`/`campaigns_entry` live on the DEFAULT pan. **Needed:** a `recenter_hub`
+routine (swipe to the left edge for a known pan) run before nav, so Events/GW consoles are always
+approached from a fixed pan; then capture their console tap-targets at that fixed pan. Until then,
+the challenge_sim entry safe-halts at the Events nav (isolated by `--daily`); energy + Coliseum
+entries replay fine. Live-validated: HOME (pan-invariant) ✓, events_entry match ✓, but the console
+TAP didn't open Events (offset/scale) → halt at CHALLENGES_TAB.
