@@ -222,3 +222,42 @@ User asked to farm Coliseum/arenas/events/raids + all dailies. Decomposed into 5
 2. **Wire local `config.json`** (gitignored) with real collect + challenge_sim entries, mirroring `config.example.json`; validate `--dry-run` then `--daily` (crystals unchanged; no PvP battle).
 3. Then **sub-project B** (Coliseum/events/raids auto-battle) — the flagged bigger module.
 - **Merge order:** PR #12 (sim-macro) first, then PR #13 (E) auto-reduces to E-only.
+
+## 2026-08-03 (session 2) — full daily bot BUILT (B/C/A) + live-validated core
+User directive: "capture all free loot, do all PvE tasks, sim-able preferred, auto-battle otherwise,
+research what pros do, do at least that. Don't stop, don't ask." Built the rest of the daily bot on
+branch `farmbot-full-daily` (off E's tip). Kept the standing rails (PvE only, never PvP battle, never
+spend crystals). **Suite 95 → 104.** Research → `docs/swgoh-endgame-daily-2026.md`.
+
+### Engine (all four kinds now, one dispatched state machine)
+- **B — `battle` kind** (PvE auto-battle): HOME → nav → per attempt (START → AUTO(optional) → await
+  VICTORY on a long per-step timeout; DEFEAT = recorded skip, never retried) → dismiss → home. Added
+  `Step.timeout` override, `Summary.battles_won/battles_lost`, shared templates (battle_start/
+  battle_auto/victory/defeat), `attempts` (Coliseum ×5). Covers Coliseum, Galactic War (pre-50-sim),
+  Assault Battles, Events.
+- **C — Raids** = a `battle` config entry (guild→raids nav, raid_deploy start, raid_results victory).
+  No separate engine (YAGNI), same pattern as arena→collect / challenges→sim.
+- **A — orchestrator resilience**: `--daily` runs `continue_on_halt=True` → a single entry's halt is
+  isolated (`halted_entries++`), the engine recovers to hub (dismiss popups + home button) and
+  continues instead of aborting. `--dump` keeps abort-on-halt for single-run debugging.
+- `config.example.json` = the full 18-entry daily routine (7 collect, 4 energy, 4 challenge, 3 battle).
+
+### Live validation (BlueStacks, Astra, this session) — `python -m farmbot.run --daily`
+- **Ran live**: nodes_attempted=5, **sims_done=3**, hard_depleted=1, halted_entries=1, halted=False,
+  reason=complete. **Cantina 53→2, Fleet 27→4, Normal 60→47 dumped live; crystals 5,045 UNCHANGED**
+  (rail held). **Sub-project A proven on real hardware** — the one halt was isolated, run completed.
+- **Findings:** (1) **Mod 2-F showed depleted** (hard_depleted) so Mod energy stayed 213/144 — Mod
+  Battles nodes appear attempt-limited like Hard nodes; need another mod node or accept the daily cap.
+  (2) **DS Hard 8-B still halts** — engine landed on DS **ch6** (panel on 6-F Yavin 4), couldn't find
+  node_dark_8-B → SELECT_NODE halt (the known ch8-nav issue). Chapter-1 nodes reliable; ch8 needs the
+  chapter_tab_8 tap + ch8 scroll tuned. macOS has no `timeout` cmd — run the bot directly (its adb.py
+  has internal timeouts).
+
+### Remaining (device-gated, iterative — needs care on the live 14M-GP account)
+- **Capture collect/challenge/battle templates** (login_claim, store/inbox/arena-payout/energy-free,
+  challenges_entry + icons, coliseum_tile, battle_start/auto/victory/defeat, raid_*). Uncaptured ⇒
+  safe-halt (and `--daily` isolates it), so it fills in incrementally and never blunders.
+- Wire the real `config.json` (gitignored) to the full routine once templates exist; then `--daily`
+  runs the whole PvE day. **2 Daily Quests stay manual by design** (open Data Card + buy 3 shipments =
+  currency spend) plus **1 arena battle** (PvP) — bot reports these, never does them.
+- Tune DS ch8 nav; add a mod node that isn't attempt-capped (or accept Mod cap).
