@@ -396,30 +396,33 @@ def test_collect_does_not_tap_when_only_non_free_control_present():
     assert len(taps) == 1                # only RETURN_HOME
 
 
-def test_challenge_sim_happy_path_disjoint_from_sims_done():
-    node = {"kind": "challenge_sim", "challenge": "challenge_ability_mats"}
-    present = {"home", "challenges_entry", "challenges_menu", "challenge_ability_mats",
-              "multi_sim", "sim_confirm", "rewards", "home_button"}
+def test_challenge_sim_bulk_multisim():
+    # Real flow (captured live): Events -> Challenges tab -> MULTI SIM -> SIM confirm sims ALL
+    # available daily challenges at once.
+    node = {"kind": "challenge_sim"}
+    present = {"home", "events_entry", "challenges_tab", "challenges_menu",
+               "challenges_multisim", "challenges_sim_confirm", "rewards", "home_button"}
     taps = []
     task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
     s = task.run()
     assert s.halted is False
     assert s.challenges_simmed == 1
     assert s.sims_done == 0            # disjoint from energy sims
-    assert len(taps) == 6             # open, select, multisim, confirm, rewards, home
+    # taps: events, challenges_tab, multisim, sim_confirm, rewards, home = 6
+    assert len(taps) == 6
 
 
-def test_challenge_not_three_starred_skips_without_battle():
-    node = {"kind": "challenge_sim", "challenge": "challenge_ability_mats"}
-    present = {"home", "challenges_entry", "challenges_menu", "challenge_ability_mats",
-              "challenge_locked", "home_button"}          # no multi_sim/sim_confirm
-    taps, halts = [], []
-    task = EnergyDumpTask([node], scripted_look(present),
-                          lambda x, y: taps.append((x, y)), halt=lambda st: halts.append(st))
+def test_challenge_sim_nothing_to_sim_no_halt():
+    # Nothing simmable => the green MULTI SIM is greyed (template absent) => optional steps skip,
+    # no halt, no sim booked.
+    node = {"kind": "challenge_sim"}
+    present = {"home", "events_entry", "challenges_tab", "challenges_menu", "home_button"}
+    halts = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st))
     s = task.run()
     assert s.halted is False
     assert halts == []
-    assert s.skipped_nodes == 1
     assert s.challenges_simmed == 0
 
 

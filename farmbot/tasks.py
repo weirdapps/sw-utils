@@ -40,10 +40,11 @@ TPL_HARD_DEPLETED = "hard_depleted"      # a Hard node with its 5 daily attempts
                                          # shows a refresh timer + 💎200 instead of MULTI SIM. This is
                                          # a MARKER only — NEVER tapped, so crystals are never spent.
 
-TPL_CHALLENGES_ENTRY = "challenges_entry"  # the "Challenges" button on the hub
-TPL_CHALLENGES_MENU = "challenges_menu"    # the Challenges menu is open (verify only)
-TPL_CHALLENGE_LOCKED = "challenge_locked"  # a challenge not yet 3-starred: no MULTI SIM. MARKER only
-                                           # (never tapped) so a real battle is never started.
+TPL_EVENTS_ENTRY = "events_entry"          # the "Events" console on the hub (holds Challenges + Raids)
+TPL_CHALLENGES_TAB = "challenges_tab"      # the "Challenges" tab in the Events menu
+TPL_CHALLENGES_MENU = "challenges_menu"    # the "Select a Challenge" screen (verify only)
+TPL_CHALLENGES_MULTISIM = "challenges_multisim"        # MULTI SIM button (sims ALL daily challenges)
+TPL_CHALLENGES_SIM_CONFIRM = "challenges_sim_confirm"  # green SIM confirm in the challenge-sim dialog
 
 TPL_BATTLE_START = "battle_start"   # the green START/DEPLOY on a PvE battle's team-select screen
 TPL_BATTLE_AUTO = "battle_auto"     # the AUTO toggle inside a battle (self-play)
@@ -209,21 +210,20 @@ class EnergyDumpTask:
         return steps
 
     def _steps_challenge_sim(self, node):
-        """A Daily Challenge Multi-Sim on the Challenges screen (not the Campaigns menu). Reuses the
-        sim chrome (multi_sim/sim_confirm/rewards). A challenge not yet 3-starred shows no MULTI SIM;
-        if a challenge_locked marker is present we skip (never battle), else the uncaptured screen
-        safe-halts. Uses mark='challenges_simmed' (not mark_sim) to stay disjoint from energy sims."""
+        """Sim ALL daily challenges in one action (captured live). Flow: HOME -> Events console
+        (off the initial hub, so scrollable) -> Challenges tab -> MULTI SIM -> SIM confirm ->
+        rewards -> home. When nothing is simmable the MULTI SIM button is greyed (its green template
+        won't match), so the optional MULTI_SIM/CONFIRM steps skip cleanly with no halt. `mark`=
+        'challenges_simmed' keeps it disjoint from energy sims_done. Bulk, so no per-challenge field."""
         return [
             Step("HOME", TPL_HOME, tap=False),
-            Step("OPEN_CHALLENGES", TPL_CHALLENGES_ENTRY),
+            Step("OPEN_EVENTS", TPL_EVENTS_ENTRY, scrollable=True),
+            Step("CHALLENGES_TAB", TPL_CHALLENGES_TAB, ensure=TPL_CHALLENGES_MENU),
             Step("CHALLENGES_MENU", TPL_CHALLENGES_MENU, tap=False),
-            Step("SELECT_CHALLENGE", node["challenge"], ensure=TPL_MULTI_SIM,
-                 ensure_extra=(TPL_CHALLENGE_LOCKED,), scrollable=True),
-            Step("OPEN_MULTISIM", TPL_MULTI_SIM,
-                 skip_marker=TPL_CHALLENGE_LOCKED, skip_tap=False, skip_counter="skipped_nodes"),
-            Step("CONFIRM_SIM", TPL_SIM_CONFIRM, mark="challenges_simmed",
-                 skip_marker=TPL_ENERGY_OUT, skip_tap=True, skip_counter="energy_out_nodes"),
-            Step("REWARDS", TPL_REWARDS),
+            Step("MULTI_SIM", TPL_CHALLENGES_MULTISIM, optional=True,
+                 ensure=TPL_CHALLENGES_SIM_CONFIRM),
+            Step("CONFIRM_SIM", TPL_CHALLENGES_SIM_CONFIRM, optional=True, mark="challenges_simmed"),
+            Step("REWARDS", TPL_REWARDS, optional=True),
             Step("RETURN_HOME", TPL_HOME_BUTTON),
         ]
 
