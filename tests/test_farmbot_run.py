@@ -119,3 +119,8 @@ def test_format_summary_includes_battle_counts():
     out = run.format_summary(Summary(battles_won=3, battles_lost=1, stopped_reason="complete"))
     assert "battles_won=3" in out
     assert "battles_lost=1" in out
+
+
+def test_format_summary_includes_halted_entries():
+    out = run.format_summary(Summary(halted_entries=2, stopped_reason="complete"))
+    assert "halted_entries=2" in out

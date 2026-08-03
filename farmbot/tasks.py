@@ -100,6 +100,7 @@ class Summary:
     battles_won: int = 0
     battles_lost: int = 0
     skipped_nodes: int = 0
+    halted_entries: int = 0
     halted: bool = False
     halt_state: Optional[str] = None
     stopped_reason: str = "complete"
@@ -111,7 +112,8 @@ class EnergyDumpTask:
                  energy_out_timeout=2.0, delay=lambda: None,
                  swipe=lambda direction: None,
                  scroll_scan=("right", "right", "left", "left", "left", "left"),
-                 popup_closers=DEFAULT_POPUP_CLOSERS, popup_retries=3):
+                 popup_closers=DEFAULT_POPUP_CLOSERS, popup_retries=3,
+                 continue_on_halt=False):
         self.nodes = nodes
         self.look = look
         self.tapper = tapper
@@ -125,6 +127,7 @@ class EnergyDumpTask:
         self.scroll_scan = scroll_scan   # directions to try when a scrollable target isn't in view
         self.popup_closers = popup_closers
         self.popup_retries = popup_retries
+        self.continue_on_halt = continue_on_halt
         self._actions = 0
 
     def _steps_for(self, node):
@@ -256,8 +259,9 @@ class EnergyDumpTask:
         setattr(summary, counter, getattr(summary, counter) + 1)
 
     def _recover_to_home(self):
-        """Best-effort return to the hub after a skip. Tap the home button if present;
-        if not, the next node's HOME verify will halt safely."""
+        """Best-effort return to the hub after a skip/halt: clear any popups, then tap the home
+        button if present. If it isn't, the next entry's HOME verify handles it (skip or halt)."""
+        self._dismiss_popups()
         m = self.look(TPL_HOME_BUTTON, self.energy_out_timeout)
         if m is not None:
             self._tap(m)
@@ -339,6 +343,14 @@ class EnergyDumpTask:
                             m = self._scroll_find(step.template)
                     if m is None:
                         self.halt(step.label)
+                        if self.continue_on_halt:
+                            # Orchestrator mode: isolate this entry's failure, recover to the hub,
+                            # and carry on with the rest of the daily routine.
+                            self._bump(s, "halted_entries")
+                            s.halt_state = step.label
+                            self._recover_to_home()
+                            skipped = True
+                            break
                         s.halted = True
                         s.halt_state = step.label
                         s.stopped_reason = "halt"

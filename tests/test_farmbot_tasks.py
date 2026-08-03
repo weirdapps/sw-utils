@@ -475,3 +475,31 @@ def test_battle_unknown_outcome_halts():
     s = task.run()
     assert s.halted is True
     assert s.halt_state == "OUTCOME_0"
+
+
+def test_daily_continue_on_halt_isolates_entries():
+    # Orchestrator mode: entry 1 halts (panel reached but no MULTI SIM, not energy-out), entry 2 is a
+    # clean collect. The halt is isolated: run completes, entry 2 still executes.
+    n1 = {"campaign": "cantina", "node": "1-A", "sim": "max"}
+    n2 = {"kind": "collect", "nav": [], "claim": "login_claim"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina", "node_cantina_1-A",
+               "login_claim", "rewards", "home_button"}   # no multi_sim/sim_confirm/energy_out
+    task = EnergyDumpTask([n1, n2], scripted_look(present), lambda x, y: None, continue_on_halt=True)
+    s = task.run()
+    assert s.halted is False              # run completed, not aborted
+    assert s.halted_entries == 1          # entry 1 halted but was isolated
+    assert s.collected == 1               # entry 2 still ran
+    assert s.stopped_reason == "complete"
+
+
+def test_default_halt_aborts_whole_run():
+    # Without continue_on_halt (default), a halt aborts the whole run (back-compat).
+    n1 = {"campaign": "cantina", "node": "1-A", "sim": "max"}
+    n2 = {"kind": "collect", "nav": [], "claim": "login_claim"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_cantina", "node_cantina_1-A",
+               "login_claim", "rewards", "home_button"}
+    task = EnergyDumpTask([n1, n2], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.halted is True
+    assert s.halt_state == "OPEN_MULTISIM"
+    assert s.collected == 0               # aborted before entry 2

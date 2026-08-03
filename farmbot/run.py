@@ -91,6 +91,7 @@ def format_summary(summary):
             f"battles_won={summary.battles_won} battles_lost={summary.battles_lost} "
             f"energy_out_nodes={summary.energy_out_nodes} "
             f"hard_depleted_nodes={summary.hard_depleted_nodes} skipped_nodes={summary.skipped_nodes} "
+            f"halted_entries={summary.halted_entries} "
             f"halted={summary.halted} halt_state={summary.halt_state} reason={summary.stopped_reason}")
 
 
@@ -144,6 +145,7 @@ def main(argv=None):
         energy_out_timeout=vcfg.get("energy_out_timeout_s", 2.0),
         delay=make_delay(cfg["caps"]["action_delay_ms"]),
         swipe=make_swipe(adb),
+        continue_on_halt=args.daily,   # --daily = resilient orchestrator: isolate a bad entry, go on
     )
     summary = task.run()
     print(format_summary(summary))
