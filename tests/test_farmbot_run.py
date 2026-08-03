@@ -113,3 +113,9 @@ def test_example_config_is_valid_and_mixed_kind():
     cfg = run.load_config(path)
     kinds = {e.get("kind", "energy_node") for e in run.routine_of(cfg)}
     assert {"energy_node", "collect", "challenge_sim"} <= kinds
+
+
+def test_format_summary_includes_battle_counts():
+    out = run.format_summary(Summary(battles_won=3, battles_lost=1, stopped_reason="complete"))
+    assert "battles_won=3" in out
+    assert "battles_lost=1" in out

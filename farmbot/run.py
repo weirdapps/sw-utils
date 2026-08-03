@@ -88,6 +88,7 @@ def format_summary(summary):
     return (f"nodes_attempted={summary.nodes_attempted} sims_done={summary.sims_done} "
             f"collected={summary.collected} challenges_simmed={summary.challenges_simmed} "
             f"energy_claimed={summary.energy_claimed} nothing_to_collect={summary.nothing_to_collect} "
+            f"battles_won={summary.battles_won} battles_lost={summary.battles_lost} "
             f"energy_out_nodes={summary.energy_out_nodes} "
             f"hard_depleted_nodes={summary.hard_depleted_nodes} skipped_nodes={summary.skipped_nodes} "
             f"halted={summary.halted} halt_state={summary.halt_state} reason={summary.stopped_reason}")

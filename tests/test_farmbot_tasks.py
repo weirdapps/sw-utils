@@ -421,3 +421,57 @@ def test_challenge_not_three_starred_skips_without_battle():
     assert halts == []
     assert s.skipped_nodes == 1
     assert s.challenges_simmed == 0
+
+
+def test_battle_happy_path_victory():
+    node = {"kind": "battle", "nav": ["coliseum_tile"], "start": "battle_start"}
+    present = {"home", "coliseum_tile", "battle_start", "battle_auto", "victory", "rewards", "home_button"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.halted is False
+    assert s.battles_won == 1
+    assert s.battles_lost == 0
+    assert len(taps) == 6        # tile, start, auto, victory, rewards, home
+
+
+def test_battle_defeat_recorded_no_halt():
+    node = {"kind": "battle", "nav": ["coliseum_tile"], "start": "battle_start"}
+    present = {"home", "coliseum_tile", "battle_start", "battle_auto", "defeat", "home_button"}  # no victory
+    taps, halts = [], []
+    task = EnergyDumpTask([node], scripted_look(present),
+                          lambda x, y: taps.append((x, y)), halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is False
+    assert halts == []
+    assert s.battles_lost == 1
+    assert s.battles_won == 0
+
+
+def test_battle_multiple_attempts():
+    node = {"kind": "battle", "nav": [], "start": "battle_start", "attempts": 2}
+    present = {"home", "battle_start", "battle_auto", "victory", "rewards", "home_button"}
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.battles_won == 2
+    assert s.halted is False
+
+
+def test_battle_auto_optional_when_absent():
+    node = {"kind": "battle", "nav": [], "start": "battle_start"}
+    present = {"home", "battle_start", "victory", "rewards", "home_button"}   # no battle_auto
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None)
+    s = task.run()
+    assert s.battles_won == 1
+    assert s.halted is False
+
+
+def test_battle_unknown_outcome_halts():
+    node = {"kind": "battle", "nav": [], "start": "battle_start", "battle_timeout_s": 0.01}
+    present = {"home", "battle_start", "battle_auto", "home_button"}   # neither victory nor defeat
+    halts = []
+    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                          halt=lambda st: halts.append(st))
+    s = task.run()
+    assert s.halted is True
+    assert s.halt_state == "OUTCOME_0"

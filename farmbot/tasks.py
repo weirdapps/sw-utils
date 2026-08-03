@@ -45,6 +45,12 @@ TPL_CHALLENGES_MENU = "challenges_menu"    # the Challenges menu is open (verify
 TPL_CHALLENGE_LOCKED = "challenge_locked"  # a challenge not yet 3-starred: no MULTI SIM. MARKER only
                                            # (never tapped) so a real battle is never started.
 
+TPL_BATTLE_START = "battle_start"   # the green START/DEPLOY on a PvE battle's team-select screen
+TPL_BATTLE_AUTO = "battle_auto"     # the AUTO toggle inside a battle (self-play)
+TPL_VICTORY = "victory"             # a battle VICTORY/results screen (tap to advance to rewards)
+TPL_DEFEAT = "defeat"               # a battle DEFEAT screen (tap to dismiss). Recorded, never retried.
+DEFAULT_BATTLE_TIMEOUT_S = 180.0    # how long to wait for a real-time battle to resolve
+
 # Popups that can cover the hub (login/era calendars, GoH newsletter). Their close controls are
 # distinctive and safe to tap; a template that isn't captured yet simply never matches (no-op).
 DEFAULT_POPUP_CLOSERS = ("popup_close", "newsletter_close")
@@ -78,6 +84,7 @@ class Step:
     skip_counter: str = "skipped_nodes"  # which Summary counter to bump on a skip
     mark: Optional[str] = None            # on a successful tap, bump this Summary counter
     optional_counter: Optional[str] = None  # when an `optional` step is skipped (absent), bump this
+    timeout: Optional[float] = None       # per-step look-timeout override (e.g. a long battle wait)
 
 
 @dataclass
@@ -90,6 +97,8 @@ class Summary:
     challenges_simmed: int = 0
     energy_claimed: int = 0
     nothing_to_collect: int = 0
+    battles_won: int = 0
+    battles_lost: int = 0
     skipped_nodes: int = 0
     halted: bool = False
     halt_state: Optional[str] = None
@@ -125,6 +134,7 @@ class EnergyDumpTask:
             "energy_node": self._steps_energy_node,
             "collect": self._steps_collect,
             "challenge_sim": self._steps_challenge_sim,
+            "battle": self._steps_battle,
         }
         builder = builders.get(kind)
         if builder is None:
@@ -214,6 +224,28 @@ class EnergyDumpTask:
             Step("RETURN_HOME", TPL_HOME_BUTTON),
         ]
 
+    def _steps_battle(self, node):
+        """A PvE auto-battle: HOME -> [nav] -> per attempt (START -> AUTO(optional) -> await VICTORY
+        with a long timeout; DEFEAT = recorded skip, never retried) -> dismiss rewards -> RETURN_HOME.
+        PvE only: no PvP tile is ever a nav/start target. start/auto/victory/defeat default to shared
+        templates, overridable per entry; `attempts` repeats the fight (e.g. Coliseum's 5)."""
+        start = node.get("start", TPL_BATTLE_START)
+        auto = node.get("auto", TPL_BATTLE_AUTO)
+        victory = node.get("victory", TPL_VICTORY)
+        defeat = node.get("defeat", TPL_DEFEAT)
+        btimeout = node.get("battle_timeout_s", DEFAULT_BATTLE_TIMEOUT_S)
+        steps = [Step("HOME", TPL_HOME, tap=False)]
+        for i, tpl in enumerate(node.get("nav", [])):
+            steps.append(Step(f"NAV_{i}", tpl, scrollable=node.get("scrollable", False)))
+        for a in range(node.get("attempts", 1)):
+            steps.append(Step(f"START_{a}", start))
+            steps.append(Step(f"AUTO_{a}", auto, optional=True))
+            steps.append(Step(f"OUTCOME_{a}", victory, timeout=btimeout, mark="battles_won",
+                              skip_marker=defeat, skip_tap=True, skip_counter="battles_lost"))
+            steps.append(Step(f"POST_{a}", TPL_REWARDS, optional=True))
+        steps.append(Step("RETURN_HOME", TPL_HOME_BUTTON))
+        return steps
+
     def _tap(self, match, offset=(0, 0)):
         self.tapper(match.cx + offset[0], match.cy + offset[1])
         self._actions += 1
@@ -282,7 +314,7 @@ class EnergyDumpTask:
                 if self.should_stop():
                     s.stopped_reason = "killed"
                     return s
-                m = self.look(step.template, self.timeout)
+                m = self.look(step.template, step.timeout if step.timeout is not None else self.timeout)
                 if m is None and step.scrollable:
                     m = self._scroll_find(step.template)   # target may be off-screen; swipe-scan
                 if m is None and step.optional:
