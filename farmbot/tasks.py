@@ -92,6 +92,12 @@ TPL_COLISEUM_RESULTS = "coliseum_results"   # Coliseum's fourth result screen: "
                                     # a CONTINUE. Unlike the banners above, the title we can
                                     # recognise and the control that dismisses it are far apart.
 COLISEUM_RESULTS_TAP_OFFSET = (0, 464)   # title centre -> CONTINUE (measured 2026-08-04 on device)
+TPL_DEFEAT_UPSELL = "defeat_upsell"      # "Did you know you have upgrades available?" — the panel a
+                                         # LOST Conquest battle stacks on top of the DEFEAT screen.
+DEFEAT_UPSELL_TAP_OFFSET = (-891, -39)   # match centre (956,104) -> the back arrow (65,65). Measured
+                                         # live 2026-08-04. There is no close X and no CONTINUE; the
+                                         # back arrow is the only exit, which is why this needs an
+                                         # offset rather than a centre tap.
 TPL_DEFEAT = "defeat"               # a battle DEFEAT screen (tap to dismiss). Recorded, never retried.
 DEFAULT_BATTLE_TIMEOUT_S = 180.0    # how long to wait for a real-time battle to resolve
 
@@ -217,7 +223,8 @@ TPL_SHOP_CANCEL = "shop_cancel"            # the dialog's close-X — backs out 
 # keep offset closers cropped on distinctive text, never on chrome.
 DEFAULT_POPUP_CLOSERS = ("popup_close", "newsletter_close", TPL_COLISEUM_HIGHSCORE,
                          TPL_TIER_COMPLETE, TPL_CELEBRATION, "bronzium_skip",
-                         (TPL_COLISEUM_RESULTS, COLISEUM_RESULTS_TAP_OFFSET))
+                         (TPL_COLISEUM_RESULTS, COLISEUM_RESULTS_TAP_OFFSET),
+                         (TPL_DEFEAT_UPSELL, DEFEAT_UPSELL_TAP_OFFSET))
 
 # Campaigns whose chapter/tier tabs have a distinct visual from the shared LS/DS/Cantina/Fleet
 # chapter tabs, so their tab templates are campaign-scoped (chapter_tab_<campaign>_<n>).

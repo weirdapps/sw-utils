@@ -707,3 +707,75 @@ at far-left / mid / far-right — a constant failure, not a pan effect (the plat
 - `coliseum_results` CONTINUE offset **+464 is still an estimate**, never measured on device.
 - Sector 1 now shows **🎫22 keycards / 13d 16h left**; Conquest Ascension timer 6d 15h.
 - Audit the remaining templates for the same decay: any crop holding scene art or a live counter.
+
+## 2026-08-04 (session 6) — Conquest PLAYED for score: 310 → 410 on the 3500 track
+First real scoring session. **6 battles: 5 won, 1 lost.** Sector 1 **22 → 37/96**, track **310 → 410**.
+Nodes cleared 4 → 9. Crystals untouched at 240. Four of the five wins were driven **by the engine,
+unattended** (`battles_won=4, battles_lost=0, halted_entries=0`) — the conquest kind works end to end.
+
+### ⭐ THE SCORING UNIT IS MEASURED: one 3-star node = +20 track, +3 sector keycards
+Confirms the session-4 guess. **Max score 3500 from 410 ⇒ ~155 more node wins.** At 10% stamina per
+battle per character against +1%/30min regen (48%/day ⇒ ~4.8 battles/char/day), and with Conquest
+ending in 13d 15h, **max score is a full-window daily grind, not a session's work.** Sector 1 is 96
+keycards; Sector 2 is 96 and Sector 3 is 118, and 2 more sectors sit behind those, all LOCKED.
+
+### ⭐ ONLY ONE GALACTIC LEGEND PER CONQUEST SQUAD
+Hard game rule, discovered by hitting it: "Your squad already contains the maximum number of Galactic
+Legends." Any plan that fields 2+ GLs is void. The shape is **1 GL + 4 non-GL**, which is lucky —
+it is exactly the feat-stacking shape (a GL to carry, four slots to aim at feats).
+
+### ⭐ SQUAD STRENGTH IS THE WHOLE GAME ON HARD — the ISB squad LOSES
+- **ISB (Partagaz L / Probe Droid / Dedra / KX / Krennic), 144,156 power → DEFEAT**, wiped, all five
+  enemies still standing, >5 min. Cost 20 energy and 10% stamina for nothing.
+- **Lord Vader (L) / Darth Vader / Grand Inquisitor / Seventh Sister / Admiral Piett, 194,424 → WIN
+  in 42 SECONDS.** Same node. 35% more power, ~8× faster.
+- ⇒ **Do not run feat-optimal-but-weak squads on Hard.** A loss scores zero and still burns the
+  resources. Win first, stack feats within a winning squad.
+- Squads **persist between Conquest battles**, which is what lets the engine grind: build once by
+  hand, then let `max_battles` run. This is the single most useful operational fact here.
+
+### ⭐ DEFEAT IS A TWO-SCREEN STACK — and `defeat` cannot see the top one
+A lost battle shows **`defeat_upsell`** ("Did you know you have upgrades available?") layered ON TOP
+of the DEFEAT screen. Measured: `defeat` = **0.376** against the upsell, **0.968** once cleared.
+The upsell has **no close X and no CONTINUE** — the back arrow at (65,65) is the only exit.
+- **Fixed:** `defeat_upsell` wired as an offset popup closer, `(-891,-39)` from its match centre
+  (956,104). Test added; suite 192 → 193; the template left "unused" since capture is now used.
+- Still open: `_steps_conquest` OUTCOME waits the full `battle_timeout` before halting on a loss.
+  Now that defeat is detectable it should short-circuit — a loss means the squad is too weak, so the
+  remaining queued battles should skip rather than feed more nodes to a losing squad.
+
+### ⚠️ CRYSTAL HAZARD: the Wandering Scavenger node
+A green hex on the map is **not always a free Data Disk Stockpile**. Sector 1 has a **Wandering
+Scavenger** shop node behind an identical green hex, selling:
+`Overcharged Critical Chance Booster` **15 keycards** · `Overcharged Offense Booster` **75 CRYSTALS**
+· `Overcharged Health Medpac`. One green **COMMIT** button for all of them — the same
+mixed-currency-behind-one-green-button trap as Shipments.
+- **`conquest_disk_stockpile` correctly did NOT match it** (no match at 0.4), so the engine's disk
+  step is safe today. That is luck confirmed, not a guarantee: never widen that template.
+- Backed out via an empty-map tap; crystals verified unchanged at 240.
+- **The boss path runs THROUGH this node**, so advancing Sector 1 past node 9 needs a human decision.
+
+### Engine gaps found while grinding
+- **Boss nodes need their own template.** The Sector 1 boss (General Hux + Kylo Ren + 3 First Order
+  elites, 10m timer, **7 keycards**) renders as a character portrait in a red double-ring;
+  `conquest_node_open` does not match it (0.763 < 0.85). The engine skipped it as
+  `battles_unavailable` — correct, not a crash, but it means bosses stay manual.
+- A boss template keyed on the portrait will not generalise (each sector has a different boss); the
+  red double-ring frame is the only invariant, and it is hard to crop without the portrait.
+- `conquest_node_open` matched **0.992** on ordinary open nodes mid-grind, so the 0.85 threshold and
+  the open/cleared separation both hold in the field.
+
+### Feat state (device-read)
+**SECTOR 1 — 2/4 done:** `Raise da Shield` ✅ · `Super Support` ✅ · `Security Protocol Intact` 2/10 ·
+`The Slow Game` 0/300. The ISB thesis from session 4 was RIGHT — Partagaz's Retaliate cleared it.
+**EVENT — 0/9:** Strategic Undermining **40/50** (closest; completing it grants the Booming Voice
+disk, which is the prerequisite for Follow My Lead 7/60) · Striking Back 5/50 · That'll Leave a Mark
+20/500 · Challenging Victory 1/250 · Imperial Inquisition 0/300 · Mission Above All 0/20 ·
+You Must Learn Control 0/1 · Family United 0/3. Event feat reward is **1 keycard + a data disk**,
+so feats are worth far less score than nodes (+20) — **clear nodes first, feats are a side effect.**
+
+### Open
+- Sector 1 blocked at the Wandering Scavenger (owner's call — crystal-adjacent).
+- Lord Vader squad is down ~50% stamina after 5 battles; rotate squads or wait out regen.
+- `conquest_squad_prompt` verified 1.000 live; `conquest_battle_btn` 0.965/0.992; the two-tap
+  ambiguity held exactly as designed across 5 engine battles.

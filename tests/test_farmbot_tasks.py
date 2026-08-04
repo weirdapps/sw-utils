@@ -995,6 +995,16 @@ def test_tap_target_normalises_a_bare_template_name():
     assert tap_target("popup_close") == ("popup_close", (0, 0))
 
 
+def test_the_conquest_defeat_upsell_is_dismissed_as_an_offset_closer():
+    """A lost Conquest battle stacks an upsell ("Did you know you have upgrades available?") ON TOP
+    of the DEFEAT screen. Measured live 2026-08-04: `defeat` scored 0.376 against the upsell and
+    0.968 once it was gone, so the outcome marker is unreachable until the upsell is cleared. Its
+    only exit is the back arrow at (65,65), far from the match centre — hence an offset closer."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS, tap_target
+    targets = dict(tap_target(c) for c in DEFAULT_POPUP_CLOSERS)
+    assert targets["defeat_upsell"] == (-891, -39)
+
+
 # --- conquest (hub far-right -> Galactic Battles -> CONQUEST -> sector map) --------------------
 
 # The console lives off the hub's default pan, so every conquest entry recenters and pans right.
