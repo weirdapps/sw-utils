@@ -118,6 +118,10 @@ Session result: 72→**81 6A** (+9: Jabba, Rey, Lord Vader, 3×Darth Revan, 2×J
 - **comlink hosting:** swgoh-comlink **v4.4.1 Linux binary** runs as **systemd service `comlink` on the VPS** (`vps` = 167.233.42.38, `~/comlink/`, APP_NAME=astra-swutils, port 3000, enabled + Restart=on-failure). ufw: default-deny + explicit deny 3000 → **tunnel/localhost-only**. (Mac Docker daemon won't start headless; the macOS binary is a broken pkg/V8 build; the VPS Linux binary works fine.)
 - **Use live comlink from the Mac:** `ssh -fN -L 3999:127.0.0.1:3000 vps` then run under the **venv** with `COMLINK_URL=http://localhost:3999` (comlink-python lives only in `.venv`). No tunnel / system python → auto file-fallback. comlink is READ-ONLY (no unequipped mods → **HotUtils still required for mod inventory**).
 - **Relic encoding (learned):** file `rt` == comlink `relic.currentTier` verbatim (NO offset; locked/pre-G13 = 1; ships = None).
+  ⚠️ **`rt` is NOT the relic level the game displays — displayed relic = `rt − 2`.** Device-verified 2026-08-05:
+  JML's unit tile reads R10 where the file says `rt:12`; the Geonosians (`rt:8/8/8/7/7`) show R6/R6/R6/R5/R5
+  and were **rejected** by a "5x Geonosians (Relic 7+)" RotE mission. So `rt>=8` is the R6+ gate and `rt>=9`
+  the R7+ gate. Any note quoting a relic level straight off `rt` is two tiers too high.
 - **A3 advisor DONE:** `scripts/advisor.py` `farm_priority()` ranks farm targets by board-unlock impact (sole-blocker of a meta team first, by rate; `_sort_key` = tunable heuristic). 3 tests. Real run: THIRDSISTER = sole-blocker of an 86% 5v5 offense; Cobb Vanth 66%; 4-LOM 31% wall.
 - **A1 daily brief DONE:** `scripts/daily_brief.py` → terminal + `output/brief_<date>.html` (board summary + farm priority). 2 tests. **Full suite 13/13** (`.venv/bin/pytest tests/`).
 - **A4 events DONE:** `scripts/events.py` (parse_ics + filter_upcoming + notable flags) reads swgohevents.com `/ical`; integrated into daily_brief "Upcoming events" section. stdlib-only.
@@ -491,10 +495,12 @@ Authoritative, from Event Info → Feature Info:
   including replays. Not farmbot-automatable.
 - **Feats are chained** (finishing one grants the data disk the next needs); Pass+ grants **Booming Voice**
   + **Deployable Cooling Systems** outright, satisfying two of them.
-- **Roster covers the whole feat plan:** Cassian Undercover R10 + Cassian Andor R10 + Kleya R9 +
-  **Vel Sartha R8** + Luthen Rael R9 (one team = Rebel-Fighter kills + Undermine + 20 Vel wins);
-  Inquisitorius GI/5th/7th R9 + 8th R7 for Purge×300 (Third Sister still the gap); JML R12 + Satele R10
-  (Offense Up ×500, Jedi Lessons S3); Starkiller R10 (Buff Disruption S5); Boba+Jango R10 (S5 10 wins).
+- **Roster covers the whole feat plan** (relic levels below CORRECTED −2 on 2026-08-05; they were quoted
+  straight off `rt` and were each two tiers too high — see the Relic encoding note above):
+  Cassian Undercover R8 + Cassian Andor R8 + Kleya R7 +
+  **Vel Sartha R6** + Luthen Rael R7 (one team = Rebel-Fighter kills + Undermine + 20 Vel wins);
+  Inquisitorius GI/5th/7th R7 + 8th R5 for Purge×300 (Third Sister still the gap); JML R10 + Satele R8
+  (Offense Up ×500, Jedi Lessons S3); Starkiller R8 (Buff Disruption S5); Boba+Jango R8 (S5 10 wins).
   Kaz not owned — Cassian Andor fills slot 5.
 - **Disks:** Desolation(2) + Volatile Accelerator(3) + Decay:Turn Meter(1)×2 + Weak Spot(2) + Fortified(3)
   = exactly 12. **Avoid Culling Slash** (4 slots, nullified by the Crit Immunity common on Hard).
@@ -905,3 +911,67 @@ cannot read — so a full engine run buys one battle per minute of navigation. I
   `defeat_upsell`.
 - `_pan` needs an arrival check (see the flaky-pan entry above).
 - Disk capacity is **12/12** — the next stockpile forces a swap decision, not a free add.
+
+## 2026-08-05 — Rise of the Empire Phase 2 played end-to-end (first full RotE session)
+Guild #9 "Full participation on ROTE please!" · Phase 2/6 · Astra finished the phase **#1 contributor**.
+
+### Navigation (device-verified)
+Hub right rail → **GUILD EVENT** — tap the *icon* at `(1843,435)`, NOT the label at `(1843,495)`; the label
+falls through (same rail-label trap as the hub consoles). → galaxy map → tap a planet → territory view.
+Territory view: the **green reticle is a selection cursor, not a marker** — it sits ~114px *below* the
+marker icon it has selected, and tapping the bare deploy node returns you to the galaxy map.
+**Markers need ≥5s between taps.** At 3s the tap silently fails to move the cursor, and the right panel
+still shows the *previous* mission — which reads as "all six missions have identical requirements".
+Verify the cursor moved; don't trust the delay. (`scripts/rote_probe.py` does this.)
+
+### Scoring model (measured, not assumed)
+- Committing a squad deploys its **squad power** immediately, win or lose.
+- A **win** adds a flat **250,000** on top (fleet missions 500,000). Bracca 34,991,556 → 35,453,904 on a
+  212,348-power win = exactly 212,348 + 250,000.
+- A **loss** adds nothing further — the results banner reads `RESULTS 0/1 · EARNED +0 Territory Points`.
+⇒ Attempting is never worse than deploying, so **use the strongest squad available for every mission**.
+  (The earlier "save your GLs for deployment" reasoning is wrong: their GP is credited either way.)
+
+### ⚠️ OPERATIONS ARE THE PLATOONS — FILL THEM BEFORE YOU DEPLOY
+The orange-ringed marker on each planet is an **Operation**: "Assign Characters (Relic 6+) and Ships
+(7-Star)", 6 operations per planet, **15 slots each, +11,000,000 TP per completed operation**. Each slot
+demands one *specific* unit. Quota is **10 assigned units per player per operation area**.
+- That is **~733,000 TP per unit** vs ~40,000 for deploying the same unit — roughly **18× better**.
+  18 operations × 11M = **198M TP/phase** available, against 250K for a whole combat mission.
+- **Deployed units are permanently ineligible**: tapping a slot after deploying pops
+  `UNIT ALREADY DEPLOYED — This unit has already been deployed to another mission and cannot be used here.`
+- **This session's mistake:** deployed all 10,283,960 unallocated GP to Felucia *before* opening an
+  Operation. Felucia Op1 was sitting at **14/15**, needing only Kylo Ren (Unmasked) R6+ — owned, at R8.
+  That one slot was **+11,000,000 TP**, and Op4 (13/15, two matching units) was a second. ≥22M TP lost.
+- **Correct order every phase: Special missions → Combat missions → OPERATIONS → deploy the remainder.**
+  Red badges on the operation tiles = slots your roster can fill, but they are **stale** — they keep
+  showing after the units are deployed, so they are not a safety net.
+
+### Phase 2 board (Geonosis DS / Felucia Mixed / Bracca LS), star gates 148M/237M/316M (Bracca 142/228/304M)
+| Territory | Missions |
+|---|---|
+| **Geonosis** | 3× `5x Dark Side or Neutral (R6+)` · 1× `5x Geonosians (R7+)` · fleet `Dark Side Ships (7★)` |
+| **Felucia** | `5x chars (R6+)` ×1 free, +**Young Lando**, +**Jabba**, +**Hondo Ohnaka** · fleet `Ships (7★)` |
+| **Bracca** | 2× `5x Light Side or Neutral (R6+)` · 1× `5x Jedi (R6+)` · fleet `Light Side Ships (7★)` · **Special: Cere Junda (R7+) + any Cal Kestis (R7+)** |
+- Bracca's gold marker is the **Special Mission**; 30 guild completions unlock the **Zeffo** bonus zone.
+- **`5x Geonosians (R7+)` is not fieldable** — Astra's best are Sun Fac/Brood Alpha/Poggle R6 and
+  Soldier/Spy R5. Button reads `REQUIRED UNITS 0/5`. Needs 2 relic levels on three Geonosians.
+
+### Result: 15 attempted, 13 won, 2 lost
+Wins: Bracca Jedi (JML 212K), all 4 Felucia grounds (Jabba 224K / GL Rey+Hondo 207K / SLKR+Y.Lando 196K /
+GL Leia 203K), Bracca LS ×2 (GL Ahsoka 199K, JMK 195K), Geonosis DS ×2 (SEE 197K, Lord Vader 194K),
+all 3 fleets (Leviathan 674K, Negotiator 677K, Executor 674K).
+Losses: **Bracca Special** (Cere R7 + JKCK R7, only 66,739 power — the slots are locked to those two, so
+there is no stronger squad; it needs relics on Cere/Cal, not better selection) and **Geonosis G4**
+(166,954, Doctor Aphra R7 lead — the one squad with no GL, because 9 GLs cover only 9 of the 10 missions).
+- **The in-game auto-fill is good** — it produced every winning squad above unprompted. Its one real
+  danger is spending a gated unit on a mission that didn't need it, so **run the gated missions first**
+  (Jabba/Hondo/Young Lando/Geonosians) and it can never steal them.
+- Capital ships: the fleet screen asks you to pick when the auto-pick is already used. Best per alignment
+  = **Executor** (DS, 83K, all abilities MAXED) · **Negotiator** (LS, 84K, all MAXED) · **Leviathan** (103K).
+- One combat mission ran **~820s** (Jabba, 2 waves); `rote_autobattle.py --max-wait` defaults to 480 and
+  will report `timeout` on a fight still in progress. Pass `--max-wait 900`; re-attach with `--no-start`.
+
+### New scripts
+`scripts/rote_probe.py NAME X Y` — tap a marker, save panel + map crops (the ≥5s-and-verify rule).
+`scripts/rote_open.py NAME X Y` — marker tap + panel BATTLE at `(1470,1006)` → squad screen.
