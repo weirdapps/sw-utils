@@ -298,3 +298,359 @@ approached from a fixed pan; then capture their console tap-targets at that fixe
 the challenge_sim entry safe-halts at the Events nav (isolated by `--daily`); energy + Coliseum
 entries replay fine. Live-validated: HOME (pan-invariant) ✓, events_entry match ✓, but the console
 TAP didn't open Events (offset/scale) → halt at CHALLENGES_TAB.
+
+## 2026-08-03 (session 4) — "automate the WHOLE daily": pan blocker solved, 4 new subsystems, 68 templates
+User directive: automate everything a daily SWGOH player does; leave only PvP and anything that
+can't be simmed or auto-battled. **Reversal of a standing rail: in-game TOKEN spending is now
+ALLOWED** (crystals still absolutely not). Scheduler explicitly declined — manual runs only.
+
+### The hub-pan blocker (the thing that was actually stuck) — SOLVED, three findings
+1. **HUD overlays are pan-invariant; 3D consoles are not.** The fix for Events was not to pan at
+   all: the **`EVENT ACTIVE` badge on the right rail opens the same Events menu** (Solo /
+   Challenges / **Guild Raids** / Guild Events). Raids come for free from the same screen — the
+   far-left pan is no longer needed for them either. `events_entry` re-captured as that badge.
+2. **A rail label is NOT a hit target — the tap falls THROUGH to the console behind it.** Tapping
+   the "COLLECTION" label opened *Select an Arena*. So templates crop the distinctive label and
+   `tap_offset` moves the tap onto the icon (hub_anchor −64, events_entry −71, inbox_entry −68).
+   Same for `store_entry`: its label sits ~190px RIGHT of the kiosk that is actually tappable.
+3. **A submenu round-trip restores the default pan; the home button alone does not** (no-op while
+   the hub is showing). Measured: center-band pixel diff 6.5 after a round-trip vs 41.4 panned.
+   That is `recenter: true`. `pan: far_left|far_right` swipes into an end stop for the rest.
+
+### Engine (tests 104 -> 139)
+- **`sequence` kind** — navigate then press a fixed button order, every tap optional so
+  already-done-today is a skip. Covers **Galactic War** (RESTART -> MULTI SIM -> SIM -> rewards)
+  and the free Bronzium. Cheaper than a bespoke kind for each.
+- **`shop` kind** — token buys. The guard is **structural, not a runtime check**: the purchase
+  dialog's BUY button renders the CURRENCY ICON inline, so a confirm template cropped as
+  "BUY + <token coin>" (digits excluded, so it survives a price change) **cannot match a
+  crystal-priced dialog**. No crystal-currency confirm template exists in the repo. Optional
+  second guard: per-entry `forbid` veto -> taps CANCEL, books `blocked_spends`.
+- **`_hub_prelude`** (recenter/pan) + **`_nav_steps`** (offset-aware nav, shared by all kinds).
+- **`--doctor` preflight** and **`farmbot/report.py`** (per-run markdown incl. the residual MANUAL
+  checklist, sourced from the config's `manual` list so routine and checklist can't drift).
+- **`farmbot/devtool.py`** — non-interactive capture/find/coverage. `capture.py` needs stdin, which
+  made it unusable from a script; this is the same job on argv. `coverage` **asks the engine for
+  its real Steps** instead of re-deriving them (the first version mirrored `_steps_for` by hand and
+  drifted within the hour), and splits BLOCKING (would halt) from SOFT (degrades safely).
+
+### Done live on Astra (crystals only ever went UP: 5,045 -> 5,340)
+- **Galactic War fully simmed in one tap** — RESTART -> MULTI SIM -> "sim the next 12 nodes" ->
+  647.2K credits + mod salvage + ship mats. Confirms a 50+-completion account never fights GW.
+  Note: `gw_restart` is only *present* when no war is active (it becomes a "Reset War In" timer
+  once one is), so tapping it cannot discard an in-progress war — this refutes the research
+  agent's caution about blacklisting it.
+- **All 3 arena payouts collected from the Inbox** (+270 crystals) with no PvP match played.
+- **Free Bronzium claimed** (daily quest) · **daily-activity milestone claimed** (+45 Normal/+45
+  Cantina) · purchase dialog captured and **cancelled** without buying.
+- **Templates 38 -> 68.** `--doctor` = full blocking coverage on a 16-entry routine.
+
+### Corrections to earlier notes
+- **Energy pool -> HUD icon mapping** (read off the Campaigns cards): blue=**Fleet**, teal=**Mod**,
+  red=**Cantina**, gold=**Normal**. Earlier sessions had this ordering wrong.
+- **Cantina 1-A is "Bracca"**, not Geonosian Soldier, and drops his shards + Mk I-III ability mats.
+- The 50-agent research (`docs/swgoh-daily-automation-spec.md`) disputes several config nodes
+  (Cantina 1-A, Fleet 1-E as already-7-star; Mod 2-D over 2-F). Its adversarial pass **refuted 35
+  of 40 claims it checked**, so it is a hypothesis list, not gospel. Nodes were left as-is with the
+  dispute recorded in `config.example.json`; settle Mod 2-D vs 2-F with `pull_mods.py` +
+  `slice_plan.py` against live inventory, and the rest by reading reward icons on device.
+
+### Still open
+- `calendar_claim`: all 4 login calendars were already CLAIMED today, so the green button could not
+  be captured. Wired to reuse `inbox_claim` (scored 0.670 on the greyed button at the right
+  position, so it should match when green) — confirm on an unclaimed day.
+- `defeat` (soft): needs a lost battle to capture. Its absence turns a graceful loss-skip into a
+  halt, which `--daily` isolates.
+- `hard_depleted` was cropped from LS Hard's 💎25 refresh chip; **Fleet Hard shows 💎200**, so the
+  marker will miss there and that node will halt instead of skipping. Needs a second crop.
+- **Fleet Challenge is a separate screen** from character Challenges — the bulk MULTI SIM does not
+  satisfy that daily quest.
+- Shop `buys` is empty pending per-item template captures.
+
+### Adversarial code review (28-agent workflow) — 11 confirmed, 13 refuted; all 11 fixed
+The review measured things I had asserted, and several assertions were wrong.
+- **`store_entry` was a featureless texture patch** (grayscale std 20 vs a 58 median): my crop was
+  200px right of the word "Store" and caught bar-counter gradient. It false-matched at 0.917 on
+  three unrelated screens, and the config's blind `-190` offset would then have tapped x=-154.
+  Recaptured on the glyph (std 91) and the offset deleted — the word IS the hit target.
+  → **`--doctor` now fails on any in-use template below std 25**, which immediately caught two more:
+  `chapter_tab_mod_2` (19) and **`chapter_tab_8` (25)**.
+- **`ADB.tap` now refuses off-screen coordinates** instead of shelling them out.
+- **`collect`'s `count` loop drained one item per run**: a single trailing rewards-dismiss meant
+  claim #2's button stayed covered by claim #1's overlay. Now dismisses after EVERY claim.
+- **`battle` halted instead of skipping** once the day's attempts were gone (greyed START), which
+  broke the routine's idempotence claim and stranded the app inside the battle screen. New
+  `Step.skip_entry`: an absent optional START ends the entry cleanly, and OUTCOME stays REQUIRED so
+  a genuinely unreadable result still halts with a screenshot.
+- **A malformed entry raised straight out of `run()`**, losing the Summary, the report and every
+  later entry — the one failure `--daily` exists to contain. Now booked as that entry's halt.
+  Same in `devtool.coverage`, which used to print a traceback and nothing else.
+- **`mark` fired before `ensure`**, so a recenter that never moved the camera still reported
+  `recentered=1`. Counters are now booked only after the ensure check passes.
+- **An optional step skipped without trying to clear a covering popup** — a calendar over the
+  Quests screen would have read eight claimable crates as "nothing to collect".
+- **`forbid` was classified SOFT in coverage**, so an uncaptured veto template silently disabled
+  the crystal guard while `--doctor` said OK. Now blocking.
+
+### THE DS chapter-8 halt — root-caused and FIXED after ~4 sessions
+Not navigation at all. The halt screenshot showed the engine **already on chapter 8 with Taris 8-B
+selected and MULTI SIM on screen**. Two separate stale-state bugs:
+1. `SELECT_CHAPTER` was REQUIRED, but tab templates are captured unselected and the game remembers
+   the chapter — so from the second visit on, the tab renders selected and the crop misses. Made
+   OPTIONAL, exactly like `SELECT_DIFFICULTY` already was for the same reason.
+2. `SELECT_NODE` had the same problem: the map keeps the last-played node selected. Added
+   `Step.alt` and an optional `node_<campaign>_<id>_sel` companion crop. Matching THAT node's
+   selected icon (rather than just "is a panel open?") is what keeps it from simming whatever node
+   someone happened to leave selected.
+**Verified live: `sims_done=1, halted_entries=0`** on an isolated DS 8-B run.
+
+### Two screen classes that stranded whole runs (both now popup closers)
+- **Coliseum "NEW HIGH SCORE / tap anywhere"** replaces the normal VICTORY screen on a record run.
+  One un-dismissed banner cascaded into three following entries failing their HOME check.
+  Also wired as `victory_alt` so the win is booked instead of halting.
+- **Star-up celebrations** ("Mace Windu 7★") are full-screen with a bottom-right CONTINUE and
+  **no home button**, so RETURN_HOME cannot work. Fired live off a bronzium.
+- Related: the data-card flow leaves a **"BUY AGAIN 🪙250 / FINISH"** screen behind. `bronzium_skip`
+  matches FINISH at 1.000 and **nothing in the template set matches BUY AGAIN** (verified against
+  the live capture), so it was safe to promote to a closer.
+
+### Rail verification against live captures (not assertions — measurements)
+- `bronzium_claim` / `bronzium_free` score **0.54** against the paid "BUY 🪙250" button (threshold
+  0.85) — the free-card templates cannot buy a paid one.
+- `inbox_claim` scores **0.752** against a GO/DELETE guild-orders message — cannot mistake it for a claim.
+- Crystals across every run this session: **5,045 → 5,340, monotonically up.**
+- Suite **104 → 147**.
+
+## 2026-08-04 — dailies-after-reset run + Coliseum/Conquest ground truth (READ BEFORE TOUCHING EITHER MODE)
+Full daily executed live on Astra. **Crystals 5,340 → 5,515, only ever up.** Daily quests **6/8**
+(remaining: 3 store Shipments = capped-currency spend, reserved to owner; 1 arena battle = PvP, excluded).
+Suite **147 → 162**, `--doctor` OK. Nothing committed.
+
+### Loot banked
+GW fully simmed (647.2K cr) · Challenges + **Fleet Challenge** · **Smuggler's Run Deadly ×2** (900K cr +
+slicing salvage) · **Bespin all 3 tiers** (3 Zeta, 10 Omega, 20 Mk III) · **Mara Jade marquee I–III** (+5
+shards) · **LS Normal 8-H ×36** (30 Mk IV, 12 Mk X, 6 gear, 34.5K cr) · 5 login calendars · Episode Track
+reward · Conquest Ascension free tier. All 4 energy pools dumped below cap → regen restarted.
+
+### Corrections to earlier notes (device-verified, beat the research agents)
+- **Squad Arena is NOT retired.** "Finish 1 Squad Arena or Fleet Arena battle" is live on the Quests
+  screen — **8 daily quests, not 7**. A research agent asserted retirement from a Jul-2026 patch note; wrong.
+- **The bulk Challenges MULTI SIM DOES satisfy the Fleet Challenge daily** (both showed complete after one
+  sim). Contradicts the 2026-08-03 session-4 note claiming Fleet Challenge is a separate unsatisfied screen.
+- **Energy-quest GO button navigates straight to the campaign** — cheaper than hub nav.
+- **Normal-difficulty campaign nodes have plain icons (no character art)**, so Hard-map `node_*` templates
+  never match on Normal. Normal = uncapped attempts, the correct sink for banked/overflow Normal energy.
+
+### Coliseum — read the in-game Event Info, not forums (both research agents got parts wrong)
+Authoritative, from Event Info → Feature Info:
+- **Only ERA UNITS can be used.** Legacy roster (all 9 GLs, 14.36M GP) is inert here. Loaned units are
+  lent at the account-wide **Loaned Unit Era Level** (was 22), raised by the daily *Loaned Unit Era Level
+  Increase Calendar*. "Slot unavailable due to slot restrictions" = slot needs an owned Era unit.
+  ⇒ **Era investment is the ceiling on this mode**, not squad choice or manual play.
+- **4 bosses per Era; WHICH ONE YOU FACE ROTATES DAILY.** Do not pre-build a boss-specific squad.
+- **Tier unlock = fully deplete the boss health bar.** All players start Tier 1. There is **NO
+  "Full/Partial/Heavily Decreased" era-level penalty table** — an agent invented that from stale forum
+  threads and it contradicts its own cited quote. Disregard.
+- **Leaderboard RESETS DAILY; placement = your best attempt THAT DAY.** Tier progress + top score persist
+  across the Era, but daily rewards need a good run *every* day. ⚠️ Earlier note called the score a
+  "high-water mark, pure upside" — that's true of tier progress, **false for the daily payout**.
+- Score = **% of boss HP removed**. Leaderboard value = tier faced × score. Highest tier has an overtime
+  phase past 100%. Relic-10 mats from the leaderboard: **confirmed** (EA announcement).
+- **Jotaz kit (in-game):** Heaving Bulk +250% vs **buffless** targets · Backhand Sweep dispels all and
+  gives Jotaz **+2% stacking Offense per buff dispelled** · Rabid Rage **+10% TM per buff lost** · Boulder
+  Toss +50% Offense (doubled on kill) · **Roar Of The Crowd: damage dealt rises and damage taken falls as
+  points accrue** (built-in diminishing returns — treat "98–99%" community claims sceptically), and after
+  **10 consecutive enemy turns** it gains 30% Offense/200 Speed/bonus turn and dispels everything.
+  Immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, Stun,
+  cooldown increase. ⇒ **Blanket-buffing FEEDS it** (offense stacks + turn meter); stalling is punished;
+  control comps are dead. Correct play = minimal targeted buffs on the likely Heaving Bulk target only.
+  The "just reapply buffs" advice from research is a trap.
+- **This session's mistake, recorded:** 5 attempts auto-battled with the pre-filled loaned squad → 51%
+  (rank 241→216→222). Attempts are 5/day and the payout is daily, so that was real value spent blind.
+
+### Coliseum engine facts (device-verified)
+- **Each attempt needs TWO taps:** Coliseum `BATTLE (n)` → squad select `BATTLE`. `battle_start` matches
+  BOTH, so the config's single `start` leaves attempt 2+ stranded on squad select. **Not yet fixed.**
+- **Result-screen chain has FOUR classes**, not one: `victory` · `coliseum_highscore` (NEW HIGH SCORE) ·
+  **`attempt_over`** (ATTEMPT OVER!, tap anywhere) · **`coliseum_results`** (BATTLE RESULTS + CONTINUE).
+  First two were known; last two captured this session. Also seen: **TIER COMPLETE / NEW TIER UNLOCKED**.
+- `attempt_over` wired into coliseum `victory_alt`. **`coliseum_results` captured but UNWIRED** — its
+  CONTINUE sits ~464px BELOW the cropped title, so it needs an offset-capable popup closer.
+- Exhausted attempts turn the button into a **💎250 refresh** — never tap.
+
+### Conquest — located, scouted, NOT played (deliberate)
+- **Entry point: the "Galactic Battles" console on the FAR-RIGHT hub pan** → a chooser with **WAR**
+  (Galactic War) and **CONQUEST**. It is not in the Events menu and not on the default pan.
+- **Conquest 24 = Leia (Jedi Training)**, ~90 shards in the red crate (~620–630 keycards), ends ~Aug 17.
+  Sector 1 unstarted, Hard, 0/9 event feats, 230/3500 keycards. Pass+ owned.
+- **⚡ 15,649 Conquest energy banked** (cap ~200, 15/battle) ≈ **1,000 battles**. Research says red crate
+  is impossible without 3×50-crystal refreshes/day — **that does not apply here.** Red crate is reachable
+  with **zero crystals**. The binding constraint is **stamina** (−10%/battle/char, +1%/30min) ⇒ ~2 battles
+  per squad per session, twice daily.
+- **No SIM in Conquest, ever.** Auto-battle exists inside a fight; every node costs 15 energy every entry,
+  including replays. Not farmbot-automatable.
+- **Feats are chained** (finishing one grants the data disk the next needs); Pass+ grants **Booming Voice**
+  + **Deployable Cooling Systems** outright, satisfying two of them.
+- **Roster covers the whole feat plan:** Cassian Undercover R10 + Cassian Andor R10 + Kleya R9 +
+  **Vel Sartha R8** + Luthen Rael R9 (one team = Rebel-Fighter kills + Undermine + 20 Vel wins);
+  Inquisitorius GI/5th/7th R9 + 8th R7 for Purge×300 (Third Sister still the gap); JML R12 + Satele R10
+  (Offense Up ×500, Jedi Lessons S3); Starkiller R10 (Buff Disruption S5); Boba+Jango R10 (S5 10 wins).
+  Kaz not owned — Cassian Andor fills slot 5.
+- **Disks:** Desolation(2) + Volatile Accelerator(3) + Decay:Turn Meter(1)×2 + Weak Spot(2) + Fortified(3)
+  = exactly 12. **Avoid Culling Slash** (4 slots, nullified by the Crit Immunity common on Hard).
+
+### Engine / config changes this session
+- **`quests_panel_final`** — a SECOND quests collect pass appended LAST. The first pass runs first so its
+  energy grants feed the nodes, which means every quest the bot then *completes* finishes unclaimed. Cost
+  4 unclaimed rewards before the fix; `collected=4` after. Keep both passes.
+- `login_relic` added (5th calendar); all `login_*` now claim via the new **`calendar_claim`** template
+  (was reusing `inbox_claim`). Coliseum `attempts` 1 → 5.
+- **GW nav root cause:** the Quests list REORDERS as quests complete — completed rows sort to the top and
+  push `quest_gw_row` below the fold, so nav halted at NAV_1 and the GW daily was missed. Agent added
+  per-step `scroll_scan` + vertical swipe support (`up`/`down`); config hop now scrolls. **Swipe geometry
+  was chosen without a device — needs a live run to confirm.**
+- Agent also fixed: `collect` count-loop early-exit via `skip_entry` (22 wasted iterations → ~3),
+  `_ensure_hub()` recovery at run start, `skip_marker_alt` for a second `hard_depleted` skin
+  (Fleet Hard shows 💎200, the captured crop is LS Hard's 💎25), `tier_complete` as popup closer.
+  It edited the gitignored `farmbot/config.json`; backup at
+  `~/Downloads/202608040010_farmbot_config_backup.json`.
+- **Templates +6:** `calendar_claim`, `cal_tab_relic`, `attempt_over`, `coliseum_results` (this session);
+  `tier_complete` + `hard_depleted_200` still uncaptured (soft-missing, degrade safely).
+
+### Open
+- Coliseum two-tap-per-attempt flow unfixed; `coliseum_results` needs an offset-capable closer.
+- Territory Battle (Mustafar ROTE) Phase 1 was live and **not deployed** — guild-coordinated, owner's call.
+- GAC "SET DEFENSES" window expired during the session (PvP, never touched).
+- Whether to invest in **Era units** at all is an open strategic decision — it is the sole lever on
+  Coliseum, and Coliseum is a confirmed Relic-10 source.
+
+## 2026-08-04 (session 4) — Conquest 24 SCOUTED LIVE + full feat list (supersedes the researched plan)
+Walked Conquest end-to-end on device and won one node. **Templates +12.** Nothing committed.
+
+### Navigation (device-verified)
+Hub far-right pan → **`galactic_battles`** console ("Galactic Battles / Hard - SECTOR 1") → chooser
+**SELECT A GALACTIC BATTLE** (WAR | **`conquest_card`**) → ENTER sits **+704px below the CONQUEST title**
+(both ENTERs are pixel-identical ⇒ title-match + offset-tap, NOT an ENTER template) → sector list
+(**`conquest_header`**, **`conquest_enter`**, **`conquest_locked`**) → sector map (**`conquest_feats_panel`**).
+
+### Economy, corrected against the device
+- **A node costs ⚡20, not 15.** Earlier note said 15. At 15,649 banked that is ~780 battles — energy is a
+  non-constraint; **stamina is the only budget** (−10%/battle/char, +1%/30min).
+- **Two separate currencies.** Blue slanted card = **keycards**, 3/node, 96/sector, shown per-node as `x/3`.
+  Gold stacked card top-bar = the **250/3500** track. One 3-star win moved: node 0/3→3/3, sector 0→3/96,
+  top bar 230→**250 (+20)**, Next Reward 0/1→**3/14**. So the two move together but are NOT the same number.
+- **Data Capacity 7/12** — Booming Voice(4) + Legendary Consumable Boost(1) + Solid Intel(2). 5 free.
+  **Pass+ makes disk swapping free.** Picked-up disks **auto-equip** if capacity allows.
+- **Green hex = Data Disk Stockpile: a free one-tap disk, no battle, no energy.** Always take it first.
+  Its side panel is **persistent, not a modal** — it does not dismiss on an outside tap; tapping another
+  node replaces it. An engine that waits for it to close will hang.
+
+### FEATS — read live. The researched plan was right about EVENT feats and had NO sector feats.
+**SECTOR 1 (0/4, 5 keycards each) — all four are new information:**
+| Feat | Requirement | At scout |
+|---|---|---|
+| Super Support | Grant at least 100 buffs | 7/100 |
+| Raise da Shield | Gain Retaliate 15 times | 0/15 |
+| The Slow Game | Attempt 300 DoT effects with an ability | 0/300 |
+| Security Protocol Intact | Win 10 battles with **KX Security Droid** surviving | 0/10 |
+
+**EVENT (0/9, 15 keycards each):** Follow My Lead (Booming Voice assists ×60, **2/60**) · Challenging
+Victory (250 kills **on the golden Challenge Path**) · Imperial Inquisition (Purge ×300) · Strategic
+Undermining (Undermine ×50) · Mission Above All (**20 wins with Vel Sartha**) · You Must Learn Control
+(1 battle with Deployable Cooling Systems) · That'll Leave a Mark (Offense Up ×500) · Striking Back
+(50 kills with **Rebel Fighter** units) · Family United (3 wins with **Princess Leia + Kylo Ren + Han Solo**).
+⇒ Pass+ pre-satisfies the two disk-gated feats. The prior note's plan matches the EVENT list exactly.
+
+### Roster check vs feats (from swgoh_roster_fresh_20260731.json) — everything needed is OWNED
+- **KX Security Droid g13r9** ✓ — sector feat 4 is live, not a gap.
+- **Inquisitor Barriss g13r9 completes the Inquisitorius five** (GI r9 · 5th r9 · 7th r9 · 8th r7 · Barriss r9).
+  ⚠️ Prior note called **Third Sister the blocker for Purge×300 — she is not needed.** Confirm Barriss
+  carries the Inquisitorius tag at squad select.
+- Vel Sartha g13r8 · Cassian Undercover r10 · Cassian Andor r10 · Kleya r9 · Luthen r9 · Princess Leia r9 ·
+  Kylo Ren r9 · Han Solo r10 · JML r12 · Satele r10 — all present.
+
+### Squad routing (maximise feats per unit of stamina)
+- **A · Rebels** (Cassian UC, Cassian, Kleya, **Vel Sartha**, Luthen) = Undermine + Vel-20 + Rebel-kills,
+  **three event feats per battle**; on the golden path it also feeds Challenging Victory = **four**.
+  Vel's 20 wins is the longest pole ⇒ **A is the default squad on every Light node it clears.**
+- **B · Inquisitors** (five above) = Purge ×300, Dark nodes.
+- **C · Jedi** JML lead + Satele = Offense Up ×500 and most of Super Support (buffs).
+- **D · Family** Princess Leia + Kylo Ren + Han Solo — only 3 wins, cheap, clear it early.
+- **E · Filler+KX** — put **KX Security Droid into the filler squad** so feat-irrelevant nodes still bank
+  Security Protocol Intact. Jabba/Tarkin/Trench/Partagaz/Baylan (191,603, all 100% stamina) are in **no**
+  feat, which is exactly why they were used for the scout battle.
+- **F · ISB** (Major Partagaz L · Dedra Meero · Director Krennic · Imperial Probe Droid · KX Security Droid) — all g13r9, all owned, all Dark Side. **Raise da Shield feat:** "Authority Is Brittle" grants Retaliate to all ISB allies at Rank 2+; up to 4 gains per ability use → feat in ~4 uses (2–3 battles). ⚠️ ISB Rank 2 progression speed in Conquest (not GAC) is unverified — in GAC the full ISB team starts at Rank 3; in Conquest they likely start Rank 1. Test: watch for Retaliate icons on Dedra/Krennic when Partagaz uses the ability. **Also feeds Security Protocol Intact** (KX is here, saving the Filler slot).
+- **G · Lord Vader Empire** (Lord Vader L · Darth Vader · Grand Admiral Thrawn · Seventh Sister · Darth Nihilus) — all g13, rt8–12, Dark Side. **The Slow Game feat (300 DoT):** "Unshackled Emotions" = 4 DoT × all 5 enemies = **20 applications per use** (unresistible, 5-turn CD). Classic Vader AoE special = 3 DoT × 5 = **15 more**. Community-confirmed top DoT team; 20/use × 15+ sector uses covers 300 with margin. ⚠️ Lord Vader's passive "2 DoT to all enemies at start of each LV turn" is unverified as "with an ability" for feat purposes — not needed regardless.
+  - Fallback DoT squad if LV team committed elsewhere: **SEE L · Darth Vader · Bastila Shan (Fallen) · Darth Sion · Darth Nihilus** (all g13, DS Sith). Vader remains the DoT engine (AoE: 15/use).
+  - **Darth Vader leader "DoT reapplies when it expires"** is a passive, NOT "with an ability" per EA rulings — do not count it toward the feat.
+  - **Wat Tambor clarification:** "Discharge Energy" detonates existing DoTs, does NOT apply new ones — not a feat contributor. His basic applies 2 DoT single-target only (out of turn).
+- **Alt Retaliate (Light Side nodes):** Boss Nass L · Gungan Phalanx · Gungan Boomadier · Captain Tarpals · Jar Jar Binks — all g13r9. "Raise da Shield" gives Phalanx Retaliate on self (1 gain per use). Need ~2–3 uses per battle × 7 battles. Slower but reliable and Gungan faction is strong.
+- **Scorch (RC-1262 r9)** appears in community DoT team guides but is NOT on the wiki's confirmed DoT character list — treat as unverified; use the LV/DV/Thrawn/7th/Nihilus lineup instead.
+
+### Templates captured (12) + reuse findings
+`galactic_battles` `conquest_card` `conquest_header` `conquest_enter` `conquest_locked`
+`conquest_feats_panel` `conquest_disk_stockpile` `conquest_disk_obtained` `conquest_combat_details`
+`conquest_battle_btn` `conquest_squad_prompt` `conquest_select_squad_btn` `conquest_inventory`
+`conquest_feats_screen`.
+- **Reuse, do not re-capture:** `battle_speed` matched the Conquest battle at **0.921**; the post-battle
+  REWARDS screen matched **`rewards` 0.996 / `victory` 0.995 / `celebration_continue` 0.992** — Conquest's
+  result screen is the standard reward chain.
+- `battle_auto` only made 0.593 *after* AUTO was tapped (active state differs) — needs an `_on` variant
+  or a pre-tap match; do not treat 0.59 as a miss.
+- **Two-tap battle start, same trap as Coliseum:** Combat Details `BATTLE ⚡20` → squad-select `BATTLE`.
+  One `conquest_battle_btn` template matches BOTH, so a single `start` step strands the run on squad select.
+
+### Session 4 addendum — 2 nodes played, feat deltas MEASURED, squad plan revised
+**Battle 2** used a Rebel-Fighter squad (Cassian Andor (Undercover) **lead, "I Have Friends Everywhere"** /
+Captain Drogan / Jyn Erso / Saw Gerrera / Captain Rex — all g13, all 100% stamina). One battle moved **four**
+feats at once, which is the whole stacking thesis, measured rather than assumed:
+`Striking Back 0→5/50` · `Follow My Lead 2→4/60` · `That'll Leave a Mark 0→5/500` · `Super Support 7→26/100`.
+Sector 3/96 keycards after 2 nodes.
+
+- **Feat lists RE-SORT as they progress** — feats with progress jump to the top, exactly like the Quests
+  screen does (that reorder already cost a missed GW daily once). Any scraper must scroll BOTH ways.
+- **Squad build is the expensive UI step, not the battle.** Tapping a roster portrait does nothing until a
+  **slot** is selected first ("Tap a slot to add or swap"); after the first slot is picked, each portrait tap
+  auto-advances to the next slot. The roster list **re-flows after every add**, so fixed coordinates drift.
+  Filter dialog has faction checkboxes **and a free-text search box** — search is the only deterministic way
+  to pick a specific unit. `SELECT SQUAD` opens the saved-squad manager (the GAC presets), not a Conquest picker.
+- Vel Sartha, Kleya, Luthen and Cassian Andor **are** Rebel Fighters — they just sort below
+  Drogan/Jyn/Saw/Rex in the filtered list, which is why the first five picks missed them.
+
+### Retaliate + DoT resolved (research agent, cross-checked vs roster) — REVISES the squad table above
+- **⭐ ISB serves TWO sector feats at once.** Major Partagaz (L) / Dedra Meero / Director Krennic / Imperial
+  Probe Droid / **KX Security Droid** — all owned **g13 rt9**. Partagaz's *Authority Is Brittle* grants
+  Retaliate to Rank 2+ ISB allies, **up to 4 per use** ⇒ `Raise da Shield` (15) in ~2–3 battles. And because
+  **KX Security Droid is a native ISB member**, the same squad also banks `Security Protocol Intact`
+  (10 wins with KX surviving). **This supersedes the earlier "put KX in the filler squad" idea.**
+  ⚠️ UNVERIFIED: ISB starts at Rank 3 in GAC; the starting rank/progression in Conquest is unknown. If they
+  start at Rank 1, Partagaz grants 0 Retaliate until Rank 2. Watch the first battle for Retaliate icons.
+- **DoT ×300 → Lord Vader.** *Unshackled Emotions* = 4 DoT to ALL enemies, **unresistible** = 20/use.
+  Team: Lord Vader (L) r12 / Darth Vader r9 / Thrawn / Seventh Sister / Darth Nihilus. Darth Vader's AoE
+  adds 15/use. Backup: Tusken Shaman + Tusken Warrior basics (single-target but very high frequency).
+  ⚠️ UNVERIFIED: whether LV's *passive* start-of-turn DoT counts toward "with an ability". Doesn't matter —
+  the ability alone clears 300 across the sector.
+  ❌ **Wat Tambor does NOT apply DoT** — *Discharge Energy* detonates existing DoTs. Do not slot him for this.
+- ⚠️ **Stamina collision:** Seventh Sister and Darth Vader appear in BOTH the Inquisitor (Purge) and Lord
+  Vader (DoT) teams. Running both squads in one session double-drains them. Alternate across sessions.
+
+### Session 4 addendum 2 — engine kind landed + three unknowns measured
+- **`conquest` entry kind built (TDD, device-free). Suite 162 → 183 green. Coverage 0 missing.** Nothing
+  committed. `coliseum_results` is now wired as an offset popup closer at **+464** (still UNMEASURED — it
+  came from this file's own "~464" estimate; treat as provisional).
+- ⚠️ **Correction to this file:** the earlier note "needs an offset-capable popup closer" implied the engine
+  had no offset tap. **Wrong** — `Step.tap_offset` already existed and was used by nav hops (`inbox_entry`
+  −68, `quest_gw_row` +646) and `SELECT_CAMPAIGN` (+673). The only bare-centre tap was `_dismiss_popups`.
+- **`CONQUEST_ENTER_TAP_OFFSET = (0,704)` is now MEASURED, not guessed:** `conquest_card` crop
+  (1155,200)-(1445,262) ⇒ centre (1300,231); ENTER tapped at (1298,934) ⇒ **dy = 703**. Worked on both entries.
+- **Data Disk Stockpile confirm resolved:** there is **NO confirm button**. The disk is granted on the node
+  tap, the "You obtained this Data Disk" text is part of the **persistent side panel**, an outside tap leaves
+  it pixel-identical, and the disk **auto-equips** (Inventory showed Solid Intel equipped, 7/12). The engine's
+  `DISK_OK` step must be verify-only (`tap=False`).
+- **NEW template `conquest_node_open`** (104×104, the bright ring of an un-cleared combat node). Multi-peak
+  NMS against a live map: open **1.000 / 0.973**, cleared **0.663** (selection cursor) and **0.348**,
+  background ≤0.34 ⇒ **threshold ~0.85 separates cleanly**, 0.31 margin. Cleared nodes render dim.
+- ⚠️ **The cyan arrows are a SELECTION CURSOR, not an availability marker** — a cleared 3/3 node still
+  carried them because it was tapped last. Do not use arrows to mean "open".
+- **Still open:** which open node to attack is a genuine routing choice (branching paths + a distinct golden
+  Challenge Path skin), and Coliseum's own two-tap-per-attempt bug in `_steps_battle` is untouched.
