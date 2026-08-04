@@ -77,7 +77,10 @@ Rules learned the hard way:
 
 ## Status
 
-Live-validated on BlueStacks (Astra, 14.36M GP). 139 device-free tests. `--doctor` reports full
-template coverage for the 16-entry routine. Known gaps are listed at the end of
-`docs/swgoh-daily-automation-spec.md`; the big ones are the DS chapter-8 navigation, the
-Fleet-variant of the depleted-node marker, and an empty shop allow-list pending item captures.
+Live-validated on BlueStacks (Astra, 14.36M GP). 195 device-free tests. `--doctor` reports full
+template coverage for the 19-entry routine. Known gaps are listed at the end of
+`docs/swgoh-daily-automation-spec.md`; the big ones are the DS chapter-8 navigation and the
+Fleet-variant of the depleted-node marker.
+
+Of the 8 daily quests it closes 7. The eighth is the Arena battle, which is PvP — rail 2 means there
+is no code path that can play it, so 7/8 is the ceiling by design, not a gap.

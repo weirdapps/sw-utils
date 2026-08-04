@@ -273,8 +273,18 @@
         "shop_tab_cantina"
       ],
       "confirm": "shop_confirm_cantina",
-      "buys": [],
-      "for": "Token spends. `buys` is EMPTY by design until each wanted item has its own captured template \u2014 see docs/swgoh-daily-automation-spec.md for the buy list. The confirm template carries the Cantina coin, so a crystal-priced dialog can never be confirmed."
+      "buys": [
+        {
+          "item": "shop_item_t4_droid"
+        },
+        {
+          "item": "shop_item_ability_mk2"
+        },
+        {
+          "item": "shop_item_ship_materials"
+        }
+      ],
+      "for": "Token spends. The confirm template carries the Cantina coin, so a crystal-priced dialog can never be confirmed. THREE items, deliberately: they close the `Purchase 3 store Shipments` daily quest (7,000 guild-activity + 300 episode-track), which was the only one of the two quests the bot used to leave open \u2014 the other is the Arena PvP battle, which it will never play. Each shipment slot is ONE PURCHASE PER REFRESH CYCLE (measured 2026-08-05: the tile greys and takes a checkmark immediately after buying), so three purchases need three DIFFERENT items \u2014 `count: 3` on one item would buy once and skip twice. WHICH items barely matters: every character in Astra's Cantina store reads Max (Embo, Kit Fisto, Stormtrooper Han, Chopper, Cassian's U-wing) and the materials sit at 7,947 / 7,470 / 2,602 / 43.99M owned, so 800 tokens/day comes out of a 30.5K pile that has nothing else to buy. The item template is the CARD TITLE STRIP, not the green price button: tapping the title opens the same buy dialog (verified live), and a title-only crop excludes both the `You Own: N` counter and the price, which is what lets it survive a purchase and a price change. It also gives idempotence for free \u2014 the sold-out state stamps a checkmark OVER the title, dropping the match to 0.46-0.57 against the 0.85 threshold, so a second run the same day skips instead of re-buying. That only works while the crop includes the title's right-hand end. Do NOT add `Ability Material Mk I` as a cheaper fourth (100 vs 200): measured 2026-08-05, its title strip matches the `Ability Material Mk II` CARD at 0.975, because one extra `I` glyph over a 375x42 strip is not enough signal for TM_CCOEFF_NORMED. The three chosen names share no prefix, so none of them can match another's card."
     },
     {
       "kind": "collect",

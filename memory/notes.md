@@ -975,3 +975,53 @@ there is no stronger squad; it needs relics on Cere/Cal, not better selection) a
 ### New scripts
 `scripts/rote_probe.py NAME X Y` — tap a marker, save panel + map crops (the ≥5s-and-verify rule).
 `scripts/rote_open.py NAME X Y` — marker tap + panel BATTLE at `(1470,1006)` → squad screen.
+
+## 2026-08-05 (session 2) — the daily closed at 7/8 for the first time; shop allow-list is live
+A `--daily` already in flight from 02:05 finished clean: **19/19 entries, 5 nodes simmed, 2 challenges
+multi-simmed, 12 collects, 1 coliseum win, 1 halt.** The halt is benign and will recur — `guild_raid`
+stops at `OUTCOME_0` because the guild has **no active raid** (`Raid is not active`, `BATTLE (5)` greyed),
+so there is no outcome screen to read. Nothing to fix; it is a greyed control the matcher can't see.
+
+### ⚠️ A piped `--daily` shows NOTHING until it exits
+`... --daily 2>&1 | tee log` buffers: Python block-buffers stdout when it isn't a tty, so 22 minutes of
+progress sat in the buffer and `tail -f` showed an empty file. The run was fine. To watch a live run,
+either add `-u` / `PYTHONUNBUFFERED=1`, or do what worked here — diff two `devtool shot`s a few seconds
+apart and compare md5s.
+
+### The two quests the bot leaves open are now ONE
+Daily quests ended 6/8 with all six claimed. The two open ones were `Finish 1 Squad Arena or Fleet Arena
+battle` (PvP — no code path, permanent) and `Purchase 3 store Shipments` (the empty shop allow-list).
+The second is now closed, by hand today and by config from tomorrow → **7/8**.
+
+### ⭐ Shipments, measured
+- **One purchase per slot per refresh cycle.** Buying greys the tile and stamps a ✔ over its title.
+  So `count: 3` on one item buys once and skips twice — three purchases need **three different items**.
+- **Tapping the card TITLE opens the buy dialog**, same as the green price button (verified on Ship
+  Building Materials, then cancelled). So the item template needs no `tap_offset`.
+- ⇒ crop the **full-card-width title strip**. It excludes the `You Own: N` counter and the price, both
+  of which change; and because the sold-out ✔ lands *on* the title, the match drops to **0.45–0.58**
+  against the 0.85 threshold — idempotence for free, as long as the crop includes the title's right end.
+- ⚠️ **An icon crop is the wrong instinct here.** A title+icon strip scored **0.977–0.981 on sold-out
+  cards** — grayscale `TM_CCOEFF_NORMED` normalises away the "greyed" dimming, and that crop misses
+  the ✔ entirely. The README's "cannot tell enabled from greyed" is the rule; the title strip only
+  escapes it because the ✔ is destructive.
+- ⚠️ **`Ability Material Mk I` cannot be templated next to Mk II.** Its title strip matches the **Mk II
+  card at 0.975** — one extra `I` glyph over 375x42 is not enough signal. Chose three names that share
+  no prefix instead: `t4_droid` / `ability_mk2` / `ship_materials`. Verified live: 0.454 / 0.584 (both
+  sold out → skip) and 1.000 (available → tap).
+
+### Astra's Cantina store is dead stock, so the token choice is free
+Embo, Kit Fisto, Stormtrooper Han, Chopper, Cassian's U-wing all read **Max**; materials sit at
+7,947 / 7,470 / 2,602 / 43.99M owned. **31K tokens with nothing to buy** ⇒ the 800/day the allow-list
+spends is not a cost, and the 500 spent by hand today (Mk I 100 + Mk II 200 + T4 200) bought the quest,
+not the items.
+
+### Free claims the routine does not collect
+- **Episode Track** pays out on a level ladder that the `collect` entries never open — level 22 had two
+  waiting. Claimed the free one (256 of a purple mat). The other is on the **paid EPISODE PASS row**
+  (brown tiles, gold border); it reads `Tap to claim` but may open a real-money upgrade page, so it is
+  left alone — owner's call, one tap if wanted. Worth an entry only if the ladder tile can be templated
+  without matching the pass row.
+- **Coliseum "Rewards Available" is not a claim.** `RANK REWARDS` is an info panel of the rank ladder;
+  it pays at reset. Rank 159 → `#91-250` → 300 tokens. Nothing to press. High score 19,551 (88%),
+  **4 of 5 battles unused** — free score if anyone wants to grind it, no energy cost.
