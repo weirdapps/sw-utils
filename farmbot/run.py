@@ -7,7 +7,7 @@ import random
 import signal
 import time
 
-from farmbot import vision
+from farmbot import report, vision
 from farmbot.adb import ADB
 from farmbot.tasks import EnergyDumpTask
 
@@ -15,6 +15,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_CONFIG = os.path.join(ROOT, "config.json")
 TEMPLATE_DIR = os.path.join(ROOT, "templates")
 HALT_DIR = os.path.join(ROOT, "halts")
+REPORT_DIR = os.path.join(ROOT, "reports")
 STOP_FILE = os.path.join(ROOT, "STOP")
 _REQUIRED = ("device_serial", "caps", "vision")
 
@@ -27,7 +28,73 @@ def parse_args(argv=None):
                    help="run the full daily routine (all kinds); alias of --dump")
     p.add_argument("--capture", action="store_true", help="capture a template instead of running")
     p.add_argument("--dry-run", action="store_true", help="print the plan, tap nothing")
+    p.add_argument("--doctor", action="store_true",
+                   help="preflight only: device, config and template coverage. Taps nothing.")
+    p.add_argument("--report", metavar="PATH",
+                   help="write the daily markdown report here (default: farmbot/reports/<date>.md)")
     return p.parse_args(argv)
+
+
+def doctor(cfg, template_dir=TEMPLATE_DIR, device_ready=None):
+    """Preflight. Returns (ok, lines).
+
+    Exists because the failure mode this bot actually has is boring: a template that was never
+    captured. A missing template can't match, so the step it belongs to halts mid-run — after the
+    entries before it already spent energy. Checking coverage up front turns that into a list.
+    """
+    from farmbot.devtool import low_contrast_templates, required_templates
+
+    lines, ok = [], True
+    routine = routine_of(cfg)
+    lines.append(f"routine: {len(routine)} entries")
+
+    kinds = {}
+    for entry in routine:
+        kinds[entry.get("kind", "energy_node")] = kinds.get(entry.get("kind", "energy_node"), 0) + 1
+    lines.append("  " + ", ".join(f"{k}×{n}" for k, n in sorted(kinds.items())))
+
+    if device_ready is None:
+        lines.append(f"device: not checked ({cfg['device_serial']})")
+    elif device_ready:
+        lines.append(f"device: ready ({cfg['device_serial']})")
+    else:
+        lines.append(f"device: NOT READY ({cfg['device_serial']}) — check `adb devices`")
+        ok = False
+
+    import os
+    blocking, soft = required_templates(routine)
+    have = {os.path.splitext(f)[0] for f in os.listdir(template_dir) if f.endswith(".png")}
+    missing = {n: u for n, u in sorted(blocking.items()) if n not in have}
+    degraded = {n: u for n, u in sorted(soft.items()) if n not in have}
+    unused = sorted(have - set(blocking) - set(soft))
+    if missing:
+        ok = False
+        lines.append(f"templates: {len(missing)} MISSING — these entries would halt:")
+        lines += [f"  missing {name}  (needed by {', '.join(sorted(set(users)))})"
+                  for name, users in missing.items()]
+    else:
+        lines.append("templates: every blocking template is present")
+    if degraded:
+        # Not a failure: these only cover paths that already degrade safely (a skip marker that
+        # can't match turns a graceful skip into a halt, which --daily isolates).
+        lines.append(f"  {len(degraded)} soft-missing (handled, but capture them when you can): "
+                     + ", ".join(degraded))
+    if unused:
+        lines.append(f"  ({len(unused)} captured but unused: {', '.join(unused)})")
+
+    # Only templates this routine actually relies on: a flat leftover in the directory is noise.
+    used = set(blocking) | set(degraded)
+    flat = [(n, sd) for n, sd in low_contrast_templates(template_dir) if n in used]
+    if flat:
+        lines.append("templates: LOW CONTRAST — these can match almost anything:")
+        lines += [f"  {name} (std {sd:.0f}, want >= 25) — recapture around a glyph, not texture"
+                  for name, sd in flat]
+        ok = False
+
+    if not cfg.get("manual"):
+        lines.append("manual: no residual checklist configured — the report can't tell you "
+                     "what's still yours to do")
+    return ok, lines
 
 
 def load_config(path):
@@ -72,12 +139,17 @@ def make_delay(action_delay_ms, sleeper=time.sleep, rng=random.uniform):
     return delay
 
 
-def make_swipe(adb, y=560, near=500, far=1400, ms=400):
-    """Horizontal node-map swipes. 'left' reveals later nodes (drag content left);
-    'right' reveals earlier nodes."""
+def make_swipe(adb, y=560, near=500, far=1400, ms=400, x=960, top=300, bottom=900):
+    """Horizontal node-map swipes plus vertical list scrolls. A direction names which way the
+    CONTENT is dragged: 'left' reveals later nodes, 'right' earlier ones, 'up' reveals the rows
+    below the fold (the Quests list reorders as quests complete and can push a target row off)."""
     def swipe(direction):
         if direction == "left":
             adb.swipe(far, y, near, y, ms)
+        elif direction == "up":
+            adb.swipe(x, bottom, x, top, ms)
+        elif direction == "down":
+            adb.swipe(x, top, x, bottom, ms)
         else:
             adb.swipe(near, y, far, y, ms)
 
@@ -89,6 +161,8 @@ def format_summary(summary):
             f"collected={summary.collected} challenges_simmed={summary.challenges_simmed} "
             f"energy_claimed={summary.energy_claimed} nothing_to_collect={summary.nothing_to_collect} "
             f"battles_won={summary.battles_won} battles_lost={summary.battles_lost} "
+            f"bought={summary.bought} blocked_spends={summary.blocked_spends} "
+            f"recentered={summary.recentered} "
             f"energy_out_nodes={summary.energy_out_nodes} "
             f"hard_depleted_nodes={summary.hard_depleted_nodes} skipped_nodes={summary.skipped_nodes} "
             f"halted_entries={summary.halted_entries} "
@@ -103,7 +177,15 @@ def main(argv=None):
         return capture.main(cfg, args)
 
     adb = ADB(cfg["device_serial"])
-    if not adb.device_ready():
+    ready = adb.device_ready()
+
+    if args.doctor:
+        ok, lines = doctor(cfg, device_ready=ready)
+        print("\n".join(lines))
+        print("\nPREFLIGHT " + ("OK" if ok else "FAILED"))
+        return 0 if ok else 1
+
+    if not ready:
         print(f"device not ready: {cfg['device_serial']} — check `adb devices`")
         return 2
 
@@ -149,6 +231,14 @@ def main(argv=None):
     )
     summary = task.run()
     print(format_summary(summary))
+
+    stamp = _dt.datetime.now()
+    path = args.report or os.path.join(
+        REPORT_DIR, f"{stamp.strftime('%Y-%m-%d_%H%M')}.md")
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    report.write(path, report.render(summary, stamp.strftime("%Y-%m-%d %H:%M"),
+                                     manual=cfg.get("manual", ())))
+    print(f"report: {path}")
     return 1 if summary.halted else 0
 
 

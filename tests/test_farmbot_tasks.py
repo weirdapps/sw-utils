@@ -287,17 +287,19 @@ def test_mod_chapter_uses_scoped_tab_template():
     assert s.halted is False
 
 
-def test_mod_chapter_halts_if_only_generic_tab_present():
-    # Proves the scoping is real: with ONLY the generic chapter_tab_2 (no scoped one), mod halts.
+def test_mod_chapter_never_taps_the_generic_tab():
+    """Mod's tier tabs look nothing like the shared LS/DS/Cantina/Fleet chapter tabs, so Mod tier 2
+    must ask for chapter_tab_mod_2 and never settle for a same-numbered generic tab."""
     node = {"campaign": "mod", "chapter": 2, "node": "2-F", "sim": "max"}
+    task = EnergyDumpTask([node], scripted_look(set()), lambda x, y: None)
+    chapter = [st for st in task._steps_for(node) if st.label == "SELECT_CHAPTER"]
+    assert [st.template for st in chapter] == ["chapter_tab_mod_2"]
+
+    # and with only the generic tab on screen it is skipped, not tapped
     present = {"home", "campaigns_entry", "campaigns_menu", "campaign_mod", "chapter_tab_2",
                "node_mod_2-F", "multi_sim", "sim_confirm", "rewards", "home_button"}
-    halts = []
-    task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
-                          halt=lambda st: halts.append(st))
-    s = task.run()
-    assert s.halted is True
-    assert s.halt_state == "SELECT_CHAPTER"
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None).run()
+    assert s.chapter_already_set == 1
 
 
 def test_standard_chapter_uses_generic_tab_template():
@@ -325,10 +327,31 @@ def test_chapter_tab_found_after_swipe():
     assert len(swipes) >= 1
 
 
-def test_unknown_kind_raises():
-    task = EnergyDumpTask([{"kind": "bogus"}], scripted_look(set()), lambda x, y: None)
-    with pytest.raises(ValueError):
-        task.run()
+def test_unknown_kind_raises_when_building_steps():
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    with pytest.raises(ValueError, match="unknown routine kind"):
+        task._steps_for({"kind": "bogus"})
+
+
+def test_a_malformed_entry_aborts_only_itself_under_daily():
+    """A typo in one entry used to raise straight out of run(), losing the Summary, the report and
+    every entry after it — the exact failure --daily exists to contain."""
+    good = {"campaign": "cantina", "node": "1-A", "sim": "max"}
+    routine = [{"kind": "collect", "name": "typo", "nav": []}, good]   # no "claim" key
+    s = EnergyDumpTask(routine, scripted_look(FLOW), lambda x, y: None,
+                       continue_on_halt=True).run()
+    assert s.halted is False
+    assert s.halted_entries == 1
+    assert s.halt_state.startswith("CONFIG:typo")
+    assert s.sims_done == 1          # the good entry after it still ran
+    assert s.stopped_reason == "complete"
+
+
+def test_a_malformed_entry_still_stops_a_debug_run():
+    routine = [{"kind": "collect", "name": "typo", "nav": []}]
+    s = EnergyDumpTask(routine, scripted_look(FLOW), lambda x, y: None).run()
+    assert s.halted is True
+    assert s.stopped_reason == "halt"
 
 
 def test_explicit_energy_node_kind_still_simms():
@@ -373,6 +396,54 @@ def test_collect_count_claims_until_absent():
     assert len(taps) == 3                # 2 claims + home
 
 
+def test_collect_ends_the_entry_once_a_later_claim_is_absent():
+    """`count` used to probe every iteration even on an empty panel, and each absent optional step
+    pays a full look + popup sweep + retry. With count 8 on the Quests panel and 6 on the inbox, a
+    live run spent ~10 minutes finding nothing."""
+    node = {"kind": "collect", "nav": [], "claim": "gift_claim", "count": 8}
+    looks = []
+    inner = scripted_look({"home", "home_button", "rewards"},
+                          sequences={"gift_claim": [True, True, False]})
+
+    def look(name, timeout):
+        looks.append(name)
+        return inner(name, timeout)
+
+    taps = []
+    s = EnergyDumpTask([node], look, lambda x, y: taps.append((x, y))).run()
+    assert s.collected == 2
+    assert s.halted is False
+    assert looks.count("gift_claim") == 3   # 2 claims + the probe that ended it, not 8
+    assert len(taps) == 5                   # 2 claims + 2 reward dismissals + return home
+
+
+def test_stopping_a_collect_early_still_leaves_the_hub_ready():
+    """Ending the entry mid-list must still put the app back on the hub, or every entry after it
+    fails its HOME check."""
+    early = {"kind": "collect", "name": "inbox", "nav": [], "claim": "gift_claim", "count": 6}
+    after = {"kind": "collect", "name": "login", "nav": [], "claim": "login_claim"}
+    look = scripted_look({"home", "home_button", "login_claim", "rewards"},
+                         sequences={"gift_claim": [True, False]})
+    s = EnergyDumpTask([early, after], look, lambda x, y: None).run()
+    assert s.halted is False
+    assert s.collected == 2          # 1 from the early-stopped entry + 1 from the next
+    assert s.nodes_attempted == 2
+
+
+def test_a_momentarily_covered_claim_does_not_end_the_entry():
+    """The claim can still be behind the previous reward overlay when the next iteration looks for
+    it. Before treating an optional step as absent the engine dismisses known popups and re-looks —
+    that second look (on top of `look` itself being a polling wait) is what keeps a transient miss
+    from ending the whole entry."""
+    node = {"kind": "collect", "nav": [], "claim": "gift_claim", "count": 3}
+    look = scripted_look({"home", "home_button", "rewards"},
+                         sequences={"gift_claim": [True, False, True],
+                                    "popup_close": [True, False]})
+    s = EnergyDumpTask([node], look, lambda x, y: None).run()
+    assert s.collected == 2          # the covered claim was found on the re-look, not skipped
+    assert s.halted is False
+
+
 def test_collect_free_energy_books_energy_claimed():
     node = {"kind": "collect", "nav": [], "claim": "energy_free_claim", "counter": "energy_claimed"}
     present = {"home", "energy_free_claim", "home_button"}
@@ -400,7 +471,7 @@ def test_challenge_sim_bulk_multisim():
     # Real flow (captured live): Events -> Challenges tab -> MULTI SIM -> SIM confirm sims ALL
     # available daily challenges at once.
     node = {"kind": "challenge_sim"}
-    present = {"home", "events_entry", "challenges_tab", "challenges_menu",
+    present = {"home", "events_entry", "events_menu", "challenges_tab", "challenges_menu",
                "challenges_multisim", "challenges_sim_confirm", "rewards", "home_button"}
     taps = []
     task = EnergyDumpTask([node], scripted_look(present), lambda x, y: taps.append((x, y)))
@@ -410,13 +481,17 @@ def test_challenge_sim_bulk_multisim():
     assert s.sims_done == 0            # disjoint from energy sims
     # taps: events, challenges_tab, multisim, sim_confirm, rewards, home = 6
     assert len(taps) == 6
+    # The Events entry is the fixed "EVENT ACTIVE" HUD overlay, whose label is not itself a hit
+    # target — the tap is offset up onto the portrait button.
+    assert taps[0] == (10, 20 - 71)
 
 
 def test_challenge_sim_nothing_to_sim_no_halt():
     # Nothing simmable => the green MULTI SIM is greyed (template absent) => optional steps skip,
     # no halt, no sim booked.
     node = {"kind": "challenge_sim"}
-    present = {"home", "events_entry", "challenges_tab", "challenges_menu", "home_button"}
+    present = {"home", "events_entry", "events_menu", "challenges_tab", "challenges_menu",
+               "home_button"}
     halts = []
     task = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
                           halt=lambda st: halts.append(st))
@@ -435,7 +510,8 @@ def test_battle_happy_path_victory():
     assert s.halted is False
     assert s.battles_won == 1
     assert s.battles_lost == 0
-    assert len(taps) == 6        # tile, start, auto, victory, rewards, home
+    # tile, start, the second press of the same BATTLE button, auto, victory, rewards, home
+    assert len(taps) == 7
 
 
 def test_battle_defeat_recorded_no_halt():
@@ -506,3 +582,709 @@ def test_default_halt_aborts_whole_run():
     assert s.halted is True
     assert s.halt_state == "OPEN_MULTISIM"
     assert s.collected == 0               # aborted before entry 2
+
+
+# --- hub panning (recenter + end-stop pan) -------------------------------------------------
+
+HUB = {"home", "home_button", "hub_anchor", "hub_anchor_open"}
+
+
+def test_recenter_bounces_through_the_anchor_submenu():
+    """`recenter` must open a harmless submenu and come back — that is what restores the
+    default pan (the home button alone is a no-op while the hub is already showing)."""
+    node = {"kind": "collect", "name": "x", "recenter": True, "claim": "c"}
+    taps = []
+    task = EnergyDumpTask([node], scripted_look(HUB | {"c", "rewards"}),
+                          lambda x, y: taps.append((x, y)))
+    s = task.run()
+    labels = [st.label for st in task._steps_for(node)]
+    assert labels[:3] == ["HOME", "HUB_ANCHOR", "HUB_RECENTER"]
+    assert s.recentered == 1
+    assert s.halted is False
+
+
+def test_no_recenter_by_default():
+    """An entry that doesn't ask for it pays no recenter cost — the hub is already default-panned
+    unless something swiped it."""
+    task = EnergyDumpTask([NODE], scripted_look(FLOW), lambda x, y: None)
+    assert [st.label for st in task._steps_for(NODE)][:2] == ["HOME", "OPEN_CAMPAIGNS"]
+
+
+def test_pan_swipes_toward_the_end_stop_without_tapping():
+    node = {"kind": "collect", "name": "ev", "pan": "far_right", "pan_swipes": 3, "claim": "c"}
+    swipes, taps = [], []
+    task = EnergyDumpTask([node], scripted_look(HUB | {"c", "rewards"}),
+                          lambda x, y: taps.append((x, y)), swipe=swipes.append)
+    task.run()
+    # far_right = reveal the right end of the panorama = drag content left
+    assert swipes == ["left", "left", "left"]
+
+
+def test_pan_far_left_drags_content_right():
+    node = {"kind": "collect", "name": "raids", "pan": "far_left", "pan_swipes": 2, "claim": "c"}
+    swipes = []
+    task = EnergyDumpTask([node], scripted_look(HUB | {"c", "rewards"}),
+                          lambda x, y: None, swipe=swipes.append)
+    task.run()
+    assert swipes == ["right", "right"]
+
+
+def test_pan_implies_recenter():
+    """Panning to an end stop is only reproducible if we start from a known pan."""
+    node = {"kind": "collect", "name": "ev", "pan": "far_right", "claim": "c"}
+    task = EnergyDumpTask([node], scripted_look(HUB), lambda x, y: None)
+    labels = [st.label for st in task._steps_for(node)]
+    assert "HUB_ANCHOR" in labels
+    assert labels.index("HUB_ANCHOR") < labels.index("PAN_FAR_RIGHT")
+
+
+def test_unknown_pan_target_is_rejected():
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    with pytest.raises(ValueError, match="unknown pan target"):
+        task._steps_for({"kind": "collect", "pan": "sideways", "claim": "c"})
+
+
+# --- shop kind (token spends, crystals vetoed) ---------------------------------------------
+
+SHOP = {"kind": "shop", "name": "cantina_shop", "nav": ["shipments_entry", "shop_tab_cantina"],
+        "buys": [{"item": "buy_ability_mat_mk3"}]}
+SHOP_FLOW = {"home", "home_button", "shipments_entry", "shop_tab_cantina",
+             "buy_ability_mat_mk3", "shop_confirm_cantina", "rewards"}
+
+
+def test_shop_buys_a_token_priced_item():
+    taps = []
+    task = EnergyDumpTask([SHOP], scripted_look(SHOP_FLOW), lambda x, y: taps.append((x, y)))
+    s = task.run()
+    assert s.bought == 1
+    assert s.blocked_spends == 0
+    assert s.halted is False
+
+
+def test_shop_cannot_confirm_a_crystal_priced_dialog():
+    """The structural guard: the confirm template carries the TOKEN coin, so a crystal-priced
+    dialog (a different coin, hence no match) can never be confirmed. It skips, it never buys."""
+    look = scripted_look(SHOP_FLOW - {"shop_confirm_cantina"})
+    s = EnergyDumpTask([SHOP], look, lambda x, y: None).run()
+    assert s.bought == 0
+    assert s.halted is False
+
+
+def test_shop_forbid_veto_cancels_instead_of_confirming():
+    """The optional second guard: an entry may name a veto template; seeing it must back out via
+    CANCEL rather than confirm."""
+    node = dict(SHOP, forbid="crystal_price")
+    look = scripted_look(SHOP_FLOW | {"crystal_price", "shop_cancel"})
+    s = EnergyDumpTask([node], look, lambda x, y: None).run()
+    assert s.bought == 0
+    assert s.blocked_spends == 1
+    assert s.halted is False
+
+
+def test_shop_skips_an_item_that_is_not_in_stock():
+    """Shop stock rotates; a missing item is a normal no-op, not a halt."""
+    look = scripted_look(SHOP_FLOW - {"buy_ability_mat_mk3", "shop_confirm_cantina"})
+    task = EnergyDumpTask([SHOP], look, lambda x, y: None)
+    s = task.run()
+    assert s.bought == 0
+    assert s.blocked_spends == 0
+    assert s.halted is False
+
+
+def test_shop_count_repeats_the_buy():
+    node = dict(SHOP, buys=[{"item": "buy_ability_mat_mk3", "count": 3}])
+    task = EnergyDumpTask([node], scripted_look(SHOP_FLOW), lambda x, y: None)
+    assert task.run().bought == 3
+
+
+def test_shop_has_no_template_for_the_refresh_bar():
+    """Every shop tab carries a permanent 'REFRESH 💎50' bar. Nothing in the generated steps may
+    reference it — the only tap targets are the item, its confirm, and the standard chrome."""
+    task = EnergyDumpTask([SHOP], scripted_look(SHOP_FLOW), lambda x, y: None)
+    templates = {st.template for st in task._steps_for(SHOP)}
+    assert not any("refresh" in t for t in templates)
+    assert templates <= SHOP_FLOW
+
+
+# --- sequence kind (Galactic War and friends: a fixed button order, no battle) ---------------
+
+GW = {"kind": "sequence", "name": "galactic_war",
+      "nav": [{"template": "quests_entry"}, {"template": "quest_gw_row", "offset": [646, 14]}],
+      "taps": [{"template": "gw_restart"}, {"template": "gw_multisim"},
+               {"template": "gw_sim_confirm", "mark": "challenges_simmed"},
+               {"template": "rewards"}, {"template": "gw_redeem"}]}
+GW_FLOW = {"home", "home_button", "quests_entry", "quest_gw_row", "gw_restart", "gw_multisim",
+           "gw_sim_confirm", "rewards", "gw_redeem"}
+
+
+def test_sequence_presses_every_button_in_order():
+    taps = []
+    s = EnergyDumpTask([GW], scripted_look(GW_FLOW), lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert s.challenges_simmed == 1
+    assert len(taps) == 8       # 2 nav + 5 sequence + home
+
+
+def test_sequence_nav_offset_is_applied():
+    """The GW quest row is matched on its text but the GO button sits to its right."""
+    taps = []
+    EnergyDumpTask([GW], scripted_look(GW_FLOW), lambda x, y: taps.append((x, y))).run()
+    assert (10 + 646, 20 + 14) in taps
+
+
+def test_sequence_is_idempotent_when_already_done_today():
+    """GW's RESTART and MULTI SIM grey out once the war is simmed. Optional taps mean a second run
+    that day is a no-op rather than a halt."""
+    halts = []
+    look = scripted_look(GW_FLOW - {"gw_restart", "gw_multisim", "gw_sim_confirm"})
+    s = EnergyDumpTask([GW], look, lambda x, y: None, halt=halts.append).run()
+    assert s.halted is False
+    assert halts == []
+    assert s.challenges_simmed == 0
+
+
+def test_sequence_required_tap_still_halts():
+    node = dict(GW, taps=[{"template": "gw_restart", "required": True}])
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(GW_FLOW - {"gw_restart"}), lambda x, y: None,
+                       halt=halts.append).run()
+    assert s.halted is True
+    assert halts and halts[0].startswith("STEP_0")
+
+
+def test_battle_accepts_an_alternative_victory_screen():
+    """Coliseum shows a 'NEW HIGH SCORE' banner instead of the normal VICTORY screen when the run
+    beats the banked score. That is still a win, so it must book battles_won, not halt."""
+    node = {"kind": "battle", "nav": ["coliseum_tile"], "start": "battle_start",
+            "victory_alt": ["coliseum_highscore"]}
+    present = {"home", "coliseum_tile", "battle_start", "battle_auto",
+               "coliseum_highscore", "rewards", "home_button"}      # note: no "victory"
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                       halt=halts.append).run()
+    assert s.battles_won == 1
+    assert s.battles_lost == 0
+    assert s.halted is False
+    assert halts == []
+
+
+def test_high_score_banner_is_a_popup_closer():
+    """Left up, it covers the hub and every later entry fails its HOME check — which is exactly the
+    cascade seen live on 2026-08-03 (one battle halt turned into three)."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS
+    assert "coliseum_highscore" in DEFAULT_POPUP_CLOSERS
+
+
+def test_chapter_tab_is_optional_because_the_game_remembers_the_chapter():
+    """A tab template is captured unselected, so once the bot has visited that chapter the tab
+    renders selected and stops matching. Requiring it made DS ch8 halt on every run after the
+    first."""
+    node = {"campaign": "dark", "difficulty": "hard", "chapter": 8, "node": "8-B", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_dark", "hard_tab",
+               "node_dark_8-B", "multi_sim", "sim_confirm", "rewards", "home_button"}
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                       halt=halts.append).run()          # note: no chapter_tab_8 in `present`
+    assert s.halted is False
+    assert halts == []
+    assert s.sims_done == 1
+    assert s.chapter_already_set == 1
+
+
+def test_a_celebration_modal_does_not_strand_the_run():
+    """Star-up celebrations are full-screen with no home button. Seen live: a bronzium starred up a
+    character, RETURN_HOME found nothing, and the next three entries all failed their HOME check."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS
+    assert "celebration_continue" in DEFAULT_POPUP_CLOSERS
+
+    node = {"kind": "collect", "name": "c", "nav": [], "claim": "claim"}
+    # home_button only becomes reachable once the celebration is dismissed
+    seen = {"dismissed": False}
+
+    def look(name, timeout):
+        if name == "celebration_continue" and not seen["dismissed"]:
+            return M(10, 20, 0.99)
+        if name == "home_button" and not seen["dismissed"]:
+            return None
+        return M(10, 20, 0.99) if name in {"home", "home_button", "claim"} else None
+
+    def tap(x, y):
+        seen["dismissed"] = True
+
+    s = EnergyDumpTask([node], look, tap).run()
+    assert s.halted is False
+
+
+def test_node_selected_state_is_an_accepted_alternative():
+    """The map keeps the last-played node selected, so a second visit shows the glowing icon that
+    the unselected crop cannot match. Live: DS 8-B halted with its panel already open."""
+    node = {"campaign": "dark", "difficulty": "hard", "chapter": 8, "node": "8-B", "sim": "max"}
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_dark", "hard_tab",
+               "node_dark_8-B_sel",          # selected variant only
+               "multi_sim", "sim_confirm", "rewards", "home_button"}
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                       halt=halts.append).run()
+    assert halts == []
+    assert s.sims_done == 1
+
+
+# --- nav that has to scroll to reach its target ----------------------------------------------
+
+
+def test_a_nav_hop_can_scroll_to_find_a_row_below_the_fold():
+    """The Quests list REORDERS as quests complete: claimable rows sort to the top and push the
+    Galactic War row off-screen, so its template matched nothing and the entry halted at NAV_1.
+    A nav hop can name its own scan directions — a list scrolls vertically, while the engine's
+    default scan is horizontal because it was built for the campaign map."""
+    node = {"kind": "sequence", "name": "gw",
+            "nav": ["quests_entry",
+                    {"template": "quest_gw_row", "offset": [646, 14], "scroll": ["up", "up"]}],
+            "taps": [{"template": "gw_multisim"}]}
+    look = scripted_look({"home", "home_button", "quests_entry", "gw_multisim"},
+                         sequences={"quest_gw_row": [False, True]})
+    swipes, halts, taps = [], [], []
+    s = EnergyDumpTask([node], look, lambda x, y: taps.append((x, y)),
+                       swipe=swipes.append, halt=halts.append).run()
+    assert halts == []
+    assert s.halted is False
+    assert swipes == ["up"]                  # found after one vertical drag
+    assert (10 + 646, 20 + 14) in taps       # and the GO-button offset still applies
+
+
+def test_a_nav_hop_without_scroll_does_not_swipe():
+    """Scrolling stays opt-in per hop: a scan leaves the hub panorama dirty for every entry after
+    it, so a missing hub console must halt rather than swipe."""
+    node = {"kind": "sequence", "name": "gw", "nav": ["quests_entry"], "taps": []}
+    swipes, halts = [], []
+    s = EnergyDumpTask([node], scripted_look({"home", "home_button"}), lambda x, y: None,
+                       swipe=swipes.append, halt=halts.append).run()
+    assert swipes == []
+    assert halts == ["NAV_0"]
+    assert s.halted is True
+
+
+# --- Coliseum's other non-standard result screen ---------------------------------------------
+
+
+def test_a_tier_clear_banner_is_read_as_a_win_not_a_halt():
+    """Clearing a Coliseum tier shows 'TIER COMPLETE / NEW TIER UNLOCKED n' in place of the normal
+    victory screen, so the OUTCOME step timed out and halted."""
+    node = {"kind": "battle", "nav": ["coliseum_tile"], "start": "battle_start",
+            "victory_alt": ["coliseum_highscore", "tier_complete"]}
+    present = {"home", "coliseum_tile", "battle_start", "battle_auto",
+               "tier_complete", "rewards", "home_button"}   # neither victory nor highscore
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None, halt=halts.append).run()
+    assert s.battles_won == 1
+    assert s.halted is False
+    assert halts == []
+
+
+def test_tier_complete_is_a_popup_closer():
+    """Same failure class as the high-score banner: left up it covers the hub and every later
+    entry fails its HOME check."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS
+    assert "tier_complete" in DEFAULT_POPUP_CLOSERS
+
+
+# --- starting a run that isn't at the hub ----------------------------------------------------
+
+
+def test_a_run_that_starts_inside_a_menu_recovers_to_the_hub():
+    """A run that halted leaves the game deep in a menu, and the next run then halted on its very
+    first HOME check before collecting anything (twice in one evening)."""
+    look = scripted_look(FLOW, sequences={"home": [False, True]})
+    taps, halts = [], []
+    s = EnergyDumpTask([NODE], look, lambda x, y: taps.append((x, y)), halt=halts.append).run()
+    assert halts == []
+    assert s.halted is False
+    assert s.sims_done == 1
+    assert len(taps) == 8       # the recovery home-button tap + the 7 happy-path taps
+
+
+def test_hub_recovery_runs_once_per_run_not_once_per_entry():
+    """It is a start-of-run repair. An entry that cannot find HOME mid-routine is a genuine
+    failure and must still halt with a screenshot."""
+    looks = []
+    inner = scripted_look(FLOW)
+
+    def look(name, timeout):
+        looks.append(name)
+        return inner(name, timeout)
+
+    EnergyDumpTask([NODE, NODE], look, lambda x, y: None).run()
+    assert looks.count("home") == 3      # 1 start-of-run probe + 1 HOME verify per entry
+
+
+def test_a_hub_that_is_only_covered_by_a_popup_is_not_tapped_home():
+    """Dismissing the popup is enough; tapping the home button on top of that is pointless (it is
+    a no-op while the hub is showing) and costs an action."""
+    look = scripted_look(FLOW, sequences={"home": [False, True], "popup_close": [True, False]})
+    taps = []
+    s = EnergyDumpTask([NODE], look, lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert len(taps) == 8       # 1 popup dismiss + 7 happy-path taps, no extra home-button tap
+
+
+# --- a skip state with more than one skin ----------------------------------------------------
+
+
+FLEET_HARD = {"campaign": "fleet", "difficulty": "hard", "chapter": 1, "node": "1-E", "sim": "max"}
+
+
+def test_a_second_depleted_skin_also_skips_instead_of_halting():
+    """`hard_depleted` was cropped from Light-Side Hard's 💎25 refresh chip; Fleet Hard's reads
+    💎200, so the crop missed and a depleted Fleet node halted instead of skipping."""
+    present = {"home", "campaigns_entry", "campaigns_menu", "campaign_fleet", "hard_tab",
+               "chapter_tab_1", "node_fleet_1-E", "rewards", "home_button",
+               "hard_depleted_200"}     # the 💎200 skin only: no multi_sim, no hard_depleted
+    taps, halts = [], []
+    s = EnergyDumpTask([FLEET_HARD], scripted_look(present),
+                       lambda x, y: taps.append((x, y)), halt=halts.append).run()
+    assert halts == []
+    assert s.halted is False
+    assert s.hard_depleted_nodes == 1
+    assert s.sims_done == 0
+    assert len(taps) == 6        # same as the 💎25 skin: nav + return home, no panel tap
+
+
+def test_no_depleted_skin_is_ever_tapped():
+    """Both skins are crystal-priced refresh chips. The marker is read, never pressed."""
+    task = EnergyDumpTask([FLEET_HARD], scripted_look(set()), lambda x, y: None)
+    step = [st for st in task._steps_for(FLEET_HARD) if st.label == "OPEN_MULTISIM"][0]
+    assert step.skip_tap is False
+    assert "hard_depleted_200" in step.skip_marker_alt
+
+
+def test_bronzium_finish_screen_cannot_trigger_a_re_buy():
+    """The data-card FINISH screen puts 'BUY AGAIN 250' next to FINISH. Verified against the live
+    capture: bronzium_skip matches FINISH at 1.000 and nothing matches BUY AGAIN — so promoting it
+    to a popup closer cannot spend."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS, tap_target
+    names = [tap_target(c)[0] for c in DEFAULT_POPUP_CLOSERS]
+    assert "bronzium_skip" in names
+    assert not any("buy" in n for n in names)
+
+
+# --- a popup whose marker and dismiss control are different pixels ----------------------------
+
+
+def test_a_popup_closer_can_tap_at_an_offset_from_its_marker():
+    """Coliseum's BATTLE RESULTS screen is recognisable by its title but dismissed by a CONTINUE
+    far below it. Tapping the title does nothing, the banner stays up, and every later entry fails
+    its HOME check — so a closer has to be able to name a tap offset."""
+    look = scripted_look(FLOW, sequences={"home": [False, True], "banner": [True, False]})
+    taps = []
+    s = EnergyDumpTask([NODE], look, lambda x, y: taps.append((x, y)),
+                       popup_closers=(("banner", (0, 464)),)).run()
+    assert s.halted is False
+    assert taps[0] == (10, 20 + 464)
+
+
+def test_the_coliseum_results_continue_is_wired_as_an_offset_closer():
+    """Captured on 2026-08-04 but left unwired precisely because the engine could only tap a
+    closer at its match centre."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS, tap_target
+    targets = dict(tap_target(c) for c in DEFAULT_POPUP_CLOSERS)
+    assert targets["coliseum_results"] == (0, 464)
+
+
+def test_tap_target_normalises_a_bare_template_name():
+    from farmbot.tasks import tap_target
+    assert tap_target("popup_close") == ("popup_close", (0, 0))
+
+
+# --- conquest (hub far-right -> Galactic Battles -> CONQUEST -> sector map) --------------------
+
+# The console lives off the hub's default pan, so every conquest entry recenters and pans right.
+CONQUEST = {"kind": "conquest", "name": "conquest", "pan": "far_right"}
+CONQUEST_NAV = {"home", "home_button", "hub_anchor", "hub_anchor_open", "galactic_battles",
+                "conquest_card", "conquest_header", "conquest_enter", "conquest_feats_panel"}
+# 5 taps to reach the sector map: anchor, recenter, the console, the CONQUEST ENTER, the sector.
+CONQUEST_NAV_TAPS = 5
+
+CONQUEST_BATTLE = dict(CONQUEST, battles=[{"node": "conquest_node_1a"}])
+CONQUEST_BATTLE_FLOW = CONQUEST_NAV | {"conquest_node_1a", "conquest_combat_details",
+                                       "conquest_battle_btn", "conquest_squad_prompt",
+                                       "battle_auto", "victory", "rewards"}
+
+
+def test_conquest_navigates_from_the_hub_to_the_sector_map():
+    taps = []
+    s = EnergyDumpTask([CONQUEST], scripted_look(CONQUEST_NAV),
+                       lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert len(taps) == CONQUEST_NAV_TAPS + 1        # + RETURN_HOME
+
+
+def test_conquest_enter_is_tapped_below_the_conquest_title():
+    """The WAR and CONQUEST ENTER buttons are pixel-identical, so an ENTER template is ambiguous
+    and would launch Galactic War. The CONQUEST title is unique; its ENTER sits +704px below."""
+    taps = []
+    EnergyDumpTask([CONQUEST], scripted_look(CONQUEST_NAV),
+                   lambda x, y: taps.append((x, y))).run()
+    assert (10, 20 + 704) in taps
+
+
+def test_conquest_halts_when_the_offset_tap_did_not_land_in_conquest():
+    """A blind offset can miss. The sector-list header is the proof that we are in Conquest and
+    not in Galactic War, and it is checked before anything else is pressed."""
+    halts = []
+    s = EnergyDumpTask([CONQUEST], scripted_look(CONQUEST_NAV - {"conquest_header"}),
+                       lambda x, y: None, halt=halts.append).run()
+    assert s.halted is True
+    assert halts == ["SECTOR_LIST"]
+
+
+def test_conquest_takes_the_free_disk_stockpile_in_one_tap():
+    """Device-verified: tapping the green hex grants the disk immediately and auto-equips it. The
+    "You obtained this Data Disk" side panel that follows is PERSISTENT and has no confirm button
+    — a second tap lands on inert map space, so the pickup must be exactly one tap."""
+    node = dict(CONQUEST, disks=1)
+    present = CONQUEST_NAV | {"conquest_disk_stockpile", "conquest_disk_obtained"}
+    taps = []
+    s = EnergyDumpTask([node], scripted_look(present),
+                       lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert s.collected == 1
+    assert len(taps) == CONQUEST_NAV_TAPS + 1 + 1    # + the hex, then RETURN_HOME
+
+
+def test_the_disk_is_only_booked_once_the_panel_confirms_it():
+    """The panel reads "You obtained this Data Disk" the instant the hex is tapped, so it is real
+    evidence. Booking on the tap alone would count hexes pressed, not disks taken."""
+    node = dict(CONQUEST, disks=1)
+    present = CONQUEST_NAV | {"conquest_disk_stockpile"}      # hex tapped, panel never confirms
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None,
+                       halt=halts.append).run()
+    assert s.collected == 0
+    assert s.halted is False
+    assert halts == []
+
+
+def test_conquest_disk_already_taken_is_not_a_halt():
+    node = dict(CONQUEST, disks=1)
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(CONQUEST_NAV), lambda x, y: None,
+                       halt=halts.append).run()
+    assert halts == []
+    assert s.collected == 0
+
+
+def test_the_disk_step_never_retaps_to_force_its_panel():
+    """The panel is persistent, not a modal: it does not dismiss on an outside tap and tapping
+    another node simply replaces it. Reading it once is fine; re-tapping to force a state change
+    would just re-open the same hex forever, and waiting for it to close would hang."""
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    disk_steps = [st for st in task._steps_for(dict(CONQUEST, disks=2))
+                  if st.label.startswith("DISK")]
+    assert len(disk_steps) == 2                       # one step per disk, not a tap + a dismiss
+    assert all(st.ensure_retries == 0 for st in disk_steps)
+
+
+def test_conquest_battle_needs_two_taps_of_the_same_battle_button():
+    """`conquest_battle_btn` matches the Combat Details BATTLE ⚡20 AND the squad-select BATTLE.
+    A single start step taps the first and strands the run on squad select — the exact bug
+    already recorded for Coliseum."""
+    taps = []
+    s = EnergyDumpTask([CONQUEST_BATTLE], scripted_look(CONQUEST_BATTLE_FLOW),
+                       lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert s.battles_won == 1
+    # node, BATTLE, BATTLE, AUTO, victory, rewards
+    assert len(taps) == CONQUEST_NAV_TAPS + 6 + 1
+
+
+def test_conquest_start_does_not_retap_when_the_squad_screen_never_appears():
+    """If the run was already on squad select, the first BATTLE tap starts the fight. Re-tapping
+    to force the squad prompt to appear would land taps inside a live battle."""
+    look = scripted_look(CONQUEST_BATTLE_FLOW - {"conquest_squad_prompt"},
+                         sequences={"conquest_battle_btn": [True, False]})
+    taps, halts = [], []
+    s = EnergyDumpTask([CONQUEST_BATTLE], look, lambda x, y: taps.append((x, y)),
+                       halt=halts.append).run()
+    assert halts == []
+    assert s.battles_won == 1
+    # ONE battle tap, then node, AUTO, victory, rewards
+    assert len(taps) == CONQUEST_NAV_TAPS + 5 + 1
+
+
+def test_conquest_unreadable_post_battle_screen_halts_instead_of_guessing():
+    """Conquest's defeat/retry flow offers crystal-priced Stim Packs and has never been captured.
+    Anything the engine cannot read after a battle stops for a human with a screenshot; it never
+    taps something plausible."""
+    node = dict(CONQUEST_BATTLE, battle_timeout_s=0.01)
+    halts = []
+    s = EnergyDumpTask([node], scripted_look(CONQUEST_BATTLE_FLOW - {"victory"}),
+                       lambda x, y: None, halt=halts.append).run()
+    assert s.halted is True
+    assert halts == ["OUTCOME_0"]
+
+
+def test_conquest_never_taps_its_way_past_a_post_battle_screen():
+    """The generic battle kind TAPS its defeat screen to dismiss it. Conquest must not: that
+    screen is the crystal-priced Stim Pack retry flow, so nothing on it is a tap target."""
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    steps = task._steps_for(CONQUEST_BATTLE)
+    assert all(st.skip_tap is False for st in steps)
+    outcome = [st for st in steps if st.label == "OUTCOME_0"][0]
+    assert outcome.optional is False        # an unreadable outcome halts, it never skips on
+    assert outcome.skip_marker is None      # and there is no "tap this to move past it"
+
+
+def test_conquest_auto_is_skipped_when_it_is_already_on():
+    """`battle_auto` was cropped in its OFF state and drops to 0.59 once AUTO is active, so it
+    stops matching. That must skip: matching an ON variant and tapping it would switch AUTO OFF."""
+    halts = []
+    s = EnergyDumpTask([CONQUEST_BATTLE], scripted_look(CONQUEST_BATTLE_FLOW - {"battle_auto"}),
+                       lambda x, y: None, halt=halts.append).run()
+    assert halts == []
+    assert s.battles_won == 1
+
+
+def test_conquest_caps_the_battles_per_run():
+    """Energy is a non-constraint here (15,649 banked ≈ 780 nodes at ⚡20). STAMINA is the budget:
+    -10% per battle per character, +1% per 30 min."""
+    node = dict(CONQUEST, max_battles=2,
+                battles=[{"node": f"conquest_node_{i}"} for i in range(5)])
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    outcomes = [st.label for st in task._steps_for(node) if st.label.startswith("OUTCOME")]
+    assert outcomes == ["OUTCOME_0", "OUTCOME_1"]
+
+
+def test_conquest_has_a_conservative_default_battle_cap():
+    from farmbot.tasks import DEFAULT_CONQUEST_MAX_BATTLES
+    assert DEFAULT_CONQUEST_MAX_BATTLES <= 2
+    node = dict(CONQUEST, battles=[{"node": f"conquest_node_{i}"} for i in range(9)])
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    outcomes = [st.label for st in task._steps_for(node) if st.label.startswith("OUTCOME")]
+    assert len(outcomes) == DEFAULT_CONQUEST_MAX_BATTLES
+
+
+def test_conquest_reuses_the_standard_reward_chain():
+    """Verified live: the Conquest REWARDS screen matched `rewards` 0.996, `victory` 0.995 and
+    `celebration_continue` 0.992, so there is no conquest-specific reward template to add."""
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    templates = {st.template for st in task._steps_for(CONQUEST_BATTLE)}
+    assert {"victory", "rewards"} <= templates
+    assert not any(t.startswith("conquest_") and ("reward" in t or "victory" in t)
+                   for t in templates)
+
+
+def test_running_out_of_disks_does_not_cancel_the_battles_behind_them():
+    """Free disks are taken first because they cost nothing, but an empty stockpile must not end
+    the entry — the node fights queued behind them are the point of the run."""
+    node = dict(CONQUEST, disks=2, battles=[{"node": "conquest_node_1a"}])
+    look = scripted_look(CONQUEST_BATTLE_FLOW | {"conquest_disk_obtained"},
+                         sequences={"conquest_disk_stockpile": [True, False]})
+    s = EnergyDumpTask([node], look, lambda x, y: None).run()
+    assert s.collected == 1
+    assert s.battles_won == 1
+
+
+def test_a_battle_spec_can_repeat_the_same_node_template():
+    """`conquest_node_open` matches EVERY un-cleared node and the engine takes the single best
+    match, so 'fight n of them' is one spec with a count, not n copies of a dict. Clearing a node
+    dims it below the match threshold, which is what makes the next call pick a different one."""
+    node = dict(CONQUEST, max_battles=3,
+                battles=[{"node": "conquest_node_open", "count": 3}])
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    outcomes = [st.label for st in task._steps_for(node) if st.label.startswith("OUTCOME")]
+    assert outcomes == ["OUTCOME_0", "OUTCOME_1", "OUTCOME_2"]
+
+
+def test_the_battle_cap_applies_after_counts_are_expanded():
+    """Otherwise a `count` sails straight past the stamina cap that is the whole point of it."""
+    node = dict(CONQUEST, max_battles=2,
+                battles=[{"node": "conquest_node_open", "count": 9}])
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    outcomes = [st.label for st in task._steps_for(node) if st.label.startswith("OUTCOME")]
+    assert outcomes == ["OUTCOME_0", "OUTCOME_1"]
+
+
+def test_a_counted_battle_spec_fights_each_node_in_turn():
+    node = dict(CONQUEST, max_battles=2,
+                battles=[{"node": "conquest_node_open", "count": 2}])
+    present = (CONQUEST_BATTLE_FLOW - {"conquest_node_1a"}) | {"conquest_node_open"}
+    s = EnergyDumpTask([node], scripted_look(present), lambda x, y: None).run()
+    assert s.halted is False
+    assert s.battles_won == 2
+
+
+# --- Coliseum: two taps per attempt, and the 💎250 refresh that replaces them -------------------
+
+
+def positional_look(present):
+    """Like `scripted_look`, but every template matches at ITS OWN coordinates.
+
+    That is what lets a test prove WHICH control was pressed rather than just how many presses
+    happened — the difference between "two taps occurred" and "the crystal refresh was not one
+    of them". Returns (look, coords)."""
+    coords = {name: (100 + 7 * i, 200 + 11 * i) for i, name in enumerate(sorted(present))}
+
+    def look(name, timeout):
+        return M(*coords[name], 0.99) if name in present else None
+
+    return look, coords
+
+
+COLISEUM = {"kind": "battle", "name": "coliseum", "nav": ["coliseum_tile"],
+            "start": "battle_start", "attempts": 2,
+            "victory_alt": ["coliseum_highscore", "attempt_over", "tier_complete"]}
+COLISEUM_FLOW = {"home", "home_button", "coliseum_tile", "battle_start", "battle_auto",
+                 "victory", "rewards"}
+
+
+def test_coliseum_each_attempt_takes_two_taps():
+    """The Coliseum screen's `BATTLE (n)` and the squad-select `BATTLE` are the SAME template.
+    Only attempt 1 ever worked, because the config smuggled its first tap into `nav`; every later
+    attempt tapped once and stranded on squad select. Attempts are 5/day against a payout that
+    resets daily, so each stranded attempt is value that cannot be recovered."""
+    taps = []
+    s = EnergyDumpTask([COLISEUM], scripted_look(COLISEUM_FLOW),
+                       lambda x, y: taps.append((x, y))).run()
+    assert s.halted is False
+    assert s.battles_won == 2
+    # per attempt: BATTLE, BATTLE, AUTO, victory, rewards = 5; plus the tile and RETURN_HOME
+    assert len(taps) == 2 * 5 + 2
+
+
+def test_coliseum_second_tap_is_skipped_when_the_fight_already_started():
+    """Same guard as Conquest: if the first tap went straight into the battle there is no second
+    BATTLE to press, and the engine must not go looking for one to tap."""
+    look = scripted_look(COLISEUM_FLOW, sequences={"battle_start": [True, False]})
+    taps, halts = [], []
+    s = EnergyDumpTask([dict(COLISEUM, attempts=1)], look,
+                       lambda x, y: taps.append((x, y)), halt=halts.append).run()
+    assert halts == []
+    assert s.battles_won == 1
+    assert len(taps) == 1 + 4 + 1        # tile, ONE battle tap, AUTO, victory, rewards, home
+
+
+def test_coliseum_exhausted_attempts_never_taps_the_crystal_refresh():
+    """When the day's attempts are spent the BATTLE button is REPLACED by a 💎250 refresh sitting
+    in the same place. `battle_start` is cropped on the green BATTLE, so it cannot match it — and
+    nothing else may fall through to that coordinate either."""
+    look, coords = positional_look({"home", "home_button", "coliseum_tile", "coliseum_refresh"})
+    taps, halts = [], []
+    s = EnergyDumpTask([dict(COLISEUM, attempts=5)], look,
+                       lambda x, y: taps.append((x, y)), halt=halts.append).run()
+    assert halts == []
+    assert s.halted is False
+    assert s.battles_won == 0
+    assert s.battles_unavailable == 1
+    assert coords["coliseum_refresh"] not in taps
+    # and positively: the only things pressed were the tile and the recovery home button
+    assert set(taps) == {coords["coliseum_tile"], coords["home_button"]}
+
+
+def test_no_battle_step_can_name_a_refresh_or_crystal_control():
+    """Structural companion to the behavioural test: there is no template in the generated steps
+    that could match a crystal-priced control, so none can be pressed by accident."""
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    templates = {st.template for st in task._steps_for(COLISEUM)}
+    templates |= {st.skip_marker for st in task._steps_for(COLISEUM) if st.skip_marker}
+    assert not any(bad in t for t in templates
+                   for bad in ("refresh", "crystal", "gem", "purchase", "buy"))

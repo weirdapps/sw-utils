@@ -1,20 +1,320 @@
 {
-  "device_serial": "emulator-5554",
-  "caps": { "max_actions": 600, "action_delay_ms": [700, 1800] },
-  "vision": { "match_threshold": 0.88, "step_timeout_s": 10.0, "energy_out_timeout_s": 2.0 },
+  "_doc": "The full PvE daily routine, in the order a run should execute it. Free-to-collect first (the Quests milestone hands out the bonus energy the sims then spend), then sims, then auto-battles, then token shops. Every entry is idempotent: anything already done today greys out, its template stops matching, and the step skips instead of halting. Run with --daily so one bad entry is isolated instead of aborting the rest.",
+  "device_serial": "127.0.0.1:5555",
+  "caps": {
+    "max_actions": 900,
+    "action_delay_ms": [
+      700,
+      1800
+    ]
+  },
+  "vision": {
+    "match_threshold": 0.85,
+    "step_timeout_s": 8.0,
+    "energy_out_timeout_s": 2.0
+  },
   "routine": [
-    { "kind": "collect", "name": "login_reward", "nav": ["inbox_entry"], "claim": "login_claim", "for": "daily login calendar (claim template capture pending)" },
-    { "kind": "collect", "name": "free_energy", "nav": [], "claim": "energy_free_claim", "counter": "energy_claimed", "count": 2, "for": "timed free-energy grants (capture pending)" },
-    { "kind": "collect", "name": "arena_payout_squad", "nav": ["arena_entry", "squad_arena_tab"], "claim": "arena_payout_claim", "for": "squad arena payout, collect-only, never battles (capture pending)" },
-
-    { "kind": "energy_node", "campaign": "mod", "chapter": 2, "node": "2-F", "sim": "max", "for": "Mod Battles T2 slicing salvage (captured+validated)" },
-    { "kind": "energy_node", "campaign": "cantina", "chapter": 1, "node": "1-A", "sim": "max", "for": "cantina energy (captured+validated)" },
-    { "kind": "energy_node", "campaign": "fleet", "difficulty": "hard", "chapter": 1, "node": "1-E", "sim": "max", "for": "fleet energy (captured+validated)" },
-    { "kind": "energy_node", "campaign": "light", "difficulty": "hard", "chapter": 1, "node": "1-D", "sim": "max", "for": "normal energy (captured+validated)" },
-
-    { "kind": "challenge_sim", "for": "sim ALL daily challenges via Events -> Challenges -> MULTI SIM (captured+validated live)" },
-
-    { "kind": "battle", "name": "coliseum", "nav": ["coliseum_tile", "battle_start"], "start": "battle_start", "attempts": 1, "for": "Coliseum boss-score; one auto-battle maxed 100% live (captured+validated)" },
-    { "kind": "battle", "name": "raid_order66", "nav": ["events_entry", "raids_tab", "raid_active"], "start": "battle_start", "attempts": 1, "for": "guild raid deploy (nav captured; green BATTLE deploy verifies on a day with attempts left)" }
+    {
+      "kind": "collect",
+      "name": "quests_panel",
+      "count": 8,
+      "nav": [
+        "quests_entry"
+      ],
+      "claim": "daily_activity_claim",
+      "for": "Every green CLAIM on the Quests screen: the daily-activity milestone crates (which is how the free +45 energy grants are handed out \u2014 2-hour windows, LOST if missed) and the reward of any daily quest that has flipped to complete. One template covers both because they are the same button; `count` just keeps tapping until none is left. Runs FIRST so the energy it grants is available to the nodes below."
+    },
+    {
+      "kind": "collect",
+      "name": "inbox",
+      "count": 6,
+      "nav": [
+        {
+          "template": "inbox_entry",
+          "offset": [
+            0,
+            -68
+          ]
+        }
+      ],
+      "claim": "inbox_claim",
+      "for": "Squad/Fleet/Grand Arena daily payouts + gifts. Rank-based, so collecting them needs NO battle \u2014 this is how the bot banks arena rewards without ever playing PvP."
+    },
+    {
+      "kind": "collect",
+      "name": "login_august",
+      "nav": [
+        {
+          "template": "inbox_entry",
+          "offset": [
+            0,
+            -68
+          ]
+        },
+        "daily_login_tab",
+        "cal_tab_august"
+      ],
+      "claim": "calendar_claim",
+      "for": "monthly login calendar"
+    },
+    {
+      "kind": "collect",
+      "name": "login_energy",
+      "nav": [
+        {
+          "template": "inbox_entry",
+          "offset": [
+            0,
+            -68
+          ]
+        },
+        "daily_login_tab",
+        "cal_tab_energy"
+      ],
+      "claim": "calendar_claim",
+      "counter": "energy_claimed",
+      "for": "energy resupply calendar"
+    },
+    {
+      "kind": "collect",
+      "name": "login_crystal",
+      "nav": [
+        {
+          "template": "inbox_entry",
+          "offset": [
+            0,
+            -68
+          ]
+        },
+        "daily_login_tab",
+        "cal_tab_crystal"
+      ],
+      "claim": "calendar_claim",
+      "for": "crystal resupply calendar \u2014 free crystals IN, never out"
+    },
+    {
+      "kind": "collect",
+      "name": "login_relic",
+      "nav": [
+        {
+          "template": "inbox_entry",
+          "offset": [
+            0,
+            -68
+          ]
+        },
+        "daily_login_tab",
+        "cal_tab_relic"
+      ],
+      "claim": "calendar_claim",
+      "for": "relic resupply calendar \u2014 free relic materials, the endgame gear bottleneck"
+    },
+    {
+      "kind": "energy_node",
+      "campaign": "mod",
+      "chapter": 2,
+      "node": "2-F",
+      "sim": "max",
+      "for": "Mod Battles T2 'Cargo Ship' (device-confirmed: 3 slicing-salvage types + 10 mod droids, 18 Mod energy). Top priority \u2014 the slicing chain is the account's active bottleneck. OPEN QUESTION: the 2026 research says 2-D feeds the actually-binding material (T06_02) while 2-F feeds a surplus one; memory/notes.md says the opposite (T05_06 at 3 units). Settle it with `scripts/pull_mods.py` + `scripts/slice_plan.py` against live inventory, not by guessing \u2014 then swap the node and capture node_mod_2-D."
+    },
+    {
+      "kind": "energy_node",
+      "campaign": "cantina",
+      "chapter": 1,
+      "node": "1-A",
+      "sim": "max",
+      "for": "Cantina energy. Device-confirmed 2026-08-03: 1-A is 'Bracca', dropping his shards plus Mk I-III ability mats. SUBOPTIMAL and knowingly so \u2014 Astra already holds 7,700+ low-tier ability mats, and Cantina is the scarcest pool (5/hr). The better targets are 6-A (Captain Silvo, a 2-star GL-Hondo blocker) and the Stage-9 Omicron nodes, but neither has a captured node template yet and the two research passes disagree on which Stage-9 nodes carry Omicron. Kept because it is validated and does drop shards; replace after a targeted capture pass that reads the reward icons."
+    },
+    {
+      "kind": "energy_node",
+      "campaign": "fleet",
+      "difficulty": "hard",
+      "chapter": 1,
+      "node": "1-E",
+      "sim": "max",
+      "for": "Fleet energy. FLAGGED: the 2026 research says 1-E drops Resistance X-wing, which Astra already has at 7 stars, and that 1-A (Captain Ithano) / 3-D (Quiggold) are accelerated 2-shard nodes for units still under 7 stars. Not yet device-confirmed, so the validated node stays until someone reads the reward icons on 1-A."
+    },
+    {
+      "kind": "energy_node",
+      "campaign": "light",
+      "difficulty": "hard",
+      "chapter": 1,
+      "node": "1-D",
+      "sim": "max",
+      "for": "Kix shards (under-7*), Normal energy"
+    },
+    {
+      "kind": "energy_node",
+      "campaign": "dark",
+      "difficulty": "hard",
+      "chapter": 8,
+      "node": "8-B",
+      "sim": "max",
+      "for": "Taris: Hyena Bomber ship + Mk3 Stun Cuffs/Comlink in one node. NOTE: chapter-8 nav is still unreliable, this entry is the known halt-and-continue case."
+    },
+    {
+      "kind": "challenge_sim",
+      "for": "Events -> Challenges -> MULTI SIM sims ALL daily challenges in one tap (covers the 'finish 2 challenges' + 'finish 1 fleet challenge' daily quests)."
+    },
+    {
+      "kind": "sequence",
+      "name": "galactic_war",
+      "nav": [
+        "quests_entry",
+        {
+          "template": "quest_gw_row",
+          "offset": [
+            646,
+            14
+          ],
+          "scroll": [
+            "up",
+            "up",
+            "up",
+            "up"
+          ]
+        }
+      ],
+      "taps": [
+        {
+          "template": "gw_restart"
+        },
+        {
+          "template": "gw_multisim"
+        },
+        {
+          "template": "gw_sim_confirm",
+          "mark": "challenges_simmed"
+        },
+        {
+          "template": "rewards"
+        }
+      ],
+      "for": "Galactic War, fully simmed for sim tickets (a 50+-completion account gets MULTI SIM). Navigated via the daily-quest GO button because the GW console sits off the hub's default pan. One daily quest, zero fighting. The row `scroll`s because the Quests list REORDERS as quests complete — claimable rows sort to the top and push GW below the fold, which is what cost the GW daily on 2026-08-03 (halt at NAV_1). 'up' drags the list content up, revealing the rows below."
+    },
+    {
+      "kind": "sequence",
+      "name": "bronzium_data_card",
+      "recenter": true,
+      "nav": [
+        "store_entry"
+      ],
+      "taps": [
+        {
+          "template": "bronzium_free",
+          "mark": "collected"
+        },
+        {
+          "template": "bronzium_claim"
+        },
+        {
+          "template": "bronzium_skip"
+        },
+        {
+          "template": "bronzium_skip"
+        }
+      ],
+      "for": "The daily FREE Bronzium = the 'Open 1 Data Card in the Store' daily quest. The template is cropped around the word FREE, so it can never match the crystal- or euro-priced cards in the same grid. (store_entry is the word 'Store', which is itself the hit target \u2014 no blind offset.)"
+    },
+    {
+      "kind": "battle",
+      "name": "coliseum",
+      "recenter": true,
+      "nav": [
+        "coliseum_tile"
+      ],
+      "start": "battle_start",
+      "attempts": 1,
+      "for": "Coliseum boss-score PvE auto-battle. EACH ATTEMPT IS TWO PRESSES of the same button \u2014 the Coliseum screen's `BATTLE (n)`, then the squad-select `BATTLE` \u2014 because one template matches both. That second press used to be smuggled in here as a `nav` hop, which is why attempt 1 worked and every later attempt sat on squad select until the outcome timed out; the engine now does both presses per attempt, so `nav` stops at the tile. `victory_alt` lists the screens Coliseum shows INSTEAD of the normal VICTORY one: NEW HIGH SCORE when the run beats the banked score, ATTEMPT OVER! when it does not, and TIER COMPLETE / NEW TIER UNLOCKED when it clears a tier. All are wins to book; all stranded the run when unhandled (2026-08-03: one un-dismissed banner cascaded into three further entries failing their HOME check). The fourth result screen, BATTLE RESULTS, is handled as a popup closer instead because its CONTINUE sits far below the title. NOTE: tier_complete has no crop yet \u2014 until it does it simply never matches, which --doctor reports as soft-missing rather than a preflight failure. On `attempts`: the button is REPLACED by a \ud83d\udc8e250 refresh once the day's 5 are spent, which no template matches, so a too-high value self-limits safely. It stays at 1 deliberately \u2014 auto-battling all 5 blind with the pre-filled loaned squad scored 51% and moved rank 241 \u2192 216 \u2192 222 on 2026-08-04, and the payout is DAILY, so those were spent for nothing. Raise it only alongside a squad worth spending them on.",
+      "victory_alt": [
+        "coliseum_highscore",
+        "attempt_over",
+        "tier_complete"
+      ]
+    },
+    {
+      "kind": "battle",
+      "name": "guild_raid",
+      "nav": [
+        {
+          "template": "events_entry",
+          "offset": [
+            0,
+            -71
+          ]
+        },
+        "guild_raids_tab",
+        "raid_active"
+      ],
+      "start": "battle_start",
+      "attempts": 1,
+      "for": "Guild raid deploy. Greys out once the day's attempts are submitted, so it self-skips."
+    },
+    {
+      "kind": "conquest",
+      "name": "conquest",
+      "pan": "far_right",
+      "disks": 1,
+      "max_battles": 2,
+      "battles": [
+        {
+          "node": "conquest_node_open",
+          "count": 2
+        }
+      ],
+      "for": "Conquest, entered from the Galactic Battles console on the hub's FAR-RIGHT pan. The chooser shows Galactic War and Conquest with pixel-identical ENTER buttons, so the engine anchors on the CONQUEST title and taps +704px below it (measured: title centre 1300,231 -> ENTER 1298,934), then verifies the sector-list header before pressing anything else — that check is what stops a missed offset from launching Galactic War. It first takes the free green 'Data Disk Stockpile' hex: one tap, no battle, no energy, auto-equips, and Pass+ makes a bad pick free to swap out. READ THIS BEFORE RAISING max_battles: (a) stamina is the real budget — 10% per battle per character against +1% per 30 min — while 15,649 banked energy is ~780 nodes at 20 energy each, so 2 is roughly one squad's session; (b) WHICH node it attacks is arbitrary. `conquest_node_open` matches every un-cleared node and the engine takes the single best match, so it fights whichever one the matcher ranks highest. That is fine for burning spare stamina, and wrong if you care about the branch you take or the golden Challenge Path — set count to 0 and play those by hand. Repeated matches DO advance, because clearing a node dims it (measured open 1.000/0.973 vs cleared 0.663/0.348, either side of the 0.85 threshold) — which also means dropping vision.match_threshold below ~0.7 would make the bot replay cleared nodes for no keycards. (c) Conquest's defeat/retry flow sells crystal-priced Stim Packs and has never been captured, so an unreadable post-battle screen halts with a screenshot instead of tapping anything."
+    },
+    {
+      "kind": "shop",
+      "name": "cantina_shop",
+      "recenter": true,
+      "nav": [
+        "shipments_entry",
+        "shop_tab_cantina"
+      ],
+      "confirm": "shop_confirm_cantina",
+      "buys": [],
+      "for": "Token spends. `buys` is EMPTY by design until each wanted item has its own captured template \u2014 see docs/swgoh-daily-automation-spec.md for the buy list. The confirm template carries the Cantina coin, so a crystal-priced dialog can never be confirmed."
+    },
+    {
+      "kind": "collect",
+      "name": "quests_panel_final",
+      "count": 8,
+      "nav": [
+        "quests_entry"
+      ],
+      "claim": "daily_activity_claim",
+      "for": "Second pass, LAST in the routine. The first pass runs first so its energy grants feed the nodes below, but that means every quest the bot then COMPLETES (challenges, coliseum, data card, GW, 600-energy) finishes with its CLAIM button unpressed. This pass banks them."
+    }
+  ],
+  "manual": [
+    {
+      "task": "1 Squad or Fleet Arena battle",
+      "why": "PvP against a real roster. The bot has no code path that plays a PvP match \u2014 this is the one daily quest it will never close for you."
+    },
+    {
+      "task": "Grand Arena: set defense / run attacks",
+      "why": "PvP and pure judgment; the whole point is reading the opponent's board."
+    },
+    {
+      "task": "Territory War attacks",
+      "why": "PvP, guild-coordinated."
+    },
+    {
+      "task": "Conquest node battles, data-disk picks and feat routing",
+      "why": "The bot now navigates in and takes the free disk stockpile, but the fights stay yours: squad choice is feat-driven, there is no sim, and every entry costs stamina. Its defeat screen also sells crystal-priced Stim Packs, so the engine halts there rather than tapping."
+    },
+    {
+      "task": "Territory Battle special missions",
+      "why": "Exact squad combos gate the reward; an auto-battle fails them."
+    },
+    {
+      "task": "Crystal energy refreshes",
+      "why": "Costs crystals. The bot's hardest rail is that it never spends them \u2014 refreshing stays your call."
+    },
+    {
+      "task": "Shop purchases outside the configured buy list",
+      "why": "Spending a capped currency on the wrong thing is unrecoverable, so only whitelisted items are bought."
+    }
   ]
 }

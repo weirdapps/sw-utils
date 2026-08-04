@@ -7,6 +7,8 @@ from PIL import Image
 # Bounds every blocking adb call so a hung device can't defeat the kill-switch,
 # which is only polled between steps (see run.make_kill_switch / tasks.run).
 DEFAULT_TIMEOUT = 20.0
+# The emulator is pinned to landscape 1080p; taps outside it are always a bad match, never intent.
+SCREEN_W, SCREEN_H = 1920, 1080
 # screencap is the one call that can also return unparseable bytes; retry a few times.
 SCREENCAP_RETRIES = 2          # → 3 attempts total
 SCREENCAP_RETRY_DELAY = 0.5    # seconds between attempts
@@ -23,7 +25,10 @@ class ADBError(Exception):
 
 class ADB:
     def __init__(self, serial, runner=subprocess.run, timeout=DEFAULT_TIMEOUT,
-                 screencap_retries=SCREENCAP_RETRIES, sleeper=time.sleep):
+                 screencap_retries=SCREENCAP_RETRIES, sleeper=time.sleep,
+                 width=SCREEN_W, height=SCREEN_H):
+        self.width = width
+        self.height = height
         self.serial = serial
         self._run = runner
         self.timeout = timeout
@@ -51,6 +56,12 @@ class ADB:
         raise ADBError(f"screencap failed after {self._screencap_retries + 1} attempts: {last}") from last
 
     def tap(self, x, y):
+        # A template match plus a tap_offset can compute a point off-screen (a bad match near an
+        # edge minus a 190px offset produced x=-154 in review). Refuse rather than send it: an
+        # off-screen tap means the match was wrong, and guessing where it "meant" to go is worse.
+        if not (0 <= int(x) < self.width and 0 <= int(y) < self.height):
+            raise ADBError(f"refusing off-screen tap ({int(x)},{int(y)}) — "
+                           f"the template match that produced it is wrong")
         self._adb("shell", "input", "tap", str(int(x)), str(int(y)))
 
     def swipe(self, x1, y1, x2, y2, ms=300):

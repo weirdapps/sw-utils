@@ -64,6 +64,21 @@ def test_make_swipe_directions():
     assert calls[1] == (500, 1400)   # "right" reveals earlier nodes: near->far
 
 
+def test_make_swipe_scrolls_a_vertical_list():
+    """The Quests list has to be dragged vertically; the map scan's left/right does nothing to it."""
+    calls = []
+
+    class FakeADB:
+        def swipe(self, x1, y1, x2, y2, ms):
+            calls.append((y1, y2))
+
+    sw = run.make_swipe(FakeADB(), top=300, bottom=900)
+    sw("up")
+    sw("down")
+    assert calls[0] == (900, 300)    # "up" drags content up = reveals the rows below the fold
+    assert calls[1] == (300, 900)
+
+
 def test_load_config_accepts_routine_key(tmp_path):
     p = tmp_path / "c.json"
     p.write_text(json.dumps({
@@ -124,3 +139,31 @@ def test_format_summary_includes_battle_counts():
 def test_format_summary_includes_halted_entries():
     out = run.format_summary(Summary(halted_entries=2, stopped_reason="complete"))
     assert "halted_entries=2" in out
+
+
+def test_example_config_includes_a_conservative_conquest_entry():
+    """Conquest is stamina-bound (-10% per battle per character) and node choice is strategic,
+    so the shipped default fights the smallest number of nodes that is still useful."""
+    import os
+    path = os.path.join(os.path.dirname(run.__file__), "config.example.json")
+    cfg = run.load_config(path)
+    entries = [e for e in run.routine_of(cfg) if e.get("kind") == "conquest"]
+    assert len(entries) == 1
+    entry = entries[0]
+    assert entry["pan"] == "far_right"          # the console is off the hub's default pan
+    assert entry["max_battles"] <= 2            # stamina, not energy, is the budget
+    assert entry["battles"] == [{"node": "conquest_node_open", "count": 2}]
+    # the cap has to bind the expanded count, not just the length of the list
+    assert sum(b.get("count", 1) for b in entry["battles"]) <= entry["max_battles"]
+
+
+def test_example_config_coliseum_no_longer_smuggles_a_tap_into_nav():
+    """The first of the two BATTLE presses used to live in `nav`, which is why attempt 1 worked
+    and attempts 2+ stranded. Both presses belong to the per-attempt loop now, so keeping the nav
+    hop would press BATTLE three times on the first attempt."""
+    import os
+    path = os.path.join(os.path.dirname(run.__file__), "config.example.json")
+    cfg = run.load_config(path)
+    entry = [e for e in run.routine_of(cfg) if e.get("name") == "coliseum"][0]
+    assert entry["start"] == "battle_start"
+    assert entry["nav"] == ["coliseum_tile"]
