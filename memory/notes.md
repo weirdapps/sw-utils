@@ -654,3 +654,56 @@ Sector 3/96 keycards after 2 nodes.
   carried them because it was tapped last. Do not use arrows to mean "open".
 - **Still open:** which open node to attack is a genuine routing choice (branching paths + a distinct golden
   Challenge Path skin), and Coliseum's own two-tap-per-attempt bug in `_steps_battle` is untouched.
+
+## 2026-08-04 (session 5) — Conquest nav VERIFIED LIVE + two template-decay bugs
+Committed the whole session-4 batch (5 scoped commits), then ran the conquest entry on device with
+`max_battles: 0` — which verifies the entire risky nav chain at **zero stamina and zero energy cost**.
+Final result: `halted_entries=0, halt_state=None`. The chain HOME → HUB_ANCHOR → recenter → pan
+far-right → GALACTIC_BATTLES → CHOOSE_CONQUEST(+704) → SECTOR_LIST → ENTER_SECTOR → SECTOR_MAP →
+RETURN_HOME is now **device-verified end to end**, including the blind +704 offset and its guard.
+Getting there took two template fixes, both the same failure mode.
+
+### ⭐ Hub console labels are 3D SCENE OBJECTS, not flat HUD — templates are pan-specific
+`galactic_battles` failed at the far-right end stop (0.318). It was NOT clipping and NOT scale: a
+multi-scale sweep found the correct location but capped at **0.469 at best scale**. Stacking the
+template over the live pixels showed the live text **sheared** — the baseline tilts down-to-the-right.
+The label lies on a plane in the cantina scene and is perspective-projected, so **its skew changes
+with camera pan** and a flat template only matches at the pan it was captured at. The old one came
+from a mid-pan manual scout; the engine always drives to the end stop.
+- **Fix: re-captured AT the far-right end stop.** Safe because `_pan` deliberately over-swipes into
+  the stop — two independent pans there agreed at **0.9991** on the label region. New template scores
+  **1.000**, cross-validated on a *separate* end-stop capture (0.9999), not just its own source.
+- Crop deliberately stops short of the red **"3+" badge** — that is a changing notification count.
+- ⇒ **Rule: any hub console label must be captured at the exact pan the engine will use.** Applies to
+  every future console template, not just this one.
+
+### ⭐ `home` had decayed to 0.815 — below threshold — and blocked EVERY entry
+Second run halted at step 1, `HOME`, while unmistakably on the hub. The old 290×65 crop contained two
+things that are not HUD invariants: the **3D scene's orange lamp** (hub background art changes between
+episodes) and the literal text **"GP: 14.36"** (the account is now 14.37M). Measured 0.815/0.815/0.814
+at far-left / mid / far-right — a constant failure, not a pan effect (the plate region itself is
+0.9999 pan-invariant; the *scene art behind it* had changed since capture).
+- **Fix: re-cropped to 132×54 — only the `85 Astra / MAX LE` glyphs.** Scores **1.0000** on all five
+  captures on hand, including ones taken earlier at other pans.
+- ⚠️ **This was a latent whole-routine outage**, not a conquest bug: `home` is step 1 of every entry.
+- **`_ensure_hub` could not repair it** — tapping the home button does not restore a panned camera,
+  so a run that halted at a non-default pan left the next run stuck too. The gap `_ensure_hub` was
+  written to close is still open for the *pan* case; only the template fix made it moot.
+- **Never let a template crop contain a counter that grows** (GP, credits, keycards) or 3D scene art.
+
+### Confirmed good (live, free)
+- `conquest_squad_prompt` **1.000** — and it crops the SUBTITLE "Tap a slot to add or swap a
+  character.", never the title, which reads SELECT **LIGHT/DARK/NEUTRAL** SQUAD and would therefore
+  only match a third of nodes. Verified on a NEUTRAL node. Comment added so nobody "improves" it.
+- `conquest_battle_btn` 0.965 and `conquest_select_squad_btn` 0.996 on the live squad screen;
+  `conquest_combat_details` correctly did NOT match there (0.340) — the two-tap ambiguity is real
+  and the templates separate cleanly either side of 0.85.
+- Disk step skipped (`collected=0`): the Sector 1 stockpile was already taken in session 4, which is
+  the intended optional-skip behaviour rather than a halt.
+
+### Open
+- **No conquest BATTLE has ever run through the engine** — nav is verified, the fight path is not.
+  `max_battles` is still 2 in the live config; node choice remains arbitrary and therefore manual.
+- `coliseum_results` CONTINUE offset **+464 is still an estimate**, never measured on device.
+- Sector 1 now shows **🎫22 keycards / 13d 16h left**; Conquest Ascension timer 6d 15h.
+- Audit the remaining templates for the same decay: any crop holding scene art or a live counter.

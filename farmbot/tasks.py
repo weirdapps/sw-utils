@@ -26,7 +26,15 @@ from dataclasses import dataclass
 from typing import Optional, Tuple
 
 # Reusable screen/element templates (captured once, shared across all energy types).
-TPL_HOME = "home"                        # we are on the hub screen (verify only)
+TPL_HOME = "home"                        # we are on the hub screen (verify only). Crops ONLY the
+                                         # "85 Astra / MAX LE" glyphs of the level plate. Do not
+                                         # widen it: one pixel right lies the GP readout, which
+                                         # ticks up as the account grows, and above-right lies the
+                                         # 3D hub scene, whose art changes between episodes. The
+                                         # previous crop held both and decayed to 0.815 — under
+                                         # the 0.85 threshold — so every entry's first step failed
+                                         # and _ensure_hub could not repair it (tapping the home
+                                         # button does not restore a panned camera).
 TPL_CAMPAIGNS_ENTRY = "campaigns_entry"  # the "Campaigns" button on the hub
 TPL_CAMPAIGNS_MENU = "campaigns_menu"    # the Campaigns menu is open (verify only)
 TPL_MULTI_SIM = "multi_sim"              # the MULTI SIM button on a node's detail panel
@@ -132,7 +140,19 @@ _PAN_SWIPE_DIRECTION = {PAN_FAR_RIGHT: "left", PAN_FAR_LEFT: "right"}
 #     CONQUEST title and an offset tap;
 #   * one BATTLE template matches both the Combat Details button and the squad-select button, so
 #     starting a fight is two taps, not one.
-TPL_GALACTIC_BATTLES = "galactic_battles"          # the hub console (far-right pan)
+TPL_GALACTIC_BATTLES = "galactic_battles"          # the hub console (far-right pan). Captured AT
+                                                   # the far-right end stop, and it only works
+                                                   # there: hub console labels are objects in the
+                                                   # 3D scene, so panning shears them in
+                                                   # perspective and a flat template stops
+                                                   # matching (a mid-pan capture scored 0.318 at
+                                                   # the end stop, and 0.469 even at best scale
+                                                   # in its own best position). What makes the
+                                                   # end-stop capture safe is that _pan
+                                                   # over-swipes into the stop: two independent
+                                                   # pans there agreed to 0.9991. The crop stops
+                                                   # short of the red "3+" notification badge,
+                                                   # which is a changing count.
 TPL_CONQUEST_CARD = "conquest_card"                # the CONQUEST title on "SELECT A GALACTIC BATTLE"
 CONQUEST_ENTER_TAP_OFFSET = (0, 704)               # CONQUEST title centre -> its ENTER button.
                                                    # Measured: crop (1155,200)-(1445,262) => centre
@@ -163,7 +183,12 @@ TPL_CONQUEST_NODE_OPEN = "conquest_node_open"      # the bright ring of an un-cl
 TPL_CONQUEST_COMBAT_DETAILS = "conquest_combat_details"  # a battle node's Combat Details panel
 TPL_CONQUEST_BATTLE_BTN = "conquest_battle_btn"    # BATTLE — matches BOTH the Combat Details
                                                    # "BATTLE ⚡20" and the squad-select "BATTLE"
-TPL_CONQUEST_SQUAD_PROMPT = "conquest_squad_prompt"      # the squad-select screen
+TPL_CONQUEST_SQUAD_PROMPT = "conquest_squad_prompt"      # the squad-select screen. Crops the
+                                                   # SUBTITLE ("Tap a slot to add or swap a
+                                                   # character."), never the title — the title
+                                                   # reads SELECT LIGHT/DARK/NEUTRAL SQUAD and so
+                                                   # only matches a third of nodes. Verified live
+                                                   # at 1.000 on a NEUTRAL node's screen.
 # Stamina, not energy, is the budget: -10% per battle per character against +1% per 30 min, while
 # 15,649 banked energy is ~780 nodes at ⚡20. Two battles is roughly one squad's session.
 DEFAULT_CONQUEST_MAX_BATTLES = 2
