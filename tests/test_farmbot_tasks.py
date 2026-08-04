@@ -1134,8 +1134,16 @@ def test_conquest_unreadable_post_battle_screen_halts_instead_of_guessing():
 
 
 def test_conquest_never_taps_its_way_past_a_post_battle_screen():
-    """The generic battle kind TAPS its defeat screen to dismiss it. Conquest must not: that
-    screen is the crystal-priced Stim Pack retry flow, so nothing on it is a tap target."""
+    """The generic battle kind carries `skip_marker=defeat, skip_tap=True`. Conquest must not.
+
+    The original reason was that the defeat/retry flow was uncaptured. The measured reason is
+    stronger: `defeat` crops a SEMI-TRANSPARENT banner, so the battle background bleeds through it.
+    On a real Conquest loss (2026-08-04) it scored 0.376 under the upsell stacked on top, and still
+    only 0.762 — below the 0.85 threshold — once that was cleared, against 0.968 over a dark scene
+    in an earlier session. A skip_marker built on it would have MISSED that loss and waited out the
+    full battle timeout anyway. `defeat_upsell` (1.000, already a popup closer) is the signal that
+    actually works, so the loss path stays a halt-with-screenshot until `defeat` is re-captured.
+    """
     task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
     steps = task._steps_for(CONQUEST_BATTLE)
     assert all(st.skip_tap is False for st in steps)
@@ -1181,6 +1189,42 @@ def test_conquest_reuses_the_standard_reward_chain():
     assert {"victory", "rewards"} <= templates
     assert not any(t.startswith("conquest_") and ("reward" in t or "victory" in t)
                    for t in templates)
+
+
+def test_a_battle_spec_can_name_the_gold_challenge_path_node():
+    """The amber Challenge Path node needs NO engine change — a spec names its own template.
+
+    Measured live 2026-08-04: `conquest_node_gold` scored 0.990 on the reachable Challenge node
+    with its next peaks at 0.696/0.652 (the dim, unreachable amber ones) — the same clean
+    either-side-of-0.85 split that makes `conquest_node_open` safe. Kept OUT of the default config
+    on purpose: gold nodes are harder and the matcher picks blindly, so aiming at one is a
+    deliberate act on a rested squad.
+    """
+    node = dict(CONQUEST, battles=[{"node": "conquest_node_gold"}])
+    flow = (CONQUEST_BATTLE_FLOW - {"conquest_node_1a"}) | {"conquest_node_gold"}
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    assert [st.template for st in task._steps_for(node) if st.label == "NODE_0"] \
+        == ["conquest_node_gold"]
+    s = EnergyDumpTask([node], scripted_look(flow), lambda x, y: None).run()
+    assert s.halted is False
+    assert s.battles_won == 1
+
+
+def test_the_conquest_disk_step_cannot_cost_anything_while_it_stays_dead():
+    """`conquest_disk_stockpile` is the stockpile PANEL's title, not the map hex, so the step can
+    never fire (0.000 against a live map showing two stockpiles; 1.000 once the panel was opened by
+    hand). That is a missing capability, not a hazard — but only because the step is `optional`
+    with no `skip_entry`, so it skips silently instead of halting or cancelling the fights queued
+    behind it. Pin that, so a future fix cannot quietly make a dead step into a blocking one."""
+    node = dict(CONQUEST, disks=2, battles=[{"node": "conquest_node_1a"}])
+    task = EnergyDumpTask([], scripted_look(set()), lambda x, y: None)
+    disks = [st for st in task._steps_for(node) if st.label.startswith("DISK_")]
+    assert len(disks) == 2
+    assert all(st.optional and not st.skip_entry and not st.skip_tap for st in disks)
+    # The whole entry still completes with the stockpile panel absent, which is every real run.
+    s = EnergyDumpTask([node], scripted_look(CONQUEST_BATTLE_FLOW), lambda x, y: None).run()
+    assert s.halted is False
+    assert s.collected == 0 and s.battles_won == 1
 
 
 def test_running_out_of_disks_does_not_cancel_the_battles_behind_them():

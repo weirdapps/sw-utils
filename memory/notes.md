@@ -779,3 +779,129 @@ so feats are worth far less score than nodes (+20) — **clear nodes first, feat
 - Lord Vader squad is down ~50% stamina after 5 battles; rotate squads or wait out regen.
 - `conquest_squad_prompt` verified 1.000 live; `conquest_battle_btn` 0.965/0.992; the two-tap
   ambiguity held exactly as designed across 5 engine battles.
+
+## 2026-08-04 (session 7) — Sector 1 ground out 44 → 65/96, track 430 → 550. Six wins, one loss.
+Farmed for score across the whole afternoon. **7 battles: 6 won, 1 lost.** Sector 1 **44 → 65/96**,
+reward track **430 → 550/3500**, sector feats **2/4 → 3/4**. **Crystals 240 at every single
+checkpoint** — the rail held through two Data Disk commits and a Wandering Scavenger visit.
+Two data disks taken (capacity 9/12 → **12/12**, now FULL). Conquest ends in 13d 3h.
+
+### ⭐ THE OWNER'S STANDING ORDER CHANGED — decide, don't ask
+Explicit instruction this session: *"Δεν είπαμε ότι εσύ, με βάση το research σου, θα αποφασίζεις…
+Θέλω να αποφασίζεις και να προχωράς."* In-run Conquest choices (**which data disk, which branch,
+which squad**) are now the agent's call, made from research and stated in one line — NOT a question.
+This SUPERSEDES "Conquest node choice is strategic… routing stays the owner's job" in the
+`_steps_conquest` docstring and the config `for` text. **The crystal rail is untouched by this:**
+never spend crystals, never buy outside the whitelist.
+
+### ⭐ THE DISK STEP HAS NEVER BEEN ABLE TO FIRE — `conquest_disk_stockpile` is the PANEL TITLE
+`conquest_disk_stockpile` (355×44) is the text **"Data Disk Stockpile"** — the header of the panel
+that only opens *after* the map hex is tapped. The DISK step uses it as its **tap target**, and
+nothing in the engine ever opens that panel, so the step matches nothing and silently skips every
+run. Past `collected=0` was NOT "already taken" (as session 6 recorded) — it was structurally
+unreachable. Measured: 0.000 against the sector map with two stockpiles plainly visible on it,
+then **1.000** the instant the panel was open.
+- **There is no template for the map hex.** That is the missing piece, not a threshold tweak.
+- The docstring's "the hex grants the disk on the spot and auto-equips it… no confirm button" is
+  **wrong on all three counts**, measured live below.
+
+### ⭐ WHAT A DATA DISK STOCKPILE ACTUALLY IS (4 screens, not 1 tap)
+1. Tap hex → **panel: pick ONE of 3 disks** (scroll; "Select a Data Disk" footer).
+2. Tap a disk → **"MOVE TO DATA DISK PILE"** confirm: *"You will advance and be unable to select a
+   different path."* CANCEL / **COMMIT**. No price.
+3. COMMIT → drops you into **CONQUEST INVENTORY**. The disk lands **UNEQUIPPED in inventory**; it
+   does NOT auto-equip.
+4. Tap it → equips if capacity allows → **CONFIRM** (greys out again once applied).
+Capacity is the real limit: **9/12 → 11/12** after a ◆◆, **11/12 → 12/12** after a ◆. At 12/12 no
+further disk can be equipped without swapping one out.
+
+### ⭐ THE GREEN COMMIT BUTTON IS "MOVE", NOT "BUY" — corrects session 6's read
+Session 6 called the scavenger's green COMMIT "the mixed-currency-behind-one-green-button trap".
+Measured: COMMIT opens **"MOVE TO SCAVENGER — Are you sure you want to visit this Scavenger? You
+will advance and be unable to select a different path."** It is the **movement** confirm. Buying is
+a separate act (tap an item's price chip). Walked through the node buying nothing; **crystals 240
+before and after, track 470 before and after.**
+- ⚠️ **But the hazard is real and now better located:** the price chips render **grey/inert while
+  you are adjacent** and turn **live green the moment you stand on the node**. So the dangerous
+  screen is the one *after* the move, not before it.
+- This scavenger's stock was **all keycard-priced, no crystals**: The Stranger ×5 / Satele Shan ×5
+  @475 (both greyed, "You Own: Max"), Incomplete Signal Data ×5 @70 and ×10 @140 (own 955).
+  Stock differs per scavenger — session 6's sold a **75-CRYSTAL** booster. Never assume.
+
+### ⭐ `defeat` IS BACKGROUND-DEPENDENT AND FAILED ITS ONE REAL TEST (0.762 < 0.85)
+The lost battle produced the two-screen stack exactly as session 6 described, and then:
+`defeat_upsell` **1.000** at (956,104) — the documented centre, offset closer worked — but once the
+upsell was cleared, **`defeat` scored only 0.762** on the clean DEFEAT screen. Session 6 measured
+0.968. The difference is the **battle background**: the "DEFEAT!" banner is **semi-transparent**, so
+the crop bleeds whatever scene is behind it (0.968 over a dark map, 0.762 over a bright white
+corridor). Same decay class as `home` and `galactic_battles` — a crop holding scene art.
+- ⇒ **Do NOT wire `defeat` as the conquest loss detector.** It would have missed today's actual
+  loss. `defeat_upsell` (1.000) is the reliable signal, and it is already a popup closer.
+- ⇒ `defeat` needs re-capturing, and a tight glyph crop may not be enough — the transparency is the
+  problem, not the framing. Until then the generic `battle` kind's `skip_marker=defeat` is
+  **weaker than it looks** and should not be trusted for Coliseum either.
+- Correction to session 6: the DEFEAT screen underneath is **"Tap anywhere to continue"** with **no
+  retry offer and no crystal-priced Stim Pack visible at all**. One observation, not a guarantee.
+
+### ⭐ `conquest_node_gold` WORKS — 0.990, and needs NO code change to use
+The Challenge Path (amber ring) node matched **0.990**, next peaks **0.696 / 0.652** (the dim,
+unreachable amber nodes) — the same clean either-side-of-0.85 separation as `conquest_node_open`
+(0.992 / 0.963 on two live open nodes). Because a battle spec names its own template, a gold node
+is farmable **today** via config: `battles: [{"node": "conquest_node_gold"}]`. No engine change.
+- Not added to the default config: gold = Challenge Path = harder, and the engine takes the best
+  match blindly. Point it at gold deliberately, on a fresh squad.
+- Combat details for the Sector 1 gold node: 5 mixed enemies, 3 stars, **3 keycards, ⚡20, 5m** —
+  the *same* price and payout as a normal node.
+
+### ⭐ SQUAD STRENGTH RE-CONFIRMED, AND THE STAMINA CURVE MEASURED
+- **Mandalorians** (Bo-Katan Mand'alor L / Mandalorian Beskar / Bo-Katan Kryze / Cobb Vanth / SLKR,
+  **171,446**) — won 3 (12s, 39s, plus one), then **LOST** a Resistance node at **64%** stamina.
+- **Lord Vader / Darth Vader / Admiral Piett / Grand Inquisitor / Seventh Sister, 194,424** —
+  **won that same node in 31s**, then 50s and 45s. Rebuilt from 81% stamina.
+- **Stamina cost measured: ~9.5%/battle.** Mandalorians 92 → 64 over 3; Vader 81 → 52 over 3.
+- **"Stamina & Energy — Regeneration Boosted"** banner is active on the squad screen (a Conquest
+  Ascension perk), so regen beats the 1%/30min baseline: the Vader squad went 50% → 81% overnight.
+- ⇒ Stopped the grind at 52%. A Challenge node on a 52% squad is the exact mistake session 6
+  recorded; the node keeps, the stamina does not.
+
+### ⭐ Two things about the squad screen worth knowing
+- The green three-figure badge ("2/2", "1/2", "0/2") is **squad synergy** — how many of that unit's
+  required allies are present. NOT a usage limit. SLKR read 0/2 in a Mandalorian squad.
+- **The character list has a TEXT SEARCH.** Filter dropdown → bottom field → type → the on-screen
+  IME needs its own **OK** before CONFIRM. Searching "vader" returned Lord Vader / Darth Vader /
+  Admiral Piett; "inquisitor" returned Grand Inquisitor / Seventh Sister. This makes rebuilding a
+  5-unit squad ~8 taps instead of scrolling a 200-portrait grid whose tiles show no names.
+- `SELECT SQUAD` re-confirmed as the **Inventory→Squads GAC preset manager**, not a Conquest
+  loader — it cannot apply a squad to Conquest. Tabs seen: GAC5, GAC 5v5 Def/Off, GAC 3v3 Def/Off.
+
+### ⚠️ The far-right hub pan is FLAKY — a whole-entry outage, one run in two
+Run 1 of the conquest entry **halted at `GALACTIC_BATTLES` with the hub still at its default pan**.
+Run 2, identical config seconds later, panned fine and reached the sector map. A manual replay of
+the exact same 8 swipes `(1400,560)→(500,560)` scored `galactic_battles` **1.000**.
+- So this is **not** the session-5 template decay (that template is healthy: 1.000, four times).
+  It is the swipes being swallowed — a timing/race against the hub scene settling after
+  `HUB_RECENTER`, whose `ensure=TPL_HOME` passes on a HUD glyph that is visible mid-transition.
+- ⇒ `_pan` should verify it actually moved (e.g. re-look for the target console and re-pan once)
+  rather than trusting 8 blind swipes. Untouched this session.
+
+### Scoring model, refined
+Session 6 said "one 3-star node = +20 track, +3 keycards". Measured across 6 wins: the **track is
++20 per node win regardless of stars**, while **keycards = stars earned** (a 2/3 clear gave +2
+keycards and still +20 track). Sector feats pay **2 keycards** each (Law of the Dunes, Not All
+Bounty Hunters — both fired off one Mandalorian win). Nodes remain far better than feats.
+
+### Session driver (not committed to farmbot/)
+`~/Downloads/202608041629_conquest_grind.py` grinds nodes from an already-open sector map, reusing
+the engine's templates and 0.85 threshold. It exists because the engine re-navigates from the hub
+every run (~60s) and Sector 1's remaining path alternates combat nodes with disk/scavenger hexes it
+cannot read — so a full engine run buys one battle per minute of navigation. It stops on defeat.
+
+### Open
+- **Sector 1 is at the gold Challenge node**, with the **Sector 1 boss (Palpatine, 0/9 keycards)**
+  behind it. Both want a fresh squad — resume at 80%+ stamina.
+- Disk step still dead until a **map-hex template** exists AND a disk-choice policy is decided
+  (the panel is pick-one-of-three, so there is no "just tap it" behaviour to automate).
+- `defeat` needs a background-independent re-capture; until then loss detection leans on
+  `defeat_upsell`.
+- `_pan` needs an arrival check (see the flaky-pan entry above).
+- Disk capacity is **12/12** — the next stockpile forces a swap decision, not a free add.

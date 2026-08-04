@@ -655,15 +655,21 @@ class EnergyDumpTask:
             Step("SECTOR_MAP", TPL_CONQUEST_FEATS_PANEL, tap=False),
         ]
         for i in range(node.get("disks", 0)):
-            # Free pickups first: they cost no energy and no stamina. Exactly ONE tap each — the
-            # hex grants the disk on the spot and auto-equips it, and the panel that says so has
-            # no confirm button, so a second tap would land on inert map space. The panel is the
-            # `ensure` rather than a step of its own for two reasons: it is real evidence, so the
-            # count means disks taken and not hexes pressed; and `ensure_retries=0` reads it once
-            # without re-tapping, which matters because the panel is PERSISTENT — it never closes
-            # on its own, so a re-tap would just re-open the same hex and a wait would hang.
-            # No `skip_entry` either, unlike `collect`'s claim loop: an empty stockpile must not
-            # cancel the node fights queued behind it. `disks` is small, so the probe is cheap.
+            # ⚠️ KNOWN DEAD STEP — it cannot fire, and has never fired. `conquest_disk_stockpile`
+            # is the TITLE TEXT of the stockpile panel ("Data Disk Stockpile"), and that panel only
+            # opens once the map HEX is tapped. Nothing here taps the hex, so the step matches
+            # nothing and skips. Measured 2026-08-04: 0.000 against a sector map with two
+            # stockpiles plainly on it, then 1.000 the instant the panel was open by hand. Past
+            # runs booking `collected=0` were not "already taken" — they were unreachable.
+            #
+            # Fixing it needs BOTH a template for the map hex (none exists) and a decision this
+            # code cannot make: the panel is a PICK ONE OF THREE list ending in a "MOVE TO DATA
+            # DISK PILE" confirm that locks the branch, and the disk then lands UNEQUIPPED in the
+            # inventory needing an equip + CONFIRM against a 12-point capacity budget. There is no
+            # "just tap it" behaviour to automate — see memory/notes.md, session 7.
+            #
+            # Left in place, and deliberately harmless: `optional` means it skips instead of
+            # halting, and no `skip_entry` means it cannot cancel the node fights queued behind it.
             steps.append(Step(f"DISK_{i}", disk, optional=True, mark=counter,
                               ensure=obtained, ensure_retries=0))
         # `conquest_node_open` matches EVERY un-cleared node while the engine takes the single
