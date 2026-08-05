@@ -1325,3 +1325,25 @@ absence of findings.
 ### Final state
 **98 definitions live, verified**: no dups, no content mismatches, no unit repeated within any mode
 (GAC 5v5 116 slots / GAC 3v3 105 / TW 145 / GAC Fleet 46, all distinct).
+
+### In-game squad presets pushed (2026-08-05) — `scripts/push_ingame_presets.py`
+HotUtils squads live on the website; this writes the same board into the GAME's preset manager
+(Inventory → Squads), which is what you actually tap mid-round. **91 character squads across 6 tabs.**
+- Tabs now: `PROG` (untouched, not ours) · GAC 5v5 Def 11 / Off 14 · GAC 3v3 Def 15 / Off 21 ·
+  **TW 5v5 Def 15 / Off 15 (new)**. Verified: 7 tabs, **no duplicate tabs**, counts match the payload
+  exactly, unit lists round-trip. Before/after snapshots in `data/hotutils_backup/game_presets_*_20260805.json`.
+- **Deleted the stale `GAC5` tab (56 squads)** — provably the old board (11+15+15+15=56) from the
+  2026-07-18 flat push, i.e. the squads the owner asked to replace. Backed up before deletion.
+- **Names are derived from the HotUtils name** (`'5v5 D01 The Stranger 57%'` → `'D01 The Strang'`) so the
+  two surfaces cannot drift; the format tag and the percentage are dropped (the tab says the format, and a
+  percentage is noise on a button). **16-char limit is real** — longer returns
+  `INVALID_SQUAD_PRESET_NAME_LENGTH_KEY`.
+- ⚠️ **FLEETS STILL CANNOT BE PUSHED** — combatType 2 is rejected ("Currently only character squad presets
+  are supported"). The 3 GAC defense + 3 offense + 1 arena fleet remain **manual in-game setup**.
+- ⚠️ **`id: null` always creates a NEW tab** (no dedup by name), so the script re-reads `squads/game/get`
+  every run and updates existing tabs BY ID. Re-running is safe; a half-failed run is not — re-read first.
+- Don't `import generate_upload` to reuse its label map: that module executes on import and rewrites
+  `output/`. The script reads `output/upload_payload.json` instead.
+
+### Merged
+PR **#16** squash-merged to master (`c95da42`) — the whole board rebuild. PR #17 = the in-game push script.
