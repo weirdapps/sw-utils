@@ -1025,3 +1025,303 @@ not the items.
 - **Coliseum "Rewards Available" is not a claim.** `RANK REWARDS` is an info panel of the rank ladder;
   it pays at reset. Rank 159 → `#91-250` → 300 tokens. Nothing to press. High score 19,551 (88%),
   **4 of 5 battles unused** — free score if anyone wants to grind it, no energy cost.
+
+## 2026-08-05 (session 3) — FULL COMPETITIVE REBUILD: exact-ILP board, TW + Fleet Arena added, 63 → 99 squads
+Owner asked for "the ABSOLUTE BEST setup" across GAC 5v5/3v3, Territory War, and arena/GAC fleets, with an
+explicit ask to separate **datacron-driven (temporary)** meta from **kit-driven (lasting)**. Whole board
+deleted and rebuilt. Live: **99 definitions across 9 categories**, verified no dup names, contents match
+payload exactly, and **no unit repeats within any mode**.
+
+### ⭐ THE METHOD CHANGED: greedy → exact ILP (`scripts/optimize_board.py`, scipy/HiGHS)
+The old `compute_teams.py` filled defense first by Hold%, so an 18%-hold wall could eat the units of a
+90%-win attacker. A GAC round is decided on **net banners**, so the right objective is
+`Σ P(defense holds) + Σ P(offense clears)` — same units, so they add — solved as weighted set-packing with
+one squad per unit. Measured gain over greedy: 5v5 +6, 3v3 +16 points.
+- **Sensitivity-tested:** the 5v5 board is IDENTICAL for offense weights 0.6→1.1 (robust). 3v3 only flips
+  The Stranger def↔off below α=0.65.
+- **`MIN_SEEN = 5000`, chosen by measurement not feel:** n≥2000 scores 1283 but anchors the board on
+  n≈3,000 rows; n≥5000 scores 1240 with every pick well-sampled; n≥10000 scores 1225 and throws away real
+  variants. Sampling error at n=3,000 is only ~1 point — the risk is **selection bias** (rare variants are
+  played by stronger players), which shrinkage cannot fix. 5000 also keeps the board verifiable on swgoh.gg.
+- **GL Leia 5v5 is a genuine tie** (1240 def vs 1239 off). Broken toward OFFENSE on things the linear model
+  can't see: you choose the matchup on offense, 96% is near-certain vs a 31% coin-flip, and hold% decays
+  against Kyber opponents. In 3v3 there is no tie — forcing her to offense costs 13, so she walls.
+  Encoded as `ATTACK_ONLY_BY_FORMAT`. Every other GL placement agreed with existing doctrine.
+- **GL Ahsoka moved 18% wall → 90% attacker.** That single trade is what the greedy was getting wrong.
+
+### ⭐ DATACRONS: read from primary data, and the finding is dated
+`scripts/datacron_exposure.py`. Live sets (swgoh.gg/datacrons, 2026-08-05) — each offers exactly 2 choices
+per tier; only the faction/role tiers discriminate (Light/Dark Side tiers apply to everyone):
+| set | name | expires | faction/role tiers |
+|---|---|---|---|
+| 30 | Peace & Power | **~1 day (≈Aug 6)** | L6 **Sith \| Galactic Republic** |
+| 31 | For Old Times | ~4 weeks | L6 Old Republic \| Separatist |
+| 32 | Necessary Means | ~1 month | L3 **Healer \| Tank**, L6 Attacker \| Support |
+| 33 | Supremacy Directive | ~2 months | L6 **Resistance \| First Order** |
+- **⭐ Once set 30 lapses, NO live set grants Sith or Galactic Republic.** They lose datacron support
+  outright rather than trading it. Season 81 already closed (`gac/list`), so the next season is played
+  **after** the lapse — every Sith/GR rate on the board was measured with a bonus that is about to vanish.
+- Concrete: the 37% Queen Amidala wall is **100% Galactic Republic with no GL**, which is exactly what the
+  GR L6 affix ("at the start of battle, if there are no Galactic Legend allies…") is built for. Most
+  cron-exposed pick on the defensive board.
+- **Luminara Unduli is a Healer** (and GR/Jedi) and **Visas Marr is a Healer** — the #1 wall in the game
+  (Stranger, 57%, n=29.8K) runs two of them, and its 48% variant swaps Luminara for **Barriss Offee**,
+  also a Healer. That wall leans on set 32 (Healer), ~1 month left.
+- ⚠️ **A haircut was tried in the optimiser and REJECTED — record this so it isn't retried.** At 20% the
+  tag proxy is so pervasive (almost every squad holds a Sith or GR unit) that it stopped ranking and
+  started scrambling: JMK's 95% 3v3 team fell to 76%, below a 78% Tarkin filler. A datacron modifies a kit;
+  it is not why JMK is good. Turning it down far enough to stop the damage made it change nothing.
+  ⇒ exposure is **reported per squad** in the playbook (RENTED / holds ~Nd / OWNED), not priced in.
+  `DURABILITY_ENABLED=False`. The board is robust either way — the only pick it moved was a wall whose
+  replacements were no better.
+
+### ⭐ FLEETS WERE BADLY OFF-META AND ARE NOW GROUNDED IN BATTLE DATA
+`/gac/ship-counters/<CAPITAL>/` rows are `[attacker ships…] + [defender ships…]`; splitting 542 of them at
+the defending capital (**second** occurrence on a mirror) yields a real attacker×defender matrix plus the
+lineups the meta actually flies. `scripts/build_fleets.py::analyse_counters`.
+- **The old config was wrong:** it had Executor flying **Imperial TIEs** — the real Executor fleet is
+  **Bounty Hunters**; and Leviathan flying First Order/Imperial ships instead of **Sith**. Raddus is
+  **Resistance**, not Rogue One.
+- Hold (attacker win%, lower=better): Profundity 77 *(unowned)* < **Leviathan 82** < Executor 87 <
+  Negotiator 89 < Chimaera 90 = Home One 90 < Endurance 92 < Executrix 92 < Raddus 94 < Malevolence 95 <
+  Finalizer 98.
+- **Leviathan is the only owned fleet that answers everything** — 99% vs Profundity (5.1k), 96% mirror
+  (16.9k), 94% vs Executor (6.9k), 100% vs Home One (9.2k). ⇒ **it cannot sit on defense.**
+- Executor 98% vs Negotiator (11.1k) and Home One (5.2k), but 80% into Leviathan and 72% into its mirror.
+- **Negotiator is 20% vs Home One (n=215)** despite 96% overall — never point it there.
+- ⇒ OFF = Leviathan · Executor · Negotiator (covers all 11 defendable capitals at ≥94%);
+  DEF = Chimaera · Home One · Raddus. Ship-disjoint; packages are faction-disjoint anyway
+  (Chimaera/Executrix share Imperial TIEs, Negotiator/Endurance share Jedi-Clone).
+- **Fleet Arena = Leviathan** (best owned at both jobs; arena has no shared-ship rule).
+- Only 2 ships below 7★ in the whole roster: **Raven's Claw 6★** (Home One) and **MG-100 5★** (Raddus).
+- **Profundity is capital-only** — every one of its starters (Han's Falcon, Outrider, Rebel Y-wing,
+  Rogue One, Ghost, Phantom II) is already owned at 7★. Unlocking it alone yields the #1 defensive fleet.
+
+### New/changed scripts
+`optimize_board.py` (ILP) · `board_config.py` (sizes, MIN_SEEN, doctrine, durability switch) ·
+`build_fleets.py` (counter parsing + lineups) · `datacron_exposure.py` · `build_board.py` (one-pass driver)
+· `generate_upload.py` (payload + playbook) · `upload_hotutils.py` (**paced, retrying, resume-by-name**;
+`--plan/--delete-all/--create`, HU_SID from env). Old `compute_teams.py`/`generate_hotutils.py` still work.
+
+### Data-pull lessons
+- **swgoh.gg param URLs no longer need a warm top-level navigation** — do a **same-origin `fetch()` from an
+  already-loaded swgoh.gg page and parse with `DOMParser`**. Cloudflare only challenges top-level
+  navigations. This is faster and immune to the agent-vs-agent browser contention that broke navigation.
+- Squad table columns are `['', Seen, Hold%/Win%, Banners]`; `cutoff=0&sort=seen` is what gives DEPTH
+  (82 fieldable 5v5 def teams vs 24). `cutoff=0&sort=percent` returns n<10 rows at 100% — useless.
+- Ship counters live at `/gac/ship-counters/season/<SEASON_ID>/` (list) and
+  `/gac/ship-counters/<CAPITAL>/?season_id=…` (detail); they render as `.panel` cards, NOT tables.
+- Unit faction/role tags: `/api/characters/?format=json` → `role`, `alignment`, `categories` (340 units).
+- **`gac/list` (HotUtils API) gives real match history + `mapId`** e.g. `4zone_3v3_ga2_c3s1_81a`. Confirmed
+  Kyber, 4 zones. Astra S81 record 0-1 (lost 966–1165), S80 1-1.
+- Seasons: **S80 = latest 5v5, S81 = latest 3v3, S82 not yet published** (404).
+
+### Board sizes used
+GAC 5v5 11 def + 11 core off + bench · GAC 3v3 15 + 15 + bench · **TW 5v5 15 + 15** (deeper bench,
+`off_weight 0.75` because a TW territory pays nothing unless fully cleared and the enemy guild has a finite
+attempt pool) · fleets 3 + 3 + 1 arena. ⚠️ **TW per-player defensive slot count was NOT verified this
+session** — the list is ranked so it can be set top-down until the map runs out.
+
+### Gaps (unchanged shape, now quantified by how many meta squads each unit blocks)
+**Third Sister blocks 8** (best: an 86% 5v5 offense and a 34% 5v5 wall) · Pirate King Hondo 7 · Vane 7 ·
+Brutus/Captain Silvo/SM-33 4 each · Jedi Master Mace Windu 3 · Cobb Vanth 3 · 4-LOM 2.
+**Fleet gap: Profundity** (capital only). **Star-ups: MG-100 5★→7★, Raven's Claw 6★→7★.**
+
+### Fleet addendum — independent agent review (same session), 3 changes applied
+A parallel research agent re-scraped **S81** fleet data (Kyber, 222K battles) against my S80 pull and
+**independently reproduced the hold table within 1pp on all 11 capitals, same ordering** — so the fleet
+hold ranking is stable across two consecutive seasons, not a one-season artifact. It also confirmed
+Leviathan as the #1 fleet-offense build on swgoh.gg's S81 tier list (S tier, Elo 2992, 96.3% / 26.4K).
+
+**⭐ CORRECTION APPLIED — Leviathan reinforcement order was backwards. Scimitar BEFORE Mark VI.**
+- Scimitar grants allies **+30 Speed** (15, doubled for Sith) and **the stacks survive its death** ⇒ it
+  must land first to win the race to the capital ultimate.
+- Mark VI must arrive **after Sabotage the Hangars**, because Leviathan's unique gives it **+10 extra
+  Devouring Swarm stacks** on its first turn after deployment. Calling it early wastes that.
+- Correct manual sequence: **Sabotage Engines → Scimitar → Sabotage Hangars → Mark VI.**
+- My original order came from *frequency of appearance* in the counter data, which encodes **usage, not
+  call sequence**. That was a genuine methodological error — the counter panels cannot answer ordering.
+- **The data actually corroborates the agent's mechanism.** Slot analysis of 51,367 Leviathan attack
+  lineups: Fury/B-28/TIE Dagger are 100% at slots 0/1/2 (starters confirmed), but **Sith Fighter holds
+  the FIRST reinforcement slot 95% of the time** with Mark VI last (46% slot4 / 49% slot5). That is the
+  **AI's fixed reinforcement priority showing through auto-played battles** — Sith Fighter outranks
+  Scimitar on the AI's hidden tier list, exactly as the agent described.
+- ⚠️ **AUTO TRAP:** on auto you don't choose. If Astra autos arena, drop Sith Fighter and fill with
+  **TIE Defender / Scythe / TIE Bomber** (they share Scimitar's priority tier) so Scimitar fires first.
+  Order matters little in GAC (Leviathan wins ~97% either way) and decisively in Fleet Arena.
+
+**Other applied changes:** Arena Leviathan now runs **8 slots** with Emperor's Shuttle as R4 (arena has no
+shared-ship rule, so it can borrow Chimaera's ship); Executor's empty 8th slot filled with **Ebon Hawk**
+(1.8% of observed Executor lineups — filler, not a recommendation).
+
+**REJECTED refinement (record the reason):** the agent suggested DEF=Endurance / OFF=Raddus (Endurance
+debuted #5 on the S81 defense tier list). **Infeasible — 7 of Endurance's 9 meta ships ARE the
+Negotiator's** (Marauder, Umbaran, ARC-170 Rex, Anakin JSF, Blade of Dorin, Ahsoka JSF, Y-wing CW), and
+Negotiator is on offense. Only Ebon Hawk + Clone Sergeant's ARC-170 are free of it — not a fleet. Also
+noted: Endurance's #5 debut rests on 510 battles / 29 builds, i.e. a novelty spike likely to regress.
+
+**Confirmed, act on it:** **datacrons do not affect fleets at all** — swgoh.gg's fleet tier list carries a
+live datacron column and reports "no character-specific datacron is commonly run" for all 11 fleets on both
+views. Exclude datacrons from fleet planning entirely. Also: **no new ship or capital ship has released in
+all of 2026**; all 2026 content is character-side Era releases. Nothing imminent changes the fleet board.
+
+**Arena ≠ GAC (why Fleet Arena is its own category):** no no-repeat rule, so run the single best fleet for
+both attack and defense; nothing holds (Levi mirror ≈99% attacker), so rank is a **payout-timing** game,
+not a fleet-choice game. Climbs-better-than-holds: Chimaera, Leviathan. Holds-better-than-climbs: Home One
+(#4 defense but only 73.5% offense). Astra's **Darth Revan is R10**, which wins Leviathan mirrors (the race
+is decided by relic depth).
+⚠️ UNVERIFIED: Fleet Arena has **no published stats anywhere** (swgoh.gg is GAC-only), so all arena-specific
+ordering/priority claims are mechanics + community consensus, and the published reinforcement-priority tier
+lists date from 2018/2021 and predate every modern capital. The *mechanic* is current; the ship lists are not.
+
+**New tooling:** `upload_hotutils.py --sync` — deletes definitions that are stale OR whose contents changed,
+then creates the missing ones. Needed because `--create`'s resume-by-name deliberately skips existing names,
+which silently no-ops when a lineup changes. Verified: it found exactly the 3 altered fleets, left 96 alone.
+
+## 2026-08-05 (session 3, addendum) — ⭐ FOCUSED DATACRONS: the thing the faction proxy could not see
+Two research agents came back after the first upload and one of them overturned a conclusion I had
+already shipped. Board re-optimised and re-synced: **98 definitions live, verified.**
+
+### ⭐ I WAS WRONG ABOUT LUMINARA — and the mechanism generalises
+I attributed Luminara Unduli's defensive value to the **Healer** role tier of set 32 (~1 month left).
+Wrong. She holds a **FOCUSED datacron in set 30**, which expires **2026-08-06T07:00Z — tomorrow.**
+Verified directly at `/datacrons/30/?template_id=datacron_set_30_focused_luminaraunduli`:
+`Is Focused: True · Allow Reroll: False · Expiration: in 1d`.
+- **Set 30 "Peace & Power" has exactly FOUR focused characters** (enumerate them by regexing
+  `datacron_set_\d+_focused_[a-z0-9_]+` out of the set page HTML — the index's "8 FDC Variants" counts
+  each one twice, base + `_upgraded`):
+  **Cassian Andor (Undercover) · Darth Revan · Dedra Meero · Luminara Unduli.**
+  (Set 33's are Bishop / Raccoon / Snowtrooper Commander — none on this board.)
+- **A focused datacron keys off ONE NAMED CHARACTER.** No faction/alignment/role heuristic can ever see
+  it. That is precisely why my `datacron_exposure.py` coverage proxy missed the single biggest effect on
+  the board while confidently flagging things that didn't matter. **Enumerate focused variants explicitly.**
+
+### ⭐ THE COUNTERFACTUAL IS PUBLISHED — stop guessing haircuts
+I had claimed the magnitude "is not something this data can measure". It is.
+**`/tier-list/gac/?side=defense` and `/tier-list/3v3/?side=defense`** break each leader's rate down by
+which datacron affix was running, and one row is literally
+`L9 – Unactivated affix / "Doesn't apply to this squad's units"  43.5% · 17.5K` — the same squads measured
+where no L9 applied. **ratio = baseline / headline** is a measured durability estimate.
+- Parse with **`details.group.border-b`** (one per leader, 100/page). A regex over the whole page
+  innerText BLEEDS affix rows between leaders — it produced Rey at 9.6% and ratios of 2.33. DOM-scope it.
+- Cross-validated against an independent agent scrape: Stranger 43.5%, Cassian UC 12.4% — exact match.
+- **Offense ratios all fall in 0.87–1.04**; defense ratios run **0.35–1.15**. An attacker already winning
+  90% isn't carried by a datacron; a 25% wall can be more than half rented. ⇒ apply to **DEFENSE ONLY**.
+  `scripts/durability.py`, `board_config.DEFENSE_DURABILITY = True`. Clamp [0.35,1.15], min baseline n=1000.
+
+### Measured ratios that changed the board
+| leader | 5v5 | 3v3 | verdict |
+|---|---|---|---|
+| **Cassian Andor (Undercover)** | 25.1→12.4 = **0.49** | 28.9→7.8 = **0.35** (clamped from 0.27) | holds a set-30 FDC; **DROPPED from 5v5 defense** |
+| The Stranger | 49.5→43.5 = 0.88 | 25.2→18.7 = 0.74 | durable, still #1 in 5v5 |
+| **Queen Amidala** | 25.3→**30.8** = 1.15↑ | 35.2→21.6 = 0.61 | baseline HIGHER in 5v5 → promoted to #2 |
+| Lord Vader | 26.1→28.5 = 1.09↑ | 40.7→31.8 = 0.78 | durable |
+| Ahsoka Tano | 16.5→17.0 = 1.03 | 29.5→23.9 = 0.81 | durable |
+| Jabba | 18.8→17.7 = 0.94 | 20.4→18.9 = 0.93 | durable |
+| Resistance Finn | 16.6→10.7 = 0.64 | — | dropped from 5v5 defense |
+Board deltas: 5v5 def −Cassian UC/−Res Finn, +Saw Gerrera Rebels 20% / +Great Mothers; 3v3 Stranger trio
+and Queen Amidala trio moved to **offense** (92% / 85%) now that their walls are discounted.
+3v3 defense sum 318→250 — that is the honest post-datacron number, not a regression.
+
+### Corrections to my own earlier note (2026-08-05 session 3)
+- "no live set replaces Sith/GR" — **overstated**. They lose the **L6 faction tier only**; L3 Light/Dark
+  Side survives in set 33 and set 32's role tiers are faction-agnostic. One tier, not a blackout.
+- **Set 33 lands the same day set 30 dies (6 Aug) — there is no gap.** Expiries run an exact 28-day
+  drumbeat (Apr 15 → May 13 → Jun 10 → Jul 8 → Aug 6 → Sep 3 → Oct 1 → Oct 29) ⇒ **set 34 ≈ 3 Sep**,
+  contents UNVERIFIED (no CG post, no datamine; CG dropped quarterly Road Aheads, expect ~1 week notice).
+- **Satele Shan was NERFED 2026-07-22** ("leader ability no longer grants Bastila a turn loop") AND loses
+  her set-31 datacron 3 Sep. Double hit — do not invest there.
+- The 5v5 tier list is **Season 80 data generated under sets 29/30/31**; set 29 already died 8 Jul, so some
+  5v5 numbers are stale-inflated today. 3v3 (S81) is current.
+
+### Territory War — rules VERIFIED (first-party), one still open
+Source: official CG "Territory Wars Overview" (swgoh.gg/news/territory-wars-overview/).
+- **THERE IS NO PER-PLAYER DEFENSIVE SQUAD CAP.** Quote: "all contribution limits… are **Guild limits not
+  player limits**… place all their troops down". Per-territory slots scale with the *smaller* guild's
+  member count; it is a guild-wide, first-come pool. ⇒ **my ranked "set top-down until the map runs out"
+  is the correct behaviour — do NOT cap at N.** Exact formula UNVERIFIED (the community `min(players)÷2`
+  figure is folklore).
+- **A unit on defense cannot attack, and vice versa** — confirmed, and units do NOT refresh between phases.
+- **A winning attack squad is locked out** ("attacking squads that *successfully* defeat an opponent are not
+  available for future attacks"). **A LOSING squad: UNVERIFIED** — the word "successfully" implies losses
+  don't lock, the one first-hand account describes a *retreat*, and search summarisers assert both.
+  30-second test on attack day: throw a junk squad, lose deliberately, re-open squad select.
+- **No per-player fleet slot** (fleets come from the same guild pool). No documented attack-attempt cap.
+- **Datacrons DO apply in TW** (and GAC and Squad Arena); **NOT** in Territory Battles, Fleet Arena/any ship
+  mode, or Conquest ⇒ the 6 Aug cliff hits the TW bank too, but never the fleets.
+- **33 units have TW-ONLY omicrons and Astra owns all 33.** Highest-leverage buy: **Ahsoka Tano (Fulcrum)** —
+  her TW omicron is the classic attempt-eater (if no other active allies: +100% Armor Pen/Crit Avoidance,
+  +75% Def/HP/Off/Prot, ignores Taunt, kills can't be revived) and she currently has **0 omicrons applied**.
+  Also: **Embo's** TW omicron regenerates Bounty Hunter protection every turn, which directly undoes TW chip
+  damage — the Jabba+Embo wall is a better TW wall than its GAC hold implies (it is on the board at D11).
+- ⚠️ **Wampa's and Darth Bane's omicrons are GRAND ARENA, not TW** — their famous cheap clears are weaker in
+  TW than their GAC win rates suggest. Wampa is correctly absent from the TW bank; Bane/Sidious is kept at
+  TW O8 anyway because **TW pays +1 banner per EMPTY slot**, so a 2-unit clear banks the same as a 5-unit one
+  while burning three fewer units. **Darth Traya's omicron is also GA, not TW.**
+
+## 2026-08-05 (session 3, addendum 2) — LEAGUE POPULATION: a real gap, and a correction I built then REJECTED
+The 3v3 agent raised the biggest methodological objection of the session: the board is built on
+**all-league** data while Astra plays **Kyber**. Verified, quantified, and then mostly NOT acted on —
+the reasoning below is the durable part.
+
+### ⭐ Verified: the league filter exists, but NOT where the board needs it
+- `/tier-list/gac/?side=defense&league=kyber-d1` and `/tier-list/3v3/?...` **work** (60 leaders vs 134;
+  a bogus league value falls back to base, so the param is genuinely honoured). Options are
+  **kyber-d1 · aurodium · chromium · bronzium · carbonite** — only ONE Kyber bucket.
+- **`/gac/squads/` IGNORES it.** `?league=kyber-d1` returns byte-identical rows to `?league=zzz`.
+  ⇒ **there is no LINEUP-level Kyber-only source.** The board is lineup-level; the league data is
+  leader-level. That granularity mismatch is the whole problem.
+- Astra is **"Kyber 3"** per swgoh.gg (skill sub-tier, League Rank #19038). *Division* is a separate,
+  GP-based axis; at 14.37M GP Astra is almost certainly Division 1, but the swgoh.gg leaderboard is
+  JS-rendered so this was **not** directly confirmed. Treat `kyber-d1` as "very likely the right
+  population", not proven.
+
+### ⭐ THE TRAP: a leader-level league ratio confounds SKILL with BUILD MIX
+`kyber_d1_leader_avg / all_league_leader_avg` mixes two effects and you cannot separate them:
+- 5v5 **Rey**: all-league **531 builds** / 15.2K battles → 9.6%. Kyber-D1 **57 builds** / 2,724 → 20.9%.
+  Ratio 2.18. Rey does not get *better* against better players — the low-league average is dragged down
+  by hundreds of junk Rey builds. Applying that 2.18 to the one good lineup (measured 31%) made it the
+  **#1 wall on the board off pure artifact.**
+- Same shape for Boss Nass 3v3 (x1.69). Of 15 comparable 5v5 leaders and 18 in 3v3, **exactly one each
+  moves in the "wrong" direction — and both are build-mix artifacts.**
+- A median-shrinkage variant was also built (to stop "no Kyber data = no haircut" quietly promoting
+  squads nobody at Kyber plays). It fixed that bias but not the confound, and it crushed board sums
+  (5v5 288→212, 3v3 250→160) without improving the ordering.
+⇒ **`league_adjust.APPLY_GLOBAL = False`.** Do not resurrect the global multiplier.
+
+### What IS applied: one override, where two independent lines of evidence agree
+`KYBER_OVERRIDES[("3v3","Rey")] = 0.31` — the **Rey / Ben Solo / Luminara** wall reads **10.3% at
+Kyber-D1 (n=5,222)** vs 33.2% all-league, **and** its Luminara carries a Set 30 focused datacron dying
+2026-08-06. Two unrelated reasons, same direction. **Demoted from 3v3 defense #2 → #13.**
+Everything else with a Kyber-D1 shortfall is **flagged in the playbook, not multiplied**
+(Lord Vader 16.8 vs 26.1 · Palpatine 15.7 vs 21.2 · Saw Gerrera 8.4 vs 20 · Jabba 12.7 vs 18.8).
+**Upside ratios are never applied** — they are the direction build-mix bias pushes.
+
+### ⭐ The 5v5 board is VALIDATED by the correct population
+Rank in all-league → rank in Kyber-D1: The Stranger **#1 → #1** (40.3%, n=6,288); and nearly everything
+else RISES — Partagaz +16, Ahsoka +16, Jabba +13, Palpatine +10, Queen Amidala +9, Baylan +9, Satele +8,
+Cassian UC +5. Nothing meaningful falls. **No 5v5 changes were needed.** That is a genuine result, not an
+absence of findings.
+
+### Other agent findings worth keeping
+- **Set expiry times are exact** (from `datetime` attributes, not the rounded "in 1mo" display):
+  30 → **2026-08-06 07:00Z** · 31 → 2026-09-03 · 32 → **2026-10-01** (8 weeks, not the ~1mo I wrote) ·
+  33 → 2026-10-29. Set 29 (Rebel/Rebel Fighter) **already died 2026-07-08**.
+- **Set 30 holds the #1, #2, #3 and #5 datacrons in the game** (Sith Trooper 89.4% ▲11 B→S, Mace Windu
+  88.8% ▲8 B→S, Sith Assassin 88.4%, Count Dooku ▲6) — all dead tomorrow, no replacement.
+- **The Stranger 5v5 is NOT Healer-cron inflated** (my earlier hypothesis, now doubly refuted): swgoh.gg
+  does not flag it dependent; the squad is **mixed-alignment with no shared faction**, so no L3/L6 cron
+  covers it; and Luminara-vs-Barriss (57 vs 48) cannot be a Healer effect because **both are Healers**.
+  The 9 points are a unit-choice effect — and plausibly Luminara's FOCUSED cron, which dies tomorrow.
+- **`memory/notes.md` GL Hondo entry is STALE** — the old "#1 3v3 wall, 38% hold" reads **3.5% in
+  Kyber-D1 / 9.8% Kyber-default** on S81. **GL Hondo is no longer a priority gap.** Third Sister and
+  Profundity still stand.
+- **4-LOM at G11 is the top gear investment**: G13 unlocks Jango/4-LOM/Asajj (Kyber-D1 **#4, 27.5%**).
+  Set-31 propped, so a ~4-week half-life.
+- **GL Mando & Grogu is announced and imminent** (Rotta Journey rerun gates it) — will reset the board.
+- Undersizing pays: solo SEE averages **56.68 banners** vs ~50 for a 3-unit clear, because empty slots
+  grant bonus banners. Solo SEE (97%) strictly beats SEE+Wat (93%) and SEE+Bane (90%) in 3v3.
+
+### Final state
+**98 definitions live, verified**: no dups, no content mismatches, no unit repeated within any mode
+(GAC 5v5 116 slots / GAC 3v3 105 / TW 145 / GAC Fleet 46, all distinct).
