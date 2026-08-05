@@ -15,3 +15,4 @@ output/brief_*.html
 farmbot/halts/
 farmbot/config.json
 farmbot/STOP
+farmbot/reports/

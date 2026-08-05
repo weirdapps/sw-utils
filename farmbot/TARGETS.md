@@ -99,3 +99,29 @@ drops), and early-chapter nodes require horizontal **scroll** to reach.
    — new Fleet area + Normal/Hard toggle; 5 nodes = biggest single batch of value.
 3. **LS/DS Hard shard nodes** (Kix → LS Hard 1-D, Hyena Bomber → DS Hard 8-B) — Normal/Hard toggle.
 4. **Materials** — Mod Battles Tier 2 (mod bottleneck) + Cantina Stage 8/9 (omicron/zeta) + gear.
+
+---
+
+## 2026-08-02 (session 2) — research corrections + live capture status
+Corrections from a 5-agent verification workflow (swgoh.gg + gaming-fans, post-Cantina-2.0). **Confirm the reward ICON on device at capture — node art ≠ dropped shard.**
+
+### Corrections to the list above
+- ❌ **Vane is NO LONGER sim-able** — moved to Chromium packs / Shipments (Oct 2025 update); Cantina 2.0 added no node. Drop the Cantina 3-B entry.
+- ✅ **DS Hard 8-B = Taris** — one Multi-Sim drops **Hyena Bomber ship + Mk3 Stun Cuffs + Comlink** (device-confirmed: red ship blueprint + Mk IV/Mk III gear). Best Normal-energy combo node.
+- ➕ **NEW Cantina 2.0 Stage-9 Omicron nodes** (shards + 0.75% Omicron each): **Wampa 9-A, General Grievous 9-E, Hermit Yoda 9-G**. Top per-node Omicron farms. Zeta = **Cantina 8-F**.
+- ✅ **Captain Silvo = Cantina 6-A** (GL Hondo crew, high confidence).
+- ⚠️ **Fleet 2-E ambiguity**: Fleet HARD 2-E = Raven's Claw (ship); Fleet NORMAL 2-E = Mk12 Fusion Furnace (gear). Difficulty must be set per intent.
+- **Mod Battles Tier 2 salvage-per-node**: T05_06 @ 2-E/2-F, T06_02 @ 2-D (confirm icons).
+- Fleet-Hard character nodes (Ithano 1-A, Brutus 2-A, Quiggold 3-D) confirmed but swgoh.wiki is STALE — trust swgoh.gg + on-device.
+
+### Captured + VALIDATED live (2026-08-02, crystals unchanged)
+- **Mod Battles Tier 2 2-F** → `node_mod_2-F` + `chapter_tab_mod_2`. Dumped Mod 144→0 (8 sims, T05/T06 salvage). ✅
+- **Fleet Hard 1-E** (`node_fleet_1-E`) → dumped Fleet 74→11 via engine. ✅
+- **LS Hard 1-D Kix** (`node_light_1-D`) → dumped Normal 144→84 via engine. ✅
+- **Cantina 1-A** (`node_cantina_1-A`) → sim via engine. ✅
+- Also captured: `hard_tab` (re-captured clean), `normal_tab`, `newsletter_close`, `chapter_tab_8`, `node_dark_8-B` (DS 8-B, needs ch8-nav tuning — see below).
+
+### Capture rules learned (IMPORTANT)
+- **Capture node icons UNSELECTED.** The engine arrives with the last-played node auto-selected; a target that isn't auto-selected shows unselected, and a selected-state template (glow/border) misses. Deselect (tap another node) before cropping.
+- **hard_depleted** template still needed → a depleted Hard node currently safe-HALTs (saves `halts/<ts>_OPEN_MULTISIM.png`). Crop the refresh-timer panel region (NOT just the 💎-refresh button) from that halt to enable graceful skip (unit-tested already).
+- **DS/high-chapter nav** (ch8 tab + off-screen node) is finicky — the engine landed on ch6 once. Tune `chapter_tab_8` + ch8 node scroll before wiring DS 8-B and the Stage-9 Cantina Omicron nodes. Chapter-1 nodes are reliable.

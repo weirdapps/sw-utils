@@ -13,4 +13,4 @@ def test_example_config_is_valid_json():
         cfg = json.load(f)
     assert cfg["device_serial"]
     assert cfg["caps"]["max_actions"] > 0
-    assert isinstance(cfg["nodes"], list) and cfg["nodes"]
+    assert isinstance(cfg["routine"], list) and cfg["routine"]
