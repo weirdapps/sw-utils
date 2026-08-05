@@ -1,0 +1,1408 @@
+{
+ "groupings": [
+  {
+   "definitions": [
+    {
+     "id": 837360,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:51.453+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D01 GL Rey 32%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLREY\", \"characterName\": \"Rey\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BENSOLO\", \"characterName\": \"Ben Solo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"LUMINARAUNDULI\", \"characterName\": \"Luminara Unduli\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837361,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:52.817+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D02 Lord Vader 31%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"LORDVADER\", \"characterName\": \"Lord Vader\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"APPO\", \"characterName\": \"CC-1119 \\\"Appo\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"OPERATIVE\", \"characterName\": \"CX-2\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837363,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:54.327+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D03 GL Ahsoka 27%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLAHSOKATANO\", \"characterName\": \"Ahsoka Tano\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"EZRAEXILE\", \"characterName\": \"Ezra Bridger (Exile)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HUYANG\", \"characterName\": \"Huyang\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837364,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:55.637+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D04 Cassian UC 27%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CASSIANUNDERCOVER\", \"characterName\": \"Cassian Andor (Undercover)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"KLEYA\", \"characterName\": \"Kleya Marki\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"LUTHENRAEL\", \"characterName\": \"Luthen Rael\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837365,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:35.037+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D05 GL Leia 24%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLLEIA\", \"characterName\": \"Leia Organa\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CAPTAINDROGAN\", \"characterName\": \"Captain Drogan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"R2D2_LEGENDARY\", \"characterName\": \"R2-D2\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837366,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:36.39+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D06 The Stranger 22%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"STRANGER\", \"characterName\": \"The Stranger\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MAULHATEFUELED\", \"characterName\": \"Maul (Hate-Fueled)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"STARKILLER\", \"characterName\": \"Starkiller\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837367,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:37.517+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D07 Jabba 21%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"JABBATHEHUTT\", \"characterName\": \"Jabba the Hutt\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BOUSHH\", \"characterName\": \"Boushh (Leia Organa)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"KRRSANTAN\", \"characterName\": \"Krrsantan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837368,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:38.763+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D08 Satele 21%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SATELESHAN\", \"characterName\": \"Satele Shan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BASTILASHAN\", \"characterName\": \"Bastila Shan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JEDIKNIGHTREVAN\", \"characterName\": \"Jedi Knight Revan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837369,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:43.97+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D09 Palpatine EP 19%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"EMPERORPALPATINE\", \"characterName\": \"Emperor Palpatine\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MARAJADE\", \"characterName\": \"Mara Jade, The Emperor's Hand\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"VADERDUELSEND\", \"characterName\": \"Darth Vader (Duel's End)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837370,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:45.237+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D10 Queen Amidala 18%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"QUEENAMIDALA\", \"characterName\": \"Queen Amidala\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MASTERQUIGON\", \"characterName\": \"Master Qui-Gon\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"PADAWANOBIWAN\", \"characterName\": \"Padawan Obi-Wan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837371,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:47.077+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D11 Great Mothers 18%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GREATMOTHERS\", \"characterName\": \"Great Mothers\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MORGANELSBETH\", \"characterName\": \"Morgan Elsbeth\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"NIGHTSISTERSPIRIT\", \"characterName\": \"Nightsister Spirit\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837372,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:52.597+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D12 Endor Luke 17%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"STORMTROOPERLUKE\", \"characterName\": \"Stormtrooper Luke\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"PRINCESSLEIA\", \"characterName\": \"Princess Leia\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"STORMTROOPERHAN\", \"characterName\": \"Stormtrooper Han\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837373,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:53.887+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D13 Partagaz ISB 16%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"MAJORPARTAGAZ\", \"characterName\": \"Major Partagaz\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DEDRAMEERO\", \"characterName\": \"Dedra Meero\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"KXSECURITYDROID\", \"characterName\": \"KX Security Droid\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837374,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:55.357+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D14 Darth Revan 15%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHREVAN\", \"characterName\": \"Darth Revan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MISSIONVAO\", \"characterName\": \"Mission Vao\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"ZAALBAR\", \"characterName\": \"Zaalbar\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837375,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:56.7+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 D15 Gungans 13%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"BOSSNASS\", \"characterName\": \"Boss Nass\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CAPTAINTARPALS\", \"characterName\": \"Captain Tarpals\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JARJARBINKS\", \"characterName\": \"Jar Jar Binks\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837376,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:38:58+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O01 SEE 97%",
+     "size": 1,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SITHPALPATINE\", \"characterName\": \"Sith Eternal Emperor\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837377,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:39:10.323+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O02 JMK 95%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"JEDIMASTERKENOBI\", \"characterName\": \"Jedi Master Kenobi\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"COMMANDERAHSOKA\", \"characterName\": \"Commander Ahsoka Tano\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"MACEWINDU\", \"characterName\": \"Mace Windu\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837378,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:39:11.507+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O03 Malgus 95%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHMALGUS\", \"characterName\": \"Darth Malgus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BASTILASHANDARK\", \"characterName\": \"Bastila Shan (Fallen)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"DARTHMALAK\", \"characterName\": \"Darth Malak\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837379,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:02.78+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O04 SLKR 92%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SUPREMELEADERKYLOREN\", \"characterName\": \"Supreme Leader Kylo Ren\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DARKREY\", \"characterName\": \"Rey (Dark Side Vision)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"GENERALHUX\", \"characterName\": \"General Hux\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837380,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:03.94+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O05 Bo-Katan Mandos 91%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"MANDALORBOKATAN\", \"characterName\": \"Bo-Katan (Mand'alor)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"IG12\", \"characterName\": \"IG-12 & Grogu\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"PAZVIZSLA\", \"characterName\": \"Paz Vizsla\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837381,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:05.08+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O06 Bane 89%",
+     "size": 2,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHBANE\", \"characterName\": \"Darth Bane\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"COUNTDOOKU\", \"characterName\": \"Count Dooku\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837382,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:06.317+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O07 JML 88%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GRANDMASTERLUKE\", \"characterName\": \"Jedi Master Luke Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"JEDIKNIGHTCAL\", \"characterName\": \"Jedi Knight Cal Kestis\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JEDIKNIGHTLUKE\", \"characterName\": \"Jedi Knight Luke Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837383,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:07.55+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O08 Sith Triumvirate 87%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHTRAYA\", \"characterName\": \"Darth Traya\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DARTHNIHILUS\", \"characterName\": \"Darth Nihilus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"SAVAGEOPRESS\", \"characterName\": \"Savage Opress\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837384,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:08.89+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O09 Ugnaught 86%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"UGNAUGHT\", \"characterName\": \"Ugnaught\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"EZRABRIDGERS3\", \"characterName\": \"Ezra Bridger\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HONDO\", \"characterName\": \"Hondo Ohnaka\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837385,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:10.217+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O10 GAS 501st 84%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GENERALSKYWALKER\", \"characterName\": \"General Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CT5555\", \"characterName\": \"CT-5555 \\\"Fives\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"CT7567\", \"characterName\": \"CT-7567 \\\"Rex\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837386,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:11.427+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O11 Cere 83%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CEREJUNDA\", \"characterName\": \"Cere Junda\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MAULS7\", \"characterName\": \"Maul\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"TARONMALICOS\", \"characterName\": \"Taron Malicos\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837387,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:12.79+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O12 Baylan 82%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"BAYLANSKOLL\", \"characterName\": \"Baylan Skoll\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"MARROK\", \"characterName\": \"Marrok\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"SHINHATI\", \"characterName\": \"Shin Hati\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837388,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:14.01+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O13 Raddus 82%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"ADMIRALRADDUS\", \"characterName\": \"Admiral Raddus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CASSIANANDOR\", \"characterName\": \"Cassian Andor\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JYNERSO\", \"characterName\": \"Jyn Erso\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837389,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:15.3+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O14 Aphra 76%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DOCTORAPHRA\", \"characterName\": \"Doctor Aphra\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BT1\", \"characterName\": \"BT-1\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"IG90\", \"characterName\": \"IG-90\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837390,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:27.593+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O15 Dash BAM 73%",
+     "size": 3,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DASHRENDAR\", \"characterName\": \"Dash Rendar\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CHEWBACCALEGENDARY\", \"characterName\": \"Chewbacca\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HANSOLO\", \"characterName\": \"Han Solo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837392,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:33.043+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "3v3 O16 Wampa 59%",
+     "size": 1,
+     "combatType": 1,
+     "category": [
+      "GAC 3v3 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"WAMPA\", \"characterName\": \"Wampa\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837332,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:03.393+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D01 The Stranger 57%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"STRANGER\", \"characterName\": \"The Stranger\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"LUMINARAUNDULI\", \"characterName\": \"Luminara Unduli\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"MAULHATEFUELED\", \"characterName\": \"Maul (Hate-Fueled)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"STARKILLER\", \"characterName\": \"Starkiller\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"VISASMARR\", \"characterName\": \"Visas Marr\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837333,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:09.937+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D02 GL Rey 31%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLREY\", \"characterName\": \"Rey\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"50RT\", \"characterName\": \"50R-T\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"BENSOLO\", \"characterName\": \"Ben Solo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"CALKESTIS\", \"characterName\": \"Cal Kestis\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"GENERALKENOBI\", \"characterName\": \"General Kenobi\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837334,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:11.21+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D03 Lord Vader 25%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"LORDVADER\", \"characterName\": \"Lord Vader\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"APPO\", \"characterName\": \"CC-1119 \\\"Appo\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"DISGUISEDCLONETROOPER\", \"characterName\": \"Disguised Clone Trooper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"OPERATIVE\", \"characterName\": \"CX-2\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"SCORCH\", \"characterName\": \"RC-1262 \\\"Scorch\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837335,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:12.52+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D04 Cassian UC 24%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CASSIANUNDERCOVER\", \"characterName\": \"Cassian Andor (Undercover)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"CINTA\", \"characterName\": \"Cinta Kaz\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"KLEYA\", \"characterName\": \"Kleya Marki\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"LUTHENRAEL\", \"characterName\": \"Luthen Rael\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"VEL\", \"characterName\": \"Vel Sartha\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837336,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:13.847+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D05 Baylan 21%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"BAYLANSKOLL\", \"characterName\": \"Baylan Skoll\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DENGAR\", \"characterName\": \"Dengar\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HONDO\", \"characterName\": \"Hondo Ohnaka\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"MARROK\", \"characterName\": \"Marrok\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"SHINHATI\", \"characterName\": \"Shin Hati\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837337,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:18.303+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D06 Palpatine EP 20%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"EMPERORPALPATINE\", \"characterName\": \"Emperor Palpatine\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"GRANDMOFFTARKIN\", \"characterName\": \"Grand Moff Tarkin\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"MARAJADE\", \"characterName\": \"Mara Jade, The Emperor's Hand\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"ROYALGUARD\", \"characterName\": \"Royal Guard\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"VADERDUELSEND\", \"characterName\": \"Darth Vader (Duel's End)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837338,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:23.597+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D07 Jabba 19%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"JABBATHEHUTT\", \"characterName\": \"Jabba the Hutt\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BOUSHH\", \"characterName\": \"Boushh (Leia Organa)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"EMBO\", \"characterName\": \"Embo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"KRRSANTAN\", \"characterName\": \"Krrsantan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"UNDERCOVERLANDO\", \"characterName\": \"Skiff Guard (Lando Calrissian)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837339,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:25.117+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D08 Satele 19%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SATELESHAN\", \"characterName\": \"Satele Shan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BASTILASHAN\", \"characterName\": \"Bastila Shan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JEDIKNIGHTREVAN\", \"characterName\": \"Jedi Knight Revan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"JOLEEBINDO\", \"characterName\": \"Jolee Bindo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"JUHANI\", \"characterName\": \"Juhani\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837340,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:35:26.453+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D09 Partagaz ISB 19%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"MAJORPARTAGAZ\", \"characterName\": \"Major Partagaz\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DEDRAMEERO\", \"characterName\": \"Dedra Meero\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"DIRECTORKRENNIC\", \"characterName\": \"Director Krennic\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"IMPERIALPROBEDROID\", \"characterName\": \"Imperial Probe Droid\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"KXSECURITYDROID\", \"characterName\": \"KX Security Droid\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837342,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:05.87+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D10 GL Ahsoka 18%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLAHSOKATANO\", \"characterName\": \"Ahsoka Tano\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"EZRAEXILE\", \"characterName\": \"Ezra Bridger (Exile)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"GENERALSYNDULLA\", \"characterName\": \"General Syndulla\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"HUYANG\", \"characterName\": \"Huyang\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"PADAWANSABINE\", \"characterName\": \"Padawan Sabine Wren\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837343,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:07.29+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 D11 Resistance Finn 13%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"FINN\", \"characterName\": \"Finn\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"EPIXFINN\", \"characterName\": \"Resistance Hero Finn\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"EPIXPOE\", \"characterName\": \"Resistance Hero Poe\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"ROSETICO\", \"characterName\": \"Rose Tico\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"ZORIIBLISS_V2\", \"characterName\": \"Zorii Bliss\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837344,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:08.583+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O01 GL Leia 96%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GLLEIA\", \"characterName\": \"Leia Organa\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"C3POCHEWBACCA\", \"characterName\": \"Threepio & Chewie\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"CAPTAINDROGAN\", \"characterName\": \"Captain Drogan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"CAPTAINREX\", \"characterName\": \"Captain Rex\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"R2D2_LEGENDARY\", \"characterName\": \"R2-D2\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837345,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:09.88+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O02 SLKR 90%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SUPREMELEADERKYLOREN\", \"characterName\": \"Supreme Leader Kylo Ren\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DARKREY\", \"characterName\": \"Rey (Dark Side Vision)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"FOSITHTROOPER\", \"characterName\": \"Sith Trooper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"GENERALHUX\", \"characterName\": \"General Hux\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"KYLORENUNMASKED\", \"characterName\": \"Kylo Ren (Unmasked)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837346,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:22.15+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O03 JMK 90%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"JEDIMASTERKENOBI\", \"characterName\": \"Jedi Master Kenobi\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"AHSOKATANO\", \"characterName\": \"Ahsoka Tano (Snips)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"COMMANDERAHSOKA\", \"characterName\": \"Commander Ahsoka Tano\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"MACEWINDU\", \"characterName\": \"Mace Windu\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"PADMEAMIDALA\", \"characterName\": \"Padm\\u00e9 Amidala\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837347,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:23.497+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O04 Sith Triumvirate 87%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHTRAYA\", \"characterName\": \"Darth Traya\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DARTHNIHILUS\", \"characterName\": \"Darth Nihilus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"DARTHSION\", \"characterName\": \"Darth Sion\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"DARTHTALON\", \"characterName\": \"Darth Talon\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"SAVAGEOPRESS\", \"characterName\": \"Savage Opress\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837348,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:28.737+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O05 Malgus 86%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHMALGUS\", \"characterName\": \"Darth Malgus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BASTILASHANDARK\", \"characterName\": \"Bastila Shan (Fallen)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"DARTHMALAK\", \"characterName\": \"Darth Malak\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"DARTHREVAN\", \"characterName\": \"Darth Revan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"SITHMARAUDER\", \"characterName\": \"Sith Marauder\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837349,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:30.11+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O06 Aphra 86%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DOCTORAPHRA\", \"characterName\": \"Doctor Aphra\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"B2SUPERBATTLEDROID\", \"characterName\": \"B2 Super Battle Droid\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"BT1\", \"characterName\": \"BT-1\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"IG90\", \"characterName\": \"IG-90\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"TRIPLEZERO\", \"characterName\": \"0-0-0\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837350,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:31.41+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O07 Gungans 86%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"BOSSNASS\", \"characterName\": \"Boss Nass\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BOOMADIER\", \"characterName\": \"Gungan Boomadier\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"CAPTAINTARPALS\", \"characterName\": \"Captain Tarpals\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"GUNGANPHALANX\", \"characterName\": \"Gungan Phalanx\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"JARJARBINKS\", \"characterName\": \"Jar Jar Binks\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837351,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:36:32.757+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O08 SEE 86%",
+     "size": 2,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"SITHPALPATINE\", \"characterName\": \"Sith Eternal Emperor\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"WATTAMBOR\", \"characterName\": \"Wat Tambor\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837353,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:24+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O09 Bane 83%",
+     "size": 2,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"DARTHBANE\", \"characterName\": \"Darth Bane\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"SITHTROOPER\", \"characterName\": \"Sith Empire Trooper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837354,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:25.23+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O10 Queen Amidala 82%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"QUEENAMIDALA\", \"characterName\": \"Queen Amidala\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BADBATCHECHO\", \"characterName\": \"Echo\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"MASTERQUIGON\", \"characterName\": \"Master Qui-Gon\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"PADAWANOBIWAN\", \"characterName\": \"Padawan Obi-Wan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"SHAAKTI\", \"characterName\": \"Shaak Ti\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837355,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:26.587+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O11 GAS 501st 81%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GENERALSKYWALKER\", \"characterName\": \"General Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"ARCTROOPER501ST\", \"characterName\": \"ARC Trooper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"CT210408\", \"characterName\": \"CT-21-0408 \\\"Echo\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"CT5555\", \"characterName\": \"CT-5555 \\\"Fives\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"CT7567\", \"characterName\": \"CT-7567 \\\"Rex\\\"\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837356,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:27.923+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O12 JML 80%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GRANDMASTERLUKE\", \"characterName\": \"Jedi Master Luke Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"GRANDMASTERYODA\", \"characterName\": \"Grand Master Yoda\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HERMITYODA\", \"characterName\": \"Hermit Yoda\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"JEDIKNIGHTCAL\", \"characterName\": \"Jedi Knight Cal Kestis\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"JEDIKNIGHTLUKE\", \"characterName\": \"Jedi Knight Luke Skywalker\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837357,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:29.18+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O13 Bo-Katan Mandos 76%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"MANDALORBOKATAN\", \"characterName\": \"Bo-Katan (Mand'alor)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BOKATAN\", \"characterName\": \"Bo-Katan Kryze\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"IG12\", \"characterName\": \"IG-12 & Grogu\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"PAZVIZSLA\", \"characterName\": \"Paz Vizsla\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"THEMANDALORIANBESKARARMOR\", \"characterName\": \"The Mandalorian (Beskar Armor)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837358,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:33.487+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O14 Great Mothers 64%",
+     "size": 5,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"GREATMOTHERS\", \"characterName\": \"Great Mothers\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"DEATHTROOPERPERIDEA\", \"characterName\": \"Death Trooper (Peridea)\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"MORGANELSBETH\", \"characterName\": \"Morgan Elsbeth\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"NIGHTSISTERSPIRIT\", \"characterName\": \"Nightsister Spirit\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"NIGHTTROOPER\", \"characterName\": \"Night Trooper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837359,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:37:34.653+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "5v5 O15 Wampa 55%",
+     "size": 1,
+     "combatType": 1,
+     "category": [
+      "GAC 5v5 - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"WAMPA\", \"characterName\": \"Wampa\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837393,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:34.333+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet D1 Leviathan (82%)",
+     "size": 8,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALLEVIATHAN\", \"characterName\": \"Leviathan\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"SCYTHE\", \"characterName\": \"Scythe\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"TIESILENCER\", \"characterName\": \"TIE Silencer\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"EMPERORSSHUTTLE\", \"characterName\": \"Emperor's Shuttle\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"COMMANDSHUTTLE\", \"characterName\": \"Kylo Ren's Command Shuttle\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"TIEFIGHTERFOSF\", \"characterName\": \"First Order SF TIE Fighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 6, \"characterId\": \"TIEFIGHTERFIRSTORDER\", \"characterName\": \"First Order TIE Fighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 7, \"characterId\": \"SITHFIGHTER\", \"characterName\": \"Sith Fighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837394,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:40:38.87+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet D2 Negotiator (90%)",
+     "size": 8,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALNEGOTIATOR\", \"characterName\": \"Negotiator\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"JEDISTARFIGHTERAHSOKATANO\", \"characterName\": \"Ahsoka Tano's Jedi Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"JEDISTARFIGHTERANAKIN\", \"characterName\": \"Anakin's Eta-2 Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"BLADEOFDORIN\", \"characterName\": \"Plo Koon's Jedi Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"JEDISTARFIGHTERCONSULAR\", \"characterName\": \"Jedi Consular's Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"ARC170REX\", \"characterName\": \"Rex's ARC-170\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 6, \"characterId\": \"ARC170CLONESERGEANT\", \"characterName\": \"Clone Sergeant's ARC-170\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 7, \"characterId\": \"YWINGCLONEWARS\", \"characterName\": \"BTL-B Y-wing Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837395,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:41:15.267+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet D3 Home One (91%)",
+     "size": 8,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Defense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALMONCALAMARICRUISER\", \"characterName\": \"Home One\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"BWINGREBEL\", \"characterName\": \"Rebel B-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"XWINGRED3\", \"characterName\": \"Biggs Darklighter's X-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"XWINGRED2\", \"characterName\": \"Wedge Antilles's X-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"GHOST\", \"characterName\": \"Ghost\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"PHANTOM2\", \"characterName\": \"Phantom II\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 6, \"characterId\": \"YWINGREBEL\", \"characterName\": \"Rebel Y-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 7, \"characterId\": \"XWINGRESISTANCE\", \"characterName\": \"Resistance X-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837396,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:41:16.557+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet O1 Executor",
+     "size": 8,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALEXECUTOR\", \"characterName\": \"Executor\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"TIEADVANCED\", \"characterName\": \"TIE Advanced x1\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"TIEINTERCEPTOR\", \"characterName\": \"TIE/IN Interceptor Prototype\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"TIEDEFENDER\", \"characterName\": \"TIE Defender\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"TIEREAPER\", \"characterName\": \"TIE Reaper\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"TIEDAGGER\", \"characterName\": \"TIE Dagger\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 6, \"characterId\": \"TIEFIGHTERIMPERIAL\", \"characterName\": \"Imperial TIE Fighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 7, \"characterId\": \"TIEBOMBERIMPERIAL\", \"characterName\": \"Imperial TIE Bomber\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837397,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:41:21.043+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet O2 Malevolence",
+     "size": 6,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALMALEVOLENCE\", \"characterName\": \"Malevolence\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"VULTUREDROID\", \"characterName\": \"Vulture Droid\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"HYENABOMBER\", \"characterName\": \"Hyena Bomber\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"GEONOSIANSTARFIGHTER1\", \"characterName\": \"Sun Fac's Geonosian Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"GEONOSIANSTARFIGHTER3\", \"characterName\": \"Geonosian Spy's Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"GEONOSIANSTARFIGHTER2\", \"characterName\": \"Geonosian Soldier's Starfighter\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    },
+    {
+     "id": 837398,
+     "creator": {
+      "discordTag": "plessas#0000",
+      "allyCode": 145357294,
+      "playerName": "Astra",
+      "guildName": "Whiskey Tango Foxtrot",
+      "createdUTC": "2026-07-31T18:41:33.29+00:00"
+     },
+     "hasBeenShared": false,
+     "name": "Fleet O3 Raddus",
+     "size": 8,
+     "combatType": 2,
+     "category": [
+      "GAC Fleet - Offense"
+     ],
+     "contents": "[{\"id\": 0, \"characterId\": \"CAPITALRADDUS\", \"characterName\": \"Raddus\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 1, \"characterId\": \"ROGUEONESHIP\", \"characterName\": \"Rogue One\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 2, \"characterId\": \"UWINGSCARIF\", \"characterName\": \"Bistan's U-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 3, \"characterId\": \"UWINGROGUEONE\", \"characterName\": \"Cassian's U-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 4, \"characterId\": \"MILLENNIUMFALCON\", \"characterName\": \"Han's Millennium Falcon\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 5, \"characterId\": \"OUTRIDER\", \"characterName\": \"Outrider\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 6, \"characterId\": \"HOUNDSTOOTH\", \"characterName\": \"Hound's Tooth\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}, {\"id\": 7, \"characterId\": \"XWINGBLACKONE\", \"characterName\": \"Poe Dameron's X-wing\", \"requirements\": {\"hasOmicron\": false, \"hasZeta\": false, \"hasUltimate\": false, \"filters\": {\"minGP\": 1000, \"gear\": 0, \"relic\": 0, \"stars\": 2}, \"subsPriority\": \"order\"}}]",
+     "concrete": false,
+     "version": 0,
+     "sortOrder": 0,
+     "datacronRequired": false
+    }
+   ],
+   "groupName": "plessas#0000",
+   "shareType": 0
+  }
+ ],
+ "guilds": [
+  {
+   "dbId": 7791,
+   "id": "mkAyrpRIRJ2EKEtM_K0XQg",
+   "name": "Whiskey Tango Foxtrot",
+   "isAdmin": false
+  }
+ ],
+ "alliances": [],
+ "responseCode": 1,
+ "responseMessage": "SQUADS FETCHED",
+ "errorSeverity": 0
+}
