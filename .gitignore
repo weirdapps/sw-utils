@@ -1,5 +1,8 @@
 # generated deliverables (regenerate via scripts) — keep the playbook only
 output/*.json
+# raw browser/API captures saved by hand while scouting — huge, hold other
+# players' data, and are superseded by the computed snapshot in data/history/
+output/*.network-response
 .playwright-mcp/
 __pycache__/
 *.pyc
