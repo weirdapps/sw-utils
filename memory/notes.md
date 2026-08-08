@@ -1347,3 +1347,877 @@ HotUtils squads live on the website; this writes the same board into the GAME's 
 
 ### Merged
 PR **#16** squash-merged to master (`c95da42`) — the whole board rebuild. PR #17 = the in-game push script.
+
+## 2026-08-05 (session 4) — Conquest 24 pushed to S3; why squads LOSE, and the one-GL rule
+Resumed mid-Conquest (context cleared; the 15:20 driver `~/Downloads/202608051520_conquest_session.py`
+was the live thread). Track **1,325 → 1,425 / 3500**, Sector 3 **12 → 34/118**, 12d 3h left.
+
+### ⭐ ONLY ONE GALACTIC LEGEND PER SQUAD
+Adding a second GL pops **`Galactic Legend Limit` — "Your squad already contains the maximum number of
+Galactic Legends."** So "stack 5 GLs and steamroll" is impossible, and any squad plan that assumes two
+GLs is dead on arrival. Corollary: a GL's value must come from the **4 non-GL allies its lead buffs**.
+
+### ⭐ WHY SQUADS LOSE — it is difficulty scaling, not just stamina
+From the Sector-2 info dialog (the `i` on each sector row): **"Relic 5 with +20–60% Stat Bonuses.
+Stat bonuses increase further down the Sector."** Sector 1 enemies are relic **4**. So the same squad
+that clears early nodes gets walled deeper in — independent of stamina.
+- **Timers are the hidden loss condition:** normal node **5m**, boss node **10m**. A "loss" at **337s**
+  was a **timeout**, not a wipe. Deep nodes need *burst damage*, not bulk.
+- Measured this session: JML/GAS/Stranger/Cassian/Vel at **21–32% stamina** lost; a fresh **176,280**
+  Family squad at **100%** also lost (197s, a real wipe). Stamina alone was never the whole story.
+
+### ⭐ THE SQUAD THAT ACTUALLY WORKS — JMK meta, all Galactic Republic
+**Jedi Master Kenobi (L, "Harmonious Will") + Commander Ahsoka Tano + General Kenobi + R2-D2 +
+Padmé Amidala = 199,141**, all 100%. Cleared Sector-3 relic-5 **Inquisitorius** nodes in **67–98s**,
+including the exact node that beat the Family squad. One GL, four allies its lead buffs — that is the
+shape the one-GL rule forces. Squad persists across sectors and across nodes (deploys unprompted).
+
+### Driver gotchas (cost real battles to learn)
+- ⭐ **`conquest_node_gold` is the live-front template — NOT `conquest_node_open`.** On the current
+  front node: gold **0.977–0.984**, open **0.458** (matches nothing). The script's `--node` DEFAULT is
+  `conquest_node_open`, i.e. wrong; the docstring example is right. Always pass `--node conquest_node_gold`.
+- ⭐ **The sector map PANS.** Coordinates read from a screenshot taken *before* opening any panel are
+  stale by ~185px after returning. A hardcoded `--at` tap hit empty space. **Re-locate by template every
+  tap** — that is also why the loop survives the pan between battles.
+- The loop **re-taps an already-3/3 node** when no gold node remains, then hangs in `await_outcome`
+  until its 660s timeout. Kill it and re-read the map rather than waiting.
+- **Back arrow from a Wandering Scavenger exits the WHOLE sector** to the sector list, not to the map.
+
+### Squad picker — deterministic recipe (the roster list re-flow, solved)
+1. filter dropdown **(258,408)** → 2. text box **(635,959)** → 3. clear with `input keyevent 67` ×12 →
+4. `input text "Name"` (use `%s` for spaces) → 5. ⚠️ **IME "OK" at (1840,1017)** — the IME overlay
+**covers CONFIRM**, so tapping CONFIRM's coords hits the keyboard. OK applies the filter AND closes the dialog.
+- Faction filters work too (`GALACTIC LEGEND`, `GALACTIC REPUBLIC`, …) and are better than text for squads.
+- ⭐ **Re-flow is predictable, not random.** Removing the added unit shifts the grid up one cell, so if a
+  unit you are skipping stays pinned at idx0 (e.g. tired General Skywalker 23%), **every next target lands
+  in the same cell**: the whole JMK squad was built by tapping **(365,580) four times**.
+- First unit added becomes **SQUAD LEADER**. `CLEAR SQUAD` (750,1007) first for a deterministic build.
+- Cells: rows y≈580 / 790 / 1000, cols x≈143 / 365. Empty filter ⇒ "None of the units in this filter can be used".
+
+### Unit-identity corrections (verified on the live picker)
+- **Relic −2 re-confirmed:** Kylo Ren quoted "r9" → **relic 7**; Han Solo "r10" → **relic 8**.
+- **"Leia Organa"** (olive-green, relic 10, 6 omicrons, lead *I Know*) **IS the Leia Galactic Legend** —
+  she appears under the GALACTIC LEGEND filter. **"Princess Leia"** (classic white dress, side buns,
+  relic 7) is the separate unit the *Family United* feat needs. Do not confuse them.
+- A **"Leia"** text search also returns a young-Luke portrait, and **"Han Solo"** returns both Chewbaccas
+  — the search matches more than the name. **Always verify by the name shown in the squad slot after adding.**
+- **SLKR renders dimmed/unavailable** in the Conquest picker.
+
+### Sector 3 feats (all mechanic-driven)
+**Path of the Padawan (Jedi Lessons ×25) — ✓ DONE** (+10 keycards; FEATS 0/4 → 1/4). The cleared session's
+Jedi squad was deliberately farming it. Remaining: Stunning Tactics **16/50** · Flawless Victory **5/20**
+(a win that loses any unit does NOT count — 3 wins added 0) · Maximum Output (Overcharge) **0/20**.
+
+### Board state at 18:20
+S1 **81/96** · S2 **64/96** · S3 **34/118** · track **1,425/3500** · **EVENT FEATS 2/9** · difficulty **Hard**.
+⚠️ **Being on the Sector 3 map does NOT mean S1/S2 are cleared** — Conquest allows free movement between
+sectors, and both are still short. Sector 1 has the lowest stat bonuses ⇒ **cheapest remaining keycards**.
+- **Wandering Scavenger** (green hex) is a **shop**, not a data disk: Overcharged Critical Chance Booster
+  for **15 keycards** or **75** of the purple currency, + Overcharged Health Medpac, behind a `COMMIT`
+  button. Skipped — the purple currency was not positively identified as non-crystal.
+
+### ⭐ A 3/3-STARRED NODE IS EXHAUSTED — RE-FIGHTING IT PAYS NOTHING
+Tested directly on the **Sector 1 Palpatine boss** (Palpatine + Vader + Tarkin + 2 elites, all relic 4,
+10m timer). Its panel already read **STARS ★★★ (3/3)** with **KEYCARDS 3/9**. Fought it anyway:
+- **Cost:** 20 energy (14.3K → 14.2K) and **19% stamina** (JMK squad 70% → **51%**).
+- **Gain: ZERO.** Sector still 81/96, node still 3/9, track still 1,425.
+⇒ **Stars, not keycards, say whether a node is live.** `3/9` keycards on a 3/3-starred node does NOT mean
+6 are still farmable there — the rest come from elsewhere (sector feats). **Read STARS before every fight.**
+- ⚠️ This is an **automation gap**: `conquest_node_gold` matches the current front node *whether or not it
+  is exhausted*, so the loop will happily re-fight a 3/3 node and then hang in `await_outcome` (it did this
+  in S3 too). A future driver must OCR/marker-check the stars, or track cleared nodes itself.
+- Boss outcome read as `timeout` from `await_outcome(700)` — neither `victory` nor `defeat*` matched, yet
+  the map returned and stamina dropped. **Boss result screens are not covered by the current templates.**
+
+### Deploy timing (why the first boss attempt never started)
+The driver tapped BATTLE→BATTLE→AUTO and then sat in `await_outcome` on the **map** — the fight never
+launched. The identical manual sequence with **longer pauses (3.0s node / 3.5s combat-details / 4.0s
+deploy)** loaded the battle fine. The squad-screen deploy needs more settle time than `start_from_map`
+allows; treat a post-deploy `on_map == True` as "deploy failed, retry", not "battle running".
+
+## 2026-08-05 (session 5) — Sector 3 to 87/118: star-guarded driver, disks, and the bonus-battle trap
+Continued session 4 the same evening. Sector 3 **34 → 87/118**, global track **1,425 → 1,685/3500**,
+FEATS **1/4 → 3/4**, 18 battles fought (16 W / 1 L / 1 stall). Driver:
+`~/Downloads/202608051859_conquest_grind.py` (supersedes the 1520 session script).
+
+### ⭐ CORRECTION to session 4 — BOTH node templates are real
+Session 4 concluded "`conquest_node_gold` is the live-front template — NOT `conquest_node_open`".
+That was overfitted to one map state. Measured across six map states this session:
+- **`conquest_node_open` = the CYAN ring node** · **`conquest_node_gold` = the AMBER ring node.**
+- They are two node **stylings**, not a right/wrong pair. Amber is *not* an alignment lock — an amber
+  node's Combat Details listed ordinary mixed relic-5 enemies and the Jedi squad cleared it.
+- Match **both** every time and take the best (`find_all` + NMS, since `vision.find` returns only the
+  single best match). Scores when correct: 0.963–0.992. A wrong-state score sits at 0.67–0.78.
+
+### ⭐ THE STAR GUARD — how to know a node is spent BEFORE paying 20 energy
+Session 4's "a 3/3 node pays nothing" is right, and here is the cheap programmatic check. Open the node
+(free) and read the **STARS** row of Combat Details; **gold-pixel fraction** in box `(1340,295,1495,340)`:
+- **0.000 → live** (3 dark stars) · **0.299 → spent** (3 filled gold stars). Threshold **0.05** separates them.
+- ⚠️ A spent 3/3 node **still renders a green BATTLE button** — verified again on the S3 node we had just
+  cleared. Nothing in the panel except the stars tells you it is dead.
+- The map is no help: the node you are *standing on* is drawn as brightly as a live one, and a cleared
+  node keeps its white ring (only the `x/3` label changes). Cyan chevrons = "you are here".
+
+### ⭐ `no_node` IS NOT A FAILURE — it is a route decision
+When neither ring template matches, the only ways forward are a **Data Disk Stockpile** or a **Wandering
+Scavenger**. Both are irreversible: *"You will advance and be unable to select a different path."*
+- **CANCEL is safe** — back out and open the other branch to compare, then commit. Did exactly this and
+  the two branches offered completely different disk sets.
+- The driver stops and says so rather than guessing; the route choice stays human.
+
+### Data disks — tiers, and the capacity wall
+- Disks come in **tiers by rarity colour: silver → green → blue**, and **deeper stockpiles offer stronger
+  versions of the same disk**. *Guard and Penetrate*: silver = 100% Defense / 5 Def Pen; **blue = 300%
+  Defense / 10 Def Pen**. Same name, triple the numbers — always read the values, not the title.
+- Diamonds on the disk = its **Data Capacity cost** (1◆/2◆/3◆/4◆).
+- ⚠️ **Capacity is 12/12 = FULL.** A newly collected disk therefore just banks in inventory; equipping it
+  means unequipping something, and *"Conquest Pass+ makes swapping free"* implies swapping otherwise costs.
+  Left the loadout alone — it is winning.
+- **Equipped set includes `Booming Voice` (4◆): "when the unit in the Leader slot uses an ability, all
+  other allies are called to assist."** That is the engine behind the 29–98s clears. Do not swap it out.
+- Picked this session (all banked, unequipped): Guard and Penetrate (silver), Unshakable Focus (2◆),
+  Guard and Penetrate (**blue**).
+
+### ⭐ OPTIONAL BONUS BATTLE (cyan diamond node) — repeatable, but pays NOTHING material
+*"You can repeatedly earn this node's rewards each time you win an optional battle here."* Measured a win
+exactly: energy 14.0K→13.9K (−20) and **track 1,685 → 1,685, sector 77/118 → 77/118, purple 1,930 → 1,930.**
+- ⇒ **No keycards, no track, no currency.** An unattended grinder pointed at it burns energy forever.
+- ⇒ Its real use is **FEAT farming**: it is repeatable with no route commitment, so it is the ideal place
+  to finish "win N battles" feats. Used it to close *Flawless Victory* (see below).
+- **MULTI SIM** unlocks on that node after the first win (cost unidentified — not pressed).
+
+### ⭐ PROGRESS MODEL (inferred from 8 clean deltas — the two counters are different things)
+- **Global track (x/3500) = +20 per STANDARD battle victory.** Bonus battles award 0. So 3500 ≈ 175 wins;
+  at 1,685 that is ~91 standard wins still to go.
+- **Sector keycards (x/118) = node stars + sector-feat rewards.** Nothing else moves them.
+- Confirms session 4's read that *Path of the Padawan* paid +10 sector keycards: the sector jumped +13 on
+  a single win (3 stars + the 10-keycard feat) while the track moved only +20.
+
+### Sector 3 feats — 3/4 done
+- **Stunning Tactics** (Stun 50×) — ✓ (was 16/50 at session-4 close)
+- **Path of the Padawan** — ✓ · **Flawless Victory** (win 20 without losing a unit) — ✓ **+10 keycards**
+  (was 5/20 at session start, 18/20 when found; the last two came from repeatable bonus battles)
+- **Maximum Output — "Gain Overcharge 20 times" 0/20** = the only one left. Nothing in normal play has
+  ticked it in 18 battles ⇒ almost certainly needs the **"Overcharged …" consumables** the Wandering
+  Scavengers sell (session 4 saw "Overcharged Critical Chance Booster" / "Overcharged Health Medpac").
+  That is the lead to chase next session.
+
+### Sector boss (S3)
+10m timer (vs 5m normal), 5 relic-5 enemies flagged **BOSS / ELITE / ELITE**. Node reads **0/11 keycards**
+but a 3-star win pays only **3** — the other 8 come from feats, same rule as any node.
+⚠️ The boss was **not adjacent**: its panel had *no BATTLE button* until we committed past the Wandering
+Scavenger sitting between us and it. A missing BATTLE button means "not reachable yet", not "bug".
+
+### ~~⭐ STAMINA IS THE REAL LIMIT — not difficulty~~ ❌ **WRONG — see session 6**
+> **Superseded 2026-08-05 (owner): stamina does NOT affect performance.** Everything below is a real
+> observation with the wrong cause attached. The squad was not tiring — it was walking into deeper
+> nodes with higher stat bonuses. Read it as a *difficulty* curve, not a stamina curve.
+
+The Jedi squad went **100% → 11% in 8 battles** and then lost (245s, a genuine wipe inside the 300s timer).
+Clear times degraded monotonically first: 29s → 85 → 98 → 111 → 125 → 129 → 136 → 142 → 149 → loss.
+~~Rising clear time is the early warning; swap squads at ~40%.~~ Rising clear time is real, but it tracks
+**how deep in the sector you are**, not the stamina bar. Energy is a non-constraint (13.9K ≈ 700 battles);
+**squad power vs node difficulty, and route, are the only constraints.**
+
+### Squads that worked (both ~200k, one GL + four allies, per the one-GL rule)
+- **Jedi — Rey (L, Wisdom of the Sacred Texts) + Jedi Knight Revan + Jedi Knight Luke Skywalker +
+  Ezra Bridger (Exile) + Grand Master Yoda = 200,398.** 8 wins, fastest 29s.
+- **Rebels — Leia Organa (L) + Commander Luke Skywalker + Admiral Raddus + Cassian Andor (Undercover) +
+  Ahsoka Tano (Fulcrum) = 201,215.** Killed the S3 boss and closed Flawless Victory.
+- Squad-picker re-flow behaved exactly as session 4 documented: **three taps on the same cell (143,580)
+  added three different units**. And the session-4 warning paid off — the Mon Calamari read as "Ackbar"
+  from the portrait is actually **Admiral Raddus**. Always confirm by the name in the slot.
+- Filter dialog: `SELECT FILTER` → checkbox grid; **GALACTIC LEGEND** (1295,223), **REBEL** (1295,575)
+  after 3 scroll-swipes, **CONFIRM** (1496,957). Filter list order is category-then-alphabetical.
+- Alignment: a "SELECT NEUTRAL SQUAD" node accepted Dark Side GLs (Jabba, SLKR) — the red ring is the
+  unit's alignment, not a lock.
+
+### ⭐ AUTO can silently never engage — and the fight then idles to the timeout
+`ensure_auto` has a 45s window that starts right after the deploy tap. On a slow-loading battle neither
+AUTO template matches during the load, ensure_auto gives up, and **the battle then sits on turn 1 forever**
+— found one paused at 3:40 with `AUTO` off after a 466s "timeout". The battle timer does not run while it
+waits for input, so this is invisible in the result.
+**Fix applied:** `await_outcome` re-checks `auto_state()` every 5 polls (~15s) and re-taps AUTO if off.
+That loop is the only one still running, so it is the right place for the self-heal.
+
+### Other driver gotchas
+- An open **Combat Details panel hides the feats bar**, so `on_map` (which keys off `conquest_feats_panel`)
+  returns False while the panel is up. Gate on "feats panel OR combat details", not on `on_map` alone.
+- The panel does **not** close by tapping map background — selecting another node replaces it.
+- On the **bonus-battle** panel `conquest_battle_btn` fails to match: that layout adds a **MULTI SIM**
+  button which narrows BATTLE. Tap **(1737,1000)** there instead of relying on the template.
+- The map pans by 200–400px whenever a panel opens/closes. Every tap must be re-located from a fresh
+  screenshot — never reuse coordinates across a panel round-trip.
+
+### Purple currency — STILL not positively identified (unchanged from session 4)
+Scavenger prices appear in **two** currencies: character shards at **525 / 475 keycards** *and* **600 purple**;
+Techs at **150 purple**. Balance 1,930. It sits in the Conquest-only top bar and carries its own green "+"
+(buy-more) affordance, which argues it is *not* crystals — but that is inference, not proof, so nothing was
+bought. **Cheapest decisive test next session: note the hub's crystal balance and compare to 1,930.**
+
+### Board state at close (12d 40m left)
+S1 **81/96** (nodes exhausted — feat-only) · S2 **64/96** (unverified) · S3 **87/118** ·
+track **1,685/3500** · FEATS S3 **3/4** · energy **13.9K/144** · purple **1,930** · difficulty **Hard**.
+Leia squad ~45%, Jedi squad ~11%, JMK squad partially rested. Next step on the S3 map is the second
+cyan bonus node / onward path; the sector's remaining keycards are mostly feat-locked behind *Maximum Output*.
+
+## 2026-08-05 (session 6) — Sector 4 opened; the purple currency finally NAILED (it is crystals)
+Continued the same evening, 21:20–23:00. Sector 4 **0 → 27/120**, track **1,685 → 1,870/3500**,
+11 battles (9 W / 2 L). Two multi-session unknowns closed for good. Helper:
+`~/Downloads/202608052125_cq_s4.py` (`deploy` = launch a hand-built squad from the SELECT SQUAD
+screen, which the 1859 grind driver cannot do because it only starts from the map).
+
+### ⭐⭐ THE PURPLE CURRENCY IS **CRYSTALS** — settled, do not spend it
+Ran exactly the test session 4 proposed: read the **hub** currency bar and compare. The hub shows
+`💎 1,930` — the identical balance to the Conquest top bar. Same icon, same number, same green "+".
+⇒ Scavenger "75 purple", Shipments "40 purple", store "REFRESH 50" are all **crystal** prices. Off-limits.
+- Session 4's counter-argument (the green "+" means it is *not* crystals) was backwards: the "+" **is**
+  the buy-crystals affordance and appears next to crystals everywhere in the game.
+
+### ⭐⭐ KEYCARDS ARE THE REWARD TRACK — SPENDING THEM COSTS PROGRESS (measured)
+The other price tag is keycards, and the obvious worry was whether the shop deducts from the
+`x/3500` track. Bought one **Overcharged Potency Booster (15 keycards)** to find out:
+- **track 1,865 → 1,850.** Crystals unchanged at 1,930.
+⇒ **The single keycard counter is both the reward track and the spendable balance.** Every purchase
+is a direct, permanent subtraction from end-of-Conquest rewards. Price a purchase against the crate,
+not against "spare currency" — there is no spare currency.
+- Corollary: **Maximum Output is not worth buying into.** The feat pays +10 keycards; boosters cost 15
+  each and one lasts a single battle. Chasing it with purchases is net-negative. Use only what is free.
+- ⚠️ The bottom-bar `55 | 2` next to "Current Reward" is **not** a balance — it is the *contents preview*
+  of the next crate. It never moved all session. Only the top bar is the balance.
+- Scavenger stock is **one of each item per visit** — the row greys out with a ✓ after buying.
+
+### Sector 4 feats — one squad farms two of them
+**Hyper Rapture** (Breach ×50) · **For Mandalore** (win 10 with a full squad of **Light Side
+Mandalorians**) · **Armor Up** (Defense Up ×80) · **Blinding Assault** (Blind ×80).
+- ⭐ For Mandalore and Hyper Rapture are the **same squad**: Breach is the Mandalorian debuff, so the
+  feat squad farms both at once. Measured **≈4.75 Breach per battle** (19/50 after 4 wins).
+- Squad: **Bo-Katan (Mand'alor) L ("Way of the Mandalore") + The Mandalorian (Beskar Armor) + Paz Vizsla
+  + The Mandalorian + Bo-Katan Kryze = 165,257**, the top 5 LS Mandalorians owned. Feat counted all
+  4 wins ⇒ the tagging is right. **For Mandalore 4/10 · Hyper Rapture 19/50 at close.**
+- Armor Up / Blinding Assault got **0** from this squad — they need different kits entirely.
+- Other LS Mandalorians on the bench if the core five need rest: **Grogu** (yes, Mandalorian-tagged),
+  Padawan Sabine, Canderous Ordo, Sabine Wren, The Armorer, IG-11. Maul/Jango/Gar Saxon are Dark Side —
+  they are in the MANDALORIAN filter but would **break** the feat.
+
+### ⭐ 165k IS NOT ENOUGH DEEPER IN THE SECTOR — and it is not a stamina problem
+The Mandalorians cleared the first three S4 nodes (86–137s) then **wiped at 172s** on the node past the
+first disk pile. Checked the deploy screen: **all five at 61%** — well above the 40% swap line. So the
+wall was **difficulty**, not fatigue (stat bonuses rise deeper in the sector, as the sector info dialog says).
+- Fix that worked: a **bigger squad**, not a rested one. **Sith Eternal Emperor L + Darth Revan +
+  Darth Bane + Darth Malak + Rey (Dark Side Vision) = 216,219** took the same node first try and then
+  ran 4 more (87–126s). **~200k is the working floor for Sector 4; 165k is not.**
+- **Darth Bane** (relic 10, 100%) was the surprise — a top-power Sith that never came up in earlier planning.
+
+### ⭐⭐ CORRECTION — **STAMINA DOES NOT AFFECT PERFORMANCE.** (owner, 2026-08-05)
+This supersedes session 5's "⭐ STAMINA IS THE REAL LIMIT", session 4's stamina-based loss
+explanations, and every "rotate/rest the squad" recommendation above. **A unit at 20% fights exactly
+as well as the same unit at 100%.** Stamina is a *usage counter*, not a stat debuff.
+- Every earlier stamina claim was **inferred, never measured** — and it was confounded: clear times rose
+  as squads advanced, but squads advance into **deeper nodes with higher stat bonuses**. Difficulty was
+  doing all the work the whole time. Session 4 had already half-seen this (a **fresh 176,280 Family squad
+  at 100% lost**); tonight repeated it (the **Jabba squad at ~80–90% lost the node right after the boss**).
+- ⇒ **There is no reason to stop a session, rest, or rotate for stamina.** Rotate only when a squad
+  cannot beat a node. Run your **strongest** squad every time.
+- ⇒ The only real budget is **energy** (13.7K ≈ 685 battles) and **squad power vs node difficulty**.
+- Burn rate, for reference only (it costs nothing): ~8–9.6%/battle. Regen is passive and currently
+  "Regeneration Boosted". Ignore it when planning.
+
+### ⭐⭐ STARS = DEATHS. 0 deaths → 3★ · 1 death → 2★ · 2+ deaths → 1★ (owner, 2026-08-05)
+The star count on a node win is set **purely by how many of your units died**, nothing else.
+- Confirmed both ways tonight: the S4 boss win where **4 hunters died** paid exactly **1★** (sector
+  26 → 27/120), and the map's stray **2/3** node is a win that cost exactly one unit.
+- **The track pays a flat +20 for any win regardless of stars** — so deaths cost *sector keycards only*.
+  Sector completion (x/120) is therefore a **survival** problem, not a win-count problem.
+- This is also the mechanic behind session 5's *Flawless Victory* ("a win that loses any unit does NOT
+  count"): flawless == 3★ == zero deaths. Same rule, different wrapper.
+- ⚠️ **A 1★ or 2★ node is STILL LIVE** and can be re-fought for the missing stars. It is often the
+  *easiest* live node on the map, because it sits behind you where stat bonuses are lower.
+- 🐞 **Driver bug this creates:** `stars_filled()` flags a node spent on *any* gold in the star row
+  (threshold 0.05, measured 0.299 for 3★). A 2★ node reads ~0.2 ⇒ the loop **skips live nodes**.
+  It must count the gold stars, not detect them — only **3/3** is exhausted.
+
+### ⭐ Squad picker — the re-flow rule has an exception that eats taps
+Session 4's "tap the same cell N times" works **only if nothing unavailable is pinned above it**.
+Added units *are* removed from the list and everything shifts up, **but a dimmed/unusable unit stays**
+at its index and silently swallows every tap. Five taps on `(143,580)` under the SITH filter added
+**one** unit for exactly this reason. **Verify the slot after every tap** — that is still the only safe rule.
+- Two-filter build for a GL + off-faction crew: filter **GALACTIC LEGEND** → add the GL (becomes leader) →
+  reopen the filter, uncheck it, check the crew faction → add 4. The filter resets to ALL on CLEAR SQUAD.
+- Filter row geometry (1920×1080): checkbox columns **x = 143 / 717 / 1295**, rows start **y = 223**,
+  step **≈114**; CONFIRM **(1496,957)**. SITH is 5 swipes down at **(1295,626)**; MANDALORIAN 2 swipes at
+  **(717,707)**; BOUNTY HUNTER is on the **first** page at **(143,792)**.
+- Tapping a **filled** squad slot removes that unit and makes the slot active (used to drop a 36% unit).
+
+### Sector 4 boss — Light Side Mandalorians, and it is star-cheap if you lose units
+**Bo-Katan Kryze (BOSS) + Grogu (ELITE) + The Mandalorian Beskar (ELITE) + 2 Mandalorians**, all relic 5,
+**10m** timer, node reads 0/9 keycards. Gated behind the Wandering Scavenger — **no BATTLE button until
+you COMMIT past it** (re-confirms session 5).
+- Beaten by **Jabba the Hutt L + Bossk + Embo + Boba Fett + Krrsantan = 193,010** (all 100%), but only
+  just: all four hunters died and **Jabba soloed Bo-Katan**. ⇒ **1 star, not 3** — sector 26 → **27/120**
+  (+1) while the track still paid the full **+20**.
+- ⭐ **Stars scale with units surviving.** A 1/3 boss stays live and can be re-fought for the other two.
+- ⚠️ **`await_outcome`'s 400s default is shorter than a 10m boss.** It returned `timeout` while the fight
+  was still visibly running at 2:59 remaining. That is what session 4 misread as "boss result screens are
+  not covered by the templates" — the templates are fine, **the poll window is too short**. Use ≥700s
+  for any 10m node.
+
+### Navigation — how to get back into Conquest from the hub (cost 8 taps to rediscover)
+Conquest is **not** under Events → Solo Events. From the hub, swipe the cantina **right to the far end**
+to the table labelled **"Galactic Battles"** (shows `Hard - SECTOR n`), tap it → **SELECT A GALACTIC
+BATTLE** → **CONQUEST / ENTER** → sector list → scroll → ENTER. A free daily-calendar popup may
+intercept the home tap; claiming it is free and harmless.
+
+### Consumables — all 1-battle, and we already own 3 Overcharge items
+Inventory → CONSUMABLES: 8 stacks, e.g. *Critical D.O.T. Tech* "**Max Duration: 1 battle**".
+⚠️ Tapping any of them opens a **Use Consumable → CONFIRM** dialog — it is one tap from being spent.
+- Owned Overcharge items (free, no purchase needed): **2× Overcharged Protection Medpac + 1× Overcharged
+  Potency Booster** (+150% Potency, +20 Speed). These are the only free shot at Sector 3's *Maximum Output*
+  ("gain Overcharge 20 times") — test one in the S3 **repeatable bonus battle** and read the feat delta
+  before deciding it is reachable at all. Given the buy-in maths above, if it needs more than 3, drop it.
+
+### Data disk taken (only one path offered, so no branch to compare)
+Stockpile offered Certain Defeat (silver), Shocking Exhaust (silver), **Unshakable Focus (2◆)** — took
+Unshakable Focus (we already owned 1; it turns our Breach spam into stacking Potency **and** unevadable
+−3% enemy turn meter). Capacity is still **12/12**, so it banked unequipped; the winning loadout
+(**Booming Voice 4◆ / Unstable Decelerator / Certain Defeat blue**) was left alone.
+- ⭐ **Rarity is the border colour, and the same disk exists at several tiers.** The equipped *Certain
+  Defeat* is the **blue** version (Healing Immunity + Protection Disruption, 2 turns, unresistable); the
+  stockpile was offering the **silver** one (Protection Disruption, 1 turn). Read the text, not the name.
+
+### Board state at close (11d 21h left)
+S1 **81/96** · S2 **64/96** (still unverified) · S3 **87/118** · S4 **27/120** ·
+track **1,870/3500** · EVENT FEATS **2/9** · S4 feats **0/4** (For Mandalore 4/10, Hyper Rapture 19/50) ·
+energy **13.7K/144** · crystals **1,930** (never spend) · difficulty **Hard**.
+Stamina at close (recorded for completeness only — it does not affect performance): Mandalorians 61%,
+Sith 26–51%, Jabba/Bounty Hunters ~80%.
+Next, in order — **no waiting required, stamina is irrelevant**: (1) Mandalorians → 6 more S4 wins to
+close **For Mandalore +10**, taking the **2★ node behind us** first since it is live and the easiest
+thing on the map; (2) re-fight the **S4 boss** for its missing 2★ with a squad that can win *without
+losing anyone*; (3) free Overcharge test in S3's bonus battle.
+⇒ Standing strategy from here: **survival, not throughput.** Send the strongest squad, every time,
+and treat a unit death as the real cost — it is worth re-running a node cleanly for the extra 2★.
+
+## 2026-08-06 (session 7) — FEATS, researched properly: EVENT 9/9 closed, S1 4/4, S2 to 3/4
+Owner asked for research first, then execution. The research changed almost every open question, so
+read this section before touching Conquest feats again.
+
+### ⭐ THE SOURCE: kahzgul's guide is written for THIS conquest
+`kahzgul.substack.com/p/conquest-feats-and-team-building-4f9` — "Conquest Feats and Team Building:
+**Jedi Training Leia**" is Conquest 24 exactly. Its global list matches the live EVENT feats
+one-for-one (Challenge Path 250 · Purge 300 · Offense Up 500 · Rebel Fighter 50 · Undermine 50 ·
+Booming Voice 60 · Vel 20 · DCS · Family United). Every sector feat matches too. It gives 2–4
+candidate squads per feat. **Astra's roster can field every single one of them** — checked unit by unit.
+- ⚠️ It is not infallible: it claims `Tarkin / Scorch / Scout / DTMG / DCT` "doubles with no attackers",
+  but **Death Trooper, Dark Trooper, Night Trooper and Death Trooper (Peridea) are ALL role=Attacker**.
+  Verify roles before trusting a "no Attackers" recommendation.
+
+### ⭐ ROLE/ALIGNMENT DATA IS ALREADY IN THE REPO — do not re-scrape
+`data/meta/raw_unit_categories_20260805.json` → `["map"][BASE_ID] = {n, role, align, cats}` for 340
+units. swgoh.gg **403s a plain curl** (Cloudflare), and the notes' "same-origin fetch from a loaded
+page" trick needs the MCP browser. The cached file answers role questions instantly. Use it.
+
+### ⭐⭐ STAMINA: the 2026-08-05 correction was half right, and the wrong half costs battles
+"Stamina does not affect performance" is TRUE for stats. But **at 0% the unit cannot be fielded at
+all** — the picker throws a modal: *"Unit stamina exhausted — Stamina for this unit is depleted.
+Stamina recovers over time or by using a Stim Pack."* Jabba hit 0 mid-batch and the driver then sat
+in `await_outcome` until it reported a bogus `timeout` (the fight never launched).
+- Burn measured again this session: **~9–10%/battle**, i.e. ~10 battles per unit from 100%.
+- ⇒ **Rotate deliberately.** Before a batch of N battles, every member needs ≳ 10·N percent.
+  Read the stamina bars off the squad screenshot and swap anything short — it is far cheaper than
+  discovering it at battle 3. Astra has 397 units; there is always a fresh alternative.
+
+### ⭐⭐ FEAT COUNTERS TICK ON A LOSS
+Measured on a lost S5 bonus battle: Tactical Supremacy 0→2, Potency Up 17→18. Only **"win N battles"**
+feats need a win. So a "gain/attempt X times" feat is farmable even in a sector that outguns you —
+it is just slower (a loss burns the full 5m timer, a win takes 40–200s).
+
+### ⭐⭐ SECTOR FEATS ONLY COUNT INSIDE THEIR SECTOR — event feats count anywhere
+⇒ **Farm event feats in Sector 1.** Its enemies are relic 4, the lowest stat bonuses in the run, and
+it has **three repeatable cyan bonus nodes** in a row (map x≈707/890/1071, y≈575). A 190k squad clears
+them in 37–120s. That is the cheapest battle in the whole Conquest.
+
+### ⭐ MAXIMUM OUTPUT IS FREE — the "buy Overcharge consumables" theory was wrong
+Session 6 concluded the S3 feat needed purchased boosters and was therefore net-negative. Wrong.
+**KX Security Droid and STAP are the only units in the game that GAIN Overcharge**, and KX's is
+self-contained — no Empire/ISB requirement:
+- his **basic** grants a stack (max 5), **being critically hit** grants one (Controlled Operation),
+  and **every out-of-turn assist** grants one (assists use the basic).
+- ⇒ the equipped **Booming Voice 4◆ disk** (leader ability → all allies assist) is an Overcharge engine.
+- ⇒ put KX in whatever squad is strong enough for the sector; do NOT field the weak 144k ISB five for it.
+
+### ⭐ THE THREE "ONLY UNIT IN THE GAME" FACTS
+- **Buff Disruption** (S5 *Deactivate*): **Stormtrooper Luke only**, via his BASIC "TK-421", and only
+  **on his own turn** — assists do not count. If he dies early or never basics, the feat gets zero
+  (measured: a whole lost battle with him on the field produced 0/30).
+- **Tactical Supremacy** (S5 *The Upper Hand*): **Admiral Trench, Grand Moff Tarkin, Major Partagaz** only.
+  Tarkin's *Intimidation Tactics* grants it to **Empire allies**, so the count scales with Empire bodies.
+- **Overcharge** (S3 *Maximum Output*): KX Security Droid, STAP.
+
+### ⭐ "NO ATTACKERS" HAS NO DAMAGE — carry it with a non-Attacker GALACTIC LEGEND
+S2's *Disarmed* squads kept timing out at the 5m mark (162k: two straight timeouts, 296s and 331s) for
+the obvious reason — the feat deletes the damage role. The fix is that **4 of the 9 GLs are not
+Attackers**: **Jabba the Hutt = Support**, **JML / Leia Organa / Ahsoka Tano = Tank**. Dropping one in
+turned 0-for-2 into **6-for-6** (153–225s).
+- Working S2 squad: **Ahsoka Tano (L) · Grand Moff Tarkin · Dark Trooper Moff Gideon · Scout Trooper ·
+  RC-1262 "Scorch"** ≈ 184k — Tarkin's 3rd is AoE Crit Chance Down and the squad also Exposes, so it
+  closed *Get a Chance* (100) and *Detrimental Reveal* (20) while banking *Disarmed* wins.
+- Rotation squad once Tarkin's job was done: Ahsoka · Baylan Skoll · Satele Shan · General Kenobi ·
+  Admiral Raddus ≈ 206k, still zero Attackers.
+
+### Squad-builder driver — `~/Downloads/202608061854_cq_feats.py`
+`build([names])` drives the picker tap-by-tap (nothing else in the stack can build a squad, and
+Conquest's SELECT SQUAD is the GAC preset manager, which cannot apply to Conquest). Two bugs found live:
+- **Clear the search box with 40 backspaces, not 18** — "Dark Trooper Moff Gideon" is 24 chars, so a
+  short clear leaves a prefix and the next search silently matches nothing. The failure looks like
+  "that unit is unusable" (empty grid + *"None of the units in this filter can be used"*), not like a typo.
+- **Quote the typed text** — adb joins argv into a device-side shell command, so "Ezra Bridger (Exile)"
+  dies with `syntax error: unexpected '('`.
+- `build()` never claims success; it saves the finished squad screen for a read-back. Keep it that way —
+  the grid re-flows and dimmed units swallow taps.
+
+### Results this session
+- **EVENT FEATS 7/9 → 9/9 ✓** (+30 keycards). *Imperial Inquisition* (Purge 300) closed in ONE battle
+  with **Grand Inquisitor (L) · Seventh Sister · Fifth Brother · Ninth Sister · Second Sister** (161k)
+  on the S1 bonus node. *That'll Leave a Mark* (Offense Up 500) closed in four with **JML (L) · Shaak Ti ·
+  GMY · Hermit Yoda · Kelleran Beq** (190k) — Shaak Ti's basic grants Offense Up to the whole team.
+  ⚠️ Yield scales with battle LENGTH, not wins: a 37s win paid +8, an 85–117s win paid ~15.
+- **SECTOR 1 4/4 ✓** (was already closed earlier in the day).
+- **SECTOR 2**: *Get a Chance* ✓ · *Detrimental Reveal* ✓ · *Remnant War Machine* ✓ · *Disarmed* 6/10.
+
+## 2026-08-08 (morning) — RED CRATE SECURED at 621→631/630. Conquest 24 done.
+Opened at 621/630 with 9 keycards needed and 9d 11h left. Closed it with **S4 "Armor Up"** (+10).
+`Max Crate Reward Achieved` — Hard-07 crate ships to the inbox at event end. Nothing else is required
+for this Conquest; remaining keycards are surplus.
+
+### ⭐⭐ THE DECIDING FACT: feats count BUFF GAINS, not wins
+*Armor Up* = **"Gain Defense Up 80 times"** (the name is a red herring — it is plain **Defense Up**).
+**Dark Trooper Moff Gideon is the engine**: his special grants Defense Up to **all allies**, so one cast
+= up to 5 counts. 51 → 80 in 8 battles.
+- **A LOST battle still pays** if the granter casts before dying — the feat closed on a *loss*. Do not
+  abandon a farm because the squad is losing; abandon it only if the granter dies early.
+- Per-battle yield tracked: 91s win **+7**, then ~+3–4/battle as stamina fell. Longer battle = more casts.
+- Last night's "Separatist squad → zero Defense Up" was a squad-composition miss, not a broken feat.
+
+### ⭐ SECTOR-FEAT REWARDS ARE THE CHEAPEST KEYCARDS LEFT — bosses are the most expensive
+Rewards measured: **S3 10 · S4 10 · S5 15** per sector feat. Compare with boss nodes, which are
+feat-gated behind a FORCED weak squad and were all dead ends:
+- **S1 boss:** stars already 3/3, so its last 3 keycards are the ISB feat only. The full ISB five
+  (**144,156**, all 100% stamina, Partagaz/Dedra/Krennic/Probe/KX) **LOST in 75s to relic-4 enemies.**
+  Boss nodes carry huge stat multipliers — relic tier alone does not predict difficulty. Abandoned.
+- **S4 boss** 6/11 (Bad Batch feat) and **S2 mini-boss** 4/7 likewise composition-locked.
+⇒ When hunting keycards, read the FEATS panel per sector FIRST; only fall back to node stars.
+
+### ⭐ "Deactivate" (S5, 15 kc) IS NOT AUTO-FARMABLE — confirmed, stop trying
+A full **109s** battle with Stormtrooper Luke alive on the field moved it **1/30 → 1/30 (zero)**.
+On AUTO the AI never chooses his basic, and only his basic on his own turn counts. Closing this needs
+manual per-turn tapping; it is not worth it. The 15 kc is effectively locked.
+
+### Sub-3-star node inventory (survives this Conquest, for reference)
+S1 92/96 · S2 92/96 · S3 116/118 · S4 → 114/120 · S5 125/142. Everything left sits on: the S5 gold
+**Challenge node 1/3** (won it, still 1/3 — the 2nd/3rd stars need conditions a 205k squad missed),
+the three boss nodes, and S5 *Deactivate*.
+
+### ⚠️ THREE DRIVER BUGS FOUND LIVE — fix before the next run
+1. **The FIRST search on the squad screen is swallowed.** Twice: Partagaz silently absent, squad power
+   byte-identical (115,583) across two builds. He was at **100% stamina and perfectly usable** — the
+   tap never landed. **Fix: burn one throwaway `search()` before `build()`.** Worked every time after.
+2. **`open_node()`'s blind fallback tap `(1737,1000)` is dangerous.** On the sector MAP those coords are
+   the **INVENTORY** button, so a mistimed node tap silently opens Data Disks instead of the fight
+   (hit twice). Verify the node panel is up before pressing BATTLE; never blind-tap.
+3. **`m.sector(idx)` drifts** — asked for 4, landed on 3, twice (it counts down-swipes from the top).
+   **Fix: scroll to a rail.** Hard UP for 1–2 (y=432/785), hard DOWN for 3–5 (y=278/630/983).
+   `~/Downloads/202608080938_goto.py` implements this and was reliable.
+
+### Bonus nodes are the right farm surface
+Cyan node = **"Optional Bonus Battle"** — *"You can repeatedly earn this node's rewards each time you
+win"*. Its panel is NOT `conquest_combat_details` (template does not match) and its **BATTLE sits at
+(1740,1000)** next to a **MULTI SIM**. Avoid MULTI SIM for feat farming: it awards rewards without
+playing the battle, so it generates no buff events. S4's bonus node (relic-5 enemies, 5m, 20 energy,
+map x≈705,y≈575 at the sector's right end) carried the whole Armor Up grind.
+
+### Stamina is the real budget, and it is visible on the squad screen
+Read the % under each portrait before every deploy — it explains losses better than squad power does.
+- **Lord Vader 51% → 12%** over 5 battles; the 12% deploy lost. Empire five won 4/5 while ≥40%.
+- Swapping the burnt leader for a fresh off-faction GL **made it worse**: Jabba (100%) leading the
+  Empire four (60%) **lost** — losing Vader's *My New Empire* cost more than the stamina gained.
+  ⇒ **Replace a burnt leader with a fresh leader of the SAME faction**, not with the biggest GP.
+  Fix that worked: **Emperor Palpatine (L) · DTMG · Piett · Mara Jade · Thrawn** (159,193, four at 100%).
+- Ambiguous picker names to avoid: "Darth Vader" also matches "(Duel's End)"; "Leia Organa"/"Ahsoka
+  Tano"/"Rey" all collide. Search a unique token — "Palpatine", "Piett", "Thrawn", "Jabba".
+
+### Scripts added (all `~/Downloads/`)
+`202608080917_peek.py` (open a node read-only, no BATTLE) · `202608080932_look.py` (search one unit,
+screenshot the grid — diagnoses swallowed adds) · `202608080938_goto.py` (rail-scroll sector entry) ·
+`202608081030_safelap.py` (verified node→squad, no blind fallback) · `202608081100_run.py` (fight-N-laps
+on a bonus node, keeps going through losses).
+
+## 2026-08-08 (afternoon) — ⭐ BOTH ARENAS OPTIMISED LIVE: Fleet #6→#1, Squad #10→#6
+Owner asked to optimise the roster for Arena → GAC → RotE, no crystals, and authorised arena
+auto-battle (a deliberate reversal of the standing PvP-battle rail). **Crystals 5,795 UNCHANGED
+throughout.** Two workflows ran (6-topic research + 3-module build); the game itself refuted one
+recommendation both of them made.
+
+### ⭐⭐ NEW HARD GAME RULE: ONE **LARGE UNIT** PER SQUAD
+Adding Jabba next to Rotta pops **`Large Unit Limit` — "Your squad already contains the maximum
+number of large units."** So the obvious "best Hutt Cartel five" (Rotta + Jabba + three bodies) is
+**illegal**, and both the research agent and a naive power-ranked pick proposed exactly that squad.
+- This is a SECOND squad-legality rule alongside the one-Galactic-Legend limit. Encoded as
+  `arena_board.LARGE_UNITS` / `MAX_LARGE_UNITS`.
+- **No data source has a size flag** — not HotUtils `gamedata/units` (affiliation/role/profession/
+  species/omicron only), not swgoh.gg. The set is hand-kept and holds ONLY what the client has
+  actually rejected. Add a unit when the game refuses it, never because it "looks big".
+
+### ⭐ `RACCOON` IS **ROTTA THE HUTT** — and he is this shard's arena meta
+Not a Guardians crossover. Hutt Cartel Attacker/Leader, released 30 Jun 2026. His zeta lead
+**"A Legacy Reforged"** gives Hutt Cartel allies +50 Speed, 200% Defense, 75% Offense, 50%
+Accuracy/Crit Avoidance, 40% Tenacity — a **base ability**, so it loses nothing in Squad Arena.
+Ranks **1, 2, 3, 5, 9 and Astra all lead Rotta**. His *Grand-Arena-gated* clauses (Defense Pen
+stacking, the all-Hutt-Cartel +50% Health start) do go dark in arena.
+
+### ⭐ OMICRONS DO **NOT** FIRE IN SQUAD ARENA — datacrons DO
+CG's 2026-04-27 Community Update says it outright ("Omicrons will not be present (similar to current
+Squad Arena)"). Confirmed independently from `gamedata/units`: every omicron carries mode
+7/8/9/11/14/15 and **no mode maps to Squad Arena**.
+⇒ **GAC Hold% is not a valid arena estimator for omicron-dependent squads.** The #1 GAC wall
+(Stranger/Luminara/Maul/Starkiller/Visas, 57%) carries 9–10 applied omicrons and is a BAD arena
+defense. `arena_board.py` REPORTS this rather than applying a haircut (magnitude unmeasured) — so its
+printed #1 defense is still the Stranger wall. **Read the docstring caveat before trusting that line.**
+Datacrons DO apply (L3/6/9), and Astra owns a **set-33 FOCUSED Rotta datacron** — a live, arena-legal
+buff on exactly the squad the shard says to run.
+
+### Squad Arena — rebuilt the bodies, kept the leader (#10 → #6)
+The old five were the *cheapest* Hutt Cartel bodies. Same leader, best legal bodies:
+| | old (141,055) | new (176,402) |
+|---|---|---|
+|L| Rotta R10 z4 | Rotta R10 z4 |
+| | Mob Enforcer R5 | **Embo R8 z2** |
+| | Greedo R6 | **Boba Fett R8** |
+| | Gamorrean Guard R5 | **Krrsantan R8** |
+| | Cad Bane R5 | **Boushh R8** |
+**+35,347 power (+25%), zero resources spent.** Beat #6 Helena (176,354) first try.
+- ⚠️ **Squad Arena defense = the squad you LAST ATTACKED WITH.** There is no defense-setting screen.
+  So the last battle before payout must be fought with the squad you want parked.
+- **Squad Arena pays NO crystals** (removed 2021) and CG has announced it is being **retired** for
+  Era Arena. Rank 10→1 ≈ +200 tokens +10K credits/day. **Do not make roster investments for it.**
+
+### ⭐ FLEET ARENA #6 → #1 — a clean natural experiment, and the old advice was WRONG
+Same opponent (#1 VERSO, 587,691), both on AUTO, minutes apart:
+| reinforcements | power | result |
+|---|---|---|
+| Mark VI · Sith Fighter · TIE Advanced · Hound's Tooth | 621,738 | **DEFEAT** |
+| **Scimitar · TIE Defender · Scythe · Imperial TIE Bomber** | 596,465 | **VICTORY** |
+Won with **25,273 LESS power**. Fleet Arena defense is also "last squad attacked with" and is always
+AI-run, so this lineup is now parked at rank 1.
+- **The 2026-08-05 note's fix was incomplete and is superseded.** Removing Sith Fighter alone does
+  nothing — **Mark VI Interceptor also outranks Scimitar** on the AI's reinforcement priority
+  (measured 3.6% → 3.4% hold, indistinguishable). BOTH must go. Full fix = Scimitar + bottom-tier
+  fillers only: **29.8% hold vs 3.2–3.6%** on the repo's own 51,367-battle counter data.
+- **DELETE the old "Sith Fighter holds slot 1 95% of the time" claim** — artifact of a bad
+  attacker/defender split; recomputed it is 67%/29%. And swgoh.gg counter-panel slot order is a
+  **canonical display sort, not call order**, so no slot analysis can measure ordering at all.
+- The "hold Mark VI until after Sabotage the Hangars" *reason* was also wrong (Leviathan's +10
+  Devouring Swarm is unconditional). Real reason: the ENEMY's Sabotage the Hangars destroys the next
+  reinforcement on deployment. Conclusion survives, mechanism didn't.
+- Cost, stated: the three fillers are not Sith, so they forfeit Leviathan's Reinforcement Bonus.
+- `build_fleets.FLEET_LINEUPS["Leviathan Arena"]` updated.
+- **Base-ID mislabels corrected:** `SITHBOMBER` = **B-28 Extinction-class Bomber**,
+  `SITHSUPREMACYCLASS` = **Mark VI Interceptor**, `SITHINFILTRATOR` = **Scimitar**. The starters were
+  already the correct meta trio; earlier prose calling them "Sith Bomber"/"Sith Supremacy Class" was
+  reading base IDs as names.
+
+### ⭐ HotUtils `gamedata/units` — the browser-free unit catalogue (replaces a Cloudflare dependency)
+POST `gamedata/units {sessionId}` → **410 units** with `affiliation` / `role` / `profession` /
+`species` / `zeta` / `omicron` / `galacticLegend` / `hasLeaderAbility`. This is the swgoh.gg
+`/api/characters/?format=json` data **without the browser**.
+- **Omicron `mode` map, derived empirically** by cross-referencing applied omicrons against the
+  per-unit counters in `account/data/all`: **7 = Territory Battle · 8 = Territory War · 9 = Grand
+  Arena · 11 = Conquest**; 14 and 15 also book to `gacOmiCount` (GAC-family sub-modes, exact meaning
+  unverified); mode 4 seen on 3 units, unmapped. **No mode = Squad Arena.**
+- `account/data/all` → `data.units.units[]` also carries `power.total`, `relicLevel` (**already the
+  DISPLAYED level — not the comlink `rt`, no −2 offset**), `gear.level`, `zetaCount`, `omiCount`,
+  and per-mode `twOmiCount`/`gacOmiCount`/`tbOmiCount`/`cqOmiCount`. Best single source for
+  investment planning.
+- `data.datacrons` lists OWNED datacrons with `setId`/`templateId`/`focused`. Astra: 3× set31,
+  2× set32, **7× set33 including `datacron_set_33_focused_raccoon`**. Set 30 gone (expired 8/6).
+- `summary` has `squadRank`, `shipRank`, `leagueId`, `divisionId`, `skillRating`, `guildRank`.
+
+### Gotchas learned this session
+- ⚠️ **`account/refresh` KICKS THE GAME CLIENT** → the device shows `CONNECTION LOST / Your session
+  has expired`. Harmless, tap RELOAD — but do the HotUtils pull BEFORE device work, not during.
+- ⚠️ **swgoh.gg now Cloudflare-challenges same-origin `fetch()` too.** The 2026-08-05 recipe
+  ("fetch from an already-loaded page, only top-level navigations are challenged") is **dead**:
+  param URLs return 403 `Just a moment...` via fetch AND via navigation, landing on a Turnstile
+  "Verify you are human" checkbox that needs a real human tap. Plan around it — HotUtils
+  `gamedata/units` covers faction/role/omicron, and `gac/list` covers season state.
+- **No GAC season is active** (`gac/list` → `tournaments: []`) and **S82 is unpublished**, so the
+  98-definition board from 2026-08-05 is still built on the current data. No rebuild was needed.
+- Arena post-battle **cooldown is ~5 min with a 💎50 skip** — never tap it; verify the button reads
+  `BATTLE (n)` before pressing. Same verify-before-tap discipline as the farmbot's energy_out.
+- Tapping a filled squad/fleet slot REMOVES that unit (slots do not compact); the left panel is the
+  picker. The filter dialog has a **TEXT SEARCH** box — far faster than scrolling 397 units. The
+  soft keyboard covers CONFIRM: `input keyevent 4` to dismiss it first.
+- ⚠️ Search matches loosely: "Krrsantan" silently added **Doctor Aphra**. Verify the squad's power
+  total against the expected sum after every add — arithmetic catches the wrong unit instantly.
+- Tapping through an ARENA REPORT can fall through onto an opponent row and open **SEND ALLY
+  REQUEST?** — answer NO.
+
+### New scripts (PR pending)
+`scripts/arena_board.py` (Squad Arena defense + climb; shard-grounded, 3 scoring bases) ·
+`scripts/rote_ops.py` (RotE Operations assignment ILP + readiness gaps) ·
+`scripts/invest_plan.py` (one priority ladder → relic/gear/ability queues + Grandivory mod order).
+Suite **275 green**. `data/arena/shard_20260808.json` = the first real ladder capture.
+
+### RotE readiness measured (2026-08-08) — relics are NOT the bottleneck, the QUOTA is
+From `account/data/all` (`relicLevel` is already the DISPLAYED level here):
+character relic spread **0:12 · 4:4 · 5:46 · 6:35 · 7:150 · 8:55 · 9:9 · 10:17**.
+- **266 characters are already Relic 6+**, i.e. eligible for Operations slots. 46 sit at R5, one tier short.
+- **67 of 69 ships are 7★**; only **Raven's Claw 6★** and **MG-100 SF-17 5★** are blocked from ship Operations.
+⇒ With 266 eligible bodies against a **quota of 10 assigned units per player per operation area**, blanket
+relic-farming "for RotE" is wasted. The binding constraint is the quota and the fact that each slot names a
+SPECIFIC unit. Only relic a unit when a live Operation slot names it and Astra misses the gate — which needs
+the board open. `rote_ops.readiness_gaps()` answers exactly that once `data/rote/operations_<phase>.json`
+is captured. Guild Event (RotE) was still ~1h from opening at the end of this session, so no capture exists yet.
+
+## 2026-08-08 (evening) — ⭐⭐ THE FOCUSED DATACRON *IS* THE ARENA SQUAD (owner caught this)
+Ran the mod optimiser. Owner stopped the apply with one question — "have you taken the Datacron into
+account?" — and the answer was no. That question overturned the afternoon's arena rebuild.
+
+### The datacron names its five units, one per affix tier
+`datacron_set_33_focused_raccoon` (owned, equipped, expires **2026-10-29**) has FIVE ability affixes and
+each `targetRule` names a specific character:
+| tier | targetRule | ability granted |
+|---|---|---|
+| 1 | `target_datacron_gamorreanguard` | `datacron_character_gamorreanguard_002` |
+| 2 | `target_datacron_humanthug` (Mob Enforcer) | `datacron_character_mobenforcer_001` |
+| 3 | `target_datacron_greedo` | `datacron_character_generic_015` |
+| 4 | `target_datacron_cadbane` | `datacron_character_generic_003` |
+| 5 | `target_datacron_raccoon` (Rotta) | `datacron_character_raccoon_001` |
+**That is exactly Rotta + Mob Enforcer + Greedo + Gamorrean Guard + Cad Bane.** The squad this account
+was already running was never "the cheapest bodies" — it is the datacron's designated five, and every
+member draws a bespoke ability. The other affixes (statType 49/17/55/16, `targetRule: ""`) are generic
+and apply regardless.
+- ⚠️ **I swapped four of them out for Embo/Boba Fett/Krrsantan/Boushh on a raw-power argument**
+  (141,055 → 176,402, +25%) and it did win rank 10→6. It also **discarded 4 of the 5 datacron abilities.**
+  REVERTED. Power is the wrong metric when a focused datacron is in play.
+- **Ladder corroboration:** rank 2 runs this same five at **154,890** and rank 5 at **135,821** — both
+  BELOW the 176,402 power build, both ranked ABOVE it.
+- ⇒ **Read `account/data/all` → `datacrons[].affix[].targetRule` BEFORE proposing any squad.** A focused
+  datacron keys off named characters; no faction/role/power heuristic can see it. This is the second time
+  focused datacrons have blindsided this repo (see 2026-08-05 addendum on Luminara).
+- Relic investment in Mob Enforcer / Greedo / Gamorrean Guard / Cad Bane is **rented** — it expires with
+  the cron on 2026-10-29.
+- Also learned: **a LOST arena battle still sets your defence squad** (rank held at #6, power read back
+  as 141,055 after a defeat).
+
+### ⭐ Ships take no mods — rank the CREW (invest_plan bug, fixed)
+Fleet Arena is the only arena that still pays crystals, yet `invest_plan.py` was ranking SHIPS, and every
+downstream queue filters to `ct==1` and silently dropped them. **Darth Revan — who *is* the Leviathan —
+sorted 89th in the mod order.** Fixed: `data/ship_crew.json` (generated from `gamedata/units`, where
+characters carry `shipBaseId`/`shipSlot`) + `invest_plan.load_ship_crew()`; fleet rungs now yield the ship
+AND its crew. Darth Revan 89th → **11th**. Arena-fleet crew = Darth Revan, Darth Malgus, Sith Marauder,
+Sith Trooper, Darth Maul, Iden Versio, Grand Inquisitor, Fifth Brother.
+
+### Grandivory: measured, and the ordering is worth ~0.5% of set value
+Three runs on identical mods/fetch, only the selection ORDER differing:
+| order | set-value change | mods | credits |
+|---|---|---|---|
+| arena-first, wrong five, no crew | **−0.42%** | 1,447 | 7.30M |
+| GL-first | **+0.12%** | 1,394 | 6.90M |
+| corrected: datacron five → climb → fleet crew → GAC | **−0.06%** | 1,473 | 7.44M |
+- **There is almost nothing left to gain globally** — the +5.04% run on 2026-07-31 already captured it, and
+  the best any ordering now finds is +0.12%. Treat the optimiser as a REDISTRIBUTION tool, not a gains tool.
+- Putting four R5/R6 bodies above nine GLs costs ~0.5% of global set value. At −0.06% the corrected order
+  is inside the noise, so priority alignment is effectively free; at −0.42% it was not.
+
+### Driving Grandivory head-lessly (hard-won)
+- GI is embedded in an iframe on `hotutils.com/mods/optimizer`; open it standalone via the iframe `src`
+  (carries `SessionID` + `allyCode` + `NoPull`).
+- State lives in **IndexedDB `ModsOptimizer` → `profiles[0]`**: `selectedCharacters` is an ORDERED
+  `[{id, target}]` array. Reordering it and RELOADING is a safe way to set priority — it permutes existing
+  entries and preserves each character's optimisation target. `localStorage` holds only UI state.
+- ⚠️ **Synthetic MouseEvents do not work on GI** (React 16 + react-dnd): dispatching click/dblclick/drag on
+  a character card does nothing, and the MCP `drag` tool fails too. But **`element.click()` on a real
+  `<input>` DOES work** (that is how `lock-unselected` got toggled). Buttons respond to `.click()`; character
+  cards only respond to genuine HTML5 drag-and-drop, so **adding a character to the selection could not be
+  automated** — Rotta had to be left out (he is locked instead, so nothing is lost).
+- ⚠️ **`lockUnselectedCharacters` defaulted to FALSE.** With it off, an optimise can STRIP mods from an
+  unselected character and give them away — Rotta was unselected, so the arena leader's mods were at risk.
+  Turned ON. Check `profiles[0].globalSettings` before every run.
+- ⚠️ **`account/refresh` kicks the live game client** (`CONNECTION LOST → RELOAD`), and it killed the app
+  outright once. Do all HotUtils refreshes BEFORE device work, never during.
+
+### Mod move APPLIED 2026-08-08 17:36-17:44 — clean, and the bill is visible
+`Move mods in-game` → **"Mods successfully moved"**, no `Row not found`, no partial apply (137 free mod
+slots, well over the 10-slot pre-flight). Credits **145,321,342 → 137,890,592 (−7,430,750**, matching the
+quoted 7,435,500). 1,473 mods moved.
+- **modScore 2.83 → 2.83 and plusSpeed 16,662 → 16,657** — confirms again that this was pure
+  REDISTRIBUTION, not an inventory gain. Never report a placement run via modScore.
+- ⚠️ **The `Move mods in-game` button only opens a CONFIRM MODAL** (`.modal.hotutils-modal`,
+  buttons `Cancel` / `Move my mods`). Clicking the first button does nothing on its own — an earlier
+  poll sat for minutes waiting on a move that had never started. Then `Moving Your Mods...` shows for
+  ~5 min on 1,473 mods.
+- ⚠️ Poll in <100s chunks: a long `evaluate_script` wait dies on `Runtime.callFunctionOn timed out`.
+
+**Measured outcome — speed, before → after:**
+| group | Δ speed |
+|---|---|
+| arena datacron five | **+388** (Mob Enforcer 180→280, Greedo 180→293, Cad Bane 166→255, Gamorrean 169→255) |
+| arena climb (Leia Rebels) | +235 |
+| fleet-arena crew | +312 (Darth Maul +84, Iden Versio +89, Darth Revan +14) |
+| GAC 5v5 #1 wall | +86 |
+| **Galactic Legends** | **−349** (JML 568→472, JMK 557→491, Rey 505→452, GL Ahsoka 506→454, SEE 460→412) |
+⇒ The priority order was honoured literally and **the GLs paid for it.** Defensive GLs took real hits
+(GL Rey −53, GL Ahsoka −52) and those are AI-played in GAC, where speed matters most. If GAC matters more
+than a mode that pays no crystals, re-run with GLs promoted above the arena five — that ordering measured
+**+0.12%** and costs another ~1,400 moves / ~7M credits. Decide once and stop churning: each re-run is
+~7M credits for a global change inside the noise.
+
+## 2026-08-08 (night) — RotE PHASE 6 played: the Operations GL trap, and the cross-area unit lock
+Phase 6/6, 22h left, guild #4, 23/56 stars, Guild GP 524,387,216. Board:
+**Haven-class Medical Station (DS)** 1.07M/235M · **Kessel (Mixed)** 3.89M/235M · **Lothal (LS)** 20.2M/247M.
+Star gates 235M/400M/500M (Haven, Kessel) and 247M/420M/525M (Lothal).
+Markers per territory: Haven 4 combat + 1 special + ops · Kessel 3 combat + 1 fleet + 1 special + ops ·
+Lothal 3 combat + 1 fleet + ops. **Neither special is fieldable** (Haven = Inquisitorius R8+ + *Third
+Sister*, unowned; Kessel = Qi'ra + L3-37, both **R7** against an R8 gate → `REQUIRED UNITS 3/5`).
+
+### Phase 6 numbers are NOT phase 2 numbers — re-read them every phase
+| | phase 2 | **phase 6** |
+|---|---|---|
+| operation gate | Relic 6+ / 7★ | **Relic 8+ / 7★** |
+| per completed operation | 11,000,000 TP | **18,480,000 TP** |
+| combat-mission win | 250,000 | **up to 493,594** (+ squad power, as always) |
+Quota is still **10 assigned units per player per operation AREA**, 6 operations × 15 slots per territory.
+
+### Navigation: the Operations marker is NOT the gold marker
+The **gold hexagon is the Special Mission.** Operations live behind the *territory-ability* marker — the
+square tile showing that territory's ability (`Hope (Full Strength)` / `Smuggling (Disabled)` /
+`Guerilla Strike (Disabled)`) → **ENTER** at (1470,1000). Ops list: OPERATION 1/2/3 at x=155,
+OPERATION 4/5/6 at x=1763, y = 402 / 641 / 880. Slot grid cols 630,795,960,1125,1290 · rows 400,600,800.
+`CLOSE` (745,988) · `ASSIGN` (1170,988). The op tiles stay tappable behind the open slot dialog.
+
+### ⚠️⚠️ THE GL TRAP — most "UNDEPLOYED" slots in phase 6 are Galactic Legends
+A slot renders gold `UNDEPLOYED` when Astra owns a unit meeting the gate, and red when he does not.
+At an **R8 gate** the ordinary version of an iconic character usually FAILS, so the only qualifying unit
+Astra owns is the GL — and the portraits are nearly identical. Verified by elimination against
+`account/data/all` `relicLevel`:
+| slot portrait | ordinary unit | actual fillable unit |
+|---|---|---|
+| hooded pale Palpatine | `EMPERORPALPATINE` **R7**, `DARTHSIDIOUS` R7 | **`SITHPALPATINE` (SEE, GL)** |
+| black helmet, red seams | `KYLOREN` **R7** | **`SUPREMELEADERKYLOREN` (GL)** |
+| Rey in white | `REY` R7, `REYJEDITRAINING` R7 | **`GLREY` (GL)** |
+| old bearded hooded Luke | — | **`GRANDMASTERLUKE` (JML, GL)** |
+⇒ **Never tap a slot on portrait recognition.** Cross-check the portrait against every same-character
+baseId's `relicLevel` first; if the only R8+ match is a GL, skip it. A GL is worth ~493K guaranteed in a
+combat mission; a slot in an operation that will not reach 15/15 is worth ~0.
+
+### ⚠️ The quota is per-area, but a UNIT is unique across ALL areas
+`Assigned Units: n/10` is per territory, yet each unit can be assigned only once in the whole phase.
+Assigning Han Solo + Maul to **Kessel Op2** silently dropped **Haven Op1** from `3+` fillable to `1`
+(8/15 +4 → +1). **Enumerate every area's fillable slots BEFORE assigning anything**, then spend the
+scarce shared units on the operation closest to 15/15. The game does block same-unit double-picks with a
+`DUPLICATE UNIT SELECTION — Unit already selected in another squad` modal (OK at (958,688)).
+
+### Reading the panel
+- Number on an **empty** slot = the REQUIREMENT (`8` = Relic 8+, `85` = a level-85 / 7★ ship).
+  On a **filled** slot it is the assigning player's actual relic. Do not read it as ownership.
+- Red badge on an operation tile = count of **distinct** units Astra can still fill, display caps at `3+`.
+  Two slots naming the same unit count once (Op2 showed `2` for 4 gold slots).
+
+### The allocation rule that fell out of the maths
+Slot value = `18,480,000 / 15 × P(op reaches 15/15)` ≈ **1,232,000 × P**. Deploying that same unit is
+~35–45K, a combat mission is ~493K + power over 5 units (~139K/unit). So:
+**fill an operation only while P is plausible — closest-to-15 first — and stop; below ~11% a unit is worth
+more in a combat mission, below ~3% more as a plain deploy.** Ops sitting at 0–2/15 in a guild that had
+filled 68 of 270 phase-6 slots are worth less than deploying.
+
+### Result: 14 units placed, no GL and no capital ship spent
+| territory | before → after |
+|---|---|
+| Kessel | Op1 **11→13/15**, Op2 **8→10/15** (4 units: JK Luke, a TIE, Han Solo, Maul) |
+| Haven | Op1 **8→9/15** (Embo), Op3 **4→7/15** (2 Inquisitor-types + **Executor**), Op6 **2→4/15** (2 ships), Op4 1→2/15 (Wampa) |
+| Lothal | Op1 **7→10/15** (Kylo Ren Unmasked, Jedi Knight Revan, Razor Crest) |
+Executor was safe to spend because Haven has **no fleet mission** and the two that exist take
+**Leviathan** (Kessel, mixed) and **Negotiator** (Lothal, LS).
+
+### Pool arithmetic that made "fill operations first" safe
+`combatType==1 & relicLevel>=8` → **81 characters (46 LS / 35 DS, 0 Neutral)**; **67 ships at 7★**.
+Phase-6 demand = 10 ground missions × 5 = 50 characters + 2 fleets × 8 = 16 ships. That leaves ~31 spare
+characters and ~51 spare ships, so the full 30-unit quota could never have stranded a mission. Run this
+count before agonising over any reservation list.
+
+### ⚠️ New modal: `Unit Required in another Territory`
+Committing a combat-mission squad that contains a unit **named by an operation slot in a DIFFERENT
+territory** pops `Unit Required in another Territory` — *"All used units will be locked to this territory
+until the next phase. Are you sure you want to use them here?"* — with the offending portraits and
+`CANCEL` (715,779) / `BATTLE` (1197,779). It fired on **Jabba** for a Kessel combat mission.
+- `rote_autobattle.py` cannot see this modal: it taps squad-screen BATTLE, never finds the battle HUD and
+  returns `RESULT=no-battle-screen`. **Screenshot after a `no-battle-screen`** before assuming a miss-tap,
+  answer the modal, then re-attach with `--no-start`.
+- Answer it with the same arithmetic as everything else: a GL leading a combat mission is worth ~493K
+  guaranteed; the operation that wants it is only worth `1,232,000 × P`. Jabba → BATTLE was right because
+  every operation still open to Astra sat at ≤5/15.
+
+### ⚠️ Phase-6 combat missions are 2 WAVES with PARTIAL credit — and the driver misreports the outcome
+`Completed a Combat Mission (1/2 waves), earning 219,375` vs `(2/2 waves), earning 493,594`. So a phase-6
+loss is **not** the phase-2 `EARNED +0`: clearing wave 1 and dying in wave 2 still banks ~44% of the prize.
+- **`rote_autobattle.py`'s `outcome=` is not trustworthy here.** It called the 1/2-wave partial a `win`
+  and the 2/2-wave full clear `ended`. **Read the territory activity feed** (right-hand panel of the
+  territory view) for the truth — it prints waves cleared and TP earned per entry.
+- Squad power did not decide it: Jabba/Darth Revan/GAS/Stranger/Darth Bane at **225,514 → 1/2 waves**,
+  while GL Leia/Rotta/Satele Shan/Cmdr Ahsoka/Baylan at **215,035 → 2/2**. The in-game auto-fill sorts by
+  power and ignores faction synergy, which is worth ~274,000 TP per mission when it guesses wrong.
+
+## 2026-08-09 (02:00) — RotE phase 6, second pass: a 0/2 wipe pays NOTHING
+Same phase 6 as the entry above, 17h 33m left, guild **#1**, 23/56 stars. Owner had already run the
+deploy step before this session, which is the fact that explains every dead end below.
+
+### ⚠️ A 0/2-wave loss earns +0 TP **and deploys no power** — correct the loss-is-free claim
+`rote_run_mission.sh`'s header says *"A LOSS IS STILL WORTH RUNNING: the squad's galactic power is
+credited as territory deployment either way (device-verified 2026-08-03)"*. That held in **phase 2**.
+It is **false for a phase-6 wave-1 wipe**: two missions run back-to-back both showed
+`RESULTS 0/2 — EARNED +0 Territory Points`, the Haven total stayed at exactly **150,463,903** across
+both, and **no `Astra: Deployed …` line appeared in the activity feed**. Partial credit starts at
+1/2 waves (219,375); below that there is nothing, not even the squad's power.
+⇒ Only the ladder `2/2 = 493,594 · 1/2 = 219,375 · 0/2 = 0` is real. Do not run a mission you expect
+to lose in wave 1 "for the deploy points" — there are none.
+
+### Haven phase-6 combat is out of reach for this roster (Hope at Full Strength)
+Haven's enemy ability `Hope` sits at **Full Strength** because the guild has completed **0/6** Haven
+operations, and the missions are tuned accordingly. Both of Astra's best carries wiped in wave 1 in
+under a minute:
+| squad | power | result |
+|---|---|---|
+| SEE (L) + Maul Hate-Fueled + Dark Rey + Count Dooku + Kylo Ren Unmasked — **all Sith**, full lead value | 200,994 | **0/2**, +0 |
+| SLKR (L) + General Hux + Sith Trooper + Bossk + Zam Wesell — 3× First Order | 188,027 | **0/2**, +0 |
+Synergy was not the problem this time; the gap is size. Mods had just been redistributed to arena /
+datacron / fleet crew (2026-08-08), so the GLs were fighting on leftovers. **Check where the mods are
+before assuming a GL can carry a TB mission.**
+
+### Once the owner deploys, everything else in that territory closes
+Deploy is the terminal action for a territory, and it is silent about it:
+- the territory's `DEPLOY` button greys out and the deploy marker gets a red 🚫 (also visible on the
+  planet in the galaxy overview — Kessel and Lothal had it, Haven did not);
+- combat missions there stop being playable and the button reads **`REQUIRED UNITS 0/5`** instead of
+  `BATTLE (n)` — that string means *0 units available*, NOT *0 selected*;
+- operation tiles lose their red badges, so there is nothing left to fill.
+Read the galaxy-overview 🚫 first: it tells you which territories are already finished before you
+spend ten minutes probing panels one at a time.
+
+### Reading the mission panel: faded + ✓ = ALREADY USED
+`MISSION UNITS` on a combat-mission panel lists units valid for that mission. **Vivid tile, no tick =
+available. Faded tile with a white ✓ = spent.** Lothal's list was 100% ticked (deploy had eaten the LS
+pool); Haven's was clean. `View All Valid Units` opens the full list. The squad screen also prints a
+per-unit `n/m` uses counter next to the green party icon.
+
+### Operations state at 02:00 (nothing left worth filling)
+| territory | quota | Astra-fillable slots |
+|---|---|---|
+| Haven | 7/10 | Op1 9/15 → SEE · Op2 4/15 → SEE · Op4 4/15 → SLKR · Op5 3/15 → SEE+SLKR |
+| Kessel | 4/10 | **none** (Op1 sat at **13/15** and he could not reach it) |
+| Lothal | 3/10 | **none** |
+Every remaining fillable slot in the whole map was a **Galactic Legend**, and the only one on an
+operation with a plausible P was Haven Op1 — which had been **static at 9/15 for a full day**. By the
+`1,232,000 × P` rule that is well under the ~11% break-even, so SEE and SLKR went to combat instead.
+Kessel Op1 at 13/15 is the lesson: **the quota is not the constraint, the named units are.** Six unused
+Kessel slots were worthless because no slot named a unit Astra still had free.

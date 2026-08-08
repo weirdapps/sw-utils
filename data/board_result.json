@@ -3823,11 +3823,11 @@
      "SITHBOMBER",
      "TIEDAGGER",
      "SITHINFILTRATOR",
-     "SITHSUPREMACYCLASS",
-     "SITHFIGHTER",
-     "EMPERORSSHUTTLE"
+     "TIEDEFENDER",
+     "SCYTHE",
+     "TIEBOMBERIMPERIAL"
     ],
-    "note": "Best owned fleet at BOTH jobs: highest attack (97%) and best hold (82%). Arena has no shared-ship rule, so it takes Emperor's Shuttle as a 4th reinforcement and does not compete with the GAC board. CALL ORDER MATTERS HERE: Sabotage Engines - Scimitar - Sabotage Hangars - Mark VI. On AUTO you do not choose, and the AI calls Sith Fighter ahead of Scimitar, losing the race - if you auto your arena battles, drop Sith Fighter and fill with TIE Defender / Scythe / TIE Bomber, which share Scimitar's priority tier.",
+    "note": "Best owned fleet at BOTH jobs: highest attack (97%) and best hold (82%). Arena has no shared-ship rule, so it may borrow ships the GAC board uses. REINFORCEMENT ORDER DECIDES THIS ONE, NOT POWER: defense is always AI-played and the AI calls reinforcements by a fixed priority tier, so Sith Fighter and Mark VI both deploy ahead of Scimitar and waste its Enter-Battle +15 Speed (doubled for Sith, capital included). Both are dropped for TIE Defender / Scythe / TIE Bomber, which share Scimitar's tier. On 51,367 observed Leviathan counters, any build holding Sith Fighter or Mark VI holds 3.2-3.6%; this one holds 29.8%. Device-confirmed 2026-08-08, same opponent minutes apart on AUTO: the old 621,738-power set lost, this 596,465-power set won, rank 6 -> 1. Cost: the three fillers are not Sith, so they forfeit Leviathan's Reinforcement Bonus and do not help unlock Sabotage the Hangars.",
     "missing": [],
     "understarred": []
    }

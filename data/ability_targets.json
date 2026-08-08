@@ -1,0 +1,124 @@
+{
+ "_README": "Ability-material targets, ordered by the unit-priority ladder in scripts/invest_plan.py. DERIVED, NOT GUESSED: generated 2026-08-08 by intersecting (a) HotUtils gamedata/units, which lists every unit's omicron abilities with a mode id, (b) the per-unit applied-omicron counters in account/data/all, and (c) the live board in data/board_result.json. An entry appears only when the unit sits on a board whose MODE matches the omicron's mode and the omicron is NOT yet applied. Mode ids were derived empirically, not from documentation: 7=Territory Battle, 8=Territory War, 9=Grand Arena, 11=Conquest (see memory/notes.md 2026-08-08). Result: all 17 open targets are TERRITORY WAR. There are ZERO unapplied Grand Arena omicrons on GAC board units, so that side is already maxed - which is itself the finding. NOTE omicrons do NOT fire in Squad Arena, so nothing here helps the arena squad.",
+ "targets": [
+  {
+   "unit": "JYNERSO",
+   "ability": "Fierce Determination",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 95%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "GENERALSYNDULLA",
+   "ability": "Unauthorized Mission",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 90%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "PADAWANSABINE",
+   "ability": "Sentinel of Lothal",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 90%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "GUNGANPHALANX",
+   "ability": "Let Mesa Help",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 86%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "DARTHSIDIOUS",
+   "ability": "Sadistic Glee",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 83%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "FULCRUMAHSOKA",
+   "ability": "Perseverance",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 76%; unit at relic 9, omicron NOT applied"
+  },
+  {
+   "unit": "IG90",
+   "ability": "QUERY: Dead or Alive?",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW offense \u2014 strongest TW squad 74%; unit at relic 5, omicron NOT applied"
+  },
+  {
+   "unit": "DISGUISEDCLONETROOPER",
+   "ability": "Clever Ruse",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 27%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "JUHANI",
+   "ability": "Cathar Resilience",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 19%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "KXSECURITYDROID",
+   "ability": "Controlled Operation",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 19%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "EMBO",
+   "ability": "Way of the Kyuzo",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 18%; unit at relic 8, omicron NOT applied"
+  },
+  {
+   "unit": "UNDERCOVERLANDO",
+   "ability": "Agent On The Inside",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 18%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "DEATHTROOPERPERIDEA",
+   "ability": "Just a Little Nibble",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 15%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "GREATMOTHERS",
+   "ability": "To The Old Ways",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 15%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "GREATMOTHERS",
+   "ability": "Threads of Destiny",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 15%; unit at relic 7, omicron NOT applied"
+  },
+  {
+   "unit": "BATCHERS3",
+   "ability": "Ferocious Bite",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 6%; unit at relic 6, omicron NOT applied"
+  },
+  {
+   "unit": "HUNTERS3",
+   "ability": "Focused Co-operation",
+   "kind": "omicron",
+   "mode": "territory-war",
+   "note": "TW defense \u2014 strongest TW squad 6%; unit at relic 5, omicron NOT applied"
+  }
+ ]
+}

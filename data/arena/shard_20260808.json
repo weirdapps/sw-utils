@@ -1,0 +1,25 @@
+{
+  "captured": "2026-08-08T14:02:00Z",
+  "mode": "squad",
+  "player_rank": 10,
+  "player_squad": ["RACCOON", "HUMANTHUG", "GREEDO", "GAMORREANGUARD", "CADBANE"],
+  "player_squad_note": "141,055 power. THIS IS THE DATACRON SQUAD, and the datacron is the reason - not the bodies. Astra's set-33 FOCUSED Rotta datacron (datacron_set_33_focused_raccoon) has exactly five ability affixes and each one names a specific unit: tier1 Gamorrean Guard, tier2 Mob Enforcer (HUMANTHUG), tier3 Greedo, tier4 Cad Bane, tier5 Rotta. Those five ARE this squad. Only the untargeted generic stat affixes apply to anyone else. Earlier today this was swapped to Rotta+Embo+Boba Fett+Krrsantan+Boushh (176,402, +25% power) on a power argument and it won rank 10->6, but that trade discards four of the five bespoke datacron abilities to buy raw power - so it was reverted. Corroborating evidence from the ladder: rank 2 runs this same squad at 154,890 and rank 5 at 135,821, both BELOW 176,402 in power yet ranked above it. Note Jabba cannot join regardless: the client rejects two large units in one squad. The datacron expires 2026-10-29, so relic investment in Mob Enforcer / Greedo / Gamorrean Guard / Cad Bane is rented, not owned.",
+  "source": "device read of the in-game Squad Arena MATCHES + RANKS tabs (Astra, BlueStacks/ADB)",
+  "note": "RANKS shows each player's defense-squad LEADER only; MATCHES shows the full five. Entries with a leader but no squad are leader-only observations, not partial squads. Ranks 1/2/3/5/9 and Astra all lead RACCOON (Rotta the Hutt) - this shard's meta is Hutt Cartel, and it is a base-ability lead, so it loses nothing to the Squad Arena omicron ban.",
+  "opponents": [
+    {"rank": 1, "name": "BobaTeafett", "leader": "RACCOON", "squad": []},
+    {"rank": 2, "name": "FA", "leader": "RACCOON", "squad": []},
+    {"rank": 3, "name": "Fesolix", "leader": "RACCOON", "squad": []},
+    {"rank": 4, "name": "GR0 GU", "leader": "GLLEIA", "squad": []},
+    {"rank": 5, "name": "GLuCKsBRJNGER", "leader": "RACCOON", "squad": [],
+     "note": "Rotta at 4 stars / relic 4 - an unbuilt lead, the weakest wall in the top 10."},
+    {"rank": 6, "name": "Helena", "power": 176354,
+     "squad": ["KYLORENUNMASKED", "KYLOREN", "GENERALHUX", "SITHTROOPER", "FIRSTORDERTROOPER"],
+     "note": "First Order. Beaten 2026-08-08 by the rebuilt Hutt Cartel five (176,402)."},
+    {"rank": 7, "name": "Obi wanka", "power": 183717,
+     "squad": ["GLLEIA", "R2D2_LEGENDARY", "OLDBEN", "CAPTAINDROGAN", "CHEWBACCALEGENDARY"],
+     "note": "Rebel. Squad read off portraits, so the non-Leia base IDs are the least certain entries in this file."},
+    {"rank": 9, "name": "Nomak", "power": 44403, "squad": ["RACCOON"],
+     "note": "Deliberate one-unit defense - Rotta solo. Free rank for anyone above him."}
+  ]
+}

@@ -1,0 +1,565 @@
+{
+ "_README": "Ship -> crew characters. Generated from HotUtils gamedata/units (characters carry shipBaseId + shipSlot). Ships take NO mods; a fleet's strength comes from its CREW's mods, so any mod/relic priority that ranks a ship must promote its crew characters instead. Capital ships have a single commander. Regenerate with: POST gamedata/units {sessionId} and re-run this mapping.",
+ "crew": {
+  "CAPITALMONCALAMARICRUISER": [
+   {
+    "unit": "ADMIRALACKBAR",
+    "name": "Admiral Ackbar",
+    "slot": 1
+   }
+  ],
+  "CAPITALEXECUTOR": [
+   {
+    "unit": "ADMIRALPIETT",
+    "name": "Admiral Piett",
+    "slot": 1
+   }
+  ],
+  "CAPITALPROFUNDITY": [
+   {
+    "unit": "ADMIRALRADDUS",
+    "name": "Admiral Raddus",
+    "slot": 1
+   }
+  ],
+  "JEDISTARFIGHTERAHSOKATANO": [
+   {
+    "unit": "AHSOKATANO",
+    "name": "Ahsoka Tano (Snips)",
+    "slot": 1
+   }
+  ],
+  "CAPITALRADDUS": [
+   {
+    "unit": "AMILYNHOLDO",
+    "name": "Amilyn Holdo",
+    "slot": 1
+   }
+  ],
+  "XWINGRED3": [
+   {
+    "unit": "BIGGSDARKLIGHTER",
+    "name": "Biggs Darklighter",
+    "slot": 1
+   }
+  ],
+  "UWINGSCARIF": [
+   {
+    "unit": "BISTAN",
+    "name": "Bistan",
+    "slot": 1
+   },
+   {
+    "unit": "SCARIFREBEL",
+    "name": "Scarif Rebel Pathfinder",
+    "slot": 2
+   }
+  ],
+  "SLAVE1": [
+   {
+    "unit": "BOBAFETT",
+    "name": "Boba Fett",
+    "slot": 1
+   }
+  ],
+  "ROGUEONESHIP": [
+   {
+    "unit": "BODHIROOK",
+    "name": "Bodhi Rook",
+    "slot": 1
+   },
+   {
+    "unit": "PAO",
+    "name": "Pao",
+    "slot": 2
+   }
+  ],
+  "HOUNDSTOOTH": [
+   {
+    "unit": "BOSSK",
+    "name": "Bossk",
+    "slot": 1
+   }
+  ],
+  "XANADUBLOOD": [
+   {
+    "unit": "CADBANE",
+    "name": "Cad Bane",
+    "slot": 1
+   }
+  ],
+  "BWINGREBEL": [
+   {
+    "unit": "CAPTAINDROGAN",
+    "name": "Captain Drogan",
+    "slot": 1
+   }
+  ],
+  "COMMANDSHUTTLE": [
+   {
+    "unit": "KYLOREN",
+    "name": "Kylo Ren",
+    "slot": 1
+   },
+   {
+    "unit": "PHASMA",
+    "name": "Captain Phasma",
+    "slot": 2
+   },
+   {
+    "unit": "FIRSTORDERTROOPER",
+    "name": "First Order Stormtrooper",
+    "slot": 3
+   }
+  ],
+  "EBONHAWK": [
+   {
+    "unit": "CARTHONASI",
+    "name": "Carth Onasi",
+    "slot": 1
+   },
+   {
+    "unit": "T3_M4",
+    "name": "T3-M4",
+    "slot": 2
+   }
+  ],
+  "UWINGROGUEONE": [
+   {
+    "unit": "CASSIANANDOR",
+    "name": "Cassian Andor",
+    "slot": 1
+   },
+   {
+    "unit": "JYNERSO",
+    "name": "Jyn Erso",
+    "slot": 2
+   },
+   {
+    "unit": "K2SO",
+    "name": "K-2SO",
+    "slot": 3
+   }
+  ],
+  "MILLENNIUMFALCON": [
+   {
+    "unit": "HANSOLO",
+    "name": "Han Solo",
+    "slot": 1
+   },
+   {
+    "unit": "CHEWBACCALEGENDARY",
+    "name": "Chewbacca",
+    "slot": 2
+   }
+  ],
+  "PHANTOM2": [
+   {
+    "unit": "SABINEWRENS3",
+    "name": "Sabine Wren",
+    "slot": 1
+   },
+   {
+    "unit": "EZRABRIDGERS3",
+    "name": "Ezra Bridger",
+    "slot": 2
+   },
+   {
+    "unit": "CHOPPERS3",
+    "name": "Chopper",
+    "slot": 3
+   }
+  ],
+  "ARC170CLONESERGEANT": [
+   {
+    "unit": "CLONESERGEANTPHASEI",
+    "name": "Clone Sergeant - Phase I",
+    "slot": 1
+   }
+  ],
+  "UMBARANSTARFIGHTER": [
+   {
+    "unit": "CT5555",
+    "name": "CT-5555 \"Fives\"",
+    "slot": 1
+   }
+  ],
+  "ARC170REX": [
+   {
+    "unit": "CT7567",
+    "name": "CT-7567 \"Rex\"",
+    "slot": 1
+   }
+  ],
+  "FURYCLASSINTERCEPTOR": [
+   {
+    "unit": "DARTHMALGUS",
+    "name": "Darth Malgus",
+    "slot": 1
+   }
+  ],
+  "SITHINFILTRATOR": [
+   {
+    "unit": "MAUL",
+    "name": "Darth Maul",
+    "slot": 1
+   }
+  ],
+  "CAPITALLEVIATHAN": [
+   {
+    "unit": "DARTHREVAN",
+    "name": "Darth Revan",
+    "slot": 1
+   }
+  ],
+  "TIEADVANCED": [
+   {
+    "unit": "VADER",
+    "name": "Darth Vader",
+    "slot": 1
+   }
+  ],
+  "OUTRIDER": [
+   {
+    "unit": "DASHRENDAR",
+    "name": "Dash Rendar",
+    "slot": 1
+   }
+  ],
+  "TIEREAPER": [
+   {
+    "unit": "DEATHTROOPER",
+    "name": "Death Trooper",
+    "slot": 1
+   },
+   {
+    "unit": "SHORETROOPER",
+    "name": "Shoretrooper",
+    "slot": 2
+   }
+  ],
+  "PUNISHINGONE": [
+   {
+    "unit": "DENGAR",
+    "name": "Dengar",
+    "slot": 1
+   }
+  ],
+  "EMPERORSSHUTTLE": [
+   {
+    "unit": "EMPERORPALPATINE",
+    "name": "Emperor Palpatine",
+    "slot": 1
+   },
+   {
+    "unit": "ROYALGUARD",
+    "name": "Royal Guard",
+    "slot": 2
+   }
+  ],
+  "SCYTHE": [
+   {
+    "unit": "GRANDINQUISITOR",
+    "name": "Grand Inquisitor",
+    "slot": 1
+   },
+   {
+    "unit": "FIFTHBROTHER",
+    "name": "Fifth Brother",
+    "slot": 2
+   }
+  ],
+  "MILLENNIUMFALCONEP7": [
+   {
+    "unit": "REY",
+    "name": "Rey (Scavenger)",
+    "slot": 1
+   },
+   {
+    "unit": "FINN",
+    "name": "Finn",
+    "slot": 2
+   }
+  ],
+  "FIRSTORDERTIEECHELON": [
+   {
+    "unit": "FIRSTORDEROFFICERMALE",
+    "name": "First Order Officer",
+    "slot": 1
+   }
+  ],
+  "TIEFIGHTERFOSF": [
+   {
+    "unit": "FIRSTORDERSPECIALFORCESPILOT",
+    "name": "First Order SF TIE Pilot",
+    "slot": 1
+   }
+  ],
+  "TIEFIGHTERFIRSTORDER": [
+   {
+    "unit": "FIRSTORDERTIEPILOT",
+    "name": "First Order TIE Pilot",
+    "slot": 1
+   }
+  ],
+  "GAUNTLETSTARFIGHTER": [
+   {
+    "unit": "GARSAXON",
+    "name": "Gar Saxon",
+    "slot": 1
+   },
+   {
+    "unit": "IMPERIALSUPERCOMMANDO",
+    "name": "Imperial Super Commando",
+    "slot": 2
+   }
+  ],
+  "GHOST": [
+   {
+    "unit": "HERASYNDULLAS3",
+    "name": "Hera Syndulla",
+    "slot": 1
+   },
+   {
+    "unit": "KANANJARRUSS3",
+    "name": "Kanan Jarrus",
+    "slot": 2
+   },
+   {
+    "unit": "ZEBS3",
+    "name": "Garazeb \"Zeb\" Orrelios",
+    "slot": 3
+   }
+  ],
+  "CAPITALMALEVOLENCE": [
+   {
+    "unit": "GRIEVOUS",
+    "name": "General Grievous",
+    "slot": 1
+   }
+  ],
+  "CAPITALFINALIZER": [
+   {
+    "unit": "GENERALHUX",
+    "name": "General Hux",
+    "slot": 1
+   }
+  ],
+  "CAPITALNEGOTIATOR": [
+   {
+    "unit": "GENERALKENOBI",
+    "name": "General Kenobi",
+    "slot": 1
+   }
+  ],
+  "GEONOSIANSTARFIGHTER2": [
+   {
+    "unit": "GEONOSIANSOLDIER",
+    "name": "Geonosian Soldier",
+    "slot": 1
+   }
+  ],
+  "GEONOSIANSTARFIGHTER3": [
+   {
+    "unit": "GEONOSIANSPY",
+    "name": "Geonosian Spy",
+    "slot": 1
+   }
+  ],
+  "CAPITALCHIMAERA": [
+   {
+    "unit": "GRANDADMIRALTHRAWN",
+    "name": "Grand Admiral Thrawn",
+    "slot": 1
+   }
+  ],
+  "CAPITALSTARDESTROYER": [
+   {
+    "unit": "GRANDMOFFTARKIN",
+    "name": "Grand Moff Tarkin",
+    "slot": 1
+   }
+  ],
+  "MARAUDER": [
+   {
+    "unit": "BADBATCHTECH",
+    "name": "Tech",
+    "slot": 1
+   },
+   {
+    "unit": "BADBATCHHUNTER",
+    "name": "Hunter",
+    "slot": 2
+   },
+   {
+    "unit": "BADBATCHWRECKER",
+    "name": "Wrecker",
+    "slot": 3
+   }
+  ],
+  "TIEDEFENDER": [
+   {
+    "unit": "IDENVERSIOEMPIRE",
+    "name": "Iden Versio",
+    "slot": 1
+   }
+  ],
+  "IG2000": [
+   {
+    "unit": "IG88",
+    "name": "IG-88",
+    "slot": 1
+   }
+  ],
+  "JEDISTARFIGHTERCONSULAR": [
+   {
+    "unit": "JEDIKNIGHTCONSULAR",
+    "name": "Jedi Consular",
+    "slot": 1
+   }
+  ],
+  "JEDISTARFIGHTERANAKIN": [
+   {
+    "unit": "ANAKINKNIGHT",
+    "name": "Jedi Knight Anakin",
+    "slot": 1
+   }
+  ],
+  "RAVENSCLAW": [
+   {
+    "unit": "KYLEKATARN",
+    "name": "Kyle Katarn",
+    "slot": 1
+   }
+  ],
+  "TIESILENCER": [
+   {
+    "unit": "KYLORENUNMASKED",
+    "name": "Kylo Ren (Unmasked)",
+    "slot": 1
+   }
+  ],
+  "MILLENNIUMFALCONPRISTINE": [
+   {
+    "unit": "YOUNGLANDO",
+    "name": "Young Lando Calrissian",
+    "slot": 1
+   },
+   {
+    "unit": "L3_37",
+    "name": "L3-37",
+    "slot": 2
+   }
+  ],
+  "CAPITALJEDICRUISER": [
+   {
+    "unit": "MACEWINDU",
+    "name": "Mace Windu",
+    "slot": 1
+   }
+  ],
+  "BLADEOFDORIN": [
+   {
+    "unit": "PLOKOON",
+    "name": "Plo Koon",
+    "slot": 1
+   }
+  ],
+  "XWINGBLACKONE": [
+   {
+    "unit": "POE",
+    "name": "Poe Dameron",
+    "slot": 1
+   }
+  ],
+  "XWINGRESISTANCE": [
+   {
+    "unit": "RESISTANCEPILOT",
+    "name": "Resistance Pilot",
+    "slot": 1
+   }
+  ],
+  "MG100STARFORTRESSSF17": [
+   {
+    "unit": "ROSETICO",
+    "name": "Rose Tico",
+    "slot": 1
+   },
+   {
+    "unit": "RESISTANCETROOPER",
+    "name": "Resistance Trooper",
+    "slot": 2
+   }
+  ],
+  "TIEINTERCEPTOR": [
+   {
+    "unit": "SECONDSISTER",
+    "name": "Second Sister",
+    "slot": 1
+   }
+  ],
+  "SITHFIGHTER": [
+   {
+    "unit": "SITHASSASSIN",
+    "name": "Sith Assassin",
+    "slot": 1
+   }
+  ],
+  "SITHSUPREMACYCLASS": [
+   {
+    "unit": "SITHTROOPER",
+    "name": "Sith Empire Trooper",
+    "slot": 1
+   }
+  ],
+  "SITHBOMBER": [
+   {
+    "unit": "SITHMARAUDER",
+    "name": "Sith Marauder",
+    "slot": 1
+   }
+  ],
+  "TIEDAGGER": [
+   {
+    "unit": "FOSITHTROOPER",
+    "name": "Sith Trooper",
+    "slot": 1
+   }
+  ],
+  "GEONOSIANSTARFIGHTER1": [
+   {
+    "unit": "SUNFAC",
+    "name": "Sun Fac",
+    "slot": 1
+   }
+  ],
+  "RAZORCREST": [
+   {
+    "unit": "THEMANDALORIANBESKARARMOR",
+    "name": "The Mandalorian (Beskar Armor)",
+    "slot": 1
+   }
+  ],
+  "TIEFIGHTERIMPERIAL": [
+   {
+    "unit": "TIEFIGHTERPILOT",
+    "name": "TIE Fighter Pilot",
+    "slot": 1
+   }
+  ],
+  "XWINGRED2": [
+   {
+    "unit": "WEDGEANTILLES",
+    "name": "Wedge Antilles",
+    "slot": 1
+   }
+  ],
+  "COMEUPPANCE": [
+   {
+    "unit": "ZORIIBLISS_V2",
+    "name": "Zorii Bliss",
+    "slot": 1
+   }
+  ]
+ }
+}
