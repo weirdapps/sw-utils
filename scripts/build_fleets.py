@@ -111,10 +111,31 @@ def analyse_counters(counters):
 FLEET_LINEUPS = {
     "Leviathan": ["CAPITALLEVIATHAN", "FURYCLASSINTERCEPTOR", "SITHBOMBER", "TIEDAGGER",
                   "SITHINFILTRATOR", "SITHSUPREMACYCLASS", "SITHFIGHTER"],
-    # Arena has no shared-ship rule, so this one can also take Emperor's Shuttle as a
-    # 4th reinforcement (Chimaera holds it on the GAC board).
+    # Arena has no shared-ship rule, so this one may borrow ships the GAC board uses.
+    #
+    # ⭐ THE REINFORCEMENT SET IS CHOSEN AGAINST THE AI, NOT FOR POWER. Fleet Arena
+    # defense is the squad you LAST ATTACKED WITH, and it is always AI-played. The AI
+    # calls reinforcements by a fixed hidden priority tier list, so any ship above
+    # Scimitar's tier deploys before it and wastes its Enter-Battle buff (all allies
+    # +15 Speed, doubled for Sith, INCLUDING the capital, and it persists through
+    # Scimitar's own death - i.e. it wins the race to the capital ultimate).
+    #
+    # Measured on the repo's own 51,367-battle Leviathan counter data:
+    #   any build containing Sith Fighter or Mark VI ... 3.2-3.6% hold
+    #   Scimitar + bottom-tier fillers only ........... 29.8% hold
+    # Dropping Sith Fighter but KEEPING Mark VI is worthless (3.6% -> 3.4%): Mark VI
+    # also outranks Scimitar. Both must go. That correction is the whole point here.
+    #
+    # Device-confirmed 2026-08-08 on Astra, same opponent minutes apart, both on AUTO:
+    #   old set (Mark VI/Sith Fighter/TIE Advanced/Hound's Tooth, 621,738) -> DEFEAT
+    #   this set (596,465, i.e. 25,273 LESS power) ......................... -> VICTORY
+    # Fleet Arena rank 6 -> 1. Power is not the objective; reinforcement order is.
+    #
+    # Cost, stated honestly: TIE Defender / Scythe / Imperial TIE Bomber are not Sith,
+    # so they forfeit Leviathan's Reinforcement Bonus and do not help unlock Sabotage
+    # the Hangars. That is the price of controlling the call order on AUTO.
     "Leviathan Arena": ["CAPITALLEVIATHAN", "FURYCLASSINTERCEPTOR", "SITHBOMBER", "TIEDAGGER",
-                        "SITHINFILTRATOR", "SITHSUPREMACYCLASS", "SITHFIGHTER", "EMPERORSSHUTTLE"],
+                        "SITHINFILTRATOR", "TIEDEFENDER", "SCYTHE", "TIEBOMBERIMPERIAL"],
     # Ebon Hawk is a thin but real Executor pick (1.8% of observed lineups) and the 8th
     # slot is otherwise empty, so it is filler rather than a recommendation.
     "Executor": ["CAPITALEXECUTOR", "HOUNDSTOOTH", "PUNISHINGONE", "RAZORCREST",
@@ -153,10 +174,14 @@ ASSIGNMENT = {
     "Fleet - Arena": [
         ("Leviathan", "Leviathan Arena",
          "Best owned fleet at BOTH jobs: highest attack (97%) and best hold (82%). Arena has no "
-         "shared-ship rule, so it takes Emperor's Shuttle as a 4th reinforcement and does not compete "
-         "with the GAC board. CALL ORDER MATTERS HERE: Sabotage Engines - Scimitar - Sabotage Hangars - "
-         "Mark VI. On AUTO you do not choose, and the AI calls Sith Fighter ahead of Scimitar, losing "
-         "the race - if you auto your arena battles, drop Sith Fighter and fill with TIE Defender / "
-         "Scythe / TIE Bomber, which share Scimitar's priority tier."),
+         "shared-ship rule, so it may borrow ships the GAC board uses. REINFORCEMENT ORDER DECIDES "
+         "THIS ONE, NOT POWER: defense is always AI-played and the AI calls reinforcements by a fixed "
+         "priority tier, so Sith Fighter and Mark VI both deploy ahead of Scimitar and waste its "
+         "Enter-Battle +15 Speed (doubled for Sith, capital included). Both are dropped for TIE "
+         "Defender / Scythe / TIE Bomber, which share Scimitar's tier. On 51,367 observed Leviathan "
+         "counters, any build holding Sith Fighter or Mark VI holds 3.2-3.6%; this one holds 29.8%. "
+         "Device-confirmed 2026-08-08, same opponent minutes apart on AUTO: the old 621,738-power set "
+         "lost, this 596,465-power set won, rank 6 -> 1. Cost: the three fillers are not Sith, so they "
+         "forfeit Leviathan's Reinforcement Bonus and do not help unlock Sabotage the Hangars."),
     ],
 }
