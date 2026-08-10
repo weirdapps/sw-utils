@@ -29,7 +29,9 @@ happily recommend stripping the #1 fleet. This repo has made that exact mistake 
 """
 import argparse
 import json
+import os
 import re
+import time
 
 POTENCY_STAT_ID = 17          # unitStatId for Potency %
 POTENCY_SET_ID = 7            # setId for the Potency set
@@ -138,6 +140,34 @@ def projected_potency(base_pp, loadout):
     return base_pp + from_mods + SET_BONUS_PP * (potency_mods // SET_SIZE)
 
 
+def equip_payload(unit_id, loadout):
+    """One entry of `mods/task/equip`'s `units` array: `{id, modIds}`.
+
+    Shape read off the HotUtils bundle, where `backupCurrentBaseline` builds exactly
+    `{id: e.id, modIds: e.mods.map(m => m.id)}` — `id` is the unit's UUID (not baseId)
+    and each modId is the mod's UUID. Slot order is pinned so a payload diff is readable.
+    """
+    return {"id": unit_id,
+            "modIds": [loadout[slot]["id"] for slot in sorted(loadout)]}
+
+
+def is_noop_response(response):
+    """Did the server say "nothing to do"? The write path's safety interlock.
+
+    Two spellings, because the answer is version-dependent. The shipped HotUtils
+    bundle branches on `taskId === 0 && responseMessage === "TASK SKIPPED"`, but the
+    live server answers `responseCode 2 / errorMessage "No mod actions to perform!"`.
+    Only the second was ever observed (2026-08-10); trusting the bundle's string alone
+    rejects a payload the server understood perfectly.
+
+    An unresolvable payload looks different and must NOT pass — a bogus unit id comes
+    back as `Unit '<id>' not found on player`, which is the case this guard exists for.
+    """
+    message = " ".join(str(response.get(k) or "")
+                       for k in ("responseMessage", "errorMessage")).upper()
+    return "TASK SKIPPED" in message or "NO MOD ACTIONS TO PERFORM" in message
+
+
 def equipped_on(mod):
     """The baseId wearing this mod, or None. The `unit` field is a dict, not a string."""
     unit = mod.get("unit")
@@ -162,6 +192,25 @@ def _load(path, default=None):
         return {} if default is None else default
 
 
+API = "https://api.hotutils.com/Production/"
+
+
+def api(path, body, sid, uid):
+    """POST to the HotUtils API. Auth is ephemeral — HU_SID rotates every session."""
+    import urllib.request
+    data = json.dumps({**body, "sessionId": sid}).encode()
+    request = urllib.request.Request(
+        API + path, data=data, method="POST",
+        headers={"content-type": "application/json", "apiuserid": uid})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        return json.loads(response.read().decode())
+
+
+def current_loadout(unit, mods):
+    """What a unit wears right now, as {slot: mod} — the restore point."""
+    return {m["slot"]: m for m in mods if equipped_on(m) == unit["baseId"]}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Best reachable potency, and at whose expense.")
     parser.add_argument("--unit", action="append", default=[],
@@ -172,7 +221,40 @@ def main(argv=None):
     parser.add_argument("--crew", default="data/ship_crew.json")
     parser.add_argument("--target-potency", type=float, default=90.0,
                         help="the bar to clear (default 90, the community figure)")
+    parser.add_argument("--fetch", action="store_true",
+                        help="pull a fresh account/data/all into --dump first "
+                             "(⚠️ account/refresh kicks the live game client)")
+    parser.add_argument("--apply", action="store_true",
+                        help="WRITE: equip the solved loadouts via mods/task/equip")
+    parser.add_argument("--restore", metavar="PATH",
+                        help="WRITE: re-equip the loadouts saved in a restore file")
     args = parser.parse_args(argv)
+
+    sid, uid = os.environ.get("HU_SID", ""), os.environ.get(
+        "HU_UID", "898a36a3-948a-4a8a-9798-7a1552b042a8")
+    if (args.fetch or args.apply or args.restore) and not sid:
+        parser.error("HU_SID is required for --fetch/--apply/--restore")
+
+    if args.restore:
+        saved = _load(args.restore)
+        print(f"restoring {len(saved['units'])} units from {args.restore} "
+              f"(captured {saved.get('captured')})")
+        result = api("mods/task/equip",
+                     {"units": saved["units"], "getAllData": True, "simulation": False},
+                     sid, uid)
+        print(json.dumps({k: result.get(k) for k in
+                          ("responseCode", "responseMessage", "taskId", "errorMessage")}))
+        return 0 if result.get("responseCode") == 1 else 1
+
+    if args.fetch:
+        print("account/refresh … (the live game client will drop to CONNECTION LOST)")
+        api("account/refresh", {}, sid, uid)
+        time.sleep(5)
+        fresh = api("account/data/all", {}, sid, uid)
+        with open(args.dump, "w", encoding="utf-8") as handle:
+            json.dump(fresh, handle)
+        age = fresh["data"]["summary"].get("gameDataAgeUtc") or "?"
+        print(f"wrote {args.dump} (gameDataAge {age})\n")
 
     targets = args.unit or ["SCORCH", "OPERATIVE"]
     data = _load(args.dump)["data"]
@@ -186,7 +268,7 @@ def main(argv=None):
     print(f"protected units : {len(blocked)} (board squads + arena + fleet crew)")
     print(f"donor pool      : {len(pool)} mods, of which {free} unassigned\n")
 
-    claimed, verdicts = set(), []
+    claimed, verdicts, plans = set(), [], {}
     for base_id in targets:
         unit = units.get(base_id)
         if unit is None:
@@ -194,6 +276,7 @@ def main(argv=None):
             continue
         loadout = best_loadout(pool, exclude=claimed)
         claimed |= {id(m) for m in loadout.values()}
+        plans[base_id] = loadout
         now = unit["stats"]["potency"]
         projected = projected_potency(base_potency(unit), loadout)
         verdicts.append((base_id, now, projected))
@@ -217,7 +300,44 @@ def main(argv=None):
     donors = sorted({h for h in (equipped_on(m) for m in all_mods if id(m) in claimed) if h})
     print(f"\ndonors ({len(donors)}), none of them on a board, arena or fleet-crew squad:")
     print("  " + (", ".join(donors) if donors else "none — unassigned mods covered it"))
-    return 0
+
+    if not args.apply:
+        return 0
+
+    # --- WRITE PATH ------------------------------------------------------------
+    # Every unit that loses or gains a mod, so the restore point is complete.
+    touched = sorted(set(targets) | set(donors))
+    restore = {"captured": data["summary"].get("gameDataAgeUtc"),
+               "note": "pre-potency-build loadouts; replay with --restore",
+               "units": [equip_payload(units[b]["id"], current_loadout(units[b], all_mods))
+                         for b in touched if b in units]}
+    restore_path = "output/potency_restore.json"
+    with open(restore_path, "w", encoding="utf-8") as handle:
+        json.dump(restore, handle, indent=1)
+    print(f"\nrestore point: {restore_path} ({len(restore['units'])} units)")
+
+    # Shape check with a guaranteed no-op: re-equip a target's CURRENT mods. The API
+    # answers "TASK SKIPPED" when the requested configuration already matches the game,
+    # so a correct payload cannot change anything and a wrong one fails loudly here
+    # rather than halfway through the real write.
+    probe_unit = units[targets[0]]
+    probe = equip_payload(probe_unit["id"], current_loadout(probe_unit, all_mods))
+    checked = api("mods/task/equip",
+                  {"units": [probe], "getAllData": False, "simulation": False}, sid, uid)
+    print(f"payload shape check -> rc={checked.get('responseCode')} "
+          f"taskId={checked.get('taskId')} msg={checked.get('errorMessage') or checked.get('responseMessage')!r}")
+    if not is_noop_response(checked):
+        print("ABORT: the no-op probe did not report TASK SKIPPED, so the payload shape "
+              "is not confirmed. Nothing further was sent.")
+        return 1
+
+    payload = [equip_payload(units[b]["id"], plans[b]) for b in targets if b in plans]
+    print(f"equipping {len(payload)} units …")
+    result = api("mods/task/equip",
+                 {"units": payload, "getAllData": True, "simulation": False}, sid, uid)
+    print(json.dumps({k: result.get(k) for k in
+                      ("responseCode", "responseMessage", "taskId", "errorMessage")}))
+    return 0 if result.get("responseCode") == 1 else 1
 
 
 if __name__ == "__main__":

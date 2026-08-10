@@ -2496,3 +2496,48 @@ arena or fleet-crew squad. 296 units are protected out of 397; the donor pool is
 ⚠️ What DOES change is **5v5 defense #3 / TW defense #3** — Scorch and CX-2 are in it and we are
 re-modding *them*, trading their Defense/Health sets for potency. That is unavoidable and is the
 real cost of the attempt; plan to restore before the next GAC lock.
+
+### ⭐⭐ `mods/equip` — the direct mod-move API (no Grandivory, no browser automation)
+Grandivory cannot be driven end-to-end: character cards only accept genuine HTML5 drag-and-drop, so
+**adding a character to the selection is not automatable** (see the earlier GI section). That blocks the
+documented route whenever the units you want are not already selected. The direct API sidesteps it, and
+it is *better*: an exact loadout instead of an optimiser's heuristics.
+
+Discovered by fetching HotUtils' own JS bundle from a logged-in page and reading the call sites —
+`document.querySelectorAll("script[src]")` → `fetch` → search for `mods/`. That listing is itself worth
+keeping: `mods/equip`, `mods/unequip`, `mods/batch`, `mods/reveal`, `mods/lock`, `mods/unlock`,
+`mods/set/get`, `mods/set/savebaseline`, plus a `mods/task/<op>` async twin for each.
+
+```
+POST mods/task/equip   {sessionId, units:[{id:<unit UUID>, modIds:[<mod UUID> …]}],
+                        getAllData:true, simulation:false}     -> {taskId, responseCode:1}
+POST mods/equip        same body, synchronous
+```
+- **`id` is the unit's UUID, NOT its baseId** (`units.units[i].id`), and `modIds` are mod UUIDs. Shape
+  read from `backupCurrentBaseline`, which builds `{id: e.id, modIds: e.mods.map(m => m.id)}`.
+- Specify **all six slots**; then it does not matter whether the server reads `modIds` as "the desired
+  loadout" or as "mods to equip", because both give the same end state.
+- Un-equipping from the donor is automatic — no separate `mods/unequip` call is needed.
+
+**⚠️ The no-op probe is the safe way to validate the payload before writing anything.** Re-equip a unit's
+CURRENT mods: the server computes an empty diff and refuses, so a correct payload *cannot* change
+anything, while a wrong one fails loudly. Two things to know:
+- The live server answers an empty diff with **`responseCode 2` / `errorMessage "No mod actions to
+  perform!"`** — NOT the `"TASK SKIPPED"` string the shipped bundle branches on. Guarding on the
+  bundle's string alone rejects a payload the server understood perfectly (cost one aborted run).
+- **A bogus UNIT id is reported precisely** (`Unit '<id>' not found on player`) — which is what proves the
+  server really resolved your key. A bogus MOD id is *silently ignored*, so it is not a useful probe.
+
+**Applied 2026-08-10 13:05, task 55247, verified against a fresh `account/data/all`:**
+
+| unit | potency | health | protection | **speed** |
+|---|---|---|---|---|
+| `SCORCH` | 36.00 → **120.68 %** | 71,152 → 64,002 | 115,473 → 92,441 | 270 → **189** |
+| `OPERATIVE` | 37.46 → **113.77 %** | 87,056 → 61,259 | 67,382 → 80,064 | 255 → **188** |
+
+Projection vs measured agreed to **0.02pp**, which validates the arithmetic model above end to end.
+⚠️ **The unpriced cost is SPEED: −81 and −67.** The solver maximises potency and is blind to everything
+else; a potency-set mod with no speed secondary is free from its point of view. For a GAC/TW wall that
+is a serious loss, and even in the event it means the Bad Batch acts more often before Scorch can
+Entrench. If a future build needs both, the objective has to be multi-stat, not potency-only.
+Restore point: `output/potency_restore.json` → `potency_build.py --restore <path>`.

@@ -13,6 +13,8 @@ from potency_build import (
     POTENCY_STAT_ID,
     SET_BONUS_PP,
     best_loadout,
+    equip_payload,
+    is_noop_response,
     potency_of,
     projected_potency,
     protected_units,
@@ -169,6 +171,58 @@ class TestBestLoadout:
         maxed = _mod(secondaries=((POTENCY_STAT_ID, 100),), set_id=POTENCY_SET_ID,
                      slot=2, level=15)
         assert best_loadout([low, maxed])[2] is maxed
+
+
+class TestEquipPayload:
+    """`mods/task/equip` takes `units: [{id, modIds}]` — read off the HotUtils bundle,
+    where backupCurrentBaseline builds exactly `{id: e.id, modIds: e.mods.map(m => m.id)}`.
+    Getting this shape wrong writes real, unpredictable state to a live account.
+    """
+
+    def test_payload_is_unit_uuid_and_mod_uuids(self):
+        loadout = {2: {"id": "mod-a"}, 7: {"id": "mod-b"}}
+        assert equip_payload("unit-1", loadout) == {"id": "unit-1",
+                                                    "modIds": ["mod-a", "mod-b"]}
+
+    def test_mod_ids_follow_slot_order(self):
+        """Slots come out of a dict; pin the order so a payload diff is readable."""
+        loadout = {7: {"id": "cross"}, 2: {"id": "square"}, 4: {"id": "triangle"}}
+        assert equip_payload("u", loadout)["modIds"] == ["square", "triangle", "cross"]
+
+    def test_a_units_current_mods_round_trip(self):
+        """The restore file is built the same way, from what a unit wears right now."""
+        current = [{"id": "m1", "slot": 3}, {"id": "m2", "slot": 2}]
+        loadout = {m["slot"]: m for m in current}
+        assert equip_payload("u", loadout) == {"id": "u", "modIds": ["m2", "m1"]}
+
+
+class TestNoopResponse:
+    """The write path proves its payload shape by first re-equipping a unit's CURRENT
+    mods — an operation that cannot change anything. Recognising the server's
+    "nothing to do" answer is therefore the safety interlock, and it is version-
+    dependent: the shipped bundle branches on `taskId === 0 && "TASK SKIPPED"`, but
+    the live server answers `responseCode 2 / "No mod actions to perform!"`.
+    Reading only the bundle's string aborts a perfectly good payload.
+    """
+
+    def test_live_servers_empty_diff_is_a_noop(self):
+        assert is_noop_response({"responseCode": 2, "responseMessage": "ERROR",
+                                 "errorMessage": "No mod actions to perform!"})
+
+    def test_bundles_task_skipped_is_also_a_noop(self):
+        assert is_noop_response({"responseCode": 1, "taskId": 0,
+                                 "responseMessage": "TASK SKIPPED"})
+
+    def test_an_unresolved_unit_is_not_a_noop(self):
+        """This is the failure the interlock exists to catch — a payload whose unit
+        key the server cannot resolve."""
+        assert not is_noop_response({
+            "responseCode": 2, "responseMessage": "ERROR",
+            "errorMessage": "Unit 'ZZZZnotarealunitZZZZ' not found on player"})
+
+    def test_a_real_queued_task_is_not_a_noop(self):
+        assert not is_noop_response({"responseCode": 1, "taskId": 4711,
+                                     "responseMessage": "OK"})
 
 
 class TestProjectedPotency:
