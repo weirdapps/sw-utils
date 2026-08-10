@@ -5,9 +5,11 @@
 - 9 GLs: JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
 
 ## Gaps (biggest upgrades)
-- **Squad GL: GL Hondo** — leads #1 3v3 defensive wall (38% hold) + several top-4 3v3 walls. Not owned.
 - **Fleet: Profundity** (CAPITALPROFUNDITY) — #1 defensive fleet (77% attacker win). Not owned. (Owns Raddus, a different ship.)
 - **Non-GL wall: Third Sister** — highest-Hold% team you can't field.
+- ~~Squad GL: GL Hondo~~ — **NO LONGER A GAP.** The old "#1 3v3 wall, 38% hold" was an all-league figure;
+  on S81 it reads **3.5% Kyber-D1 / 9.8% Kyber-default** (see 2026-08-05 session notes). Do not spend
+  farming on Hondo blockers (Captain Silvo, Vane) on the strength of this line.
 
 ## Board (Kyber, 2026-07)
 - 5v5: 11 def squads + 3 fleets. 3v3: 15 def squads + 3 fleets.
@@ -2221,3 +2223,99 @@ operation with a plausible P was Haven Op1 — which had been **static at 9/15 f
 `1,232,000 × P` rule that is well under the ~11% break-even, so SEE and SLKR went to combat instead.
 Kessel Op1 at 13/15 is the lesson: **the quota is not the constraint, the named units are.** Six unused
 Kessel slots were worthless because no slot named a unit Astra still had free.
+
+## 2026-08-10 (night) — fleet-node reward icons READ ON DEVICE; the 1-E entry is confirmed waste
+
+Closes the open question the farmbot config has been carrying: *"1-E drops Resistance X-wing, which Astra
+already has at 7 stars … Not yet device-confirmed, so the validated node stays until someone reads the
+reward icons on 1-A."* All three panels below were read off the live client.
+
+| Fleet HARD node | Possible rewards (per panel) | Energy | Verdict |
+|---|---|---|---|
+| **1-E Lothal** (bot's current entry) | Resistance X-wing **×1** (already **7★** → dead shards), Mk V ×2, Mk II ×2 | 16 | **Waste.** Shard slot yields nothing. |
+| **1-A Yavin 4** | **Captain Ithano ×2** (CHARACTER, roster **4★** G10), X-wing ×1, Mk IV ×2, Mk II ×2 | 16 | Strictly dominates 1-E — same X-wing + mats **plus** 2 live shards. |
+| **2-E Jakku** | Kyle Katarn ×2, **Raven's Claw ×1**, Mk III ×2, Mk VI ×2 | 20 | **Best while Raven's Claw is under 7★.** |
+
+- **Captain Ithano is a CHARACTER, not a ship** (`ITHANO`, ct=1, r=4, g=10). The old note filing him under
+  "Fleet Hard" shard targets is right about the node and wrong about the unit type.
+- **Raven's Claw sits at 76/100 blueprints — 24 from 7★.** That is the nearest marginal **RotE operation
+  slot** (ops gate ships at 7★, ~733,000 TP per filled slot), which makes 2-E the highest-value fleet node
+  on the board right now. MG-100 StarFortress SF-17 (5★) is the only other sub-7★ ship — 185 shards away.
+- **Measured drop rate: Raven's Claw ≈ 1 blueprint per 5 sims.** A 5× MULTI SIM of 2-E (100 fleet energy,
+  5 sim tickets) returned **6× Kyle Katarn, 1× Raven's Claw**, Mk VI ×2, Mk II ×4, 6,600 credits, 300 ally
+  points. So the ship blueprint is RNG, *not* one-per-battle → ~24 days of daily 5-sims to reach 7★.
+- **Hard nodes are 5 attempts/day, then a 💎25 refresh** (declined). This caps how much of a big fleet pool
+  one node can absorb: 5 × 20 = 100 energy. Do not plan a 144-energy dump through a single hard node.
+
+### Still TODO (not done — would change unattended behaviour)
+Swapping the bot's `campaign: fleet` entry from **1-E → 2-E** needs `farmbot/templates/node_fleet_2-E.png`
+first (nav is template-matched; no template = that entry fails). Note `node_dark_8-B` ships a separate
+`_sel` variant, so the crop must be taken with the node **unselected**. Config change without the capture
+will just halt that entry.
+
+## 2026-08-10 (night, 02:45) — the RELIC MATERIAL economy, decoded on device
+
+Closes the biggest blind spot in `invest_plan.py`: it ranks *what is worth upgrading* and has never known
+*what the client will let you buy*. Both questions were answered live this session.
+
+### ⭐ The in-game SELECT FILTER is the affordability oracle — use it before planning a spend
+Roster → filter dropdown → **SELECT FILTER** carries `RELIC AMPLIFIER UPGRADE`, `OMICRON ABILITY UPGRADE`,
+`ZETA ABILITY UPGRADE`, `GEAR UPGRADE`, `ABILITY UPGRADE`, `UNIT LEVEL UPGRADE`. Each lists exactly the
+units whose upgrade is **affordable right now**, with a badge = how many steps are available. This is
+ground truth and costs 4 taps; `invest_plan.md`'s queues are a priority order, NOT a shopping list.
+- Measured gap: the relic queue lists **39** targets and the ability queue **17** omicrons. The client
+  said **~30 relic** steps affordable and only **2 omicron** — and after six relic steps the relic list
+  collapsed to **4**. A queue entry is not a purchasable.
+- ⚠️ The dialog **remembers its scroll offset** between openings. Taps at fixed y-coords land on different
+  rows run-to-run (this session checked `501ST` by accident). Always screenshot the dialog before ticking.
+- The text field sits at a fixed position at the dialog bottom; clear it with
+  `input keyevent KEYCODE_MOVE_END` + 20×`keyevent 67`, then `input text "<name>"`, then **OK** (dismiss
+  the IME) and only then **CONFIRM**. Driver: `~/Downloads/relic_nav.sh <backs> <name> <shot>`.
+
+### Relic material ids: `SCV_001..011` are relic mats 1..11 in tier order
+Confirmed by differencing `account/data/all` → `material.material` against the counts painted on the
+Relic Amplifier panel across six live upgrades. `RM_001..004` are the separate "relic currency" trio/quad
+shown in the right-hand sub-panel. (`SCV_*_SURPLUS` buckets do **not** count toward a requirement.)
+
+| Relic step | Materials consumed (per step) | Credits |
+|---|---|---|
+| R5 → R6 | SCV_001 ×20, SCV_002 ×30, SCV_003 ×30, SCV_004 ×20, **SCV_005 ×20** | 250K |
+| R6 → R7 | SCV_001 ×20, SCV_002 ×30, SCV_003 ×20, SCV_004 ×20, **SCV_005 ×20**, SCV_006 ×10 | 500K |
+| R7 → R8 | SCV_003 ×20, SCV_004 ×20, SCV_005 ×20, SCV_006 ×20, **SCV_007 ×20**, SCV_008 ×20 | 1M |
+| R8 → R9 | (consumed SCV_005 ×20 + SCV_007/008/009/010 ×20 each) | — |
+| R9 → R10 | SCV_007 ×20, SCV_008 ×20, SCV_009 ×20, SCV_010 ×20, SCV_011 ×20 | 2M |
+
+- **`SCV_005` is the binding constraint for the entire R5→R7 band** — 20 per step at *both* tiers. It ran
+  **134 → 14** in six steps and stopped the run cold. It is NOT the mats the planner worries about.
+- **The wall for R7+ is `SCV_007` (13) and `SCV_009` (12)**, both needing 20. That — not credits — is what
+  blocks **Starkiller R9→R10**. Credits are a non-issue at 140M against a 2M top tier.
+- ⇒ **"Displayed R7" is the correct planner ceiling** (`DEFAULT_TARGET_DISPLAYED_RELIC = 7` is right for
+  the wrong reason): R7→R8 is where the scarce mats begin, so the queue is affordable exactly to R7.
+
+### Executed this session (arena-first, owner's call; omicrons held)
+Starkiller **R8 → R9** landed at the end of the previous session (HotUtils read R8 at the 02:10 pull, the
+client read R9). R9→R10 blocked. Then, in `invest_plan` tier-1 order:
+
+| unit | from → to | note |
+|---|---|---|
+| Mob Enforcer | R5 → **R7** | target met |
+| Gamorrean Guard | R5 → **R7** | target met |
+| Cad Bane | R5 → **R6** | one short — `SCV_005` hit 14/20, `Insufficient Materials` |
+| Greedo | R6 → R6 | **not started** — same shortfall |
+
+Credits 142.1M → 140.4M (−1.7M). GP **14,408,223 → 14,419,987** (+11,764).
+The 4 units still listed as affordable are all **priority tier 12 ("not on any board")** — Snowtrooper
+Commander, R5-D4, Colonel Ward, Zeb Orrelios (New Republic Pilot) — and were declined, not missed.
+
+### Omicrons: 16 held, and that is worth ~one application
+The material reads **16 / 10** on Gungan Boomadier's *Grand Army Specialist* 8→9, so `ability_mat_F` = the
+omicron material and a single application costs **10**. Only two units are eligible at all — Boomadier
+(priority tier 5) and Snowtrooper Commander (tier 12) — and **neither is in the 17-entry TW omicron
+queue**. Owner decision 2026-08-10: **hold**, since spending 10 leaves 6 and forecloses a queued target.
+Do not read `ability_mat_F = 16` as "16 omicrons to spend" — it is 1.6 applications.
+
+### ⚠️ Amplify taps must be spaced ≥ 7s
+The success animation swallows input for ~5–6s. A second `tap 1655 993` at +5.0s was silently dropped
+(Gamorrean read R6 when two steps were intended). Tap → `sleep 7`+ → screenshot → verify the ring number
+before the next tap. A blocked step raises an **`Insufficient Materials`** modal (OK at ~958,690), which
+is harmless but eats the next tap if unhandled.
