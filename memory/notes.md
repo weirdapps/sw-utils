@@ -2347,3 +2347,77 @@ From the Relic Amplifier, two backs land on the **roster/Inventory**; a third dr
 `tap 65 65` is the **SETTINGS gear**, not a back button. Close it at ~(1546, 240). The game also drifted
 to the **Squad Arena** screen unprompted between sessions — always screenshot before tapping, or a stray
 tap starts a battle.
+
+## 2026-08-10 (early morning, 03:53–04:45) — the Mace Windu Legendary, and why auto-battle cannot play it
+
+First attempt at **"Beset on all Sides"** (Jedi Master Mace Windu, Legendary) **Tier I**. **Lost.**
+The event sits in the **Journey Guide with no deadline**, so this costs nothing but time — but most of
+the hour went into diagnosing things that were never bugs, and that is what this section is for.
+
+### ⭐ Auto-battle does NOT drive Legendary events
+The top-left toggle turns green and the sim still waits for a manual ability tap **every single turn**.
+Budget for turn-by-turn driving. This is the exception to the standing "auto is fine" rule — auto is
+fine for Squad/Fleet Arena and for raids, and useless here.
+
+### ⭐ A battle that never advances is waiting for INPUT, not hung
+Idle animations keep playing and the pause menu still opens, so "UI responds but nothing happens" is
+**not** evidence of a crash. One force-restart was spent proving this — and the restart then hit an
+asset-load failure, costing a re-entry through the Journey Guide. `adb logcat` showed nothing either.
+Do not force-stop the client over a stalled sim.
+
+### ⭐ The CANCEL trap — abilities are two-step, and blind-cycling looks exactly like a freeze
+Tap ability → tap target. Some abilities fire immediately; others enter a targeting mode showing
+`Select an ally.` / `Select an enemy.` **The selected ability's own slot becomes CANCEL.** So cycling
+the ability positions blind just selects-then-cancels forever, which is visually identical to a hang.
+Always resolve the target before tapping another slot.
+- Valid targets in targeting mode carry green `»` `«` chevrons beside their health bars.
+- **Ability bar is right-aligned at y=985:** three abilities → x = 1245 / 1545 / 1845; two abilities →
+  x = 1645 / 1845. Rightmost is usually the strongest special.
+- **Long-press to read a tooltip:** `adb shell input swipe X Y X Y 1000`. Fastest way to learn an
+  unfamiliar loaned or event unit's kit in context. Tap empty ground (~300, 900) to dismiss tooltips
+  and the unit-info panel.
+- Retreat is free: gear (65, 65) → RETREAT (955, 715) → YES (713, 771).
+
+### Two "rendering bugs" that turned out to be mechanics
+- **Dithered / stippled semi-transparent figures are Stealthed units**, not broken models. They render
+  as flat grey silhouettes and read as a texture-loading failure at first glance.
+- The **dark silhouettes are the civilian markers** for the tier objective, not unloaded assets.
+
+### The objective IS the fight — Scorch Entrenched is the counter
+Tier I is not a damage race: the win condition is **preventing the Bad Batch rescue**. That makes
+**Scorch's Entrenched (taunt + Bulwark)** the mechanic that matters, with CX-2's Disarm behind it.
+
+### ⭐ Why it was lost: potency, measured
+Scorch **36.0 %** and CX-2 **37.5 %**, against a community target of ~90–100 % for this tier. The
+debuffs the plan depends on — Scorch's DoTs and Off-Balance, CX-2's Disarm — simply do not land.
+
+**The root cause is modding, not relics.** Both are already 7★ G13 R7, well past the event's R5 floor:
+
+| unit | baseId | current mods | cross primary | potency |
+|---|---|---|---|---|
+| RC-1262 "Scorch" | `SCORCH` | **4× Defense set** + crit-chance + tenacity | Defense % | **36.0 %** |
+| CX-2 | `OPERATIVE` | **6× Health set** | Health % | **37.5 %** |
+
+Scorch does not carry **one** potency secondary. Neither unit has ever been modded for the stat.
+
+**Inventory is not the constraint** (read off the 02:10 dump, 2,330 mods):
+**184 potency-set mods** (178 at level 15), **26 unassigned** · **74 potency-primary crosses**
+(only slot 7 can carry one), **7 unassigned**.
+
+### The other two gating units are already fine
+All four event units are owned and above the R5 floor, so nothing here needs farming:
+Depa Billaba (`DEPABILLABA`) 7★ G13 R6 at **70.1 %** potency, Temple Guard
+(`VANGUARDTEMPLEGUARD`) 7★ G13 R6 at **42.9 %**.
+
+### ⚠️ Do not reach for a full Grandivory re-run to fix two characters
+Measured 2026-08-08: ~1,473 mod moves, **−7.4M credits**, global set-value change inside the noise
+(±0.12 %). Use a restricted selection with **`lockUnselectedCharacters: true`** instead.
+The cost to weigh: `SCORCH` and `OPERATIVE` are both in **5v5 defense squad #3** and **TW defense #3**
+(Lord Vader / Appo / Disguised Clone Trooper / CX-2 / Scorch), so a potency build degrades a live wall
+until the mods go back.
+
+The payoff is not a collection trophy: **`JEDIMASTERMACEWINDU` appears three times in the `gaps` lists
+of `data/board_result.json`** (5v5 offense, 3v3 defense, 3v3 offense). The board planner already wants
+him.
+
+⇒ **The retry is a modding job, not a farming job.**
