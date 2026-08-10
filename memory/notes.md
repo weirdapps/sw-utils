@@ -2453,3 +2453,46 @@ of `data/board_result.json`** (5v5 offense, 3v3 defense, 3v3 offense). The board
 him.
 
 ⇒ **The retry is a modding job, not a farming job.**
+
+### ⭐ The potency arithmetic, measured off the dump (`scripts/potency_build.py`)
+
+    stats.potency = baseStats[17]×100 + Σ(mod potency)/100 + 15 × completed_potency_sets
+
+- **`statValueDecimal` for a PERCENTAGE stat is the percentage ×100.** Flat stats use ×10000 —
+  speed reads `140000` for +14. Counting the wrong stat id would report +1400pp and look like a win.
+- **A completed potency set is 2 mods and worth exactly +15.00pp.** Measured across seven units;
+  PAO wears four and reads **+30.01pp**. Only slot **7 (cross)** can carry a potency PRIMARY —
+  all 74 potency-primary mods in the inventory are slot 7.
+- Verified end to end: CX-2 `baseStats 0.34 + statEffects 0.03457 = 37.46`, and his mods carry
+  potency secondaries `162 + 183 = 3.45pp`. Mace Windu `0.46 + 0.45604 = 91.60`, where his mods give
+  30.60pp and the missing **15.00 is exactly one set bonus**.
+- ⇒ Restricting a potency build to set-7 mods in all six slots is not a simplification, it is
+  optimal: swapping in an off-set mod breaks a pair and forfeits 15pp, and no secondary roll in
+  this inventory pays that back.
+
+### ⚠️⚠️ Two donor-safety traps, both of which silently under-protect
+The solver's whole risk is handing out a mod off a squad that is actually in use. Both traps below
+produced a confident, wrong "no squads touched" before being caught:
+
+1. **Ships take no mods — expand fleets to their CREW.** `MAUL` holds the roster's **only 6-dot
+   30pp potency cross** and crews `SITHINFILTRATOR` in `Fleet - Arena`. A protected set built from
+   the literal ids in `board_result.json` contains the SHIP, not Maul, so the solver offered his
+   cross as free. Expand through `data/ship_crew.json`. (Same class of error as the earlier
+   "rank the CREW" invest_plan bug — it has now bitten twice.)
+2. **A baseId can start with a DIGIT.** `4LOM` and `50RT` are real ids, and **4LOM flies on 5v5
+   defense**. An id pattern anchored `^[A-Z]` drops him. Allowing a leading digit also swallows the
+   board's formatted counts (`"29K"`, `"120K"`), so intersect with the real roster — exact, where a
+   pattern is only ever a guess.
+
+### Result: both units clear the bar without touching a single live squad
+| unit | now | projected | slots | sets |
+|---|---|---|---|---|
+| `SCORCH` | 36.0 % | **120.7 %** | 6/6 | 3 |
+| `OPERATIVE` | 37.5 % | **113.8 %** | 6/6 | 3 |
+
+Donors — **HOTHLEIA, MOTHERTALZIN, OLDBENKENOBI, PAO, TEEBO, ZAMWESELL** — appear in no board,
+arena or fleet-crew squad. 296 units are protected out of 397; the donor pool is still 832 mods,
+381 of them unassigned, so the constraint never bound.
+⚠️ What DOES change is **5v5 defense #3 / TW defense #3** — Scorch and CX-2 are in it and we are
+re-modding *them*, trading their Defense/Health sets for potency. That is unavoidable and is the
+real cost of the attempt; plan to restore before the next GAC lock.
