@@ -2319,3 +2319,31 @@ The success animation swallows input for ~5–6s. A second `tap 1655 993` at +5.
 (Gamorrean read R6 when two steps were intended). Tap → `sleep 7`+ → screenshot → verify the ring number
 before the next tap. A blocked step raises an **`Insufficient Materials`** modal (OK at ~958,690), which
 is harmless but eats the next tap if unhandled.
+
+### Relic material NAMES confirmed, and where `SCV_005` actually comes from (03:25)
+Shipments prints "You Own" next to every item, which pins the ids exactly:
+
+| id | Name | Held at 03:25 |
+|---|---|---|
+| `SCV_005` | **Electrium Conductor** | **14** |
+| `SCV_006` | **Zinbiddle Card** | 80 |
+| `RM_001` | **Fragmented Signal Data** | 1,343 |
+
+- **Electrium Conductor is sold ONLY in the crystal `Featured Shipment`: 10 for 💎1,150.** Astra holds
+  💎1,855, so it is *technically* one purchase away from unblocking exactly one more R6→R7 step — but
+  **crystals are off-limits**, so this is not a route. (It is also awful value.)
+- **Checked and NOT stocked:** `Guild Events` (GET1/2/3) and `Grand Arena` token stores — both carry only
+  gear salvage plus Zinbiddle Card / Micro Attenuators / Signal Data. So there is **no token-currency
+  route** to Electrium Conductor. The non-crystal supply is event rewards only: Conquest, Territory
+  Battles / Guild Event, Galactic Challenges.
+- Useful side-findings in `Guild Events` (all GET3, 4,590 held of 20K cap):
+  **Micro Attenuators ×5 = 125** (the mod-calibration currency — cheap, and 152 are already held),
+  **Zinbiddle Card ×2 = 850**, Fragmented Signal Data ×20 = 1,600 (GET2), Incomplete Signal Data ×20 = 2,000.
+- ⇒ **The relic band is gated on event cadence, not on anything the planner can schedule.** Conquest
+  Ascension was 17h 32m out and the Guild Event 18h 31m out when this was read.
+
+### Navigation gotcha: the hub back-arrow is not where you think
+From the Relic Amplifier, two backs land on the **roster/Inventory**; a third drops to the **hub**, where
+`tap 65 65` is the **SETTINGS gear**, not a back button. Close it at ~(1546, 240). The game also drifted
+to the **Squad Arena** screen unprompted between sessions — always screenshot before tapping, or a stray
+tap starts a battle.
