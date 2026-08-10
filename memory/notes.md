@@ -2247,11 +2247,43 @@ reward icons on 1-A."* All three panels below were read off the live client.
 - **Hard nodes are 5 attempts/day, then a 💎25 refresh** (declined). This caps how much of a big fleet pool
   one node can absorb: 5 × 20 = 100 energy. Do not plan a 144-energy dump through a single hard node.
 
-### Still TODO (not done — would change unattended behaviour)
-Swapping the bot's `campaign: fleet` entry from **1-E → 2-E** needs `farmbot/templates/node_fleet_2-E.png`
-first (nav is template-matched; no template = that entry fails). Note `node_dark_8-B` ships a separate
-`_sel` variant, so the crop must be taken with the node **unselected**. Config change without the capture
-will just halt that entry.
+### ~~Still TODO~~ — DONE 2026-08-10 13:20, and it needed three captures, not one
+Swapping the bot's `campaign: fleet` entry from **1-E → 2-E** needed `farmbot/templates/node_fleet_2-E.png`
+first (nav is template-matched; no template = that entry fails). Two things the original TODO missed:
+
+1. **The `_sel` crop is not optional here, it is the PRIMARY case.** `tasks.py` already tries
+   `node_<campaign>_<node>_sel` as an automatic `alt` — no config needed — and **2-E is chapter 2's
+   default selection**, so the map opens with it already glowing. The unselected crop alone would have
+   missed on nearly every run. Measured separation on live screens:
+
+   | screen | `node_fleet_2-E` | `node_fleet_2-E_sel` |
+   |---|---|---|
+   | 2-E selected (default view) | 0.458 | **1.000** |
+   | 2-E unselected (2-D selected) | **1.000** | 0.406 |
+
+   To capture the unselected variant, select a *neighbouring* node — the map re-centres on whatever is
+   selected, but template matching is position-independent, so only the node's own appearance matters.
+2. ⚠️ **`chapter_tab_2` did not exist.** `--doctor` reports it as *soft-missing (handled)*, which is
+   misleading here: the SELECT_CHAPTER step is `optional=True`, so a missing tab template means the bot
+   **silently never switches chapter** and then hunts for 2-E inside whatever chapter the map remembers.
+   Captured at **60×50 around the glyph only** (same crop size as `chapter_tab_8`). Counter-intuitive
+   result from a size sweep: *widening* the crop makes discrimination WORSE, because the tab frame is
+   identical across tabs and only the numeral differs — 60×50 scores tab 3 at 0.823, 130×62 at 0.846.
+   Tightest wins: std 36.4, tab 2 at 0.987–1.000 against 0.823 for the nearest other tab.
+   The glyph crop matches in BOTH selected and unselected states (TM_CCOEFF_NORMED subtracts the mean,
+   so the brightness change does not register). That is fine — re-tapping the current chapter is a no-op,
+   and it makes the step deterministic instead of state-dependent.
+
+### 2-D checked the same day, and it is NOT the better node
+2-D Jakku drops the **MG-100 StarFortress SF-17** ("Resilient Resistance Tank"), **58/85 — 27 blueprints
+from SIX stars**, plus Mk VI ×2, Mk VI ×2, Mk V ×2 for 20 energy. **No character shard slot at all.**
+This corrects the estimate above: the earlier "MG-100 … 185 shards away" was measuring the distance to
+7★. Since **operations gate ships at 7★**, six stars unlocks nothing, and MG-100 is ~127 blueprints from
+the tier that would pay. Raven's Claw at **77/100** is 23 away from the same prize. ⇒ 2-E stays the target.
+- Useful for today only: **the two nodes have independent 5-attempt counters.** When 2-E is spent, 2-D is
+  still open, which is the only place surplus fleet energy can go without a 💎25 refresh.
+- Reward icons have **no tooltip on long-press** — a plain *tap* opens the item detail card, which is what
+  prints `You Own: 58/85` and the promote-to-six-stars line.
 
 ## 2026-08-10 (night, 02:45) — the RELIC MATERIAL economy, decoded on device
 

@@ -129,10 +129,10 @@
       "kind": "energy_node",
       "campaign": "fleet",
       "difficulty": "hard",
-      "chapter": 1,
-      "node": "1-E",
+      "chapter": 2,
+      "node": "2-E",
       "sim": "max",
-      "for": "Fleet energy. FLAGGED: the 2026 research says 1-E drops Resistance X-wing, which Astra already has at 7 stars, and that 1-A (Captain Ithano) / 3-D (Quiggold) are accelerated 2-shard nodes for units still under 7 stars. Not yet device-confirmed, so the validated node stays until someone reads the reward icons on 1-A."
+      "for": "Fleet energy. Device-confirmed 2026-08-10 by reading the reward panels: 2-E 'Jakku' drops Kyle Katarn x2, Raven's Claw x1, Mk III x2, Mk VI x2 for 20 energy. It replaces 1-E, whose only shard slot was Resistance X-wing at 7 stars already — dead shards, and the sims bought nothing. Raven's Claw sits at 77/100 blueprints and 7 stars gates a RotE operations slot worth ~733,000 TP, which makes this the highest-value fleet node on the board. Measured drop rate ~1 blueprint per 5 sims (a 5x MULTI SIM returned 6x Kyle Katarn and 1x Raven's Claw), so ~24 days of daily 5-sims to 7 stars. Hard nodes cap at 5 attempts/day (5 x 20 = 100 energy) before a crystal refresh, so do NOT plan a 144-energy dump through this node alone. TWO node crops ship for it: the map keeps the last-played node SELECTED, and 2-E is the chapter's default selection, so the unselected crop alone would miss on almost every run — `node_fleet_2-E_sel` is the companion the engine tries automatically as an alt. Measured separation on live screens: 1.000/0.458 (selected) and 0.406/1.000 (unselected), either side of the 0.85 threshold. NOT 2-D, checked the same day: it drops the MG-100 StarFortress SF-17 at 58/85, which is 27 blueprints from SIX stars and ~127 from seven, and operations gate ships at seven — so 2-D buys nothing an ops slot can use, and it carries no character shard at all."
     },
     {
       "kind": "energy_node",
