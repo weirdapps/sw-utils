@@ -2541,3 +2541,34 @@ else; a potency-set mod with no speed secondary is free from its point of view. 
 is a serious loss, and even in the event it means the Bad Batch acts more often before Scorch can
 Entrench. If a future build needs both, the objective has to be multi-stat, not potency-only.
 Restore point: `output/potency_restore.json` → `potency_build.py --restore <path>`.
+
+### Tier I retried at 120.7 % potency — **still DEFEAT**, and the failure mode moved
+Attempt 2 (2026-08-10 ~15:10). Squad is fixed by the event: **CX-2 + Scorch + a loaned 5★ TK
+Stormtrooper**, 78,384 squad power, and all three are **"Event Unit" kits** — not the units' normal
+abilities, so any guide written about their live kits is only half-relevant.
+
+Kits as they actually appear (read via long-press in battle):
+| unit | ability | effect |
+|---|---|---|
+| TK Stormtrooper | *Rifle Blast* (basic) | damage + **target ALLY** dispels debuffs, Crit Avoidance Up, **cooldowns −1**, weakest ally recovers 20 % |
+| TK Stormtrooper | *Grenade Throw* (2t) | dispel all buffs + Physical damage to all enemies |
+| Scorch | *Entrenched* (4t) | **Taunt 2 turns**, recover 25 % HP/Prot, **5 stacks Bulwark** (+150 % Defense each) |
+| CX-2 | *Instruments of the Empire* (3t) | damage + **Disarm 2 turns, cannot be evaded or resisted** + Vulnerable |
+
+- ⭐ **Potency DID its job.** Off-Balance landed, debuff stacks built on the enemy team — the exact
+  thing that failed at 36 %. The stat was correctly diagnosed.
+- ⚠️ **But CX-2's Disarm "can't be evaded or resisted"** — so the single most important debuff in the
+  kit never needed potency at all. Worth knowing before paying for potency again.
+- ❌ **The team still lost, from a different cause:** the Bad Batch side stacks buffs relentlessly
+  (reached **▲10, ▲11, ▲16**) and counter-attacks, and my units were killed one by one until only a
+  stealthed CX-2 remained. Enemy health bars had barely moved.
+- ⇒ **Potency was necessary but NOT sufficient, and a potency-ONLY objective overshoots.** The build
+  paid **−81 speed on Scorch and −67 on CX-2**, plus 7K/26K health — in a fight decided by surviving an
+  enemy buff-snowball, that is trading away the very thing that was needed. A third attempt should
+  optimise potency **and** speed/survivability together, not potency alone.
+- Tactical notes for next time: `Grenade Throw`'s dispel is largely wasted — most enemy buffs render
+  with a **padlock (undispellable)**. Open with Entrenched, keep it on cooldown, and spend the
+  Stormtrooper's basic on **Scorch as the ally target** (it takes Entrenched from 4 turns to 3).
+
+**Mods restored 2026-08-10, task 55332, verified**: Scorch back to 36.00 % / 270 speed, CX-2 to
+37.46 % / 255, and all six donors to their original values. The GAC/TW wall is whole again.
