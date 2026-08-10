@@ -18,7 +18,7 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
 ## Player
 - **Astra** · ally **145357294** · GAC league **Kyber 3** (climbing to Kyber 2) · ~14M GP.
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
-- **Known gaps:** GL Hondo (squad — leads #1 3v3 wall), Profundity (fleet — #1 defensive fleet), Third Sister (non-GL wall).
+- **Known gaps:** Profundity (fleet — #1 defensive fleet), Third Sister (non-GL wall). *GL Hondo is NOT a gap — the "#1 3v3 wall" figure was all-league; it reads 3.5% in Kyber-D1 on S81.*
 
 ## Live board (Kyber, read from HotUtils GAC Planning — reconfirm each season)
 - **5v5:** 11 defense squads + 3 fleets. **3v3:** 15 defense squads + 3 fleets. Offense mirror-clears.

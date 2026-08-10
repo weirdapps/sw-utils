@@ -35,7 +35,10 @@ STEP6_T0602 = 20      # T06_02 per 6-dot tier-step (gates slicing)
 STEP6_T0506 = 10      # T05_06 per 6-dot tier-step (also consumes master binding)
 PROMO_T0506 = 76      # T05_06 per 5A->6E promote (binding; grounded 2026-07-27 diff)
 PROMO_PROMO = 27      # PROMO_T5_T6 per promote (grounded)
-MARGIN = 0.90         # only plan up to 90% of a binding material
+MARGIN = float(os.environ.get("HU_MARGIN", "0.90"))   # plan up to this share of a binding
+                      # material. 0.90 leaves slack so a mid-batch miscount cannot strand a
+                      # call; set HU_MARGIN=1 on a final sweep to spend the remainder, which
+                      # is safe because every call checks responseCode and stops on Error[40].
 
 
 def api(path, body):
@@ -58,22 +61,37 @@ def load():
             defense.update(sq["units"])
         for sq in gac[f]["offense"]:
             offense.update(sq["units"])
-    return d, nm, defense, offense
+    # Squad Arena outranks every GAC squad in the owner's stated ladder (arena pays a
+    # ranked reward EVERY day; GAC pays once a round), so its units eat first. Optional
+    # file — without it the plan degrades to the old GAC-only ordering rather than failing.
+    arena = set()
+    try:
+        a = json.load(open(os.path.join(ROOT, "output", "arena_result.json")))
+        arena.update(a.get("deployed") or [])
+        for sq in (a.get("defense") or []):
+            arena.update(sq["units"])
+        for sq in (a.get("climb", {}).get("squads") or []):
+            # climb squads are bare unit lists; defense squads are {"units": [...]}
+            arena.update(sq["units"] if isinstance(sq, dict) else sq)
+    except (OSError, KeyError, ValueError):
+        pass
+    return d, nm, defense, offense, frozenset(arena)
 
 
-def build_plan(d, nm, defense, offense):
+def build_plan(d, nm, defense, offense, arena=frozenset()):
     mats = d["mats"]
     mods = [m for m in d["mods"] if m["b"]]
     for m in mods:
-        m["imp"] = 0 if m["b"] in defense else (1 if m["b"] in offense else 2)
+        m["imp"] = (-1 if m["b"] in arena else
+                    0 if m["b"] in defense else (1 if m["b"] in offense else 2))
         m["name"] = nm.get(m["b"], m["b"])
 
     # --- SLICE plan (T06_02) ---
     t0602_budget = int(mats["T06_02"] * MARGIN)
     slice_plan, spent6 = [], 0
     # defense 6-dot not-6A, speed desc: finish fully to 6A
-    dfn = sorted([m for m in mods if m["imp"] == 0 and m["dots"] == 6 and m["tier"] < 5],
-                 key=lambda m: (-m["spd"], -m["tier"]))
+    dfn = sorted([m for m in mods if m["imp"] <= 0 and m["dots"] == 6 and m["tier"] < 5],
+                 key=lambda m: (m["imp"], -m["spd"], -m["tier"]))
     for m in dfn:
         steps = 5 - m["tier"]
         if spent6 + steps * STEP6_T0602 <= t0602_budget:
@@ -93,16 +111,16 @@ def build_plan(d, nm, defense, offense):
     t0506_used_by_slices = sum(steps for _, steps in slice_plan) * STEP6_T0506
     t0506_for_promotes = max(0, int(mats["T05_06"] * MARGIN) - t0506_used_by_slices)
     cap = min(t0506_for_promotes // PROMO_T0506, mats["PROMO_T5_T6"] // PROMO_PROMO)
-    da = sorted([m for m in mods if m["imp"] == 0 and m["dots"] == 5 and m["tier"] == 5],
-                key=lambda m: -m["spd"])
+    da = sorted([m for m in mods if m["imp"] <= 0 and m["dots"] == 5 and m["tier"] == 5],
+                key=lambda m: (m["imp"], -m["spd"]))
     promote_plan = da[:cap]
     return mats, slice_plan, promote_plan, spent6, len(promote_plan) * PROMO_T0506
 
 
 def main():
-    d, nm, defense, offense = load()
-    mats, slice_plan, promote_plan, spent6, spent506 = build_plan(d, nm, defense, offense)
-    role = lambda m: "DEF" if m["imp"] == 0 else "off"
+    d, nm, defense, offense, arena = load()
+    mats, slice_plan, promote_plan, spent6, spent506 = build_plan(d, nm, defense, offense, arena)
+    role = lambda m: "ARENA" if m["imp"] < 0 else ("DEF" if m["imp"] == 0 else "off")
 
     print("=== MATERIALS ===")
     print(f"T06_02={mats['T06_02']}  T05_06={mats['T05_06']}  PROMO={mats['PROMO_T5_T6']}  "
