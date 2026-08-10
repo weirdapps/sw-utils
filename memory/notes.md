@@ -2572,3 +2572,21 @@ Kits as they actually appear (read via long-press in battle):
 
 **Mods restored 2026-08-10, task 55332, verified**: Scorch back to 36.00 % / 270 speed, CX-2 to
 37.46 % / 255, and all six donors to their original values. The GAC/TW wall is whole again.
+
+#### Lead for attempt 3: the **Loaned Unit Era Level** calendar
+Spotted 2026-08-11 while sweeping the login calendars. There is a **"LOANED UNIT ERA LEVEL INCREASE
+CALENDAR"** (expires in 69d) whose reward reads *"Loaned Unit Era Level Increase ×N — This will
+increase your Loaned Units Era Level."* Days 1–14 are already claimed (1–5 per day); days 15–28 hand
+out 1–2 more each.
+
+Why this matters here: **one third of the Beset on All Sides squad is a loaned 5★ TK Stormtrooper**,
+and the fight was lost to a survivability gap, not a damage or potency gap. If this calendar's era
+level is what sets that loaned unit's power, it is a **free, no-mod-cost buff to the exact slot the
+account cannot otherwise improve** — and it accrues daily whether or not the event is attempted.
+
+⚠️ **Recorded as a hypothesis, not a measured fact.** What was observed is the calendar and its
+description; the link to the event's loaned Stormtrooper is inference. **Verify before planning
+around it:** re-enter the Tier I squad-select and read the loaned TK Stormtrooper's star/level/power,
+then compare against the 5★ seen on attempt 2 (squad power was 78,384 total). If the loaned unit has
+risen, the cheapest possible attempt 3 is simply *wait and re-run* — no mod moves, no donor risk,
+and therefore none of the −81/−67 speed cost that made attempt 2 worse where it mattered.
