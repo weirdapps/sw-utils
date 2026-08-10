@@ -2590,3 +2590,48 @@ around it:** re-enter the Tier I squad-select and read the loaned TK Stormtroope
 then compare against the 5★ seen on attempt 2 (squad power was 78,384 total). If the loaned unit has
 risen, the cheapest possible attempt 3 is simply *wait and re-run* — no mod moves, no donor risk,
 and therefore none of the −81/−67 speed cost that made attempt 2 worse where it mattered.
+
+## 2026-08-11 (01:00–01:25) — TW defense SET: all 15 walls on the board, front-loaded
+First time the computed **TW 5v5 - Defense** bank was actually pushed onto a live Territory War map
+(season #3 vs guild *Galatic Republic*, setup phase closing 2026-08-11 ~20:45 Athens).
+
+### The placement flow (in-game, no API path exists for this)
+TW map → tap a territory → panel (`<name> Fortification`, `X/39`, *Set Defense +30 Banners · Offense
+Win +6-20 · Conquer +840*) → **ENTER** → `PVP MISSION` allied-squad list → **SET DEFENSIVE SQUAD** →
+**SELECT SQUAD** → the *Inventory → Squads* browser opens on the last-used tab (`TW 5v5 - Defense`).
+Three traps, all hit live:
+- **Tap the squad's HEADER ROW, not a portrait.** A portrait tap opens that character's research page
+  (the browser is the real Inventory screen, not a picker).
+- **`RESTRICTED CHARACTERS` popup = the availability oracle.** "One or more of the characters in this
+  squad can not be used in this Battle" means ≥1 unit is already committed on this TW map. CONTINUE
+  loads only the free units — for an already-placed squad it loads **nothing** (Squad Power 0), which
+  is how D01 was identified as already down.
+- **SET is irreversible.** Verify all five slots + the leader-ability banner before pressing it.
+
+### ⭐ How to know what you already placed: STATS ÷ 30
+The rank badge top-left of the TW map (`#4`) opens **STATS → Total Banners**. During setup the only
+banner source is setting defense at +30/squad, so **own total ÷ 30 = squads placed**. Astra read 240
+on entry (8 squads from the 00:27–01:00 pass, i.e. D01–D08) and **450 on exit = 15/15**, which is the
+whole computed defense bank. That check is instant and beats scanning ten territories for your name.
+
+### What was placed where, and why front
+No per-player cap (confirmed again: guild members sit at 368/308/308 banners with no ceiling).
+**Guild chat carried no TW orders** — scrolled back 20h, activity feed only — so placement followed
+the guild's *revealed* pattern: the two territories ringed in orange nearest the enemy circle were
+also the most-filled (9/39 each vs 3–8 elsewhere). Those are the front line and the enemy must conquer
+them before the back opens, so squads there are the ones that actually get used.
+- **Trenches Fortification** (9→12/39): D09 Partagaz ISB, D10 Qui-Gon Jinn, D11 Jabba. D03 GL Rey was
+  already there from the earlier pass (panel's gold banner names the territory's headline squad).
+- **Forward Turrets Fortification** (10→14/39): D12 General Grievous, D13 Great Mothers, D14 Res Finn,
+  D15 Bad Batch.
+- Guild total 1,870 → 2,140 banners across the session; **Astra #4 → #1**.
+
+### Two deliberate non-actions
+- **No datacrons attached.** `ADD DATACRON` sits in every defensive squad slot and datacrons *do* apply
+  in TW, but they are single-use per war — spending them on the weakest half of the defense bank (D09
+  is 19% hold, D15 is 6%) beats nothing, while the same crons on offense convert into cleared
+  territories. Kept for the attack phase.
+- **Stopped at exactly 15.** The board has 390 defensive slots and no player cap, so "set top-down
+  until the map runs out" is tempting — but the 15 TW offense squads share no unit with these 15 by
+  construction, and a unit on defense **cannot attack**. Placing #16 would come straight out of the
+  attack phase. 15/15 is the plan, and it is now fully deployed.
