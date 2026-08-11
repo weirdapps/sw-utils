@@ -2247,11 +2247,43 @@ reward icons on 1-A."* All three panels below were read off the live client.
 - **Hard nodes are 5 attempts/day, then a 💎25 refresh** (declined). This caps how much of a big fleet pool
   one node can absorb: 5 × 20 = 100 energy. Do not plan a 144-energy dump through a single hard node.
 
-### Still TODO (not done — would change unattended behaviour)
-Swapping the bot's `campaign: fleet` entry from **1-E → 2-E** needs `farmbot/templates/node_fleet_2-E.png`
-first (nav is template-matched; no template = that entry fails). Note `node_dark_8-B` ships a separate
-`_sel` variant, so the crop must be taken with the node **unselected**. Config change without the capture
-will just halt that entry.
+### ~~Still TODO~~ — DONE 2026-08-10 13:20, and it needed three captures, not one
+Swapping the bot's `campaign: fleet` entry from **1-E → 2-E** needed `farmbot/templates/node_fleet_2-E.png`
+first (nav is template-matched; no template = that entry fails). Two things the original TODO missed:
+
+1. **The `_sel` crop is not optional here, it is the PRIMARY case.** `tasks.py` already tries
+   `node_<campaign>_<node>_sel` as an automatic `alt` — no config needed — and **2-E is chapter 2's
+   default selection**, so the map opens with it already glowing. The unselected crop alone would have
+   missed on nearly every run. Measured separation on live screens:
+
+   | screen | `node_fleet_2-E` | `node_fleet_2-E_sel` |
+   |---|---|---|
+   | 2-E selected (default view) | 0.458 | **1.000** |
+   | 2-E unselected (2-D selected) | **1.000** | 0.406 |
+
+   To capture the unselected variant, select a *neighbouring* node — the map re-centres on whatever is
+   selected, but template matching is position-independent, so only the node's own appearance matters.
+2. ⚠️ **`chapter_tab_2` did not exist.** `--doctor` reports it as *soft-missing (handled)*, which is
+   misleading here: the SELECT_CHAPTER step is `optional=True`, so a missing tab template means the bot
+   **silently never switches chapter** and then hunts for 2-E inside whatever chapter the map remembers.
+   Captured at **60×50 around the glyph only** (same crop size as `chapter_tab_8`). Counter-intuitive
+   result from a size sweep: *widening* the crop makes discrimination WORSE, because the tab frame is
+   identical across tabs and only the numeral differs — 60×50 scores tab 3 at 0.823, 130×62 at 0.846.
+   Tightest wins: std 36.4, tab 2 at 0.987–1.000 against 0.823 for the nearest other tab.
+   The glyph crop matches in BOTH selected and unselected states (TM_CCOEFF_NORMED subtracts the mean,
+   so the brightness change does not register). That is fine — re-tapping the current chapter is a no-op,
+   and it makes the step deterministic instead of state-dependent.
+
+### 2-D checked the same day, and it is NOT the better node
+2-D Jakku drops the **MG-100 StarFortress SF-17** ("Resilient Resistance Tank"), **58/85 — 27 blueprints
+from SIX stars**, plus Mk VI ×2, Mk VI ×2, Mk V ×2 for 20 energy. **No character shard slot at all.**
+This corrects the estimate above: the earlier "MG-100 … 185 shards away" was measuring the distance to
+7★. Since **operations gate ships at 7★**, six stars unlocks nothing, and MG-100 is ~127 blueprints from
+the tier that would pay. Raven's Claw at **77/100** is 23 away from the same prize. ⇒ 2-E stays the target.
+- Useful for today only: **the two nodes have independent 5-attempt counters.** When 2-E is spent, 2-D is
+  still open, which is the only place surplus fleet energy can go without a 💎25 refresh.
+- Reward icons have **no tooltip on long-press** — a plain *tap* opens the item detail card, which is what
+  prints `You Own: 58/85` and the promote-to-six-stars line.
 
 ## 2026-08-10 (night, 02:45) — the RELIC MATERIAL economy, decoded on device
 
@@ -2347,3 +2379,444 @@ From the Relic Amplifier, two backs land on the **roster/Inventory**; a third dr
 `tap 65 65` is the **SETTINGS gear**, not a back button. Close it at ~(1546, 240). The game also drifted
 to the **Squad Arena** screen unprompted between sessions — always screenshot before tapping, or a stray
 tap starts a battle.
+
+## 2026-08-10 (early morning, 03:53–04:45) — the Mace Windu Legendary, and why auto-battle cannot play it
+
+First attempt at **"Beset on all Sides"** (Jedi Master Mace Windu, Legendary) **Tier I**. **Lost.**
+The event sits in the **Journey Guide with no deadline**, so this costs nothing but time — but most of
+the hour went into diagnosing things that were never bugs, and that is what this section is for.
+
+### ⭐ Auto-battle does NOT drive Legendary events
+The top-left toggle turns green and the sim still waits for a manual ability tap **every single turn**.
+Budget for turn-by-turn driving. This is the exception to the standing "auto is fine" rule — auto is
+fine for Squad/Fleet Arena and for raids, and useless here.
+
+### ⭐ A battle that never advances is waiting for INPUT, not hung
+Idle animations keep playing and the pause menu still opens, so "UI responds but nothing happens" is
+**not** evidence of a crash. One force-restart was spent proving this — and the restart then hit an
+asset-load failure, costing a re-entry through the Journey Guide. `adb logcat` showed nothing either.
+Do not force-stop the client over a stalled sim.
+
+### ⭐ The CANCEL trap — abilities are two-step, and blind-cycling looks exactly like a freeze
+Tap ability → tap target. Some abilities fire immediately; others enter a targeting mode showing
+`Select an ally.` / `Select an enemy.` **The selected ability's own slot becomes CANCEL.** So cycling
+the ability positions blind just selects-then-cancels forever, which is visually identical to a hang.
+Always resolve the target before tapping another slot.
+- Valid targets in targeting mode carry green `»` `«` chevrons beside their health bars.
+- **Ability bar is right-aligned at y=985:** three abilities → x = 1245 / 1545 / 1845; two abilities →
+  x = 1645 / 1845. Rightmost is usually the strongest special.
+- **Long-press to read a tooltip:** `adb shell input swipe X Y X Y 1000`. Fastest way to learn an
+  unfamiliar loaned or event unit's kit in context. Tap empty ground (~300, 900) to dismiss tooltips
+  and the unit-info panel.
+- Retreat is free: gear (65, 65) → RETREAT (955, 715) → YES (713, 771).
+
+### Two "rendering bugs" that turned out to be mechanics
+- **Dithered / stippled semi-transparent figures are Stealthed units**, not broken models. They render
+  as flat grey silhouettes and read as a texture-loading failure at first glance.
+- The **dark silhouettes are the civilian markers** for the tier objective, not unloaded assets.
+
+### The objective IS the fight — Scorch Entrenched is the counter
+Tier I is not a damage race: the win condition is **preventing the Bad Batch rescue**. That makes
+**Scorch's Entrenched (taunt + Bulwark)** the mechanic that matters, with CX-2's Disarm behind it.
+
+### ⭐ Why it was lost: potency, measured
+Scorch **36.0 %** and CX-2 **37.5 %**, against a community target of ~90–100 % for this tier. The
+debuffs the plan depends on — Scorch's DoTs and Off-Balance, CX-2's Disarm — simply do not land.
+
+**The root cause is modding, not relics.** Both are already 7★ G13 R7, well past the event's R5 floor:
+
+| unit | baseId | current mods | cross primary | potency |
+|---|---|---|---|---|
+| RC-1262 "Scorch" | `SCORCH` | **4× Defense set** + crit-chance + tenacity | Defense % | **36.0 %** |
+| CX-2 | `OPERATIVE` | **6× Health set** | Health % | **37.5 %** |
+
+Scorch does not carry **one** potency secondary. Neither unit has ever been modded for the stat.
+
+**Inventory is not the constraint** (read off the 02:10 dump, 2,330 mods):
+**184 potency-set mods** (178 at level 15), **26 unassigned** · **74 potency-primary crosses**
+(only slot 7 can carry one), **7 unassigned**.
+
+### The other two gating units are already fine
+All four event units are owned and above the R5 floor, so nothing here needs farming:
+Depa Billaba (`DEPABILLABA`) 7★ G13 R6 at **70.1 %** potency, Temple Guard
+(`VANGUARDTEMPLEGUARD`) 7★ G13 R6 at **42.9 %**.
+
+### ⚠️ Do not reach for a full Grandivory re-run to fix two characters
+Measured 2026-08-08: ~1,473 mod moves, **−7.4M credits**, global set-value change inside the noise
+(±0.12 %). Use a restricted selection with **`lockUnselectedCharacters: true`** instead.
+The cost to weigh: `SCORCH` and `OPERATIVE` are both in **5v5 defense squad #3** and **TW defense #3**
+(Lord Vader / Appo / Disguised Clone Trooper / CX-2 / Scorch), so a potency build degrades a live wall
+until the mods go back.
+
+The payoff is not a collection trophy: **`JEDIMASTERMACEWINDU` appears three times in the `gaps` lists
+of `data/board_result.json`** (5v5 offense, 3v3 defense, 3v3 offense). The board planner already wants
+him.
+
+⇒ **The retry is a modding job, not a farming job.**
+
+### ⭐ The potency arithmetic, measured off the dump (`scripts/potency_build.py`)
+
+    stats.potency = baseStats[17]×100 + Σ(mod potency)/100 + 15 × completed_potency_sets
+
+- **`statValueDecimal` for a PERCENTAGE stat is the percentage ×100.** Flat stats use ×10000 —
+  speed reads `140000` for +14. Counting the wrong stat id would report +1400pp and look like a win.
+- **A completed potency set is 2 mods and worth exactly +15.00pp.** Measured across seven units;
+  PAO wears four and reads **+30.01pp**. Only slot **7 (cross)** can carry a potency PRIMARY —
+  all 74 potency-primary mods in the inventory are slot 7.
+- Verified end to end: CX-2 `baseStats 0.34 + statEffects 0.03457 = 37.46`, and his mods carry
+  potency secondaries `162 + 183 = 3.45pp`. Mace Windu `0.46 + 0.45604 = 91.60`, where his mods give
+  30.60pp and the missing **15.00 is exactly one set bonus**.
+- ⇒ Restricting a potency build to set-7 mods in all six slots is not a simplification, it is
+  optimal: swapping in an off-set mod breaks a pair and forfeits 15pp, and no secondary roll in
+  this inventory pays that back.
+
+### ⚠️⚠️ Two donor-safety traps, both of which silently under-protect
+The solver's whole risk is handing out a mod off a squad that is actually in use. Both traps below
+produced a confident, wrong "no squads touched" before being caught:
+
+1. **Ships take no mods — expand fleets to their CREW.** `MAUL` holds the roster's **only 6-dot
+   30pp potency cross** and crews `SITHINFILTRATOR` in `Fleet - Arena`. A protected set built from
+   the literal ids in `board_result.json` contains the SHIP, not Maul, so the solver offered his
+   cross as free. Expand through `data/ship_crew.json`. (Same class of error as the earlier
+   "rank the CREW" invest_plan bug — it has now bitten twice.)
+2. **A baseId can start with a DIGIT.** `4LOM` and `50RT` are real ids, and **4LOM flies on 5v5
+   defense**. An id pattern anchored `^[A-Z]` drops him. Allowing a leading digit also swallows the
+   board's formatted counts (`"29K"`, `"120K"`), so intersect with the real roster — exact, where a
+   pattern is only ever a guess.
+
+### Result: both units clear the bar without touching a single live squad
+| unit | now | projected | slots | sets |
+|---|---|---|---|---|
+| `SCORCH` | 36.0 % | **120.7 %** | 6/6 | 3 |
+| `OPERATIVE` | 37.5 % | **113.8 %** | 6/6 | 3 |
+
+Donors — **HOTHLEIA, MOTHERTALZIN, OLDBENKENOBI, PAO, TEEBO, ZAMWESELL** — appear in no board,
+arena or fleet-crew squad. 296 units are protected out of 397; the donor pool is still 832 mods,
+381 of them unassigned, so the constraint never bound.
+⚠️ What DOES change is **5v5 defense #3 / TW defense #3** — Scorch and CX-2 are in it and we are
+re-modding *them*, trading their Defense/Health sets for potency. That is unavoidable and is the
+real cost of the attempt; plan to restore before the next GAC lock.
+
+### ⭐⭐ `mods/equip` — the direct mod-move API (no Grandivory, no browser automation)
+Grandivory cannot be driven end-to-end: character cards only accept genuine HTML5 drag-and-drop, so
+**adding a character to the selection is not automatable** (see the earlier GI section). That blocks the
+documented route whenever the units you want are not already selected. The direct API sidesteps it, and
+it is *better*: an exact loadout instead of an optimiser's heuristics.
+
+Discovered by fetching HotUtils' own JS bundle from a logged-in page and reading the call sites —
+`document.querySelectorAll("script[src]")` → `fetch` → search for `mods/`. That listing is itself worth
+keeping: `mods/equip`, `mods/unequip`, `mods/batch`, `mods/reveal`, `mods/lock`, `mods/unlock`,
+`mods/set/get`, `mods/set/savebaseline`, plus a `mods/task/<op>` async twin for each.
+
+```
+POST mods/task/equip   {sessionId, units:[{id:<unit UUID>, modIds:[<mod UUID> …]}],
+                        getAllData:true, simulation:false}     -> {taskId, responseCode:1}
+POST mods/equip        same body, synchronous
+```
+- **`id` is the unit's UUID, NOT its baseId** (`units.units[i].id`), and `modIds` are mod UUIDs. Shape
+  read from `backupCurrentBaseline`, which builds `{id: e.id, modIds: e.mods.map(m => m.id)}`.
+- Specify **all six slots**; then it does not matter whether the server reads `modIds` as "the desired
+  loadout" or as "mods to equip", because both give the same end state.
+- Un-equipping from the donor is automatic — no separate `mods/unequip` call is needed.
+
+**⚠️ The no-op probe is the safe way to validate the payload before writing anything.** Re-equip a unit's
+CURRENT mods: the server computes an empty diff and refuses, so a correct payload *cannot* change
+anything, while a wrong one fails loudly. Two things to know:
+- The live server answers an empty diff with **`responseCode 2` / `errorMessage "No mod actions to
+  perform!"`** — NOT the `"TASK SKIPPED"` string the shipped bundle branches on. Guarding on the
+  bundle's string alone rejects a payload the server understood perfectly (cost one aborted run).
+- **A bogus UNIT id is reported precisely** (`Unit '<id>' not found on player`) — which is what proves the
+  server really resolved your key. A bogus MOD id is *silently ignored*, so it is not a useful probe.
+
+**Applied 2026-08-10 13:05, task 55247, verified against a fresh `account/data/all`:**
+
+| unit | potency | health | protection | **speed** |
+|---|---|---|---|---|
+| `SCORCH` | 36.00 → **120.68 %** | 71,152 → 64,002 | 115,473 → 92,441 | 270 → **189** |
+| `OPERATIVE` | 37.46 → **113.77 %** | 87,056 → 61,259 | 67,382 → 80,064 | 255 → **188** |
+
+Projection vs measured agreed to **0.02pp**, which validates the arithmetic model above end to end.
+⚠️ **The unpriced cost is SPEED: −81 and −67.** The solver maximises potency and is blind to everything
+else; a potency-set mod with no speed secondary is free from its point of view. For a GAC/TW wall that
+is a serious loss, and even in the event it means the Bad Batch acts more often before Scorch can
+Entrench. If a future build needs both, the objective has to be multi-stat, not potency-only.
+Restore point: `output/potency_restore.json` → `potency_build.py --restore <path>`.
+
+### Tier I retried at 120.7 % potency — **still DEFEAT**, and the failure mode moved
+Attempt 2 (2026-08-10 ~15:10). Squad is fixed by the event: **CX-2 + Scorch + a loaned 5★ TK
+Stormtrooper**, 78,384 squad power, and all three are **"Event Unit" kits** — not the units' normal
+abilities, so any guide written about their live kits is only half-relevant.
+
+Kits as they actually appear (read via long-press in battle):
+| unit | ability | effect |
+|---|---|---|
+| TK Stormtrooper | *Rifle Blast* (basic) | damage + **target ALLY** dispels debuffs, Crit Avoidance Up, **cooldowns −1**, weakest ally recovers 20 % |
+| TK Stormtrooper | *Grenade Throw* (2t) | dispel all buffs + Physical damage to all enemies |
+| Scorch | *Entrenched* (4t) | **Taunt 2 turns**, recover 25 % HP/Prot, **5 stacks Bulwark** (+150 % Defense each) |
+| CX-2 | *Instruments of the Empire* (3t) | damage + **Disarm 2 turns, cannot be evaded or resisted** + Vulnerable |
+
+- ⭐ **Potency DID its job.** Off-Balance landed, debuff stacks built on the enemy team — the exact
+  thing that failed at 36 %. The stat was correctly diagnosed.
+- ⚠️ **But CX-2's Disarm "can't be evaded or resisted"** — so the single most important debuff in the
+  kit never needed potency at all. Worth knowing before paying for potency again.
+- ❌ **The team still lost, from a different cause:** the Bad Batch side stacks buffs relentlessly
+  (reached **▲10, ▲11, ▲16**) and counter-attacks, and my units were killed one by one until only a
+  stealthed CX-2 remained. Enemy health bars had barely moved.
+- ⇒ **Potency was necessary but NOT sufficient, and a potency-ONLY objective overshoots.** The build
+  paid **−81 speed on Scorch and −67 on CX-2**, plus 7K/26K health — in a fight decided by surviving an
+  enemy buff-snowball, that is trading away the very thing that was needed. A third attempt should
+  optimise potency **and** speed/survivability together, not potency alone.
+- Tactical notes for next time: `Grenade Throw`'s dispel is largely wasted — most enemy buffs render
+  with a **padlock (undispellable)**. Open with Entrenched, keep it on cooldown, and spend the
+  Stormtrooper's basic on **Scorch as the ally target** (it takes Entrenched from 4 turns to 3).
+
+**Mods restored 2026-08-10, task 55332, verified**: Scorch back to 36.00 % / 270 speed, CX-2 to
+37.46 % / 255, and all six donors to their original values. The GAC/TW wall is whole again.
+
+#### Lead for attempt 3: the **Loaned Unit Era Level** calendar
+Spotted 2026-08-11 while sweeping the login calendars. There is a **"LOANED UNIT ERA LEVEL INCREASE
+CALENDAR"** (expires in 69d) whose reward reads *"Loaned Unit Era Level Increase ×N — This will
+increase your Loaned Units Era Level."* Days 1–14 are already claimed (1–5 per day); days 15–28 hand
+out 1–2 more each.
+
+Why this matters here: **one third of the Beset on All Sides squad is a loaned 5★ TK Stormtrooper**,
+and the fight was lost to a survivability gap, not a damage or potency gap. If this calendar's era
+level is what sets that loaned unit's power, it is a **free, no-mod-cost buff to the exact slot the
+account cannot otherwise improve** — and it accrues daily whether or not the event is attempted.
+
+⚠️ **Recorded as a hypothesis, not a measured fact.** What was observed is the calendar and its
+description; the link to the event's loaned Stormtrooper is inference. **Verify before planning
+around it:** re-enter the Tier I squad-select and read the loaned TK Stormtrooper's star/level/power,
+then compare against the 5★ seen on attempt 2 (squad power was 78,384 total). If the loaned unit has
+risen, the cheapest possible attempt 3 is simply *wait and re-run* — no mod moves, no donor risk,
+and therefore none of the −81/−67 speed cost that made attempt 2 worse where it mattered.
+
+## 2026-08-11 (01:00–01:25) — TW defense SET: all 15 walls on the board, front-loaded
+First time the computed **TW 5v5 - Defense** bank was actually pushed onto a live Territory War map
+(season #3 vs guild *Galatic Republic*, setup phase closing 2026-08-11 ~20:45 Athens).
+
+### The placement flow (in-game, no API path exists for this)
+TW map → tap a territory → panel (`<name> Fortification`, `X/39`, *Set Defense +30 Banners · Offense
+Win +6-20 · Conquer +840*) → **ENTER** → `PVP MISSION` allied-squad list → **SET DEFENSIVE SQUAD** →
+**SELECT SQUAD** → the *Inventory → Squads* browser opens on the last-used tab (`TW 5v5 - Defense`).
+Three traps, all hit live:
+- **Tap the squad's HEADER ROW, not a portrait.** A portrait tap opens that character's research page
+  (the browser is the real Inventory screen, not a picker).
+- **`RESTRICTED CHARACTERS` popup = the availability oracle.** "One or more of the characters in this
+  squad can not be used in this Battle" means ≥1 unit is already committed on this TW map. CONTINUE
+  loads only the free units — for an already-placed squad it loads **nothing** (Squad Power 0), which
+  is how D01 was identified as already down.
+- **SET is irreversible.** Verify all five slots + the leader-ability banner before pressing it.
+
+### ⭐ How to know what you already placed: STATS ÷ 30
+The rank badge top-left of the TW map (`#4`) opens **STATS → Total Banners**. During setup the only
+banner source is setting defense at +30/squad, so **own total ÷ 30 = squads placed**. Astra read 240
+on entry (8 squads from the 00:27–01:00 pass, i.e. D01–D08) and **450 on exit = 15/15**, which is the
+whole computed defense bank. That check is instant and beats scanning ten territories for your name.
+
+### What was placed where, and why front
+> ⚠️ **The placement rule stated in this subsection is HALF RIGHT and was applied backwards later
+> the same night — read "TW PLACEMENT DOCTRINE" at the end of this file before placing anything.**
+> "The front is where squads actually get used" is true. What does not follow is that the *weakest*
+> half of the bank belongs there: D09–D15 (19% down to 6% hold) went to the front line while
+> stronger walls sat behind them. Front slots are the scarcest thing on the map and must hold the
+> STRONGEST squads.
+
+No per-player cap (confirmed again: guild members sit at 368/308/308 banners with no ceiling).
+**Guild chat carried no TW orders** — scrolled back 20h, activity feed only — so placement followed
+the guild's *revealed* pattern: the two territories ringed in orange nearest the enemy circle were
+also the most-filled (9/39 each vs 3–8 elsewhere). Those are the front line and the enemy must conquer
+them before the back opens, so squads there are the ones that actually get used.
+- **Trenches Fortification** (9→12/39): D09 Partagaz ISB, D10 Qui-Gon Jinn, D11 Jabba. D03 GL Rey was
+  already there from the earlier pass (panel's gold banner names the territory's headline squad).
+- **Forward Turrets Fortification** (10→14/39): D12 General Grievous, D13 Great Mothers, D14 Res Finn,
+  D15 Bad Batch.
+- Guild total 1,870 → 2,140 banners across the session; **Astra #4 → #1**.
+
+### Two deliberate non-actions
+- **No datacrons attached.** `ADD DATACRON` sits in every defensive squad slot and datacrons *do* apply
+  in TW, but they are single-use per war — spending them on the weakest half of the defense bank (D09
+  is 19% hold, D15 is 6%) beats nothing, while the same crons on offense convert into cleared
+  territories. Kept for the attack phase.
+- **Stopped at exactly 15.** The board has 390 defensive slots and no player cap, so "set top-down
+  until the map runs out" is tempting — but the 15 TW offense squads share no unit with these 15 by
+  construction, and a unit on defense **cannot attack**. Placing #16 would come straight out of the
+  attack phase. 15/15 is the plan, and it is now fully deployed.
+
+## 2026-08-11 (03:20–05:00) — TW: 450 → 1,314 banners. The 15-squad cap was wrong, and the fleet territory was hidden
+Owner asked to "add more competitive defense squads and fleets in TW to get over 1000 points". Same war
+(season #3 vs *Galatic Republic*, setup closing ~20:45 Athens). Ended at **1,314 banners, guild #1** —
+the runner-up is 380. Final: **37 character squads (×30) + 6 fleets (×34)**.
+
+### ⭐ The banner economy, read off the territory panel (this is the whole game)
+`Set Defense +30 Banners · Offense Win +6-20 · Conquer +840`, and **`6000 Power Minimum`** per squad —
+a G13 squad is ~150,000, so the minimum never binds. Two consequences the last session got wrong:
+- **Defense pays MORE per squad than offense** (30 flat and guaranteed, vs ≤20 and only if you win).
+  A wall is not a sacrifice, it is the higher-paying use of a unit that would otherwise idle.
+- **A FLEET pays +34, not +30.** That is why other players' totals are not divisible by 30
+  (368 = 10×30 + 2×34, 308 = 8×30 + 2×34). Fleets are the best banner-per-slot on the board.
+
+### ⭐ "Stop at 15" was wrong — and the reason is a DATA limit, not a roster limit
+The previous entry stopped at 15 to protect the attack phase. But the 15 TW offense squads only use 70
+units, and Astra has **171 idle G13 characters** on top of both banks. The real ceiling was the source:
+`/gac/squads/` is a **top-100-by-usage** table, 82 of which Astra can field, and after the board solve
+takes its cut only **4** unit-disjoint lineups remain. Lowering `MIN_SEEN` to 0 adds exactly one.
+**`scripts/tw_wall.py`** fixes this with a second, coarser-but-still-grounded tier:
+- TIER 1 — the 4 leftover lineup-table walls.
+- TIER 2 — **leader-level**: swgoh.gg's defense tier list ranks 100 leaders and **45 of them are idle**
+  here. Leader order comes from the tier list; the 4 allies come from swgoh.gg's own category tags,
+  **rarity-weighted** so a shared "Phoenix" (7 units) beats a shared "Rebel" (52). Nothing is hand-picked.
+That yields **22 more squads** (110 units, verified disjoint from both banks), still leaving 60 idle.
+Attack-only GLs stay off the wall (`ATTACK_ONLY_GLS`) — JMK reads 2.7% hold in Kyber-D1 and is worth
+far more attacking. Same doctrine applied to fleets: **Leviathan / Executor / Negotiator held back**.
+
+### ⭐ AIRSPACE FORTIFICATION is the fleet territory — and the HUD hides it
+Ten territories, all named `<x> Fortification`; nine are ground. The tenth is **Airspace**, and on the
+zoomed-out map its `n/39` label sits **behind the "Setup Phase: 16h38m" HUD text**, so it reads as an
+unlabelled shield. That is why the previous session concluded there were no fleets. Entering it, the
+header changes to **`Set Defensive Fleet (+34 Banners per Fleet)`**.
+
+### The placement flow, and the four gates that stop a script
+No API exists: **HotUtils' whole `/tw/*` section (Current, Planning, Scouting) is Patreon
+Habanero-gated** and Astra is Chile, so `TW_DEFENSE` in `apiRights` is not reachable. Drive the device.
+- **Squads** — `scripts/tw_place.py`. `SET DEFENSIVE SQUAD → SELECT SQUAD → tap header row → SET`.
+- **Fleets** — `scripts/tw_fleet.py`. `SET DEFENSIVE FLEET → SELECT YOUR CAPITAL SHIP → any capital →
+  SELECT FLEET → tap header → SET`. ⭐ **The preset OVERRIDES the capital you picked in the modal**, so
+  the modal choice is throwaway. Fleet presets can't be pushed by API (combatType 2 rejected) but the
+  **`Fleets > Main` tab already holds 9 hand-built lineups** — Leviathan, Executor, Negotiator,
+  Executrix, Finalizer, Endurance, Home One, Raddus, Malevolence (no Chimaera).
+- **Gate 1 — `REMEMBER TO SAVE UNITS`** ("units do not refresh") appears once enough of the roster is
+  committed; it did NOT show for the first four placements. Its SET just continues.
+- **Gate 2 — `Max Capacity Reached`** at **39/39**. The cap is GUILD-wide and first-come, not per
+  player: Forward Turrets went 20→39 during the run with guildmates filling it too. Move territory.
+- **Gate 3 — "attempting to set a squad on defense that is not full"** for a short lineup (Malevolence
+  is a 6-ship meta lineup). **OK only DISMISSES — you must press SET again** to actually set.
+- **Gate 4 — pushing presets kicks the game client.** `squads/game/set` while the client is open
+  raises **`CONNECTION LOST` — "another device has logged into this account"**. Push first, then RELOAD.
+
+### Automation gotchas worth keeping
+- **`/tmp` is sandboxed away from the Bash tool** — tesseract reported "image file not found" for files
+  Python had just written there. Scratch goes to `~/Downloads/…` (or `output/`).
+- **tesseract reads nothing off this UI raw**: crop → 2× → `point(p>thresh)` to hard black-on-white.
+  Thresholds differ per element (140 for list rows, 170 for the white screen titles).
+- ⭐ **Match list rows by NAME, never by the `Wnn` prefix.** The squad icon left of the name OCRs as a
+  digit, so `W21` comes back as `W221`; a number-based seek reads that as "overshot" and oscillates
+  until it gives up. `wall_order()` matches the normalised lead name instead.
+- Screenshot taken mid-scroll OCRs to nothing — retry the read before deciding to scroll again.
+- The first tap on a freshly drawn screen intermittently does not register. Drive by **reacting to what
+  is on screen** (`open_fleet_builder`), not by assuming a fixed tap sequence.
+- **Verify with STATS ÷ banner value**, not by counting taps: `own total = 30·squads + 34·fleets`.
+
+### State left for the attack phase
+- Placed: **Forward Turrets 39/39** (D12-D15 + W01-W18), **Trenches** (D09-D11, D03, W19-W22),
+  **Airspace 19/39** (6 fleets: Malevolence, Raddus, Home One, Endurance, Finalizer, Executrix).
+- Held back deliberately: the **15 TW offense squads**, **60 idle G13 characters**, the **3 offense
+  fleets** (Leviathan/Executor/Negotiator), and **all datacrons** (still unattached — single-use per
+  war, worth more converting a territory than propping a 4%-hold wall).
+
+## 2026-08-11 (05:00) — ⭐ TW PLACEMENT DOCTRINE (researched after getting it backwards)
+Owner: *"you placed the teams in the wrong areas… we should follow the meta in TW team placement."*
+Correct. Both passes this night front-loaded the WEAKEST squads. This section is the rule; it
+overrides every earlier "why front" paragraph in this file.
+
+### The three mechanics the rule follows from (first-party + community, sourced below)
+1. **The front gates the map.** "Territories behind the front territory will not be available to
+   attack until a front territory is defeated." A front territory that holds means the enemy never
+   reaches anything behind it.
+2. **Back-row conquest pays the ATTACKER double** (base +450, doubled for back row; this map's panel
+   shows +840). So the deep territories are the expensive ones to lose — but they are only reachable
+   *through* the front.
+3. **Attrition runs one way.** Units do not refresh. Whoever attacks the front spends their best
+   squads there; whatever reaches the back is leftovers. A merely annoying wall holds against
+   leftovers, and would be wasted absorbing a fresh top squad at the front.
+
+### ⭐ THE RULE
+**Strongest squads in the FRONT territories, progressively weaker toward the BACK. Filler NEVER
+takes a front-line slot.** The 39-slot cap is GUILD-wide and first-come, so a front slot spent on a
+2%-hold wall is a slot no guildmate can spend on a real one — the cost is guild-wide, not personal.
+Secondary rules that survived the research:
+- **Mix factions across territories.** Opponents scout the front before choosing a route; a
+  one-faction zone tells them exactly what to bring.
+- **Prefer AI-friendly kits on defense** (heals, taunt, TM control, revive, AoE that strips banners)
+  over kits that need manual play, and **keep specific counters for offense** — they are worth more
+  breaking their wall than sitting on ours.
+- Fleets: the same front/back logic, in the single **Airspace** territory.
+
+### How this map reads (blue = ours on the LEFT, enemy circle on the RIGHT)
+Distance from the enemy circle is the front/back axis — rightmost is FRONT:
+- **FRONT** (rightmost, both ringed orange): **Trenches** · **Forward Turrets**
+- **MID**: Airspace (the fleet territory) · and the middle column
+- **BACK** (leftmost): **Special Ops Center** · **Infirmary** · the rest of the left column
+
+### What actually happened, and what it cost
+W01–W18 (4.0% down to 1.6% hold) went into **Forward Turrets and filled it to 39/39**, and W19–W22
+(3.2%–1.0%) into **Trenches**. That is the exact inverse of the rule, and it burned the map's most
+valuable real estate on its cheapest squads — Forward Turrets is now closed to every guildmate.
+**SET IS IRREVERSIBLE** ("You will not be able to edit the squad after it is set"), so it stands for
+this war. The correction applied: the tier-3 filler **W23–W28 went to Special Ops Center (back)**,
+11→18/39. Final **1,494 banners** = 43 squads ×30 + 6 fleets ×34, guild #1.
+
+### For the next war, in order
+1. Compute the bank (`tw_wall.py`) — it is already ranked by hold%, so the list order IS the
+   placement order.
+2. Place **W01 downward into the FRONT** territories until they are full, then continue into the
+   mid column, and only put the unranked tier-3 filler in the BACK.
+3. The graded 15 from `build_board.py` outrank everything in the wall — **D01 (42%) belongs at the
+   front, not D15 (6%)**. Sort the two banks together before placing.
+4. Datacrons still stay off defense (single-use, worth more converting a territory).
+
+Sources: [swgoh.wiki Territory War](https://swgoh.wiki/wiki/Territory_War) ·
+[Gaming-Fans TW defensive teams](https://gaming-fans.com/star-wars-goh/swgoh-guides/swgoh-101-territory-wars-guide/swgoh-101-territory-wars-guide-defensive-teams/)
+
+---
+
+## 2026-08-11 — Era events are Era-Level/relic gated, and the Riposte quest was never stalled
+
+### "Gain Riposte 15 times" — the counter counts BUFF-GAINS, not battles
+Three sessions read the counter as stuck. It was not: it read **13/15 → 14/15 → 15/15**, one gain per
+battle that had a real Riposte granter on the field. The trap is that several owned units *look* like
+Riposte sources and are not:
+- **Count these:** Count Dooku (G13 R7/R8), Taron Malicos, Shin Hati — they grant the actual **Riposte** buff.
+- **Do NOT count:** Ezra Exile / Mission Vao (LS counter-attack appliers, not Riposte) and **Cal Kestis**
+  (his Riposte-flavoured buff does not register for the quest).
+
+Recipe that closes it: **DS Battles 8-H (Starkiller Base), 10 energy, any squad containing Dooku, auto+4X.**
++1 per battle regardless of how fast the fight ends — the "overkill prevents the cast, shorten the squad"
+theory was wrong and cost several wasted runs. Claim gives 5,000 Episode XP.
+
+Two gotchas on that node's squad screen:
+- The saved squad had **Jabba the Hutt (a "large unit")**. `BATTLE` routes to **Borrow a Hero** first, and
+  a squad may not hold **both an ally and a large unit** — it raises *Large Unit and Ally Combination Error*
+  at start. Drop the borrowed ally (or Jabba), not both.
+- `GO` on the quest card is useless here: it jumps to **Light Side** 1-A, which cannot host a Dark Side
+  Riposte squad.
+
+### Era Challenge (Mara Jade) — you fight it with LOANED units, not your roster
+`SELECT EVENT SQUAD` hands you Mace Windu / Barriss Offee / Kit Fisto **all at Era Level 40** plus the
+mission unit **Mara Jade at EL 43**, one slot locked by "slot restrictions". **Astra's 14.4M GP is
+irrelevant to this event** — that is why R7–R10 characters never show up and why the tier losses are not a
+tactics problem. Feats are pure EL checks:
+- Tier I: EL 23 ✅ / 29 ✅ / 35 ✅ / **45 ⬜** · Tier II: **EL 50 ⬜** (enemies EL 50).
+- Third Tier II attempt this session: **DEFEAT**, all three enemies untouched.
+
+**The only lever is the `LOANED UNIT ERA LEVEL INCREASE CALENDAR`** (Inbox → Daily Login Rewards). Day 14
+(+1) claimed; **Day 15 is +2 — exactly the 43→45 needed for Tier I's last feat** — but it unlocks at daily
+reset, and the event expires *before* that. Timing is the whole story: check calendar-day vs event-expiry
+before spending attempts on an EL-gated feat.
+
+### Call Answered Era Battle — a relic-depth wall
+Tiers **I–III are 3/3 complete**. Tiers IV–VII are open and 0/3 but the *Allowed* list is only
+**Colonel Ward / Snowtrooper Commander / Grogu & Anzellans**, held at **R4/R4/R5**. Tier VIII states the
+real bar outright: *Rotta the Hutt at R10 and the other three at R9*. Victory counts are **NOT SHARED**
+between tiers. Nothing here is winnable without relic investment in three units that exist only for this
+event line.
+
+### Mara Jade Character Quests are shard-gated, not objective-gated
+Every objective is already finished (`Defense Down 10/10`, `250K/250K damage`, …) and every `CLAIM` is
+greyed with **"Requires 165 Shards" / "170 Shards"** against **140/330 held**. `GET SHARDS` is the
+1,299-crystal path. Free drip: **August login calendar Days 14/17/21/26 = 12/14/16/18 shards.** So the
+first claim unlocks around Day 17, not by playing.
+
+### Kessel Run rewards need the website
+Inbox "Unclaimed Kessel Run Rewards (From Capital Games)" is **not claimable in-game** — "Visit the Website
+to claim them", 29d 13h left. Needs a browser login, so it stays a manual/user step.

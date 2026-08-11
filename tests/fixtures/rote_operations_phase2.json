@@ -1,0 +1,96 @@
+{
+ "phase": 2,
+ "captured": "2026-08-05",
+ "note": "Shape of a scraped data/rote/operations_<phase>.json. Modelled on the real phase-2 board (Geonosis DS / Felucia Mixed / Bracca LS) with the measured Felucia Op1 14/15 situation intact: it needed exactly one unit Astra owned (Kylo Ren Unmasked, R6) and was worth 11,000,000 TP. slots_filled is the GUILD-WIDE badge; `filled` marks which specific slots are gone.",
+ "areas": [
+  {
+   "planet": "Felucia",
+   "operation": 1,
+   "slots_total": 15,
+   "slots_filled": 14,
+   "slots": [
+    {"unit": "KYLORENUNMASKED", "filled": false, "gate": {"relic": 6}}
+   ]
+  },
+  {
+   "planet": "Felucia",
+   "operation": 2,
+   "slots_total": 15,
+   "slots_filled": 11,
+   "slots": [
+    {"unit": "KYLORENUNMASKED", "filled": false, "gate": {"relic": 6}},
+    {"unit": "KELLERANBEQ", "filled": false, "gate": {"relic": 6}},
+    {"unit": "BARRISSOFFEE", "filled": false, "gate": {"relic": 6}},
+    {"unit": "HERMITYODA", "filled": false, "gate": {"relic": 6}}
+   ]
+  },
+  {
+   "planet": "Felucia",
+   "operation": 4,
+   "slots_total": 15,
+   "slots_filled": 13,
+   "slots": [
+    {"unit": "PLOKOON", "filled": false, "gate": {"relic": 6}},
+    {"unit": "THIRDSISTER", "filled": false, "gate": {"relic": 6}}
+   ]
+  },
+  {
+   "planet": "Geonosis",
+   "operation": 2,
+   "slots_total": 15,
+   "slots_filled": 9,
+   "slots": [
+    {"unit": "CASSIANANDOR", "filled": false, "gate": {"relic": 6}},
+    {"unit": "BARRISSOFFEE", "filled": false, "gate": {"relic": 6}},
+    {"unit": "POGGLETHELESSER", "filled": false, "gate": {"relic": 6}},
+    {"unit": "GEONOSIANSPY", "filled": false, "gate": {"relic": 6}},
+    {"unit": "SUNFAC", "filled": false, "gate": {"relic": 7}},
+    {"unit": "GLHONDO", "filled": false, "gate": {"relic": 6}}
+   ]
+  },
+  {
+   "planet": "Geonosis",
+   "operation": 6,
+   "slots_total": 15,
+   "slots_filled": 0,
+   "slots": [
+    {"unit": "GENERALKENOBI", "filled": false, "gate": {"relic": 6}},
+    {"unit": "ADMIRALRADDUS", "filled": false, "gate": {"relic": 6}},
+    {"unit": "GENERALHUX", "filled": false, "gate": {"relic": 6}},
+    {"unit": "COMMANDERAHSOKA", "filled": false, "gate": {"relic": 6}},
+    {"unit": "ADMIRALPIETT", "filled": false, "gate": {"relic": 6}},
+    {"unit": "BAYLANSKOLL", "filled": false, "gate": {"relic": 6}},
+    {"unit": "FULCRUMAHSOKA", "filled": false, "gate": {"relic": 6}},
+    {"unit": "NUTEGUNRAY", "filled": false, "gate": {"relic": 6}},
+    {"unit": "TUSKENRAIDER", "filled": false, "gate": {"relic": 6}},
+    {"unit": "CLONEWARSCHEWBACCA", "filled": false, "gate": {"relic": 6}},
+    {"unit": "PAZVIZSLA", "filled": false, "gate": {"relic": 6}},
+    {"unit": "HANSOLO", "filled": false, "gate": {"relic": 6}},
+    {"unit": "THIRDSISTER", "filled": false, "gate": {"relic": 6}},
+    {"unit": "GLHONDO", "filled": false, "gate": {"relic": 6}},
+    {"unit": "SCOURGE", "filled": false, "gate": {"relic": 6}}
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "operation": 3,
+   "slots_total": 15,
+   "slots_filled": 12,
+   "slots": [
+    {"unit": "MARAUDER", "filled": false, "gate": {"stars": 7}},
+    {"unit": "SITHINFILTRATOR", "filled": false, "gate": {"stars": 7}},
+    {"unit": "MG100STARFORTRESSSF17", "filled": false, "gate": {"stars": 7}}
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "operation": 5,
+   "slots_total": 15,
+   "slots_filled": 15,
+   "slots": [
+    {"unit": "GENERALKENOBI", "filled": true, "gate": {"relic": 6}},
+    {"unit": "CASSIANANDOR", "filled": true, "gate": {"relic": 6}}
+   ]
+  }
+ ]
+}

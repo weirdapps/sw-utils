@@ -26,6 +26,7 @@ import json
 import os
 import sys
 import time
+import unicodedata
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,6 +44,8 @@ CATEGORY_TO_TAB = [("GAC 5v5 - Defense", "GAC 5v5 - Defense"),
                    ("GAC 3v3 - Offense", "GAC 3v3 - Offense"),
                    ("TW 5v5 - Defense", "TW 5v5 - Defense"),
                    ("TW 5v5 - Offense", "TW 5v5 - Offense")]
+
+WALL_TAB = "TW 5v5 - Wall"
 
 
 def api(path, body, sid, tries=4):
@@ -89,19 +92,45 @@ def build():
     return out
 
 
+def build_wall(limit=None):
+    """The tw_wall.py overflow bank as its own tab, one tap per +30 banners.
+
+    Kept out of CATEGORY_TO_TAB because it has a different provenance (see
+    tw_wall.py) and a different life: it is rebuilt per war, not per season.
+    """
+    src = json.load(open(os.path.join(ROOT, "output", "tw_wall.json")))
+    wall = src["wall"][:limit] if limit else src["wall"]
+    squads = [{"name": ascii_name(f"W{i:02d} {s['lead_name']}"),
+               "unitBaseIds": s["units"]}
+              for i, s in enumerate(wall, 1)]
+    return [{"tab": WALL_TAB, "squads": squads}] if squads else []
+
+
+def ascii_name(s):
+    """NAME_MAX is enforced on the server and the server is not known to be
+    unicode-safe, so fold accents and drop quotes before truncating: 'Padme',
+    not 'Padmé', and CC-2224 without the nickname quotes."""
+    flat = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+    return "".join(c for c in flat if c not in '"\'')[:NAME_MAX].rstrip()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--push", action="store_true")
     ap.add_argument("--delete-tab", action="append", default=[],
                     help="tab NAME to remove (e.g. a stale duplicate)")
+    ap.add_argument("--wall", action="store_true",
+                    help="push output/tw_wall.json as the %r tab INSTEAD of the "
+                         "season board (the board tabs are already in-game)" % WALL_TAB)
+    ap.add_argument("--wall-limit", type=int, default=None)
     a = ap.parse_args()
 
     sid = os.environ.get("HU_SID")
     if not sid:
         sys.exit("set HU_SID to a live HotUtils session id")
 
-    plan = build()
+    plan = build_wall(a.wall_limit) if a.wall else build()
     live = api("squads/game/get", {}, sid)
     by_name = {t["name"]: t for t in live.get("tabs", [])}
     print("live tabs: " + ", ".join(

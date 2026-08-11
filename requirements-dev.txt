@@ -1,0 +1,17 @@
+# Dev / CI environment.
+#
+# farmbot/requirements.txt is the RUNTIME contract for the device bot (vision +
+# capture). Everything below is what the analysis scripts and the test suite need on
+# top of it. Floors only, matching the style of farmbot/requirements.txt — this repo
+# tracks upstream and a ceiling here would just go stale silently.
+#
+#   python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+#   .venv/bin/python -m pytest
+
+-r farmbot/requirements.txt
+
+# exact ILP for the board and RotE solvers (scipy.optimize.milp / HiGHS)
+scipy>=1.11
+
+pytest>=8.0
+pyflakes>=3.2

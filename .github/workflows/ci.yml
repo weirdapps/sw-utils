@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One run per ref. Superseded pushes are cancelled rather than billed.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # 3.14 is what the repo is developed against (.venv locally). scipy, numpy and
+      # pillow publish cp314 manylinux wheels; opencv-python-headless ships cp37-abi3,
+      # which covers it too — so nothing here builds from source.
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            farmbot/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      # Most of scripts/ has no test of its own (the device-driving and browser-driving
+      # entry points cannot be run headless), so a parse + undefined-name pass is the
+      # only thing standing between a typo and a live run against the game account.
+      - name: pyflakes
+        run: python -m pyflakes scripts farmbot tests
+
+      - name: pytest
+        run: python -m pytest -q

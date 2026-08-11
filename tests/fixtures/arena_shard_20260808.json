@@ -1,0 +1,43 @@
+{
+ "captured": "2026-08-08T13:00:00Z",
+ "mode": "squad",
+ "player_rank": 10,
+ "opponents": [
+  {
+   "rank": 1,
+   "name": "Shard Rival A",
+   "gp": 14800000,
+   "squad": ["GLLEIA", "ADMIRALRADDUS", "CAPTAINDROGAN", "JYNERSO", "R2D2_LEGENDARY"]
+  },
+  {
+   "rank": 2,
+   "name": "Shard Rival B",
+   "gp": 14200000,
+   "squad": ["STRANGER", "LUMINARAUNDULI", "MAULHATEFUELED", "STARKILLER", "VISASMARR"]
+  },
+  {
+   "rank": 4,
+   "name": "Shard Rival C",
+   "gp": 13100000,
+   "squad": ["THIRDSISTER", "FIFTHBROTHER", "GRANDINQUISITOR", "INQUISITORBARRISS", "SEVENTHSISTER"]
+  },
+  {
+   "rank": 7,
+   "name": "Shard Rival D",
+   "gp": 11900000,
+   "squad": ["LORDVADER", "APPO", "DISGUISEDCLONETROOPER", "OPERATIVE", "SCORCH"]
+  },
+  {
+   "rank": 9,
+   "name": "Shard Rival E",
+   "gp": 10400000,
+   "squad": ["BAYLANSKOLL", "DENGAR", "HONDO", "MARROK", "SHINHATI"]
+  },
+  {
+   "rank": 13,
+   "name": "Shard Rival F",
+   "gp": 9600000,
+   "squad": ["GLREY", "50RT", "BENSOLO", "CALKESTIS", "GENERALKENOBI"]
+  }
+ ]
+}

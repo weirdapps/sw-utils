@@ -1,0 +1,26 @@
+{
+ "STRANGER": [
+  {
+   "attacker": ["GLLEIA", "C3POCHEWBACCA", "CAPTAINDROGAN", "CAPTAINREX", "R2D2_LEGENDARY"],
+   "win": 0.72,
+   "n": 1840
+  },
+  {
+   "attacker": ["JEDIMASTERKENOBI", "AHSOKATANO", "COMMANDERAHSOKA", "MACEWINDU", "PADMEAMIDALA"],
+   "win": 0.41,
+   "n": 960
+  },
+  {
+   "attacker": ["SUPREMELEADERKYLOREN", "DARKREY", "FOSITHTROOPER", "GENERALHUX", "KYLORENUNMASKED"],
+   "win": 0.55,
+   "n": 12
+  }
+ ],
+ "LORDVADER": [
+  {
+   "attacker": ["SUPREMELEADERKYLOREN", "DARKREY", "FOSITHTROOPER", "GENERALHUX", "KYLORENUNMASKED"],
+   "win": 0.93,
+   "n": 2210
+  }
+ ]
+}

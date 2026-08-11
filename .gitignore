@@ -12,8 +12,10 @@ __pycache__/
 .env
 .venv/
 .pytest_cache/
-tests/fixtures/
 output/brief_*.html
+# OCR scratch frames — tw_place.py rewrites output/_ocr.png and output/_rows.png
+# on every single tesseract call, so tracking them is pure binary churn
+output/_*.png
 # farmbot runtime
 farmbot/halts/
 farmbot/config.json
