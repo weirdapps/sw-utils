@@ -2820,3 +2820,103 @@ first claim unlocks around Day 17, not by playing.
 ### Kessel Run rewards need the website
 Inbox "Unclaimed Kessel Run Rewards (From Capital Games)" is **not claimable in-game** — "Visit the Website
 to claim them", 29d 13h left. Needs a browser login, so it stays a manual/user step.
+
+## 2026-08-11 (19:20–20:00 UTC) — full mod pass: one ladder for three scripts, and calibration re-diagnosed
+Owner's ask: *"τρέξε όλα τα mods, κάνε όλα τα upgrades, και δες το optimal allocation πρώτα Arena, μετά
+Grand Arena, μετά Territory Battles και Territory Wars."* Session id captured via **Playwright MCP**, not
+chrome-devtools (see gotcha below).
+
+### ⭐ THE LADDER IS NOW ONE OBJECT, AND ALL THREE MOD SCRIPTS READ IT
+`invest_plan.py` already owned the priority ladder and wrote it to `output/invest_plan.json`
+(`mod_priority` = ordered baseIds). But `execute_upgrades.py`, `calibrate.py` and `slice_plan.py` each
+rebuilt their OWN defense/offense/other buckets out of `gac_result.json`. Two real faults, not cosmetics:
+- **TW units were invisible to all three** — they are not in `gac_result.json` at all.
+- **The Arena datacron five were ineligible for calibration.** Mob Enforcer / Greedo / Gamorrean Guard /
+  Cad Bane sit at ladder ranks 1–4 and pay a crystal reward EVERY day, and `calibrate.py` could not see
+  one of them. All three now key off `mod_priority`. Rank once, filter many times.
+
+### ⭐ TB moved ABOVE TW in the ladder (rung 8), per the owner's stated order — and it is INERT
+`ROTE_TIER` 11 -> 8, TW -> 9/10, GAC fleets -> 11. **This changed nothing today**: the rung needs
+`output/rote_plan.json`, which needs `data/rote/operations_<phase>.json` scraped off the device while a
+TB is running. Neither exists, so tier 8 is empty (`priority tiers:` prints no T8) and the live ordering
+is still Arena -> GAC -> TW. That is also why the swap was safe to make during a live TW.
+**To switch it on: capture the operation panels on device.** Until then, do not claim TB is being ranked.
+
+### ⭐⭐ A 6-DOT SLICE STEP IS A MULTI-MATERIAL BUNDLE, NOT ONE TIER'S SALVAGE
+Measured on a live before/after diff of ONE successful step (Cad Bane 6C->6B):
+**T06_01 ×10 + T06_02 ×20 + T06_03 ×10 + T05_05 ×10 + T05_06 ×10.**
+The old per-tier model in `execute_upgrades.py` ("step from tier t costs T06_0t") is WRONG — every step
+also eats the lower tiers. This is why the plan said "2 mods to 6A, affordable" and the server refused
+both: **T06_02 went 21 -> 1 on that single step**, and 20 is the per-step requirement.
+⇒ **T06_02 = 1 is the hard gate on ALL 6-dot slicing.** Nothing more is possible until Mod Battles farming.
+⚠️ `"Not enough player currency!"` does NOT name the material. The executor's `OUT [T06_04]` label was a
+guess from the step's tier and was wrong — the real shortage was T06_02. Diff, don't believe the label.
+
+### ⭐ 5-dot slicing: ~22 salvage per step, and it was the whole session's headroom
+512/499/514/535 of T05_01..04 bought **89 steps** and drained all four to 7/14/14/10 — so ~22–23 salvage
+per 5-dot step, roughly uniform across tiers (the old 10 estimate was 2× low). Credits −3,753,000 for 90
+steps. **15 mods reached 5A** (638 -> 653). They now strand: promotion needs 76 T05_06 and only 39 remain.
+
+### ⭐ ALL-OR-NOTHING beats greedy on the 6-dot phase
+The first rewrite let each mod climb as far as materials allowed, priority-first. That handed rank-1 Mob
+Enforcer a single 6E->6D step it could never finish and spent the scarcest material (T05_06) on a partial
+that still cannot be calibrated — 6A is the only tier calibration accepts. Committing only to runs that
+REACH 6A doubled the plan's output on identical materials: **95 -> 97 projected instead of 95 -> 96.**
+The 5-dot phase keeps the greedy walk on purpose — its four budgets are independent and abundant.
+
+### ⭐⭐ CALIBRATION WAS AIMED AT THE WRONG MODS FOR 18 ATTEMPTS
+Cumulative record is now **0 hits in 18 attempts** (0/10 before, 0/8 today). That is not bad luck, it is
+the metric. A reroll **re-samples** the secondary, so it regresses to the mean: a 6-dot speed roll lands
+in 3..6, i.e. **~4.5 expected per roll**. The old ranking used `headroom = rolls*6 - spd`, distance from
+the MAXIMUM — which preferentially selects **high-roll mods, and a high-roll mod is usually an already
+lucky one**. Every mod rerolled today sat at or above its expectation, so every attempt was negative-EV
+by construction, and all seven came back lower: 23->20, 24->19, 25->21, 19->14, 23->18, 18->12, 24->18.
+- New metric in `calibrate.py`: **`deficit = rolls * 4.5 - spd`**, and only reroll a positive deficit.
+- **Only 9 of the account's 76 eligible 6A mods have one.** Calibration is a much smaller lever than the
+  attenuator stock suggests — 164 attenuators went to 9 for zero gain.
+- Best remaining targets when attenuators are refarmed: Leia Organa spd19/5 rolls (deficit 3.5),
+  Fifth Brother spd11/3 (2.5), Threepio & Chewie spd21/5 (1.5), Visas Marr spd21/5 (1.5), 50R-T spd17/4 (1.0).
+
+### Session numbers (before -> after, `mod_score.py` either side)
+| | before | after |
+|---|---|---|
+| modScore | 2.84 | **2.85** |
+| plusSpeed | 16,672 | **16,682** |
+| speed15 / speed10 | 321 / 555 | 322 / 556 |
+| 6A / 6-dot | 95 / 145 | 95 / 145 |
+| 5A (equipped) | 638 | **653** |
+| credits | 144,911,832 | 141,158,832 |
+| attenuators | 164 | **9** |
+Sliced 89 5-dot steps + 1 6-dot step (Cad Bane 6C->6B). 0 promotes (T05_06 39 < 76). 0 calibration hits.
+
+### NO placement re-run — and this is the grounded answer to "optimal allocation"
+Every mod touched today was **already equipped on the right character**; slicing improves a mod IN PLACE,
+so nothing today implies a move. The live placement is still the 2026-08-08 apply, whose order was
+`datacron five -> climb -> fleet crew -> GAC` — i.e. **already the Arena-first ladder the owner just
+restated**. A Grandivory re-run costs ~1,473 moves / **~7.4M credits** and the best any ordering measured
+was **+0.12%**, inside the noise. ⇒ Placement is aligned; do not churn it. Revisit only when T06_02 and
+attenuators are refarmed enough to change the inventory, or when the TB rung goes live.
+
+### Gotcha: chrome-devtools MCP was NOT available this session — Playwright MCP works
+`browser_recipes.md` §4 says chrome-devtools for HotUtils. Only Playwright MCP was loaded. It works, with
+one difference: **its profile has no Discord session**, so `prompt=none` silent SSO bounces to the Discord
+login page and the OWNER must log in by hand once in the visible window. After that,
+`browser_network_requests` filtered to `api\.hotutils\.com` + `browser_network_request(part:"request-body")`
+yields the `sessionId` exactly like the DevTools panel did. `apiuserid` is unchanged and still stable.
+
+### The farm-then-spend loop is now one command (`scripts/mods_session.sh`)
+Owner's follow-up: *"keep what we need for when we farm and when we have mats available, use them."*
+- **`HU_SID=<live> ./scripts/mods_session.sh [--dry]`** — refresh ladder → pull → score → slice/promote →
+  calibrate → re-pull → **measured before/after delta table** → refreshed queue → next shopping list.
+  **Idempotent and self-limiting:** on an empty stock every executor stops on rc2 and nothing changes, so
+  it is safe to run after any farming trip without checking first. Validated live on an exhausted account
+  (0 steps, 0 spend, clean rc2 stop on calibrate, all deltas +0).
+- **`scripts/execute_upgrades.py --needs N`** — the shopping list. Sizes the ask for the next N mods in
+  ladder order IGNORING stock, then subtracts stock so the shortfall is explicit, with the farm source
+  next to each shortage. **For the next 20 (all ARENA rung): 979× T05_06 and 819× T06_02 short**, plus
+  373× T06_03 and 95× T05_05; PROMO (494), T06_01 (963) and credits are already ample.
+  ⇒ The farming target is unambiguous: **T06_02 and T05_06, Mod Battles Sector 9 / Guild Store /
+  Episode Shipments**, and Micro Attenuators from **Smuggler's Run 2 (Jabba)**.
+- Measured constant now encoded: **~41,700 credits per tier-step** (3,753,000 over 90 steps).
+- ⚠️ The T06_04 line is missing from the bundle because the one measured step was 6C->6B. Notes from
+  2026-07-27 say 6B->6A also draws ~15× T06_04, so the shopping list under-states that one item.
