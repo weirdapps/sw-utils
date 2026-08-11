@@ -33,7 +33,7 @@ Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — th
 
 1. **Refresh roster** → `data/roster/` (browser_recipes.md §1). Update `ROSTER_FILE` in compute_teams.py to the new filename.
 2. **Read live board counts** from HotUtils GAC Planning (browser_recipes.md §2). Update `BOARD` if changed.
-3. **Scrape swgoh.gg meta** → `data/meta/` (browser_recipes.md §3). 4 views: 5v5 def (JSON), 5v5 off, latest-3v3 def, latest-3v3 off (txt). Note the current season ids (even=5v5, odd=3v3).
+3. **Scrape swgoh.gg meta** → `data/meta/` via `python3 scripts/fetch_meta.py --season-5v5 <even> --season-3v3 <odd>`. Writes all 4 views automatically: 5v5 def (JSON), 5v5 off, latest-3v3 def, latest-3v3 off (txt). Seasons: even = 5v5, odd = 3v3. If Cloudflare hardens or the script fails, fall back to the manual recipe in browser_recipes.md §3.
 4. **Compute:** `python3 scripts/compute_teams.py` → `data/gac_result.json`.
 5. **Generate:** `python3 scripts/generate_hotutils.py` → `output/` (6 category JSONs + upload_payload.json + playbook.html). Review the FLEETS config in that script (owned ships, no-repeat).
 6. **Upload to HotUtils** (browser_recipes.md §4): capture session, delete old GAC squads, base64 the upload_payload.json, create all via `squads/upsert`. Verify categories.
