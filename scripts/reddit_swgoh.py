@@ -88,7 +88,7 @@ def match_entries(entries, units, name_map):
         display = (name_map.get(base_id) or {}).get("n")
         if not display:
             continue
-        patterns.append((base_id, re.compile(rf"\b{re.escape(display)}\b", re.IGNORECASE)))
+        patterns.append((base_id, re.compile(rf"(?<!\w){re.escape(display)}(?!\w)", re.IGNORECASE)))
 
     matched = []
     for entry in entries:
