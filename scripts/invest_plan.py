@@ -76,10 +76,8 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 #      3 after 1-2: a fleet cannot absorb the three biggest queues at all (see
 #      the fleet note below), so its rung only decides ability materials.
 #
-# 4-9  GRAND ARENA, then TERRITORY WAR. GAC before TW because GAC is solo and
-#      moves the player's OWN league (the repo's standing goal, Kyber 3 -> 2),
-#      while TW defensive slots come from a guild-wide first-come pool where one
-#      wall is one of ~150 and the result is not yours to determine.
+# 4-7  GRAND ARENA. Solo, and it moves the player's OWN league (the repo's
+#      standing goal, Kyber 3 -> 2), where a TW result is not yours to determine.
 #      DEFENSE before OFFENSE inside every mode, for the reason already recorded
 #      in board_config.py: defense is the side you cannot adapt. It is set once
 #      and then met by whoever turns up, so an under-invested wall gets found and
@@ -92,18 +90,28 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 #      because a 5-unit squad's rate depends on all five members while a 3v3
 #      squad leans on its leader, so a weak support costs more in 5v5.
 #
-# 10   GAC FLEETS, below TW. This looks wrong and is not: ships take NO mods, NO
+# 8    TERRITORY BATTLES (RotE) — operations first, then combat missions. Placed
+#      here by the owner's stated order on 2026-08-11: "Arena, then Grand Arena,
+#      then Territory Battles and Territory Wars". This MOVED TB up from 11, above
+#      TW, reversing the previous ladder. Its own gate is relic depth (operations
+#      demand "Relic 6+", i.e. rt >= 8), which the relic queue already serves for
+#      every unit that is also on a GAC board; TB-ONLY units are what this rung
+#      actually orders.
+#      ⚠️ CURRENTLY INERT: the rung needs output/rote_plan.json, which needs
+#      data/rote/operations_<phase>.json scraped off the device while a TB is
+#      running. Neither exists, so the rung contributes NO units and the swap
+#      against TW is a no-op today — which is also why it was safe to make
+#      mid-war. Capture the operation panels to switch it on.
+#
+# 9-10 TERRITORY WAR, below TB per the same stated order. TW defensive slots come
+#      from a guild-wide first-come pool where one wall is one of ~150.
+#
+# 11   GAC FLEETS, below TW. This looks wrong and is not: ships take NO mods, NO
 #      gear and NO relic materials, so the three heavy queues cannot touch them
 #      wherever they sit. The one lever they do have is star-ups (MG-100 5*,
 #      Raven's Claw 6*), which is shard farming — advisor.farm_priority's queue,
 #      not this one. Fleet ARENA is the exception and sits at 3, because it pays
 #      daily crystals.
-#
-# 11   RotE units — operations first, then combat missions. The player put Rise of
-#      the Empire third. Its own gate is relic depth (operations demand
-#      "Relic 6+", i.e. rt >= 8), which the relic queue already serves for every
-#      unit that is also on a GAC board; RotE-ONLY units are the ones this rung
-#      actually orders, and they eat last.
 #
 # 12   Everything else owned. Kept in the list on purpose: the insight above says
 #      the order is a GLOBAL ordering over units, so the tail has to exist for
@@ -130,15 +138,15 @@ BOARD_ROLES = (
     (5, ("5v5", "offense"), "GAC 5v5 offense"),
     (6, ("3v3", "defense"), "GAC 3v3 defense"),
     (7, ("3v3", "offense"), "GAC 3v3 offense"),
-    (8, ("tw", "defense"), "TW defense"),
-    (9, ("tw", "offense"), "TW offense"),
+    (9, ("tw", "defense"), "TW defense"),
+    (10, ("tw", "offense"), "TW offense"),
 )
 
 # board_result.json already carries the arena fleet as its own category, so when
 # output/arena_result.json is missing the tier-3 rung still fills itself.
 ARENA_FLEET_CATEGORY = "Fleet - Arena"
 ARENA_FLEET_TIER = 3
-GAC_FLEET_TIER = 10
+GAC_FLEET_TIER = 11
 
 # rote_ops.py's plan() writes {"operations", "missions", "deploy", ...}. "deploy" is
 # deliberately absent from this list: the deploy list IS the leftover roster, which
@@ -148,7 +156,7 @@ ROTE_SOURCES = (("operations", "RotE operations"),
                 ("missions", "RotE combat mission"),
                 ("assignments", "RotE operations"),
                 ("units", "RotE"))
-ROTE_TIER = 11
+ROTE_TIER = 8
 RESIDUAL_TIER = 12
 
 # Grandivory assigns mods to the characters you SELECT. Adding the ~180 residual
