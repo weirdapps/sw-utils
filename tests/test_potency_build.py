@@ -6,23 +6,32 @@ Grounded in measurements taken off the live HotUtils dump on 2026-08-10:
   * A completed potency set (2 mods, both level 15) is worth exactly +15.00pp —
     measured across seven units; PAO with four such mods reads +30.01pp.
 """
+import json
+import os
+
 import pytest
 
+import potency_build
 from potency_build import (
     POTENCY_SET_ID,
     POTENCY_STAT_ID,
     SET_BONUS_PP,
+    base_potency,
     best_loadout,
+    current_loadout,
     equip_payload,
+    equipped_on,
     is_noop_response,
+    main,
     potency_of,
     projected_potency,
     protected_units,
 )
 
 
-def _mod(primary=48, secondaries=(), set_id=1, slot=2, level=15, unit=None):
+def _mod(primary=48, secondaries=(), set_id=1, slot=2, level=15, unit=None, mod_id=None):
     return {
+        "id": mod_id,
         "setId": str(set_id),
         "slot": slot,
         "level": level,
@@ -240,3 +249,214 @@ class TestProjectedPotency:
     def test_six_potency_mods_pay_three_set_bonuses(self):
         loadout = {s: _mod(set_id=POTENCY_SET_ID, slot=s) for s in (2, 3, 4, 5, 6, 7)}
         assert projected_potency(36.0, loadout) == pytest.approx(36.0 + 45.0)
+
+
+class TestEquippedOn:
+    """`mod['unit']` is a DICT in the live dump, not a baseId string. Reading it as a
+    string makes every mod look unassigned, which would hand the whole roster's mods
+    out as 'free' and strip every board squad at once."""
+
+    def test_reads_the_baseid_out_of_the_unit_dict(self):
+        assert equipped_on(_mod(unit={"baseId": "PAO", "id": "u-pao"})) == "PAO"
+
+    def test_an_unassigned_mod_has_no_holder(self):
+        assert equipped_on(_mod(unit=None)) is None
+
+    def test_a_missing_unit_key_has_no_holder(self):
+        assert equipped_on({"slot": 2}) is None
+
+
+class TestBasePotency:
+    def test_baseStats_amount_is_a_fraction_scaled_to_points(self):
+        # CX-2's measured base: 0.34 -> 34.0pp.
+        unit = {"baseStats": [{"stat": 5, "amount": 255.0},
+                              {"stat": POTENCY_STAT_ID, "amount": 0.34}]}
+        assert base_potency(unit) == pytest.approx(34.0)
+
+    def test_a_unit_with_no_potency_entry_reads_zero(self):
+        assert base_potency({"baseStats": [{"stat": 5, "amount": 255.0}]}) == 0.0
+
+
+class TestCurrentLoadout:
+    """The restore point is built from this, so a miss here is an unrecoverable
+    loadout: whatever it fails to record is not put back by --restore."""
+
+    def test_only_this_units_mods_are_collected_keyed_by_slot(self):
+        mine2 = _mod(slot=2, mod_id="m-mine-2", unit={"baseId": "SCORCH"})
+        mine7 = _mod(slot=7, mod_id="m-mine-7", unit={"baseId": "SCORCH"})
+        theirs = _mod(slot=2, mod_id="m-theirs", unit={"baseId": "PAO"})
+        free = _mod(slot=3, mod_id="m-free", unit=None)
+        got = current_loadout({"baseId": "SCORCH"}, [mine2, theirs, free, mine7])
+        assert got == {2: mine2, 7: mine7}
+
+    def test_a_naked_unit_has_an_empty_loadout(self):
+        assert current_loadout({"baseId": "SCORCH"}, [_mod(unit={"baseId": "PAO"})]) == {}
+
+
+# --- the write path -----------------------------------------------------------------
+# `--apply` and `--restore` are the only two things in this repo that mutate a live
+# game account. Everything below drives main() end to end with the HTTP call replaced
+# by a recorder, and asserts on WHAT WOULD HAVE BEEN SENT.
+
+def _unit(base_id, uuid, potency=36.0, base=0.32):
+    return {"baseId": base_id, "id": uuid,
+            "stats": {"potency": potency},
+            "baseStats": [{"stat": POTENCY_STAT_ID, "amount": base}]}
+
+
+def _potency_mod(mod_id, slot, points, holder=None):
+    """A level-15 potency-set mod worth `points` pp, optionally worn by `holder`."""
+    return _mod(secondaries=((POTENCY_STAT_ID, int(points * 100)),),
+                set_id=POTENCY_SET_ID, slot=slot, mod_id=mod_id,
+                unit={"baseId": holder} if holder else None)
+
+
+@pytest.fixture
+def account(tmp_path, monkeypatch):
+    """A three-unit account: the target, a PROTECTED board unit wearing the single
+    best slot-2 mod, and an idle donor wearing a weaker one.
+
+    APPO is the trap. His mod is strictly the best in the slot, so any solver that
+    forgets the board hands it over — and that is the exact failure ("no squads
+    touched", while a live 5v5 defense squad is stripped) this script exists to avoid.
+    """
+    mods = [
+        _mod(slot=2, mod_id="m-scorch-old", unit={"baseId": "SCORCH"}),   # off-set
+        _potency_mod("m-appo-best", 2, 9.0, holder="APPO"),               # PROTECTED
+        _potency_mod("m-pao-ok", 2, 5.0, holder="PAO"),                   # takeable
+        _potency_mod("m-free", 3, 4.0),                                   # unassigned
+    ]
+    units = [_unit("SCORCH", "u-scorch"), _unit("APPO", "u-appo"), _unit("PAO", "u-pao")]
+
+    dump = tmp_path / "dump.json"
+    dump.write_text(json.dumps({"data": {
+        "summary": {"gameDataAgeUtc": "2026-08-10T09:00:00Z"},
+        "units": {"units": units},
+        "mods": {"mods": mods}}}))
+    board = tmp_path / "board.json"
+    board.write_text(json.dumps({"5v5": {"defense": [{"units": ["SCORCH", "APPO"]}]}}))
+
+    (tmp_path / "output").mkdir()
+    monkeypatch.chdir(tmp_path)          # main() writes output/potency_restore.json
+    monkeypatch.setenv("HU_SID", "sid-123")
+    monkeypatch.setenv("HU_UID", "uid-456")
+
+    calls = []
+
+    def record(replies):
+        def fake_api(path, body, sid, uid):
+            calls.append((path, body, sid, uid))
+            return replies[min(len(calls) - 1, len(replies) - 1)]
+        monkeypatch.setattr(potency_build, "api", fake_api)
+        return calls
+
+    return {"argv": ["--unit", "SCORCH", "--dump", str(dump), "--board", str(board),
+                     "--arena", str(tmp_path / "nope.json"),
+                     "--crew", str(tmp_path / "nope.json")],
+            "record": record, "calls": calls, "tmp": tmp_path}
+
+
+NOOP = {"responseCode": 2, "responseMessage": "ERROR",
+        "errorMessage": "No mod actions to perform!"}
+QUEUED = {"responseCode": 1, "taskId": 55247, "responseMessage": "OK"}
+UNRESOLVED = {"responseCode": 2, "responseMessage": "ERROR",
+              "errorMessage": "Unit 'u-scorch' not found on player"}
+
+
+class TestApplyIsInert:
+    def test_without_apply_nothing_is_sent(self, account):
+        calls = account["record"]([QUEUED])
+        assert main(account["argv"]) == 0
+        assert calls == []
+
+    def test_apply_without_a_session_id_refuses_to_run(self, account, monkeypatch):
+        """HU_SID rotates every session. An empty one must stop at argparse, not
+        reach the network with no credential."""
+        calls = account["record"]([QUEUED])
+        monkeypatch.delenv("HU_SID")
+        with pytest.raises(SystemExit) as exc:
+            main(account["argv"] + ["--apply"])
+        assert exc.value.code == 2
+        assert calls == []
+
+
+class TestApplyWritePath:
+    def test_a_failed_probe_aborts_before_the_real_write(self, account):
+        """The interlock: the shape check re-equips the target's CURRENT mods, which
+        the server must refuse as an empty diff. If it answers anything else the
+        payload shape is unproven, and NOTHING further may be sent."""
+        calls = account["record"]([UNRESOLVED])
+        assert main(account["argv"] + ["--apply"]) == 1
+        assert len(calls) == 1
+        assert calls[0][1]["units"] == [{"id": "u-scorch", "modIds": ["m-scorch-old"]}]
+
+    def test_a_confirmed_probe_is_followed_by_the_solved_loadout(self, account):
+        calls = account["record"]([NOOP, QUEUED])
+        assert main(account["argv"] + ["--apply"]) == 0
+        assert len(calls) == 2
+        path, body, sid, uid = calls[1]
+        assert path == "mods/task/equip"
+        assert body["units"] == [{"id": "u-scorch", "modIds": ["m-pao-ok", "m-free"]}]
+        assert body["simulation"] is False
+        assert (sid, uid) == ("sid-123", "uid-456")
+
+    def test_a_protected_board_units_mod_is_never_in_the_payload(self, account):
+        """m-appo-best is 9.00pp against m-pao-ok's 5.00pp, so it wins on merit and
+        loses on safety. APPO is on 5v5 defense."""
+        calls = account["record"]([NOOP, QUEUED])
+        main(account["argv"] + ["--apply"])
+        assert "m-appo-best" not in calls[1][1]["units"][0]["modIds"]
+
+    def test_a_rejected_write_is_a_non_zero_exit(self, account):
+        calls = account["record"]([NOOP, {"responseCode": 2, "errorMessage": "nope"}])
+        assert main(account["argv"] + ["--apply"]) == 1
+        assert len(calls) == 2
+
+    def test_the_restore_point_covers_the_target_and_every_donor(self, account):
+        """Written BEFORE the probe, and it must hold each touched unit's mods as they
+        were: SCORCH keeps his off-set square, PAO gets his slot-2 mod back."""
+        account["record"]([NOOP, QUEUED])
+        main(account["argv"] + ["--apply"])
+        saved = json.loads((account["tmp"] / "output" / "potency_restore.json").read_text())
+        assert saved["captured"] == "2026-08-10T09:00:00Z"
+        assert {u["id"]: u["modIds"] for u in saved["units"]} == {
+            "u-scorch": ["m-scorch-old"], "u-pao": ["m-pao-ok"]}
+
+    def test_the_restore_point_survives_a_write_that_was_never_sent(self, account):
+        """An aborted run still leaves a usable restore file — the mods it describes
+        are exactly the ones still equipped."""
+        account["record"]([UNRESOLVED])
+        main(account["argv"] + ["--apply"])
+        assert (account["tmp"] / "output" / "potency_restore.json").exists()
+
+
+class TestRestorePath:
+    def test_restore_replays_the_saved_units_verbatim(self, account):
+        saved = {"captured": "2026-08-10T09:00:00Z",
+                 "units": [{"id": "u-scorch", "modIds": ["m-scorch-old"]},
+                           {"id": "u-pao", "modIds": ["m-pao-ok"]}]}
+        path = account["tmp"] / "restore.json"
+        path.write_text(json.dumps(saved))
+        calls = account["record"]([QUEUED])
+
+        assert main(account["argv"] + ["--restore", str(path)]) == 0
+        assert len(calls) == 1
+        assert calls[0][0] == "mods/task/equip"
+        assert calls[0][1]["units"] == saved["units"]
+        assert calls[0][1]["simulation"] is False
+
+    def test_restore_does_not_solve_anything_first(self, account):
+        """--restore is a replay, not a re-solve: it must not consult the dump, so it
+        still works when the account has moved on."""
+        path = account["tmp"] / "restore.json"
+        path.write_text(json.dumps({"units": [{"id": "u-pao", "modIds": []}]}))
+        calls = account["record"]([QUEUED])
+        argv = ["--unit", "SCORCH", "--dump", os.devnull, "--restore", str(path)]
+        assert main(argv) == 0
+        assert len(calls) == 1
+
+    def test_a_rejected_restore_is_a_non_zero_exit(self, account):
+        path = account["tmp"] / "restore.json"
+        path.write_text(json.dumps({"units": []}))
+        account["record"]([{"responseCode": 2, "errorMessage": "session expired"}])
+        assert main(account["argv"] + ["--restore", str(path)]) == 1
