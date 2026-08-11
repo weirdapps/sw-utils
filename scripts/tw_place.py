@@ -184,7 +184,12 @@ def place_one(label, max_scrolls=12):
     title = screen_title()
     if 'SELECT' not in title:
         return False, f'{label}: stuck on {title!r} after SET DEFENSIVE SQUAD'
-    tap(*BTN_SELECT, wait=3.2)
+    for _ in range(3):                         # the tap that opens the browser
+        if 'INVENTORY' in screen_title():      # misfires often enough to matter
+            break
+        tap(*BTN_SELECT, wait=3.5)
+    else:
+        return False, f'{label}: squad browser would not open'
 
     want = [i for i, (lab, _) in enumerate(ORDER) if lab == label]
     if not want:

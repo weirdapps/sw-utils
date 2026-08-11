@@ -93,16 +93,35 @@ def affinity(lead_cats, ally_cats, size):
     return sum(1.0 / size.get(c, 1) for c in shared), shared
 
 
+def leader_candidates(used, chars, cmap, rates):
+    """Idle leaders to try, best-evidenced first.
+
+    TIER 2 is every leader swgoh.gg ranks on 5v5 defense, by hold%.
+    TIER 3 is the rest of the idle "Leader"-tagged roster by GP — no hold number
+    exists for them, so they are ordered by raw strength and used only as BACK-
+    line filler. A filler wall still banks the same flat +30 and still costs the
+    attacker a squad, but it must never take a front-line slot (see notes.md).
+    """
+    ranked = sorted((b for b in rates if b not in used and b in chars),
+                    key=lambda b: -rates[b]["all"])
+    out = [(b, rates[b]["name"], rates[b]["all"], rates[b]["kd1"],
+            rates[b]["battles"], "leader-tier-list") for b in ranked]
+    rest = [b for b in chars
+            if b not in used and b not in rates
+            and "Leader" in cmap.get(b, {}).get("cats", [])]
+    rest.sort(key=lambda b: -chars[b]["gp"])
+    out += [(b, cmap.get(b, {}).get("n", b), None, None, None, "unranked-leader")
+            for b in rest]
+    return out
+
+
 def build_wall(locked, chars, cmap, size, rates, ltable):
-    """Greedy: best ranked idle leader first, each takes its four best faction-mates."""
+    """Greedy: best idle leader first, each takes its four best faction-mates."""
     used = set(locked)
     squads = []
-    order = sorted((b for b in rates if b not in used and b in chars),
-                   key=lambda b: -rates[b]["all"])
-    for lead in order:
+    for lead, lead_name, rate, kd1, battles, source in leader_candidates(
+            used, chars, cmap, rates):
         if lead in used:
-            continue
-        if "Leader" not in cmap.get(lead, {}).get("cats", []):
             continue
         lead_cats = cmap[lead]["cats"]
         scored = []
@@ -121,19 +140,19 @@ def build_wall(locked, chars, cmap, size, rates, ltable):
         power = sum(chars[b]["gp"] for b in units)
         if power < POWER_MINIMUM:
             continue
-        _, note = la.ratio(ltable, rates[lead]["name"], "5v5")
+        _, note = la.ratio(ltable, lead_name, "5v5")
         squads.append({
             "lead": lead,
-            "lead_name": rates[lead]["name"],
-            "rate": rates[lead]["all"],
-            "kd1": rates[lead]["kd1"],
-            "battles": rates[lead]["battles"],
+            "lead_name": lead_name,
+            "rate": rate,
+            "kd1": kd1,
+            "battles": battles,
             "units": units,
             "names": [cmap.get(b, {}).get("n", b) for b in units],
             "power": power,
             "factions": sorted(set.intersection(*[set(a[3]) for a in allies]))
                         if allies else [],
-            "source": "leader-tier-list",
+            "source": source,
             "note": note,
         })
         used.update(units)
@@ -194,13 +213,17 @@ def main():
     need = max(0, -(-(args.target_banners - have) // BANNERS_PER_SQUAD))
 
     print(f"on the map: {placed} squads = {have} banners · target {args.target_banners}")
+    by_src = {}
+    for s in wall:
+        by_src[s["source"]] = by_src.get(s["source"], 0) + 1
     print(f"need {need} more squads; wall has {len(wall)} "
-          f"({len(tier1)} lineup-table + {len(tier2)} leader-tier-list)\n")
+          + " + ".join(f"{v} {k}" for k, v in by_src.items()) + "\n")
     for i, s in enumerate(wall, 1):
         flag = "<<" if i == need else "  "
         kd = f" kyber {s['kd1']}%" if s.get("kd1") is not None else ""
         nm = s.get("names") or s["units"]
-        print(f"W{i:02d} {flag} {s['rate']:5.1f}%{kd:14s} n={str(s['battles']):>7} "
+        rate = f"{s['rate']:5.1f}%" if s.get("rate") is not None else "    -"
+        print(f"W{i:02d} {flag} {rate}{kd:14s} n={str(s['battles']):>7} "
               f"[{s['source'][:7]}] {', '.join(nm)}")
         if s.get("note"):
             print(f"        {s['note']}")

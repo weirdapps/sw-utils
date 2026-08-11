@@ -2615,6 +2615,13 @@ on entry (8 squads from the 00:27–01:00 pass, i.e. D01–D08) and **450 on exi
 whole computed defense bank. That check is instant and beats scanning ten territories for your name.
 
 ### What was placed where, and why front
+> ⚠️ **The placement rule stated in this subsection is HALF RIGHT and was applied backwards later
+> the same night — read "TW PLACEMENT DOCTRINE" at the end of this file before placing anything.**
+> "The front is where squads actually get used" is true. What does not follow is that the *weakest*
+> half of the bank belongs there: D09–D15 (19% down to 6% hold) went to the front line while
+> stronger walls sat behind them. Front slots are the scarcest thing on the map and must hold the
+> STRONGEST squads.
+
 No per-player cap (confirmed again: guild members sit at 368/308/308 banners with no ceiling).
 **Guild chat carried no TW orders** — scrolled back 20h, activity feed only — so placement followed
 the guild's *revealed* pattern: the two territories ringed in orange nearest the enemy circle were
@@ -2706,3 +2713,57 @@ Habanero-gated** and Astra is Chile, so `TW_DEFENSE` in `apiRights` is not reach
 - Held back deliberately: the **15 TW offense squads**, **60 idle G13 characters**, the **3 offense
   fleets** (Leviathan/Executor/Negotiator), and **all datacrons** (still unattached — single-use per
   war, worth more converting a territory than propping a 4%-hold wall).
+
+## 2026-08-11 (05:00) — ⭐ TW PLACEMENT DOCTRINE (researched after getting it backwards)
+Owner: *"you placed the teams in the wrong areas… we should follow the meta in TW team placement."*
+Correct. Both passes this night front-loaded the WEAKEST squads. This section is the rule; it
+overrides every earlier "why front" paragraph in this file.
+
+### The three mechanics the rule follows from (first-party + community, sourced below)
+1. **The front gates the map.** "Territories behind the front territory will not be available to
+   attack until a front territory is defeated." A front territory that holds means the enemy never
+   reaches anything behind it.
+2. **Back-row conquest pays the ATTACKER double** (base +450, doubled for back row; this map's panel
+   shows +840). So the deep territories are the expensive ones to lose — but they are only reachable
+   *through* the front.
+3. **Attrition runs one way.** Units do not refresh. Whoever attacks the front spends their best
+   squads there; whatever reaches the back is leftovers. A merely annoying wall holds against
+   leftovers, and would be wasted absorbing a fresh top squad at the front.
+
+### ⭐ THE RULE
+**Strongest squads in the FRONT territories, progressively weaker toward the BACK. Filler NEVER
+takes a front-line slot.** The 39-slot cap is GUILD-wide and first-come, so a front slot spent on a
+2%-hold wall is a slot no guildmate can spend on a real one — the cost is guild-wide, not personal.
+Secondary rules that survived the research:
+- **Mix factions across territories.** Opponents scout the front before choosing a route; a
+  one-faction zone tells them exactly what to bring.
+- **Prefer AI-friendly kits on defense** (heals, taunt, TM control, revive, AoE that strips banners)
+  over kits that need manual play, and **keep specific counters for offense** — they are worth more
+  breaking their wall than sitting on ours.
+- Fleets: the same front/back logic, in the single **Airspace** territory.
+
+### How this map reads (blue = ours on the LEFT, enemy circle on the RIGHT)
+Distance from the enemy circle is the front/back axis — rightmost is FRONT:
+- **FRONT** (rightmost, both ringed orange): **Trenches** · **Forward Turrets**
+- **MID**: Airspace (the fleet territory) · and the middle column
+- **BACK** (leftmost): **Special Ops Center** · **Infirmary** · the rest of the left column
+
+### What actually happened, and what it cost
+W01–W18 (4.0% down to 1.6% hold) went into **Forward Turrets and filled it to 39/39**, and W19–W22
+(3.2%–1.0%) into **Trenches**. That is the exact inverse of the rule, and it burned the map's most
+valuable real estate on its cheapest squads — Forward Turrets is now closed to every guildmate.
+**SET IS IRREVERSIBLE** ("You will not be able to edit the squad after it is set"), so it stands for
+this war. The correction applied: the tier-3 filler **W23–W28 went to Special Ops Center (back)**,
+11→18/39. Final **1,494 banners** = 43 squads ×30 + 6 fleets ×34, guild #1.
+
+### For the next war, in order
+1. Compute the bank (`tw_wall.py`) — it is already ranked by hold%, so the list order IS the
+   placement order.
+2. Place **W01 downward into the FRONT** territories until they are full, then continue into the
+   mid column, and only put the unranked tier-3 filler in the BACK.
+3. The graded 15 from `build_board.py` outrank everything in the wall — **D01 (42%) belongs at the
+   front, not D15 (6%)**. Sort the two banks together before placing.
+4. Datacrons still stay off defense (single-use, worth more converting a territory).
+
+Sources: [swgoh.wiki Territory War](https://swgoh.wiki/wiki/Territory_War) ·
+[Gaming-Fans TW defensive teams](https://gaming-fans.com/star-wars-goh/swgoh-guides/swgoh-101-territory-wars-guide/swgoh-101-territory-wars-guide-defensive-teams/)
