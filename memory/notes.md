@@ -2635,3 +2635,74 @@ them before the back opens, so squads there are the ones that actually get used.
   until the map runs out" is tempting — but the 15 TW offense squads share no unit with these 15 by
   construction, and a unit on defense **cannot attack**. Placing #16 would come straight out of the
   attack phase. 15/15 is the plan, and it is now fully deployed.
+
+## 2026-08-11 (03:20–05:00) — TW: 450 → 1,314 banners. The 15-squad cap was wrong, and the fleet territory was hidden
+Owner asked to "add more competitive defense squads and fleets in TW to get over 1000 points". Same war
+(season #3 vs *Galatic Republic*, setup closing ~20:45 Athens). Ended at **1,314 banners, guild #1** —
+the runner-up is 380. Final: **37 character squads (×30) + 6 fleets (×34)**.
+
+### ⭐ The banner economy, read off the territory panel (this is the whole game)
+`Set Defense +30 Banners · Offense Win +6-20 · Conquer +840`, and **`6000 Power Minimum`** per squad —
+a G13 squad is ~150,000, so the minimum never binds. Two consequences the last session got wrong:
+- **Defense pays MORE per squad than offense** (30 flat and guaranteed, vs ≤20 and only if you win).
+  A wall is not a sacrifice, it is the higher-paying use of a unit that would otherwise idle.
+- **A FLEET pays +34, not +30.** That is why other players' totals are not divisible by 30
+  (368 = 10×30 + 2×34, 308 = 8×30 + 2×34). Fleets are the best banner-per-slot on the board.
+
+### ⭐ "Stop at 15" was wrong — and the reason is a DATA limit, not a roster limit
+The previous entry stopped at 15 to protect the attack phase. But the 15 TW offense squads only use 70
+units, and Astra has **171 idle G13 characters** on top of both banks. The real ceiling was the source:
+`/gac/squads/` is a **top-100-by-usage** table, 82 of which Astra can field, and after the board solve
+takes its cut only **4** unit-disjoint lineups remain. Lowering `MIN_SEEN` to 0 adds exactly one.
+**`scripts/tw_wall.py`** fixes this with a second, coarser-but-still-grounded tier:
+- TIER 1 — the 4 leftover lineup-table walls.
+- TIER 2 — **leader-level**: swgoh.gg's defense tier list ranks 100 leaders and **45 of them are idle**
+  here. Leader order comes from the tier list; the 4 allies come from swgoh.gg's own category tags,
+  **rarity-weighted** so a shared "Phoenix" (7 units) beats a shared "Rebel" (52). Nothing is hand-picked.
+That yields **22 more squads** (110 units, verified disjoint from both banks), still leaving 60 idle.
+Attack-only GLs stay off the wall (`ATTACK_ONLY_GLS`) — JMK reads 2.7% hold in Kyber-D1 and is worth
+far more attacking. Same doctrine applied to fleets: **Leviathan / Executor / Negotiator held back**.
+
+### ⭐ AIRSPACE FORTIFICATION is the fleet territory — and the HUD hides it
+Ten territories, all named `<x> Fortification`; nine are ground. The tenth is **Airspace**, and on the
+zoomed-out map its `n/39` label sits **behind the "Setup Phase: 16h38m" HUD text**, so it reads as an
+unlabelled shield. That is why the previous session concluded there were no fleets. Entering it, the
+header changes to **`Set Defensive Fleet (+34 Banners per Fleet)`**.
+
+### The placement flow, and the four gates that stop a script
+No API exists: **HotUtils' whole `/tw/*` section (Current, Planning, Scouting) is Patreon
+Habanero-gated** and Astra is Chile, so `TW_DEFENSE` in `apiRights` is not reachable. Drive the device.
+- **Squads** — `scripts/tw_place.py`. `SET DEFENSIVE SQUAD → SELECT SQUAD → tap header row → SET`.
+- **Fleets** — `scripts/tw_fleet.py`. `SET DEFENSIVE FLEET → SELECT YOUR CAPITAL SHIP → any capital →
+  SELECT FLEET → tap header → SET`. ⭐ **The preset OVERRIDES the capital you picked in the modal**, so
+  the modal choice is throwaway. Fleet presets can't be pushed by API (combatType 2 rejected) but the
+  **`Fleets > Main` tab already holds 9 hand-built lineups** — Leviathan, Executor, Negotiator,
+  Executrix, Finalizer, Endurance, Home One, Raddus, Malevolence (no Chimaera).
+- **Gate 1 — `REMEMBER TO SAVE UNITS`** ("units do not refresh") appears once enough of the roster is
+  committed; it did NOT show for the first four placements. Its SET just continues.
+- **Gate 2 — `Max Capacity Reached`** at **39/39**. The cap is GUILD-wide and first-come, not per
+  player: Forward Turrets went 20→39 during the run with guildmates filling it too. Move territory.
+- **Gate 3 — "attempting to set a squad on defense that is not full"** for a short lineup (Malevolence
+  is a 6-ship meta lineup). **OK only DISMISSES — you must press SET again** to actually set.
+- **Gate 4 — pushing presets kicks the game client.** `squads/game/set` while the client is open
+  raises **`CONNECTION LOST` — "another device has logged into this account"**. Push first, then RELOAD.
+
+### Automation gotchas worth keeping
+- **`/tmp` is sandboxed away from the Bash tool** — tesseract reported "image file not found" for files
+  Python had just written there. Scratch goes to `~/Downloads/…` (or `output/`).
+- **tesseract reads nothing off this UI raw**: crop → 2× → `point(p>thresh)` to hard black-on-white.
+  Thresholds differ per element (140 for list rows, 170 for the white screen titles).
+- ⭐ **Match list rows by NAME, never by the `Wnn` prefix.** The squad icon left of the name OCRs as a
+  digit, so `W21` comes back as `W221`; a number-based seek reads that as "overshot" and oscillates
+  until it gives up. `wall_order()` matches the normalised lead name instead.
+- Screenshot taken mid-scroll OCRs to nothing — retry the read before deciding to scroll again.
+- The first tap on a freshly drawn screen intermittently does not register. Drive by **reacting to what
+  is on screen** (`open_fleet_builder`), not by assuming a fixed tap sequence.
+- **Verify with STATS ÷ banner value**, not by counting taps: `own total = 30·squads + 34·fleets`.
+
+### State left for the attack phase
+- Placed: **Forward Turrets 39/39** (D12-D15 + W01-W18), **Trenches** (D09-D11, D03, W19-W22),
+  **Airspace 19/39** (6 fleets: Malevolence, Raddus, Home One, Endurance, Finalizer, Executrix).
+- Held back deliberately: the **15 TW offense squads**, **60 idle G13 characters**, the **3 offense
+  fleets** (Leviathan/Executor/Negotiator), and **all datacrons** (still unattached — single-use per
+  war, worth more converting a territory than propping a 4%-hold wall).
