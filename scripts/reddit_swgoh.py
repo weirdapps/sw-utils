@@ -10,6 +10,7 @@ Usage:  python3 scripts/reddit_swgoh.py
 """
 import html
 import time
+import urllib.error
 import urllib.request
 
 # defusedxml, not xml.etree: stdlib ElementTree does not expand external
