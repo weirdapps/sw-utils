@@ -1,0 +1,3187 @@
+{
+ "meta": {
+  "name": "Astra",
+  "allyCode": "145357294",
+  "pulled": "2026-08-01",
+  "count": 397,
+  "source": "comlink"
+ },
+ "units": [
+  {
+   "b": "MAGMATROOPER",
+   "n": "Magmatrooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "HERMITYODA",
+   "n": "Hermit Yoda",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ZUCKUSS",
+   "n": "Zuckuss",
+   "ct": 1,
+   "g": 11,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BARRISSOFFEE",
+   "n": "Barriss Offee",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MARAUDER",
+   "n": "Marauder",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "COLONELSTARCK",
+   "n": "Colonel Starck",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "VANGUARDTEMPLEGUARD",
+   "n": "Temple Guard",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "BB8",
+   "n": "BB-8",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "POGGLETHELESSER",
+   "n": "Poggle the Lesser",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "FIRSTORDERSPECIALFORCESPILOT",
+   "n": "First Order SF TIE Pilot",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GENERALKENOBI",
+   "n": "General Kenobi",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "JAWASCAVENGER",
+   "n": "Jawa Scavenger",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "L3_37",
+   "n": "L3-37",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DROIDEKA",
+   "n": "Droideka",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SITHINFILTRATOR",
+   "n": "Scimitar",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SITHTROOPER",
+   "n": "Sith Empire Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BADBATCHHUNTER",
+   "n": "Hunter",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "KYLOREN",
+   "n": "Kylo Ren",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DENGAR",
+   "n": "Dengar",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "ARC170REX",
+   "n": "Rex's ARC-170",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "TIEFIGHTERFIRSTORDER",
+   "n": "First Order TIE Fighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BOKATAN",
+   "n": "Bo-Katan Kryze",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MAGNAGUARD",
+   "n": "IG-100 MagnaGuard",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "COMEUPPANCE",
+   "n": "Comeuppance",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GEONOSIANSPY",
+   "n": "Geonosian Spy",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "XWINGRESISTANCE",
+   "n": "Resistance X-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BADBATCHOMEGA",
+   "n": "Omega",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "EIGHTHBROTHER",
+   "n": "Eighth Brother",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "TALIA",
+   "n": "Talia",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "ADMIRALRADDUS",
+   "n": "Admiral Raddus",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "NIGHTSISTERZOMBIE",
+   "n": "Nightsister Zombie",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "JEDISTARFIGHTERANAKIN",
+   "n": "Anakin's Eta-2 Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SABINEWRENS3",
+   "n": "Sabine Wren",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "YOUNGHAN",
+   "n": "Young Han Solo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "GLAHSOKATANO",
+   "n": "Ahsoka Tano",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "GENERALHUX",
+   "n": "General Hux",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "COMMANDERAHSOKA",
+   "n": "Commander Ahsoka Tano",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "GRANDMASTERLUKE",
+   "n": "Jedi Master Luke Skywalker",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "GOPHERANTS",
+   "n": "Grogu & Anzellans",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GREATMOTHERS",
+   "n": "Great Mothers",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ANAKINKNIGHT",
+   "n": "Jedi Knight Anakin",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ADMIRALPIETT",
+   "n": "Admiral Piett",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "BAYLANSKOLL",
+   "n": "Baylan Skoll",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "FULCRUMAHSOKA",
+   "n": "Ahsoka Tano (Fulcrum)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "DEDRAMEERO",
+   "n": "Dedra Meero",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "HUNTERS3",
+   "n": "Hunter (Mercenary)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "TIEBOMBERIMPERIAL",
+   "n": "Imperial TIE Bomber",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "NUTEGUNRAY",
+   "n": "Nute Gunray",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "DISGUISEDCLONETROOPER",
+   "n": "Disguised Clone Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SLAVE1",
+   "n": "Slave I",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "VEERS",
+   "n": "General Veers",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPITALLEVIATHAN",
+   "n": "Leviathan",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "PAO",
+   "n": "Pao",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DARTHTALON",
+   "n": "Darth Talon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "STORMTROOPERLUKE",
+   "n": "Stormtrooper Luke",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IG88",
+   "n": "IG-88",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "MILLENNIUMFALCONPRISTINE",
+   "n": "Lando's Millennium Falcon",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "EBONHAWK",
+   "n": "Ebon Hawk",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "REY",
+   "n": "Rey (Scavenger)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BLADEOFDORIN",
+   "n": "Plo Koon's Jedi Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "DARTHNIHILUS",
+   "n": "Darth Nihilus",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "BRUTUS",
+   "n": "Brutus",
+   "ct": 1,
+   "g": 7,
+   "r": 2,
+   "rt": null
+  },
+  {
+   "b": "MONMOTHMA",
+   "n": "Mon Mothma",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "RAZORCREST",
+   "n": "Razor Crest",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "PLOKOON",
+   "n": "Plo Koon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "LOGRAY",
+   "n": "Logray",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MG100STARFORTRESSSF17",
+   "n": "MG-100 StarFortress SF-17",
+   "ct": 2,
+   "g": 1,
+   "r": 5,
+   "rt": null
+  },
+  {
+   "b": "KELLERANBEQ",
+   "n": "Kelleran Beq",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "GEONOSIANSOLDIER",
+   "n": "Geonosian Soldier",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CARADUNE",
+   "n": "Cara Dune",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "VULTUREDROID",
+   "n": "Vulture Droid",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "RESISTANCETROOPER",
+   "n": "Resistance Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "TUSKENRAIDER",
+   "n": "Tusken Raider",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "DASHRENDAR",
+   "n": "Dash Rendar",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CASSIANANDOR",
+   "n": "Cassian Andor",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "MARROK",
+   "n": "Marrok",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BAZEMALBUS",
+   "n": "Baze Malbus",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CLONEWARSCHEWBACCA",
+   "n": "Clone Wars Chewbacca",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "COMMANDERLUKESKYWALKER",
+   "n": "Commander Luke Skywalker",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "UWINGROGUEONE",
+   "n": "Cassian's U-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "KYLORENUNMASKED",
+   "n": "Kylo Ren (Unmasked)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "PAZVIZSLA",
+   "n": "Paz Vizsla",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "YOUNGLANDO",
+   "n": "Young Lando Calrissian",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "VADERDUELSEND",
+   "n": "Darth Vader (Duel's End)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "HANSOLO",
+   "n": "Han Solo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "ARMORER",
+   "n": "The Armorer",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "DEATHTROOPERPERIDEA",
+   "n": "Death Trooper (Peridea)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BADBATCHWRECKER",
+   "n": "Wrecker",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "THEMANDALORIAN",
+   "n": "The Mandalorian",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "FOSITHTROOPER",
+   "n": "Sith Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "IG90",
+   "n": "IG-90",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "UMBARANSTARFIGHTER",
+   "n": "Umbaran Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "WAMPA",
+   "n": "Wampa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "SMUGGLERCHEWBACCA",
+   "n": "Veteran Smuggler Chewbacca",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "CAPITALEXECUTOR",
+   "n": "Executor",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "R2D2_LEGENDARY",
+   "n": "R2-D2",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "UWINGSCARIF",
+   "n": "Bistan's U-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GARSAXON",
+   "n": "Gar Saxon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "CORUSCANTUNDERWORLDPOLICE",
+   "n": "Coruscant Underworld Police",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "ITHANO",
+   "n": "Captain Ithano",
+   "ct": 1,
+   "g": 10,
+   "r": 4,
+   "rt": null
+  },
+  {
+   "b": "MOTHERTALZIN",
+   "n": "Mother Talzin",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "MORGANELSBETH",
+   "n": "Morgan Elsbeth",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "C3POLEGENDARY",
+   "n": "C-3PO",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JEDIKNIGHTREVAN",
+   "n": "Jedi Knight Revan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "PADMEAMIDALA",
+   "n": "Padm\u00e9 Amidala",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "NIGHTSISTERINITIATE",
+   "n": "Nightsister Initiate",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CT7567",
+   "n": "CT-7567 \"Rex\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "EMPERORSSHUTTLE",
+   "n": "Emperor's Shuttle",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "MOFFGIDEONS3",
+   "n": "Dark Trooper Moff Gideon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "MOFFGIDEONS1",
+   "n": "Moff Gideon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ZAMWESELL",
+   "n": "Zam Wesell",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "TARONMALICOS",
+   "n": "Taron Malicos",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "RACCOON",
+   "n": "Rotta the Hutt",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SANASTARROS",
+   "n": "Sana Starros",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TUSKENHUNTRESS",
+   "n": "Tusken Warrior",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BOSSNASS",
+   "n": "Boss Nass",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPITALMONCALAMARICRUISER",
+   "n": "Home One",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "STARKILLER",
+   "n": "Starkiller",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "LOBOT",
+   "n": "Lobot",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "EETHKOTH",
+   "n": "Eeth Koth",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "OMEGAS3",
+   "n": "Omega (Fugitive)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "JEDISTARFIGHTERAHSOKATANO",
+   "n": "Ahsoka Tano's Jedi Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "ASAJVENTRESS",
+   "n": "Asajj Ventress",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CHIRRUTIMWE",
+   "n": "Chirrut \u00cemwe",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SHINHATI",
+   "n": "Shin Hati",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "KANANJARRUSS3",
+   "n": "Kanan Jarrus",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "ROSETICO",
+   "n": "Rose Tico",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "STORMTROOPERHAN",
+   "n": "Stormtrooper Han",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "HERASYNDULLAS3",
+   "n": "Hera Syndulla",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "BOSSK",
+   "n": "Bossk",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "VADER",
+   "n": "Darth Vader",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JARJARBINKS",
+   "n": "Jar Jar Binks",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "COUNTDOOKU",
+   "n": "Count Dooku",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "MISSIONVAO",
+   "n": "Mission Vao",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "GEONOSIANBROODALPHA",
+   "n": "Geonosian Brood Alpha",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "JOLEEBINDO",
+   "n": "Jolee Bindo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "CHIEFNEBIT",
+   "n": "Chief Nebit",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IMPERIALSUPERCOMMANDO",
+   "n": "Imperial Super Commando",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "PUNISHINGONE",
+   "n": "Punishing One",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "KLEYA",
+   "n": "Kleya Marki",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "FIRSTORDERTIEPILOT",
+   "n": "First Order TIE Pilot",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "DARTHSION",
+   "n": "Darth Sion",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "CAPITALCHIMAERA",
+   "n": "Chimaera",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "COMMANDSHUTTLE",
+   "n": "Kylo Ren's Command Shuttle",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "PHANTOM2",
+   "n": "Phantom II",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GREEDO",
+   "n": "Greedo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "HOTHLEIA",
+   "n": "Rebel Officer Leia Organa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "GENERALSYNDULLA",
+   "n": "General Syndulla",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "KXSECURITYDROID",
+   "n": "KX Security Droid",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BOOMADIER",
+   "n": "Gungan Boomadier",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BODHIROOK",
+   "n": "Bodhi Rook",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BOBAFETT",
+   "n": "Boba Fett",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "TUSKENCHIEFTAIN",
+   "n": "Tusken Chieftain",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "WEDGEANTILLES",
+   "n": "Wedge Antilles",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MARAJADE",
+   "n": "Mara Jade, The Emperor's Hand",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CARTHONASI",
+   "n": "Carth Onasi",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ARCTROOPER501ST",
+   "n": "ARC Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "TRENCH",
+   "n": "Admiral Trench",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "WICKET",
+   "n": "Wicket",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "GEONOSIANSTARFIGHTER2",
+   "n": "Geonosian Soldier's Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SECONDSISTER",
+   "n": "Second Sister",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "GEONOSIANSTARFIGHTER1",
+   "n": "Sun Fac's Geonosian Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GEONOSIANSTARFIGHTER3",
+   "n": "Geonosian Spy's Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "MACEWINDU",
+   "n": "Mace Windu",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "MASTERQUIGON",
+   "n": "Master Qui-Gon",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DOCTORAPHRA",
+   "n": "Doctor Aphra",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "STRANGER",
+   "n": "The Stranger",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "SITHBOMBER",
+   "n": "B-28 Extinction-class Bomber",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GLREY",
+   "n": "Rey",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "GAUNTLETSTARFIGHTER",
+   "n": "Gauntlet Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SITHASSASSIN",
+   "n": "Sith Assassin",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "SHORETROOPER",
+   "n": "Shoretrooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DARTHMALAK",
+   "n": "Darth Malak",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "FINN",
+   "n": "Finn",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "UNDERCOVERLANDO",
+   "n": "Skiff Guard (Lando Calrissian)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEREAPER",
+   "n": "TIE Reaper",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "HYENABOMBER",
+   "n": "Hyena Bomber",
+   "ct": 2,
+   "g": 1,
+   "r": 6,
+   "rt": null
+  },
+  {
+   "b": "R5D4",
+   "n": "R5-D4",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 4
+  },
+  {
+   "b": "DARKREY",
+   "n": "Rey (Dark Side Vision)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "TIEDEFENDER",
+   "n": "TIE Defender",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SEVENTHSISTER",
+   "n": "Seventh Sister",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DARTHMALGUS",
+   "n": "Darth Malgus",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "RESISTANCEPILOT",
+   "n": "Resistance Pilot",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "KUIIL",
+   "n": "Kuiil",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "VANE",
+   "n": "Vane",
+   "ct": 1,
+   "g": 7,
+   "r": 2,
+   "rt": null
+  },
+  {
+   "b": "MAULS7",
+   "n": "Maul",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "CADBANE",
+   "n": "Cad Bane",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "SAWGERRERA",
+   "n": "Saw Gerrera",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEFIGHTERPILOT",
+   "n": "TIE Fighter Pilot",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GRANDMASTERYODA",
+   "n": "Grand Master Yoda",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "DARTHBANE",
+   "n": "Darth Bane",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "GREEFKARGA",
+   "n": "Greef Karga",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ZEBS3",
+   "n": "Garazeb \"Zeb\" Orrelios",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "LUTHENRAEL",
+   "n": "Luthen Rael",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "FIRSTORDERTIEECHELON",
+   "n": "TIE Echelon",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "RAVENSCLAW",
+   "n": "Raven's Claw",
+   "ct": 2,
+   "g": 1,
+   "r": 6,
+   "rt": null
+  },
+  {
+   "b": "CAPITALMALEVOLENCE",
+   "n": "Malevolence",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "CT210408",
+   "n": "CT-21-0408 \"Echo\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "B1BATTLEDROIDV2",
+   "n": "B1 Battle Droid",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEFIGHTERFOSF",
+   "n": "First Order SF TIE Fighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "CEREJUNDA",
+   "n": "Cere Junda",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MILLENNIUMFALCON",
+   "n": "Han's Millennium Falcon",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "CAPTAINTARPALS",
+   "n": "Captain Tarpals",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "EWOKSCOUT",
+   "n": "Ewok Scout",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "K2SO",
+   "n": "K-2SO",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "NIGHTSISTERACOLYTE",
+   "n": "Nightsister Acolyte",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "50RT",
+   "n": "50R-T",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IG86SENTINELDROID",
+   "n": "IG-86 Sentinel Droid",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "SITHMARAUDER",
+   "n": "Sith Marauder",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "REYJEDITRAINING",
+   "n": "Rey (Jedi Training)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "C3POCHEWBACCA",
+   "n": "Threepio & Chewie",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "KRRSANTAN",
+   "n": "Krrsantan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "BATCHERS3",
+   "n": "Batcher",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "KIADIMUNDI",
+   "n": "Ki-Adi-Mundi",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GUNGANPHALANX",
+   "n": "Gungan Phalanx",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MILLENNIUMFALCONEP7",
+   "n": "Rey's Millennium Falcon",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "MANDALORBOKATAN",
+   "n": "Bo-Katan (Mand'alor)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "FIFTHBROTHER",
+   "n": "Fifth Brother",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "RANGETROOPER",
+   "n": "Range Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "QUIGONJINN",
+   "n": "Qui-Gon Jinn",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "BASTILASHAN",
+   "n": "Bastila Shan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "ROYALGUARD",
+   "n": "Royal Guard",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "BT1",
+   "n": "BT-1",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JAWA",
+   "n": "Jawa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SITHFIGHTER",
+   "n": "Sith Fighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "QIRA",
+   "n": "Qi'ra",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "POE",
+   "n": "Poe Dameron",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MERRIN",
+   "n": "Merrin",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "NIGHTTROOPER",
+   "n": "Night Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "STAP",
+   "n": "STAP",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "SITHSUPREMACYCLASS",
+   "n": "Mark VI Interceptor",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GRANDADMIRALTHRAWN",
+   "n": "Grand Admiral Thrawn",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SCARIFREBEL",
+   "n": "Scarif Rebel Pathfinder",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IMPERIALPROBEDROID",
+   "n": "Imperial Probe Droid",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "PAPLOO",
+   "n": "Paploo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SCOUTTROOPER_V3",
+   "n": "Scout Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "EWOKELDER",
+   "n": "Ewok Elder",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "EPIXPOE",
+   "n": "Resistance Hero Poe",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CROSSHAIRS3",
+   "n": "Crosshair (Scarred)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "QUEENAMIDALA",
+   "n": "Queen Amidala",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "PADAWANSABINE",
+   "n": "Padawan Sabine Wren",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CHIEFCHIRPA",
+   "n": "Chief Chirpa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CT5555",
+   "n": "CT-5555 \"Fives\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "VISASMARR",
+   "n": "Visas Marr",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "LUKESKYWALKER",
+   "n": "Luke Skywalker (Farmboy)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CAPITALRADDUS",
+   "n": "Raddus",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BENSOLO",
+   "n": "Ben Solo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "GAMORREANGUARD",
+   "n": "Gamorrean Guard",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "KITFISTO",
+   "n": "Kit Fisto",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "HOUNDSTOOTH",
+   "n": "Hound's Tooth",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "ADMINISTRATORLANDO",
+   "n": "Lando Calrissian",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IG2000",
+   "n": "IG-2000",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "GENERALSKYWALKER",
+   "n": "General Skywalker",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "NIGHTSISTERSPIRIT",
+   "n": "Nightsister Spirit",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "XANADUBLOOD",
+   "n": "Xanadu Blood",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "CLONESERGEANTPHASEI",
+   "n": "Clone Sergeant - Phase I",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SUPREMELEADERKYLOREN",
+   "n": "Supreme Leader Kylo Ren",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "ADMIRALACKBAR",
+   "n": "Admiral Ackbar",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "STORMTROOPER",
+   "n": "Stormtrooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SCORCH",
+   "n": "RC-1262 \"Scorch\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "LUMINARAUNDULI",
+   "n": "Luminara Unduli",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "JANGOFETT",
+   "n": "Jango Fett",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "HOTHREBELSCOUT",
+   "n": "Hoth Rebel Scout",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GHOST",
+   "n": "Ghost",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "TIEADVANCED",
+   "n": "TIE Advanced x1",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "4LOM",
+   "n": "4-LOM",
+   "ct": 1,
+   "g": 11,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "QUIGGOLD",
+   "n": "Quiggold",
+   "ct": 1,
+   "g": 10,
+   "r": 3,
+   "rt": null
+  },
+  {
+   "b": "CAPTAINENOCH",
+   "n": "Captain Enoch",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "APPO",
+   "n": "CC-1119 \"Appo\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JEDIMASTERKENOBI",
+   "n": "Jedi Master Kenobi",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "SATELESHAN",
+   "n": "Satele Shan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "EMPERORPALPATINE",
+   "n": "Emperor Palpatine",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "HOTHHAN",
+   "n": "Captain Han Solo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DAKA",
+   "n": "Old Daka",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GRANDMOFFTARKIN",
+   "n": "Grand Moff Tarkin",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "CALKESTIS",
+   "n": "Cal Kestis",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPTAINREX",
+   "n": "Captain Rex",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SCYTHE",
+   "n": "Scythe",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "LORDVADER",
+   "n": "Lord Vader",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "HK47",
+   "n": "HK-47",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DARTHTRAYA",
+   "n": "Darth Traya",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "EZRAEXILE",
+   "n": "Ezra Bridger (Exile)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "EPIXFINN",
+   "n": "Resistance Hero Finn",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPTAINDROGAN",
+   "n": "Captain Drogan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "ZAALBAR",
+   "n": "Zaalbar",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "KIX",
+   "n": "Kix",
+   "ct": 1,
+   "g": 8,
+   "r": 4,
+   "rt": null
+  },
+  {
+   "b": "HUYANG",
+   "n": "Huyang",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "B2SUPERBATTLEDROID",
+   "n": "B2 Super Battle Droid",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DEPABILLABA",
+   "n": "Depa Billaba",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "DARTHSIDIOUS",
+   "n": "Darth Sidious",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "OUTRIDER",
+   "n": "Outrider",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "OLDBENKENOBI",
+   "n": "Obi-Wan Kenobi (Old Ben)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "YOUNGCHEWBACCA",
+   "n": "Vandor Chewbacca",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CINTA",
+   "n": "Cinta Kaz",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "SMUGGLERHAN",
+   "n": "Veteran Smuggler Han Solo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ZORIIBLISS_V2",
+   "n": "Zorii Bliss",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TRIPLEZERO",
+   "n": "0-0-0",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "UGNAUGHT",
+   "n": "Ugnaught",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "RANGERZEB",
+   "n": "Zeb Orrelios (New Republic Pilot)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 4
+  },
+  {
+   "b": "ROGUEONESHIP",
+   "n": "Rogue One",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BOBAFETTSCION",
+   "n": "Boba Fett, Scion of Jango",
+   "ct": 1,
+   "g": 9,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "OPERATIVE",
+   "n": "CX-2",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "GRANDINQUISITOR",
+   "n": "Grand Inquisitor",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ASAJJDARKDISCIPLE",
+   "n": "Asajj Ventress (Dark Disciple)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "DARKTROOPER",
+   "n": "Dark Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "DARTHREVAN",
+   "n": "Darth Revan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "HONDO",
+   "n": "Hondo Ohnaka",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BWINGREBEL",
+   "n": "Rebel B-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "JABBATHEHUTT",
+   "n": "Jabba the Hutt",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "HUMANTHUG",
+   "n": "Mob Enforcer",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CAPTAINSILVO",
+   "n": "Captain Silvo",
+   "ct": 1,
+   "g": 7,
+   "r": 2,
+   "rt": null
+  },
+  {
+   "b": "THEMANDALORIANBESKARARMOR",
+   "n": "The Mandalorian (Beskar Armor)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "BISHOP",
+   "n": "Colonel Ward",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 4
+  },
+  {
+   "b": "ENFYSNEST",
+   "n": "Enfys Nest",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "MAULHATEFUELED",
+   "n": "Maul (Hate-Fueled)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "BIGGSDARKLIGHTER",
+   "n": "Biggs Darklighter",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CC2224",
+   "n": "CC-2224 \"Cody\"",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "MARAJADESKYWALKER",
+   "n": "Mara Jade Skywalker",
+   "ct": 1,
+   "g": 2,
+   "r": 4,
+   "rt": null
+  },
+  {
+   "b": "JAWAENGINEER",
+   "n": "Jawa Engineer",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JEDIKNIGHTCAL",
+   "n": "Jedi Knight Cal Kestis",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BOUSHH",
+   "n": "Boushh (Leia Organa)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "JEDIKNIGHTLUKE",
+   "n": "Jedi Knight Luke Skywalker",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "SUNFAC",
+   "n": "Sun Fac",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "FURYCLASSINTERCEPTOR",
+   "n": "Fury-class Interceptor",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "BADBATCHECHO",
+   "n": "Echo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "EMBO",
+   "n": "Embo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "TIESILENCER",
+   "n": "TIE Silencer",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "YWINGCLONEWARS",
+   "n": "BTL-B Y-wing Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "IMAGUNDI",
+   "n": "Ima-Gun Di",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "REMNANTSNOWCOMMANDER",
+   "n": "Snowtrooper Commander",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 4
+  },
+  {
+   "b": "XWINGRED3",
+   "n": "Biggs Darklighter's X-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "PADAWANOBIWAN",
+   "n": "Padawan Obi-Wan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "FENNECSHAND",
+   "n": "Fennec Shand",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPITALSTARDESTROYER",
+   "n": "Executrix",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "T3_M4",
+   "n": "T3-M4",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "XWINGRED2",
+   "n": "Wedge Antilles's X-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "NINTHSISTER",
+   "n": "Ninth Sister",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "HOTHREBELSOLDIER",
+   "n": "Hoth Rebel Soldier",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "GRIEVOUS",
+   "n": "General Grievous",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CAPITALNEGOTIATOR",
+   "n": "Negotiator",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "JUHANI",
+   "n": "Juhani",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JOCASTANU",
+   "n": "Jocasta Nu",
+   "ct": 1,
+   "g": 12,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "PRINCESSKNEESAA",
+   "n": "Princess Kneesaa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "AHSOKATANO",
+   "n": "Ahsoka Tano (Snips)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 9
+  },
+  {
+   "b": "JEDIKNIGHTCONSULAR",
+   "n": "Jedi Consular",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "DIRECTORKRENNIC",
+   "n": "Director Krennic",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEFIGHTERIMPERIAL",
+   "n": "Imperial TIE Fighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "SITHPALPATINE",
+   "n": "Sith Eternal Emperor",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "BASTILASHANDARK",
+   "n": "Bastila Shan (Fallen)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "FIRSTORDEREXECUTIONER",
+   "n": "First Order Executioner",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "TARFFUL",
+   "n": "Tarfful",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "ARC170CLONESERGEANT",
+   "n": "Clone Sergeant's ARC-170",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "MAUL",
+   "n": "Darth Maul",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TUSKENSHAMAN",
+   "n": "Tusken Shaman",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEDAGGER",
+   "n": "TIE Dagger",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "YODACHEWBACCA",
+   "n": "Yoda & Chewie",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CAPITALJEDICRUISER",
+   "n": "Endurance",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "IDENVERSIOEMPIRE",
+   "n": "Iden Versio",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TIEINTERCEPTOR",
+   "n": "TIE/IN Interceptor Prototype",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "FIRSTORDERTROOPER",
+   "n": "First Order Stormtrooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "WRECKERS3",
+   "n": "Wrecker (Mercenary)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "CHEWBACCALEGENDARY",
+   "n": "Chewbacca",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CHOPPERS3",
+   "n": "Chopper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "WATTAMBOR",
+   "n": "Wat Tambor",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "DEATHTROOPER",
+   "n": "Death Trooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "COBBVANTH",
+   "n": "Cobb Vanth",
+   "ct": 1,
+   "g": 10,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "VEL",
+   "n": "Vel Sartha",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "DATHCHA",
+   "n": "Dathcha",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "JYNERSO",
+   "n": "Jyn Erso",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "TEEBO",
+   "n": "Teebo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BADBATCHTECH",
+   "n": "Tech",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "CARSONTEVA",
+   "n": "Captain Carson Teva",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "XWINGBLACKONE",
+   "n": "Poe Dameron's X-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "AMILYNHOLDO",
+   "n": "Amilyn Holdo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "GLLEIA",
+   "n": "Leia Organa",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 10
+  },
+  {
+   "b": "URORRURRR",
+   "n": "URoRRuR'R'R",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SNOWTROOPER",
+   "n": "Snowtrooper",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "MAJORPARTAGAZ",
+   "n": "Major Partagaz",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "CASSIANUNDERCOVER",
+   "n": "Cassian Andor (Undercover)",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "PRINCESSLEIA",
+   "n": "Princess Leia",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "SAVAGEOPRESS",
+   "n": "Savage Opress",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "PHASMA",
+   "n": "Captain Phasma",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CAPITALFINALIZER",
+   "n": "Finalizer",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "EZRABRIDGERS3",
+   "n": "Ezra Bridger",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "JEDISTARFIGHTERCONSULAR",
+   "n": "Jedi Consular's Starfighter",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "FIRSTORDEROFFICERMALE",
+   "n": "First Order Officer",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "AAYLASECURA",
+   "n": "Aayla Secura",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "YWINGREBEL",
+   "n": "Rebel Y-wing",
+   "ct": 2,
+   "g": 1,
+   "r": 7,
+   "rt": null
+  },
+  {
+   "b": "KYLEKATARN",
+   "n": "Kyle Katarn",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "AURRA_SING",
+   "n": "Aurra Sing",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 6
+  },
+  {
+   "b": "JEDIKNIGHTGUARDIAN",
+   "n": "Jedi Knight Guardian",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 5
+  },
+  {
+   "b": "CANDEROUSORDO",
+   "n": "Canderous Ordo",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "INQUISITORBARRISS",
+   "n": "Inquisitor Barriss",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IG12",
+   "n": "IG-12 & Grogu",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 8
+  },
+  {
+   "b": "SHAAKTI",
+   "n": "Shaak Ti",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "IG11",
+   "n": "IG-11",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  },
+  {
+   "b": "BISTAN",
+   "n": "Bistan",
+   "ct": 1,
+   "g": 13,
+   "r": 7,
+   "rt": 7
+  }
+ ]
+}

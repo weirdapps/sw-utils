@@ -12,21 +12,15 @@ data files under tests/fixtures/.
 import json
 import os
 
-import pytest
-
 import arena_board as ab
 
-# The two example data files. tests/fixtures/ is gitignored in this repo, so the
-# tests that read them skip rather than fail on a fresh clone — every behaviour
-# they cover is ALSO covered by a tmp_path test that always runs. What these two
-# add is a check that the committed EXAMPLE files really match the schema the
-# module documents, which is the thing that rots silently.
+# The two example data files. Every behaviour they cover is ALSO covered by a
+# tmp_path test; what these two add is a check that the committed EXAMPLE files
+# really match the schema the module documents, which is the thing that rots
+# silently. They are tracked, so a missing one is a failure, not a skip.
 FIXTURES = os.path.join(os.path.dirname(__file__), "fixtures")
 SHARD_FILE = os.path.join(FIXTURES, "arena_shard_20260808.json")
 COUNTERS_FILE = os.path.join(FIXTURES, "arena_squad_counters.json")
-needs_examples = pytest.mark.skipif(
-    not (os.path.exists(SHARD_FILE) and os.path.exists(COUNTERS_FILE)),
-    reason="tests/fixtures/ is gitignored; the example arena files are local-only")
 
 # Two make-believe Galactic Legends, passed explicitly so no test touches the
 # swgoh.gg category dump on disk.
@@ -338,7 +332,6 @@ def test_load_counters_percent_conversion_and_thin_row_drop(tmp_path):
     assert ab.counters_hold(counters, WALL_LO["units"]) == (40.0, 1000, 1)
 
 
-@needs_examples
 def test_load_shard_reads_the_documented_schema():
     shard = ab.load_shard(SHARD_FILE)
     assert shard["mode"] == "squad" and shard["captured"].endswith("Z")
@@ -359,7 +352,6 @@ def test_load_shard_returns_none_for_missing_fleet_or_empty_captures(tmp_path):
     assert ab.load_shard(str(tmp_path / "nope.json")) is None      # unreadable
 
 
-@needs_examples
 def test_load_counters_converts_to_percent_and_drops_thin_rows():
     counters = ab.load_counters(COUNTERS_FILE)
     stranger = counters["STRANGER"]
