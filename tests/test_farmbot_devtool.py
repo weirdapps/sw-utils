@@ -1,5 +1,3 @@
-import pytest
-
 from farmbot.devtool import coverage, required_templates
 from farmbot.run import doctor
 
