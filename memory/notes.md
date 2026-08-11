@@ -2767,3 +2767,56 @@ this war. The correction applied: the tier-3 filler **W23–W28 went to Special 
 
 Sources: [swgoh.wiki Territory War](https://swgoh.wiki/wiki/Territory_War) ·
 [Gaming-Fans TW defensive teams](https://gaming-fans.com/star-wars-goh/swgoh-guides/swgoh-101-territory-wars-guide/swgoh-101-territory-wars-guide-defensive-teams/)
+
+---
+
+## 2026-08-11 — Era events are Era-Level/relic gated, and the Riposte quest was never stalled
+
+### "Gain Riposte 15 times" — the counter counts BUFF-GAINS, not battles
+Three sessions read the counter as stuck. It was not: it read **13/15 → 14/15 → 15/15**, one gain per
+battle that had a real Riposte granter on the field. The trap is that several owned units *look* like
+Riposte sources and are not:
+- **Count these:** Count Dooku (G13 R7/R8), Taron Malicos, Shin Hati — they grant the actual **Riposte** buff.
+- **Do NOT count:** Ezra Exile / Mission Vao (LS counter-attack appliers, not Riposte) and **Cal Kestis**
+  (his Riposte-flavoured buff does not register for the quest).
+
+Recipe that closes it: **DS Battles 8-H (Starkiller Base), 10 energy, any squad containing Dooku, auto+4X.**
++1 per battle regardless of how fast the fight ends — the "overkill prevents the cast, shorten the squad"
+theory was wrong and cost several wasted runs. Claim gives 5,000 Episode XP.
+
+Two gotchas on that node's squad screen:
+- The saved squad had **Jabba the Hutt (a "large unit")**. `BATTLE` routes to **Borrow a Hero** first, and
+  a squad may not hold **both an ally and a large unit** — it raises *Large Unit and Ally Combination Error*
+  at start. Drop the borrowed ally (or Jabba), not both.
+- `GO` on the quest card is useless here: it jumps to **Light Side** 1-A, which cannot host a Dark Side
+  Riposte squad.
+
+### Era Challenge (Mara Jade) — you fight it with LOANED units, not your roster
+`SELECT EVENT SQUAD` hands you Mace Windu / Barriss Offee / Kit Fisto **all at Era Level 40** plus the
+mission unit **Mara Jade at EL 43**, one slot locked by "slot restrictions". **Astra's 14.4M GP is
+irrelevant to this event** — that is why R7–R10 characters never show up and why the tier losses are not a
+tactics problem. Feats are pure EL checks:
+- Tier I: EL 23 ✅ / 29 ✅ / 35 ✅ / **45 ⬜** · Tier II: **EL 50 ⬜** (enemies EL 50).
+- Third Tier II attempt this session: **DEFEAT**, all three enemies untouched.
+
+**The only lever is the `LOANED UNIT ERA LEVEL INCREASE CALENDAR`** (Inbox → Daily Login Rewards). Day 14
+(+1) claimed; **Day 15 is +2 — exactly the 43→45 needed for Tier I's last feat** — but it unlocks at daily
+reset, and the event expires *before* that. Timing is the whole story: check calendar-day vs event-expiry
+before spending attempts on an EL-gated feat.
+
+### Call Answered Era Battle — a relic-depth wall
+Tiers **I–III are 3/3 complete**. Tiers IV–VII are open and 0/3 but the *Allowed* list is only
+**Colonel Ward / Snowtrooper Commander / Grogu & Anzellans**, held at **R4/R4/R5**. Tier VIII states the
+real bar outright: *Rotta the Hutt at R10 and the other three at R9*. Victory counts are **NOT SHARED**
+between tiers. Nothing here is winnable without relic investment in three units that exist only for this
+event line.
+
+### Mara Jade Character Quests are shard-gated, not objective-gated
+Every objective is already finished (`Defense Down 10/10`, `250K/250K damage`, …) and every `CLAIM` is
+greyed with **"Requires 165 Shards" / "170 Shards"** against **140/330 held**. `GET SHARDS` is the
+1,299-crystal path. Free drip: **August login calendar Days 14/17/21/26 = 12/14/16/18 shards.** So the
+first claim unlocks around Day 17, not by playing.
+
+### Kessel Run rewards need the website
+Inbox "Unclaimed Kessel Run Rewards (From Capital Games)" is **not claimable in-game** — "Visit the Website
+to claim them", 29d 13h left. Needs a browser login, so it stays a manual/user step.
