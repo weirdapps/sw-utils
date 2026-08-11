@@ -1,9 +1,8 @@
 """Tests for the r/SWGalaxyOfHeroes board-chatter signal (scripts/reddit_swgoh.py)."""
-import io
 import json
 import os
 import urllib.error
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 
