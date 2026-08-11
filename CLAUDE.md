@@ -45,20 +45,40 @@ Fleets: `GAC Fleet - Defense` · `GAC Fleet - Offense` (full ~8-ship lineups).
 HotUtils accepts arbitrary category strings and shows them as filter groups.
 
 ## Mod optimization (move → slice → calibrate → level)
-Full API payloads, material recipes, and every gotcha are in `memory/notes.md`. Summary of the pipeline:
+Full API payloads, material recipes, and every gotcha are in `memory/notes.md`.
+
+> **After every farming trip, run one command:** `HU_SID=<live> ./scripts/mods_session.sh`.
+> It refreshes the ladder, pulls live mods, spends whatever salvage/attenuators have arrived
+> (in priority order), re-scores, and prints the next shopping list. Idempotent and self-limiting —
+> on an empty stock it costs two API reads and changes nothing. Add `--dry` to plan only.
+
+**One ladder, three scripts.** `invest_plan.py` owns the priority order (Arena → Grand Arena →
+Territory Battles → Territory War → fleets) and writes it to `output/invest_plan.json` as
+`mod_priority`. `execute_upgrades.py`, `calibrate.py` and `slice_plan.py` ALL key off that list —
+never rebuild importance from `gac_result.json`, which cannot see TW units or the arena datacron five.
+⚠️ The TB rung is currently EMPTY: it needs `data/rote/operations_<phase>.json` scraped on device.
+
+Pipeline detail:
 1. **Placement** — drive the **Grandivory optimizer** inside HotUtils (`/mods/optimizer`) with the GAC priority
    order; "Optimize my mods!" (the `!` button, not the nav tab) → "Move mods in-game". If it errors
    `Row not found`, the HotUtils data is stale → "Fetch my data" → re-optimize → retry (partial-applies persist).
-2. **Rank** what to upgrade: `python3 scripts/slice_plan.py` → `output/slice_queue.json` (defense chars →
-   offense → rest, by speed secondary). `scripts/level_priority.py` = which sub-15 mods to level.
+   **Re-run rarely:** ~1,473 moves / ~7.4M credits for a measured ≤0.12% — slicing improves a mod IN PLACE,
+   so an upgrade session implies no placement change at all.
+2. **Rank** what to upgrade: `python3 scripts/slice_plan.py` → `output/slice_queue.json` (ladder order,
+   then speed secondary). `scripts/execute_upgrades.py --needs N` = the farming shopping list.
    `scripts/mod_targets.py` + `mod_analysis.py` = grounded best-mod targets vs current (from swgoh.gg mod-meta).
 3. **Execute via HotUtils API** (mods full data at `account/data/all` → `d.data.mods.mods`):
    - **Slice/promote:** `mods/tier {modIds,getAllData:true}` — one tier/call. ⚠️ **`simulation:true` is NOT a dry run — it really slices.**
    - **Level to 15:** `mods/level {modIds,requestType:3}` (credits only). **Slicing requires level 15 first.**
    - **Calibrate → speed:** `mods/reroll {modId,stat:5}` → `mods/acceptreroll {keepMod}`.
-4. **Binding materials** (the real limits, from live diffs): 6-dot slice → **T06_02**; promote 5A→6E → **T05_06**;
-   5-dot→5A → **T05_03/04**; **calibration → Micro Attenuators = `summary.currency` id 41** (farm in-game: Mod Battles Map 9).
-   When a material runs out the API returns `responseCode 2 / GOHServiceCall Error [40]`. Latest state: see `output/mod_upgrade_results.md`.
+4. **Binding materials** (the real limits, from live diffs): a **6-dot step is a BUNDLE** —
+   `T06_01×10 + T06_02×20 + T06_03×10 + T05_05×10 + T05_06×10` — so **T06_02 gates all 6-dot slicing**;
+   promote 5A→6E → **T05_06 ×76**; 5-dot→5A → **~22 of the tier being left**;
+   **calibration → Micro Attenuators = `summary.currency` id 41** (farm: Smuggler's Run 2 with Jabba, best).
+   When a material runs out the API returns `responseCode 2 / GOHServiceCall Error [40]` — and it does NOT
+   name the material, so diff a fresh pull rather than trusting a label. Latest state: `output/mod_upgrade_results.md`.
+5. **Calibration targets the UNLUCKY mod** — `deficit = rolls×4.5 − spd`, never `rolls×6 − spd`. A reroll
+   re-samples, so rerolling an above-average mod loses on average (measured 0 hits in 18 attempts).
 
 ## Conventions
 - Data-driven only — NO hardcoded teams in compute (teams come from the meta files ∩ roster).

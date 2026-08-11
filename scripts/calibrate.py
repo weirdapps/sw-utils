@@ -4,7 +4,7 @@ calibrate.py — calibrate 6A GAC mods toward Speed via the HotUtils API (no bro
 
 Calibration (6-dot only) rerolls a chosen secondary's value using Micro Attenuators
 (summary.currency id 41, farmed in-game at Mod Battles Map 9). We target Speed (stat 5)
-on 6A (6-dot tier-A) mods that carry a speed secondary with headroom, defense-first.
+on 6A (6-dot tier-A) mods whose speed secondary rolled BELOW expectation, highest priority first.
 
 Each attempt: mods/reroll {modId, stat:5} -> preview .mod -> mods/acceptreroll {keepMod}.
 We KEEP only if the previewed speed > current (so stats never regress); either way the
@@ -12,9 +12,22 @@ attempt spends attenuators (reverting does NOT refund). Cost escalates per-mod: 
 2nd>=25, 3rd>=35... so spreading 1 attempt across never-calibrated (rr=0) mods is cheapest.
 Self-stops on responseCode 2 / GOHServiceCall Error [40] (attenuators out).
 
-Ranking: importance (DEF<off) -> most headroom (rolls*6 - spd) -> fewest prior rerolls -> most rolls.
+⚠️ TARGET THE UNLUCKY MOD, NOT THE GOOD ONE (measured 2026-08-11, after 0 hits in 18 attempts).
+A reroll RE-SAMPLES the secondary, so it regresses to the mean: the expected speed of a mod is
+about ROLL_MEAN per roll, and rerolling a mod already above that expectation loses on average.
+The old metric, headroom = rolls*6 - spd, measured distance from the MAXIMUM, which selects
+high-roll mods — and a high-roll mod is usually an already-lucky one. Every one of the 7 mods
+rerolled on 2026-08-11 sat at or above expectation, and all 7 came back lower (23->20, 24->19,
+25->21, 19->14, 23->18, 18->12, 24->18). The metric that matters is the DEFICIT below expectation,
+and only 9 of this account's 76 eligible 6A mods have one.
 
-Auth (ephemeral — never commit): HU_SID=<sessionId> [HU_UID] [HU_ALLY] python3 scripts/calibrate.py [--max N] [--min-headroom H] [--dry]
+Ranking: ladder rank -> fewest prior rerolls -> biggest deficit (rolls*ROLL_MEAN - spd) -> most rolls.
+Importance is invest_plan.py's `mod_priority` (Arena -> GAC -> TB -> TW -> fleets), the same
+ordering execute_upgrades.py uses. It previously came from gac_result.json alone, which left
+the Squad/Fleet Arena units — the ones paying a ranked reward EVERY day, and the top of the
+stated ladder — completely ineligible for calibration.
+
+Auth (ephemeral — never commit): HU_SID=<sessionId> [HU_UID] [HU_ALLY] python3 scripts/calibrate.py [--max N] [--min-deficit D] [--dry]
 """
 import json, os, glob, sys, time, urllib.request
 
@@ -31,7 +44,11 @@ def arg(flag, default):
 
 
 MAX = arg("--max", 4)
-MIN_HR = arg("--min-headroom", 5)
+# A 6-dot speed roll lands in 3..6, so an unbiased mod averages 4.5 per roll. A mod is only
+# worth rerolling when it sits BELOW that line; the default of 1 keeps the sweep to mods that
+# are at least a full point unlucky. Raise it to be stricter, or pass 0 to include break-evens.
+ROLL_MEAN = 4.5
+MIN_DEFICIT = arg("--min-deficit", 1)
 
 
 def api(path, body):
@@ -52,31 +69,27 @@ def spd_of(mod):
 
 def main():
     d = json.load(open(sorted(glob.glob(os.path.join(DATA, "mods_full_*.json")))[-1]))
-    gac = json.load(open(os.path.join(DATA, "gac_result.json")))
-    ros = json.load(open(sorted(glob.glob(os.path.join(DATA, "roster", "swgoh_roster_fresh_*.json")))[-1]))
-    nm = {u["b"]: u["n"] for u in ros["units"]}
-    defense, offense = set(), set()
-    for f in ("5v5", "3v3"):
-        for sq in gac[f]["defense"]: defense.update(sq["units"])
-        for sq in gac[f]["offense"]: offense.update(sq["units"])
+    ip = json.load(open(os.path.join(ROOT, "output", "invest_plan.json")))
+    rank = {b: i for i, b in enumerate(ip["mod_priority"])}
+    nm = {e["unit"]: e["name"] for e in ip["priority"]}
 
     cand = []
     for m in d["mods"]:
         if not m["b"] or m["dots"] != 6 or m["tier"] != 5: continue
-        if m["b"] not in defense and m["b"] not in offense: continue
+        if m["b"] not in rank: continue
         if m["spd"] <= 0 or m["spdRolls"] <= 0: continue
-        imp = 0 if m["b"] in defense else 1
-        hr = m["spdRolls"] * 6 - m["spd"]
-        if hr < MIN_HR: continue
-        cand.append((imp, hr, m))
-    # best order (grounded): defense first -> fewest prior rerolls (cheapest 1st attempts,
-    # breadth-first per the slicing guide) -> most headroom -> most rolls.
+        deficit = m["spdRolls"] * ROLL_MEAN - m["spd"]
+        if deficit < MIN_DEFICIT: continue
+        cand.append((rank[m["b"]], deficit, m))
+    # best order (grounded): ladder rank -> fewest prior rerolls (a 1st attempt costs 15
+    # attenuators and a 3rd costs 35, so breadth beats depth) -> biggest deficit -> most rolls.
     cand.sort(key=lambda t: (t[0], t[2]["rr"], -t[1], -t[2]["spdRolls"]))
     targets = cand[:MAX]
 
-    print(f"=== CALIBRATE plan: top {len(targets)} of {len(cand)} eligible (min-headroom {MIN_HR}) ===")
-    for imp, hr, m in targets:
-        print(f"  [{'DEF' if imp==0 else 'off'}] {nm.get(m['b'],m['b'])[:26]:26} spd{m['spd']:>3} rolls{m['spdRolls']} headroom{hr:>3} rr{m['rr']}  {m['id']}")
+    print(f"=== CALIBRATE plan: top {len(targets)} of {len(cand)} eligible (min-deficit {MIN_DEFICIT}) ===")
+    for r, deficit, m in targets:
+        print(f"  r{r:<4}{nm.get(m['b'],m['b'])[:26]:26} spd{m['spd']:>3} rolls{m['spdRolls']} "
+              f"deficit{deficit:>5.1f} rr{m['rr']}  {m['id']}")
     if DRY:
         print("\n[dry run — no API calls made]")
         return
@@ -85,23 +98,23 @@ def main():
 
     print("\n=== EXECUTING (keep only if speed improves) ===")
     kept = reverted = 0
-    for imp, hr, m in targets:
+    for rk, _deficit, m in targets:
         name = nm.get(m["b"], m["b"])
-        r = api("mods/reroll", {"modId": m["id"], "stat": 5})
-        rc = r.get("responseCode")
-        preview = r.get("mod")
+        resp = api("mods/reroll", {"modId": m["id"], "stat": 5})
+        rc = resp.get("responseCode")
+        preview = resp.get("mod")
         if rc != 1 or not preview:
-            print(f"  STOP {name}: rc={rc} {r.get('errorMessage') or r.get('responseMessage')}")
+            print(f"  STOP {name}: rc={rc} {resp.get('errorMessage') or resp.get('responseMessage')}")
             break
         new = spd_of(preview)
         keep = new > m["spd"]
         api("mods/acceptreroll", {"keepMod": keep})
         if keep:
             kept += 1
-            print(f"  KEPT   [{'DEF' if imp==0 else 'off'}] {name[:26]:26} spd {m['spd']} -> {new}  (+{new-m['spd']})")
+            print(f"  KEPT   r{rk:<4}{name[:26]:26} spd {m['spd']} -> {new}  (+{new-m['spd']})")
         else:
             reverted += 1
-            print(f"  revert [{'DEF' if imp==0 else 'off'}] {name[:26]:26} spd {m['spd']} -> {new}  (miss, kept {m['spd']})")
+            print(f"  revert r{rk:<4}{name[:26]:26} spd {m['spd']} -> {new}  (miss, kept {m['spd']})")
         time.sleep(0.5)
     print(f"\nDONE: kept {kept}, reverted {reverted} of {len(targets)} attempts.")
 

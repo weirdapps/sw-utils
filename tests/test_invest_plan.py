@@ -50,7 +50,7 @@ def test_tiers_follow_the_stated_order():
 
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, board, arena, rote)}
     assert tiers == {"ARENADEF": 1, "ARENAOFF": 2, "WALL": 4, "ATK": 5,
-                     "TWWALL": 8, "ROTEONLY": 11, "IDLE": 12}
+                     "ROTEONLY": 8, "TWWALL": 9, "IDLE": 12}
 
 
 def test_only_the_top_arena_wall_is_tier_1():
@@ -83,8 +83,8 @@ def test_rote_reads_operations_and_missions_but_not_the_deploy_remainder():
             "deploy": {"units": 180, "top": ["LEFTOVER"]}}
     roster = _roster(("PLATOON",), ("COMBAT",), ("LEFTOVER",))
     out = {e["unit"]: (e["tier"], e["reason"]) for e in ip.priority_units(roster, rote=rote)}
-    assert out["PLATOON"] == (11, "RotE operations")
-    assert out["COMBAT"] == (11, "RotE combat mission")
+    assert out["PLATOON"] == (8, "RotE operations")
+    assert out["COMBAT"] == (8, "RotE combat mission")
     assert out["LEFTOVER"][0] == 12
 
 
