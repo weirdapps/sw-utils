@@ -9,6 +9,9 @@ by popularity.
 Usage:  python3 scripts/reddit_swgoh.py
 """
 import html
+import json
+import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -22,6 +25,10 @@ FEED_URL = "https://www.reddit.com/r/SWGalaxyOfHeroes/hot/.rss?limit=25"
 USER_AGENT = "sw-utils-brief/1.0 (personal use)"
 ATOM = "{http://www.w3.org/2005/Atom}"
 RETRY_SLEEP = 30
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+GAC_RESULT = os.path.join(ROOT, "data", "gac_result.json")
+NAME_MAP_FILE = os.path.join(ROOT, "data", "name_type_map.json")
 
 
 def parse_feed(xml_text):
@@ -57,3 +64,47 @@ def fetch_feed(url=FEED_URL):
         time.sleep(RETRY_SLEEP)
         with urllib.request.urlopen(req, timeout=20) as resp:
             return resp.read().decode("utf-8", errors="replace")
+
+
+def board_units(gac_result):
+    """Every base id currently placed on the board, both formats, both sides."""
+    units = set()
+    for fmt in gac_result.values():
+        for perspective in ("defense", "offense"):
+            for squad in fmt.get(perspective, []):
+                units.update(squad.get("units", []))
+    return units
+
+
+def match_entries(entries, units, name_map):
+    """Keep only entries naming a board unit; annotate with the ids matched.
+
+    Matching is on the display name with word boundaries, so 'Rey' does not fire
+    on 'Greyjoy'. Entries naming no board unit are dropped rather than ranked
+    low: the section is about the board, not about the subreddit.
+    """
+    patterns = []
+    for base_id in units:
+        display = (name_map.get(base_id) or {}).get("n")
+        if not display:
+            continue
+        patterns.append((base_id, re.compile(rf"\b{re.escape(display)}\b", re.IGNORECASE)))
+
+    matched = []
+    for entry in entries:
+        hits = [base_id for base_id, pattern in patterns if pattern.search(entry["title"])]
+        if hits:
+            item = dict(entry)
+            item["units"] = sorted(hits)
+            matched.append(item)
+    return matched
+
+
+def load_board_chatter(feed_xml=None, gac_path=GAC_RESULT, name_map_path=NAME_MAP_FILE):
+    """End to end: feed plus board plus names -> board-relevant entries."""
+    xml_text = feed_xml if feed_xml is not None else fetch_feed()
+    with open(gac_path) as fh:
+        gac = json.load(fh)
+    with open(name_map_path) as fh:
+        name_map = json.load(fh)
+    return match_entries(parse_feed(xml_text), board_units(gac), name_map)

@@ -107,3 +107,60 @@ def test_fetch_feed_propagates_second_consecutive_429():
             assert False, "expected HTTPError"
         except urllib.error.HTTPError as exc:
             assert exc.code == 429
+
+
+# ---------------------------------------------------------------------------
+# board_units / match_entries tests
+# ---------------------------------------------------------------------------
+
+NAME_MAP = {
+    "GLREY": {"ct": 1, "n": "Rey"},
+    "BENSOLO": {"ct": 1, "n": "Ben Solo"},
+    "LORDVADER": {"ct": 1, "n": "Lord Vader"},
+    "HONDO": {"ct": 1, "n": "Hondo Ohnaka"},
+}
+
+
+def test_board_units_collects_both_formats_and_perspectives():
+    gac = {
+        "5v5": {"defense": [{"units": ["GLREY", "BENSOLO"]}], "offense": [{"units": ["LORDVADER"]}]},
+        "3v3": {"defense": [{"units": ["GLREY"]}], "offense": []},
+    }
+    assert reddit_swgoh.board_units(gac) == {"GLREY", "BENSOLO", "LORDVADER"}
+
+
+def test_board_units_of_empty_result_is_empty():
+    assert reddit_swgoh.board_units({}) == set()
+
+
+def test_match_keeps_only_posts_naming_a_board_unit():
+    entries = [
+        {"title": "Lord Vader is still unkillable", "link": "a", "updated": "", "author": ""},
+        {"title": "Best cantina farming route", "link": "b", "updated": "", "author": ""},
+    ]
+    out = reddit_swgoh.match_entries(entries, {"LORDVADER"}, NAME_MAP)
+    assert len(out) == 1
+    assert out[0]["units"] == ["LORDVADER"]
+
+
+def test_match_ignores_units_not_on_the_board():
+    entries = [{"title": "Why is Hondo Ohnaka a Galactic Legend?", "link": "a", "updated": "", "author": ""}]
+    assert reddit_swgoh.match_entries(entries, {"LORDVADER"}, NAME_MAP) == []
+
+
+def test_match_is_case_insensitive():
+    entries = [{"title": "lord vader counters?", "link": "a", "updated": "", "author": ""}]
+    out = reddit_swgoh.match_entries(entries, {"LORDVADER"}, NAME_MAP)
+    assert len(out) == 1
+
+
+def test_match_respects_word_boundaries():
+    """'Rey' must not match inside 'Greyjoy' or 'Reyna'."""
+    entries = [{"title": "Greyjoy tier list", "link": "a", "updated": "", "author": ""}]
+    assert reddit_swgoh.match_entries(entries, {"GLREY"}, NAME_MAP) == []
+
+
+def test_match_reports_every_board_unit_in_one_title():
+    entries = [{"title": "Rey vs Ben Solo, who wins", "link": "a", "updated": "", "author": ""}]
+    out = reddit_swgoh.match_entries(entries, {"GLREY", "BENSOLO"}, NAME_MAP)
+    assert sorted(out[0]["units"]) == ["BENSOLO", "GLREY"]
