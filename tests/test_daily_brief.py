@@ -40,3 +40,18 @@ def test_brief_sections_includes_relic():
     relic = [{"unit": "Ace", "rt": 3, "best_rate": 86, "in_teams": 2}]
     s = daily_brief.brief_sections({}, [], relic_list=relic)
     assert s["relic"] == relic
+
+
+def test_brief_sections_includes_chatter():
+    chatter = [
+        {"title": "Lord Vader counters", "link": "https://x", "updated": "2026-08-11",
+         "author": "/u/a", "units": ["LORDVADER"]},
+    ]
+    s = daily_brief.brief_sections({}, [], chatter=chatter)
+    assert len(s["chatter"]) == 1
+    assert s["chatter"][0]["units"] == ["LORDVADER"]
+
+
+def test_brief_sections_chatter_defaults_to_empty():
+    s = daily_brief.brief_sections({}, [])
+    assert s["chatter"] == []

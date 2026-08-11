@@ -17,6 +17,7 @@ from datetime import datetime
 
 import advisor
 import events
+import reddit_swgoh
 import swgoh_data
 
 try:
@@ -30,7 +31,8 @@ GAC_RESULT = os.path.join(ROOT, "data", "gac_result.json")
 OUT_DIR = os.path.join(ROOT, "output")
 
 
-def brief_sections(gac_result, farm_ranked, events_list=None, relic_list=None, top_n=8):
+def brief_sections(gac_result, farm_ranked, events_list=None, relic_list=None, top_n=8,
+                   chatter=None):
     """Pure assembly: fold board summary + farm targets + events + relic priority."""
     board = {}
     for fmt, d in gac_result.items():
@@ -40,7 +42,8 @@ def brief_sections(gac_result, farm_ranked, events_list=None, relic_list=None, t
             "unique": d.get("unique_units"),
         }
     return {"board": board, "farm": farm_ranked[:top_n],
-            "events": events_list or [], "relic": relic_list or []}
+            "events": events_list or [], "relic": relic_list or [],
+            "chatter": chatter or []}
 
 
 def _farm_line(e):
@@ -72,6 +75,13 @@ def render_terminal(sections):
         lines.append("Relic priority (reinforce your best board units):")
         for e in sections["relic"][:8]:
             lines.append(f"  {e['unit']} (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams")
+    lines.append("")
+    lines.append("Board chatter (r/SWGalaxyOfHeroes)")
+    if sections.get("chatter"):
+        for e in sections["chatter"][:6]:
+            lines.append(f"  [{','.join(e['units'])}] {e['title'][:70]}")
+    else:
+        lines.append("  no board-relevant chatter")
     return "\n".join(lines)
 
 
@@ -97,6 +107,13 @@ def render_html(sections, date=_TODAY):
     for e in sections.get("relic", []):
         relic.append(f"<li><b>{e['unit']}</b> (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams</li>")
     relic_html = f"<h2>Relic priority</h2><ul>{''.join(relic)}</ul>" if relic else ""
+    chatter_items = []
+    for e in sections.get("chatter", [])[:6]:
+        chatter_items.append(f"<li><a href=\"{e['link']}\">[{','.join(e['units'])}] {e['title'][:70]}</a></li>")
+    if chatter_items:
+        chatter_html = f"<h2>Board chatter (r/SWGalaxyOfHeroes)</h2><ul>{''.join(chatter_items)}</ul>"
+    else:
+        chatter_html = "<h2>Board chatter (r/SWGalaxyOfHeroes)</h2><p>no board-relevant chatter</p>"
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <title>SWGOH daily brief {date}</title>
 <style>body{{font-family:-apple-system,Segoe UI,Arial,sans-serif;color:#333;max-width:760px;margin:2rem auto;padding:0 1rem}}
@@ -109,6 +126,7 @@ li{{margin:.25rem 0}}</style></head><body>
 <ul>{''.join(farm)}</ul>
 {relic_html}
 {events_html}
+{chatter_html}
 <p style="color:#999;font-size:.85rem">Pending: mod-material status (needs live HotUtils session).</p>
 </body></html>"""
 
@@ -128,7 +146,12 @@ def main():
     except Exception as exc:
         relic = []
         print(f"(relic priority unavailable: {exc})")
-    sections = brief_sections(gac, farm, evs, relic)
+    try:
+        chatter = reddit_swgoh.load_board_chatter()
+    except Exception as exc:  # network, throttle, or feed removed
+        print(f"  (chatter unavailable: {exc})")
+        chatter = []
+    sections = brief_sections(gac, farm, evs, relic, chatter=chatter)
     print(render_terminal(sections))
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, f"brief_{_TODAY}.html")

@@ -1,8 +1,10 @@
 """Tests for the r/SWGalaxyOfHeroes board-chatter signal (scripts/reddit_swgoh.py)."""
-import io
+import json
 import os
 import urllib.error
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
+
+import pytest
 
 import reddit_swgoh
 
@@ -164,3 +166,80 @@ def test_match_reports_every_board_unit_in_one_title():
     entries = [{"title": "Rey vs Ben Solo, who wins", "link": "a", "updated": "", "author": ""}]
     out = reddit_swgoh.match_entries(entries, {"GLREY", "BENSOLO"}, NAME_MAP)
     assert sorted(out[0]["units"]) == ["BENSOLO", "GLREY"]
+
+
+# ---------------------------------------------------------------------------
+# Regression tests for names ending in non-word characters (the \b defect).
+# 78 of 829 display names end in ) or " or ', making trailing \b unmatchable
+# even when the name appears verbatim in the title.  These tests use real
+# name_type_map.json entries so they track production data, not invented names.
+# ---------------------------------------------------------------------------
+
+_REAL_NAME_MAP = json.load(
+    open(os.path.join(os.path.dirname(__file__), "..", "data", "name_type_map.json"))
+)
+
+
+@pytest.mark.parametrize(
+    "base_id",
+    [
+        "APPO",                       # ends in " (quote inside the name)
+        "BASTILASHANDARK",            # ends in )
+        "BOUSHH",                     # ends in )
+        "CASSIANUNDERCOVER",          # ends in )
+        "CT210408",                   # ends in "
+        "MAULHATEFUELED",             # ends in )  — on 5v5 defense board in the live game
+        "THEMANDALORIANBESKARARMOR",  # ends in )
+        "KYLORENUNMASKED",            # ends in )
+        "VADERDUELSEND",              # ends in '
+    ],
+)
+def test_match_names_ending_in_non_word_char(base_id):
+    """Names that end in ) or " or ' must fire when a title contains them verbatim.
+
+    These all failed with the original \\b…\\b pattern because \\b asserts a
+    word-to-non-word transition, but the name already ends in a non-word char,
+    so there is no such transition at the position after the match.
+    """
+    display = _REAL_NAME_MAP[base_id]["n"]
+    title = f"Thread about {display} in GAC defense"
+    nm = {base_id: _REAL_NAME_MAP[base_id]}
+    out = reddit_swgoh.match_entries(
+        [{"title": title, "link": "x", "updated": "", "author": ""}],
+        {base_id},
+        nm,
+    )
+    assert out, (
+        f"match_entries should have matched {base_id!r} ({display!r}) "
+        f"in title {title!r}"
+    )
+    assert out[0]["units"] == [base_id]
+
+
+def test_match_names_ending_in_quote_appo():
+    """Spot-check: 'CC-1119 \"Appo\"' (ends in a double-quote) matches."""
+    display = _REAL_NAME_MAP["APPO"]["n"]   # 'CC-1119 "Appo"'
+    nm = {"APPO": _REAL_NAME_MAP["APPO"]}
+    title = f"Is {display} worth farming?"
+    out = reddit_swgoh.match_entries(
+        [{"title": title, "link": "x", "updated": "", "author": ""}],
+        {"APPO"},
+        nm,
+    )
+    assert out, f"Expected APPO to match in: {title!r}"
+
+
+def test_match_non_word_ending_name_does_not_match_when_glued_to_word_char():
+    """Even after the fix, names must not match when glued to a word character.
+
+    'Rey' from GLREY must not fire on 'Greyjoy' — the negative guard must hold.
+    This re-asserts the existing test_match_respects_word_boundaries to confirm
+    the lookahead fix does not regress on the case the original \\b handled.
+    """
+    entries = [
+        {"title": "Greyjoy tier list", "link": "a", "updated": "", "author": ""},
+        {"title": "Reynaldo counters?", "link": "b", "updated": "", "author": ""},
+    ]
+    # GLREY -> "Rey"
+    result = reddit_swgoh.match_entries(entries, {"GLREY"}, NAME_MAP)
+    assert result == [], "Rey must not fire on 'Greyjoy' or 'Reynaldo'"
