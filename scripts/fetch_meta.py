@@ -16,12 +16,16 @@ import argparse
 import datetime
 import json
 import os
+import sys
 
+# playwright is OPTIONAL at import and required only by main(). rows_to_json and
+# EXTRACT_JS need no browser, and this module is imported by a test suite that
+# opens none. A hard SystemExit here killed CI: no playwright -> SystemExit(1)
+# during collection -> INTERNALERROR -> "no tests ran".
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
-    print("ERROR: playwright missing. pip install playwright && python3 -m playwright install chromium")
-    raise SystemExit(1)
+    sync_playwright = None
 
 
 class MetaFetchFailed(RuntimeError):
@@ -119,6 +123,11 @@ def main():
     if args.season_5v5 % 2 != 0 or args.season_3v3 % 2 == 0:
         parser.error("5v5 seasons are even and 3v3 seasons are odd; check the numbers")
 
+    if sync_playwright is None:
+        print("ERROR: playwright is required to fetch.")
+        print("  pip install playwright && python3 -m playwright install chromium")
+        return 1
+
     pulled = datetime.date.today().isoformat()
     os.makedirs(META_DIR, exist_ok=True)
 
@@ -158,4 +167,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # sys.exit(main()), not a bare call: main() returns 1 when playwright is
+    # absent or a view cannot be fetched, and a bare call would discard that.
+    sys.exit(main())
