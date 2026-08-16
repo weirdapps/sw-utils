@@ -18,10 +18,12 @@ ideally, its named character.
 Reads  : data/board_result.json, data/roster/*.json, data/unit_tags.json
 Writes : output/datacron_plan.json  (+ a human table on stdout)
 """
-import itertools
 import json
 import os
 import sys
+
+import numpy as np
+from scipy.optimize import linear_sum_assignment
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -125,29 +127,52 @@ def score(cron, units, T):
 
 
 def best_assignment(squads, crons, T):
-    """Exact max-weight matching (<=12 crons, <=11 squads → brute force over crons)."""
-    S = len(squads)
+    """Exact max-weight matching of crons onto walls, one each.
+
+    This used to brute-force every permutation, which was already slow at 5v5
+    (11 squads, 12 crons ~ 40M perms) and simply does not terminate at 3v3
+    (15 squads -> 15!/2! ~ 6.5e11). Same answer, via Hungarian: the weight is the
+    HOLD POINTS ADDED, and negative-gain pairs are zeroed so a cron is never forced
+    onto a wall it does not help.
+    """
     usable = [c for c in crons if c["lvl"] >= 3]
-    M = [[score(c, s["units"], T)[0] * s["rate"] - s["rate"] for s in squads] for c in usable]
-    best = (None, -1)
-    idx = range(S)
-    for perm in itertools.permutations(idx, min(len(usable), S)):
-        tot = sum(M[i][j] for i, j in enumerate(perm) if M[i][j] > 0)
-        if tot > best[1]:
-            best = (perm, tot)
-    perm = best[0]
+    if not usable or not squads:
+        return {}, 0.0
+    gain = np.array([[max(0.0, score(c, s["units"], T)[0] * s["rate"] - s["rate"])
+                      for s in squads] for c in usable])
+    rows, cols = linear_sum_assignment(-gain)
     out = {}
-    for i, j in enumerate(perm):
-        if M[i][j] > 1e-9:
+    total = 0.0
+    for i, j in zip(rows, cols):
+        if gain[i, j] > 1e-9:
             out[j] = usable[i]
-    return out, best[1]
+            total += gain[i, j]
+    return out, total
 
 
 def main():
+    """Assign crons per FORMAT.
+
+    3v3 and 5v5 are separate seasons, so the same cron can carry a wall in both —
+    but the best fit is not the same squad, and running only 5v5 (as this did until
+    2026-08-16) left every 3v3 wall unplanned. That is half the seasons.
+    """
+    plans = {}
+    for fmt in ("5v5", "3v3"):
+        plans[fmt] = plan_format(fmt)
+    os.makedirs(OUT, exist_ok=True)
+    json.dump(plans, open(os.path.join(OUT, "datacron_plan.json"), "w"), indent=1)
+    print("wrote output/datacron_plan.json (both formats)")
+
+
+def plan_format(fmt):
     T = tags()
     B = json.load(open(os.path.join(DATA, "board_result.json")))
-    squads = B["5v5"]["defense"]
+    squads = B[fmt]["defense"]
     names = {b: (T.get(b, {}).get("n") or b) for s in squads for b in s["units"]}
+    print("\n" + "#" * 100)
+    print(f"# {fmt} DEFENSE")
+    print("#" * 100)
 
     print("=" * 100)
     print("DATACRON FIT MATRIX — uplift multiplier on each wall's hold%")
@@ -189,9 +214,7 @@ def main():
     print(f"\nBOARD SUM  {tot0:.0f}%  ->  {tot1:.0f}%   (+{tot1-tot0:.0f} points of expected hold)")
     unused = [c["id"] for c in OWNED if c["lvl"] >= 3 and c not in assign.values()]
     print(f"Unused crons: {', '.join(unused) if unused else 'none'}")
-    os.makedirs(OUT, exist_ok=True)
-    json.dump(plan, open(os.path.join(OUT, "datacron_plan.json"), "w"), indent=1)
-    print("wrote output/datacron_plan.json")
+    return plan
 
 
 if __name__ == "__main__":

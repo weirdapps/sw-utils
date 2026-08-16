@@ -21,7 +21,10 @@ OUT = os.path.join(ROOT, "output")
 res = json.load(open(os.path.join(DATA, "board_result.json")))
 roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260812.json")))
 placement = json.load(open(os.path.join(OUT, "gac_placement.json")))
-crons = {p["slot"]: p for p in json.load(open(os.path.join(OUT, "datacron_plan.json")))}
+_dcplan = json.load(open(os.path.join(OUT, "datacron_plan.json")))
+# datacron_plan.json is now keyed by format; each entry lists one row per
+# defensive slot in board order.
+crons = {(f, tuple(r["units"])): r for f, rows in _dcplan.items() for r in rows}
 
 # Which map zone each defensive squad belongs in. A defense list is useless without
 # this: the board is two gated lanes, not eleven interchangeable slots, and the name
@@ -155,6 +158,12 @@ for key, prefix in SECTIONS:
             zone = ZONE_OF.get((key, tuple(sq["units"])))
             slot = zone if (persp == "defense" and zone) else f"{p}{i:02d}"
             nm = f"{tag} {slot} {lbl(sq['units'][0])} {sq['rate']:.0f}%"
+            # A wall without its datacron is a different wall. Carry the cron in the
+            # name so the right one gets attached at placement time — Astra shipped
+            # 7 of 11 walls with no cron at all while the opponent ran 8 of 8.
+            c = crons.get((key, tuple(sq["units"])))
+            if persp == "defense" and c and c.get("cron"):
+                nm += f" [s{c['cron_set']}]"
             add(nm, cat, sq["units"], 1)
 
 for cat, arr in res["fleets"].items():
