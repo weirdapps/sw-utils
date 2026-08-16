@@ -165,31 +165,67 @@ def main():
     print("wrote output/datacron_plan.json (both formats)")
 
 
+def names_of(units, T):
+    return [(T.get(u, {}).get('n') or u) for u in units]
+
+
+def offense_reservations(fmt, B):
+    """Crons whose L9 character is on the OFFENSE board — keep them off the walls.
+
+    Datacrons apply to attacks too, and the L9 character tier is where most of the
+    value is. Doctrine E moved eight GLs and their supports to offense, which
+    stranded several crons on the wrong side: the set-33 L9 First Order / Kylo Ren
+    (Unmasked) cron was being spent on the Partagaz wall for +1 point of hold while
+    KRU himself attacks in the SLKR squad, where the same cron is the #1 offense
+    datacron in the game at Kyber (93.4% win).
+    """
+    out = {}
+    for s in B[fmt]["offense"]:
+        for c in OWNED:
+            if c.get("l9") and c["l9"] in s["units"]:
+                out.setdefault(c["id"], s["units"])
+            for m in (c.get("members") or []):
+                if m in s["units"]:
+                    out.setdefault(c["id"], s["units"])
+    return out
+
+
 def plan_format(fmt):
     T = tags()
     B = json.load(open(os.path.join(DATA, "board_result.json")))
     squads = B[fmt]["defense"]
     names = {b: (T.get(b, {}).get("n") or b) for s in squads for b in s["units"]}
+    reserved = offense_reservations(fmt, B)
+    pool = [c for c in OWNED if c["id"] not in reserved]
     print("\n" + "#" * 100)
     print(f"# {fmt} DEFENSE")
     print("#" * 100)
+    if reserved:
+        print("Held back for OFFENSE (their L9 character attacks, and a cron works on "
+              "attacks too):")
+        for cid, units in reserved.items():
+            c = next(x for x in OWNED if x["id"] == cid)
+            tgt = c.get("l9") or "/".join(c.get("members") or [])
+            print(f"  {cid} set{c['set']} L{c['lvl']} -> {tgt}  on  "
+                  f"{', '.join(names_of(units, T))}")
+        print()
 
     print("=" * 100)
     print("DATACRON FIT MATRIX — uplift multiplier on each wall's hold%")
     print("=" * 100)
-    hdr = f"{'wall':<26}{'hold':>6}  " + "".join(f"{c['id'][:8]:>10}" for c in OWNED if c["lvl"] >= 3)
+    hdr = f"{'wall':<26}{'hold':>6}  " + "".join(f"{c['id'][:8]:>10}" for c in pool if c["lvl"] >= 3)
     print(hdr)
     for i, s in enumerate(squads, 1):
         lead = names.get(s["units"][0], s["units"][0])[:22]
         row = f"D{i:02d} {lead:<22}{s['rate']:>5.1f}  "
-        for c in OWNED:
+        for c in pool:
             if c["lvl"] < 3:
                 continue
             m, _ = score(c, s["units"], T)
             row += f"{m:>10.2f}" if m > 1.001 else f"{'-':>10}"
         print(row)
 
-    assign, gain = best_assignment(squads, OWNED, T)
+    assign, gain = best_assignment(squads, pool, T)
     print()
     print("=" * 100)
     print(f"OPTIMAL ASSIGNMENT — total expected hold% added: +{gain:.1f} points")
@@ -212,7 +248,7 @@ def plan_format(fmt):
     tot0 = sum(s["rate"] for s in squads)
     tot1 = sum(p["effective"] for p in plan)
     print(f"\nBOARD SUM  {tot0:.0f}%  ->  {tot1:.0f}%   (+{tot1-tot0:.0f} points of expected hold)")
-    unused = [c["id"] for c in OWNED if c["lvl"] >= 3 and c not in assign.values()]
+    unused = [c["id"] for c in pool if c["lvl"] >= 3 and c not in assign.values()]
     print(f"Unused crons: {', '.join(unused) if unused else 'none'}")
     return plan
 
