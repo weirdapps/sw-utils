@@ -16,9 +16,10 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
 2. **Optimize mods** for those teams (move → slice → calibrate → level) — see "Mod optimization" below.
 
 ## Player
-- **Astra** · ally **145357294** · GAC league **Kyber, DIVISION 3** · 14.45M GP · skill rating 3169.
-  Division is set by **skill rating, not GP** (live: `leagueId: KYBER`, `divisionId: 15`; ids run
-  25/20/15/10/5 = D1..D5). ⚠ The old note claiming a GP-based Division 1 was wrong.
+- **Astra** · ally **145357294** · GAC **KYBER 4** · 14.47M GP · skill rating **3,128** (Kyber-4 band is
+  2970-3130, so he sits one point off promotion). Read off the in-game Championships screen 2026-08-17;
+  the HotUtils `divisionId: 15` maps to Kyber 4, NOT Division 3 as first inferred, and division is set by
+  **skill rating, not GP**. ⚠ Two earlier claims were wrong: the GP-based "Division 1", and "Division 3".
   ⇒ **Scrape swgoh.gg with `league=kyber` (all divisions), not `league=kyber-d1`** — they are different
   buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.

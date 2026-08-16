@@ -3252,3 +3252,56 @@ is the trade, and it is the one the arithmetic endorses.
 `tests/test_gac_score.py` asserts (a) GL Rey is the ONLY GL allowed to wall, (b) she still has no
 offense row — the single fact the exception rests on, and the thing most likely to change under a new
 meta, (c) every defensive slot is filled and offense depth exceeds the required win count.
+
+## 2026-08-17 (session 2) — GAC defense PLACED in-game, and the banner model confirmed first-party
+Emulator driven via ADB. S82 Round 3 setup phase, opponent Law Craw (14.09M). R1 and R2 both LOST, so
+this was the last round of the event.
+
+### ⭐ THE GAME CONFIRMS gac_score.py, VERBATIM
+The Character Territory panel prints, per zone: **"Offense Win: +16-69 Banners"** and
+**"Conquer: +240 Banners"**. 240 = `territory_banners('5v5', 4)` = 120 + 30x4, computed independently
+from the wiki table. 69 = `MAX_BATTLE['5v5']`. Also printed: *"You must earn at least 10 banner(s) from
+any battle to qualify for rewards at the end of the round."* The model is no longer inferred.
+
+### ⭐ CORRECTION: ASTRA IS KYBER 4, NOT KYBER 3 AND NOT "DIVISION 3"
+In-game Championships screen: **Kyber 4, Skill Range 2970-3130, Your Skill Rating 3,128** — one point
+under the band ceiling. So HotUtils `divisionId: 15` maps to KYBER 4. Both earlier readings (a GP-based
+"Division 1", then "Division 3") were wrong. Division is skill-rating driven; league placements update
+in 16d 22h.
+
+### The map, confirmed visually
+Two 4-slot CHARACTER zones nearest the centre line (the fronts), and behind them a 3-fleet zone and a
+3-squad zone. Exactly the `gac_score.ZONES` topology. The fleet zone is unambiguously a BACK zone.
+
+### ⭐ THE API READ WAS INCOMPLETE — CHECK CRONS IN-GAME
+`gac/get` with `refresh:false` reported no datacron on most squads. In-game, The Stranger, GL Rey and
+Rotta all already carried theirs (Lvl 9 / Lvl 9 / **Lvl 15 max focused**). Do not trust a non-refreshed
+pull for cron state; the squad list in Edit Defenses shows it plainly.
+
+### What was placed (14/14)
+- **TOP-FRONT** Stranger (s32 cron) · GL Rey (s33 cron) · Rotta the Hutt (**s33 focused, L15 MAX**) ·
+  Satele Shan (s31 Old Republic/Satele — all three tiers apply to all five)
+- **BOTTOM-FRONT** Palpatine · Great Mothers · Queen Amidala/Shaak Ti (s31 Light Side: +15% max health
+  and protection per other Light Side ally = +60% across the squad) · Grievous Droids (s31 Separatist:
+  bonus turn on kill)
+- **FLEET** and **BOTTOM-BACK** left as they were (3/3 each)
+- **Lord Vader and Jabba pulled OFF defense** — the whole point of doctrine E; they are 39.8 and 47.4
+  banner attackers.
+
+### Judgement calls made at the device, both deliberate
+1. **Rotta stayed in TOP-FRONT** instead of moving to bottom-front as gac_place wanted. Both are fronts,
+   the swap was worth ~1 banner, and moving it risked detaching a maxed focused datacron. Not worth it.
+2. **The fleet zone was left alone.** In-game it is Executrix + Home One + Endurance. By the CORRECTED
+   Kyber Hold% (the tier list, not the counter win% `build_fleets.py` still uses) that reads
+   7.0 + 14.0 + 14.4 = 35.4, versus the plan's Chimaera + Home One + Raddus = 15.9 + 14.0 + ~1.2 = 31.1.
+   ⇒ **The live fleet defense is BETTER than what the repo would have set.** `build_fleets.py` needs
+   re-basing on `/tier-list/fleet/?side=defense` before it is trusted again.
+
+### UI notes for next time (saves a lot of taps)
+- Edit Defense → zone → ENTER → **REMOVE SQUAD** (red X per squad) → DONE → **ADD SQUAD**.
+- ADD SQUAD → **SELECT SQUAD** opens the in-game PRESET tabs — the ones `push_ingame_presets.py` writes.
+  Naming them `FT1 …` / `FB2 …` / `BB3 …` means placement is just picking by name. That naming change
+  paid for itself immediately.
+- **ADD DATACRON** lives in the squad builder, bottom-right, and the picker states per cron whether each
+  tier applies to the current squad ("No applicable bonus mechanics" vs lit portraits). Trust that over
+  any offline scorer.
