@@ -136,3 +136,44 @@ def test_solve_fills_exactly_the_map():
                                    fleets=[{}, {}, {}])
     assert sorted(len(v) for v in placed.values()) == [3, 4, 4]
     assert cost <= worst
+
+
+# --- doctrine ----------------------------------------------------------------
+def test_only_gls_without_an_offense_role_are_allowed_to_wall():
+    """The rule the owner argued for and the simulation confirmed: a GL walls only
+    if it has no offense row at all. Today that is GL Rey and nobody else. If a
+    future meta gives her one, or takes one away from another GL, this fails and the
+    doctrine gets re-measured with scripts/gac_doctrine.py rather than drifting."""
+    import board_config as cfg
+    ALL_GLS = {"JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE",
+               "SUPREMELEADERKYLOREN", "GLLEIA", "LORDVADER", "GLREY",
+               "JABBATHEHUTT", "GLAHSOKATANO"}
+    for fmt in ("5v5", "3v3"):
+        walls = ALL_GLS - set(cfg.ATTACK_ONLY_BY_FORMAT[fmt])
+        assert walls == {"GLREY"}, f"{fmt} lets these GLs wall: {walls}"
+
+
+def test_gl_rey_still_has_no_offense_row():
+    """The single fact the exception rests on. Cheap to check, and it is the thing
+    most likely to change under a new meta."""
+    import build_board as bb
+    _, _, _, _, pools = bb.load_pools()
+    for fmt in ("5v5", "3v3"):
+        rows = [s for s in pools[(fmt, "off")] if "GLREY" in s["units"]]
+        assert not rows, f"GL Rey now has {len(rows)} {fmt} offense rows — re-run gac_doctrine.py"
+
+
+def test_every_defensive_slot_is_filled_in_the_shipped_board():
+    """An unset slot is a free 69 banners. This is the one board property that must
+    never regress, whatever the doctrine says."""
+    import json
+    import os
+    b = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data",
+                                    "board_result.json")))
+    for fmt in ("5v5", "3v3"):
+        want = sum(z["slots"] for z in gs.ZONES[fmt] if not z["fleet"])
+        assert len(b[fmt]["defense"]) == want
+        # and enough offense to conquer everything, with retry depth on top
+        need = want + 3
+        assert len(b[fmt]["offense"]) > need, \
+            f"{fmt}: {len(b[fmt]['offense'])} offense squads for {need} required wins"

@@ -38,36 +38,53 @@ BOARD = {
 # TW map runs out of slots.
 TW = {"def": 15, "off": 15, "off_weight": 0.75}
 
-# Pure-attack Galactic Legends: never place on defense. They are poor defenders
-# and, worse, a defensive placement strands the support units their offense needs.
-ATTACK_ONLY_GLS = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE",
-                   "SUPREMELEADERKYLOREN"]
-
-# GL Leia in 5v5 is the one placement the optimiser will not settle: her best wall
-# (31% hold) and her best attack (96% win, the highest in the game) score within
-# 1 point of each other across the whole board - 1240 vs 1239, i.e. a tie.
-# Offense wins the tie-break on three things the linear model cannot see:
-#   * on offense YOU choose the matchup, so a 96% clear can be aimed at their
-#     hardest squad; a wall takes whatever comes;
-#   * 96% is near-certain, 31% is a coin flip you lose two times in three;
-#   * a hold rate measured across all leagues decays against Kyber opponents,
-#     while a top attacker does not.
-# In 3v3 there is no tie: forcing her to offense costs 13 points, so she walls.
+# --- doctrine: which Galactic Legends may wall ---------------------------------
+# HISTORY, kept because it is the reasoning that got superseded and the next person
+# will otherwise re-derive it. This used to be four "pure-attack" GLs (JMK, JML, SEE,
+# SLKR) on the argument that GLs are poor defenders and that walling one strands its
+# supports. Both halves are shakier than they sound: SLKR's squad measures 47% hold
+# at Kyber, and a GL whose wall and attack squad share the same four supports strands
+# nothing. GL Leia was then treated as a genuine 5v5 tie (1240 def vs 1239 off) broken
+# toward offense, and as a wall in 3v3. The measurement below replaces all of it.
 #
-# ⭐ SLKR IS NO LONGER ATTACK-ONLY IN 5v5 (changed 2026-08-16, evidence below).
-# The blanket "GLs are poor defenders" line is false for this one. On swgoh.gg's
-# S80 Kyber (all-divisions) 5v5 defense tier list, SLKR / Rey (Dark Side Vision) /
-# Sith Trooper / General Hux / Kylo Ren (Unmasked) is the **#2 wall in the game at
-# 47.0% hold over 7,200 battles**, behind only The Stranger. The second half of the
-# old reasoning — that walling a GL strands its attackers — does not apply here
-# either: the SLKR wall and the SLKR attack squad are the same four supports, so
-# nothing is stranded. Astra owns all five at G13 and has never walled with them.
-# The cost is real and is named: SLKR is the best owned answer to an enemy Stranger
-# (76%). That job passes to JMK (79%, the best counter in the game), which is
-# exactly why the Queen Amidala override below matters — it frees Mace Windu.
+# ⭐ THE RULE, MEASURED (set 2026-08-16, REVISED 2026-08-17 after the owner pushed
+# back that too much was going on defense — he was right):
+#
+#   EVERY GL THAT HAS AN OFFENSE ROLE ATTACKS. A GL WALLS ONLY IF IT HAS NONE.
+#
+# scripts/gac_doctrine.py settles this by simulating whole rounds, both sides,
+# against two real opponent boards, under six doctrines. Net banners, 5v5:
+#
+#   A  SLKR released to defense .................. -523
+#   B  the classic 5 attack-GLs are attack-only ... -503
+#   C  only Lord Vader + Jabba may wall .......... -483
+#   D  no GL walls at all ........................ -472
+#   E  every GL WITH an offense role attacks ..... -425   <- this one
+#   F  E but SLKR walls too ...................... -471
+#
+# E leads by 65-87 banners at every value of the one free parameter (gac_place
+# ATTEMPTS, swept 1.5 -> 4.0) in 5v5, and at every realistic value in 3v3. The
+# absolute numbers are negative because "conceded" is measured against your ceiling
+# and "earned" against theirs; only the ORDERING carries meaning.
+#
+# WHY DEFENSE LOSES THIS ARGUMENT, in one line: a defensive squad earns nothing and
+# denies only against an opponent who would otherwise have taken those banners —
+# and Astra's live board was cleared 14/14, so it denied zero. An offense squad
+# earns its banners AND can be the one that conquers a territory, which pays 210-240
+# more and unlocks the entire gated lane behind it.
+#
+# The exception is not a judgement call, it is a fact about the data: GL REY HAS NO
+# OFFENSE ROW IN EITHER FORMAT. Not a weak one — none, in any meta file. Forcing her
+# to offense (doctrine D) just strands five G13 units, which is why D loses to E by
+# 47. SLKR was the closest call and was walled in the first cut of this file: the
+# simulation says attack (F trails E by 46), because SLKR/Dark Rey is a 96% TWO-unit
+# clear in 3v3 and 90% in 5v5, and freeing him deepens the bank that conquers lanes.
+ATTACK_ONLY_GLS_WITH_OFFENSE = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE",
+                                "SUPREMELEADERKYLOREN", "GLLEIA", "GLAHSOKATANO",
+                                "LORDVADER", "JABBATHEHUTT"]
 ATTACK_ONLY_BY_FORMAT = {
-    "5v5": ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE", "GLLEIA"],
-    "3v3": ATTACK_ONLY_GLS,
+    "5v5": ATTACK_ONLY_GLS_WITH_OFFENSE,
+    "3v3": ATTACK_ONLY_GLS_WITH_OFFENSE,
 }
 
 # Units defense may never claim, because they are the irreplaceable fifth of an
@@ -78,10 +95,9 @@ RESERVE_OFF_UNITS = {
     "5v5": {
         # JMK / Ahsoka / Commander Ahsoka / MACE WINDU / Padme is 90% (n=29.1K) and,
         # more to the point, JMK is the best answer in the game to The Stranger at
-        # 79% (n=403). With The Stranger, SLKR and Satele Shan all walling, JMK is
-        # the ONLY good answer Astra has left to an enemy Stranger — which is the
-        # most common hard wall at Kyber. Mace is the fifth of that squad and the
-        # solver kept spending him on the Queen Amidala wall instead.
+        # 79% (n=403) — The Stranger is the only wall in the game whose best counter
+        # wins under 80%. Mace is the fifth of that squad, and the ILP kept spending
+        # him on the Queen Amidala wall for two more banners.
         "MACEWINDU": "fifth of JMK's 90% squad, Astra's only 79% answer to The Stranger",
     },
     "3v3": {},
@@ -111,16 +127,10 @@ DATACRON_SQUADS = {
     "3v3": [],
 }
 
-# Lineups allowed into the CORE pool despite sitting under MIN_SEEN, each with the
-# reason. This exists so a single well-evidenced exception does not force MIN_SEEN
-# down for everything — the sampling argument above is still right in general.
-CORE_ALLOW = {
-    frozenset(["SUPREMELEADERKYLOREN", "DARKREY", "FOSITHTROOPER", "GENERALHUX",
-               "KYLORENUNMASKED"]):
-        "Kyber #2 wall at 47.0% hold on 7,200 Kyber battles (swgoh.gg S80 defense "
-        "tier list, Kyber all-divisions). The all-league LINEUP row reads n=4,591 "
-        "only because that view splits builds; the squad is not thinly sampled.",
-}
+# Lineups allowed into the CORE pool despite sitting under MIN_SEEN. Empty since the
+# SLKR-wall entry was retired with the doctrine change above; the sampling argument
+# for MIN_SEEN is still right in general and there is no exception earning its keep.
+CORE_ALLOW = {}
 
 # Minimum battles behind a rate before it is trusted. swgoh.gg's cutoff=0 view
 # returns rows with n<10 showing 100%, so some floor is mandatory; the level is a

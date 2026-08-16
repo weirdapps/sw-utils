@@ -3192,3 +3192,63 @@ defensive names now carrying the ZONE (`5v5 FT1 …`, `FB2 …`, `BB3 …`) so t
   head-to-head rates instead of its two-marginal model.
 - Confirm the Profundity unlock in-game (every published gate reads MET off the live roster).
 - Re-key the mod ladder to GAC OFFENSE characters — 145 six-dot mods equips ~24 units, the board needs ~110.
+
+## 2026-08-17 — THE OFFENSE/DEFENSE SPLIT, SETTLED BY SIMULATION. The owner was right.
+He pushed back on the 2026-08-16 board: *"too much on defense; keep the best teams for offense and do
+the best we can in defense with GLs that are not good in offense and the rest of the meta teams."*
+That is a claim about opportunity cost, not about Hold%, so it was measured rather than argued.
+
+### The tool
+`scripts/gac_doctrine.py` simulates a WHOLE ROUND, both sides, under N doctrines:
+- defense → `gac_place.solve` (exact, gated) → banners conceded;
+- offense → walk the enemy board lane by lane, Hungarian-match our squads onto theirs on log P(win),
+  units single-use across the whole board, territory credited at P(all beaten in that zone), and each
+  back zone's whole value multiplied by P(its front was conquered);
+- run against TWO opponent boards: the captured live one and a synthetic top-of-meta Kyber board, so a
+  doctrine is never chosen on one opponent.
+
+### The result (5v5 net banners; absolute values are meaningless, the ORDERING is the answer)
+| doctrine | net |
+|---|---|
+| A SLKR released to defense (what shipped 2026-08-16) | −523 |
+| B the classic 5 attack-GLs are attack-only | −503 |
+| C only Lord Vader + Jabba may wall | −483 |
+| D no GL walls at all | −472 |
+| **E every GL WITH an offense role attacks** | **−425** |
+| F E but SLKR walls too | −471 |
+
+**E wins by 65-87 banners at every ATTEMPTS from 1.5 to 4.0 in 5v5, and at every realistic value in
+3v3** (it only loses at 3v3/ATTEMPTS=1.5, the "walls hold a lot" regime that Astra's own 14/14 wipe
+contradicts). The trend is monotone toward offense, which is the signature of a real effect.
+
+### Why defense loses the argument
+A defensive squad earns ZERO and denies only against an opponent who would otherwise have taken those
+banners. Against the live 15.2M opponent Astra's board denied exactly nothing — cleared 14/14. An
+offense squad earns its banners AND can be the one that conquers a territory: +210-240, plus it
+unlocks the entire gated lane behind it. The two sides are not symmetric and Hold% cannot see it.
+
+### ⭐ THE ONE EXCEPTION IS A DATA FACT, NOT A JUDGEMENT CALL
+**GL REY HAS NO OFFENSE ROW IN EITHER FORMAT** — not a weak one, none, in any meta file. Doctrine D
+(no GL walls) therefore strands five G13 units, which is exactly why it loses to E by 47.
+⇒ `ATTACK_ONLY_GLS_WITH_OFFENSE` = JMK, JML, SEE, SLKR, GL Leia, GL Ahsoka, Lord Vader, Jabba.
+⇒ GL Rey is the only GL on the board, in both formats.
+
+### Corrections to yesterday's entry
+- **SLKR ATTACKS after all.** Yesterday's "SLKR walls, he is the #2 Kyber wall at 47%" was right about
+  the hold number and wrong about the conclusion: doctrine F (E + SLKR walling) trails E by 46. SLKR /
+  Dark Rey is a **96% TWO-unit clear in 3v3** (n=1,931) and 90% in 5v5, and freeing him deepens the
+  bank that conquers lanes. `CORE_ALLOW` retired with it.
+- The per-GL marginal table (offense banners vs wall denial + gate share) agrees for every GL except
+  SLKR, where it says +11.9 for walling. The full-board simulation overrules it because the marginal
+  table cannot see the global re-optimisation or the territory unlock.
+
+### Board after the change
+5v5 **11 def / 21 off** (was 20), defense sum 250% → 318% with crons.
+3v3 **15 def / 26 off**, defense sum 180% → 206% with crons.
+110 definitions live on HotUtils, 6 tabs pushed in-game. Defense holds fell, offense depth rose — that
+is the trade, and it is the one the arithmetic endorses.
+
+### Guarded by tests
+`tests/test_gac_score.py` asserts (a) GL Rey is the ONLY GL allowed to wall, (b) she still has no
+offense row — the single fact the exception rests on, and the thing most likely to change under a new
+meta, (c) every defensive slot is filled and offense depth exceeds the required win count.

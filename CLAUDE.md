@@ -68,9 +68,14 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    Undersizing on OFFENSE is worth only +1/slot — do it for unit economy, not for the bonus.
 6. **Two attempts per target, then walk away.** Attempt 2 is −20 banners, attempt 3 is −30, and the
    units are spent win or lose. Astra threw seven squads at one wall in S82 R2.
-7. **Attack-only GLs are JMK, JML, SEE** (+ GL Leia in 5v5, the #1 attacker at 96.7%).
-   ⭐ **SLKR now WALLS in 5v5** — his squad is the #2 wall at Kyber (47.0% hold, n=7,200) and it strands
-   nothing, because the wall and the attack squad are the same five units.
+7. ⭐ **EVERY GL THAT HAS AN OFFENSE ROLE ATTACKS. A GL WALLS ONLY IF IT HAS NONE.**
+   Today that means **eight GLs attack and only GL Rey walls** — she is the one with no offense row in
+   any meta file, in either format. Measured, not asserted: `scripts/gac_doctrine.py` simulates whole
+   rounds against real opponent boards under six doctrines, and this one wins by 65-87 banners at every
+   value of the free parameter. A wall earns nothing and denies only against an opponent who would
+   otherwise have taken those banners — Astra's board was cleared 14/14, so it denied zero. An attacker
+   earns its banners *and* can be the squad that conquers a territory, worth 210-240 more plus the lane
+   behind it. Re-run `gac_doctrine.py` when the meta shifts; don't reason about it from Hold%.
 8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu belongs
    to JMK, who is the only 79% answer Astra has to an enemy Stranger.
 9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
@@ -85,6 +90,8 @@ HU_SID=<live> python3 scripts/upload_hotutils.py --sync
 HU_SID=<live> python3 scripts/push_ingame_presets.py --push
 # per round, once matchmaking lands:
 python3 scripts/gac_attack.py        # the attack ROUTE vs the live opponent board
+# when the meta shifts, re-settle the offense/defense split by measurement:
+python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrines
 ```
 `build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
 
