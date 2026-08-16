@@ -76,8 +76,11 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    otherwise have taken those banners — Astra's board was cleared 14/14, so it denied zero. An attacker
    earns its banners *and* can be the squad that conquers a territory, worth 210-240 more plus the lane
    behind it. Re-run `gac_doctrine.py` when the meta shifts; don't reason about it from Hold%.
-8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu belongs
-   to JMK, who is the only 79% answer Astra has to an enemy Stranger.
+8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu is the
+   last available fifth for JMK's 90% attacker (General Kenobi is committed to GL Rey's wall). Without
+   the reservation JMK falls off the offense board and the round is 67 net banners worse.
+   ⚠ **Astra has NO good answer to The Stranger.** Best well-sampled is SLKR at 76% (n=2,769); the
+   often-quoted "JMK 79%" is the *General Kenobi* variant on n=403, and the Mace variant is 43%.
 9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
 
 ## Pipeline order (run them in this order — each reads the previous one's output)

@@ -93,12 +93,21 @@ ATTACK_ONLY_BY_FORMAT = {
 # never notice that the roster then has no answer to a specific enemy squad.
 RESERVE_OFF_UNITS = {
     "5v5": {
-        # JMK / Ahsoka / Commander Ahsoka / MACE WINDU / Padme is 90% (n=29.1K) and,
-        # more to the point, JMK is the best answer in the game to The Stranger at
-        # 79% (n=403) — The Stranger is the only wall in the game whose best counter
-        # wins under 80%. Mace is the fifth of that squad, and the ILP kept spending
-        # him on the Queen Amidala wall for two more banners.
-        "MACEWINDU": "fifth of JMK's 90% squad, Astra's only 79% answer to The Stranger",
+        # ⚠ CORRECTED 2026-08-17. This was first justified as "Mace is the fifth of
+        # JMK's 79% answer to The Stranger". That is WRONG and the counter corpus
+        # says so plainly: the 79% row (n=403) is the GENERAL KENOBI variant, and the
+        # MACE variant reads 43% into the same wall (n=440). Astra has no good answer
+        # to The Stranger at all — the best well-sampled one is SLKR at 76% (n=2,769).
+        #
+        # The reservation survives anyway, on a plainer reason that was measured:
+        # JMK / Ahsoka / Commander Ahsoka / MACE / Padme is a 90% attacker worth 55.6
+        # banners (n=29.1K), and Mace is the ONLY fifth still available for it —
+        # General Kenobi is committed to GL Rey's wall, which is the one wall doctrine
+        # E keeps. Drop the reservation and the ILP spends Mace on the Queen Amidala
+        # wall, JMK falls off the offense board entirely, and the round is 67 net
+        # banners worse (measured with gac_doctrine's simulator).
+        "MACEWINDU": "the last available fifth for JMK's 90% attacker; without him JMK "
+                     "has no fieldable 5v5 squad and the board loses 67 net banners",
     },
     "3v3": {},
 }
