@@ -34,7 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def solve(defense_pool, offense_pool, n_def, n_off, forced_off_leaders=(),
-          forced_def_leaders=()):
+          forced_def_leaders=(), reserved_off_units=()):
     """Pick n_def defense + n_off offense squads, unit-disjoint, max total rate.
 
     Pools are lists of {"rate": int, "units": [baseId, ...], ...}. Returns
@@ -50,7 +50,11 @@ def solve(defense_pool, offense_pool, n_def, n_off, forced_off_leaders=(),
     if not n:
         return [], []
 
-    cost = np.array([-float(s["rate"]) for _, _, s in cand])  # milp minimises
+    # `value` is in BANNERS (see board_config.price): banners earned for an offense
+    # squad, banners denied plus gate share for a defense squad. Both sides are
+    # therefore the same currency and genuinely add. `rate` is the pre-2026-08
+    # fallback for callers that have not been repriced (Territory War).
+    cost = np.array([-float(s.get("value", s["rate"])) for _, _, s in cand])  # milp minimises
 
     rows, lb, ub = [], [], []
 
@@ -74,6 +78,18 @@ def solve(defense_pool, offense_pool, n_def, n_off, forced_off_leaders=(),
             for j in js:
                 v[j] = 1.0
             add(v, 0, 1)
+
+    # doctrine: individual units the defense may not claim. Not the same thing as a
+    # forced leader — this is for a SUPPORT unit that is the irreplaceable fifth of
+    # an attack squad the board cannot do without. Without it the solver will happily
+    # spend the unit on a wall worth 2 more banners and silently delete a 90% clear.
+    for u in reserved_off_units:
+        js = [j for j, (side, _, s) in enumerate(cand) if side == "def" and u in s["units"]]
+        if js:
+            v = [0.0] * n
+            for j in js:
+                v[j] = 1.0
+            add(v, 0, 0)
 
     # doctrine: a forced-side leader's units may only appear on that side
     for leaders, banned_side in ((forced_off_leaders, "def"),
@@ -111,7 +127,7 @@ def add_bench(chosen_def, chosen_off, offense_pool, max_bench):
     used = {u for s in chosen_def + chosen_off for u in s["units"]}
     chosen_keys = {tuple(s["units"]) for s in chosen_off}
     bench = []
-    for s in sorted(offense_pool, key=lambda x: (-x["rate"], -x["seenN"])):
+    for s in sorted(offense_pool, key=lambda x: (-x.get("value", x["rate"]), -x["seenN"])):
         if len(bench) >= max_bench:
             break
         if tuple(s["units"]) in chosen_keys:

@@ -16,16 +16,77 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
 2. **Optimize mods** for those teams (move → slice → calibrate → level) — see "Mod optimization" below.
 
 ## Player
-- **Astra** · ally **145357294** · GAC league **Kyber 3** (climbing to Kyber 2) · ~14M GP.
+- **Astra** · ally **145357294** · GAC league **Kyber, DIVISION 3** · 14.45M GP · skill rating 3169.
+  Division is set by **skill rating, not GP** (live: `leagueId: KYBER`, `divisionId: 15`; ids run
+  25/20/15/10/5 = D1..D5). ⚠ The old note claiming a GP-based Division 1 was wrong.
+  ⇒ **Scrape swgoh.gg with `league=kyber` (all divisions), not `league=kyber-d1`** — they are different
+  buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
-- **Known gaps:** Profundity (fleet — #1 defensive fleet), Third Sister (non-GL wall). *GL Hondo is NOT a gap — the "#1 3v3 wall" figure was all-league; it reads 3.5% in Kyber-D1 on S81.*
+- **Known gaps, ranked by banners:** **Profundity** (24.8% hold AND 98.4% win — best in the game on
+  both sides; every published unlock gate now appears MET, next Stardust Transmission ~2026-08-31) ·
+  **Third Sister** (turns an already-owned R9 Inquisitor bench into both a 26% wall and an 85% attacker) ·
+  **4-LOM + Zuckuss at G11/R0** (the only sub-G13 units gating anything: they unlock the Kyber-D1 #1
+  offense squad). *GL Hondo is NOT a gap.*
+- ⚠ **The real structural gap is MODS, not gear or relics.** Head-to-head with the live S82 opponent:
+  145 six-dot mods vs 720, total mod speed 16,682 vs 25,873, 10 mods at 25+ speed vs 47 — while Astra's
+  gearScore is *higher*. Relic spend is equal in total (2,213 vs 2,189 levels) but wrong in shape:
+  27 units at R9+ vs their 60, and 156 parked at R7. Stop adding R7s; convert R7→R9 on the offense plan.
 
-## Live board (Kyber, read from HotUtils GAC Planning — reconfirm each season)
-- **5v5:** 11 defense squads + 3 fleets. **3v3:** 15 defense squads + 3 fleets. Offense mirror-clears.
-- Config lives in `scripts/compute_teams.py` (`BOARD`). Update if league/board changes.
+## The board is TWO GATED LANES, not a list of slots (verified 2026-08-16)
+Read live off HotUtils `gac/get` and confirmed against six of Astra's own matches. `scripts/gac_score.py`
+holds it; don't re-derive it.
+
+```
+LANE TOP     front_top    (4 squads, 5v5 / 5, 3v3)  ──gates──▶  FLEET territory (3 fleets)
+LANE BOTTOM  front_bottom (4 squads, 5v5 / 5, 3v3)  ──gates──▶  back_bottom (3 squads / 5)
+```
+Both fronts are open the second the attack phase starts. **A back territory is invisible and
+unattackable until every squad in its own front is dead.** Zone ids carry it: `phase01` = front,
+`phase02` = back, matched by `location`.
+
+**Banners (first-party, `gac_score.BANNER`):** Victory 15 · First Attempt 30 (2nd 10, 3rd+ 0) ·
+Surviving/Full-Health/Full-Protection/Defeated-Enemy 1 each · **Unused Slot 4** · First Attack 10 once.
+Max per battle = `45 + 5·slots − units_deployed` → 5v5 65–69, 3v3 57–59, fleet 73–79.
+**Territory conquest = 120 + 30/squad (5v5), +28 (3v3), +33/fleet — and it is 47% of the whole score.**
+Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently — the model is validated).
+⇒ One hold in a front zone denies **657–696**; the same hold in the back denies **210–219**.
+⇒ **The defender earns zero banners.** Defense is pure denial. Never add a defender-side term.
 
 ## Rules (encoded in the scripts — don't hand-wave them)
-1. Every unit **owned + G13+**. 2. **No unit repeats within a format** (3v3 and 5v5 are separate seasons, so a unit CAN appear in both; but within one format, defense + offense share no unit — defense locks & each unit attacks once). 3. **Defense first** by Hold%. 4. **Reserve the 4 pure-attack GLs** (JMK, JML, SEE, SLKR) for offense before defense claims units, or defense strands their support (e.g. JML's Cal/GMY). 5. GL Leia → offense in 5v5 (she's the #1 attacker). 6. Fleets are single-use too; the 6 fleets share no ship.
+1. Every unit **owned + G13+**.
+2. **No unit repeats within a format** (3v3 and 5v5 are separate seasons, so a unit CAN appear in both;
+   within one format, defense + offense share no unit — defense locks & each unit attacks once).
+3. ⭐ **OFFENSE FIRST, to a proven full clear. Defense from the remainder.** (This replaces "defense
+   first by Hold%", which was the root cause of the losing streak: Astra converts ~37% of available
+   banners and a mean of 493/round sat locked behind a front zone he left at 3/4.) **Conquer a lane or
+   do not enter it** — a front at 3/4 pays the same territory banners as 0/4: zero.
+4. **Price everything in BANNERS, never in Hold%/Win%.** Defense = `max_battle − avg banners conceded`
+   plus its share of gate denial; offense = avg banners earned. swgoh.gg publishes both as the
+   `banners` column and the repo already scrapes it.
+5. **Fill every slot.** An unset defensive slot hands the attacker the *maximum* (69 in 5v5) for free.
+   Undersized DEFENSE is strictly worse than a full squad ("Defeated Enemies … includes unset").
+   Undersizing on OFFENSE is worth only +1/slot — do it for unit economy, not for the bonus.
+6. **Two attempts per target, then walk away.** Attempt 2 is −20 banners, attempt 3 is −30, and the
+   units are spent win or lose. Astra threw seven squads at one wall in S82 R2.
+7. **Attack-only GLs are JMK, JML, SEE** (+ GL Leia in 5v5, the #1 attacker at 96.7%).
+   ⭐ **SLKR now WALLS in 5v5** — his squad is the #2 wall at Kyber (47.0% hold, n=7,200) and it strands
+   nothing, because the wall and the attack squad are the same five units.
+8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu belongs
+   to JMK, who is the only 79% answer Astra has to an enemy Stranger.
+9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
+
+## Pipeline order (run them in this order — each reads the previous one's output)
+```
+python3 scripts/build_board.py       # select, priced in banners, relic-corrected  -> data/board_result.json
+python3 scripts/gac_place.py         # assign squads to zones                      -> output/gac_placement.json
+python3 scripts/datacron_assign.py   # match owned crons to walls                  -> output/datacron_plan.json
+python3 scripts/generate_upload.py   # payload + playbook, names carry the ZONE    -> output/
+HU_SID=<live> python3 scripts/upload_hotutils.py --sync
+HU_SID=<live> python3 scripts/push_ingame_presets.py --push
+# per round, once matchmaking lands:
+python3 scripts/gac_attack.py        # the attack ROUTE vs the live opponent board
+```
+`build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
 
 ## Full workflow (re-run each GAC season / when meta shifts)
 Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — the JS snippets are in

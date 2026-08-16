@@ -19,7 +19,21 @@ DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
 res = json.load(open(os.path.join(DATA, "board_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")))
+roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260812.json")))
+placement = json.load(open(os.path.join(OUT, "gac_placement.json")))
+crons = {p["slot"]: p for p in json.load(open(os.path.join(OUT, "datacron_plan.json")))}
+
+# Which map zone each defensive squad belongs in. A defense list is useless without
+# this: the board is two gated lanes, not eleven interchangeable slots, and the name
+# is the only thing the player sees while placing in-game.
+ZONE_TAG = {"front_top": "FT", "front_bottom": "FB", "back_bottom": "BB", "back_fleet": "SHIP"}
+ZONE_OF = {}
+for _fmt in ("5v5", "3v3"):
+    for _zk, _sqs in placement[_fmt]["zones"].items():
+        if _zk == "back_fleet":
+            continue
+        for _i, _s in enumerate(_sqs, 1):
+            ZONE_OF[(_fmt, tuple(_s["units"]))] = f"{ZONE_TAG[_zk]}{_i}"
 info = {u["b"]: u for u in roster["units"]}
 namemap = json.load(open(os.path.join(DATA, "name_type_map.json")))
 
@@ -138,7 +152,9 @@ for key, prefix in SECTIONS:
         cat = f"{prefix} - {persp.capitalize()}"
         for i, sq in enumerate(res[key][persp], 1):
             tag = "3v3" if key == "3v3" else ("TW" if key == "tw" else "5v5")
-            nm = f"{tag} {p}{i:02d} {lbl(sq['units'][0])} {sq['rate']:.0f}%"
+            zone = ZONE_OF.get((key, tuple(sq["units"])))
+            slot = zone if (persp == "defense" and zone) else f"{p}{i:02d}"
+            nm = f"{tag} {slot} {lbl(sq['units'][0])} {sq['rate']:.0f}%"
             add(nm, cat, sq["units"], 1)
 
 for cat, arr in res["fleets"].items():
