@@ -170,6 +170,45 @@ Pipeline detail:
 5. **Calibration targets the UNLUCKY mod** — `deficit = rolls×4.5 − spd`, never `rolls×6 − spd`. A reroll
    re-samples, so rerolling an above-average mod loses on average (measured 0 hits in 18 attempts).
 
+## Pricing actions, and checking the repo's own facts (added 2026-08-17)
+Two gaps closed. Before this, GAC was the only mode priced in a real unit (banners), nothing
+priced energy at all, and no written fact was ever re-checked against the roster.
+
+```
+python3 scripts/action_value.py            # what is actually scarce, and what buys it
+python3 scripts/verify_facts.py            # does the repo's prose still match the roster?
+python3 scripts/verify_facts.py --unit IMAGUNDI   # ground truth for one unit, in one second
+```
+- **`data/economy.json` holds the researched constants, each with a source URL.** Recipes and
+  store prices come from swgoh.wiki, not from memory or from reading the game UI. Re-verify against
+  the cited page before editing, and update `_verified_utc`.
+- **A relic upgrade is a FIXED BASKET, so throughput is the MINIMUM over (stock ÷ need), never the
+  average.** A surplus of nine materials buys nothing when the tenth is empty. That one fact gives
+  shadow prices for free: farming a material you already hold in surplus is waste, however good the
+  node looks.
+- ⭐ **Two hard gates that raid tickets cannot buy, at any price:**
+  **SIGNAL DATA** is cantina-energy-only (no store sells it for a token) and is the largest line in
+  the basket — **100 Flawed per R7→R9**. **DROID BRAIN** has no repeatable token route at all.
+  ⇒ Cantina energy is NOT interchangeable with the other pools despite paying the same 1 ticket,
+  and Assault Battles / Endor Escalation / Knightfall / Coven of Shadows are **mandatory**, not
+  optional, for anything past R8.
+- **Aeromagnifier is the only thing forcing Mk III raid tokens** (35,300 Mk III would buy a whole
+  R7→R9 basket, but gyrda/impulse/zinbiddle all have cheaper non-Mk-III routes). So spend Mk III on
+  aeromagnifiers and cover the rest from scrap points and Conquest credits. Chromium Transistor and
+  Aurodium Heatsink are the equivalent forced draw on Mk II.
+- **Never compare two currencies by their raw numbers.** 90 scrap points is not cheaper than 250
+  Mk III tokens — they are different units. `plan_routes` deliberately refuses to take that minimum
+  (the first draft did, and called scrap "cheapest"); it reports per-currency spend and marks a
+  material FORCED only when it has exactly one allowed route.
+- **`verify_facts.py` exists because a wrong written fact cost a raid attempt.** `data/claims.json`
+  holds every checkable assertion the prose leans on; a failure means **a file in this repo is
+  telling you something untrue — fix the file, not the checker.** Run `--unit <BASEID>` before
+  acting on any gear/relic claim: the character card shows RELIC in Arabic and GEAR in Roman, and
+  conflating them is exactly the 2026-08-17 error.
+- `pull_mods.py` now also writes **`all_mats`** (the full material dict it used to discard), which is
+  what lets `action_value.py` price the shortfall against real stock instead of gross demand.
+  Until a pull runs with a live `HU_SID`, the report is demand-only and says so.
+
 ## Conventions
 - Data-driven only — NO hardcoded teams in compute (teams come from the meta files ∩ roster).
 - Fleet reinforcements are standard faction-meta (swgoh.gg only publishes capital + starting-3).

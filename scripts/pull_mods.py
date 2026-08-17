@@ -71,8 +71,12 @@ def main():
             "rr": m.get("rerolledCount", 0),
         })
     date = datetime.datetime.now().strftime("%Y%m%d")
+    # `mats` stays filtered to MAT_MAP because slice_plan/execute_upgrades/calibrate all
+    # key off those exact names. `all_mats` is the whole material dict the API already
+    # returned and this script used to discard — relic mats live in there, and without
+    # them action_value.py can only price demand, never the shortfall against stock.
     out = {"gameDataAgeUtc": r.get("player", {}).get("gameDataAgeUtc") if not NO_REFRESH else None,
-           "pulledCount": len(mods), "mats": mats, "mods": mods}
+           "pulledCount": len(mods), "mats": mats, "all_mats": mats_raw, "mods": mods}
     fn = os.path.join(DATA, f"mods_full_{date}.json")
     json.dump(out, open(fn, "w"))
     sixA = sum(1 for m in mods if m["dots"] == 6 and m["tier"] == 5)

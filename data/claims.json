@@ -1,0 +1,37 @@
+{
+  "_README": "Checkable assertions that prose in this repo relies on, validated against the live roster by scripts/verify_facts.py. Add a claim here whenever a note starts steering decisions with a roster fact. Counts drift as the account grows, so aggregate claims carry a tolerance; per-unit gear/relic claims do not.",
+  "_why": "On 2026-08-17 memory/order66-raid-mechanics.md asserted a squad was 'gear 5-7, zero relics'. The roster said g=13, rt=7 (Relic 5). The wrong fact picked the raid difficulty, the run capped a tier below where it could have, and it was the last of five attempts. Nothing in the repo could have caught that. This file is the thing that catches it.",
+
+  "claims": [
+    {"id": "profundity-raddus", "source": "CLAUDE.md", "unit": "ADMIRALRADDUS", "relic": 9,
+     "note": "Profundity gate, called out as 'exactly at threshold'"},
+    {"id": "profundity-cassian", "source": "CLAUDE.md", "unit": "CASSIANANDOR", "relic": 8,
+     "note": "Profundity gate, exactly at threshold"},
+    {"id": "profundity-dash", "source": "CLAUDE.md", "unit": "DASHRENDAR", "relic": 7,
+     "note": "Profundity gate, exactly at threshold"},
+    {"id": "profundity-monmothma", "source": "CLAUDE.md", "unit": "MONMOTHMA", "min_relic": 7},
+    {"id": "profundity-bistan", "source": "CLAUDE.md", "unit": "BISTAN", "min_relic": 7},
+    {"id": "profundity-jyn", "source": "CLAUDE.md", "unit": "JYNERSO", "min_relic": 7},
+    {"id": "profundity-hera", "source": "CLAUDE.md", "unit": "HERASYNDULLAS3", "min_relic": 6},
+
+    {"id": "third-sister-gate", "source": "CLAUDE.md", "unit": "GRANDINQUISITOR", "min_relic": 7,
+     "note": "Reva shards need a Relic-7 Grand Inquisitor; CLAUDE.md says his is exactly R7"},
+
+    {"id": "4lom-gap", "source": "CLAUDE.md", "unit": "4LOM", "gear": 11, "relic": 0,
+     "note": "'the only sub-G13 units gating anything' — if this ever passes G11 the gap text is stale"},
+    {"id": "zuckuss-gap", "source": "CLAUDE.md", "unit": "ZUCKUSS", "gear": 11, "relic": 0},
+
+    {"id": "r9-plus-pile", "source": "CLAUDE.md", "min_relic_count": 9, "value": 27, "tolerance": 6,
+     "note": "'27 units at R9+ vs their 60' — the head-to-head that motivates the whole R7->R9 push"},
+    {"id": "r7-parked-pile", "source": "CLAUDE.md", "relic_count": 7, "value": 156, "tolerance": 12,
+     "note": "'156 parked at R7'. Roster of 2026-08-12 reads 152; the claim is drifting, not wrong."},
+
+    {"id": "order66-jv-are-relics", "source": "memory/order66-raid-mechanics.md",
+     "all_units": ["IMAGUNDI", "EETHKOTH", "JEDIKNIGHTGUARDIAN", "JEDIKNIGHTCONSULAR"],
+     "gear": 13, "relic": 5,
+     "note": "THE 2026-08-17 REGRESSION. The file said 'gear 5-7, zero relics'. They are G13 R5. Keep this claim so the wrong reading cannot come back."},
+    {"id": "order66-jocasta-no-relic", "source": "memory/order66-raid-mechanics.md",
+     "unit": "JOCASTANU", "gear": 12, "relic": 0,
+     "note": "The one genuine non-relic in that squad — which is why the badge looked inconsistent"}
+  ]
+}
