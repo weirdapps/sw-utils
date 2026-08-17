@@ -3379,6 +3379,31 @@ tier; `--by-rank` restores the old behaviour. Covered by `tests/test_calibrate.p
   TB rung in `invest_plan.py`: there is a real argument for R9-ing platoon units over meta teams.
 - **Episode Quests: 28 per episode, one revealed per day, and a missed day is EP gone for good.**
 
+### ⭐ `datacron_exposure.SETS` was rotting by design — expiry is now a DATE
+Datacrons changed in Jan 2026: **monthly releases, 3-month lifespan** (was bi-monthly/4-month),
+**reroll costs for levels 4–6 HALVED**, fewer factions per set, and the datacron-currency cap
+raised to **100M — so banking currency across a weak set is now viable**. Reroll ladder is
+1–2 rerolls @200K, 3–4 @400K, 5+ @800K, with the 4–6 band halved. Focused Datacrons are the
+no-gamble alternative: linear, exactly what's displayed, go to **level 15**, can't be rerolled
+or dusted, one of each per player.
+The repo bug this exposed: `SETS` carried a hardcoded `days` countdown read off swgoh.gg on
+2026-08-05, so it was wrong the next morning — by 2026-08-17 it still listed **set 30 as live
+with "1 day" left, eleven days after it lapsed**, handing every Sith and Galactic Republic squad
+a phantom expiry haircut. Now `expires` is an ISO date (kept a string: `build_board.py` dumps
+this table into `board_result.json`) and `days_left()`/`live_sets()` derive the countdown, with
+`today` injectable. Live today: 31→17d, 32→45d, 33→73d. ⚠ Still needs a human when a set lapses —
+`live_sets()` drops the dead one but cannot invent its replacement; next set due ~2026-08-26.
+Covered by `tests/test_datacron_exposure.py` (7 tests).
+
+### Omicrons — use measured impact, not popularity
+**swgoh4.life/omicrons** ranks omicrons by *measured* GAC offense/defense impact from swgoh.gg's
+Kyber 1&2 insight data, not opinion. The gap between the top two entries is the whole lesson:
+**Wampa "Cornered Beast"** is 76.7% popularity AND **+40.3% offense impact**, while **Captain Rex
+"The Lost Commander"** is 53.9% popularity and roughly **zero** measured impact. Popularity ≠ value.
+**SaberUtils** publishes an "Omicron Order" for the multi-omicron units (Starkiller has 3, all GAC;
+Boba Fett SoJ has 3, all TW). swgoh.gg's ability report filters by mode AND bracket. Not yet
+scraped into the repo — both pages are JS-rendered, so it needs the MCP browser like the meta files.
+
 ### Open
 - **GAC Kyber-4 → Kyber-3 payout delta is unquantified.** Sources only establish that Aurodium-1 →
   Kyber-5 is roughly a wash and that "A1 up to K3" is where it starts to matter. The in-game GAC
