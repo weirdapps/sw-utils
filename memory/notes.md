@@ -51,11 +51,11 @@ Endpoints (POST api.hotutils.com/Production/, body has {sessionId,...}; header a
 - **Slice / promote a tier:** `mods/tier {modIds:[id,...], getAllData:true}` — advances each mod ONE tier (5E→…→5A→6E→…→6A). rc 1 = "MODS TIERED". ⚠️ **`simulation:true` is NOT a dry run — it really slices.** Never trust it; every call is real.
 - **Level to 15 ("upgrade"):** `mods/level {modIds:[id,...], requestType:3}` (3=ToMax, 4=SingleLevel). Credits only. **Slicing REQUIRES level 15** — level sub-15 mods first or `mods/tier` errors.
 - **Calibrate (6-dot):** `mods/reroll {modId, stat:5}` (stat 5 = Speed) → returns `.mod` preview → `mods/acceptreroll {keepMod:true|false}`. Reverting (false) does NOT refund; EACH reroll attempt spends the calibration material.
-  - **Material = Micro Attenuators = `summary.currency` id 41** (NOT in `material.material` — that's why my slicing-only tracker showed "spent:{}" and I wrongly guessed a daily cap). Farmed in-game from **Mod Battles Map 9** only; cannot be acquired via HotUtils API.
+  - **Material = Micro Attenuators = `summary.currency` id 41** (NOT in `material.material` — that's why my slicing-only tracker showed "spent:{}" and I wrongly guessed a daily cap). Cannot be acquired via HotUtils API. Farmed in-game from **Mod Battles chapter 2** — this was "Map 9" until the 2026-04-27 update cut Mod Battles from 9 tiers to 2 and deleted Mod Challenges; chapter 2 IS the old tier 9, and `farmbot/config.json` already targets `chapter_tab_mod_2`. Two more faucets found 2026-08-17: **GET3 5-for-125** and **Episode currency 16-for-4,000**.
   - Rule (`okToCalibrate` in bundle): mod must be 6-dot; **max calibrations = tier+1** (6A=6); cost escalates by attempt — 1st needs ≥15 attenuators, 2nd ≥25, 3rd ≥35, …
   - When attenuators can't cover the next attempt, `mods/reroll` returns `responseCode 2 / "GOHServiceCall Error [40]"` on every mod (persists past pauses — it's material-out, not a timer).
   - Best practice: only calibrate maxed 6A mods, 1–3× each; target FLAT stats → speed (re-rolling speed→speed is only ~25% to hit). `mods/level` and reads are NOT gated by attenuators.
-  - This session: had 1000 attenuators → spent ~995 (Rey 23→26 kept; rest reverted/probed) → 5 left = exhausted. Refill via Mod Battles Map 9, then resume the sweep over the 50 never-calibrated 6A mods.
+  - This session: had 1000 attenuators → spent ~995 (Rey 23→26 kept; rest reverted/probed) → 5 left = exhausted. Refill via Mod Battles chapter 2 (see above), then resume the sweep over the 50 never-calibrated 6A mods.
 - Data model: `account/data/all` → d.data.mods.mods[] {id, unit.baseId(equipped) , rarity(dots 5/6), tier(1=E..5=A/gold), level, setId(4=Speed set), slot, secondaryStat[].stat.unitStatId(5=Speed, ÷10000)}. Materials at d.data.material.material[] by id.
 Material recipe (per tier-step) + binding constraints, CORRECTED from live before/after diffs (2026-07-25):
 - **T05_06 is the MASTER binding material** — consumed by BOTH promotes AND 6-dot slice steps. Farm it first.
@@ -3305,3 +3305,88 @@ pull for cron state; the squad list in Edit Defenses shows it plainly.
 - **ADD DATACRON** lives in the squad builder, bottom-right, and the picker states per cron whether each
   tier applies to the current squad ("No applicable bonus mechanics" vs lit portraits). Trust that over
   any offline scorer.
+
+## 2026-08-17 (session 3) — ⭐ ECONOMY: where value per action actually comes from
+Desk research (no device — battery). Everything here is sourced; the two things I *measured*
+against this account's own data are called out, and one of them killed a change I had proposed.
+
+### ⚠ The game changed under our notes: 2026-04-27 update
+- **Mod Battles cut from 9 tiers to 2; Mod Challenges DELETED.** Chapter 2 == the old tier 9
+  (slicing mats + Micro Attenuators), at a lower unlock level. 1–4 dot mod rewards removed.
+  Our prose said "Mod Battles Map 9" in two places (now fixed); the *code* was already right —
+  `farmbot/config.json` targets `chapter_tab_mod_2`.
+- **Era Currency inflow +204% to +419%**, 40 extra free Era Levels, and **Era Level 135 converts
+  to Relic 8**. Tier-4 Lightspeed Tokens cut 5,000 → 3,500 EC. This is a relic engine we do not
+  currently track anywhere in the repo.
+- Training-droid and Mk I–III ability-mat drop rates up; star promotion no longer costs credits.
+
+### ⭐ Raid CADENCE is the R7→R9 supply line (the fix CLAUDE.md already asks for)
+CLAUDE.md: *"27 units at R9+ vs their 60, 156 parked at R7. Stop adding R7s; convert R7→R9."*
+The material for that comes from exactly one place worth using:
+- **Mk III raid tokens are the only reliable faucet for R8/R9 mats** (Electrium Conductor,
+  Zinbiddle Card, Aeromagnifier) and the best value for R6/R7. Mk III comes ONLY from raids.
+- Raids are gated by tickets: **600/member/day, 1 ticket per 1 energy spent on anything except
+  Conquest energy.** Free daily energy (240 normal + 120 cantina + 240 mod + 240 ship + 135/45
+  quest bonuses) covers 600 with **zero crystals**.
+- **Rule: never hoard energy for a higher Guild Activity tier at the expense of 600 tickets.**
+  Raid rewards dominate guild tokens. `memory/session_state.md` recorded the guild stuck at
+  **83.9K/180K, unable to launch Order 66** — that is the relic pipeline starving at the source.
+- Crate scaling flattens: 15M guild score → 1,000 Mk III, 60M → 2,000. **Cadence beats crate-chasing.**
+
+### Currency routing (spend each unit where it returns most)
+| Currency | Best use |
+|---|---|
+| Guild tokens | Blue roombas (Mk 7 BlasTech) 10/150 → **33.3 Chromium Transistors**, best relic-salvage deal |
+| Mk III raid | R6/R7 for value; **only** source for R8/R9 |
+| Conquest | **Sector-1 jawa tradeable salvage** → Impulse Detectors + Gyrda Keypads (R8–R10). NEVER buy IDs/GKs directly |
+| Episode (EC) | Omicrons → signal data/relic mats → **attenuators 16/4,000** + slicing mats 25/3,500. ⚠ hard cap 100k, overflow is burned |
+| GAC | Kyrotech only; slicing mats acceptable second |
+| Shard shop | G12 gear 360 shards/4 pieces; skip anything at 720 |
+| Fleet arena | Ships/pilots, then **zetas exclusively** |
+| Legend tokens | Omicrons only |
+| Credits | All bronziums always, + the 4 random Featured Shipment gear pieces each refresh (→ bronzium wiring) |
+
+### Mods — what the sources add, and what MEASUREMENT rejected
+- **5-roll cap is real**: no secondary can roll more than 5 times. Verified against our own
+  `data/mods_full_20260811.json` — across 2,330 mods `spdRolls` **never exceeds 5** (max speed per
+  rolls: 1→6, 2→12, 3→17, 4→23, 5→26). A capped mod can never gain speed from another slice.
+- ❌ **But do NOT teach `slice_plan.py` about it.** Measured: exactly **1 of 1,854** queued mods is
+  speed-capped, and **0 of the top 40**. The change would have been pure complexity. Measure first.
+- 5A→6E is deterministic (+2 speed on an arrow primary, +1 on a speed secondary) and is NOT
+  subject to the roll cap — only within-tier slices roll a random secondary.
+- Slice cheap tiers first (grey→green→blue→purple→gold); cull thresholds grey any-speed,
+  green 1–2 hits, blue 2–3 (thr 8), purple 3–4 (thr 10), gold thr 10.
+- Only level to 12 to reveal all 4 secondaries; 15 is needed only immediately before slicing.
+- **Never let mod energy cap** — it stops generating at the cap. **Lock every 6-dot mod.**
+
+### ⭐ `scripts/calibrate.py` — cost tier now beats ladder rank (CHANGED, tested)
+Attenuators are the binding constraint and an attempt is priced PER MOD by prior rerolls
+(1st ≥15, 2nd ≥25, 3rd ≥35) while the hit rate does **not** improve with rr. Ranking by
+importance first quietly spent the stock on the few expensive mods. On the 2026-08-11 pull the two
+top-ranked candidates are both rr=2, so with 86 attenuators the old order buys **3** attempts
+(35+35+15=85) and the new order buys **4** (15+15+15+35=80). Rank still breaks ties inside a price
+tier; `--by-rank` restores the old behaviour. Covered by `tests/test_calibrate.py` (8 tests).
+
+### Per-mode rules worth keeping
+- **Conquest: you may skip up to 34 keycards and still red-crate.** Read ALL feats before spending
+  any energy — burning attempts before reading feats is the classic waste. Hold Boss attempts until
+  the disk loadout is complete (Boss Feats are locked to that single battle).
+- **Energy: spread wide, never refresh deep.** A node reset is 25c for ~1.67 expected shards; the
+  same 50c buys 120 energy. Costs nothing to apply: run 5 attempts across two hard nodes rather
+  than 5 + reset on one. Cantina: one character at a time, to completion.
+- **RotE: deployment massively outweighs combat missions**, both alignments deploy on any planet,
+  and **deployment has no relic minimum** (missions need R5→R6→R7 by phase). Relevant to the empty
+  TB rung in `invest_plan.py`: there is a real argument for R9-ing platoon units over meta teams.
+- **Episode Quests: 28 per episode, one revealed per day, and a missed day is EP gone for good.**
+
+### Open
+- **GAC Kyber-4 → Kyber-3 payout delta is unquantified.** Sources only establish that Aurodium-1 →
+  Kyber-5 is roughly a wash and that "A1 up to K3" is where it starts to matter. The in-game GAC
+  rewards preview shows current vs next division exactly — one screenshot settles it.
+- **7,731 crystals banked and growing** under the never-spend rule. Every source ranks 3× normal +
+  3× fleet refreshes daily as the top sink (~50c each, ~1,500c per accelerated unit). Not proposing
+  we break the rule — but the bank needs a stated purpose or it is the largest idle asset here.
+
+Sources: Kahzgul (energy efficiency, Finance 101), EA Community Update 2026-04-27, swgoh.wiki
+(Guild Activities, Mk III Raid Tokens, Episode Track, Mods Farming), swgoh4.life (conquest feats,
+relic 10), swgoh-cantina (RotE).

@@ -32,6 +32,11 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
   145 six-dot mods vs 720, total mod speed 16,682 vs 25,873, 10 mods at 25+ speed vs 47 — while Astra's
   gearScore is *higher*. Relic spend is equal in total (2,213 vs 2,189 levels) but wrong in shape:
   27 units at R9+ vs their 60, and 156 parked at R7. Stop adding R7s; convert R7→R9 on the offense plan.
+- ⭐ **That R7→R9 conversion has exactly one supply line: RAID CADENCE.** Mk III raid tokens are the only
+  reliable faucet for R8/R9 mats, and raids are gated by **600 tickets/member/day = 1 ticket per energy
+  spent on anything but Conquest**. Free daily energy covers 600 with zero crystals, so a missed dump is
+  a missed relic. Never trade tickets for a higher Guild Activity tier. Full economy map + the currency
+  routing table: `memory/notes.md` § 2026-08-17 session 3.
 
 ## The board is TWO GATED LANES, not a list of slots (verified 2026-08-16)
 Read live off HotUtils `gac/get` and confirmed against six of Astra's own matches. `scripts/gac_score.py`
@@ -150,7 +155,9 @@ Pipeline detail:
 4. **Binding materials** (the real limits, from live diffs): a **6-dot step is a BUNDLE** —
    `T06_01×10 + T06_02×20 + T06_03×10 + T05_05×10 + T05_06×10` — so **T06_02 gates all 6-dot slicing**;
    promote 5A→6E → **T05_06 ×76**; 5-dot→5A → **~22 of the tier being left**;
-   **calibration → Micro Attenuators = `summary.currency` id 41** (farm: Smuggler's Run 2 with Jabba, best).
+   **calibration → Micro Attenuators = `summary.currency` id 41** (farm: Smuggler's Run 2 with Jabba, best;
+   also **GET3 5-for-125** and **Episode currency 16-for-4,000**, and Mod Battles **chapter 2** — which is
+   the old "Map 9" after the 2026-04-27 update cut Mod Battles to 2 tiers and deleted Mod Challenges).
    When a material runs out the API returns `responseCode 2 / GOHServiceCall Error [40]` — and it does NOT
    name the material, so diff a fresh pull rather than trusting a label. Latest state: `output/mod_upgrade_results.md`.
 5. **Calibration targets the UNLUCKY mod** — `deficit = rolls×4.5 − spd`, never `rolls×6 − spd`. A reroll
