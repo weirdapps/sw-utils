@@ -3404,6 +3404,47 @@ Kyber 1&2 insight data, not opinion. The gap between the top two entries is the 
 Boba Fett SoJ has 3, all TW). swgoh.gg's ability report filters by mode AND bracket. Not yet
 scraped into the repo — both pages are JS-rendered, so it needs the MCP browser like the meta files.
 
+### ⭐ The `rt` +2 trap bit `advisor.py`, and it was hiding the whole R7 pile
+The roster's `rt` is comlink's `relic.currentTier` **verbatim, two higher than the number the game
+prints on the tile**. `arena_board`, `invest_plan`, `rote_ops`, `generate_hotutils` and
+`build_board.py:53` all convert it — `advisor.relic_priority()` did not. It compared and reported raw
+`rt`, so its documented "default target 9" actually meant **"below R7"**, and `daily_brief` printed an
+R7 unit as "relic 9". Consequences, both real:
+- The advisor was blind to exactly the **R7→R9 conversion this account most needs**: it treated the
+  152-unit R7 pile as already at target. Fixed, the same call surfaces **115** board units below R9
+  instead of **11** — top of the list is Captain Rex R7 (96% team), Mace Windu R7, Darth Malgus R7.
+- It is almost certainly the origin of CLAUDE.md's "already-owned **R9** Inquisitor bench". There is
+  no R9 Inquisitor: Grand Inquisitor / Fifth Brother / Inquisitor Barriss / Marrok / Seventh Sister
+  are all **R7**, Ninth Sister R6, Eighth Brother R5. CLAUDE.md corrected.
+Calibration, if this is ever doubted again: Starkiller rt=11 and the repo logged him R8→**R9**;
+Cad Bane rt=8, logged R5→**R6**; Gamorrean Guard rt=9, logged R5→**R7**. And CLAUDE.md's independent
+"27 units at R9+" reproduces EXACTLY at offset 2 (27) versus 233 at offset 0. Relic histogram
+(displayed): R4×4, R5×43, R6×36, **R7×152**, R8×54, R9×10, R10×17.
+`advisor.relic_priority` now takes and returns DISPLAYED levels and emits key `relic`, not `rt`.
+
+### ⭐ Both top-line gaps are unlocked and waiting (roster-verified 2026-08-17)
+- **Profundity — every published gate MET.** 7 ships all at 7★ (Bistan's + Cassian's U-wing, Biggs' +
+  Wedge's X-wing, Rebel Y-wing, Ghost, Outrider) and 7 character relics clear, **three exactly at
+  threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7; then Mon Mothma/Bistan/Jyn Erso R7
+  and Hera Syndulla R6. Tiers need 4★/5★/6★/7★ ships and pay 10/10/20/40 blueprints; a bonus tier pays
+  10 more, free once per run. **Stardust Transmission runs ~monthly; last ran 2026-07-31.**
+  ⚠ Two sources disagree on the character list — swgohevents gives the relic-gated seven above, an
+  older list names the Rogue One squad (Jyn/Cassian/K-2SO/Baze/Chirrut/Bistan/Scarif Pathfinder).
+  Astra owns all of those at G13 too, so the gate is met either way; no need to resolve it.
+- **Third Sister is NOT an event.** Reva shards come only from the **RotE Phase 3 Neutral special
+  mission**, 1 shard per victory across the guild, capped at 50. Gate: **Relic-7 Grand Inquisitor** —
+  Astra's is exactly R7, so it is farmable now. It is a special mission, so auto-battle fails it.
+
+### Double drops — the one lever that multiplies energy
+No published calendar; CG announces ad hoc, but the pattern is **May 4th, the November anniversary,
+the winter holidays, and whenever a character is needed for a special event**. Caps: normal 2000,
+cantina/mod/ship 1000 — and free bonus energy plus store-bought energy IGNORE the cap.
+The synthesis that matters here, because mods are the structural gap and tickets are the relic engine:
+**240 normal + 120 cantina + 240 ship = exactly 600 = the full daily raid-ticket cap.** So Astra can
+hit 600 tickets every day while banking **100% of mod energy** for a double-drop window — 1000 banked
+mod energy at 2× is the single biggest slicing-material spike available, and it costs no crystals and
+no raid cadence. Mod energy caps at 1000, so start banking ~4 days out, not sooner.
+
 ### Open
 - **GAC Kyber-4 → Kyber-3 payout delta is unquantified.** Sources only establish that Aurodium-1 →
   Kyber-5 is roughly a wash and that "A1 up to K3" is where it starts to matter. The in-game GAC

@@ -24,10 +24,17 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
   buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
 - **Known gaps, ranked by banners:** **Profundity** (24.8% hold AND 98.4% win — best in the game on
-  both sides; every published unlock gate now appears MET, next Stardust Transmission ~2026-08-31) ·
-  **Third Sister** (turns an already-owned R9 Inquisitor bench into both a 26% wall and an 85% attacker) ·
-  **4-LOM + Zuckuss at G11/R0** (the only sub-G13 units gating anything: they unlock the Kyber-D1 #1
-  offense squad). *GL Hondo is NOT a gap.*
+  both sides) · **Third Sister** (turns an already-owned **R7** Inquisitor bench into both a 26% wall
+  and an 85% attacker) · **4-LOM + Zuckuss at G11/R0** (the only sub-G13 units gating anything: they
+  unlock the Kyber-D1 #1 offense squad). *GL Hondo is NOT a gap.*
+- ⭐ **BOTH top gaps are unlocked and waiting — verified against the roster 2026-08-17:**
+  - **Profundity — every gate MET.** All 7 ships at 7★ (Bistan's + Cassian's U-wing, Biggs' + Wedge's
+    X-wing, Rebel Y-wing, Ghost, Outrider) and all 7 character relics clear, **three of them exactly at
+    threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7 (then Mon Mothma/Bistan/Jyn R7,
+    Hera R6). Stardust Transmission runs ~monthly, last ran 2026-07-31 ⇒ **next ~late Aug 2026. Play it.**
+  - **Third Sister has no event** — Reva shards drop from the **RotE Phase 3 Neutral special mission**,
+    1 per guild victory, max 50. The gate is a **Relic-7 Grand Inquisitor**, and Astra's is exactly R7.
+    ⇒ It is farmable now, but only by running that mission every RotE. Do not auto-battle it.
 - ⚠ **The real structural gap is MODS, not gear or relics.** Head-to-head with the live S82 opponent:
   145 six-dot mods vs 720, total mod speed 16,682 vs 25,873, 10 mods at 25+ speed vs 47 — while Astra's
   gearScore is *higher*. Relic spend is equal in total (2,213 vs 2,189 levels) but wrong in shape:
