@@ -16,6 +16,13 @@ output/brief_*.html
 # OCR scratch frames — tw_place.py rewrites output/_ocr.png and output/_rows.png
 # on every single tesseract call, so tracking them is pure binary churn
 output/_*.png
+# per-round GAC crib sheet: the human-readable twin of the
+# output/gac_r<N>_placed_<date>.json that output/*.json already ignores. Written by hand
+# for one season+round, names the opponent's squads, and is dead once the round closes.
+output/gac_r*_placement_sheet.txt
+# transient live-session scratch. The file states its own contract: everything durable
+# goes into memory/notes.md, and this only holds what is still in flight.
+memory/session_state.md
 # farmbot runtime
 farmbot/halts/
 farmbot/config.json
