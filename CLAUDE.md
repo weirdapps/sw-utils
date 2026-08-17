@@ -175,3 +175,12 @@ Pipeline detail:
 - Fleet reinforcements are standard faction-meta (swgoh.gg only publishes capital + starting-3).
 - Base IDs: roster `b` field == swgoh.gg `data-unit-def-tooltip-app` == HotUtils `characterId` (all identical).
 - Do NOT commit secrets. HotUtils session ids are ephemeral — never hardcode them in committed files.
+- ⭐ **Screenshots are the session's real budget, and the limit is BYTES not tokens.** The API refuses
+  any request over 30MB; a raw `d.sh` screencap is ~2.7MB PNG and images were measured at ~99% of the
+  payload in 66 dead sessions (78 crashes, every day 2026-08-02→08-17). Auto-compact can never rescue
+  it — 60 images is ~90k tokens but ~29MB, so the byte cap lands while the window is barely a third
+  full, and `/compact` is itself an oversize call. `scripts/hooks/shrink_read_images.py` (PreToolUse
+  on Read, wired in `.claude/settings.json`) transcodes anything over 150KB to 1100px/q55 JPEG —
+  measured 1.9MB→71KB with in-game text still readable — and hard-denies once ~20MB is banked.
+  Originals on disk are untouched, so the vision/OCR scripts still get native resolution.
+  If it ever does die: `/clear`, then say "continue" — SessionStart replays `memory/session_state.md`.
