@@ -24,10 +24,10 @@ So the wall has two tiers, and they use different grounded sources:
           rarity-weighted so that a shared "Phoenix" (7 units) outranks a shared
           "Rebel" (52). Nothing in this file names a squad.
 
-WHAT IT WILL NOT DO. The four attack-only Galactic Legends stay off the wall
-(board_config.ATTACK_ONLY_GLS): a unit on TW defense cannot attack, and JMK is
-worth more as an attacker than as a 2.7%-hold Kyber wall. Units already placed on
-defense, and the 15 reserved TW offense squads, are locked out the same way.
+WHAT IT WILL NOT DO. The attack-only Galactic Legends stay off the wall
+(board_config.ATTACK_ONLY_BY_FORMAT["5v5"]): a unit on TW defense cannot attack,
+and JMK is worth more as an attacker than as a 2.7%-hold Kyber wall. Units already
+placed on defense, and the reserved TW offense squads, are locked out the same way.
 
 Run:  python3 scripts/tw_wall.py [--target-banners 1000] [--placed 15]
 """
@@ -40,12 +40,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import board_config as cfg          # noqa: E402
 import build_board as bb            # noqa: E402
 import league_adjust as la          # noqa: E402
+import swgoh_data                   # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
 BANNERS_PER_SQUAD = 30    # "Set Defense: +30 Banners", read off the territory panel
+FLEET_BANNERS = 34        # Airspace: "Set Defensive Fleet (+34 Banners per Fleet)"
 POWER_MINIMUM = 6000      # "6000 Power Minimum", same panel
 
 # Tags that are not a faction and so carry no squad synergy: a raid-eligibility
@@ -109,7 +111,7 @@ def leader_candidates(used, chars, cmap, rates):
     rest = [b for b in chars
             if b not in used and b not in rates
             and "Leader" in cmap.get(b, {}).get("cats", [])]
-    rest.sort(key=lambda b: -chars[b]["gp"])
+    rest.sort(key=lambda b: -swgoh_data.unit_power(chars[b]))
     out += [(b, cmap.get(b, {}).get("n", b), None, None, None, "unranked-leader")
             for b in rest]
     return out
@@ -131,13 +133,13 @@ def build_wall(locked, chars, cmap, size, rates, ltable):
             aff, shared = affinity(lead_cats, cmap.get(b, {}).get("cats", []), size)
             if aff <= 0:
                 continue                      # no shared faction => not a team
-            scored.append((aff, u["gp"], b, shared))
+            scored.append((aff, swgoh_data.unit_power(u), b, shared))
         scored.sort(reverse=True)
         allies = scored[:SQUAD_SIZE - 1]
         if len(allies) < SQUAD_SIZE - 1:
             continue                          # cannot field a full squad: skip
         units = [lead] + [a[2] for a in allies]
-        power = sum(chars[b]["gp"] for b in units)
+        power = sum(swgoh_data.unit_power(chars[b]) for b in units)
         if power < POWER_MINIMUM:
             continue
         _, note = la.ratio(ltable, lead_name, "5v5")
@@ -157,6 +159,40 @@ def build_wall(locked, chars, cmap, size, rates, ltable):
         })
         used.update(units)
     return squads, used
+
+
+def filler_squads(used, chars, cmap, locked, limit):
+    """TIER 4: the bodies no other tier can use, five at a time, strongest first.
+
+    Tiers 1-3 all need a LEADER — a ranked lineup, a tier-list leader, or at least a
+    unit carrying the "Leader" tag with four faction-mates. After they run, ~28 G13
+    characters are left that satisfy none of those and would otherwise idle.
+
+    They are still worth setting, and the reason is the flat rate: "Set Defense:
+    +30 Banners" does not read the squad. Five idle G13 bodies clear the 6,000-power
+    minimum roughly 25x over, bank the same +30 as a 28% wall, and still cost the
+    attacker a battle they must win to take the territory.
+
+    ⚠ BACK-LINE ONLY, and this is the rule the 2026-08-11 war broke at a cost. The
+    39-slot territory cap is GUILD-WIDE and first-come, so a filler squad in a FRONT
+    territory is a slot no guildmate can spend on a real wall. These sort last in the
+    placement order for exactly that reason — see notes.md "TW PLACEMENT DOCTRINE".
+    """
+    idle = sorted((b for b in chars if b not in used and b not in locked),
+                  key=lambda b: -swgoh_data.unit_power(chars[b]))
+    out = []
+    for i in range(0, len(idle) - SQUAD_SIZE + 1, SQUAD_SIZE):
+        if len(out) >= limit:
+            break
+        units = idle[i:i + SQUAD_SIZE]
+        names = [cmap.get(b, {}).get("n", b) for b in units]
+        out.append({"lead": units[0], "lead_name": names[0], "rate": None, "kd1": None,
+                    "battles": None, "units": units, "names": names,
+                    "power": sum(swgoh_data.unit_power(chars[b]) for b in units),
+                    "factions": [], "source": "filler", "back_only": True,
+                    "note": "no shared faction — flat +30 only; BACK territories only"})
+        used.update(units)
+    return out, used
 
 
 def leftover_lineups(locked, board, cmap):
@@ -182,19 +218,52 @@ def leftover_lineups(locked, board, cmap):
     return out, used
 
 
+def placement_order(graded, wall, cmap):
+    """Merge the graded bank and the wall into ONE front-to-back placement order.
+
+    Doctrine step 3 (notes.md, learned the expensive way): the graded bank outranks
+    everything in the wall, so the two must be sorted TOGETHER before placing —
+    otherwise a 42% wall ends up behind a 4% one. Strongest goes FRONT, because the
+    front territory gates the map and absorbs the opponent's freshest squads.
+
+    Squads with no published rate sort last regardless of power: an unranked filler
+    must never outrank a measured wall, and `back_only` is carried through so the
+    placement step can refuse to put one in a front territory.
+    """
+    rows = []
+    for s in graded:
+        rows.append({"rate": s.get("rate"), "units": s["units"],
+                     "names": [cmap.get(b, {}).get("n", b) for b in s["units"]],
+                     "source": "graded-board", "back_only": False,
+                     "note": s.get("discount")})
+    for s in wall:
+        rows.append({"rate": s.get("rate"), "units": s["units"],
+                     "names": s.get("names") or s["units"], "source": s["source"],
+                     "back_only": bool(s.get("back_only")), "note": s.get("note")})
+    rows.sort(key=lambda r: (r["back_only"], -(r["rate"] if r["rate"] is not None else -1)))
+    band_n = max(1, len(rows) // 3)
+    for i, r in enumerate(rows):
+        r["slot"] = f"P{i + 1:02d}"
+        r["band"] = "BACK" if r["back_only"] else ("FRONT" if i < band_n
+                                                   else "MID" if i < 2 * band_n else "BACK")
+    return rows
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--target-banners", type=int, default=1000)
+    ap.add_argument("--total-def", type=int, default=cfg.TW_TOTAL_DEF,
+                    help="total TW defensive squads to field, graded bank + wall")
     ap.add_argument("--placed", type=int, default=None,
                     help="squads already on the map (default: len of the TW defense bank)")
-    ap.add_argument("--roster", default=os.path.join(DATA, "roster",
-                                                     "swgoh_roster_fresh_20260810.json"))
+    ap.add_argument("--roster", default=swgoh_data.latest_roster_file(),
+                    help="default: the newest data/roster/*.json")
     args = ap.parse_args()
 
     roster = json.load(open(args.roster))
     chars = {u["b"]: u for u in roster["units"] if u["ct"] == 1 and u["g"] >= 13}
     board = json.load(open(os.path.join(DATA, "board_result.json")))
-    placed = args.placed if args.placed is not None else len(board["tw"]["defense"])
+    graded = board["tw"]["defense"]
+    placed = args.placed if args.placed is not None else len(graded)
 
     cmap, size = load_categories()
     rates = load_leader_rates()
@@ -202,43 +271,58 @@ def main():
 
     # Locked: on the map already, reserved for the attack phase, or attack-only GL.
     locked = {u for s in board["tw"]["defense"] + board["tw"]["offense"] for u in s["units"]}
-    locked |= set(cfg.ATTACK_ONLY_GLS)
+    locked |= set(cfg.ATTACK_ONLY_BY_FORMAT["5v5"])
     locked &= set(chars) | locked
 
     tier1, used = leftover_lineups(locked, board, cmap)
     tier2, used = build_wall(used, chars, cmap, size, rates, ltable)
-    wall = tier1 + tier2
+    tier4, used = filler_squads(used, chars, cmap, locked,
+                                limit=max(0, args.total_def - placed - len(tier1) - len(tier2)))
+    wall = tier1 + tier2 + tier4
 
-    have = placed * BANNERS_PER_SQUAD
-    need = max(0, -(-(args.target_banners - have) // BANNERS_PER_SQUAD))
-
-    print(f"on the map: {placed} squads = {have} banners · target {args.target_banners}")
+    print(f"on the map: {placed} graded squads = {placed * BANNERS_PER_SQUAD} banners · "
+          f"target {args.total_def} total")
     by_src = {}
     for s in wall:
         by_src[s["source"]] = by_src.get(s["source"], 0) + 1
-    print(f"need {need} more squads; wall has {len(wall)} "
-          + " + ".join(f"{v} {k}" for k, v in by_src.items()) + "\n")
+    print(f"wall adds {len(wall)}: " + " + ".join(f"{v} {k}" for k, v in by_src.items()) + "\n")
     for i, s in enumerate(wall, 1):
-        flag = "<<" if i == need else "  "
         kd = f" kyber {s['kd1']}%" if s.get("kd1") is not None else ""
         nm = s.get("names") or s["units"]
         rate = f"{s['rate']:5.1f}%" if s.get("rate") is not None else "    -"
-        print(f"W{i:02d} {flag} {rate}{kd:14s} n={str(s['battles']):>7} "
+        print(f"W{i:02d}  {rate}{kd:14s} n={str(s['battles']):>7} "
               f"[{s['source'][:7]}] {', '.join(nm)}")
         if s.get("note"):
             print(f"        {s['note']}")
 
+    order = placement_order(graded, wall, cmap)
     idle = [b for b in chars if b not in used and b not in locked]
-    total = (placed + len(wall)) * BANNERS_PER_SQUAD
-    print(f"\nwall complete: {placed}+{len(wall)} squads = {total} banners")
+    squads = placed + len(wall)
+    print(f"\nwall complete: {placed} graded + {len(wall)} wall = {squads} squads "
+          f"= {squads * BANNERS_PER_SQUAD} banners (+ fleets at {FLEET_BANNERS} each)")
     print(f"units still idle after the wall: {len(idle)}")
 
     os.makedirs(OUT, exist_ok=True)
-    dst = os.path.join(OUT, "tw_wall.json")
-    json.dump({"placed": placed, "need": need, "banners_per_squad": BANNERS_PER_SQUAD,
-               "target": args.target_banners, "wall": wall, "idle_after": sorted(idle)},
-              open(dst, "w"), indent=1)
-    print(f"wrote {os.path.relpath(dst, ROOT)}")
+    json.dump({"placed": placed, "total_def": args.total_def,
+               "banners_per_squad": BANNERS_PER_SQUAD, "fleet_banners": FLEET_BANNERS,
+               "squads": squads, "squad_banners": squads * BANNERS_PER_SQUAD,
+               "wall": wall, "placement_order": order, "idle_after": sorted(idle)},
+              open(os.path.join(OUT, "tw_wall.json"), "w"), indent=1)
+
+    sheet = [f"TERRITORY WAR — DEFENSIVE PLACEMENT ORDER ({squads} squads, "
+             f"{squads * BANNERS_PER_SQUAD} banners)",
+             "Place P01 first into the FRONT-most territory with room, then work back.",
+             "A BACK-only filler must NEVER take a front slot — the 39/territory cap is",
+             "guild-wide and first-come, so that slot is one a guildmate cannot use.", ""]
+    for r in order:
+        rate = f"{r['rate']:5.1f}%" if r["rate"] is not None else "  n/a"
+        # " · " not ", ": unit names CONTAIN commas ("Mara Jade, the Emperor's Hand"),
+        # so a comma-joined line reads as six units in a five-unit squad.
+        sheet.append(f"{r['slot']} {r['band']:<5} {rate} [{r['source'][:12]:<12}] "
+                     f"{' · '.join(r['names'])}  ({len(r['units'])})")
+    dst = os.path.join(OUT, "tw_placement_sheet.txt")
+    open(dst, "w").write("\n".join(sheet) + "\n")
+    print(f"wrote output/tw_wall.json and {os.path.relpath(dst, ROOT)}")
 
 
 if __name__ == "__main__":

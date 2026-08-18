@@ -36,7 +36,34 @@ BOARD = {
 # has a FINITE pool of attempts, so a wall that merely eats attempts is worth
 # more than in GAC. Sizes are generous on purpose — set them top-down until your
 # TW map runs out of slots.
-TW = {"def": 15, "off": 15, "off_weight": 0.75}
+#
+# ⭐ REBALANCED 2026-08-18 to MAX-DEFENSE on the owner's explicit call, with the
+# conquest risk stated and accepted. The economics that justify it, read off the
+# live territory panel (notes.md 2026-08-11): defense banks a FLAT +30 per squad,
+# guaranteed, the moment it is set; an offense win pays only +6-20 and only if the
+# attack is actually played. This account converts ~37% of its available attacks,
+# so a marginal G13 body is worth strictly more walling than benched for an attack
+# that statistically does not happen.
+#
+# `def` 23 is not a preference, it is the CEILING of the well-sampled lineup table:
+# with off=8 reserved, the ILP is feasible at 23 and infeasible at 24 (measured —
+# HiGHS returns status 8). Everything past 23 has to come from a coarser source,
+# which is what tw_wall.py is for. TW_TOTAL_DEF is the real target and tw_wall.py
+# fills the gap from the leader tier list and then from unranked-leader filler.
+#
+# `off` 8 is the owner's chosen floor. The cost is real and was flagged before the
+# choice: 8 squads cannot clear a full enemy map, so territory conquest (+840 each)
+# is largely forfeited. Those 8 are therefore spent on COHERENT GL squads only —
+# notes.md 2026-08-12 measured that a GL with filler bodies goes 0-for-5 into a GL
+# wall while a coherent GL squad wins, so a thin attack bank must not be diluted.
+TW = {"def": 23, "off": 8, "off_weight": 0.75}
+
+# Total TW defensive squads to field, graded bank + tw_wall.py tiers combined.
+# 317 G13 characters / 5 = 63 disjoint squads; 8 offense squads spend 40 units, so
+# 55 defense squads (275 units) very nearly exhausts the roster. The map itself is
+# not the constraint (10 territories x 39 slots = 390, guild-wide first-come).
+TW_TOTAL_DEF = 55
+TW_FLEETS = {"def": 5, "off": 1}
 
 # --- doctrine: which Galactic Legends may wall ---------------------------------
 # HISTORY, kept because it is the reasoning that got superseded and the next person

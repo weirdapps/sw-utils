@@ -171,6 +171,32 @@ ASSIGNMENT = {
                              "Endurance holds slightly better but is NOT available: 7 of its 9 ships are "
                              "the Negotiator's, which is on offense."),
     ],
+    # Territory War is a SEPARATE MODE from GAC, so these may reuse the same lineups
+    # the GAC board uses — the no-repeat rule only binds inside one mode. Within TW
+    # itself no ship is shared, and all seven lineups are verified mutually disjoint
+    # and fully owned (2026-08-18).
+    #
+    # SIX on defense, not five. The Airspace panel pays "+34 Banners per Fleet" flat,
+    # which is the best banner-per-slot on the whole map (a squad pays 30), and a
+    # seventh disjoint lineup exists at no cost to anything else — so holding one back
+    # would simply forfeit 34 banners. Leviathan is the one kept for offense because
+    # it is the universal opener: 99% vs Profundity, 96% mirror, 94% vs Executor.
+    "TW Fleet - Defense": [
+        ("Chimaera", "Chimaera", "Best hold of the bench: 90% attacker win."),
+        ("Home One", "Home One", "90% attacker win. Raven's Claw at 6* is the weak link."),
+        ("Raddus", "Raddus", "94% attacker win. MG-100 is 5*."),
+        ("Executor", "Executor", "Offense-grade fleet spent on a wall: on defense it still "
+                                 "banks the flat +34 and forces a real fleet battle."),
+        ("Negotiator", "Negotiator", "Same reasoning as Executor — flat +34, and it is a "
+                                     "genuine wall against anything non-Home-One."),
+        ("Malevolence", "Malevolence", "All 7*, but only 6 ships, so two reinforcement slots "
+                                       "go empty. Weakest hold of the six — place it BACK."),
+    ],
+    "TW Fleet - Offense": [
+        ("Leviathan", "Leviathan",
+         "The one fleet held off the wall. Universal opener: 99% vs Profundity, 96% mirror, "
+         "94% vs Executor. Point it at their BEST fleet."),
+    ],
     "Fleet - Arena": [
         ("Leviathan", "Leviathan Arena",
          "Best owned fleet at BOTH jobs: highest attack (97%) and best hold (82%). Arena has no "

@@ -48,19 +48,21 @@ def test_tiers_follow_the_stated_order():
     roster = _roster(("WALL",), ("ATK",), ("TWWALL",), ("ARENADEF",),
                      ("ARENAOFF",), ("ROTEONLY",), ("IDLE",))
 
+    # GAC OUTRANKS ARENA — owner's rule, 2026-08-18: "TOP PRIORITY is ALWAYS GAC".
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, board, arena, rote)}
-    assert tiers == {"ARENADEF": 1, "ARENAOFF": 2, "WALL": 4, "ATK": 5,
+    assert tiers == {"WALL": 1, "ATK": 2, "ARENADEF": 5, "ARENAOFF": 6,
                      "ROTEONLY": 8, "TWWALL": 9, "IDLE": 12}
 
 
-def test_only_the_top_arena_wall_is_tier_1():
+def test_only_the_top_arena_wall_takes_the_arena_defense_tier():
     # arena_board.candidate_defenses() ranks EVERY fieldable wall. Only one squad
-    # can be parked, so only the top entry may take tier 1.
+    # can be parked, so only the top entry may take the arena-defense rung.
     arena = {"defense": [{"units": ["BEST_L", "BEST_2"], "score": 40},
                          {"units": ["ALT_L", "ALT_2"], "score": 38}]}
     roster = _roster(("BEST_L",), ("BEST_2",), ("ALT_L",), ("ALT_2",))
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, arena=arena)}
-    assert tiers == {"BEST_L": 1, "BEST_2": 1, "ALT_L": 12, "ALT_2": 12}
+    assert tiers == {"BEST_L": ip.ARENA_DEFENSE_TIER, "BEST_2": ip.ARENA_DEFENSE_TIER,
+                     "ALT_L": 12, "ALT_2": 12}
 
 
 def test_arena_climb_reads_squads_and_never_the_opponent_shard():
@@ -71,7 +73,8 @@ def test_arena_climb_reads_squads_and_never_the_opponent_shard():
                                       "attack": {"units": ["MINE_L"], "win": 90}}]}}
     roster = _roster(("MINE_L",), ("MINE_2",), ("RIVALS",))
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, arena=arena)}
-    assert tiers == {"MINE_L": 2, "MINE_2": 2, "RIVALS": 12}
+    assert tiers == {"MINE_L": ip.ARENA_CLIMB_TIER, "MINE_2": ip.ARENA_CLIMB_TIER,
+                     "RIVALS": 12}
 
 
 def test_rote_reads_operations_and_missions_but_not_the_deploy_remainder():
@@ -88,7 +91,7 @@ def test_rote_reads_operations_and_missions_but_not_the_deploy_remainder():
     assert out["LEFTOVER"][0] == 12
 
 
-def test_board_arena_fleet_category_fills_tier_3_without_an_arena_file():
+def test_board_arena_fleet_category_fills_the_fleet_rung_without_an_arena_file():
     # arena_result.json is missing; board_result.json's own "Fleet - Arena"
     # category is the documented fallback for the fleet-arena rung.
     board = _board(fleets={"Fleet - Arena": [{"name": "Leviathan", "units": ["CAPLEV"]}],
@@ -100,15 +103,15 @@ def test_board_arena_fleet_category_fills_tier_3_without_an_arena_file():
 
 
 def test_best_tier_wins_when_a_unit_fills_several_roles():
-    # Same unit walls in GAC 5v5 (tier 4), attacks in 3v3 (tier 7) and defends
-    # in Squad Arena (tier 1). It must take the arena tier and keep both others
-    # visible, and its rate must be the arena rate, not the 96% 3v3 clear.
+    # Same unit walls in GAC 5v5 (tier 1), attacks in 3v3 (tier 4) and defends
+    # in Squad Arena (tier 5). It must take the GAC 5v5 defense tier and keep both
+    # others visible, and its rate must be that rung's rate, not the 96% 3v3 clear.
     board = _board(**{"5v5": {"defense": [_sq(50, "GL")], "offense": []},
                       "3v3": {"defense": [], "offense": [_sq(96, "GL")]}})
     arena = {"defense": _sq(31, "GL")}
     out = ip.priority_units(_roster(("GL",)), board, arena)
     assert out[0]["tier"] == 1
-    assert out[0]["rate"] == 31
+    assert out[0]["rate"] == 50
     assert sorted(out[0]["roles"]) == ["GAC 3v3 offense", "GAC 5v5 defense",
                                        "Squad Arena defense"]
 
@@ -148,14 +151,14 @@ def test_displayed_relic_7_means_rt_9():
 def test_relic_queue_uses_the_roster_scale_and_keeps_priority_order():
     board = _board(**{"5v5": {"defense": [_sq(50, "WALL")], "offense": [_sq(96, "ATK")]}})
     arena = {"defense": _sq(0, "ARENADEF")}
-    roster = _roster(("WALL", {"rt": 8}),        # displayed R6 -> below target
+    roster = _roster(("WALL", {"rt": 8}),        # displayed R6 -> below target, tier 1
                      ("ATK", {"rt": 9}),         # displayed R7 -> AT target, excluded
-                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, and tier 1
+                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, but tier 5
     priority = ip.priority_units(roster, board, arena)
     q = ip.relic_queue(roster, priority, ip.rt_for_displayed_relic(7))
-    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]   # arena before GAC
-    assert q[0]["relic"] == 5 and q[0]["levels_to_go"] == 2
-    assert q[1]["rt"] == 8 and q[1]["relic"] == 6
+    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC before arena
+    assert q[0]["relic"] == 6 and q[0]["levels_to_go"] == 1
+    assert q[1]["rt"] == 7 and q[1]["relic"] == 5
 
 
 def test_relic_queue_skips_ships_residual_units_and_relicless_units():
@@ -177,8 +180,9 @@ def test_gear_queue_lists_only_sub_g13_board_characters_in_priority_order():
                      ("FULL", {"g": 13}), ("BENCH", {"g": 9}))
     priority = ip.priority_units(roster, board, arena)
     q = ip.gear_queue(roster, priority)
-    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]
-    assert q[1]["tiers_to_go"] == 2
+    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC before arena
+    assert q[0]["tiers_to_go"] == 2                         # WALL is g11
+    assert q[1]["tiers_to_go"] == 1                         # ARENADEF is g12
 
 
 def test_mod_priority_order_is_a_duplicate_free_character_only_ordering():
@@ -189,7 +193,7 @@ def test_mod_priority_order_is_a_duplicate_free_character_only_ordering():
     roster = _roster(("GL",), ("WALL",), ("ATK",),
                      ("SHIP", {"ct": 2, "g": 1, "rt": None}), ("BENCH",))
     order = ip.mod_priority_order(ip.priority_units(roster, board))
-    assert order == ["GL", "WALL", "ATK"]      # tier 4 by rate, then tier 5
+    assert order == ["GL", "WALL", "ATK"]      # tier 1 by rate, then tier 2
     assert len(order) == len(set(order))       # GL is on two boards, listed once
     assert "SHIP" not in order                 # ships take no mods
     assert "BENCH" not in order                # tier 12 is not pasted into Grandivory
@@ -244,9 +248,9 @@ def test_ability_queue_drops_unowned_units_and_sorts_by_priority():
         {"unit": "ARENADEF", "ability": "A1", "kind": "zeta", "mode": "squad-arena"},
     ]
     out = ip.ability_queue(priority, catalogue)
-    assert [e["unit"] for e in out] == ["ARENADEF", "WALL", "BENCH"]  # GHOST unowned
-    assert out[0]["tier"] == 1 and out[0]["name"] == "Arenadef"
-    assert out[0]["mode"] == "squad-arena"           # catalogue fields survive
+    assert [e["unit"] for e in out] == ["WALL", "ARENADEF", "BENCH"]  # GHOST unowned
+    assert out[0]["tier"] == 1 and out[0]["name"] == "Wall"
+    assert out[0]["mode"] == "grand-arena"           # catalogue fields survive
 
 
 def test_ability_queue_keeps_catalogue_order_for_two_abilities_on_one_unit():

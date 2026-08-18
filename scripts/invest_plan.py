@@ -65,19 +65,19 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 # rung carries the reason it sits where it does, and rejected alternatives are
 # recorded so they are not retried.
 #
-# 1-3  ARENA. Squad Arena and Fleet Arena are the only modes that pay a ranked
-#      reward EVERY DAY, and the payout compounds: crystals bought today raise
-#      the farming rate that defends the rank tomorrow. Astra sits at Squad
-#      Arena #10 and Fleet Arena #6, i.e. inside the band where one rank is real
-#      money. GAC pays once a round; RotE once a phase.
-#      1 before 2: the arena DEFENSE squad is on duty for the ~23 hours a day
-#      nobody is playing, and it is what every attacker must beat. The climb
-#      squads run five attempts and then stop. Same reasoning as 4-before-5.
-#      3 after 1-2: a fleet cannot absorb the three biggest queues at all (see
-#      the fleet note below), so its rung only decides ability materials.
-#
-# 4-7  GRAND ARENA. Solo, and it moves the player's OWN league (the repo's
-#      standing goal, Kyber 3 -> 2), where a TW result is not yours to determine.
+# ⭐ 1-4  GRAND ARENA — AND IT IS ALWAYS FIRST. Owner's standing rule, given
+#      2026-08-18: "when optimizing TOP PRIORITY is ALWAYS GAC". This REVERSED the
+#      previous ladder, which opened with Arena on a compounding-payout argument
+#      (below, kept because it is a good argument that simply lost). GAC is solo and
+#      it moves the player's OWN league — the repo's standing goal, Kyber 4 -> 3 —
+#      where an arena rank is defended nightly and a TW result is not yours to
+#      determine at all. The rule is not conditional: no later rung may outrank a
+#      GAC squad rung, whatever its rate.
+#      SUPERSEDED ARGUMENT, do not re-litigate without new evidence: Squad and Fleet
+#      Arena are the only modes paying a ranked reward EVERY DAY, and the payout
+#      compounds because crystals bought today raise the farming rate that defends
+#      the rank tomorrow. True, and still why Arena sits immediately below GAC
+#      rather than further down — but the owner priced the league climb higher.
 #      DEFENSE before OFFENSE inside every mode, for the reason already recorded
 #      in board_config.py: defense is the side you cannot adapt. It is set once
 #      and then met by whoever turns up, so an under-invested wall gets found and
@@ -89,6 +89,15 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 #      ordering moot. It only decides format-unique units, and 5v5 goes first
 #      because a 5-unit squad's rate depends on all five members while a 3v3
 #      squad leans on its leader, so a weak support costs more in 5v5.
+#
+# 5-7  ARENA (Squad, then Fleet). Directly below GAC, on the compounding-payout
+#      argument above. Astra sits at Squad Arena #10 and Fleet Arena #1-6, inside
+#      the band where one rank is real crystals per day.
+#      5 before 6: the arena DEFENSE squad is on duty for the ~23 hours a day
+#      nobody is playing, and it is what every attacker must beat. The climb
+#      squads run five attempts and then stop. Same reasoning as 1-before-2.
+#      7 after 5-6: a fleet cannot absorb the three biggest queues at all (see
+#      the fleet note below), so its rung only decides ability materials.
 #
 # 8    TERRITORY BATTLES (RotE) — operations first, then combat missions. Placed
 #      here by the owner's stated order on 2026-08-11: "Arena, then Grand Arena,
@@ -134,18 +143,22 @@ ARENA_CLIMB_SQUADS_KEY = "squads"
 ARENA_DEFENSE_SLOTS = 1
 
 BOARD_ROLES = (
-    (4, ("5v5", "defense"), "GAC 5v5 defense"),
-    (5, ("5v5", "offense"), "GAC 5v5 offense"),
-    (6, ("3v3", "defense"), "GAC 3v3 defense"),
-    (7, ("3v3", "offense"), "GAC 3v3 offense"),
+    (1, ("5v5", "defense"), "GAC 5v5 defense"),
+    (2, ("5v5", "offense"), "GAC 5v5 offense"),
+    (3, ("3v3", "defense"), "GAC 3v3 defense"),
+    (4, ("3v3", "offense"), "GAC 3v3 offense"),
     (9, ("tw", "defense"), "TW defense"),
     (10, ("tw", "offense"), "TW offense"),
 )
 
+# Squad Arena rungs, below GAC per the owner's "GAC is always top" rule.
+ARENA_DEFENSE_TIER = 5
+ARENA_CLIMB_TIER = 6
+
 # board_result.json already carries the arena fleet as its own category, so when
-# output/arena_result.json is missing the tier-3 rung still fills itself.
+# output/arena_result.json is missing the tier-7 rung still fills itself.
 ARENA_FLEET_CATEGORY = "Fleet - Arena"
-ARENA_FLEET_TIER = 3
+ARENA_FLEET_TIER = 7
 GAC_FLEET_TIER = 11
 
 # rote_ops.py's plan() writes {"operations", "missions", "deploy", ...}. "deploy" is
@@ -267,9 +280,9 @@ def _arena_roles(arena):
 
       * `defense` is candidate_defenses() — EVERY fieldable wall, ranked — not the
         one squad you park. Arena has a single defensive slot, so only the top
-        entry earns tier 1. The rest are alternatives and keep whatever tier their
-        other roles give them; promoting all of them would put a hundred units
-        above the GAC board and empty the ladder of meaning.
+        entry earns ARENA_DEFENSE_TIER. The rest are alternatives and keep whatever
+        tier their other roles give them; promoting all of them would put a hundred
+        units level with the GAC board and empty the ladder of meaning.
       * `climb.opponents[*].defense` and `[*].attack` describe the SHARD, i.e.
         other players. Only `climb.squads` — the distinct lineups Astra owns — may
         be read. This is why _squads is never pointed at `climb` itself.
@@ -284,17 +297,17 @@ def _arena_roles(arena):
     # not fire, so the modelled #1 can be a squad you would never field.
     deployed = [u for u in (arena.get("deployed") or []) if u]
     if deployed:
-        yield 1, "Squad Arena defense (deployed)", 0.0, deployed
+        yield ARENA_DEFENSE_TIER, "Squad Arena defense (deployed)", 0.0, deployed
     else:
         walls = _squads(_first(arena, ARENA_DEFENSE_KEYS))[:ARENA_DEFENSE_SLOTS]
         for rate, members in walls:
-            yield 1, "Squad Arena defense", rate, members
+            yield ARENA_DEFENSE_TIER, "Squad Arena defense", rate, members
 
     climb = _first(arena, ARENA_CLIMB_KEYS)
     if isinstance(climb, dict):
         climb = climb.get(ARENA_CLIMB_SQUADS_KEY)
     for rate, members in _squads(climb):
-        yield 2, "Squad Arena climb", rate, members
+        yield ARENA_CLIMB_TIER, "Squad Arena climb", rate, members
 
 
 def _rote_roles(rote):

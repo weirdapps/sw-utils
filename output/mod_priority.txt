@@ -1,26 +1,13 @@
-Rotta the Hutt
-Mob Enforcer
-Greedo
-Gamorrean Guard
-Cad Bane
-Leia Organa
-Threepio & Chewie
-Captain Drogan
-Captain Rex
-R2-D2
-Darth Revan
-Darth Malgus
-Sith Marauder
-Sith Trooper
-Darth Maul
-Iden Versio
-Grand Inquisitor
-Fifth Brother
 The Stranger
 Luminara Unduli
 Maul (Hate-Fueled)
 Starkiller
 Visas Marr
+Rotta the Hutt
+Gamorrean Guard
+Greedo
+Cad Bane
+Mob Enforcer
 Rey
 50R-T
 Ben Solo
@@ -66,10 +53,14 @@ B1 Battle Droid
 B2 Super Battle Droid
 IG-100 MagnaGuard
 STAP
+Leia Organa
 Admiral Raddus
+Captain Drogan
 Jyn Erso
+R2-D2
 Supreme Leader Kylo Ren
 Rey (Dark Side Vision)
+Sith Trooper
 General Hux
 Kylo Ren (Unmasked)
 Sith Eternal Emperor
@@ -100,8 +91,11 @@ Boushh (Leia Organa)
 Embo
 Krrsantan
 Skiff Guard (Lando Calrissian)
+Darth Malgus
 Bastila Shan (Fallen)
 Darth Malak
+Darth Revan
+Sith Marauder
 Bo-Katan (Mand'alor)
 Bo-Katan Kryze
 IG-12 & Grogu
@@ -123,6 +117,7 @@ Disguised Clone Trooper
 CX-2
 RC-1262 "Scorch"
 Commander Luke Skywalker
+Threepio & Chewie
 C-3PO
 Chewbacca
 Han Solo
@@ -143,6 +138,7 @@ Death Trooper
 Moff Gideon
 Scout Trooper
 Hera Syndulla
+Captain Rex
 Chopper
 Kanan Jarrus
 Sabine Wren
@@ -174,16 +170,37 @@ Grand Moff Tarkin
 Greef Karga
 The Mandalorian
 Ahsoka Tano (Fulcrum)
+Darth Maul
+Iden Versio
+Grand Inquisitor
+Fifth Brother
+Barriss Offee
+Ki-Adi-Mundi
+Kit Fisto
+Admiral Trench
+Jango Fett
+Nute Gunray
 Finn
 Resistance Hero Finn
 Resistance Hero Poe
 Rose Tico
 Zorii Bliss
-First Order Officer
+Bistan
+K-2SO
+Tusken Chieftain
+Tusken Warrior
+Tusken Raider
+Tusken Shaman
+URoRRuR'R'R
+Geonosian Brood Alpha
+Geonosian Soldier
+Geonosian Spy
+Poggle the Lesser
+Sun Fac
+Darth Sidious
 Admiral Ackbar
 Admiral Piett
 Amilyn Holdo
-Bistan
 Rey
 Dengar
 Plo Koon
@@ -200,7 +217,6 @@ Resistance Trooper
 Sith Assassin
 TIE Fighter Pilot
 Carth Onasi
-K-2SO
 Resistance Pilot
 Biggs Darklighter
 T3-M4

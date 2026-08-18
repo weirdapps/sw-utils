@@ -155,20 +155,10 @@ GUILD_SLOT_FILL_P = 0.75
 # see the gross-only ranking.
 COUNT_DEPLOY_OPPORTUNITY_COST = True
 
-# Power proxy, used ONLY when the roster carries no per-unit `gp` (the comlink
-# loader does not return one; the swgoh.gg roster files do). Deployment credits the
-# unit's real GP, so a real `gp` always wins. These coefficients are medians off
-# data/roster/swgoh_roster_fresh_20260805.json, and the proxy only has to get the
-# ORDER right — it decides which of two free units goes into a squad, never a TP
-# number that is reported as fact:
-#   no relic:  g7 ~5.9K, g10 ~9.0K, g11 ~18.4K   -> ~1,500 / gear tier
-#   G13:       R5 22.8K, R6 26.2K, R7 28.9K, R8 32.9K, R9 34.6K
-#              -> ~20,000 base + ~2,800 / displayed relic tier
-#   ships:     7-star median 73.6K, 6-star 56.8K -> ~9,000 / star
-PROXY_PER_GEAR = 1_500
-PROXY_G13_BASE = 20_000
-PROXY_PER_RELIC = 2_800
-PROXY_PER_STAR = 9_000
+# The power proxy (used when the roster carries no per-unit `gp`) moved to
+# swgoh_data.py on 2026-08-18, when the comlink loader became the only roster source
+# and tw_wall.py needed the same fallback. Constants, provenance and unit_power()
+# all live there now; this module delegates.
 
 # The cats tag that marks a Galactic Legend in data/meta/raw_unit_categories_*.json.
 # ONLY ONE GL PER SQUAD is permitted by the game; mission_squads enforces it from
@@ -229,16 +219,13 @@ def eligible(roster, gate):
 
 def unit_power(unit):
     """Deployed power for one unit: the real `gp` when the roster carries it, else
-    the documented proxy (see PROXY_* above)."""
-    gp = unit.get("gp")
-    if gp:
-        return float(gp)
-    if unit.get("ct", 1) == 2:
-        return float(PROXY_PER_STAR * (unit.get("r") or 0))
-    gear = unit.get("g") or 0
-    if gear < 13:
-        return float(PROXY_PER_GEAR * gear)
-    return float(PROXY_G13_BASE + PROXY_PER_RELIC * displayed_relic(unit))
+    the documented proxy (see PROXY_* above).
+
+    Delegates to swgoh_data so the proxy constants have ONE home — the comlink
+    roster carries no `gp` at all, so every consumer needs this and a second copy
+    would drift.
+    """
+    return swgoh_data.unit_power(unit)
 
 
 # --- operation requirements ------------------------------------------------------
