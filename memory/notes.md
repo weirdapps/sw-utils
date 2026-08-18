@@ -3456,3 +3456,100 @@ no raid cadence. Mod energy caps at 1000, so start banking ~4 days out, not soon
 Sources: Kahzgul (energy efficiency, Finance 101), EA Community Update 2026-04-27, swgoh.wiki
 (Guild Activities, Mk III Raid Tokens, Episode Track, Mods Farming), swgoh4.life (conquest feats,
 relic 10), swgoh-cantina (RotE).
+
+---
+
+## 2026-08-18 (evening) — TW max-defense, the whole RotE map, and GAC to the top of the ladder
+
+Owner's asks, verbatim in three parts: far more Territory War squads (**mostly defense**), research
+RotE so phases stop being improvised, and clear every pending daily/store item. Mid-session he added
+**arena squad + fleet climb** and one standing rule: *"when optimizing TOP PRIORITY is ALWAYS GAC"*.
+No crystals, no real money.
+
+### ⭐ `tw_wall.py` had been DEAD since the doctrine rewrite — that is why the bank never grew
+It referenced `board_config.ATTACK_ONLY_GLS`, renamed to `ATTACK_ONLY_BY_FORMAT` when doctrine E
+landed on 2026-08-17. Every run since ended in `AttributeError` before printing a line. The 2026-08-11
+war's 43 squads were the last time the wall was actually computed. **If a script in this repo stops
+being mentioned in session notes, run it before assuming it works.**
+
+### ⭐ The comlink roster silently dropped per-unit `gp`, `o` and `z`
+`swgoh_data.map_roster()` replaced the HotUtils pull on 2026-08-18. HotUtils returned `gp`/`o`/`z`
+per unit; **comlink does not return GP at all** (it is a derived stat, not in `rosterUnit`). So
+`tw_wall` died on `KeyError('gp')` and nothing else noticed. `swgoh_data.unit_power()` is now the one
+place that knows this — real `gp` when present, else the gear/relic/star proxy that `rote_ops` already
+had. **Never read `unit["gp"]` again; the key is gone.** Zetas and omicrons are simply unavailable from
+this source — if something needs them, the roster needs a second producer.
+
+### Territory War: 55 defensive squads + 6 defensive fleets = 1,854 guaranteed banners
+Was 15+6. Composition, and each tier has a different source of truth:
+- **23 graded** — the ILP ceiling of the well-sampled lineup table. 24 is *infeasible* (HiGHS status 8),
+  measured, not guessed. Everything past 23 must come from a coarser source.
+- **1 leftover lineup + 21 leader-tier-list + 5 unranked-leader** (`tw_wall.py` tiers 1-3).
+- **5 no-synergy filler** (new tier 4). Five idle G13 bodies clear the 6,000-power minimum ~25x over and
+  bank the same flat +30 as a 28% wall. **BACK territories only** — the 39-slot cap is guild-wide and
+  first-come, so a filler in a front slot is a slot no guildmate can use.
+- Only **3 of 317** G13 characters are left idle.
+- **Six defensive fleets, not five.** All seven built lineups are mutually disjoint and fully owned, so
+  the sixth costs nothing and pays +34. Leviathan is the one kept for offense.
+- `output/tw_placement_sheet.txt` merges the graded bank and the wall into ONE front-to-back order —
+  doctrine step 3, which the 2026-08-11 war got backwards at the cost of its best real estate.
+
+**Offense cut to 8 squads on the owner's explicit max-defense call.** The cost was stated before he
+chose and he took it: 8 squads cannot clear a full enemy map, so +840 territory conquests are largely
+forfeited. Those 8 are therefore all coherent GL-led lineups — a thin attack bank must not be diluted.
+
+### The investment ladder: GAC 1-4, Arena 5-7
+Reversed on the owner's standing rule. The old Arena-first argument (only mode paying a ranked reward
+EVERY day, and the payout compounds) is **kept in the file rather than deleted** — it is a good argument
+that lost, and deleting it invites re-deriving it. Note what the change did NOT cost: T5/T6 came back
+EMPTY, because Astra's deployed arena wall *is* GAC 5v5 defense P02, so best-tier-wins already had those
+units at tier 1. GAC-first costs the arena climb nothing on this roster.
+
+### ⭐ RotE: the whole map is now data, and the blocker is relics, not roster
+`scripts/rote_missions.py` transcribes swgoh.wiki's Zone Information table into
+`data/rote/missions_1..6.json` — 71 combat, 12 special, 17 fleet across 18 territories. RotE encounters
+are **static**, so this is written once and reused every rotation. Two traps are encoded, not left to be
+rediscovered: a Dark Side territory also accepts **Neutral** (Hondo is the only Neutral unit owned, and
+he is a required unit on Felucia), and a **Mixed territory carries no `align` key at all**, because
+`_mission_pool` drops any unit missing from the 340-unit catalog whenever align is set and the roster is 398.
+
+**Fillability, and this is the headline:** phases 1-3 are 43/44; phase 4 is 10/15; **phases 5 and 6 are
+3/12 each.** The cause is relic depth — 157 characters sit at exactly R7 while phases 5-6 gate at R9,
+where only 27 qualify. And almost every locked mission is **one or two levels away**:
+
+> `python3 scripts/rote_missions.py --gaps`
+
+Six units are a **single relic level** from opening a mission: Geonosian Soldier (R5→6), Geonosian Spy
+(R5→6), L3-37 (R7→8), Qi'ra (R7→8), Bo-Katan Mand'alor (R8→9), Cassian Andor (R8→9). Bo-Katan alone
+opens a **74M-TP** row. This is the same R7→R9 conversion the repo already identified, now with named
+targets and an order to do them in.
+
+`rote_ops.py` no longer refuses to run without an operations scrape — operations need the device,
+missions do not. It degrades to a mission-only plan and says loudly that nothing is reserved for platoons.
+
+### ⭐ Mission squads were being filled by RAW POWER, which is not a team
+The first phase-2 plan returned "Coruscant Underworld Police, Ahsoka Tano, Rotta the Hutt, Ugnaught,
+Admiral Raddus". A leader ability only benefits its own faction, so that is one working leader and four
+bystanders — the exact shape notes.md 2026-08-12 measured going **0-for-5 at 193,800 power** in TW.
+Free slots now rank by rarity-weighted shared faction with the squad's anchor, power as tie-break, so it
+degrades to strongest-first when nothing matches. Phase 2 now returns the real GL Ahsoka and GL Leia
+lineups where it previously returned assortments.
+
+Also: **`GLREY` and `REY` are different units both displayed "Rey"**. The plan printed "Rey, Rey, Rey
+(Jedi Training)", which reads as a bug and invites picking the wrong one on the device. Colliding names
+inside a squad now carry their baseId.
+
+### Four more scripts were still pinned to hardcoded rosters
+`rote_ops` (5 Aug), `compute_teams` (5 Aug), `generate_hotutils` (31 Jul), `mod_analysis` and
+`mod_targets` (18 Jul). All now go through `swgoh_data.latest_roster_file()`. `rote_ops` was planning
+phase squads against a two-week-old account.
+
+### Live state read off the device this session
+- **RotE (Rise of the Empire) is RUNNING: phase 2/6, 22h left, guild #5, 6/56 stars, guild GP 518M.**
+  Phase 2 = Geonosis (Dark) / Felucia (Mixed) / Bracca (Light), R6+. Not a TW — the 55-squad wall waits
+  for the next war.
+- **All four energy pools at or over cap** (144/144, 194/144, 123/144, 244/144) — regen has been
+  wasting since the 06:25 session. Crystals 9,226.
+- **Squad Arena #26, Fleet Arena #12**, payout ~2h. Worse than the modelled #10.
+- ⚠ **Paid bundle popups interrupt the farmbot** and it does not close them (`ERA MODULE BUNDLE II`,
+  `YODA (DARK SIDE VISION) BUNDLE II`). They need a manual X or a popup-closer template.

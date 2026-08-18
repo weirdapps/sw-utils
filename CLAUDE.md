@@ -11,9 +11,24 @@ offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same 
 > the hard way. `scripts/browser_recipes.md` has the copy-paste browser JS. This CLAUDE.md is the map;
 > notes.md is the territory. Session ids rotate — recapture each session (browser_recipes.md §4).
 
-## What this repo can do (two pipelines)
+## What this repo can do (three pipelines)
 1. **Build GAC teams** (grounded squads + fleets → HotUtils groups + in-game presets) — see workflow below.
 2. **Optimize mods** for those teams (move → slice → calibrate → level) — see "Mod optimization" below.
+3. **Plan RotE + Territory War** — the whole 6-phase RotE mission map is data, and the TW wall is
+   computed to ~55 squads. See "Territory War" and "Rise of the Empire" below.
+
+## ⭐ Standing rule: GAC IS ALWAYS TOP PRIORITY (owner, 2026-08-18)
+When any script ranks what to invest in, **Grand Arena outranks everything** — Arena, TB, TW, fleets.
+Encoded as tiers 1-4 in `invest_plan.py`; Arena dropped to 5-7. The superseded Arena-first argument is
+kept in that file on purpose, so it is not re-derived. Note it costs the arena climb nothing here: the
+deployed arena wall *is* GAC 5v5 defense, so best-tier-wins already had those units at tier 1.
+
+## ⚠ The roster has NO per-unit `gp` any more
+`swgoh_data.map_roster()` (comlink) replaced the HotUtils pull on 2026-08-18. Comlink does not return
+per-unit GP — nor omicrons (`o`) or zetas (`z`). **Never read `unit["gp"]`**; call
+`swgoh_data.unit_power()`, which returns real `gp` when present and a documented gear/relic/star proxy
+otherwise. `tw_wall.py` died on `KeyError('gp')` before this was centralised.
+Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date.
 
 ## Player
 - **Astra** · ally **145357294** · GAC **KYBER 4** · 14.47M GP · skill rating **3,128** (Kyber-4 band is
@@ -111,6 +126,39 @@ python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrine
 ```
 `build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
 
+## Territory War — 55 defensive squads, not 15
+TW is its own mode: it shares no units with GAC, defense banks a **flat +30 per squad** the moment it is
+set (a fleet +34), and the map holds 390 slots against a **guild-wide, first-come** pool.
+```
+python3 scripts/build_board.py     # 23 graded TW walls (the ILP ceiling — 24 is infeasible) + 8 offense
+python3 scripts/tw_wall.py         # extends to 55 via leader-tier-list, unranked-leader, then filler
+                                   # -> output/tw_wall.json + output/tw_placement_sheet.txt
+```
+- **55 squads × 30 + 6 fleets × 34 = 1,854 guaranteed banners** (was 1,494). 3 of 317 G13 chars idle.
+- **Place from `tw_placement_sheet.txt`, in order, front-most territory first.** It merges the graded
+  bank and the wall into ONE ranking — sorting them separately is what put a 4% wall in front of a 42%
+  one in the 2026-08-11 war. Rows flagged `BACK` are no-synergy filler and must never take a front slot.
+- Offense is deliberately only 8 coherent GL-led squads (owner's max-defense call; conquest forfeited).
+
+## Rise of the Empire (RotE) — the map is written down, stop improvising
+RotE encounters are **static**, so the whole 6-phase map lives in `data/rote/`.
+```
+python3 scripts/rote_missions.py --write   # regenerate data/rote/missions_1..6.json from the wiki table
+python3 scripts/rote_missions.py --gaps    # which required units miss their gate, CHEAPEST FIRST
+python3 scripts/rote_ops.py --phase N      # the squad to bring to every mission in phase N
+```
+- Source is swgoh.wiki's Zone Information table; re-fetch it before editing a row and bump `SOURCE_VERIFIED`.
+- **Operations still need an on-device scrape** (`data/rote/operations_<phase>.json`). Without one
+  `rote_ops` plans MISSIONS ONLY and reserves nothing for platoons — it says so loudly. Operations
+  before deploy, always: a deployed unit is permanently ineligible for a platoon slot.
+- ⭐ **Phases 5-6 are only 3/12 fillable, and the cause is relic depth**: 157 characters sit at exactly
+  R7 while those phases gate at R9, where just 27 qualify. `--gaps` names the six units that are a
+  SINGLE relic level from opening a mission (Bo-Katan Mand'alor alone opens a 74M-TP row).
+- Squads are filled by **faction coherence**, not raw power — a leader ability only helps its own
+  faction, and this account measured a filler squad going 0-for-5 at 193K power.
+- Fleet missions are recorded but NOT solved: ship "power" here is a stars-only proxy, so every 7* ship
+  ties. Each fleet row names the required ship and the in-game preset that already contains it.
+
 ## Full workflow (re-run each GAC season / when meta shifts)
 Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — the JS snippets are in
 `scripts/browser_recipes.md`. Run them via the in-session MCP browser.
@@ -140,9 +188,9 @@ Full API payloads, material recipes, and every gotcha are in `memory/notes.md`.
 > (in priority order), re-scores, and prints the next shopping list. Idempotent and self-limiting —
 > on an empty stock it costs two API reads and changes nothing. Add `--dry` to plan only.
 
-**One ladder, three scripts.** `invest_plan.py` owns the priority order (Arena → Grand Arena →
-Territory Battles → Territory War → fleets) and writes it to `output/invest_plan.json` as
-`mod_priority`. `execute_upgrades.py`, `calibrate.py` and `slice_plan.py` ALL key off that list —
+**One ladder, three scripts.** `invest_plan.py` owns the priority order (**Grand Arena → Arena →
+Territory Battles → Territory War → fleets** — GAC first per the standing rule above; this was
+Arena-first until 2026-08-18) and writes it to `output/invest_plan.json` as `mod_priority`. `execute_upgrades.py`, `calibrate.py` and `slice_plan.py` ALL key off that list —
 never rebuild importance from `gac_result.json`, which cannot see TW units or the arena datacron five.
 ⚠️ The TB rung is currently EMPTY: it needs `data/rote/operations_<phase>.json` scraped on device.
 
