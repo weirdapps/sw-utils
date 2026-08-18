@@ -28,20 +28,31 @@ import durability as du             # noqa: E402
 import gac_score as gs              # noqa: E402
 import league_adjust as la          # noqa: E402
 import optimize_board as ob         # noqa: E402
+import swgoh_data                   # noqa: E402
 import swgoh_meta                   # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 META = os.path.join(DATA, "meta")
 OUT = os.path.join(ROOT, "output")
-ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260812.json")
+ROSTER_FILE = swgoh_data.latest_roster_file()
 
 # main = swgoh.gg's own significance cutoff; deep = cutoff=0 sorted by usage, which
 # is where the Territory War bench comes from.
-META_MAIN = {("5v5", "def"): "meta_5v5_defense_s80.json", ("5v5", "off"): "meta_off5v5.txt",
+# Season pairing (re-checked 2026-08-18 against the live /gac/squads/ dropdown):
+# swgoh.gg's DEFAULT page is the newest season with data, and that is S81 = 3v3
+# (3 units per row). S82 is still in progress so it has no table yet. The newest
+# EVEN (5v5) season with data is therefore S80. Do not "upgrade" the 5v5 files to
+# an odd season id — you will silently load 3v3 rows into the 5v5 board.
+META_MAIN = {("5v5", "def"): "meta_def5v5_s80.txt", ("5v5", "off"): "meta_off5v5.txt",
              ("3v3", "def"): "meta_def3v3.txt", ("3v3", "off"): "meta_off3v3.txt"}
-META_DEEP = {("5v5", "def"): "meta_def5v5_deep.txt", ("5v5", "off"): "meta_off5v5_deep.txt",
-             ("3v3", "def"): "meta_def3v3_deep.txt", ("3v3", "off"): "meta_off3v3_deep.txt"}
+# ⚠ 2026-08-18: the /gac/squads/ table is HARD-CAPPED AT 100 ROWS and is always
+# ordered by Seen descending, so `cutoff=0` returns exactly the same 100 rows as
+# `cutoff=0.1`. The main/deep split therefore collapses — pointing DEEP at the
+# stale Aug-5 *_deep.txt files only mixed a two-week-old meta into the TW bench.
+# Both tiers now read the same fresh scrape; re-split this only if swgoh.gg ever
+# paginates past 100.
+META_DEEP = META_MAIN
 
 
 def load_pools():

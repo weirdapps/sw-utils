@@ -13,13 +13,17 @@ organisation the player actually sees:
 """
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import swgoh_data  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
 res = json.load(open(os.path.join(DATA, "board_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260812.json")))
+roster = json.load(open(swgoh_data.latest_roster_file()))
 placement = json.load(open(os.path.join(OUT, "gac_placement.json")))
 _dcplan = json.load(open(os.path.join(OUT, "datacron_plan.json")))
 # datacron_plan.json is now keyed by format; each entry lists one row per

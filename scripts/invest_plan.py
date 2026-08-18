@@ -52,7 +52,7 @@ DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
 ALLYCODE = "145357294"
-ROSTER_FALLBACK = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")
+ROSTER_FALLBACK = swgoh_data.latest_roster_file()
 BOARD_RESULT = os.path.join(DATA, "board_result.json")      # build_board.py
 ARENA_RESULT = os.path.join(OUT, "arena_result.json")       # arena_board.py (may not exist)
 ROTE_PLAN = os.path.join(OUT, "rote_plan.json")             # rote_ops.py   (may not exist)

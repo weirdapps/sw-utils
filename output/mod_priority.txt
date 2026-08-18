@@ -21,182 +21,183 @@ Luminara Unduli
 Maul (Hate-Fueled)
 Starkiller
 Visas Marr
-Queen Amidala
-Grand Master Yoda
-Mace Windu
-Master Qui-Gon
-Padawan Obi-Wan
 Rey
 50R-T
 Ben Solo
 Cal Kestis
 General Kenobi
-Lord Vader
-CC-1119 "Appo"
-Disguised Clone Trooper
-CX-2
-RC-1262 "Scorch"
 Baylan Skoll
-Emperor Palpatine
 Dash Rendar
-Grand Admiral Thrawn
 Hondo Ohnaka
-Mara Jade, The Emperor's Hand
 Marrok
-Royal Guard
 Shin Hati
+Emperor Palpatine
+Grand Admiral Thrawn
+Mara Jade, The Emperor's Hand
+Royal Guard
 Darth Vader (Duel's End)
+Satele Shan
+Bastila Shan
+Jedi Knight Revan
+Jolee Bindo
+Juhani
+Queen Amidala
+Grand Master Yoda
+Master Qui-Gon
+Padawan Obi-Wan
+Shaak Ti
 Saw Gerrera
 Baze Malbus
 Chirrut Îmwe
 Kyle Katarn
 Luthen Rael
 Major Partagaz
-Satele Shan
-Bastila Shan
 Dedra Meero
 Director Krennic
-Jedi Knight Revan
 Imperial Probe Droid
-Jolee Bindo
-Juhani
 KX Security Droid
-Jabba the Hutt
-Boushh (Leia Organa)
-Embo
-Krrsantan
-Skiff Guard (Lando Calrissian)
 Great Mothers
 Death Trooper (Peridea)
 Merrin
 Morgan Elsbeth
 Night Trooper
-Ahsoka Tano
+General Grievous
+B1 Battle Droid
+B2 Super Battle Droid
+IG-100 MagnaGuard
+STAP
+Admiral Raddus
+Jyn Erso
 Supreme Leader Kylo Ren
 Rey (Dark Side Vision)
-Ezra Bridger (Exile)
-General Syndulla
 General Hux
-Huyang
 Kylo Ren (Unmasked)
-Padawan Sabine Wren
-Darth Traya
 Sith Eternal Emperor
-Darth Nihilus
-Sith Empire Trooper
-Darth Sion
 Wat Tambor
-Darth Talon
-Savage Opress
-Boss Nass
-Doctor Aphra
-B2 Super Battle Droid
-Bastila Shan (Fallen)
-Gungan Boomadier
-BT-1
-Captain Tarpals
-Darth Malak
-Gungan Phalanx
-IG-90
-Jar Jar Binks
-0-0-0
+Jedi Master Kenobi
+Ahsoka Tano
+Commander Ahsoka Tano
+Mace Windu
+Padmé Amidala
+Jedi Master Luke Skywalker
+Hermit Yoda
+Jedi Knight Cal Kestis
+Jedi Knight Luke Skywalker
 Darth Bane
-Darth Sidious
+Count Dooku
 General Skywalker
 ARC Trooper
 CT-21-0408 "Echo"
 CT-5555 "Fives"
 CT-7567 "Rex"
-Jedi Master Luke Skywalker
-Hermit Yoda
-Jedi Knight Cal Kestis
-Jedi Knight Luke Skywalker
-Shaak Ti
+Ahsoka Tano
+Ezra Bridger (Exile)
+General Syndulla
+Huyang
+Padawan Sabine Wren
+Jabba the Hutt
+Boushh (Leia Organa)
+Embo
+Krrsantan
+Skiff Guard (Lando Calrissian)
+Bastila Shan (Fallen)
+Darth Malak
 Bo-Katan (Mand'alor)
 Bo-Katan Kryze
 IG-12 & Grogu
 Paz Vizsla
 The Mandalorian (Beskar Armor)
+Darth Traya
+Darth Nihilus
+Darth Sion
+Darth Talon
+Savage Opress
+Boss Nass
+Gungan Boomadier
+Captain Tarpals
+Gungan Phalanx
+Jar Jar Binks
+Lord Vader
+CC-1119 "Appo"
+Disguised Clone Trooper
+CX-2
+RC-1262 "Scorch"
+Commander Luke Skywalker
+C-3PO
+Chewbacca
+Han Solo
 Cere Junda
-Ahsoka Tano (Fulcrum)
+Inquisitor Barriss
 Maul
 Ninth Sister
 Taron Malicos
 Wampa
-Stormtrooper Luke
-Princess Leia
-Stormtrooper Han
-Nightsister Spirit
-Tarfful
-Clone Wars Chewbacca
-Yoda & Chewie
-Qui-Gon Jinn
-Jedi Knight Anakin
-Ki-Adi-Mundi
-Cassian Andor (Undercover)
-Kleya Marki
-Tusken Chieftain
-Tusken Warrior
-Tusken Raider
-Jedi Master Kenobi
-Commander Ahsoka Tano
-Sith Assassin
+Doctor Aphra
+BT-1
+IG-90
+0-0-0
+Darth Vader
 Dark Trooper Moff Gideon
-Mission Vao
+Captain Enoch
+Death Trooper
 Moff Gideon
 Scout Trooper
-Zaalbar
-Ugnaught
-Ezra Bridger
-Admiral Raddus
-Cassian Andor
-Jyn Erso
-Captain Enoch
-Grand Moff Tarkin
-Commander Luke Skywalker
-C-3PO
-Barriss Offee
-Kit Fisto
-General Grievous
-B1 Battle Droid
-IG-100 MagnaGuard
-STAP
-Finn
-Resistance Hero Finn
-Resistance Hero Poe
-Rose Tico
-Zorii Bliss
+Hera Syndulla
+Chopper
+Kanan Jarrus
+Sabine Wren
 Omega (Fugitive)
 Batcher
 Crosshair (Scarred)
 Hunter (Mercenary)
 Wrecker (Mercenary)
-First Order Stormtrooper
-Hera Syndulla
-Chopper
-Kanan Jarrus
-Sabine Wren
-Darth Vader
-Chewbacca
-Han Solo
+Mon Mothma
+Kleya Marki
+Stormtrooper Luke
+Princess Leia
+Stormtrooper Han
+Nightsister Spirit
+Mission Vao
+Zaalbar
+Tarfful
+Clone Wars Chewbacca
+Yoda & Chewie
+BB-8
+L3-37
+Qui-Gon Jinn
+Jedi Knight Anakin
+Cassian Andor
+Ugnaught
+Ezra Bridger
+Bossk
+Grand Moff Tarkin
+Greef Karga
+The Mandalorian
+Ahsoka Tano (Fulcrum)
+Finn
+Resistance Hero Finn
+Resistance Hero Poe
+Rose Tico
+Zorii Bliss
+First Order Officer
 Admiral Ackbar
 Admiral Piett
 Amilyn Holdo
 Bistan
-Bossk
-Rey (Scavenger)
+Rey
 Dengar
 Plo Koon
 Scarif Rebel Pathfinder
-Ahsoka Tano (Snips)
 Second Sister
 Tech
 Poe Dameron
 Hunter
 Boba Fett
+Sith Empire Trooper
 Wrecker
 IG-88
 Resistance Trooper
+Sith Assassin
 TIE Fighter Pilot
 Carth Onasi
 K-2SO
@@ -204,6 +205,5 @@ Resistance Pilot
 Biggs Darklighter
 T3-M4
 Young Lando Calrissian
-L3-37
 Wedge Antilles
 Garazeb "Zeb" Orrelios

@@ -78,6 +78,28 @@ def load_name_type_map(path=DEFAULT_MAP):
         return json.load(f)
 
 
+def latest_roster_file():
+    """Newest data/roster/swgoh_roster_fresh_<YYYYMMDD>.json, by the DATE IN THE NAME.
+
+    Added 2026-08-18 because eight scripts each hardcoded a different roster date
+    (20260718 / 20260731 / 20260805 / 20260810 / 20260812), so a fresh pull only
+    reached whichever file someone remembered to edit and the rest silently kept
+    planning against a two-to-four-week-old roster. Sort on the filename rather than
+    mtime: re-saving an old pull must not make it look current.
+    """
+    import glob
+    import re
+    pat = os.path.join(ROOT, "data", "roster", "swgoh_roster_fresh_*.json")
+    dated = []
+    for f in glob.glob(pat):
+        m = re.search(r"_(\d{8})\.json$", f)
+        if m:
+            dated.append((m.group(1), f))
+    if not dated:
+        raise FileNotFoundError(pat)
+    return max(dated)[1]
+
+
 def get_roster(allycode, url=None, name_type_map=None):
     """Live: fetch the roster from a self-hosted comlink and map it."""
     from swgoh_comlink import SwgohComlink
