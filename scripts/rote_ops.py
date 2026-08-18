@@ -534,6 +534,87 @@ def _is_gl(base, catalog):
     return GL_TAG in ((catalog.get(base) or {}).get("cats") or ())
 
 
+# Tags that are not a faction and so carry no squad synergy: a raid-eligibility
+# list, a rarity class, a role and a ship-crew slot. Same list tw_wall.py uses.
+NON_FACTION = {"Leader", "Order 66 Raid", "Galactic Legend", "Fleet Commander"}
+
+
+def _disambiguate(names, bases):
+    """Append the baseId to any DISPLAY NAME that repeats inside one squad.
+
+    Two owned units are both called "Rey" — GLREY (the Galactic Legend) and REY —
+    so a printed squad can read "Rey, Rey, Rey (Jedi Training)" and look like a bug
+    or, worse, get the wrong one picked on the device. The baseIds are distinct and
+    no unit is ever used twice; only the label collides.
+    """
+    dupes = {n for n in names if names.count(n) > 1}
+    return [f"{n} [{b}]" if n in dupes else n for n, b in zip(names, bases)]
+
+
+def _tag_sizes(catalog):
+    size = {}
+    for v in catalog.values():
+        for c in v.get("cats") or ():
+            size[c] = size.get(c, 0) + 1
+    return size
+
+
+def _affinity(anchor_cats, base, catalog, size):
+    """Rarity-weighted count of faction tags shared with the squad's anchor.
+
+    A shared "Phoenix" (7 units) is worth far more than a shared "Rebel" (52),
+    because the small tag is the one a leader ability actually keys on.
+    """
+    cats = set((catalog.get(base) or {}).get("cats") or ()) - NON_FACTION
+    return sum(1.0 / size.get(c, 1) for c in (cats & anchor_cats))
+
+
+def _fill_coherently(pool, squad, free, catalog, size, has_gl):
+    """Fill a squad's free slots with faction-mates of its anchor, not just the
+    five strongest bodies on the roster.
+
+    WHY, and it is measured on this account rather than assumed: a leader ability
+    only benefits units of the matching faction, so five unrelated G13s field one
+    working leader and four bystanders. notes.md 2026-08-12 recorded the same squad
+    shape losing 0-for-5 in Territory War at 193,800 power while a coherent GL squad
+    at similar power won — "a GL with filler bodies loses ... high squad power is a
+    mirage".
+
+    The ANCHOR is whatever the squad already has: its required units if the mission
+    names any, otherwise the strongest legal unit, which is added first so that a
+    mission with no requirements still leads with its best available unit (several
+    tests pin that ordering). Power remains the tie-break, so among equally
+    unrelated candidates this degrades to the old strongest-first behaviour.
+    """
+    if free > 0 and not squad:
+        for u in pool:                                   # anchor = strongest legal
+            if _is_gl(u["b"], catalog) and has_gl:
+                continue
+            squad.append(u)
+            has_gl = has_gl or _is_gl(u["b"], catalog)
+            free -= 1
+            break
+    anchor = set()
+    for u in squad:
+        anchor |= set((catalog.get(u["b"]) or {}).get("cats") or ())
+    anchor -= NON_FACTION
+
+    chosen = {u["b"] for u in squad}
+    ranked = sorted((u for u in pool if u["b"] not in chosen),
+                    key=lambda u: (-_affinity(anchor, u["b"], catalog, size),
+                                   -unit_power(u), u["b"]))
+    for u in ranked:
+        if free <= 0:
+            break
+        if _is_gl(u["b"], catalog):
+            if has_gl:
+                continue
+            has_gl = True
+        squad.append(u)
+        free -= 1
+    return squad
+
+
 def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
     """Assign the strongest still-free squad to each mission.
 
@@ -571,6 +652,7 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
        short, note}
     """
     catalog = load_catalog() if catalog is None else catalog
+    size = _tag_sizes(catalog)
     blocked = set(reserved)
     required_anywhere = {b for m in missions for b in (m.get("required") or ())}
 
@@ -604,15 +686,7 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
             has_gl = has_gl or _is_gl(base, catalog)
 
         pool = _mission_pool(roster, m, catalog, blocked | used | required_anywhere)
-        for u in pool:                                  # strongest first
-            if free <= 0:
-                break
-            if _is_gl(u["b"], catalog):
-                if has_gl:
-                    continue                            # one GL per squad, hard rule
-                has_gl = True
-            squad.append(u)
-            free -= 1
+        _fill_coherently(pool, squad, free, catalog, size, has_gl)
 
         used.update(u["b"] for u in squad)
         short = m.get("slots", 5) - len(squad)
@@ -620,7 +694,8 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
         rows.append({"planet": m.get("planet"), "mission": m.get("mission"),
                      "kind": m.get("kind", "combat"), "slots": m.get("slots", 5),
                      "units": [u["b"] for u in squad],
-                     "names": [u.get("n", u["b"]) for u in squad],
+                     "names": _disambiguate([u.get("n", u["b"]) for u in squad],
+                                            [u["b"] for u in squad]),
                      "power": round(sum(unit_power(u) for u in squad)),
                      "win_tp": win_tp, "fillable": short <= 0,
                      "short": max(0, short), "note": "; ".join(notes) or None})
