@@ -16,7 +16,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Medical Station",
@@ -30,7 +31,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Medical Station",
@@ -44,7 +46,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Medical Station",
@@ -58,7 +61,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Medical Station",
@@ -77,7 +81,8 @@
    "required": [
     "THIRDSISTER"
    ],
-   "reward": "1,000 Mk III tokens"
+   "reward": "1,000 Mk III tokens",
+   "auto": false
   },
   {
    "planet": "Kessel",
@@ -87,7 +92,8 @@
    "slots": 5,
    "gate": {
     "relic": 8
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Kessel",
@@ -97,7 +103,8 @@
    "slots": 5,
    "gate": {
     "relic": 8
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Kessel",
@@ -110,7 +117,8 @@
    },
    "required": [
     "JABBATHEHUTT"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Kessel",
@@ -125,7 +133,18 @@
     "QIRA",
     "L3_37"
    ],
-   "reward": "1,000 Mk III tokens"
+   "reward": "1,000 Mk III tokens",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "BAYLANSKOLL",
+     "SHINHATI",
+     "MARROK",
+     "QIRA",
+     "L3_37"
+    ],
+    "note": "Qi'ra + L3-37 R8+ are the gate; Baylan/Shin/Marrok carry it. starwars-fans.com"
+   }
   },
   {
    "planet": "Lothal",
@@ -140,7 +159,8 @@
     "Light Side",
     "Neutral"
    ],
-   "faction": "Jedi"
+   "faction": "Jedi",
+   "auto": true
   },
   {
    "planet": "Lothal",
@@ -155,7 +175,8 @@
     "Light Side",
     "Neutral"
    ],
-   "faction": "Phoenix"
+   "faction": "Phoenix",
+   "auto": true
   },
   {
    "planet": "Lothal",
@@ -169,7 +190,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Mandalore",
@@ -183,6 +205,7 @@
    "required": [
     "MANDALORBOKATAN"
    ],
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
   },
   {
@@ -197,6 +220,7 @@
    "required": [
     "MOFFGIDEONS3"
    ],
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
   },
   {
@@ -208,6 +232,7 @@
    "gate": {
     "relic": 8
    },
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
   }
  ],

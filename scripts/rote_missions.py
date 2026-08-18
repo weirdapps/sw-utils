@@ -218,6 +218,95 @@ PHASES = {
 }
 
 
+# ⭐ TACTICS — how a mission is actually PLAYED, which the requirements table does
+# not tell you. Added 2026-08-19 after the Bracca Zeffo special was thrown away on
+# AUTO: the requirements were right, the squad was right, and it still lost, because
+# that mission cannot be auto-battled at all.
+#
+# THE RULE THIS TABLE ENCODES:
+#   COMBAT missions  -> AUTO is fine. The community consensus for phase 2 is
+#                       "mostly auto" and this account went 3-for-3 on auto.
+#   SPECIAL missions -> MANUAL, always. They are fewer waves but far harder, they
+#                       are ONE attempt, and they turn on ability TIMING that auto
+#                       will not do. Gaming-Fans' guild ran 2-for-14 on Bracca
+#                       without the turn plan below; with it, ~90.9%.
+#
+# `auto` is therefore keyed off `kind` in build(), and a mission only needs an entry
+# here when there is a researched composition or a turn plan worth carrying.
+# Sources are per-entry; re-fetch before trusting one that looks stale.
+TACTICS = {
+    (1, "Corellia", "special"): {
+        "squad": ["QIRA", "REY", "YOUNGCHEWBACCA", "L3_37", "YOUNGHAN"],
+        "note": "Qi'ra leads. starwars-fans.com/rote-special-missions/",
+    },
+    (2, "Felucia", "special"): {
+        # The wiki files this under "Special" but it pays TERRITORY POINTS, not
+        # tokens, and gaming-fans calls it a Combat Mission. Treat it as combat.
+        "squad": ["BOSSK", "BOBAFETT", "FENNECSHAND", "HONDO", "EMBO"],
+        "note": "Bossk-led Bounty Hunters. Get Bossk taunting and reach PAYOUT fast. "
+                "Enemies have RETRIBUTION — do not AoE until it drops. Save the "
+                "taunt-dispel for the Stormtrooper's taunt, dispel with Boba, then "
+                "Bossk's special to mass-attack the weakest for Payout. Fennec's "
+                "Armor Shred kills the Range Trooper and Recon Stormtrooper; Hondo's "
+                "Captive on the Imperial Officer. A Han/Chewie/L3/Dash scoundrel "
+                "lineup FAILED badly — do not use it. "
+                "⚠ Hondo fills 8 platoon slots across phases 1,3,4,5,6, and Fennec "
+                "has her own phase-3 combat mission: check operations before spending "
+                "either. gaming-fans.com 2022/12 Phase 2 Neutral CM with Hondo.",
+    },
+    (2, "Bracca", "unlock_zeffo"): {
+        "squad": ["CEREJUNDA", "JEDIKNIGHTCAL"],
+        "manual": True,
+        "note": "⛔ NEVER AUTO — measured, this repo lost the 2026-08-19 attempt to it. "
+                "Waves: W1 two Purge Troopers, then an Imperial Probe Droid appears "
+                "MID-WAVE and taunts; W2 Second Sister + Purge Trooper + IPD. "
+                "TURN PLAN: hold the AoE dispel for the IPD taunt — do not spend it on "
+                "the Purge Troopers. Stay defensive for the first 2-3 moves and use "
+                "Protection Up immediately; the enemy focuses CERE and she must not "
+                "drop below max protection, which is the usual failure point. Armor "
+                "Shred one PT early, Cal's insta-kill on the stronger one, finish the "
+                "other patiently. W2: keep boosting Cere's protection, Cal's basic "
+                "dispel on the PT, stack Cal to 30 charges then ultimate the Second "
+                "Sister. JKCK omicrons on BOTH the leader ability and Impetuous "
+                "Assault are the difference between ~2/14 and ~90.9%. "
+                "gaming-fans.com 2023/11 Unlocking Zeffo.",
+    },
+    (3, "Kashyyyk", "wookiee"): {
+        "squad": ["TARFFUL", "CHEWBACCALEGENDARY", "YOUNGCHEWBACCA",
+                  "C3POCHEWBACCA", "ZAALBAR"],
+        "note": "5x Light Side Wookiees R7+. starwars-fans.com",
+    },
+    (3, "Kashyyyk", "special"): {
+        "squad": ["SAWGERRERA", "LUTHENRAEL", "CASSIANANDOR", "K2SO", "JYNERSO"],
+        "manual": True,
+        "note": "starwars-fans.com",
+    },
+    (3, "Tatooine", "unlock_mandalore"): {
+        # starwars-fans lists "IG-12, Grogu" as two units; there is no standalone
+        # Grogu — IG12 IS "IG-12 & Grogu". Caught by the baseId test.
+        "squad": ["MANDALORBOKATAN", "THEMANDALORIANBESKARARMOR", "IG12"],
+        "manual": True,
+        "note": "Bo-Katan (Mand'alor) + Mando (Beskar) at R7+ are the gate; the "
+                "remaining slots are free Mandalorians. starwars-fans.com",
+    },
+    (4, "Kessel", "special"): {
+        "squad": ["BAYLANSKOLL", "SHINHATI", "MARROK", "QIRA", "L3_37"],
+        "manual": True,
+        "note": "Qi'ra + L3-37 R8+ are the gate; Baylan/Shin/Marrok carry it. "
+                "starwars-fans.com",
+    },
+    (6, "Death Star", "vader"): {
+        "squad": ["VADER"],
+        "note": "Darth Vader SOLOS this at R9+. starwars-fans.com",
+    },
+    (6, "Death Star", "iden"): {
+        "squad": ["IDENVERSIOEMPIRE", "SUPREMELEADERKYLOREN", "DARTHMALGUS",
+                  "DARTHMALAK", "SITHTROOPER"],
+        "note": "starwars-fans.com",
+    },
+}
+
+
 def build(phase):
     """Expand one phase into the schema rote_ops.mission_squads() consumes."""
     spec = PHASES[phase]
@@ -235,6 +324,12 @@ def build(phase):
                 for k in ("align", "faction", "required", "reward"):
                     if m.get(k):
                         row[k] = m[k]
+                # SPECIALS ARE MANUAL. One attempt, few waves, and they turn on
+                # ability timing an auto-battle will not do — see TACTICS.
+                tac = TACTICS.get((phase, planet, row["mission"]))
+                row["auto"] = not (row["kind"] == "special" or (tac or {}).get("manual"))
+                if tac:
+                    row["tactics"] = {k: v for k, v in tac.items() if k != "manual"}
                 if note:
                     row["territory_note"] = note
                 missions.append(row)

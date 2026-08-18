@@ -16,7 +16,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Death Star",
@@ -30,7 +31,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Death Star",
@@ -47,7 +49,18 @@
    ],
    "required": [
     "IDENVERSIOEMPIRE"
-   ]
+   ],
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "IDENVERSIOEMPIRE",
+     "SUPREMELEADERKYLOREN",
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "SITHTROOPER"
+    ],
+    "note": "starwars-fans.com"
+   }
   },
   {
    "planet": "Death Star",
@@ -64,7 +77,14 @@
    ],
    "required": [
     "VADER"
-   ]
+   ],
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "VADER"
+    ],
+    "note": "Darth Vader SOLOS this at R9+. starwars-fans.com"
+   }
   },
   {
    "planet": "Hoth",
@@ -74,7 +94,8 @@
    "slots": 5,
    "gate": {
     "relic": 9
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Hoth",
@@ -84,7 +105,8 @@
    "slots": 5,
    "gate": {
     "relic": 9
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Hoth",
@@ -97,7 +119,8 @@
    },
    "required": [
     "JABBATHEHUTT"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Hoth",
@@ -112,7 +135,8 @@
     "DOCTORAPHRA",
     "BT1",
     "TRIPLEZERO"
-   ]
+   ],
+   "auto": false
   },
   {
    "planet": "Scarif",
@@ -126,7 +150,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Scarif",
@@ -140,7 +165,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Scarif",
@@ -159,7 +185,8 @@
     "BAZEMALBUS",
     "CHIRRUTIMWE",
     "SCARIFREBEL"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Scarif",
@@ -178,7 +205,8 @@
     "CASSIANANDOR",
     "PAO",
     "K2SO"
-   ]
+   ],
+   "auto": true
   }
  ],
  "fleets": [

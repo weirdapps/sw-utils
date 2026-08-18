@@ -16,7 +16,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Mustafar",
@@ -30,7 +31,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Mustafar",
@@ -44,7 +46,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Mustafar",
@@ -61,7 +64,8 @@
    ],
    "required": [
     "LORDVADER"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Corellia",
@@ -71,7 +75,8 @@
    "slots": 5,
    "gate": {
     "relic": 5
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Corellia",
@@ -84,7 +89,8 @@
    },
    "required": [
     "JABBATHEHUTT"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Corellia",
@@ -97,7 +103,8 @@
    },
    "required": [
     "DOCTORAPHRA"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Corellia",
@@ -112,7 +119,18 @@
     "QIRA",
     "YOUNGHAN"
    ],
-   "reward": "800 Mk III Guild Event Tokens"
+   "reward": "800 Mk III Guild Event Tokens",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "QIRA",
+     "REY",
+     "YOUNGCHEWBACCA",
+     "L3_37",
+     "YOUNGHAN"
+    ],
+    "note": "Qi'ra leads. starwars-fans.com/rote-special-missions/"
+   }
   },
   {
    "planet": "Coruscant",
@@ -126,7 +144,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Coruscant",
@@ -140,7 +159,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Coruscant",
@@ -155,7 +175,8 @@
     "Light Side",
     "Neutral"
    ],
-   "faction": "Jedi"
+   "faction": "Jedi",
+   "auto": true
   },
   {
    "planet": "Coruscant",
@@ -174,7 +195,8 @@
    "required": [
     "MACEWINDU",
     "KITFISTO"
-   ]
+   ],
+   "auto": true
   }
  ],
  "fleets": [

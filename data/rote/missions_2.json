@@ -16,7 +16,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Geonosis",
@@ -30,7 +31,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Geonosis",
@@ -44,7 +46,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Geonosis",
@@ -65,7 +68,8 @@
     "GEONOSIANSPY",
     "POGGLETHELESSER",
     "SUNFAC"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Felucia",
@@ -75,7 +79,8 @@
    "slots": 5,
    "gate": {
     "relic": 6
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Felucia",
@@ -88,7 +93,8 @@
    },
    "required": [
     "YOUNGLANDO"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Felucia",
@@ -101,7 +107,8 @@
    },
    "required": [
     "JABBATHEHUTT"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Felucia",
@@ -114,7 +121,18 @@
    },
    "required": [
     "HONDO"
-   ]
+   ],
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "BOSSK",
+     "BOBAFETT",
+     "FENNECSHAND",
+     "HONDO",
+     "EMBO"
+    ],
+    "note": "Bossk-led Bounty Hunters. Get Bossk taunting and reach PAYOUT fast. Enemies have RETRIBUTION \u2014 do not AoE until it drops. Save the taunt-dispel for the Stormtrooper's taunt, dispel with Boba, then Bossk's special to mass-attack the weakest for Payout. Fennec's Armor Shred kills the Range Trooper and Recon Stormtrooper; Hondo's Captive on the Imperial Officer. A Han/Chewie/L3/Dash scoundrel lineup FAILED badly \u2014 do not use it. \u26a0 Hondo fills 8 platoon slots across phases 1,3,4,5,6, and Fennec has her own phase-3 combat mission: check operations before spending either. gaming-fans.com 2022/12 Phase 2 Neutral CM with Hondo."
+   }
   },
   {
    "planet": "Bracca",
@@ -128,7 +146,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Bracca",
@@ -142,7 +161,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Bracca",
@@ -156,7 +176,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Bracca",
@@ -170,7 +191,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Bracca",
@@ -185,7 +207,8 @@
     "Light Side",
     "Neutral"
    ],
-   "faction": "Jedi"
+   "faction": "Jedi",
+   "auto": true
   },
   {
    "planet": "Bracca",
@@ -200,7 +223,15 @@
     "CEREJUNDA",
     "JEDIKNIGHTCAL"
    ],
-   "reward": "2,500 Mk III tokens; 30 guild clears unlock ZEFFO (phase 3)"
+   "reward": "2,500 Mk III tokens; 30 guild clears unlock ZEFFO (phase 3)",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "CEREJUNDA",
+     "JEDIKNIGHTCAL"
+    ],
+    "note": "\u26d4 NEVER AUTO \u2014 measured, this repo lost the 2026-08-19 attempt to it. Waves: W1 two Purge Troopers, then an Imperial Probe Droid appears MID-WAVE and taunts; W2 Second Sister + Purge Trooper + IPD. TURN PLAN: hold the AoE dispel for the IPD taunt \u2014 do not spend it on the Purge Troopers. Stay defensive for the first 2-3 moves and use Protection Up immediately; the enemy focuses CERE and she must not drop below max protection, which is the usual failure point. Armor Shred one PT early, Cal's insta-kill on the stronger one, finish the other patiently. W2: keep boosting Cere's protection, Cal's basic dispel on the PT, stack Cal to 30 charges then ultimate the Second Sister. JKCK omicrons on BOTH the leader ability and Impetuous Assault are the difference between ~2/14 and ~90.9%. gaming-fans.com 2023/11 Unlocking Zeffo."
+   }
   }
  ],
  "fleets": [

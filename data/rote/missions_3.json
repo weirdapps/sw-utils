@@ -16,7 +16,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Dathomir",
@@ -30,7 +31,8 @@
    "align": [
     "Dark Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Dathomir",
@@ -45,7 +47,8 @@
     "Dark Side",
     "Neutral"
    ],
-   "faction": "Empire"
+   "faction": "Empire",
+   "auto": true
   },
   {
    "planet": "Dathomir",
@@ -62,7 +65,8 @@
    ],
    "required": [
     "DOCTORAPHRA"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Dathomir",
@@ -81,7 +85,8 @@
    "required": [
     "MERRIN"
    ],
-   "reward": "2,500 Mk II tokens"
+   "reward": "2,500 Mk II tokens",
+   "auto": false
   },
   {
    "planet": "Tatooine",
@@ -91,7 +96,8 @@
    "slots": 5,
    "gate": {
     "relic": 7
-   }
+   },
+   "auto": true
   },
   {
    "planet": "Tatooine",
@@ -104,7 +110,8 @@
    },
    "required": [
     "JABBATHEHUTT"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Tatooine",
@@ -117,7 +124,8 @@
    },
    "required": [
     "FENNECSHAND"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Tatooine",
@@ -132,7 +140,8 @@
    "required": [
     "GRANDINQUISITOR"
    ],
-   "reward": "1 Third Sister (Reva) shard per guild win, max 50"
+   "reward": "1 Third Sister (Reva) shard per guild win, max 50",
+   "auto": false
   },
   {
    "planet": "Tatooine",
@@ -148,7 +157,16 @@
     "MANDALORBOKATAN",
     "THEMANDALORIANBESKARARMOR"
    ],
-   "reward": "2,500 Mk II tokens; 25 guild clears unlock MANDALORE (phase 4)"
+   "reward": "2,500 Mk II tokens; 25 guild clears unlock MANDALORE (phase 4)",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "MANDALORBOKATAN",
+     "THEMANDALORIANBESKARARMOR",
+     "IG12"
+    ],
+    "note": "Bo-Katan (Mand'alor) + Mando (Beskar) at R7+ are the gate; the remaining slots are free Mandalorians. starwars-fans.com"
+   }
   },
   {
    "planet": "Kashyyyk",
@@ -163,7 +181,18 @@
     "Light Side",
     "Neutral"
    ],
-   "faction": "Wookiee"
+   "faction": "Wookiee",
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "TARFFUL",
+     "CHEWBACCALEGENDARY",
+     "YOUNGCHEWBACCA",
+     "C3POCHEWBACCA",
+     "ZAALBAR"
+    ],
+    "note": "5x Light Side Wookiees R7+. starwars-fans.com"
+   }
   },
   {
    "planet": "Kashyyyk",
@@ -177,7 +206,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Kashyyyk",
@@ -191,7 +221,8 @@
    "align": [
     "Light Side",
     "Neutral"
-   ]
+   ],
+   "auto": true
   },
   {
    "planet": "Kashyyyk",
@@ -210,7 +241,18 @@
    "required": [
     "SAWGERRERA"
    ],
-   "reward": "2,500 Mk II tokens"
+   "reward": "2,500 Mk II tokens",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "SAWGERRERA",
+     "LUTHENRAEL",
+     "CASSIANANDOR",
+     "K2SO",
+     "JYNERSO"
+    ],
+    "note": "starwars-fans.com"
+   }
   },
   {
    "planet": "Zeffo",
@@ -225,6 +267,7 @@
     "Light Side",
     "Neutral"
    ],
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
   },
   {
@@ -241,6 +284,7 @@
     "Neutral"
    ],
    "faction": "Unaligned Force User",
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
   },
   {
@@ -259,6 +303,7 @@
    "required": [
     "JEDIKNIGHTCAL"
    ],
+   "auto": true,
    "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
   },
   {
@@ -276,6 +321,7 @@
    ],
    "faction": "Clone Trooper",
    "reward": "2,500 Mk II tokens",
+   "auto": false,
    "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
   }
  ],

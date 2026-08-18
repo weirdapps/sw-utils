@@ -125,3 +125,45 @@ def test_gaps_merges_one_unit_that_gates_several_missions():
     rows = [r for r in rm.gaps(roster) if r["unit"] == "K2SO"]
     assert len(rows) == 1, "one row per (unit, gate), not one per mission"
     assert len(rows[0]["missions"]) >= 2
+
+
+# --- how a mission is PLAYED ---------------------------------------------------
+# Added after the 2026-08-19 session threw away the Bracca Zeffo attempt on AUTO.
+# The requirements were right and the squad was right; the mission still lost,
+# because it cannot be auto-battled at all.
+def test_every_special_mission_is_flagged_manual():
+    bad = [f"P{p} {m['planet']}/{m['mission']}"
+           for p, m in _all_missions() if m["kind"] == "special" and m["auto"]]
+    assert bad == [], "specials must never be auto-battled: " + "; ".join(bad)
+
+
+def test_combat_missions_default_to_auto():
+    # Phase-2 combat is community-documented as "mostly auto" and this account went
+    # 3-for-3 on it, so auto is the right default — the cost of manual play is time.
+    autos = [m for _p, m in _all_missions() if m["kind"] == "combat" and m["auto"]]
+    assert len(autos) > 50, "combat missions should default to auto"
+
+
+def test_tactics_squads_are_real_base_ids(name_map):
+    bad = []
+    for key, tac in rm.TACTICS.items():
+        for base in tac.get("squad") or ():
+            if base not in name_map:
+                bad.append(f"{key}: {base}")
+    assert bad == [], "unknown baseIds in TACTICS: " + "; ".join(bad)
+
+
+def test_tactics_keys_point_at_missions_that_exist():
+    known = {(p, m["planet"], m["mission"]) for p, m in _all_missions()}
+    assert set(rm.TACTICS) <= known, \
+        f"TACTICS keys with no mission: {sorted(set(rm.TACTICS) - known)}"
+
+
+def test_the_zeffo_unlock_carries_its_turn_plan_and_never_autos():
+    p2 = {m["mission"]: m for m in rm.build(2)["missions"]}
+    zeffo = p2["unlock_zeffo"]
+    assert zeffo["auto"] is False
+    assert zeffo["tactics"]["squad"] == ["CEREJUNDA", "JEDIKNIGHTCAL"]
+    # The two facts that decide the fight, both from gaming-fans' walkthrough.
+    assert "NEVER AUTO" in zeffo["tactics"]["note"]
+    assert "dispel" in zeffo["tactics"]["note"]
