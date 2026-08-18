@@ -14,9 +14,11 @@ for line in open(os.path.join(D,"meta","mod_meta_report.txt")):
 res=json.load(open(os.path.join(D,"gac_result.json")))
 name={}
 try:
-    ro=json.load(open(os.path.join(D,"roster","swgoh_roster_fresh_20260718.json")))
+    import sys; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+    import swgoh_data
+    ro=json.load(open(swgoh_data.latest_roster_file()))
     name={u["b"]:u["n"] for u in ro["units"]}
-except: pass
+except Exception: pass
 
 GROUPS=[("3v3 DEFENSE (current season)","3v3","defense"),("3v3 OFFENSE","3v3","offense"),
         ("5v5 DEFENSE","5v5","defense"),("5v5 OFFENSE","5v5","offense")]

@@ -91,7 +91,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 ROTE = os.path.join(DATA, "rote")
 OUT = os.path.join(ROOT, "output")
-ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")
+ROSTER_FILE = swgoh_data.latest_roster_file()
 
 # --- measured constants (memory/notes.md, 2026-08-05 phase-2 session) -----------
 OPERATION_TP = 11_000_000     # per COMPLETED operation, guild-wide
@@ -732,11 +732,21 @@ def main(argv=None):
     ap.add_argument("--out", default=os.path.join(OUT, "rote_plan.json"))
     args = ap.parse_args(argv)
 
+    # Operations need an on-device scrape; MISSIONS do not — they are static and come
+    # from the wiki map (scripts/rote_missions.py). Missing operations therefore
+    # degrades to a mission-only plan instead of refusing to run, because "which squad
+    # for which battle" is answerable today and was the whole reason the map exists.
+    # The reservation list is empty in that mode, so the warning is not cosmetic: with
+    # no operations known, nothing is held back and a mission may spend a unit that a
+    # platoon slot wanted. Scrape the panels before acting on a plan that matters.
     ops_path = args.operations or operations_path(args.phase)
-    if not os.path.exists(ops_path):
-        print(f"no operations file at {ops_path} — scrape the operation panels first")
-        return 2
-    doc = load_operations(ops_path)
+    if os.path.exists(ops_path):
+        doc = load_operations(ops_path)
+    else:
+        doc = {"phase": args.phase, "captured": None, "areas": []}
+        print(f"⚠ no operations file at {os.path.relpath(ops_path, ROOT)} — planning "
+              f"MISSIONS ONLY.\n  Nothing is reserved for platoons, so scrape the "
+              f"operation panels before committing squads.")
 
     missions = []
     mpath = args.missions or os.path.join(ROTE, f"missions_{args.phase}.json")

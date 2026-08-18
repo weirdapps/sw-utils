@@ -1,0 +1,223 @@
+{
+ "phase": 6,
+ "relic_floor": 9,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Death Star",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Death Star",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Death Star",
+   "alignment": "dark",
+   "mission": "iden",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "IDENVERSIOEMPIRE"
+   ]
+  },
+  {
+   "planet": "Death Star",
+   "alignment": "dark",
+   "mission": "vader",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "VADER"
+   ]
+  },
+  {
+   "planet": "Hoth",
+   "alignment": "mixed",
+   "mission": "mixed_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   }
+  },
+  {
+   "planet": "Hoth",
+   "alignment": "mixed",
+   "mission": "mixed_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   }
+  },
+  {
+   "planet": "Hoth",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ]
+  },
+  {
+   "planet": "Hoth",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "DOCTORAPHRA",
+    "BT1",
+    "TRIPLEZERO"
+   ]
+  },
+  {
+   "planet": "Scarif",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Scarif",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Scarif",
+   "alignment": "light",
+   "mission": "rogueone_a",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "required": [
+    "BAZEMALBUS",
+    "CHIRRUTIMWE",
+    "SCARIFREBEL"
+   ]
+  },
+  {
+   "planet": "Scarif",
+   "alignment": "light",
+   "mission": "rogueone_b",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "required": [
+    "CASSIANANDOR",
+    "PAO",
+    "K2SO"
+   ]
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Death Star",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "TIEFIGHTERIMPERIAL"
+   ],
+   "preset": "Chimaera",
+   "why": "Imperial TIE Fighter is already in the Chimaera lineup."
+  },
+  {
+   "planet": "Hoth",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Executor",
+   "why": null
+  },
+  {
+   "planet": "Scarif",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "CAPITALPROFUNDITY"
+   ],
+   "preset": "(none \u2014 Profundity unowned)",
+   "why": null
+  }
+ ]
+}

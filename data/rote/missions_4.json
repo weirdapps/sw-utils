@@ -1,0 +1,253 @@
+{
+ "phase": 4,
+ "relic_floor": 8,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_4",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "faction": "Inquisitorius",
+   "required": [
+    "THIRDSISTER"
+   ],
+   "reward": "1,000 Mk III tokens"
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "mixed_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   }
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "mixed_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   }
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ]
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "QIRA",
+    "L3_37"
+   ],
+   "reward": "1,000 Mk III tokens"
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "jedi",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi"
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "phoenix",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Phoenix"
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "ls",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "bokatan",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "MANDALORBOKATAN"
+   ],
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "gideon",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "MOFFGIDEONS3"
+   ],
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Kessel",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "GHOST"
+   ],
+   "preset": "Home One",
+   "why": "Ghost is already in the Home One lineup."
+  },
+  {
+   "planet": "Lothal",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Home One",
+   "why": null
+  },
+  {
+   "planet": "Mandalore",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "GAUNTLETSTARFIGHTER"
+   ],
+   "preset": "Executor",
+   "why": null
+  }
+ ]
+}

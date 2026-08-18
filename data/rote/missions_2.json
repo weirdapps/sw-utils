@@ -1,0 +1,241 @@
+{
+ "phase": 2,
+ "relic_floor": 6,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Geonosis",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Geonosis",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Geonosis",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Geonosis",
+   "alignment": "dark",
+   "mission": "geonosians",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "GEONOSIANBROODALPHA",
+    "GEONOSIANSOLDIER",
+    "GEONOSIANSPY",
+    "POGGLETHELESSER",
+    "SUNFAC"
+   ]
+  },
+  {
+   "planet": "Felucia",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   }
+  },
+  {
+   "planet": "Felucia",
+   "alignment": "mixed",
+   "mission": "younglando",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "required": [
+    "YOUNGLANDO"
+   ]
+  },
+  {
+   "planet": "Felucia",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ]
+  },
+  {
+   "planet": "Felucia",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "required": [
+    "HONDO"
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "ls_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "ls_4",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "jedi",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 6
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi"
+  },
+  {
+   "planet": "Bracca",
+   "alignment": "light",
+   "mission": "unlock_zeffo",
+   "kind": "special",
+   "slots": 2,
+   "gate": {
+    "relic": 7
+   },
+   "required": [
+    "CEREJUNDA",
+    "JEDIKNIGHTCAL"
+   ],
+   "reward": "2,500 Mk III tokens; 30 guild clears unlock ZEFFO (phase 3)"
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Geonosis",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Malevolence",
+   "why": "Separatist/Geonosian fleet, all 7*."
+  },
+  {
+   "planet": "Felucia",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Executor",
+   "why": null
+  },
+  {
+   "planet": "Bracca",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Negotiator",
+   "why": null
+  }
+ ]
+}

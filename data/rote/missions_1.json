@@ -1,0 +1,219 @@
+{
+ "phase": 1,
+ "relic_floor": 5,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "vader",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "LORDVADER"
+   ]
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   }
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ]
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "aphra",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "DOCTORAPHRA"
+   ]
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "QIRA",
+    "YOUNGHAN"
+   ],
+   "reward": "800 Mk III Guild Event Tokens"
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "jedi",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi"
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "jedi_named",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi",
+   "required": [
+    "MACEWINDU",
+    "KITFISTO"
+   ]
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Mustafar",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Leviathan",
+   "why": null
+  },
+  {
+   "planet": "Corellia",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "MILLENNIUMFALCONPRISTINE"
+   ],
+   "preset": "Raddus",
+   "why": "Lando's Millennium Falcon is already in the Raddus lineup."
+  },
+  {
+   "planet": "Coruscant",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "OUTRIDER"
+   ],
+   "preset": "Home One",
+   "why": "Outrider is in no built lineup \u2014 bring it inside the best Rebel fleet and fill from Fleets > Main."
+  }
+ ]
+}

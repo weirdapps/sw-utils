@@ -1,0 +1,323 @@
+{
+ "phase": 3,
+ "relic_floor": 7,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Dathomir",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Dathomir",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Dathomir",
+   "alignment": "dark",
+   "mission": "empire",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "faction": "Empire"
+  },
+  {
+   "planet": "Dathomir",
+   "alignment": "dark",
+   "mission": "aphra",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "DOCTORAPHRA"
+   ]
+  },
+  {
+   "planet": "Dathomir",
+   "alignment": "dark",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "faction": "Nightsister",
+   "required": [
+    "MERRIN"
+   ],
+   "reward": "2,500 Mk II tokens"
+  },
+  {
+   "planet": "Tatooine",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   }
+  },
+  {
+   "planet": "Tatooine",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ]
+  },
+  {
+   "planet": "Tatooine",
+   "alignment": "mixed",
+   "mission": "fennec",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "required": [
+    "FENNECSHAND"
+   ]
+  },
+  {
+   "planet": "Tatooine",
+   "alignment": "mixed",
+   "mission": "special_reva",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "faction": "Inquisitorius",
+   "required": [
+    "GRANDINQUISITOR"
+   ],
+   "reward": "1 Third Sister (Reva) shard per guild win, max 50"
+  },
+  {
+   "planet": "Tatooine",
+   "alignment": "mixed",
+   "mission": "unlock_mandalore",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "faction": "Mandalorian",
+   "required": [
+    "MANDALORBOKATAN",
+    "THEMANDALORIANBESKARARMOR"
+   ],
+   "reward": "2,500 Mk II tokens; 25 guild clears unlock MANDALORE (phase 4)"
+  },
+  {
+   "planet": "Kashyyyk",
+   "alignment": "light",
+   "mission": "wookiee",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Wookiee"
+  },
+  {
+   "planet": "Kashyyyk",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Kashyyyk",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ]
+  },
+  {
+   "planet": "Kashyyyk",
+   "alignment": "light",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Rebel Fighter",
+   "required": [
+    "SAWGERRERA"
+   ],
+   "reward": "2,500 Mk II tokens"
+  },
+  {
+   "planet": "Zeffo",
+   "alignment": "light",
+   "mission": "ls",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
+  },
+  {
+   "planet": "Zeffo",
+   "alignment": "light",
+   "mission": "force",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Unaligned Force User",
+   "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
+  },
+  {
+   "planet": "Zeffo",
+   "alignment": "light",
+   "mission": "cal",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "required": [
+    "JEDIKNIGHTCAL"
+   ],
+   "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
+  },
+  {
+   "planet": "Zeffo",
+   "alignment": "light",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 7
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Clone Trooper",
+   "reward": "2,500 Mk II tokens",
+   "territory_note": "BONUS \u2014 locked until Bracca's unlock special clears 30x in phase 2"
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Tatooine",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "CAPITALEXECUTOR"
+   ],
+   "preset": "Executor",
+   "why": null
+  },
+  {
+   "planet": "Kashyyyk",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "CAPITALPROFUNDITY"
+   ],
+   "preset": "(none \u2014 Profundity unowned)",
+   "why": null
+  },
+  {
+   "planet": "Zeffo",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "CAPITALNEGOTIATOR"
+   ],
+   "preset": "Negotiator",
+   "why": null
+  }
+ ]
+}

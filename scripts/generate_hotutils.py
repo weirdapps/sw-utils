@@ -20,7 +20,10 @@ OUT = os.path.join(ROOT, "output")
 os.makedirs(OUT, exist_ok=True)
 
 res = json.load(open(os.path.join(DATA, "gac_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260731.json")))
+import sys                                                          # noqa: E402
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import swgoh_data                                                   # noqa: E402
+roster = json.load(open(swgoh_data.latest_roster_file()))
 info = {u["b"]: u for u in roster["units"]}
 name = {u["b"]: u["n"] for u in roster["units"]}
 gp = roster["meta"]["gp"]
