@@ -3593,3 +3593,29 @@ not the timer beside them (it counts down) and not the X (generic white chrome).
 all four bundle captures and 0.40-0.50 on eleven non-bundle screens, against a 0.88 threshold; added
 to `DEFAULT_POPUP_CLOSERS` with a (980, 1) offset from the match centre to the X.
 Run 2 with a live watchdog: 7 halts instead of 11, ~331 energy drained, Coliseum NEW HIGH SCORE.
+
+### ⭐ FLEET arena on AUTO went 3-for-3: #12 → #8 → #4 → #1
+The same night Squad Arena lost three, Fleet Arena won three, on AUTO, with the `Leviathan Arena`
+lineup out of `build_fleets.FLEET_LINEUPS` (Scimitar / TIE Defender / Scythe / TIE Bomber
+reinforcements — the set the 2026-08-08 note proved beats the higher-power Sith Fighter / Mark VI
+build). Targets were chosen by LOWEST opponent power, and at #4 the rank-1 holder was the weakest
+of the three offered (440,729 against Astra's 606,329), so #1 was reachable in one hop.
+
+⇒ The split is the lesson: **fleet AUTO wins, squad AUTO does not.** It also matches the standing
+memory that Fleet Arena is the one worth the effort — rank 1 pays ~400 crystals/day against ~200 at
+rank 6, while Squad Arena pays no crystals at all. Three squad attempts were spent before that note
+was re-read; it should have been read first.
+
+Fleet mechanics confirmed: a ~4 min cooldown applies **even after a win**, the 💎50 skip was refused
+every time, and the defensive fleet is the one last attacked with — so ending on the Leviathan Arena
+lineup parks the 29.8%-hold set automatically.
+
+### Session end state (2026-08-19 ~01:50)
+- **Fleet Arena #1**, Squad Arena #29 (unchanged, 3 attempts lost).
+- **Guild Activities 600/600** — raid tickets maxed, which is the whole point of the energy dump.
+- Energy drained from 144/194/123/244 to 24/16/9/97; ~470 spent, cantina put through **8-G** (8 sims,
+  Flawed Signal Data) rather than the bot's default 1-A.
+- Daily quests: yesterday's 8/8 crate collected before the 22:59 reset; today's at 3/8.
+- **RotE phase 2/6 is live with ~19h left** and the mission plan is computed but NOT YET PLAYED.
+  Operations for phase 2 are still unscraped, so nothing is reserved for platoons — scrape before
+  committing squads (a deployed unit can never fill a platoon slot again).
