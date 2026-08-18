@@ -3553,3 +3553,43 @@ phase squads against a two-week-old account.
 - **Squad Arena #26, Fleet Arena #12**, payout ~2h. Worse than the modelled #10.
 - ⚠ **Paid bundle popups interrupt the farmbot** and it does not close them (`ERA MODULE BUNDLE II`,
   `YODA (DARK SIDE VISION) BUNDLE II`). They need a manual X or a popup-closer template.
+
+### ⭐ ARENA ON AUTO WENT 0-FOR-3 — the GAC proxy does not survive contact
+Squad Arena, rank #29, three attacks, three DEFEATS, with three different top squads:
+
+| squad | power | opponent | result |
+|---|---|---|---|
+| FT1 The Stranger / Luminara / Maul HF / Starkiller / Visas | 186,353 | #22 SLKR + datacron, 175,015 | DEFEAT, 4 enemies alive |
+| O03 JMK / Snips / Cmdr Ahsoka / Mace / Padmé (the "90% attacker") | 197,820 | #23 GL Leia team, 179,391 | DEFEAT, 5 enemies alive |
+| FT1 The Stranger (again) | 186,353 | #28 GL Leia team, 174,498 | DEFEAT |
+
+Every one was fought on **AUTO at 4X**, and every one was against a LOWER-power opponent.
+`arena_board.py` says so itself in its own `proxy` field and it should have been believed:
+*"swgoh.gg GAC 5v5 Hold%/Win%. GAC attackers are limited by the no-repeat rule and arena attackers
+are not, so real arena hold runs BELOW these numbers."* The 96%/90% figures are GAC numbers; they do
+not transfer, and **AUTO is the known failure mode for anything but a trivial fight** (the same note
+already exists in this file for event battles).
+
+⇒ **Do not climb arena on AUTO against a GL wall.** Either drive it manually or do not spend the
+attempt. Two mistakes to not repeat: I picked the first squad on RAW POWER (186K vs 175K) — the exact
+"high squad power is a mirage" error this file already documents — and then treated the model's 90%
+as an arena number when the model says in writing that it is not.
+
+Mechanics confirmed on the way:
+- A LOSS costs no rank, only the attempt, plus a **6-minute cooldown on all three matches** (or 50
+  crystals to skip — refused, standing rule).
+- Attempts **refreshed to 5 at the 22:59 daily reset** mid-session.
+- **Arena payout is 18h out, not 1h** — the 1h timer on the hub is the GAC attack phase, and they
+  were misread as the same clock. Climb near payout, not at the start of the window.
+- Squad Arena defense really is the last squad you ATTACKED with, win or lose: the header power
+  tracked 186,353 -> 197,820 -> 186,353 as the squads were swapped. The 57% Stranger wall was
+  deliberately restored with the third (losing) attack, which is what that attempt was spent on.
+
+### The farmbot: paid bundle popups were eating whole entries
+Run 1 halted 11 of 18 entries; the 21:50-21:54 halt screenshots are all the same full-screen
+**"YODA (DARK SIDE VISION) BUNDLE II"** offer, and it took out every energy node. `popup_close` does
+not match its X. Fixed with a `bundle_offer` template cropped on the words **"OFFER EXPIRES:"** —
+not the timer beside them (it counts down) and not the X (generic white chrome). Measured 1.000 on
+all four bundle captures and 0.40-0.50 on eleven non-bundle screens, against a 0.88 threshold; added
+to `DEFAULT_POPUP_CLOSERS` with a (980, 1) offset from the match centre to the X.
+Run 2 with a live watchdog: 7 halts instead of 11, ~331 energy drained, Coliseum NEW HIGH SCORE.
