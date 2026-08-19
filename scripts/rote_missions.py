@@ -105,8 +105,14 @@ PHASES = {
             {"id": "mixed"},
             {"id": "younglando", "required": ["YOUNGLANDO"]},
             {"id": "jabba", "required": ["JABBATHEHUTT"]},
-            {"id": "special", "kind": "special", "required": ["HONDO"]},
-        ], [{"id": "fleet", "required": [], "preset": "Executor"}]),
+            # ⚠ The wiki files this under "Special"; the in-game panel reads
+            # "Combat Mission — 5x characters (Relic 6+), Hondo Ohnaka" and it pays
+            # Territory Points, not tokens (device-verified 2026-08-19). It is
+            # therefore COMBAT and auto-battleable, which is how it was won.
+            {"id": "special", "required": ["HONDO"]},
+        ], [{"id": "fleet", "required": [], "preset": "Leviathan",
+             "why": "Felucia is Mixed, so no alignment filter — Leviathan is legal "
+                    "here and is the strongest owned fleet. Device-verified win."}]),
         ("Bracca", "light", [
             {"id": "ls", "align": LS, "n": 4},
             {"id": "jedi", "align": LS, "faction": "Jedi"},

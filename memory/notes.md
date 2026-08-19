@@ -3619,3 +3619,89 @@ lineup parks the 29.8%-hold set automatically.
 - **RotE phase 2/6 is live with ~19h left** and the mission plan is computed but NOT YET PLAYED.
   Operations for phase 2 are still unscraped, so nothing is reserved for platoons — scrape before
   committing squads (a deployed unit can never fill a platoon slot again).
+
+## 2026-08-19 (01:00-04:00) — RotE phase 2 played, and COMPOSITION measured against POWER
+
+Owner's challenge mid-session — *"have you researched the exact compositions for ROTE or are you
+playing random again?!"* — was correct and is the most useful thing to come out of the night. The
+requirements were researched and verified; **the compositions were not, and the game's auto-fill was
+being trusted instead of the repo's own plan.**
+
+### ⭐ OPERATIONS ARE THE PRIZE, AND THEY WERE COMPLETELY UNTOUCHED
+Felucia and Bracca both read **Assigned Units 0/10** — Astra had contributed nothing to platoons this
+phase. Four operations sat one or two slots from completion at **+11,000,000 TP each**.
+
+| territory | before | assigned | after |
+|---|---|---|---|
+| Felucia Op4 | 14/15 | 1 | **15/15 ✓ +11M** |
+| Felucia Op5 | 14/15 | 1 | **15/15 ✓ +11M** |
+| Felucia Op2 | 13/15 | 1 | 14/15 |
+| Felucia Op3 | 9/15  | 5 | 14/15 |
+| Bracca Op1  | 11/15 | 4 | **15/15 ✓ +11M** |
+| Bracca Op4  | 10/15 | 2 | 12/15 |
+
+**+33,000,000 TP from 14 units.** Guild rank moved #7 → #4 on the first two alone. Compare: those same
+14 units DEPLOYED would have paid about 40K each, ~560K total. The 18x in rote_ops' docstring is real.
+
+Three UI facts worth keeping: a slot tagged **UNDEPLOYED** is one Astra can fill; an unlabelled dark
+slot means **"UNIT ALREADY DEPLOYED"** and is dead for the phase; and the game warns **"Unit Required
+in another Territory"** before locking a unit — that warning is a genuine optimiser, and cancelling on
+it kept a ship free rather than burying it in a 9/15 operation.
+⚠ Slot taps need a **~5-6s settle**; at 2s they silently do not register.
+⚠ **Geonosis is LOCKED** — all six operations 0/15 with greyed buttons, planet at 0 TP. The Dark path
+never opened (Mustafar shows ⊘ on the map), so it is a guild-level block, not something Astra can fix.
+
+### ⭐ SPECIALS ARE MANUAL. This cost the Zeffo unlock.
+The Bracca Zeffo special was played on AUTO and lost, spending the phase's last attempt (50 Mk III
+tokens + 1/30 guild progress). The repo's own notes already said event specials fail on auto. The
+research then said it explicitly: W1 is two Purge Troopers **then an Imperial Probe Droid that appears
+mid-wave and taunts** — you hold the AoE dispel for it — W2 is Second Sister + PT + IPD, the enemy
+focuses **Cere** and she must not drop below max protection. Gaming-Fans' guild: **2-for-14** without
+that plan, **~90.9%** with it plus JKCK omicrons on both the leader ability and Impetuous Assault.
+Now encoded in `rote_missions.TACTICS`, and `auto` is a field on every mission.
+
+### ⭐ COMPOSITION BEATS POWER, and the margin is not subtle
+Measured across ten missions tonight, same account, same night:
+
+| squad | power | result |
+|---|---|---|
+| auto-fill, incoherent (Leia/Rotta/GAS/Satele/JKR) | 219,456 | 2/2 in 130s |
+| auto-fill, incoherent (SEE/Lando/Revan/Stranger/Bane) | 208,547 | **1/2 — 125K only** |
+| auto-fill, incoherent (Rey/CLS/Raddus/BoKatan/Cassian) | 203,103 | **1/2 — 125K only** |
+| **Bossk-led BOUNTY HUNTERS** (Bossk/Embo/Hondo/Zam/Krrsantan) | **166,589** | **2/2 in 40 SECONDS** |
+
+The Bounty Hunter squad had **27,000 LESS power** than the auto-fill it replaced and won three times
+faster, because every unit answered to "On The Hunt" and the Payout mechanic fired. Same lesson as the
+TW 0-for-5 note: **high squad power is a mirage.**
+
+Fleets prove it twice more — and CORRECT this file:
+- Bracca fleet: coherent **Negotiator** 611,548 beat the auto-fill's incoherent 670,075 mix. **WIN, 500K.**
+- Felucia fleet: **Leviathan** 521,336 over a 707,157 grab-bag. **WIN, 500K.**
+⇒ The old *"fleet missions no auto"* note (from a Negotiator+Outrider loss at 672K) was **wrong about
+the cause**. It was not auto; it was an incoherent lineup. Fleets auto fine when the preset is coherent.
+Also: a 7-ship preset in an 8-slot mission raises *"squad is not full"* — OK only dismisses, press
+BATTLE again.
+
+### ⭐ AUTO-FILL SPENDS GATED UNITS — twice, on the same unit
+It put **Jabba** into two Felucia missions that did not require him, while Jabba's OWN mission sat
+unplayed. It also grabbed **Bossk**, the lead of the researched Hondo comp. Both were manually pulled
+back out. This is exactly what `mission_squads()` pre-reserves against, and it is the strongest
+argument for using the computed plan rather than the in-game auto-fill.
+⇒ **Play the mission that REQUIRES a gated unit first.** Once Jabba was spent on his own mission the
+problem disappeared for the rest of the phase.
+
+### Other corrections
+- The **Felucia Hondo** row is filed "Special" by the wiki but the in-game panel reads **Combat
+  Mission** and pays Territory Points. Data corrected; it is auto-battleable and was won.
+- RotE combat missions pay **per wave**: the results screen reads `RESULTS n/m` and a 1-of-2 clear
+  earns 125,000 instead of 250,000. `rote_autobattle` does not recognise that screen and reports
+  "ended" — two of the night's "wins" were actually partials.
+- `rote_autobattle`'s 300s cap is shorter than a long fight; a "timeout" is not a loss. Jabba SOLOED
+  wave 2 after the driver gave up, and took the full 250K.
+- The AUTO toggle's **ring** changes colour, not the arrow — probing the centre pixel reads white in
+  both states. Sample the ring.
+
+### Phase 2 result
+10 missions played: **7 full wins, 2 partials, 1 loss** (the Zeffo special). Roughly **2.5M mission TP
++ ~1.9M deployed**, on top of the **33M from operations**. Felucia 26.4M → 89.2M, Bracca 5.9M → 29.2M,
+guild 6/56 → 7/56 stars and #7 → #4 at best. Phase 2 still has ~16h to run.

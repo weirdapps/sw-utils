@@ -114,7 +114,7 @@
    "planet": "Felucia",
    "alignment": "mixed",
    "mission": "special",
-   "kind": "special",
+   "kind": "combat",
    "slots": 5,
    "gate": {
     "relic": 6
@@ -122,7 +122,7 @@
    "required": [
     "HONDO"
    ],
-   "auto": false,
+   "auto": true,
    "tactics": {
     "squad": [
      "BOSSK",
@@ -254,8 +254,8 @@
     "stars": 7
    },
    "required": [],
-   "preset": "Executor",
-   "why": null
+   "preset": "Leviathan",
+   "why": "Felucia is Mixed, so no alignment filter \u2014 Leviathan is legal here and is the strongest owned fleet. Device-verified win."
   },
   {
    "planet": "Bracca",
