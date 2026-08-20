@@ -1,13 +1,13 @@
+Rotta the Hutt
+Mob Enforcer
+Greedo
+Gamorrean Guard
+Cad Bane
 The Stranger
 Luminara Unduli
 Maul (Hate-Fueled)
 Starkiller
 Visas Marr
-Rotta the Hutt
-Gamorrean Guard
-Greedo
-Cad Bane
-Mob Enforcer
 Rey
 50R-T
 Ben Solo
@@ -53,6 +53,30 @@ B1 Battle Droid
 B2 Super Battle Droid
 IG-100 MagnaGuard
 STAP
+Mon Mothma
+Kleya Marki
+Maul
+Boss Nass
+Stormtrooper Luke
+Captain Tarpals
+Princess Leia
+Jar Jar Binks
+Stormtrooper Han
+Nightsister Spirit
+Darth Revan
+Mission Vao
+Zaalbar
+Darth Traya
+Darth Nihilus
+Savage Opress
+Tarfful
+Clone Wars Chewbacca
+Yoda & Chewie
+BB-8
+L3-37
+Qui-Gon Jinn
+Jedi Knight Anakin
+Mace Windu
 Leia Organa
 Admiral Raddus
 Captain Drogan
@@ -68,7 +92,6 @@ Wat Tambor
 Jedi Master Kenobi
 Ahsoka Tano
 Commander Ahsoka Tano
-Mace Windu
 Padmé Amidala
 Jedi Master Luke Skywalker
 Hermit Yoda
@@ -94,23 +117,16 @@ Skiff Guard (Lando Calrissian)
 Darth Malgus
 Bastila Shan (Fallen)
 Darth Malak
-Darth Revan
 Sith Marauder
 Bo-Katan (Mand'alor)
 Bo-Katan Kryze
 IG-12 & Grogu
 Paz Vizsla
 The Mandalorian (Beskar Armor)
-Darth Traya
-Darth Nihilus
 Darth Sion
 Darth Talon
-Savage Opress
-Boss Nass
 Gungan Boomadier
-Captain Tarpals
 Gungan Phalanx
-Jar Jar Binks
 Lord Vader
 CC-1119 "Appo"
 Disguised Clone Trooper
@@ -123,7 +139,6 @@ Chewbacca
 Han Solo
 Cere Junda
 Inquisitor Barriss
-Maul
 Ninth Sister
 Taron Malicos
 Wampa
@@ -147,21 +162,6 @@ Batcher
 Crosshair (Scarred)
 Hunter (Mercenary)
 Wrecker (Mercenary)
-Mon Mothma
-Kleya Marki
-Stormtrooper Luke
-Princess Leia
-Stormtrooper Han
-Nightsister Spirit
-Mission Vao
-Zaalbar
-Tarfful
-Clone Wars Chewbacca
-Yoda & Chewie
-BB-8
-L3-37
-Qui-Gon Jinn
-Jedi Knight Anakin
 Cassian Andor
 Ugnaught
 Ezra Bridger
@@ -174,11 +174,19 @@ Darth Maul
 Iden Versio
 Grand Inquisitor
 Fifth Brother
+Admiral Piett
+Cassian Andor (Undercover)
+Coruscant Underworld Police
+Boba Fett
+Ewok Scout
+Gar Saxon
+Canderous Ordo
+Imperial Super Commando
+Jango Fett
 Barriss Offee
 Ki-Adi-Mundi
 Kit Fisto
 Admiral Trench
-Jango Fett
 Nute Gunray
 Finn
 Resistance Hero Finn
@@ -199,7 +207,6 @@ Poggle the Lesser
 Sun Fac
 Darth Sidious
 Admiral Ackbar
-Admiral Piett
 Amilyn Holdo
 Rey
 Dengar
@@ -209,7 +216,6 @@ Second Sister
 Tech
 Poe Dameron
 Hunter
-Boba Fett
 Sith Empire Trooper
 Wrecker
 IG-88

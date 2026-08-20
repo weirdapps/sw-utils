@@ -65,19 +65,33 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 # rung carries the reason it sits where it does, and rejected alternatives are
 # recorded so they are not retried.
 #
-# ⭐ 1-4  GRAND ARENA — AND IT IS ALWAYS FIRST. Owner's standing rule, given
-#      2026-08-18: "when optimizing TOP PRIORITY is ALWAYS GAC". This REVERSED the
-#      previous ladder, which opened with Arena on a compounding-payout argument
-#      (below, kept because it is a good argument that simply lost). GAC is solo and
-#      it moves the player's OWN league — the repo's standing goal, Kyber 4 -> 3 —
-#      where an arena rank is defended nightly and a TW result is not yours to
-#      determine at all. The rule is not conditional: no later rung may outrank a
-#      GAC squad rung, whatever its rate.
-#      SUPERSEDED ARGUMENT, do not re-litigate without new evidence: Squad and Fleet
-#      Arena are the only modes paying a ranked reward EVERY DAY, and the payout
-#      compounds because crystals bought today raise the farming rate that defends
-#      the rank tomorrow. True, and still why Arena sits immediately below GAC
-#      rather than further down — but the owner priced the league climb higher.
+# ⭐ 1    THE ONE DEPLOYED SQUAD ARENA TEAM. Owner, 2026-08-20, on the mod pass:
+#      "first prio the one arena team. Second priority is always grand arena
+#      defense, and then grand arena offense."
+#      This narrows the 2026-08-18 "GAC is ALWAYS first" rule rather than undoing
+#      it: exactly ONE squad — the five units actually parked on the arena wall —
+#      now outranks GAC, and every other arena rung (climb at 6, fleet at 7) still
+#      sits below the whole GAC block. The compounding-payout argument recorded
+#      below is what justifies it: the deployed wall is the only squad in the game
+#      earning a ranked crystal payout EVERY day, and it is on duty for the ~23
+#      hours nobody is playing.
+#      In practice this mostly settles tie-breaks rather than moving units, because
+#      the deployed wall IS a GAC 5v5 defensive squad (currently the Hutt Cartel
+#      five: Rotta, Mob Enforcer, Greedo, Gamorrean Guard, Cad Bane), so best-tier-
+#      wins already had them near the top. It matters for the ORDER Grandivory
+#      receives, which is what decides who gets the contested speed arrows.
+#      ⚠ It is ONE squad by construction — ARENA_DEFENSE_SLOTS is 1 and _arena_roles
+#      enforces it. Do not let a second "alternative wall" reach rung 1.
+#
+# 2-5  GRAND ARENA, defense block then offense block, per the same instruction.
+#      This CHANGED on 2026-08-20: the ladder used to interleave by format
+#      (5v5 def, 5v5 off, 3v3 def, 3v3 off), so 5v5 OFFENSE outranked 3v3 DEFENSE.
+#      The owner's phrasing puts all GAC defense above all GAC offense, so 3v3
+#      defense now takes rung 3. Only format-unique units are affected — seasons
+#      alternate, and 73 of Astra's 148 GAC units sit on both boards.
+#      GAC remains above everything except the one arena wall: it is solo, and it
+#      moves the player's OWN league, the standing Kyber 4 -> 3 goal, where a TW
+#      result is not yours to determine at all.
 #      DEFENSE before OFFENSE inside every mode, for the reason already recorded
 #      in board_config.py: defense is the side you cannot adapt. It is set once
 #      and then met by whoever turns up, so an under-invested wall gets found and
@@ -90,13 +104,15 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 #      because a 5-unit squad's rate depends on all five members while a 3v3
 #      squad leans on its leader, so a weak support costs more in 5v5.
 #
-# 5-7  ARENA (Squad, then Fleet). Directly below GAC, on the compounding-payout
-#      argument above. Astra sits at Squad Arena #10 and Fleet Arena #1-6, inside
-#      the band where one rank is real crystals per day.
-#      5 before 6: the arena DEFENSE squad is on duty for the ~23 hours a day
-#      nobody is playing, and it is what every attacker must beat. The climb
-#      squads run five attempts and then stop. Same reasoning as 1-before-2.
-#      7 after 5-6: a fleet cannot absorb the three biggest queues at all (see
+# 6-7  THE REST OF ARENA (Squad climb, then Fleet). Below the whole GAC block.
+#      COMPOUNDING-PAYOUT ARGUMENT, which is why rung 1 exists and why these two
+#      sit as high as they do: Squad and Fleet Arena are the only modes paying a
+#      ranked reward EVERY DAY, and it compounds — crystals banked today raise the
+#      farming rate that defends the rank tomorrow. Astra is Squad Arena #27 and
+#      Fleet Arena #1, inside the band where one rank is real crystals per day.
+#      The climb squads only run five attempts and then stop, which is why they
+#      are here and not with the deployed wall at rung 1.
+#      7 after 6: a fleet cannot absorb the three biggest queues at all (see
 #      the fleet note below), so its rung only decides ability materials.
 #
 # 8    TERRITORY BATTLES (RotE) — operations first, then combat missions. Placed
@@ -143,16 +159,18 @@ ARENA_CLIMB_SQUADS_KEY = "squads"
 ARENA_DEFENSE_SLOTS = 1
 
 BOARD_ROLES = (
-    (1, ("5v5", "defense"), "GAC 5v5 defense"),
-    (2, ("5v5", "offense"), "GAC 5v5 offense"),
+    (2, ("5v5", "defense"), "GAC 5v5 defense"),
     (3, ("3v3", "defense"), "GAC 3v3 defense"),
-    (4, ("3v3", "offense"), "GAC 3v3 offense"),
+    (4, ("5v5", "offense"), "GAC 5v5 offense"),
+    (5, ("3v3", "offense"), "GAC 3v3 offense"),
     (9, ("tw", "defense"), "TW defense"),
     (10, ("tw", "offense"), "TW offense"),
 )
 
-# Squad Arena rungs, below GAC per the owner's "GAC is always top" rule.
-ARENA_DEFENSE_TIER = 5
+# ⭐ The single deployed Squad Arena team is rung 1. Owner, 2026-08-20:
+# "upgrade all mods … first prio the one arena team. Second priority is always grand
+# arena defense, and then grand arena offense."
+ARENA_DEFENSE_TIER = 1
 ARENA_CLIMB_TIER = 6
 
 # board_result.json already carries the arena fleet as its own category, so when
@@ -212,9 +230,19 @@ _RATE_KEYS = ("rate", "score", "win")
 
 
 def _base_ids(seq):
-    """baseIds out of a list that may hold plain strings or slot dicts."""
+    """baseIds out of a list that may hold plain strings or slot dicts.
+
+    ⚠ Anything that is not a list/tuple yields nothing. The keys this reader looks for are
+    overloaded in the files it consumes: rote_plan.json carries `slots: 5` (a squad SIZE) and
+    `deploy.units: 337` (a COUNT), both plain ints. Iterating those raised TypeError and took
+    the whole ladder down — which broke _squads' own documented contract that unrecognised
+    input "must degrade to 'that mode contributed no units', not a crash". A bare string is
+    excluded for the same reason: iterating it would yield one baseId per character.
+    """
+    if not isinstance(seq, (list, tuple)):
+        return []
     out = []
-    for x in seq or []:
+    for x in seq:
         if isinstance(x, str):
             out.append(x)
         elif isinstance(x, dict):

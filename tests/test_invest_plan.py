@@ -48,9 +48,12 @@ def test_tiers_follow_the_stated_order():
     roster = _roster(("WALL",), ("ATK",), ("TWWALL",), ("ARENADEF",),
                      ("ARENAOFF",), ("ROTEONLY",), ("IDLE",))
 
-    # GAC OUTRANKS ARENA — owner's rule, 2026-08-18: "TOP PRIORITY is ALWAYS GAC".
+    # Owner, 2026-08-20: "first prio the one arena team. Second priority is always
+    # grand arena defense, and then grand arena offense." The DEPLOYED arena wall is
+    # rung 1; everything else in arena (climb 6, fleet 7) stays below the GAC block,
+    # and GAC is now a defense block (2-3) then an offense block (4-5).
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, board, arena, rote)}
-    assert tiers == {"WALL": 1, "ATK": 2, "ARENADEF": 5, "ARENAOFF": 6,
+    assert tiers == {"ARENADEF": 1, "WALL": 2, "ATK": 4, "ARENAOFF": 6,
                      "ROTEONLY": 8, "TWWALL": 9, "IDLE": 12}
 
 
@@ -103,15 +106,16 @@ def test_board_arena_fleet_category_fills_the_fleet_rung_without_an_arena_file()
 
 
 def test_best_tier_wins_when_a_unit_fills_several_roles():
-    # Same unit walls in GAC 5v5 (tier 1), attacks in 3v3 (tier 4) and defends
-    # in Squad Arena (tier 5). It must take the GAC 5v5 defense tier and keep both
-    # others visible, and its rate must be that rung's rate, not the 96% 3v3 clear.
+    # Same unit walls in GAC 5v5 (tier 2), attacks in 3v3 (tier 5) and defends
+    # in Squad Arena (tier 1). It must take the ARENA tier — the best one it holds —
+    # and keep both others visible, and its rate must be that rung's rate, not the
+    # 96% 3v3 clear.
     board = _board(**{"5v5": {"defense": [_sq(50, "GL")], "offense": []},
                       "3v3": {"defense": [], "offense": [_sq(96, "GL")]}})
     arena = {"defense": _sq(31, "GL")}
     out = ip.priority_units(_roster(("GL",)), board, arena)
-    assert out[0]["tier"] == 1
-    assert out[0]["rate"] == 50
+    assert out[0]["tier"] == ip.ARENA_DEFENSE_TIER
+    assert out[0]["rate"] == 31
     assert sorted(out[0]["roles"]) == ["GAC 3v3 offense", "GAC 5v5 defense",
                                        "Squad Arena defense"]
 
@@ -151,14 +155,14 @@ def test_displayed_relic_7_means_rt_9():
 def test_relic_queue_uses_the_roster_scale_and_keeps_priority_order():
     board = _board(**{"5v5": {"defense": [_sq(50, "WALL")], "offense": [_sq(96, "ATK")]}})
     arena = {"defense": _sq(0, "ARENADEF")}
-    roster = _roster(("WALL", {"rt": 8}),        # displayed R6 -> below target, tier 1
+    roster = _roster(("WALL", {"rt": 8}),        # displayed R6 -> below target, tier 2
                      ("ATK", {"rt": 9}),         # displayed R7 -> AT target, excluded
-                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, but tier 5
+                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, and tier 1
     priority = ip.priority_units(roster, board, arena)
     q = ip.relic_queue(roster, priority, ip.rt_for_displayed_relic(7))
-    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC before arena
-    assert q[0]["relic"] == 6 and q[0]["levels_to_go"] == 1
-    assert q[1]["rt"] == 7 and q[1]["relic"] == 5
+    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]   # the one arena wall first
+    assert q[0]["rt"] == 7 and q[0]["relic"] == 5
+    assert q[1]["relic"] == 6 and q[1]["levels_to_go"] == 1
 
 
 def test_relic_queue_skips_ships_residual_units_and_relicless_units():
@@ -180,9 +184,9 @@ def test_gear_queue_lists_only_sub_g13_board_characters_in_priority_order():
                      ("FULL", {"g": 13}), ("BENCH", {"g": 9}))
     priority = ip.priority_units(roster, board, arena)
     q = ip.gear_queue(roster, priority)
-    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC before arena
-    assert q[0]["tiers_to_go"] == 2                         # WALL is g11
-    assert q[1]["tiers_to_go"] == 1                         # ARENADEF is g12
+    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]   # the one arena wall first
+    assert q[0]["tiers_to_go"] == 1                         # ARENADEF is g12
+    assert q[1]["tiers_to_go"] == 2                         # WALL is g11
 
 
 def test_mod_priority_order_is_a_duplicate_free_character_only_ordering():
@@ -248,9 +252,9 @@ def test_ability_queue_drops_unowned_units_and_sorts_by_priority():
         {"unit": "ARENADEF", "ability": "A1", "kind": "zeta", "mode": "squad-arena"},
     ]
     out = ip.ability_queue(priority, catalogue)
-    assert [e["unit"] for e in out] == ["WALL", "ARENADEF", "BENCH"]  # GHOST unowned
-    assert out[0]["tier"] == 1 and out[0]["name"] == "Wall"
-    assert out[0]["mode"] == "grand-arena"           # catalogue fields survive
+    assert [e["unit"] for e in out] == ["ARENADEF", "WALL", "BENCH"]  # GHOST unowned
+    assert out[0]["tier"] == 1 and out[0]["name"] == "Arenadef"
+    assert out[1]["mode"] == "grand-arena"           # catalogue fields survive
 
 
 def test_ability_queue_keeps_catalogue_order_for_two_abilities_on_one_unit():
@@ -284,3 +288,25 @@ def test_load_catalogue_accepts_a_bare_list(tmp_path):
 
 def test_load_catalogue_missing_file_is_empty(tmp_path):
     assert ip.load_catalogue(str(tmp_path / "nope.json")) == []
+
+
+def test_overloaded_unit_keys_degrade_to_nothing_instead_of_crashing():
+    """`slots` and `units` are overloaded in the files this reads, and _squads promises
+    that unrecognised input yields no units rather than raising.
+
+    rote_plan.json carries `slots: 5` (a squad SIZE) and `deploy.units: 337` (a COUNT).
+    Iterating those raised TypeError and took the entire ladder down — invest_plan.py
+    could not run at all until this was guarded. A bare string is refused for the same
+    reason: iterating it yields one "baseId" per character.
+    """
+    assert ip._base_ids(5) == []
+    assert ip._base_ids(None) == []
+    assert ip._base_ids("WALL") == [], "a bare string must not become five baseIds"
+    assert ip._base_ids(["WALL", {"unit": "ATK"}]) == ["WALL", "ATK"]
+
+    # the shape that actually crashed it, straight out of rote_ops.plan()
+    rote = {"missions": [{"planet": "Tatooine", "mission": "jabba", "slots": 5,
+                          "units": ["JABBA"]}],
+            "deploy": {"units": 337}}
+    assert ip._squads(rote["deploy"]) == []
+    assert ip._squads(rote["missions"][0]) == [(0.0, ["JABBA"])]
