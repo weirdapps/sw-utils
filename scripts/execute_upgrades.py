@@ -52,11 +52,42 @@ DRY = "--dry" in sys.argv
 # refused outright, because it never counted the T06_02 that EVERY step consumes.
 # One data point, so treat the shape as firm and the exact counts as approximate.
 STEP6_BUNDLE = {"T06_01": 10, "T06_02": 20, "T06_03": 10, "T05_05": 10, "T05_06": 10}
-# 5-dot: grounded 2026-08-11 at ~22 salvage of the tier being LEFT, per step
-# (512/499/514/535 of T05_01..04 bought 89 steps and drained all four).
-STEP5_SALVAGE = {1: ("T05_01", 22), 2: ("T05_02", 22), 3: ("T05_03", 22), 4: ("T05_04", 22)}
+# 5-dot salvage of the tier being LEFT, per tier-step. NOT a flat number.
+#
+# The old flat 22 came from an AVERAGE: 2026-08-11, 512/499/514/535 of T05_01..04 bought
+# "89 steps" across all four tiers, i.e. ~23 each. Averaging hid the spread, and it cost
+# real plans in BOTH directions on 2026-08-20:
+#   * t1 and t2 actually cost 15, so the planner over-charged and SILENTLY HID affordable
+#     steps — 38 T05_01 buys two steps and it planned one.
+#   * t4 costs more than 22, so the planner proposed Royal Guard t4 with 27 in hand and the
+#     server refused it. Twice, on two consecutive runs.
+# t1/t2 below are isolated single-step before/after diffs (T05_01 38->23, T05_02 25->10,
+# 27,000 credits each) and are firm. t3/t4 are NOT measured — see the flags.
+# ⚠⚠ THE COST IS NOT A PER-TIER CONSTANT — IT VARIES PER MOD. Two isolated t1 steps on
+# 2026-08-20 cost 15 (T05_01 38->23, 27,000 credits) and then 10 (23->13, 18,000 credits).
+# Same tier, same 5 dots, same single step; salvage and credits both moved by the same 1.5x,
+# so some per-mod multiplier drives it. No static table can be exactly right.
+#
+# So these are the observed MINIMUM per tier, deliberately, and the server is the arbiter.
+# That is the cheap direction to be wrong in: proposing a step that turns out unaffordable
+# costs one API call and NO materials (run() checks responseCode and retires that budget),
+# whereas over-charging silently drops an upgrade we could have had — which is how a flat 22
+# hid a second affordable t1 step for who knows how long.
+STEP5_SALVAGE = {
+    1: ("T05_01", 10),   # MEASURED min of two isolated steps (15, then 10)
+    2: ("T05_02", 15),   # MEASURED once, isolated. Treat as an upper bound until seen again.
+    3: ("T05_03", 22),   # ⚠ UNVERIFIED. A prior run consumed exactly 15 here, consistent
+                         #   with one step, but it was never isolated.
+    4: ("T05_04", 35),   # ⚠ REFUSAL BOUND, not a cost. Refused with 27 in hand (twice), so
+                         #   >27; a prior run drained exactly 35.
+}
 STEP6_T0506 = 10      # T05_06 per 6-dot tier-step (also consumes master binding)
-PROMO_T0506 = 76      # T05_06 per 5A->6E promote (binding; grounded 2026-07-27 diff)
+# ⚠ REFUSAL BOUND, not a measured cost. Grounded at 76 on a 2026-07-27 diff, but on
+# 2026-08-20 the server refused a promote with 91 T05_06 in hand. So either the true cost is
+# >=92, or a promote also consumes a material this model does not track — T05_05 sat at 17,
+# which is the obvious suspect. Nail it by diffing after the next SUCCESSFUL promote; until
+# then this is set to stop the planner proposing a call the server will reject.
+PROMO_T0506 = 92
 PROMO_PROMO = 27      # PROMO_T5_T6 per promote (grounded)
 MARGIN = float(os.environ.get("HU_MARGIN", "0.90"))   # plan up to this share of a binding
                       # material. 0.90 leaves slack so a mid-batch miscount cannot strand a
@@ -91,8 +122,17 @@ def api(path, body):
 
 
 def mode_of(tier):
-    """Label the ladder rung a unit sits on, for the printed plan only."""
-    return ("ARENA" if tier <= 3 else "GAC" if tier <= 7 else
+    """Label the ladder rung a unit sits on, for the printed plan only.
+
+    ⚠ Must track invest_plan.py's tier numbers. It said `ARENA if tier <= 3` under the old
+    ladder; after the 2026-08-20 re-order that mislabelled GAC 5v5 defence (tier 2) and GAC
+    3v3 defence (tier 3) as ARENA, so the printed plan claimed the arena wall was getting
+    work that was really going to a GAC squad. Display-only, but it is the line a human reads
+    to check the priority took effect, so a wrong label defeats the point of the re-order.
+    Current: 1 = the one deployed arena wall · 2-5 GAC (def 2-3, off 4-5) · 6-7 arena climb
+    and fleet arena · 8 TB · 9-10 TW · 11+ GAC fleets.
+    """
+    return ("ARENA" if tier == 1 else "GAC" if tier <= 5 else "ARENA" if tier <= 7 else
             "TB" if tier == 8 else "TW" if tier <= 10 else "fleet")
 
 

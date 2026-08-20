@@ -228,7 +228,13 @@ Pipeline detail:
    - **Calibrate → speed:** `mods/reroll {modId,stat:5}` → `mods/acceptreroll {keepMod}`.
 4. **Binding materials** (the real limits, from live diffs): a **6-dot step is a BUNDLE** —
    `T06_01×10 + T06_02×20 + T06_03×10 + T05_05×10 + T05_06×10` — so **T06_02 gates all 6-dot slicing**;
-   promote 5A→6E → **T05_06 ×76**; 5-dot→5A → **~22 of the tier being left**;
+   promote 5A→6E → **T05_06 ≥92** (refusal bound: the server rejected one with 91 in hand on
+   2026-08-20; the old "76" was wrong); 5-dot slice → **the cost VARIES PER MOD, it is not a
+   per-tier constant** — two isolated t1 steps the same afternoon cost 15 then 10 salvage
+   (27,000 then 18,000 credits, both scaling 1.5× together). `STEP5_SALVAGE` therefore holds
+   observed MINIMA and lets the server arbitrate: a refusal costs one API call and NO
+   materials, while over-charging silently drops upgrades you could afford — a flat "~22"
+   average was hiding affordable t1/t2 steps *and* proposing t4 steps the server refused;
    **calibration → Micro Attenuators = `summary.currency` id 41** (farm: Smuggler's Run 2 with Jabba, best;
    also **GET3 5-for-125** and **Episode currency 16-for-4,000**, and Mod Battles **chapter 2** — which is
    the old "Map 9" after the 2026-04-27 update cut Mod Battles to 2 tiers and deleted Mod Challenges).

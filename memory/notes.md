@@ -3879,3 +3879,52 @@ quality and never placement.
 ### Where the arena five ended up
 All five carry **6 mods, all 6-dot**: Rotta Σspd 99 · Mob Enforcer 131 · Greedo 116 ·
 Gamorrean Guard 104 · Cad Bane 92 (542 total, 4.0% of the 13,548 inventory speed on 30 mods).
+
+### Allocation against REAL stock — and the cost model was wrong in both directions
+Owner: *"make the best allocation as per our prio order and the mats available. Do not assume
+an 'optimal' allocation we cannot reach."*
+
+⭐ **THE 5-DOT SLICE COST IS NOT A PER-TIER CONSTANT. IT VARIES PER MOD.** Two isolated
+single-step diffs on the same afternoon:
+| mod | tier | salvage | credits |
+|---|---|---|---|
+| Cassian Andor | t1 | T05_01 38→23 = **15** | 27,000 |
+| Boba Fett | t1 | T05_01 23→13 = **10** | 18,000 |
+Same tier, same 5 dots, same single step — and salvage and credits both moved by the same
+**1.5×**, so a per-mod multiplier drives it. No static table can be exactly right.
+
+The old constant was a flat **22**, derived as an AVERAGE ("512/499/514/535 of T05_01..04
+bought 89 steps"). Averaging hid the spread and cost real upgrades in BOTH directions:
+- **Over-charging hid affordable work.** 38 T05_01 buys two-to-three steps; the planner
+  proposed one. 13 in hand looked like nothing and actually bought a step.
+- **Under-charging proposed fiction.** It planned `Royal Guard t4` with 27 T05_04 in hand and
+  the server refused it — **twice, on two consecutive runs** — and planned a promote with 91
+  T05_06 that was also refused. That is precisely the unreachable plan the owner objected to.
+
+⇒ **Table now holds observed MINIMA and the SERVER arbitrates.** That is the cheap direction
+to be wrong in: `run()` checks responseCode and retires exactly that budget, so a refusal
+costs one API call and **no materials**, while a silent over-charge costs an upgrade.
+`PROMO_T0506` 76 → **92** and `STEP5_SALVAGE[4]` 22 → **35** are REFUSAL BOUNDS, not measured
+costs — the true numbers need a diff after a *successful* one. A promote may also consume a
+material this model does not track; T05_05 sat at 17 and is the obvious suspect.
+
+⚠ **`mode_of()` still encoded the old ladder** — `ARENA if tier <= 3` mislabelled GAC 5v5 and
+3v3 defence as ARENA, so the printed plan claimed the arena wall was getting work that was
+really going to a GAC squad. Display-only, but that line is exactly how a human checks the
+re-order took effect. Fixed and pinned by a test.
+
+### Where the day ended — genuinely exhausted, and the real shopping list is SMALL
+6A **99 → 102**, 6-dot **156 → 160**. Swept until the allocator proposed zero steps in every
+category. Every material now sits just under its cheapest next step:
+| action | material | need | have | short |
+|---|---|---|---|---|
+| 5-dot t1 slice | T05_01 | 10 | 3 | **7** |
+| 5-dot t2 slice | T05_02 | 15 | 10 | **5** |
+| 5-dot t3 slice | T05_03 | 22 | 6 | 16 |
+| 5-dot t4 slice | T05_04 | 35 | 27 | 8 |
+| 5A→6E promote | T05_06 | ≥92 | 91 | **1** |
+| 6-dot slice step | T06_02 | 20 | 17 | **3** |
+| calibration | attenuators | 15 | 7 | 8 |
+
+⇒ Report THIS, not `slice_plan`'s "T05_06 short 1,033". That number is the cost of the next
+*twenty* mods and is not a plan anyone can act on; the table above is a farming trip.
