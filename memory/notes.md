@@ -3705,3 +3705,93 @@ problem disappeared for the rest of the phase.
 10 missions played: **7 full wins, 2 partials, 1 loss** (the Zeffo special). Roughly **2.5M mission TP
 + ~1.9M deployed**, on top of the **33M from operations**. Felucia 26.4M → 89.2M, Bracca 5.9M → 29.2M,
 guild 6/56 → 7/56 stars and #7 → #4 at best. Phase 2 still has ~16h to run.
+
+## 2026-08-20 (01:30-04:30) — RotE phase 3: the 11M relic level, and two mechanics we had backwards
+
+Guild went **#8 → #1** in the bracket and **12 → 13 stars**. Astra contributed ~26M TP.
+
+### ⭐ THE UNLOCK RULE: a planet needs **3 STARS** on the planet BEFORE it in its lane
+Read off the live board, not a guide:
+- Felucia **1★** (187.8M/237M) → **Tatooine LOCKED**
+- Bracca **2★** (250.4M/303.5M) → **Kashyyyk LOCKED**
+
+Two stars is not enough. This is the single most important planning fact in RotE, because it means
+**the Reva shard farm is downstream of Felucia's THIRD star** (316M), not its second. Phase 3 opened
+with Tatooine unreachable and it stayed that way; the guild has ~3.7 days of event left to close it.
+⇒ When choosing where to dump deployment, pick the planet whose next star both (a) is reachable and
+(b) unlocks something. Felucia won on both counts: it went 1★ → 2★ tonight and its 3★ opens Tatooine.
+
+### ⭐ A COMBAT MISSION ALSO DEPLOYS THE SQUAD'S POWER
+The activity feed prints BOTH lines for one action:
+```
+Astra: Completed a Combat Mission (2/2 waves), earning 250,000 Territory Points
+Astra: Deployed 195,123 points          <- exactly the GL Leia squad's power
+```
+So a mission is **250K + squad power**, and plain deployment is **squad power**. There is NO
+trade-off between "run missions" and "deploy" — missions strictly dominate for the units they use.
+Run every mission first, then deploy the remainder. The earlier worry about "spending" units on
+missions was based on a mechanic that does not exist.
+
+### ⭐ ONE RELIC LEVEL WAS WORTH 11,000,000 TP
+Bracca Operation 3 sat at **14/15** all event. The empty slot wanted **Enfys Nest at Relic 6** and
+Astra had her at **R5**. One relic level → slot filled → **+11,000,000 TP** and "Rebel Strafing Run"
+levelled 2 → 3. All six Bracca operations then read 15/15; Felucia's six were already complete.
+⇒ **Check operation slots for a ONE-LEVEL gap before doing anything else in a phase.** Nothing else
+in the mode pays 11M for a 250K-credit upgrade.
+
+### The material hunt, and the tool that ends it
+Enfys R5→R6 needed **20 Electrium Conductor**; stock was 6. `data/economy.json` said "Guild Activity
+Store" and that store does not stock it. **The game answers this itself**: tap the red material on the
+Relic Amplifier screen → **FIND** → a card per route, with store, quantity, price and your balance.
+Authoritative, and it took one tap. Use it before editing economy.json from memory ever again.
+
+Routes it listed (and what actually happened):
+| store | pays in | qty/price | result |
+|---|---|---|---|
+| Guild Store | Mk II raid token | 6 / 450 | bought → 12 |
+| Guild Store | Mk II raid token | 4 / 300 | bought → 16 |
+| Guild Events Store | GET3 | 2 / 720 | bought → 18 |
+| Episode Shipment | episode currency | 4 / 6,000 | bought → **22** ✅ |
+| Shipments / Weekly | crystals | 10/1,150 · 20/2,300 | forbidden, never used |
+
+⚠ **Every token route is daily_limit 1.** You cannot bulk-buy a relic material from one store; you
+chain across four stores in one day. `action_value.py` does not model this yet — it will happily plan
+a purchase that the store will refuse. The limits are now recorded in economy.json.
+⚠ **`event_only.signal_data` was WRONG.** The Guild Events Store sells Fragmented (20/1,600) and
+Incomplete (20/2,000). Only **Flawed and Corrupted** are cantina-only. Corrected in both economy.json
+and the action_value.py docstring.
+
+### ⛔ `rote_autobattle`'s outcome is NOT a verdict — it was wrong on 5 of 8 missions
+| label | truth |
+|---|---|
+| bracca_ls1 "ended" | 2/2, 250,000 |
+| felucia_b "ended" | 2/2, 250,000 |
+| felucia_hondo "ended" | 2/2, 250,000 |
+| felucia_jabba "timeout" | 2/2, 250,000 — Jabba soloed wave 2 for 5 more minutes |
+| **felucia_lando "win"** | **1/2, 125,000 — a PARTIAL reported as a win** |
+
+A partial shows the same banner as a full clear and silently pays half. **Fixed**: `read_feed()` now
+OCRs the planet activity feed after every battle and reports `waves=n/m tp=N verdict=full|partial`,
+exit 3 on a partial. Six tests in `tests/test_rote_autobattle.py` pin the parsing against the real
+OCR text, including the wrapped-entry case (the name and "(2/2 waves)" land on different OCR lines,
+so per-line matching finds nothing) and the mangled-name fallback.
+⚠ **tesseract cannot read `/tmp` from this sandbox** — it silently treats the PNG bytes as a filename
+and prints nothing. Write OCR scratch into `output/`, which is what tw_place.py already does.
+
+### Composition, again — and the cost of ignoring it
+The one mission run on the game's auto-fill (Jabba + Darth Revan + Darth Bane + Wampa + Ahsoka,
+219,948, five factions) took **~13 minutes** and only won because Jabba soloed the last wave alone.
+Every coherent squad from the TW/GAC preset banks won in 50-330s. The owner's prompt mid-session —
+*"we already have ready made tw-tb squads why not use them?"* — is the right default: **open
+SELECT SQUAD and take a preset, do not hand-pick and do not accept the auto-fill.**
+⚠ In-game preset tabs cap at ~15 squads (TW 5v5 - Defense ends at D15). The 55-squad wall lives in
+HotUtils only, so `output/tw_placement_sheet.txt` is the lookup for anything past D15.
+
+### Other findings
+- **Bracca's Zeffo bonus zone**: "Progress 53%", gated on **Complete Special Mission 30 times (2/30)**,
+  requiring **Cere Junda R7+ and any Cal Kestis R7+**. Astra's attempts were already spent.
+- **Felucia operations were already 6/6** from phase 2 — operations persist across phases, so the
+  quota display ("Assigned Units: 0/10") resets while the slots stay filled.
+- Paid-bundle popups fire on EVERY store/shipments entry, not just at launch. `bundle_offer.png`
+  handles the launch case; the shop case still needs manual dismissal.
+- Login calendars: 5 claimed incl. Signal Booster day 3 (**Fragmented**, not Flawed — 10/day).

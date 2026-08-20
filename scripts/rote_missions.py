@@ -287,6 +287,44 @@ TACTICS = {
         "manual": True,
         "note": "starwars-fans.com",
     },
+    (3, "Dathomir", "special"): {
+        "squad": ["GREATMOTHERS", "MORGANELSBETH", "MERRIN", "NIGHTSISTERSPIRIT",
+                  "ASAJVENTRESS"],
+        "manual": True,
+        "note": "Great Mothers lead is the MODERN clear and the one Astra can field: all "
+                "five of these are R7+, while the classic Old Daka / Mother Talzin / "
+                "Nightsister Zombie lineup is stranded at R5 and below the phase-3 floor. "
+                "MECHANIC: Merrin gains 100% TM the first time a Nightsister ally is "
+                "defeated and +15% (+2%/relic) on every later death or revive, so letting "
+                "Nightsisters die and come back IS the engine — do not play to keep them "
+                "alive. Wave 1 hits hardest: spread Tenacity Down first (Zombie's basic if "
+                "he is in), then stack Plague; Talzin is much stronger once Tenacity Down "
+                "is out. A revive also grants all allies Instant Defeat Immunity 2 turns. "
+                "starwars-fans.com 2024/10 + Xaereth youtube KfcoTSb7oQ4.",
+    },
+    (3, "Tatooine", "special_reva"): {
+        "squad": ["GRANDINQUISITOR", "FIFTHBROTHER", "SEVENTHSISTER", "SECONDSISTER",
+                  "MARROK"],
+        "manual": True,
+        "note": "⭐ THE REVA SHARD FARM — 1 Third Sister shard per guild win, max 50, and "
+                "Third Sister is the account's #2 gap. Grand Inquisitor leads. "
+                "⚠ The published comp is GI/Ninth Sister/Fifth/Seventh/Eighth Brother, but "
+                "Astra's NINTH SISTER is R6 and EIGHTH BROTHER R5 — both BELOW the phase-3 "
+                "relic-7 floor, so neither can be deployed. Second Sister and Marrok are "
+                "R7 and substitute; Inquisitor Barriss is a third R7 option. "
+                "MODS: DoT damage here scales off MAX HEALTH, so run PROTECTION primaries "
+                "and de-emphasise health. "
+                "W1 Jawas (Chief Nebit): get 6 stacks of Purge on Nebit, get Tenacity Up "
+                "BEFORE any AoE, then cleanse with GI's middle ability once you are at "
+                "6-9 DoTs — the usual loss is being greedy and holding that cleanse until "
+                "the stacked DoTs wipe you at the end of the wave. Open Fifth Brother "
+                "basic, Torture Nebit, Ninth/substitute uses her third; once the Jawas "
+                "have buffs use Fifth Brother's AoE to dispel, then GI's AoE health-"
+                "equaliser on his second turn. Nebit dies first at 10+ DoTs each. "
+                "W2 is Jedi Master Kenobi ALONE and is easy if W1 went well: stack Purge "
+                "to 6, add Armor Shred, layer Torture. "
+                "gaming-fans.com 2022/12 Phase 3 Neutral SM (Third Sister shards).",
+    },
     (3, "Tatooine", "unlock_mandalore"): {
         # starwars-fans lists "IG-12, Grogu" as two units; there is no standalone
         # Grogu — IG12 IS "IG-12 & Grogu". Caught by the baseId test.
@@ -300,6 +338,33 @@ TACTICS = {
         "manual": True,
         "note": "Qi'ra + L3-37 R8+ are the gate; Baylan/Shin/Marrok carry it. "
                 "starwars-fans.com",
+    },
+    (5, "Vandor", "special"): {
+        # Deliberately NO squad: the walkthrough every search returns for
+        # "Young Han + Young Chewbacca" is the PHASE 1 CORELLIA mission, which is a
+        # different fight with a different gate (R5 vs R9). Encoding it here would be
+        # exactly the kind of confidently-wrong written fact verify_facts.py exists for.
+        "manual": True,
+        "note": "⚠ UNRESEARCHED — do not copy the Phase-1 Corellia Qi'ra/Young Han plan "
+                "here, it is a different mission. Gate is YOUNGHAN + YOUNGCHEWBACCA at "
+                "R9+; Astra is R7 and R5, so it is not fillable yet either way.",
+    },
+    (6, "Hoth", "special"): {
+        "squad": ["DOCTORAPHRA", "BT1", "TRIPLEZERO", "VADER", "IMPERIALPROBEDROID"],
+        "manual": True,
+        "note": "PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if "
+                "there is NO Galactic Legend ally and every ally is a Dark Side Scoundrel, "
+                "Dark Side Droid, Krrsantan or Darth Vader — one off-faction body silently "
+                "removes the summon. BT-1 and 0-0-0 each hand Aphra 50% turn meter at the "
+                "start, so bringing both is a free extra opening turn. "
+                "OPENER: Aphra's THIRD ability for Doubt on all enemies, which summons the "
+                "Commando Droid; then BT-1's middle, then BT-1's third. BT-1's AoE is what "
+                "wins it. "
+                "FAILURE MODE: Stormtrooper taunts in wave 2 — hold the Imperial Probe "
+                "Droid's AoE buff-removal for them rather than spending it early. "
+                "⚠ Aphra fills 4 platoon slots in phase 4: check operations before "
+                "spending her, losing her forfeits this mission entirely. "
+                "gaming-fans.com Aphra CM walkthroughs + swgoh.gg kit.",
     },
     (6, "Death Star", "vader"): {
         "squad": ["VADER"],

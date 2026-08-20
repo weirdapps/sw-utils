@@ -87,7 +87,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -95,7 +95,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.4
@@ -131,7 +131,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -139,7 +139,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -172,7 +172,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -180,7 +180,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -211,7 +211,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -242,7 +242,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -250,7 +250,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -281,7 +281,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -289,7 +289,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -322,7 +322,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.8
@@ -353,7 +353,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -361,7 +361,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -392,7 +392,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.8
@@ -425,7 +425,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -433,7 +433,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -464,7 +464,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 1.0
@@ -472,7 +472,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -505,7 +505,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -513,7 +513,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -541,7 +541,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 0.5
@@ -549,7 +549,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.5
@@ -580,7 +580,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -611,7 +611,7 @@
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 72,
+      "days": 70,
       "kind": "faction",
       "tag": "First Order",
       "coverage": 1.0
@@ -619,7 +619,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -647,7 +647,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -655,7 +655,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 0.5
@@ -686,7 +686,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -694,7 +694,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -725,7 +725,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -756,7 +756,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -764,7 +764,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -795,7 +795,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -803,7 +803,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -834,7 +834,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -865,7 +865,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -873,7 +873,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -903,7 +903,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.5
@@ -934,7 +934,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -942,7 +942,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -973,7 +973,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.8
@@ -1004,7 +1004,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -1012,7 +1012,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -1043,7 +1043,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -1070,7 +1070,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -1101,7 +1101,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -1109,7 +1109,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -1140,7 +1140,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -1171,7 +1171,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -1202,7 +1202,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -1210,7 +1210,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -1485,7 +1485,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1493,7 +1493,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1522,7 +1522,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -1530,7 +1530,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1561,7 +1561,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -1590,7 +1590,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -1598,7 +1598,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -1627,7 +1627,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1635,7 +1635,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1664,7 +1664,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1672,7 +1672,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1703,7 +1703,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1711,7 +1711,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1740,7 +1740,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1748,7 +1748,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1779,7 +1779,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 0.67
@@ -1787,7 +1787,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -1818,7 +1818,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1826,7 +1826,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1857,7 +1857,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1865,7 +1865,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1894,7 +1894,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1902,7 +1902,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1933,7 +1933,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -1941,7 +1941,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.33
@@ -1970,7 +1970,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1978,7 +1978,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 0.33
@@ -2007,7 +2007,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2015,7 +2015,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2044,7 +2044,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -2072,7 +2072,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -2100,7 +2100,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 1.0
@@ -2129,7 +2129,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2137,7 +2137,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2166,7 +2166,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.33
@@ -2174,7 +2174,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2203,7 +2203,7 @@
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 72,
+      "days": 70,
       "kind": "faction",
       "tag": "First Order",
       "coverage": 1.0
@@ -2211,7 +2211,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2239,7 +2239,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -2247,7 +2247,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 0.5
@@ -2276,7 +2276,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2284,7 +2284,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2313,7 +2313,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2321,7 +2321,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2350,7 +2350,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2358,7 +2358,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -2387,7 +2387,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2395,7 +2395,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2424,7 +2424,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2432,7 +2432,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2461,7 +2461,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2469,7 +2469,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2498,7 +2498,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2506,7 +2506,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2535,7 +2535,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2543,7 +2543,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2572,7 +2572,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2580,7 +2580,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2609,7 +2609,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2617,7 +2617,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -2646,7 +2646,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2654,7 +2654,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2683,7 +2683,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2691,7 +2691,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2720,7 +2720,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2728,7 +2728,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2755,7 +2755,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -2784,7 +2784,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2792,7 +2792,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -2821,7 +2821,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2829,7 +2829,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -2858,7 +2858,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
@@ -2866,7 +2866,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.33
@@ -2893,7 +2893,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -2922,7 +2922,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2930,7 +2930,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -3178,7 +3178,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3186,7 +3186,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3219,7 +3219,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3227,7 +3227,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.4
@@ -3260,7 +3260,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3268,7 +3268,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3301,7 +3301,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -3332,7 +3332,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -3363,7 +3363,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3371,7 +3371,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3402,7 +3402,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -3410,7 +3410,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -3441,7 +3441,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3449,7 +3449,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3480,7 +3480,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.8
@@ -3511,7 +3511,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3544,7 +3544,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3552,7 +3552,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3583,7 +3583,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 1.0
@@ -3591,7 +3591,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3622,7 +3622,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3630,7 +3630,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3663,7 +3663,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3671,7 +3671,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3702,7 +3702,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 1.0
@@ -3710,7 +3710,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -3743,7 +3743,7 @@
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 72,
+      "days": 70,
       "kind": "faction",
       "tag": "Resistance",
       "coverage": 1.0
@@ -3751,7 +3751,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3784,7 +3784,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3792,7 +3792,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3825,7 +3825,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -3833,7 +3833,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3864,7 +3864,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3872,7 +3872,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3905,7 +3905,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3913,7 +3913,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3946,7 +3946,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -3977,7 +3977,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3985,7 +3985,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -4016,7 +4016,7 @@
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 16,
+      "days": 14,
       "kind": "faction",
       "tag": "Separatist",
       "coverage": 1.0
@@ -4024,7 +4024,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -4057,7 +4057,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -4065,7 +4065,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -4096,7 +4096,7 @@
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 72,
+      "days": 70,
       "kind": "faction",
       "tag": "First Order",
       "coverage": 1.0
@@ -4104,7 +4104,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -4132,7 +4132,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
@@ -4163,7 +4163,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -4171,7 +4171,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -4202,7 +4202,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -4233,7 +4233,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -4264,7 +4264,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -4272,7 +4272,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -4303,7 +4303,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -4311,7 +4311,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 44,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4

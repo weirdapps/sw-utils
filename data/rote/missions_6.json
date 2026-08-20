@@ -136,7 +136,17 @@
     "BT1",
     "TRIPLEZERO"
    ],
-   "auto": false
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "DOCTORAPHRA",
+     "BT1",
+     "TRIPLEZERO",
+     "VADER",
+     "IMPERIALPROBEDROID"
+    ],
+    "note": "PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if there is NO Galactic Legend ally and every ally is a Dark Side Scoundrel, Dark Side Droid, Krrsantan or Darth Vader \u2014 one off-faction body silently removes the summon. BT-1 and 0-0-0 each hand Aphra 50% turn meter at the start, so bringing both is a free extra opening turn. OPENER: Aphra's THIRD ability for Doubt on all enemies, which summons the Commando Droid; then BT-1's middle, then BT-1's third. BT-1's AoE is what wins it. FAILURE MODE: Stormtrooper taunts in wave 2 \u2014 hold the Imperial Probe Droid's AoE buff-removal for them rather than spending it early. \u26a0 Aphra fills 4 platoon slots in phase 4: check operations before spending her, losing her forfeits this mission entirely. gaming-fans.com Aphra CM walkthroughs + swgoh.gg kit."
+   }
   },
   {
    "planet": "Scarif",

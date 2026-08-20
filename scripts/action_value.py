@@ -19,9 +19,12 @@ So throughput is not the average of your stock — it is the MINIMUM over materi
     promotes the events that drop it from "optional" to "mandatory".
 
 Two such hard gates fall out of the data rather than out of opinion:
-  * SIGNAL DATA is cantina-energy-only. No store sells it for a raid token. It is also
-    the largest quantity in the basket (100 Flawed per R7->R9), which is why the
-    community calls it the endgame bottleneck.
+  * FLAWED and CORRUPTED SIGNAL DATA are cantina-energy-only, and Flawed is the largest
+    quantity in the basket (100 per R7->R9), which is why the community calls it the
+    endgame bottleneck. ⚠ This used to say "signal data" flatly, and that was wrong:
+    the Guild Events Store does sell Fragmented and Incomplete (20 for 1,600 / 2,000,
+    one purchase a day). Only the two top tiers are unbuyable. Verified on device
+    2026-08-20.
   * DROID BRAIN has no repeatable token route at all — Assault Battles, Endor
     Escalation, Knightfall, Coven of Shadows, or crystals. Raid tickets cannot buy it.
 

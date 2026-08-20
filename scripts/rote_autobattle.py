@@ -17,12 +17,21 @@ window and the blind dismiss taps then wandered into a different planet. So:
     (blind-cycling 1X->2X->4X->1X can land you slower than you started);
   * only tap CONTINUE once a result is actually on screen — never blind-tap to dismiss.
 
-usage: rote_autobattle.py [--serial S] [--max-wait SEC] [--label TEXT]
+And then, added 2026-08-20, the part that actually matters: read the planet activity feed and
+report the waves the game credited. The win/ended/timeout label this driver derives from the
+screen was measured wrong on 5 of 8 missions in one sitting, in BOTH directions — see read_feed.
+
+usage: rote_autobattle.py [--serial S] [--max-wait SEC] [--label TEXT] [--player NAME]
+exit: 0 full clear · 3 partial clear · 1 defeat/unknown · 2 never reached the battle screen
 """
 import argparse
 import os
+import re
+import subprocess
 import sys
 import time
+
+from PIL import Image
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
@@ -38,6 +47,13 @@ SPEED_BTN = (390, 55)
 CONTINUE_BTN = (960, 682)
 AUTO_RING = (250, 35, 315, 100)      # crop around the AUTO toggle; green ring == engaged
 RESULT_MARKERS = ("rote_results", "victory", "celebration_continue")
+
+# The planet panel's activity feed, newest entry at the BOTTOM. This is the only place the
+# game states how many waves actually cleared.
+FEED = (1085, 415, 1895, 860)
+FEED_RE = re.compile(r"\((\d+)\s*/\s*(\d+)\s*waves?\)[^0-9]*([\d,]+)", re.I)
+_LANCZOS = Image.Resampling.LANCZOS
+OCR_PATH = os.path.join(ROOT, "output", "_feed.png")
 
 
 def grab(dev):
@@ -63,11 +79,61 @@ def auto_is_on(dev):
     return green > len(px) * 0.12
 
 
+def read_feed(dev, player="Astra"):
+    """The waves/TP the game actually credited, read off the planet activity feed.
+
+    ⚠ The outcome the poll loop below produces is NOT a verdict and must never be printed as
+    one. Measured across eight missions on 2026-08-20, every label was wrong at least once:
+
+        bracca_ls1     "ended"   -> 2/2, 250,000
+        felucia_b      "ended"   -> 2/2, 250,000
+        felucia_hondo  "ended"   -> 2/2, 250,000
+        felucia_jabba  "timeout" -> 2/2, 250,000   (Jabba soloed wave 2 for 5 more minutes)
+        felucia_lando  "win"     -> 1/2, 125,000   <-- the dangerous one: a PARTIAL called a win
+
+    "win" only means a result marker matched, and a partial clear shows the same banner as a
+    full one. Half credit is the failure this function exists to catch, because a partial is
+    silently worth 125K instead of 250K and nothing else on screen says so.
+
+    Returns ((waves_done, waves_total, tp), is_mine) — (None, False) if the feed is unreadable.
+    """
+    im = dev.screencap().convert("L").crop(FEED)
+    im = im.resize((im.width * 2, im.height * 2), _LANCZOS)
+    im = im.point(lambda p: 0 if p > 140 else 255)   # tesseract needs black-on-white
+    # NOT /tmp: tesseract cannot read it from this sandbox (it silently falls back to treating
+    # the PNG bytes as a filename and prints nothing). output/ is what tw_place.py uses.
+    im.save(OCR_PATH)
+    txt = subprocess.run(["tesseract", OCR_PATH, "-", "--psm", "6"],
+                         stdout=subprocess.PIPE, stderr=subprocess.DEVNULL
+                         ).stdout.decode("utf-8", "replace")
+
+    return parse_feed(txt, player)
+
+
+def parse_feed(txt, player="Astra"):
+    """Pure half of read_feed: OCR text -> ((done, total, tp), is_mine).
+
+    A feed entry WRAPS: the name lands on one OCR line and "(2/2 waves), earning 250,000" on
+    the next, so matching line-by-line never sees the two together. Flatten first, then anchor
+    on the player name — the feed is guild-wide, so an unanchored match may be a guildmate's.
+    """
+    flat = " ".join(txt.split())
+    mine = [m.groups() for m in re.finditer(
+        re.escape(player) + r"[^()]{0,90}?" + FEED_RE.pattern, flat, re.I)]
+    rows = mine or [m.groups() for m in FEED_RE.finditer(flat)]
+    if not rows:
+        return None, False
+    done, total, tp = rows[-1]                        # newest entry is last
+    return (int(done), int(total), int(tp.replace(",", ""))), bool(mine)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--serial", default="127.0.0.1:5555")
     ap.add_argument("--max-wait", type=float, default=480.0)
     ap.add_argument("--label", default="mission")
+    ap.add_argument("--player", default="Astra",
+                    help="name to look for in the activity feed; the feed is guild-wide")
     ap.add_argument("--no-start", action="store_true",
                     help="battle is already running; skip the squad-screen BATTLE tap")
     args = ap.parse_args()
@@ -165,7 +231,20 @@ def main():
                 break
     # "ended" gets no CONTINUE taps: the banner is already gone, and blind-tapping the map is how
     # an earlier version wandered into a different planet.
-    print(f"RESULT={outcome}")
+
+    # 6. the only verdict worth reporting. `outcome` says whether the driver stopped watching,
+    #    not whether the mission was won — see read_feed() for the eight-mission measurement.
+    time.sleep(4)
+    row, mine = read_feed(dev, args.player)
+    if row:
+        done, total, tp = row
+        who = "" if mine else "  (⚠ feed row did not name the player — could be a guildmate's)"
+        verdict = "FULL" if done >= total else "PARTIAL"
+        print(f"[{args.label}] feed: {done}/{total} waves, {tp:,} TP — {verdict}{who}")
+        print(f"RESULT={outcome} waves={done}/{total} tp={tp} verdict={verdict.lower()}")
+        return 0 if done >= total else 3
+    print(f"[{args.label}] feed unreadable — outcome={outcome} is NOT a verdict, check output/_feed.png")
+    print(f"RESULT={outcome} waves=? tp=? verdict=unknown")
     return 0 if outcome in ("win", "ended") else 1
 
 

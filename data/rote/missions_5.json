@@ -119,7 +119,10 @@
     "YOUNGCHEWBACCA"
    ],
    "reward": "1,000 Mk III tokens",
-   "auto": false
+   "auto": false,
+   "tactics": {
+    "note": "\u26a0 UNRESEARCHED \u2014 do not copy the Phase-1 Corellia Qi'ra/Young Han plan here, it is a different mission. Gate is YOUNGHAN + YOUNGCHEWBACCA at R9+; Astra is R7 and R5, so it is not fillable yet either way."
+   }
   },
   {
    "planet": "Ring of Kafrene",

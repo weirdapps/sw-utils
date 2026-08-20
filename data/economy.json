@@ -1,6 +1,7 @@
 {
   "_README": "Researched game constants for scripts/action_value.py. Every number here has a citation in _sources. Do NOT edit from memory or from in-game impressions — re-verify against the cited page and update _verified_utc. The repo's own notes have been wrong before (see memory/order66-raid-mechanics.md, the relic-badge misread of 2026-08-17), which is exactly why this file is separate from prose and carries sources.",
   "_verified_utc": "2026-08-17",
+  "_device_verified_utc": "2026-08-20 — electrium_conductor routes, fragmented/incomplete signal-data routes and the signal_data event_only claim were re-read off the live store screens, not the wiki. Every token route observed carried a daily_limit of 1 purchase, which the planner does not yet model.",
   "_sources": {
     "relic_recipe": "https://swgoh.wiki/wiki/Relic_Amplifier",
     "guild_activity_store": "https://swgoh.wiki/wiki/Guild_Activity_Store",
@@ -53,9 +54,10 @@
       {"store": "Scavenger", "currency": "scrap_points", "qty": 1, "cost": 130}
     ],
     "electrium_conductor": [
-      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 4, "cost": 300},
-      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 6, "cost": 450},
-      {"store": "Guild Events Store", "currency": "mk3_guild_event_token", "qty": 2, "cost": 720}
+      {"store": "Guild Store", "currency": "mk2_raid_token", "qty": 4, "cost": 300, "daily_limit": 1},
+      {"store": "Guild Store", "currency": "mk2_raid_token", "qty": 6, "cost": 450, "daily_limit": 1},
+      {"store": "Guild Events Store", "currency": "mk3_guild_event_token", "qty": 2, "cost": 720, "daily_limit": 1},
+      {"store": "Episode Shipment", "currency": "episode_currency", "qty": 4, "cost": 6000, "daily_limit": 1}
     ],
     "chromium_transistor": [
       {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 2, "cost": 1100}
@@ -72,8 +74,14 @@
     "droid_brain": [
       {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 1500}
     ],
-    "fragmented_signal_data": [],
-    "incomplete_signal_data": [],
+    "fragmented_signal_data": [
+      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 1600, "daily_limit": 1,
+       "_note": "Store/qty/cost read off the device 2026-08-20. Which of GET1/GET2/GET3 pays for it was NOT verified — watch the balance drop on the next purchase and rename the currency then."}
+    ],
+    "incomplete_signal_data": [
+      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 2000, "daily_limit": 1,
+       "_note": "Same caveat as fragmented_signal_data: tier unverified."}
+    ],
     "flawed_signal_data": [],
     "corrupted_signal_data": [],
     "coaxial_servomotor": []
@@ -82,7 +90,7 @@
   "event_only": {
     "_note": "Materials with NO repeatable token route. These are hard gates: no amount of raid tickets converts into them, so the events below are mandatory rather than optional.",
     "droid_brain": ["Assault Battles: Duel of the Fates / Peridea Patrol (5 at Tier VI)", "Era Battles: Knightfall (5 at Tier VI)", "Endor Escalation (0-2 Mythic)", "Coven of Shadows (0-5 Tier III)", "Episode Track premium (5)", "Territory War placement"],
-    "signal_data": ["Cantina Battles only — no store sells it for a raid token"]
+    "signal_data": ["FLAWED and CORRUPTED only: cantina energy, no store route found for those two", "⚠ Fragmented and Incomplete are NOT event-only — the Guild Events Store sells both (20 for 1,600 / 20 for 2,000, daily_limit 1), read off the device 2026-08-20. The previous blanket 'no store sells it' was wrong and is why routes.fragmented_signal_data was empty."]
   },
 
   "scavenger": {
