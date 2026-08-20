@@ -3710,10 +3710,20 @@ guild 6/56 → 7/56 stars and #7 → #4 at best. Phase 2 still has ~16h to run.
 
 Guild went **#8 → #1** in the bracket and **12 → 13 stars**. Astra contributed ~26M TP.
 
-### ⭐ THE UNLOCK RULE: a planet needs **3 STARS** on the planet BEFORE it in its lane
+### ⭐ THE UNLOCK RULE — and the correction that came four hours later
 Read off the live board, not a guide:
 - Felucia **1★** (187.8M/237M) → **Tatooine LOCKED**
 - Bracca **2★** (250.4M/303.5M) → **Kashyyyk LOCKED**
+- ⚠ Bracca reached **3★ at ~05:30, still inside phase 3 — and Kashyyyk stayed LOCKED.**
+
+So "3 stars opens the next planet" is NOT the whole rule, and this file said it was for about four
+hours. What is actually established: the successor is locked while the predecessor is under 3★, and
+**hitting the threshold mid-phase does not retroactively open it**. The check looks like it runs at
+the PHASE BOUNDARY. That needs one more observation at the phase-4 rollover before it is written
+down as fact — do not act on the boundary theory until then.
+Separately, the **bonus** zone uses a different and much lower bar: Zeffo's panel spells out
+"Earn Stars in Bracca: 3/**1**" (satisfied) plus "Complete Special Mission 30 Times: **3/30**"
+(not satisfied). One star, not three — bonus zones and lane progression are different gates.
 
 Two stars is not enough. This is the single most important planning fact in RotE, because it means
 **the Reva shard farm is downstream of Felucia's THIRD star** (316M), not its second. Phase 3 opened
