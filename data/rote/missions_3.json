@@ -107,7 +107,17 @@
    "gate": {
     "relic": 7
    },
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "EMPERORPALPATINE",
+     "GRANDADMIRALTHRAWN",
+     "MARAJADE",
+     "ROYALGUARD",
+     "VADERDUELSEND"
+    ],
+    "note": "No gate at all on this row, so take a coherent Empire core (this is the GAC front_top #4 wall). \u26a0 Do NOT reuse the Great Mothers Nightsisters here even though Dathomir looks unreachable \u2014 they are Dathomir/special's only fillable comp, and a unit can be spent once per phase. Caught by test_no_unit_is_double_booked_inside_one_phase."
+   }
   },
   {
    "planet": "Tatooine",
@@ -121,7 +131,17 @@
    "required": [
     "JABBATHEHUTT"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "JABBATHEHUTT",
+     "CADBANE",
+     "KRRSANTAN",
+     "RACCOON",
+     "GAMORREANGUARD"
+    ],
+    "note": "\u2b50 KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same Bounty Hunter/Scoundrel pool, and the published walkthrough deliberately slots CAD BANE here so Boba stays available for Fennec. These two squads are encoded DISJOINT, so the order between them no longer matters \u2014 but only because of that split. test_the_jabba_row_keeps_boba_fett_free_for_fennec pins it. Jabba summons the Rancor. W1 is Pirates opening with a Bruiser taunt: land thermal detonators and heal Krrsantan to reach payout, after which the detonators clear them one at a time. W2 is led by HONDO \u2014 have the Rancor devour him immediately. (Skiff Guard Lando from the guide is unowned; Rotta the Hutt R10 substitutes.) gaming-fans.com 2022/12 Phase 3 Neutral CM with Jabba the Hutt."
+   }
   },
   {
    "planet": "Tatooine",
@@ -135,7 +155,17 @@
    "required": [
     "FENNECSHAND"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "BOSSK",
+     "BOBAFETT",
+     "FENNECSHAND",
+     "ZAMWESELL",
+     "EMBO"
+    ],
+    "note": "Bounty Hunter DoT team, 341,250 TP \u2014 the biggest single combat row in phase 3. Bossk leads and TAUNTS to build toward the BH payout; after payout the DoTs dominate and the fight becomes an outlasting exercise. W2: open with the Bossk taunt to soak while DoTs stack, kill the SHAMAN to enable another taunt, then the Brute and the Elder; the two Tusken Raiders finish off from DoT alone. \u26a0 R7 Fennec can die before your first turn \u2014 she is the gate, so protect her. \u26a0 DENGAR is in the published lineup and Astra's is R6, below the floor; ZAM WESELL and EMBO (both R8) are the substitutes. gaming-fans.com 2022/12 Phase 3 Neutral CM with Fennec Shand."
+   }
   },
   {
    "planet": "Tatooine",
@@ -183,9 +213,11 @@
     "squad": [
      "MANDALORBOKATAN",
      "THEMANDALORIANBESKARARMOR",
-     "IG12"
+     "IG12",
+     "PAZVIZSLA",
+     "CANDEROUSORDO"
     ],
-    "note": "Bo-Katan (Mand'alor) + Mando (Beskar) at R7+ are the gate; the remaining slots are free Mandalorians. starwars-fans.com"
+    "note": "Bo-Katan (Mand'alor) R8 + Mando (Beskar) R8 are the gate and both clear it; the remaining slots are free Mandalorians and Paz Vizsla / Canderous Ordo are the strongest at R8. 25 GUILD clears unlock Mandalore as a phase-4 bonus zone, so this row is worth running every phase it is open. starwars-fans.com"
    }
   },
   {
@@ -207,11 +239,11 @@
     "squad": [
      "TARFFUL",
      "CHEWBACCALEGENDARY",
-     "YOUNGCHEWBACCA",
+     "CLONEWARSCHEWBACCA",
      "C3POCHEWBACCA",
      "ZAALBAR"
     ],
-    "note": "5x Light Side Wookiees R7+. starwars-fans.com"
+    "note": "5x Light Side Wookiees R7+. \u26a0 The published lineup uses VANDOR CHEWBACCA, and Astra's is R5 \u2014 below the phase-3 floor, so that squad is unfillable as printed. CLONE WARS CHEWBACCA (R9) is the substitute. Caught by test_tactics_squads_are_fillable, which is why that test exists. starwars-fans.com"
    }
   },
   {
@@ -227,7 +259,17 @@
     "Light Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "GLREY",
+     "50RT",
+     "BENSOLO",
+     "CALKESTIS",
+     "GENERALKENOBI"
+    ],
+    "note": "No faction gate, just 5x Light Side/Neutral R7+. Take the coherent GL Rey wall (this is TW preset D03) rather than letting auto-fill power-sort five factions."
+   }
   },
   {
    "planet": "Kashyyyk",
@@ -242,7 +284,17 @@
     "Light Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "QUEENAMIDALA",
+     "GRANDMASTERYODA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN",
+     "SHAAKTI"
+    ],
+    "note": "No faction gate. Coherent Galactic Republic/Jedi under Queen Amidala. Kept clear of JMK and GL Rey so those stay free for the other Light Side rows."
+   }
   },
   {
    "planet": "Kashyyyk",

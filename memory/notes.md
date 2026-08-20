@@ -3710,26 +3710,40 @@ guild 6/56 → 7/56 stars and #7 → #4 at best. Phase 2 still has ~16h to run.
 
 Guild went **#8 → #1** in the bracket and **12 → 13 stars**. Astra contributed ~26M TP.
 
-### ⭐ THE UNLOCK RULE — and the correction that came four hours later
-Read off the live board, not a guide:
-- Felucia **1★** (187.8M/237M) → **Tatooine LOCKED**
-- Bracca **2★** (250.4M/303.5M) → **Kashyyyk LOCKED**
-- ⚠ Bracca reached **3★ at ~05:30, still inside phase 3 — and Kashyyyk stayed LOCKED.**
+### ⭐ THE UNLOCK RULE — looked up, after guessing it wrong twice
+**ONE star on the predecessor, and it lands at the NEXT PHASE.** Verbatim, from the RotE guides:
 
-So "3 stars opens the next planet" is NOT the whole rule, and this file said it was for about four
-hours. What is actually established: the successor is locked while the predecessor is under 3★, and
-**hitting the threshold mid-phase does not retroactively open it**. The check looks like it runs at
-the PHASE BOUNDARY. That needs one more observation at the phase-4 rollover before it is written
-down as fact — do not act on the boundary theory until then.
-Separately, the **bonus** zone uses a different and much lower bar: Zeffo's panel spells out
-"Earn Stars in Bracca: 3/**1**" (satisfied) plus "Complete Special Mission 30 Times: **3/30**"
-(not satisfied). One star, not three — bonus zones and lane progression are different gates.
+> *"Once a territory has reached one star, the territory in the next zone that has arrows pointing
+> to it from the previous one will unlock **for the next phase**."*
 
-Two stars is not enough. This is the single most important planning fact in RotE, because it means
-**the Reva shard farm is downstream of Felucia's THIRD star** (316M), not its second. Phase 3 opened
-with Tatooine unreachable and it stayed that way; the guild has ~3.7 days of event left to close it.
-⇒ When choosing where to dump deployment, pick the planet whose next star both (a) is reachable and
-(b) unlocks something. Felucia won on both counts: it went 1★ → 2★ tonight and its 3★ opens Tatooine.
+Phases are 24h tiers, so mid-phase progress never opens anything mid-phase.
+
+⛔ **This file twice asserted something else and both were wrong.** First "a planet needs 3 STARS on
+its predecessor" — invented from two data points. Then, when Bracca hit 3★ and Kashyyyk stayed
+locked, "the successor is locked while the predecessor is under 3★ … boundary theory, unconfirmed".
+Also wrong. The owner corrected it: *"planets unlock by tiers on a 24hr basis. A planet needs at
+least one star on its predecessor to unlock. You could have looked that up! You do not use research
+enough!"* — and he is right, it is in the first paragraph of every RotE guide. **Look up a game
+mechanic before inferring one from the board.**
+
+The real rule explains every observation cleanly:
+- Phase 2 ENDED with Felucia at 89.2M and Bracca at 29.2M — both under the 148M/142M 1★ line, so
+  **both finished phase 2 with ZERO stars**. That is why Tatooine and Kashyyyk did not open for
+  phase 3. Nothing to do with 2 vs 3 stars.
+- It is also why Felucia and Bracca were still fully playable during phase 3: **a territory that did
+  NOT earn a star stays open and its Combat, Platoon and Deployment missions can be run again.**
+- Conversely **a starred planet LOCKS at the end of its phase** — you cannot come back for the 2nd
+  and 3rd stars later. Felucia (2★) and Bracca (3★) therefore close at the phase-3 rollover.
+
+⇒ **Felucia 2★ and Bracca 3★ mean Tatooine and Kashyyyk OPEN at the phase-4 rollover.** The earlier
+claim in this file that "the Reva shard farm is downstream of Felucia's THIRD star (316M)" is
+retracted — it was a consequence of the invented rule. **The Reva farm is live in phase 4.**
+
+Bonus zones are a separate gate and the panel states it outright: Zeffo wants "Earn Stars in
+Bracca: 3/**1**" (met) plus "Complete Special Mission **30** Times: 3/30" (not met).
+
+Sources: starwars-fans.com RotE special-missions hub; swgoh.wiki Rise_of_the_Empire; the guild
+board itself.
 
 ### ⭐ A COMBAT MISSION ALSO DEPLOYS THE SQUAD'S POWER
 The activity feed prints BOTH lines for one action:

@@ -167,3 +167,88 @@ def test_the_zeffo_unlock_carries_its_turn_plan_and_never_autos():
     # The two facts that decide the fight, both from gaming-fans' walkthrough.
     assert "NEVER AUTO" in zeffo["tactics"]["note"]
     assert "dispel" in zeffo["tactics"]["note"]
+
+
+# --- TACTICS squads must be playable on THIS roster ----------------------------------
+#
+# Added 2026-08-20 after two encoded squads turned out to be unfillable. Both came
+# straight from a community guide and both named a unit Astra owns but below the
+# phase's relic floor:
+#   P3 Kashyyyk wookiee -> VANDOR CHEWBACCA at R5 against a R7 floor
+#   P3 Tatooine fennec  -> DENGAR at R6 against a R7 floor
+# Neither raises anything at runtime: rote_ops just drops the unit and reports the
+# row "UNFILLABLE (short 1)", which reads exactly like a genuine roster gap. So a
+# guide's lineup would quietly become a plan the account cannot execute.
+
+def _roster_by_base():
+    import swgoh_data as sd
+    with open(sd.latest_roster_file()) as f:
+        return {u["b"]: u for u in json.load(f)["units"]}, sd
+
+
+def _required_for(phase, planet, mission):
+    for ph, m in _all_missions():
+        if ph == phase and m["planet"] == planet and m["mission"] == mission:
+            return set(m.get("required") or ())
+    return set()
+
+
+def test_tactics_squads_are_fillable_on_the_live_roster():
+    """Every FREE slot in a TACTICS squad must be a unit that can actually be played.
+
+    The distinction that matters: a unit the mission REQUIRES sitting below the relic floor
+    is a roster gap, and `--gaps` already reports it. A unit we CHOSE for a free slot sitting
+    below the floor is a planning bug we introduced, and nothing else catches it — rote_ops
+    just drops it and prints "UNFILLABLE (short 1)", which is indistinguishable from the gap.
+    Squads that document a target the account cannot field yet opt out with `aspirational`.
+    """
+    units, sd = _roster_by_base()
+    bad = []
+    for (phase, planet, mission), tac in sorted(rm.TACTICS.items()):
+        if tac.get("aspirational"):
+            continue
+        floor = rm.PHASES[phase]["relic"]
+        required = _required_for(phase, planet, mission)
+        for base in tac.get("squad") or ():
+            if base in required:
+                continue                      # a gap, not a bug — see --gaps
+            u = units.get(base)
+            if u is None:
+                bad.append(f"P{phase} {planet}/{mission}: {base} NOT OWNED")
+            elif u.get("ct", 1) == 1 and sd.displayed_relic(u) < floor:
+                bad.append(f"P{phase} {planet}/{mission}: {base} is R"
+                           f"{sd.displayed_relic(u)}, phase floor is R{floor}")
+    assert bad == [], ("TACTICS free slots that cannot be played (pick an eligible unit, or "
+                       "mark the entry aspirational and say why):\n  " + "\n  ".join(bad))
+
+
+def test_aspirational_squads_say_why_they_are_unplayable():
+    """`aspirational` must never become a quiet way to silence the fillability test."""
+    thin = [k for k, t in rm.TACTICS.items()
+            if t.get("aspirational") and "aspirational" not in (t.get("note") or "").lower()]
+    assert thin == [], f"aspirational entries whose note does not explain it: {sorted(thin)}"
+
+
+def test_no_unit_is_double_booked_inside_one_phase():
+    """A unit can be spent on exactly one mission per phase, so the plans must not collide."""
+    from collections import defaultdict
+    clashes = []
+    per_phase = defaultdict(lambda: defaultdict(list))
+    for (phase, planet, mission), tac in sorted(rm.TACTICS.items()):
+        for base in tac.get("squad") or ():
+            per_phase[phase][base].append(f"{planet}/{mission}")
+    for phase, seen in sorted(per_phase.items()):
+        for base, rows in sorted(seen.items()):
+            if len(rows) > 1:
+                clashes.append(f"P{phase} {base} used by {', '.join(rows)}")
+    assert clashes == [], "same unit planned twice in one phase:\n  " + "\n  ".join(clashes)
+
+
+def test_the_jabba_row_keeps_boba_fett_free_for_fennec():
+    """The two Tatooine rows share a Bounty Hunter pool; the guide's whole planning tip
+    is to spend Cad Bane on Jabba so Boba Fett is still available for Fennec."""
+    jabba = rm.TACTICS[(3, "Tatooine", "jabba")]["squad"]
+    fennec = rm.TACTICS[(3, "Tatooine", "fennec")]["squad"]
+    assert "BOBAFETT" not in jabba, "Boba must stay out of the Jabba row"
+    assert "BOBAFETT" in fennec
+    assert "CADBANE" in jabba

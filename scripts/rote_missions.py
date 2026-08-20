@@ -278,9 +278,56 @@ TACTICS = {
                 "gaming-fans.com 2023/11 Unlocking Zeffo.",
     },
     (3, "Kashyyyk", "wookiee"): {
-        "squad": ["TARFFUL", "CHEWBACCALEGENDARY", "YOUNGCHEWBACCA",
+        "squad": ["TARFFUL", "CHEWBACCALEGENDARY", "CLONEWARSCHEWBACCA",
                   "C3POCHEWBACCA", "ZAALBAR"],
-        "note": "5x Light Side Wookiees R7+. starwars-fans.com",
+        "note": "5x Light Side Wookiees R7+. ⚠ The published lineup uses VANDOR CHEWBACCA, and "
+                "Astra's is R5 — below the phase-3 floor, so that squad is unfillable as printed. "
+                "CLONE WARS CHEWBACCA (R9) is the substitute. Caught by test_tactics_squads_are_"
+                "fillable, which is why that test exists. starwars-fans.com",
+    },
+    (3, "Kashyyyk", "ls_1"): {
+        "squad": ["GLREY", "50RT", "BENSOLO", "CALKESTIS", "GENERALKENOBI"],
+        "note": "No faction gate, just 5x Light Side/Neutral R7+. Take the coherent GL Rey wall "
+                "(this is TW preset D03) rather than letting auto-fill power-sort five factions.",
+    },
+    (3, "Kashyyyk", "ls_2"): {
+        "squad": ["QUEENAMIDALA", "GRANDMASTERYODA", "MASTERQUIGON", "PADAWANOBIWAN", "SHAAKTI"],
+        "note": "No faction gate. Coherent Galactic Republic/Jedi under Queen Amidala. Kept clear "
+                "of JMK and GL Rey so those stay free for the other Light Side rows.",
+    },
+    (3, "Tatooine", "mixed"): {
+        "squad": ["EMPERORPALPATINE", "GRANDADMIRALTHRAWN", "MARAJADE", "ROYALGUARD",
+                  "VADERDUELSEND"],
+        "note": "No gate at all on this row, so take a coherent Empire core (this is the GAC "
+                "front_top #4 wall). ⚠ Do NOT reuse the Great Mothers Nightsisters here even "
+                "though Dathomir looks unreachable — they are Dathomir/special's only fillable "
+                "comp, and a unit can be spent once per phase. Caught by "
+                "test_no_unit_is_double_booked_inside_one_phase.",
+    },
+    (3, "Tatooine", "jabba"): {
+        "squad": ["JABBATHEHUTT", "CADBANE", "KRRSANTAN", "RACCOON", "GAMORREANGUARD"],
+        "note": "⭐ KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same "
+                "Bounty Hunter/Scoundrel pool, and the published walkthrough deliberately slots "
+                "CAD BANE here so Boba stays available for Fennec. These two squads are encoded "
+                "DISJOINT, so the order between them no longer matters — but only because of "
+                "that split. test_the_jabba_row_keeps_boba_fett_free_for_fennec pins it. "
+                "Jabba summons the Rancor. W1 is Pirates opening with a Bruiser taunt: land thermal "
+                "detonators and heal Krrsantan to reach payout, after which the detonators clear "
+                "them one at a time. W2 is led by HONDO — have the Rancor devour him immediately. "
+                "(Skiff Guard Lando from the guide is unowned; Rotta the Hutt R10 substitutes.) "
+                "gaming-fans.com 2022/12 Phase 3 Neutral CM with Jabba the Hutt.",
+    },
+    (3, "Tatooine", "fennec"): {
+        "squad": ["BOSSK", "BOBAFETT", "FENNECSHAND", "ZAMWESELL", "EMBO"],
+        "note": "Bounty Hunter DoT team, 341,250 TP — the biggest single combat row in phase 3. "
+                "Bossk leads and TAUNTS to build toward the BH payout; after payout the DoTs "
+                "dominate and the fight becomes an outlasting exercise. W2: open with the Bossk "
+                "taunt to soak while DoTs stack, kill the SHAMAN to enable another taunt, then the "
+                "Brute and the Elder; the two Tusken Raiders finish off from DoT alone. "
+                "⚠ R7 Fennec can die before your first turn — she is the gate, so protect her. "
+                "⚠ DENGAR is in the published lineup and Astra's is R6, below the floor; ZAM "
+                "WESELL and EMBO (both R8) are the substitutes. "
+                "gaming-fans.com 2022/12 Phase 3 Neutral CM with Fennec Shand.",
     },
     (3, "Kashyyyk", "special"): {
         "squad": ["SAWGERRERA", "LUTHENRAEL", "CASSIANANDOR", "K2SO", "JYNERSO"],
@@ -328,16 +375,21 @@ TACTICS = {
     (3, "Tatooine", "unlock_mandalore"): {
         # starwars-fans lists "IG-12, Grogu" as two units; there is no standalone
         # Grogu — IG12 IS "IG-12 & Grogu". Caught by the baseId test.
-        "squad": ["MANDALORBOKATAN", "THEMANDALORIANBESKARARMOR", "IG12"],
+        "squad": ["MANDALORBOKATAN", "THEMANDALORIANBESKARARMOR", "IG12",
+                  "PAZVIZSLA", "CANDEROUSORDO"],
         "manual": True,
-        "note": "Bo-Katan (Mand'alor) + Mando (Beskar) at R7+ are the gate; the "
-                "remaining slots are free Mandalorians. starwars-fans.com",
+        "note": "Bo-Katan (Mand'alor) R8 + Mando (Beskar) R8 are the gate and both clear it; the "
+                "remaining slots are free Mandalorians and Paz Vizsla / Canderous Ordo are the "
+                "strongest at R8. 25 GUILD clears unlock Mandalore as a phase-4 bonus zone, so "
+                "this row is worth running every phase it is open. starwars-fans.com",
     },
     (4, "Kessel", "special"): {
         "squad": ["BAYLANSKOLL", "SHINHATI", "MARROK", "QIRA", "L3_37"],
         "manual": True,
-        "note": "Qi'ra + L3-37 R8+ are the gate; Baylan/Shin/Marrok carry it. "
-                "starwars-fans.com",
+        "aspirational": True,
+        "note": "ASPIRATIONAL — not fillable today. Qi'ra + L3-37 R8+ are the gate and both sit "
+                "at R7, and the free slot Marrok is R7 against the phase-4 R8 floor too. "
+                "Baylan/Shin carry it once those three clear R8. starwars-fans.com",
     },
     (5, "Vandor", "special"): {
         # Deliberately NO squad: the walkthrough every search returns for
@@ -350,9 +402,14 @@ TACTICS = {
                 "R9+; Astra is R7 and R5, so it is not fillable yet either way.",
     },
     (6, "Hoth", "special"): {
-        "squad": ["DOCTORAPHRA", "BT1", "TRIPLEZERO", "VADER", "IMPERIALPROBEDROID"],
+        "squad": ["DOCTORAPHRA", "BT1", "TRIPLEZERO", "IMPERIALPROBEDROID", "DARKTROOPER"],
         "manual": True,
-        "note": "PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if "
+        "aspirational": True,
+        "note": "ASPIRATIONAL — Aphra, BT-1 and 0-0-0 are the gate and all three are R7 against "
+                "the phase-6 R9 floor. ⚠ The published comp's fifth is DARTH VADER, dropped here "
+                "because Death Star/vader also wants him and a unit is spendable once per phase; "
+                "Dark Trooper keeps the squad Dark-Side-Droid pure, which is what actually "
+                "matters. PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if "
                 "there is NO Galactic Legend ally and every ally is a Dark Side Scoundrel, "
                 "Dark Side Droid, Krrsantan or Darth Vader — one off-faction body silently "
                 "removes the summon. BT-1 and 0-0-0 each hand Aphra 50% turn meter at the "
@@ -368,12 +425,18 @@ TACTICS = {
     },
     (6, "Death Star", "vader"): {
         "squad": ["VADER"],
-        "note": "Darth Vader SOLOS this at R9+. starwars-fans.com",
+        "aspirational": True,
+        "note": "ASPIRATIONAL — Darth Vader SOLOS this, but at R9+ and Astra's Vader is R7. "
+                "⚠ Vader is also the fifth body in the Hoth special comp; he can only be spent "
+                "once in phase 6, so whichever row is played, the other loses him. Decide before "
+                "the phase opens. starwars-fans.com",
     },
     (6, "Death Star", "iden"): {
         "squad": ["IDENVERSIOEMPIRE", "SUPREMELEADERKYLOREN", "DARTHMALGUS",
                   "DARTHMALAK", "SITHTROOPER"],
-        "note": "starwars-fans.com",
+        "aspirational": True,
+        "note": "ASPIRATIONAL — Iden is the gate at R9 and is R7; Malgus and Sith Trooper are "
+                "R7 free slots against the same R9 floor. starwars-fans.com",
     },
 }
 

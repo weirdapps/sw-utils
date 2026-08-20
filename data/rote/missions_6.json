@@ -59,7 +59,8 @@
      "DARTHMALAK",
      "SITHTROOPER"
     ],
-    "note": "starwars-fans.com"
+    "aspirational": true,
+    "note": "ASPIRATIONAL \u2014 Iden is the gate at R9 and is R7; Malgus and Sith Trooper are R7 free slots against the same R9 floor. starwars-fans.com"
    }
   },
   {
@@ -83,7 +84,8 @@
     "squad": [
      "VADER"
     ],
-    "note": "Darth Vader SOLOS this at R9+. starwars-fans.com"
+    "aspirational": true,
+    "note": "ASPIRATIONAL \u2014 Darth Vader SOLOS this, but at R9+ and Astra's Vader is R7. \u26a0 Vader is also the fifth body in the Hoth special comp; he can only be spent once in phase 6, so whichever row is played, the other loses him. Decide before the phase opens. starwars-fans.com"
    }
   },
   {
@@ -142,10 +144,11 @@
      "DOCTORAPHRA",
      "BT1",
      "TRIPLEZERO",
-     "VADER",
-     "IMPERIALPROBEDROID"
+     "IMPERIALPROBEDROID",
+     "DARKTROOPER"
     ],
-    "note": "PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if there is NO Galactic Legend ally and every ally is a Dark Side Scoundrel, Dark Side Droid, Krrsantan or Darth Vader \u2014 one off-faction body silently removes the summon. BT-1 and 0-0-0 each hand Aphra 50% turn meter at the start, so bringing both is a free extra opening turn. OPENER: Aphra's THIRD ability for Doubt on all enemies, which summons the Commando Droid; then BT-1's middle, then BT-1's third. BT-1's AoE is what wins it. FAILURE MODE: Stormtrooper taunts in wave 2 \u2014 hold the Imperial Probe Droid's AoE buff-removal for them rather than spending it early. \u26a0 Aphra fills 4 platoon slots in phase 4: check operations before spending her, losing her forfeits this mission entirely. gaming-fans.com Aphra CM walkthroughs + swgoh.gg kit."
+    "aspirational": true,
+    "note": "ASPIRATIONAL \u2014 Aphra, BT-1 and 0-0-0 are the gate and all three are R7 against the phase-6 R9 floor. \u26a0 The published comp's fifth is DARTH VADER, dropped here because Death Star/vader also wants him and a unit is spendable once per phase; Dark Trooper keeps the squad Dark-Side-Droid pure, which is what actually matters. PURITY IS THE MECHANIC: Aphra only summons her Hacked Commando Droid if there is NO Galactic Legend ally and every ally is a Dark Side Scoundrel, Dark Side Droid, Krrsantan or Darth Vader \u2014 one off-faction body silently removes the summon. BT-1 and 0-0-0 each hand Aphra 50% turn meter at the start, so bringing both is a free extra opening turn. OPENER: Aphra's THIRD ability for Doubt on all enemies, which summons the Commando Droid; then BT-1's middle, then BT-1's third. BT-1's AoE is what wins it. FAILURE MODE: Stormtrooper taunts in wave 2 \u2014 hold the Imperial Probe Droid's AoE buff-removal for them rather than spending it early. \u26a0 Aphra fills 4 platoon slots in phase 4: check operations before spending her, losing her forfeits this mission entirely. gaming-fans.com Aphra CM walkthroughs + swgoh.gg kit."
    }
   },
   {

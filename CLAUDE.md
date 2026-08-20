@@ -146,8 +146,27 @@ RotE encounters are **static**, so the whole 6-phase map lives in `data/rote/`.
 python3 scripts/rote_missions.py --write   # regenerate data/rote/missions_1..6.json from the wiki table
 python3 scripts/rote_missions.py --gaps    # which required units miss their gate, CHEAPEST FIRST
 python3 scripts/rote_ops.py --phase N      # the squad to bring to every mission in phase N
+python3 scripts/rote_squads.py --phase N   # the RESEARCHED per-node teams + play order
+HU_SID=<live> python3 scripts/upload_hotutils.py --sync --payload output/rote_squads.json
 ```
+- ⭐ **`rote_missions.TACTICS` is the researched per-node team list; `rote_squads.py` pushes it as
+  a `TB RotE - P<n>` squad tab so the phase is played from SELECT SQUAD, never from auto-fill.**
+  Play order is **specials → unit-gated → faction-gated → free**: auto-fill will spend a gated unit
+  on a row that did not need it, and that kills the gated row for the phase.
+  Three tests keep the list honest — a squad must be **fillable** (owned, and every FREE slot at or
+  above the phase relic floor; a shortfall on a REQUIRED unit is a roster gap, not a bug, and is
+  `--gaps`' job), **no unit may be double-booked inside a phase**, and a comp the roster cannot
+  field yet must be flagged `aspirational` with a note saying so. Those tests immediately caught
+  two guide lineups that were unplayable here (Vandor Chewbacca R5 and Dengar R6 against an R7
+  floor) and one squad this repo double-booked.
 - Source is swgoh.wiki's Zone Information table; re-fetch it before editing a row and bump `SOURCE_VERIFIED`.
+- ⭐ **HOW PLANETS UNLOCK — ONE star on the predecessor, effective the NEXT phase.** Phases are 24h
+  tiers, so mid-phase progress never opens anything mid-phase. Two corollaries that drive planning:
+  a territory that earned **no** star stays open and its missions can be run again in later phases;
+  a territory that **did** star **locks at the end of its phase**, so you can never come back for
+  its 2nd and 3rd stars. Bonus zones (Zeffo, Mandalore) are a separate gate — N clears of a special.
+  ⛔ This repo invented a "3 stars" rule from two board readings on 2026-08-20 and was wrong twice
+  before the owner pointed out it is stated plainly in every RotE guide. **Look the mechanic up.**
 - **Operations still need an on-device scrape** (`data/rote/operations_<phase>.json`). Without one
   `rote_ops` plans MISSIONS ONLY and reserves nothing for platoons — it says so loudly. Operations
   before deploy, always: a deployed unit is permanently ineligible for a platoon slot.
