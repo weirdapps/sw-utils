@@ -3819,3 +3819,63 @@ HotUtils only, so `output/tw_placement_sheet.txt` is the lookup for anything pas
 - Paid-bundle popups fire on EVERY store/shipments entry, not just at launch. `bundle_offer.png`
   handles the launch case; the shop case still needs manual dismissal.
 - Login calendars: 5 claimed incl. Signal Booster day 3 (**Fragmented**, not Flawed — 10/day).
+
+## 2026-08-20 (14:00-15:00) — MOD PASS: arena team to rung 1, relocate, upgrade
+
+Owner: *"upgrade all mods. best possible setup. Rellocate too. first prio the one arena team.
+Second priority is always grand arena defense, and then grand arena offense."*
+
+### The ladder changed, and it is NOT a full reversal of the GAC-first rule
+`ARENA_DEFENSE_TIER` 5 → **1**, and `BOARD_ROLES` stops interleaving by format:
+2 = GAC 5v5 def, 3 = GAC 3v3 def, 4 = GAC 5v5 off, 5 = GAC 3v3 off. Arena climb (6) and
+fleet (7) stay below the whole GAC block. So exactly ONE squad — the five actually parked on
+the wall — outranks GAC. Deployed wall today = **Rotta the Hutt · Mob Enforcer · Greedo ·
+Gamorrean Guard · Cad Bane**.
+⚠ `invest_plan.py` could not run at all before this: `_base_ids` iterated whatever sat under
+`units`/`slots`, and rote_plan.json carries `slots: 5` and `deploy.units: 337` as plain ints,
+so the ladder died on TypeError. Guarded + tested. The crash predated the change.
+
+### ⛔ TWO NOTES IN THIS FILE WERE WRONG ABOUT GRANDIVORY
+1. *"Rotta had to be left out (he is locked instead, so nothing is lost)."* — **He was not
+   locked. `lockedCount: 0`; nothing in the profile was locked.** His mods were protected only
+   by the global `lockUnselectedCharacters`, which is a different thing: it stops mods being
+   TAKEN from him, and it equally stops him ever RECEIVING one. The arena leader — now rung 1 —
+   had been excluded from every optimisation run.
+2. *"adding a character to the selection could not be automated"* — true of the **UI** (React
+   16 + react-dnd, cards need genuine HTML5 drag-and-drop), **false of the state store.**
+   Appending `{id, target}` to `profiles[0].selectedCharacters` in IndexedDB and reloading
+   works. Copy `target` verbatim from a comparable already-selected unit rather than inventing
+   one — Rotta took Gamorrean Guard's "PvP" target, the other Hutt Cartel tank.
+
+### ⭐ +2.58%, against a file that said there was nothing left to get
+| run | set value | mods | credits |
+|---|---|---|---|
+| 2026-08-08 corrected order | −0.06% | 1,473 | 7.44M |
+| **2026-08-20 arena-first, Rotta added, fresh data** | **+2.58%** | **1,404** | **7,016,750** |
+
+262,089.74 → 268,849.86. This file said *"There is almost nothing left to gain globally … the
+best any ordering now finds is +0.12%. Treat the optimiser as a REDISTRIBUTION tool, not a
+gains tool."* That was **conditional on the inputs not changing**, and three changed at once:
+36 mods were sliced since (6-dot 145 → 156), the ladder was re-ordered, and a 310th character
+became eligible to receive mods for the first time. ⇒ The rule to keep is narrower: *a re-run
+on UNCHANGED inputs is redistribution.* When the mod pool or the selection changes, re-measure.
+⚠ Still confirm the order before running: `Fetch with HotUtils` first (data was 2 days stale),
+and `Optimize my mods!` is the **`!` button**, not the same-named nav tab — clicking the tab
+just switches view and looks like a hung optimise.
+Move took **~9 minutes** for 1,404 mods, ended "Mods successfully moved", no `Row not found`.
+
+### Upgrade pass — everything affordable was spent, T05_06 is the wall
+`mods_session.sh`: →6A 3 mods/5 steps, →6E 4/4, →5A 4/4. **Rotta the Hutt took the first
+slice**, which is the new rung 1 working. 6-dot **156 → 160**, 6A **99 → 102**, plusSpeed
+16,858 → 16,861, credits −2,042,000. modScore stayed 2.83 — as always, it measures inventory
+quality and never placement.
+- Calibration: 5 eligible, 1 attempt (Mob Enforcer 21→17, reverted, kept 21), then
+  `rc=2 GOHServiceCall Error [40]` = **out of Micro Attenuators** (22 → 7).
+- Materials after: T06_02 17, T05_06 91, T05_03 6, T05_04 27, attenuators 7. One promote also
+  failed mid-list on `Not enough player currency` for T05_04.
+- **Shopping list**: T05_06 short **1,033** (MASTER GATE), T06_02 short 863, T05_05 short 423,
+  T06_03 short 402. Farm Mod Battles Sector 9 / Guild Store / Episode Shipments, then re-run.
+
+### Where the arena five ended up
+All five carry **6 mods, all 6-dot**: Rotta Σspd 99 · Mob Enforcer 131 · Greedo 116 ·
+Gamorrean Guard 104 · Cad Bane 92 (542 total, 4.0% of the 13,548 inventory speed on 30 mods).
