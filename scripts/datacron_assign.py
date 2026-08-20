@@ -1,0 +1,257 @@
+#!/usr/bin/env python3
+"""
+datacron_assign.py — match Astra's OWNED datacrons to GAC defence squads.
+
+Why this exists: every earlier pass modelled datacrons as a *market* effect (how much of
+a published hold% is rented from a cron somebody else was running). That is the
+`durability.py` correction and it is still right. This script answers the *other* half,
+which the repo has never asked: given the crons THIS account actually owns, which of our
+own walls should carry which one.
+
+A datacron has three tiers of effect (see memory/notes.md, 2026-08-08):
+  L1-3  stat affixes + an ability, scoped to an ALIGNMENT (sets 31/33) or a ROLE (set 32)
+  L4-6  stat affixes + an ability, scoped to a FACTION (or the second role)
+  L7-9  stat affixes + an ability, scoped to ONE NAMED CHARACTER
+So a cron is only worth carrying if the squad actually contains its faction and,
+ideally, its named character.
+
+Reads  : data/board_result.json, data/roster/*.json, data/unit_tags.json
+Writes : output/datacron_plan.json  (+ a human table on stdout)
+"""
+import json
+import os
+import sys
+
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(ROOT, "data")
+OUT = os.path.join(ROOT, "output")
+
+# ---------------------------------------------------------------------------
+# Astra's 14 owned datacrons, re-read live from HotUtils account/data/all ->
+# datacrons[] on 2026-08-16. affix[].targetRule is the ground truth and `lvl` is the
+# LENGTH of the affix array, which is exactly the cron's level (one affix per level;
+# the scoped ones land on tiers 3/6/9, and on 3/6/9/12/15 for a focused cron).
+#
+# Corrections against the previous hand-typed copy of this table, all from the live
+# pull: the raccoon FDC is at level 15 (MAX), not 9 — so the #1 defensive datacron in
+# the game is already fully built; its member is RACCOON (Rotta the Hutt's baseId),
+# not "ROTTA"; the bishop FDC's second member is GOPHERANTS (Grogu & Anzellans); the
+# two set-33 stubs are level 3, not 1; and two crons were missing entirely.
+#
+# ⚠ SET 31 EXPIRES 2026-09-03. Three of the eight level-9 crons are set 31, and two
+# of those three are Old Republic (Bastila Shan and Satele Shan) — i.e. built for the
+# Satele wall. Use them now; they are worthless in 18 days.
+# ---------------------------------------------------------------------------
+OWNED = [
+    dict(id="_aCmHy14", set=31, lvl=9, l3=("align", "Light Side"),
+         l6=("cat", "Old Republic"), l9="BASTILASHAN"),
+    dict(id="Vv6-WgS8", set=31, lvl=9, l3=("align", "Dark Side"),
+         l6=("cat", "Separatist"), l9="JANGOFETT"),
+    dict(id="E6Vv-i2f", set=31, lvl=9, l3=("align", "Light Side"),
+         l6=("cat", "Old Republic"), l9="SATELESHAN"),
+    dict(id="ubRPvm5a", set=32, lvl=9, l3=("role", "Healer"),
+         l6=("role", "Attacker"), l9="TUSKENSHAMAN"),
+    dict(id="O8VpcHRH", set=32, lvl=9, l3=("role", "Tank"),
+         l6=("role", "Support"), l9="JARJARBINKS"),
+    dict(id="Lj_hRktR", set=33, lvl=15, focused="raccoon", l3=None, l6=None, l9=None,
+         members=["RACCOON", "HUMANTHUG", "GREEDO", "GAMORREANGUARD", "CADBANE"]),
+    dict(id="3CGBb-Af", set=33, lvl=9, l3=("align", "Light Side"),
+         l6=("cat", "Resistance"), l9="GLREY"),
+    dict(id="C9xVm3l3", set=33, lvl=9, l3=("align", "Dark Side"),
+         l6=("cat", "First Order"), l9="KYLORENUNMASKED"),
+    dict(id="HZ5tOF3T", set=33, lvl=4, l3=("align", "Dark Side"), l6=None, l9=None),
+    dict(id="bpkoYMAG", set=33, lvl=7, focused="bishop", l3=None, l6=None, l9=None,
+         members=["GOPHERANTS", "CARSONTEVA"]),
+    dict(id="X09cqmfA", set=32, lvl=4, l3=("role", "Tank"), l6=None, l9=None),
+    dict(id="_bf0z47Y", set=33, lvl=3, l3=("align", "Light Side"), l6=None, l9=None),
+    dict(id="og2nbKpD", set=33, lvl=3, l3=("align", "Dark Side"), l6=None, l9=None),
+    dict(id="JfaLCYhl", set=33, lvl=3, focused="snowtroopercommander",
+         l3=None, l6=None, l9=None, members=["TIEFIGHTERPILOT"]),
+]
+
+# Multiplicative uplift on a wall's hold%, by how much of the squad the cron covers.
+# Anchored on this repo's own measured no-datacron baselines (durability.py):
+# a well-matched cron moved Cassian UC 12.4 -> 25.1 (x2.02) and The Stranger
+# 43.5 -> 49.5 (x1.14). So a full character+faction match is worth ~x1.6 at the top of
+# the range and a bare alignment match almost nothing. Deliberately conservative.
+UPLIFT_L9 = 0.30          # named character present
+UPLIFT_L6_PER_UNIT = 0.055  # each unit covered by the faction/role tier
+UPLIFT_L3_PER_UNIT = 0.018  # each unit covered by the alignment/role tier only
+CAP = 1.65
+
+
+def tags():
+    t = json.load(open(os.path.join(DATA, "unit_tags.json")))
+    return t
+
+
+def covers(scope, unit, T):
+    """Does `unit` fall inside this affix scope?"""
+    if scope is None:
+        return False
+    kind, want = scope
+    u = T.get(unit)
+    if not u:
+        return False
+    if kind == "align":
+        return u.get("a") == want
+    if kind == "role":
+        return u.get("r") == want
+    return want in (u.get("c") or [])
+
+
+def score(cron, units, T):
+    """Uplift multiplier for putting `cron` on a squad of `units`."""
+    if cron["lvl"] < 3:
+        return 1.0, "unbuilt (Lvl 1) — no affixes"
+    if cron.get("focused"):
+        hit = [u for u in units if u in (cron.get("members") or [])]
+        if not hit:
+            return 1.0, f"focused/{cron['focused']} — none of its five in this squad"
+        return min(CAP, 1 + UPLIFT_L9 * len(hit) / 5 + 0.05 * len(hit)), \
+            f"focused/{cron['focused']} covers {len(hit)}"
+    n3 = sum(covers(cron["l3"], u, T) for u in units)
+    n6 = sum(covers(cron["l6"], u, T) for u in units) if cron["lvl"] >= 6 else 0
+    has9 = cron["lvl"] >= 9 and cron.get("l9") in units
+    # a unit covered by the L6 tier is also covered by L3; do not double-count it
+    mult = 1 + UPLIFT_L3_PER_UNIT * max(0, n3 - n6) + UPLIFT_L6_PER_UNIT * n6 + (UPLIFT_L9 if has9 else 0)
+    why = f"L3 {n3}/5"
+    if cron["lvl"] >= 6:
+        why += f", L6 {n6}/5"
+    if cron["lvl"] >= 9:
+        why += f", L9 {'HIT ' + cron['l9'] if has9 else 'miss'}"
+    return min(CAP, mult), why
+
+
+def best_assignment(squads, crons, T):
+    """Exact max-weight matching of crons onto walls, one each.
+
+    This used to brute-force every permutation, which was already slow at 5v5
+    (11 squads, 12 crons ~ 40M perms) and simply does not terminate at 3v3
+    (15 squads -> 15!/2! ~ 6.5e11). Same answer, via Hungarian: the weight is the
+    HOLD POINTS ADDED, and negative-gain pairs are zeroed so a cron is never forced
+    onto a wall it does not help.
+    """
+    usable = [c for c in crons if c["lvl"] >= 3]
+    if not usable or not squads:
+        return {}, 0.0
+    gain = np.array([[max(0.0, score(c, s["units"], T)[0] * s["rate"] - s["rate"])
+                      for s in squads] for c in usable])
+    rows, cols = linear_sum_assignment(-gain)
+    out = {}
+    total = 0.0
+    for i, j in zip(rows, cols):
+        if gain[i, j] > 1e-9:
+            out[j] = usable[i]
+            total += gain[i, j]
+    return out, total
+
+
+def main():
+    """Assign crons per FORMAT.
+
+    3v3 and 5v5 are separate seasons, so the same cron can carry a wall in both —
+    but the best fit is not the same squad, and running only 5v5 (as this did until
+    2026-08-16) left every 3v3 wall unplanned. That is half the seasons.
+    """
+    plans = {}
+    for fmt in ("5v5", "3v3"):
+        plans[fmt] = plan_format(fmt)
+    os.makedirs(OUT, exist_ok=True)
+    json.dump(plans, open(os.path.join(OUT, "datacron_plan.json"), "w"), indent=1)
+    print("wrote output/datacron_plan.json (both formats)")
+
+
+def names_of(units, T):
+    return [(T.get(u, {}).get('n') or u) for u in units]
+
+
+def offense_reservations(fmt, B):
+    """Crons whose L9 character is on the OFFENSE board — keep them off the walls.
+
+    Datacrons apply to attacks too, and the L9 character tier is where most of the
+    value is. Doctrine E moved eight GLs and their supports to offense, which
+    stranded several crons on the wrong side: the set-33 L9 First Order / Kylo Ren
+    (Unmasked) cron was being spent on the Partagaz wall for +1 point of hold while
+    KRU himself attacks in the SLKR squad, where the same cron is the #1 offense
+    datacron in the game at Kyber (93.4% win).
+    """
+    out = {}
+    for s in B[fmt]["offense"]:
+        for c in OWNED:
+            if c.get("l9") and c["l9"] in s["units"]:
+                out.setdefault(c["id"], s["units"])
+            for m in (c.get("members") or []):
+                if m in s["units"]:
+                    out.setdefault(c["id"], s["units"])
+    return out
+
+
+def plan_format(fmt):
+    T = tags()
+    B = json.load(open(os.path.join(DATA, "board_result.json")))
+    squads = B[fmt]["defense"]
+    names = {b: (T.get(b, {}).get("n") or b) for s in squads for b in s["units"]}
+    reserved = offense_reservations(fmt, B)
+    pool = [c for c in OWNED if c["id"] not in reserved]
+    print("\n" + "#" * 100)
+    print(f"# {fmt} DEFENSE")
+    print("#" * 100)
+    if reserved:
+        print("Held back for OFFENSE (their L9 character attacks, and a cron works on "
+              "attacks too):")
+        for cid, units in reserved.items():
+            c = next(x for x in OWNED if x["id"] == cid)
+            tgt = c.get("l9") or "/".join(c.get("members") or [])
+            print(f"  {cid} set{c['set']} L{c['lvl']} -> {tgt}  on  "
+                  f"{', '.join(names_of(units, T))}")
+        print()
+
+    print("=" * 100)
+    print("DATACRON FIT MATRIX — uplift multiplier on each wall's hold%")
+    print("=" * 100)
+    hdr = f"{'wall':<26}{'hold':>6}  " + "".join(f"{c['id'][:8]:>10}" for c in pool if c["lvl"] >= 3)
+    print(hdr)
+    for i, s in enumerate(squads, 1):
+        lead = names.get(s["units"][0], s["units"][0])[:22]
+        row = f"D{i:02d} {lead:<22}{s['rate']:>5.1f}  "
+        for c in pool:
+            if c["lvl"] < 3:
+                continue
+            m, _ = score(c, s["units"], T)
+            row += f"{m:>10.2f}" if m > 1.001 else f"{'-':>10}"
+        print(row)
+
+    assign, gain = best_assignment(squads, pool, T)
+    print()
+    print("=" * 100)
+    print(f"OPTIMAL ASSIGNMENT — total expected hold% added: +{gain:.1f} points")
+    print("=" * 100)
+    plan = []
+    for i, s in enumerate(squads):
+        c = assign.get(i)
+        lead = names.get(s["units"][0], s["units"][0])
+        if c:
+            m, why = score(c, s["units"], T)
+            eff = s["rate"] * m
+            print(f"D{i+1:02d} {lead:<24} {s['rate']:>5.1f}% -> {eff:>5.1f}%   "
+                  f"cron {c['id']} set{c['set']} L{c['lvl']}  ({why})")
+        else:
+            eff = s["rate"]
+            print(f"D{i+1:02d} {lead:<24} {s['rate']:>5.1f}% -> {eff:>5.1f}%   (no cron)")
+        plan.append(dict(slot=i + 1, lead=lead, units=s["units"], base=s["rate"],
+                         effective=round(eff, 1),
+                         cron=(c["id"] if c else None), cron_set=(c["set"] if c else None)))
+    tot0 = sum(s["rate"] for s in squads)
+    tot1 = sum(p["effective"] for p in plan)
+    print(f"\nBOARD SUM  {tot0:.0f}%  ->  {tot1:.0f}%   (+{tot1-tot0:.0f} points of expected hold)")
+    unused = [c["id"] for c in pool if c["lvl"] >= 3 and c not in assign.values()]
+    print(f"Unused crons: {', '.join(unused) if unused else 'none'}")
+    return plan
+
+
+if __name__ == "__main__":
+    sys.exit(main())

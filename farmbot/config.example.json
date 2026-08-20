@@ -319,6 +319,10 @@
       "why": "Exact squad combos gate the reward; an auto-battle fails them."
     },
     {
+      "task": "Check the guild raid-ticket counter reads 600/600",
+      "why": "1 ticket per energy spent (anything but Conquest), capped at 600/day, and free daily energy covers it with no crystals. Tickets gate how often the guild launches a raid, and Mk III raid tokens are the ONLY reliable source of R8/R9 relic materials \u2014 which is the exact conversion this account needs. A day under 600 is a day of relic progress lost, and the guild has stalled at 83.9K/180K before. The bot dumps the energy but cannot read the guild screen."
+    },
+    {
       "task": "Crystal energy refreshes",
       "why": "Costs crystals. The bot's hardest rail is that it never spends them \u2014 refreshing stays your call."
     },

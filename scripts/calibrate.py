@@ -3,7 +3,7 @@
 calibrate.py — calibrate 6A GAC mods toward Speed via the HotUtils API (no browser).
 
 Calibration (6-dot only) rerolls a chosen secondary's value using Micro Attenuators
-(summary.currency id 41, farmed in-game at Mod Battles Map 9). We target Speed (stat 5)
+(summary.currency id 41 — see memory/notes.md for the three faucets). We target Speed (stat 5)
 on 6A (6-dot tier-A) mods whose speed secondary rolled BELOW expectation, highest priority first.
 
 Each attempt: mods/reroll {modId, stat:5} -> preview .mod -> mods/acceptreroll {keepMod}.
@@ -21,13 +21,22 @@ rerolled on 2026-08-11 sat at or above expectation, and all 7 came back lower (2
 25->21, 19->14, 23->18, 18->12, 24->18). The metric that matters is the DEFICIT below expectation,
 and only 9 of this account's 76 eligible 6A mods have one.
 
-Ranking: ladder rank -> fewest prior rerolls -> biggest deficit (rolls*ROLL_MEAN - spd) -> most rolls.
-Importance is invest_plan.py's `mod_priority` (Arena -> GAC -> TB -> TW -> fleets), the same
-ordering execute_upgrades.py uses. It previously came from gac_result.json alone, which left
-the Squad/Fleet Arena units — the ones paying a ranked reward EVERY day, and the top of the
+Ranking: PRICE TIER (prior rerolls) -> ladder rank -> biggest deficit (rolls*ROLL_MEAN - spd)
+-> most rolls. Importance is invest_plan.py's `mod_priority` (Arena -> GAC -> TB -> TW -> fleets),
+the same ordering execute_upgrades.py uses. It previously came from gac_result.json alone, which
+left the Squad/Fleet Arena units — the ones paying a ranked reward EVERY day, and the top of the
 stated ladder — completely ineligible for calibration.
 
-Auth (ephemeral — never commit): HU_SID=<sessionId> [HU_UID] [HU_ALLY] python3 scripts/calibrate.py [--max N] [--min-deficit D] [--dry]
+⚠️ COST TIER COMES BEFORE IMPORTANCE (changed 2026-08-17). Attenuators, not candidates, are the
+binding constraint, and an attempt is priced PER MOD by how often that mod was already rerolled
+(1st >= 15, 2nd >= 25, 3rd >= 35). The hit rate does NOT improve with rr, so a repeat attempt buys
+the same expected speed for up to 2.3x the material. Ranking by rank first quietly spent the stock
+on the few expensive mods: on the 2026-08-11 pull the two top-ranked candidates were both rr=2, so
+86 attenuators bought 3 attempts (35+35+15=85) where cost-first buys 4 (15+15+15+35=80) — and the
+extra attempt is a whole extra roll of the dice on a metric whose measured hit rate is ~0/10.
+Rank still breaks ties inside a price tier. Pass --by-rank to restore importance-first.
+
+Auth (ephemeral — never commit): HU_SID=<sessionId> [HU_UID] [HU_ALLY] python3 scripts/calibrate.py [--max N] [--min-deficit D] [--by-rank] [--dry]
 """
 import json, os, glob, sys, time, urllib.request
 
@@ -44,6 +53,7 @@ def arg(flag, default):
 
 
 MAX = arg("--max", 4)
+BY_RANK = "--by-rank" in sys.argv
 # A 6-dot speed roll lands in 3..6, so an unbiased mod averages 4.5 per roll. A mod is only
 # worth rerolling when it sits BELOW that line; the default of 1 keeps the sweep to mods that
 # are at least a full point unlucky. Raise it to be stricter, or pass 0 to include break-evens.
@@ -67,23 +77,35 @@ def spd_of(mod):
     return 0
 
 
+def rank_candidates(mods, rank, min_deficit=MIN_DEFICIT, by_rank=False):
+    """Eligible 6A mods with a speed deficit, cheapest attempt first.
+
+    Returns [(ladder_rank, deficit, mod)]. Eligible = equipped, 6-dot tier-A, on the ladder,
+    has a rolled speed secondary, and sits at least `min_deficit` BELOW its expected roll total.
+    Ordered by price tier (`rr`) then rank, so a fixed attenuator stock buys the most attempts;
+    `by_rank=True` restores the pre-2026-08-17 importance-first order. See the module docstring.
+    """
+    cand = []
+    for m in mods:
+        if not m["b"] or m["dots"] != 6 or m["tier"] != 5: continue
+        if m["b"] not in rank: continue
+        if m["spd"] <= 0 or m["spdRolls"] <= 0: continue
+        deficit = m["spdRolls"] * ROLL_MEAN - m["spd"]
+        if deficit < min_deficit: continue
+        cand.append((rank[m["b"]], deficit, m))
+    key = ((lambda t: (t[0], t[2]["rr"], -t[1], -t[2]["spdRolls"])) if by_rank else
+           (lambda t: (t[2]["rr"], t[0], -t[1], -t[2]["spdRolls"])))
+    cand.sort(key=key)
+    return cand
+
+
 def main():
     d = json.load(open(sorted(glob.glob(os.path.join(DATA, "mods_full_*.json")))[-1]))
     ip = json.load(open(os.path.join(ROOT, "output", "invest_plan.json")))
     rank = {b: i for i, b in enumerate(ip["mod_priority"])}
     nm = {e["unit"]: e["name"] for e in ip["priority"]}
 
-    cand = []
-    for m in d["mods"]:
-        if not m["b"] or m["dots"] != 6 or m["tier"] != 5: continue
-        if m["b"] not in rank: continue
-        if m["spd"] <= 0 or m["spdRolls"] <= 0: continue
-        deficit = m["spdRolls"] * ROLL_MEAN - m["spd"]
-        if deficit < MIN_DEFICIT: continue
-        cand.append((rank[m["b"]], deficit, m))
-    # best order (grounded): ladder rank -> fewest prior rerolls (a 1st attempt costs 15
-    # attenuators and a 3rd costs 35, so breadth beats depth) -> biggest deficit -> most rolls.
-    cand.sort(key=lambda t: (t[0], t[2]["rr"], -t[1], -t[2]["spdRolls"]))
+    cand = rank_candidates(d["mods"], rank, MIN_DEFICIT, BY_RANK)
     targets = cand[:MAX]
 
     print(f"=== CALIBRATE plan: top {len(targets)} of {len(cand)} eligible (min-deficit {MIN_DEFICIT}) ===")

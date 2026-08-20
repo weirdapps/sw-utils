@@ -40,17 +40,37 @@ def test_empty_gaps_returns_empty():
 
 
 def test_relic_priority_flags_low_relic_board_units_by_importance():
+    # rt is +2: rt 5 -> R3, rt 9 -> R7. Target is the DISPLAYED level.
     gac = {"5v5": {"defense": [{"rate": 86, "units": ["A", "B"]}],
                    "offense": [{"rate": 50, "units": ["A"]}], "gaps": {}}}
-    roster = {"units": [{"b": "A", "n": "Ace", "rt": 3}, {"b": "B", "n": "Bee", "rt": 7}]}
+    roster = {"units": [{"b": "A", "n": "Ace", "rt": 5}, {"b": "B", "n": "Bee", "rt": 9}]}
     out = advisor.relic_priority(gac, roster, target=7)
-    assert [e["unit"] for e in out] == ["Ace"]   # B already at relic 7 -> excluded
+    assert [e["unit"] for e in out] == ["Ace"]   # B is R7, already at target -> excluded
     assert out[0]["best_rate"] == 86             # ranked by the strongest team it holds
-    assert out[0]["rt"] == 3
+    assert out[0]["relic"] == 3                  # reported as the game displays it, not rt 5
+
+
+def test_relic_priority_target_is_the_displayed_level_not_raw_rt():
+    """The off-by-two: an R7 unit must NOT count as satisfying a target of R9.
+
+    Reading rt directly made target=9 mean "below R7", so the whole R7 pile — the exact
+    thing this account needs to convert — was treated as already done and never surfaced.
+    """
+    gac = {"5v5": {"defense": [{"rate": 70, "units": ["R7UNIT"]}], "offense": [], "gaps": {}}}
+    roster = {"units": [{"b": "R7UNIT", "n": "Parked", "rt": 9}]}   # rt 9 == R7
+    assert [e["unit"] for e in advisor.relic_priority(gac, roster, target=9)] == ["Parked"]
+    assert advisor.relic_priority(gac, roster, target=7) == []      # already at R7
+
+
+def test_relic_priority_default_target_is_r9():
+    gac = {"5v5": {"defense": [{"rate": 70, "units": ["R8UNIT"]}], "offense": [], "gaps": {}}}
+    roster = {"units": [{"b": "R8UNIT", "n": "Eight", "rt": 10}]}   # rt 10 == R8
+    out = advisor.relic_priority(gac, roster)
+    assert [e["unit"] for e in out] == ["Eight"] and out[0]["relic"] == 8
 
 
 def test_relic_priority_ignores_units_missing_from_roster():
     gac = {"3v3": {"defense": [{"rate": 40, "units": ["OWNED", "UNOWNED"]}], "offense": [], "gaps": {}}}
-    roster = {"units": [{"b": "OWNED", "n": "Owned", "rt": 2}]}
+    roster = {"units": [{"b": "OWNED", "n": "Owned", "rt": 4}]}
     out = advisor.relic_priority(gac, roster, target=7)
     assert [e["unit"] for e in out] == ["Owned"]  # UNOWNED has no relic data -> skipped

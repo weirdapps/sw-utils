@@ -1,0 +1,279 @@
+{
+ "phase": 4,
+ "relic_floor": 8,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "ds_4",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Medical Station",
+   "alignment": "dark",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "faction": "Inquisitorius",
+   "required": [
+    "THIRDSISTER"
+   ],
+   "reward": "1,000 Mk III tokens",
+   "auto": false
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "mixed_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "auto": true
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "mixed_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "auto": true
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Kessel",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "QIRA",
+    "L3_37"
+   ],
+   "reward": "1,000 Mk III tokens",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "BAYLANSKOLL",
+     "SHINHATI",
+     "MARROK",
+     "QIRA",
+     "L3_37"
+    ],
+    "aspirational": true,
+    "note": "ASPIRATIONAL \u2014 not fillable today. Qi'ra + L3-37 R8+ are the gate and both sit at R7, and the free slot Marrok is R7 against the phase-4 R8 floor too. Baylan/Shin carry it once those three clear R8. starwars-fans.com"
+   }
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "jedi",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi",
+   "auto": true
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "phoenix",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Phoenix",
+   "auto": true
+  },
+  {
+   "planet": "Lothal",
+   "alignment": "light",
+   "mission": "ls",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "bokatan",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "MANDALORBOKATAN"
+   ],
+   "auto": true,
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "gideon",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "required": [
+    "MOFFGIDEONS3"
+   ],
+   "auto": true,
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  },
+  {
+   "planet": "Mandalore",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 8
+   },
+   "auto": true,
+   "territory_note": "BONUS \u2014 locked until Tatooine's unlock special clears 25x in phase 3"
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Kessel",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "GHOST"
+   ],
+   "preset": "Home One",
+   "why": "Ghost is already in the Home One lineup."
+  },
+  {
+   "planet": "Lothal",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Home One",
+   "why": null
+  },
+  {
+   "planet": "Mandalore",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "GAUNTLETSTARFIGHTER"
+   ],
+   "preset": "Executor",
+   "why": null
+  }
+ ]
+}

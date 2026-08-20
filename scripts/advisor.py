@@ -16,8 +16,18 @@ Usage:  python3 scripts/advisor.py            # reads data/gac_result.json
 import json
 import os
 
+# The roster's `rt` is comlink's relic.currentTier verbatim, which is TWO HIGHER than
+# the relic level the game prints on the tile. Import the conversion rather than
+# re-deriving it: this module got the trap wrong for months precisely because it kept
+# its own idea of what `rt` meant. Canonical explanation: arena_board.displayed_relic.
+from invest_plan import displayed_relic   # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GAC_RESULT = os.path.join(ROOT, "data", "gac_result.json")
+
+# Displayed relic level a fielded board unit should reach. R9 is the practical bar for a
+# Kyber account, and it is the exact conversion this roster needs (152 units parked at R7).
+DEFAULT_RELIC_TARGET = 9
 
 
 def _sort_key(entry):
@@ -48,15 +58,22 @@ def farm_priority(gac_result):
     return sorted(agg.values(), key=_sort_key)
 
 
-def relic_priority(gac_result, roster, target=9):
+def relic_priority(gac_result, roster, target=DEFAULT_RELIC_TARGET):
     """Rank your FIELDED board units that sit below a relic target, by the strongest
     team they hold. Board units are already G13 (board rule), so relic is the next
-    lever — reinforce your highest-value walls/attackers first. Default target 9 is
-    the practical floor for a strong (Kyber) account; laggards at relic 7-8 surface.
+    lever — reinforce your highest-value walls/attackers first.
 
-    Returns [{unit, rt, best_rate, in_teams}] sorted best-first.
+    ⚠️ `target` and the returned `relic` are DISPLAYED relic levels — the number on the
+    unit tile — NOT the roster's raw `rt`. This function used to compare and report `rt`
+    directly, which is +2, so a default of 9 silently meant "below R7" and the daily brief
+    printed an R7 unit as "relic 9". That is almost certainly where the claim of an
+    "already-owned R9 Inquisitor bench" came from: every Inquisitor here is R7. Worse, the
+    off-by-two made the advisor blind to exactly the R7→R9 conversion this account needs,
+    because it treated the 152-unit R7 pile as already at target.
+
+    Returns [{unit, relic, best_rate, in_teams}] sorted best-first.
     """
-    rt_by_b = {u["b"]: u.get("rt") for u in roster.get("units", [])}
+    relic_by_b = {u["b"]: displayed_relic(u.get("rt")) for u in roster.get("units", [])}
     name_by_b = {u["b"]: u.get("n", u["b"]) for u in roster.get("units", [])}
     agg = {}
     for _fmt, d in gac_result.items():
@@ -64,14 +81,14 @@ def relic_priority(gac_result, roster, target=9):
             for team in d.get(persp, []):
                 rate = team.get("rate", 0)
                 for b in team.get("units", []):
-                    rt = rt_by_b.get(b)
-                    if rt is None or rt >= target:  # unowned or already at target
+                    relic = relic_by_b.get(b)
+                    if relic is None or relic >= target:  # unowned or already at target
                         continue
-                    e = agg.setdefault(b, {"unit": name_by_b.get(b, b), "rt": rt,
+                    e = agg.setdefault(b, {"unit": name_by_b.get(b, b), "relic": relic,
                                            "best_rate": 0, "in_teams": 0})
                     e["best_rate"] = max(e["best_rate"], rate)
                     e["in_teams"] += 1
-    return sorted(agg.values(), key=lambda x: (-x["best_rate"], x["rt"]))
+    return sorted(agg.values(), key=lambda x: (-x["best_rate"], x["relic"]))
 
 
 def load_gac_result(path=GAC_RESULT):

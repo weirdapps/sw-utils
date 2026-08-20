@@ -13,13 +13,34 @@ organisation the player actually sees:
 """
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import swgoh_data  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
 res = json.load(open(os.path.join(DATA, "board_result.json")))
-roster = json.load(open(os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")))
+roster = json.load(open(swgoh_data.latest_roster_file()))
+placement = json.load(open(os.path.join(OUT, "gac_placement.json")))
+_dcplan = json.load(open(os.path.join(OUT, "datacron_plan.json")))
+# datacron_plan.json is now keyed by format; each entry lists one row per
+# defensive slot in board order.
+crons = {(f, tuple(r["units"])): r for f, rows in _dcplan.items() for r in rows}
+
+# Which map zone each defensive squad belongs in. A defense list is useless without
+# this: the board is two gated lanes, not eleven interchangeable slots, and the name
+# is the only thing the player sees while placing in-game.
+ZONE_TAG = {"front_top": "FT", "front_bottom": "FB", "back_bottom": "BB", "back_fleet": "SHIP"}
+ZONE_OF = {}
+for _fmt in ("5v5", "3v3"):
+    for _zk, _sqs in placement[_fmt]["zones"].items():
+        if _zk == "back_fleet":
+            continue
+        for _i, _s in enumerate(_sqs, 1):
+            ZONE_OF[(_fmt, tuple(_s["units"]))] = f"{ZONE_TAG[_zk]}{_i}"
 info = {u["b"]: u for u in roster["units"]}
 namemap = json.load(open(os.path.join(DATA, "name_type_map.json")))
 
@@ -138,7 +159,15 @@ for key, prefix in SECTIONS:
         cat = f"{prefix} - {persp.capitalize()}"
         for i, sq in enumerate(res[key][persp], 1):
             tag = "3v3" if key == "3v3" else ("TW" if key == "tw" else "5v5")
-            nm = f"{tag} {p}{i:02d} {lbl(sq['units'][0])} {sq['rate']:.0f}%"
+            zone = ZONE_OF.get((key, tuple(sq["units"])))
+            slot = zone if (persp == "defense" and zone) else f"{p}{i:02d}"
+            nm = f"{tag} {slot} {lbl(sq['units'][0])} {sq['rate']:.0f}%"
+            # A wall without its datacron is a different wall. Carry the cron in the
+            # name so the right one gets attached at placement time — Astra shipped
+            # 7 of 11 walls with no cron at all while the opponent ran 8 of 8.
+            c = crons.get((key, tuple(sq["units"])))
+            if persp == "defense" and c and c.get("cron"):
+                nm += f" [s{c['cron_set']}]"
             add(nm, cat, sq["units"], 1)
 
 for cat, arr in res["fleets"].items():

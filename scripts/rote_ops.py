@@ -91,7 +91,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 ROTE = os.path.join(DATA, "rote")
 OUT = os.path.join(ROOT, "output")
-ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")
+ROSTER_FILE = swgoh_data.latest_roster_file()
 
 # --- measured constants (memory/notes.md, 2026-08-05 phase-2 session) -----------
 OPERATION_TP = 11_000_000     # per COMPLETED operation, guild-wide
@@ -155,20 +155,10 @@ GUILD_SLOT_FILL_P = 0.75
 # see the gross-only ranking.
 COUNT_DEPLOY_OPPORTUNITY_COST = True
 
-# Power proxy, used ONLY when the roster carries no per-unit `gp` (the comlink
-# loader does not return one; the swgoh.gg roster files do). Deployment credits the
-# unit's real GP, so a real `gp` always wins. These coefficients are medians off
-# data/roster/swgoh_roster_fresh_20260805.json, and the proxy only has to get the
-# ORDER right — it decides which of two free units goes into a squad, never a TP
-# number that is reported as fact:
-#   no relic:  g7 ~5.9K, g10 ~9.0K, g11 ~18.4K   -> ~1,500 / gear tier
-#   G13:       R5 22.8K, R6 26.2K, R7 28.9K, R8 32.9K, R9 34.6K
-#              -> ~20,000 base + ~2,800 / displayed relic tier
-#   ships:     7-star median 73.6K, 6-star 56.8K -> ~9,000 / star
-PROXY_PER_GEAR = 1_500
-PROXY_G13_BASE = 20_000
-PROXY_PER_RELIC = 2_800
-PROXY_PER_STAR = 9_000
+# The power proxy (used when the roster carries no per-unit `gp`) moved to
+# swgoh_data.py on 2026-08-18, when the comlink loader became the only roster source
+# and tw_wall.py needed the same fallback. Constants, provenance and unit_power()
+# all live there now; this module delegates.
 
 # The cats tag that marks a Galactic Legend in data/meta/raw_unit_categories_*.json.
 # ONLY ONE GL PER SQUAD is permitted by the game; mission_squads enforces it from
@@ -229,16 +219,13 @@ def eligible(roster, gate):
 
 def unit_power(unit):
     """Deployed power for one unit: the real `gp` when the roster carries it, else
-    the documented proxy (see PROXY_* above)."""
-    gp = unit.get("gp")
-    if gp:
-        return float(gp)
-    if unit.get("ct", 1) == 2:
-        return float(PROXY_PER_STAR * (unit.get("r") or 0))
-    gear = unit.get("g") or 0
-    if gear < 13:
-        return float(PROXY_PER_GEAR * gear)
-    return float(PROXY_G13_BASE + PROXY_PER_RELIC * displayed_relic(unit))
+    the documented proxy (see PROXY_* above).
+
+    Delegates to swgoh_data so the proxy constants have ONE home — the comlink
+    roster carries no `gp` at all, so every consumer needs this and a second copy
+    would drift.
+    """
+    return swgoh_data.unit_power(unit)
 
 
 # --- operation requirements ------------------------------------------------------
@@ -547,6 +534,87 @@ def _is_gl(base, catalog):
     return GL_TAG in ((catalog.get(base) or {}).get("cats") or ())
 
 
+# Tags that are not a faction and so carry no squad synergy: a raid-eligibility
+# list, a rarity class, a role and a ship-crew slot. Same list tw_wall.py uses.
+NON_FACTION = {"Leader", "Order 66 Raid", "Galactic Legend", "Fleet Commander"}
+
+
+def _disambiguate(names, bases):
+    """Append the baseId to any DISPLAY NAME that repeats inside one squad.
+
+    Two owned units are both called "Rey" — GLREY (the Galactic Legend) and REY —
+    so a printed squad can read "Rey, Rey, Rey (Jedi Training)" and look like a bug
+    or, worse, get the wrong one picked on the device. The baseIds are distinct and
+    no unit is ever used twice; only the label collides.
+    """
+    dupes = {n for n in names if names.count(n) > 1}
+    return [f"{n} [{b}]" if n in dupes else n for n, b in zip(names, bases)]
+
+
+def _tag_sizes(catalog):
+    size = {}
+    for v in catalog.values():
+        for c in v.get("cats") or ():
+            size[c] = size.get(c, 0) + 1
+    return size
+
+
+def _affinity(anchor_cats, base, catalog, size):
+    """Rarity-weighted count of faction tags shared with the squad's anchor.
+
+    A shared "Phoenix" (7 units) is worth far more than a shared "Rebel" (52),
+    because the small tag is the one a leader ability actually keys on.
+    """
+    cats = set((catalog.get(base) or {}).get("cats") or ()) - NON_FACTION
+    return sum(1.0 / size.get(c, 1) for c in (cats & anchor_cats))
+
+
+def _fill_coherently(pool, squad, free, catalog, size, has_gl):
+    """Fill a squad's free slots with faction-mates of its anchor, not just the
+    five strongest bodies on the roster.
+
+    WHY, and it is measured on this account rather than assumed: a leader ability
+    only benefits units of the matching faction, so five unrelated G13s field one
+    working leader and four bystanders. notes.md 2026-08-12 recorded the same squad
+    shape losing 0-for-5 in Territory War at 193,800 power while a coherent GL squad
+    at similar power won — "a GL with filler bodies loses ... high squad power is a
+    mirage".
+
+    The ANCHOR is whatever the squad already has: its required units if the mission
+    names any, otherwise the strongest legal unit, which is added first so that a
+    mission with no requirements still leads with its best available unit (several
+    tests pin that ordering). Power remains the tie-break, so among equally
+    unrelated candidates this degrades to the old strongest-first behaviour.
+    """
+    if free > 0 and not squad:
+        for u in pool:                                   # anchor = strongest legal
+            if _is_gl(u["b"], catalog) and has_gl:
+                continue
+            squad.append(u)
+            has_gl = has_gl or _is_gl(u["b"], catalog)
+            free -= 1
+            break
+    anchor = set()
+    for u in squad:
+        anchor |= set((catalog.get(u["b"]) or {}).get("cats") or ())
+    anchor -= NON_FACTION
+
+    chosen = {u["b"] for u in squad}
+    ranked = sorted((u for u in pool if u["b"] not in chosen),
+                    key=lambda u: (-_affinity(anchor, u["b"], catalog, size),
+                                   -unit_power(u), u["b"]))
+    for u in ranked:
+        if free <= 0:
+            break
+        if _is_gl(u["b"], catalog):
+            if has_gl:
+                continue
+            has_gl = True
+        squad.append(u)
+        free -= 1
+    return squad
+
+
 def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
     """Assign the strongest still-free squad to each mission.
 
@@ -584,6 +652,7 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
        short, note}
     """
     catalog = load_catalog() if catalog is None else catalog
+    size = _tag_sizes(catalog)
     blocked = set(reserved)
     required_anywhere = {b for m in missions for b in (m.get("required") or ())}
 
@@ -617,15 +686,7 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
             has_gl = has_gl or _is_gl(base, catalog)
 
         pool = _mission_pool(roster, m, catalog, blocked | used | required_anywhere)
-        for u in pool:                                  # strongest first
-            if free <= 0:
-                break
-            if _is_gl(u["b"], catalog):
-                if has_gl:
-                    continue                            # one GL per squad, hard rule
-                has_gl = True
-            squad.append(u)
-            free -= 1
+        _fill_coherently(pool, squad, free, catalog, size, has_gl)
 
         used.update(u["b"] for u in squad)
         short = m.get("slots", 5) - len(squad)
@@ -633,7 +694,8 @@ def mission_squads(roster, missions, reserved=frozenset(), catalog=None):
         rows.append({"planet": m.get("planet"), "mission": m.get("mission"),
                      "kind": m.get("kind", "combat"), "slots": m.get("slots", 5),
                      "units": [u["b"] for u in squad],
-                     "names": [u.get("n", u["b"]) for u in squad],
+                     "names": _disambiguate([u.get("n", u["b"]) for u in squad],
+                                            [u["b"] for u in squad]),
                      "power": round(sum(unit_power(u) for u in squad)),
                      "win_tp": win_tp, "fillable": short <= 0,
                      "short": max(0, short), "note": "; ".join(notes) or None})
@@ -745,11 +807,21 @@ def main(argv=None):
     ap.add_argument("--out", default=os.path.join(OUT, "rote_plan.json"))
     args = ap.parse_args(argv)
 
+    # Operations need an on-device scrape; MISSIONS do not — they are static and come
+    # from the wiki map (scripts/rote_missions.py). Missing operations therefore
+    # degrades to a mission-only plan instead of refusing to run, because "which squad
+    # for which battle" is answerable today and was the whole reason the map exists.
+    # The reservation list is empty in that mode, so the warning is not cosmetic: with
+    # no operations known, nothing is held back and a mission may spend a unit that a
+    # platoon slot wanted. Scrape the panels before acting on a plan that matters.
     ops_path = args.operations or operations_path(args.phase)
-    if not os.path.exists(ops_path):
-        print(f"no operations file at {ops_path} — scrape the operation panels first")
-        return 2
-    doc = load_operations(ops_path)
+    if os.path.exists(ops_path):
+        doc = load_operations(ops_path)
+    else:
+        doc = {"phase": args.phase, "captured": None, "areas": []}
+        print(f"⚠ no operations file at {os.path.relpath(ops_path, ROOT)} — planning "
+              f"MISSIONS ONLY.\n  Nothing is reserved for platoons, so scrape the "
+              f"operation panels before committing squads.")
 
     missions = []
     mpath = args.missions or os.path.join(ROTE, f"missions_{args.phase}.json")

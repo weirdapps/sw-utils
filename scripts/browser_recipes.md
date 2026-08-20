@@ -89,3 +89,60 @@ Writes squads to the game's in-game Squad-preset system (organized in **tabs**).
   - **Preset NAME length is short** (~16 chars). Long names → `INVALID_SQUAD_PRESET_NAME_LENGTH_KEY`. Use short names (tab already gives format+phase), e.g. `D1 Stranger`, `O1 SEE`.
   - `id:null` always creates a NEW tab (no by-name dedup) — don't push the same tab twice or you get duplicates; update by id instead.
 - Done 2026-07-18: pushed 4 char tabs (GAC 5v5/3v3 - Defense/Offense = 56 squads). Fleets left for manual in-game placement.
+
+---
+## §6 — Capture the LIVE GAC board (both sides) — the input `gac_attack.py` needs
+The opponent's placed defense, your own placement, the per-zone scores and the score ceiling all come
+from one call. Do this at the start of every attack phase.
+
+**⚠ `gac/*` endpoints require the `APIUserId` HEADER; `squads/list` does not.** Without it you get
+`responseCode 2 / "Invalid API Request Header Values"`, which reads like an auth failure and is not.
+Grab both values by hooking `fetch` before the page loads:
+
+```js
+// navigate_page(url='https://hotutils.com/gac/current', initScript=<this>)
+(() => { window.__cap=[]; const of=window.fetch;
+  window.fetch=function(...a){ try{ const u=String(a[0]&&a[0].url||a[0]);
+    const h=(a[1]&&a[1].headers)||{}; const hh=h instanceof Headers?Object.fromEntries(h.entries()):h;
+    if(u.includes('api.hotutils')) window.__cap.push({u,headers:hh,body:a[1]&&a[1].body});
+  }catch(e){} return of.apply(this,a); }; })()
+```
+`sessionId` is also in `document.cookie` as `hotUtilsSession`; `APIUserId` only appears in the header.
+
+```js
+async () => {
+  const SID="<hotUtilsSession cookie>", UID="<APIUserId header>";
+  const api=(p,b={})=>fetch("https://api.hotutils.com/Production/"+p,{method:"POST",credentials:"include",
+    headers:{"content-type":"application/json","APIUserId":UID},body:JSON.stringify({...b,sessionId:SID})}).then(r=>r.json());
+  return await api("gac/get",{refresh:true,tournamentEventId:null,currentMatchId:null});
+}
+```
+Save with `evaluate_script`'s `filePath` to `output/gac_current_<YYYYMMDD>.json` (~5MB), then
+`python3 scripts/gac_attack.py`. Useful fields:
+- `gac.tournamentMapId` — e.g. `4zone_5v5_ga2_c3s1_82a`, tells you the format.
+- `gac.{home,away}.zones[]` — `zoneId` (`phase01`=front, `phase02`=back), `location` pairs a front with
+  the back it gates, `squadCapacity`, `squadCount`, `defeatedSquadCount`, `state` (1 locked · 3 in
+  progress · 4 cleared), and `squads[].units[].baseId/relicLevel` plus `datacron`.
+- `zones[].score` on YOUR side is what YOU earned attacking the mirrored enemy zone, not what you
+  conceded. Summing them reproduces the scoreline on the page.
+- `gac/list` gives every past round with final scores — that is how the lane-gating rule was verified.
+- `account/data/all` → `data.datacrons[]` is the live cron inventory; the affix ARRAY LENGTH is the
+  cron's level, and `affix[].targetRule` names the alignment/faction/character it scopes to.
+
+**Session capture is ephemeral and must never be committed.** Pass it as `HU_SID=<sid>` to
+`upload_hotutils.py` / `push_ingame_presets.py`, which are browser-free and paced.
+
+---
+## §7 — Scrape GAC counters (feeds `gac_attack.py`'s head-to-head table)
+`/gac/counters/<LEADER_BASE_ID>/?season_id=…SEASON_<n>` lists, for one defending leader, every observed
+counter as attacker lineup + defender lineup + Seen + Win% + avg Banners. Same Cloudflare rule as §3:
+Playwright MCP, base page first, then the parameterised URL.
+
+Write one JSON per format into `data/meta/counters/`:
+```json
+{ "<DEFENDING_LEADER>": { "n": 50, "rows": [ {"A": [...], "D": [...], "seen": "14.5K", "win": 79, "avg": 48.67} ] } }
+```
+`gac_attack.py` indexes it two ways — exact (attacker lineup × defender lineup), then attacker lineup ×
+defending LEADER — and falls back to a two-marginal model only when neither hits, printing `(model)` so
+you can tell a measured 96% from a guessed one. Scrape the leaders that actually appear on opponents'
+boards; ~24 per format covers the Kyber meta.

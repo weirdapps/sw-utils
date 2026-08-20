@@ -1,8 +1,8 @@
 {
- "season": "SEASON_80",
+ "season": "80",
  "format": "5v5",
  "perspective": "defense",
- "pulled": "2026-08-05",
+ "pulled": "2026-08-12",
  "rows": [
   {
    "hold": "57%",
@@ -362,18 +362,6 @@
     "EPIXPOE",
     "POE",
     "ZORIIBLISS_V2"
-   ]
-  },
-  {
-   "hold": "7%",
-   "seen": "14.4K",
-   "banners": "58.19",
-   "units": [
-    "JEDIMASTERMACEWINDU",
-    "DEPABILLABA",
-    "JOCASTANU",
-    "KELLERANBEQ",
-    "VANGUARDTEMPLEGUARD"
    ]
   }
  ]

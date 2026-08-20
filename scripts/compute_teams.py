@@ -31,7 +31,7 @@ META = os.path.join(DATA, "meta")
 BOARD = {"5v5": {"def": 11, "off": 16}, "3v3": {"def": 15, "off": 18}}
 # Pure attack GLs: reserved for offense before defense claims units (weak defenders anyway).
 RESERVE = ["JEDIMASTERKENOBI", "GRANDMASTERLUKE", "SITHPALPATINE", "SUPREMELEADERKYLOREN"]
-ROSTER_FILE = os.path.join(DATA, "roster", "swgoh_roster_fresh_20260805.json")
+ROSTER_FILE = swgoh_data.latest_roster_file()
 ALLYCODE = "145357294"  # Astra — live roster via comlink; ROSTER_FILE = offline fallback
 # meta files: (format, perspective) -> filename in data/meta/
 META_FILES = {

@@ -221,9 +221,21 @@ TPL_SHOP_CANCEL = "shop_cancel"            # the dialog's close-X — backs out 
 # away from the marker — the only such case today is `coliseum_results`, whose CONTINUE is far
 # below the "BATTLE RESULTS" title. A blind offset is only safe off a HIGHLY specific marker, so
 # keep offset closers cropped on distinctive text, never on chrome.
+# The full-screen PAID BUNDLE offer ("ERA MODULE BUNDLE II", "YODA (DARK SIDE VISION) BUNDLE II",
+# ...). It fires on its own timer, covers the hub completely, and `popup_close` does not match its
+# X — which cost the 2026-08-18 evening run FOUR entries in five minutes, including all the energy
+# nodes: the halt screenshots at 21:50:00 / 21:50:46 / 21:51:32 / 21:54:21 are all the same bundle.
+#
+# The marker is the words "OFFER EXPIRES:" — NOT the timer beside them, which counts down, and NOT
+# the X, which is generic white chrome. Measured over the eleven halt captures plus four normal
+# screens: 1.000 on every bundle, 0.40-0.50 on everything else, against a 0.88 threshold.
+TPL_BUNDLE_OFFER = "bundle_offer"
+BUNDLE_OFFER_TAP_OFFSET = (980, 1)       # match centre (877,142) -> the close X (1857,143)
+
 DEFAULT_POPUP_CLOSERS = ("popup_close", "newsletter_close", TPL_COLISEUM_HIGHSCORE,
                          TPL_TIER_COMPLETE, TPL_CELEBRATION, "bronzium_skip",
                          (TPL_COLISEUM_RESULTS, COLISEUM_RESULTS_TAP_OFFSET),
+                         (TPL_BUNDLE_OFFER, BUNDLE_OFFER_TAP_OFFSET),
                          (TPL_DEFEAT_UPSELL, DEFEAT_UPSELL_TAP_OFFSET))
 
 # Campaigns whose chapter/tier tabs have a distinct visual from the shared LS/DS/Cantina/Fleet

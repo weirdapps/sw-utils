@@ -1,0 +1,216 @@
+{
+ "phase": 5,
+ "relic_floor": 9,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Malachor",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Malachor",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Malachor",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Malachor",
+   "alignment": "dark",
+   "mission": "inquisitors",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "EIGHTHBROTHER",
+    "FIFTHBROTHER",
+    "SEVENTHSISTER"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Vandor",
+   "alignment": "mixed",
+   "mission": "mixed_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "auto": true
+  },
+  {
+   "planet": "Vandor",
+   "alignment": "mixed",
+   "mission": "mixed_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "auto": true
+  },
+  {
+   "planet": "Vandor",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Vandor",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "required": [
+    "YOUNGHAN",
+    "YOUNGCHEWBACCA"
+   ],
+   "reward": "1,000 Mk III tokens",
+   "auto": false,
+   "tactics": {
+    "note": "\u26a0 UNRESEARCHED \u2014 do not copy the Phase-1 Corellia Qi'ra/Young Han plan here, it is a different mission. Gate is YOUNGHAN + YOUNGCHEWBACCA at R9+; Astra is R7 and R5, so it is not fillable yet either way."
+   }
+  },
+  {
+   "planet": "Ring of Kafrene",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Ring of Kafrene",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Ring of Kafrene",
+   "alignment": "light",
+   "mission": "ls_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Ring of Kafrene",
+   "alignment": "light",
+   "mission": "rogueone",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 9
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "required": [
+    "CASSIANANDOR",
+    "K2SO"
+   ],
+   "auto": true
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Vandor",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Leviathan",
+   "why": null
+  },
+  {
+   "planet": "Ring of Kafrene",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Raddus",
+   "why": null
+  }
+ ]
+}

@@ -74,7 +74,7 @@ def render_terminal(sections):
         lines.append("")
         lines.append("Relic priority (reinforce your best board units):")
         for e in sections["relic"][:8]:
-            lines.append(f"  {e['unit']} (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams")
+            lines.append(f"  {e['unit']} (relic R{e['relic']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams")
     lines.append("")
     lines.append("Board chatter (r/SWGalaxyOfHeroes)")
     if sections.get("chatter"):
@@ -105,7 +105,7 @@ def render_html(sections, date=_TODAY):
     events_html = f"<h2>Upcoming events</h2><ul>{''.join(evs)}</ul>" if evs else ""
     relic = []
     for e in sections.get("relic", []):
-        relic.append(f"<li><b>{e['unit']}</b> (relic {e['rt']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams</li>")
+        relic.append(f"<li><b>{e['unit']}</b> (relic R{e['relic']}) — best team {e['best_rate']}%, in {e['in_teams']} board teams</li>")
     relic_html = f"<h2>Relic priority</h2><ul>{''.join(relic)}</ul>" if relic else ""
     chatter_items = []
     for e in sections.get("chatter", [])[:6]:

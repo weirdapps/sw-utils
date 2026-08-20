@@ -1,0 +1,118 @@
+{
+  "_README": "Researched game constants for scripts/action_value.py. Every number here has a citation in _sources. Do NOT edit from memory or from in-game impressions — re-verify against the cited page and update _verified_utc. The repo's own notes have been wrong before (see memory/order66-raid-mechanics.md, the relic-badge misread of 2026-08-17), which is exactly why this file is separate from prose and carries sources.",
+  "_verified_utc": "2026-08-17",
+  "_device_verified_utc": "2026-08-20 — electrium_conductor routes, fragmented/incomplete signal-data routes and the signal_data event_only claim were re-read off the live store screens, not the wiki. Every token route observed carried a daily_limit of 1 purchase, which the planner does not yet model.",
+  "_sources": {
+    "relic_recipe": "https://swgoh.wiki/wiki/Relic_Amplifier",
+    "guild_activity_store": "https://swgoh.wiki/wiki/Guild_Activity_Store",
+    "impulse_detector": "https://swgoh.wiki/wiki/Impulse_Detector",
+    "aeromagnifier": "https://swgoh.wiki/wiki/Aeromagnifier",
+    "zinbiddle_card": "https://swgoh.wiki/wiki/Zinbiddle_Card",
+    "gyrda_keypad": "https://swgoh.wiki/wiki/Gyrda_Keypad",
+    "droid_brain": "https://swgoh.wiki/wiki/Droid_Brain",
+    "electrium_conductor": "https://swgoh.wiki/wiki/Electrium_Conductor",
+    "flawed_signal_data": "https://swgoh.wiki/wiki/Flawed_Signal_Data",
+    "raid_tickets": "https://swgoh.wiki/wiki/Guild_Activities"
+  },
+
+  "relic_recipe": {
+    "_note": "Materials consumed to go FROM the named level TO the next one. Credits are per step.",
+    "6": {"credits": 500000, "fragmented_signal_data": 20, "incomplete_signal_data": 25, "flawed_signal_data": 35, "carbonite_circuit_board": 20, "bronzium_wiring": 30, "chromium_transistor": 20, "aurodium_heatsink": 20, "electrium_conductor": 20, "zinbiddle_card": 10},
+    "7": {"credits": 1000000, "fragmented_signal_data": 20, "incomplete_signal_data": 25, "flawed_signal_data": 45, "chromium_transistor": 20, "aurodium_heatsink": 20, "electrium_conductor": 20, "zinbiddle_card": 20, "impulse_detector": 20, "aeromagnifier": 20},
+    "8": {"credits": 1500000, "incomplete_signal_data": 30, "flawed_signal_data": 55, "electrium_conductor": 20, "zinbiddle_card": 20, "impulse_detector": 20, "aeromagnifier": 20, "gyrda_keypad": 20, "droid_brain": 20},
+    "9": {"credits": 2000000, "incomplete_signal_data": 25, "flawed_signal_data": 45, "corrupted_signal_data": 15, "impulse_detector": 20, "aeromagnifier": 20, "gyrda_keypad": 20, "droid_brain": 20, "coaxial_servomotor": 20}
+  },
+
+  "routes": {
+    "_note": "How each material can be acquired. unit_cost = cost / qty, precomputed by action_value.py. 'crystals' routes are recorded ONLY so the model can prove they are bad — the owner never spends crystals.",
+    "impulse_detector": [
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 2, "cost": 530},
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 3, "cost": 795},
+      {"store": "Conquest Sector 4", "currency": "conquest_credit", "qty": 5, "cost": 1035},
+      {"store": "Conquest Sector 5", "currency": "conquest_credit", "qty": 10, "cost": 2070},
+      {"store": "Weekly Shipment", "currency": "crystals", "qty": 10, "cost": 1800},
+      {"store": "Scavenger", "currency": "scrap_points", "qty": 1, "cost": 110}
+    ],
+    "aeromagnifier": [
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 2, "cost": 400},
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 3, "cost": 600},
+      {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 1250}
+    ],
+    "zinbiddle_card": [
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 2, "cost": 250},
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 3, "cost": 375},
+      {"store": "Conquest Sector 3", "currency": "conquest_credit", "qty": 5, "cost": 700},
+      {"store": "Guild Events Store", "currency": "mk3_guild_event_token", "qty": 2, "cost": 850},
+      {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 700},
+      {"store": "Scavenger", "currency": "scrap_points", "qty": 1, "cost": 90}
+    ],
+    "gyrda_keypad": [
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 2, "cost": 1170},
+      {"store": "Guild Activity Store", "currency": "mk3_raid_token", "qty": 3, "cost": 1755},
+      {"store": "Guild Events Store", "currency": "mk3_guild_event_token", "qty": 1, "cost": 1200},
+      {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 1250},
+      {"store": "Scavenger", "currency": "scrap_points", "qty": 1, "cost": 130}
+    ],
+    "electrium_conductor": [
+      {"store": "Guild Store", "currency": "mk2_raid_token", "qty": 4, "cost": 300, "daily_limit": 1},
+      {"store": "Guild Store", "currency": "mk2_raid_token", "qty": 6, "cost": 450, "daily_limit": 1},
+      {"store": "Guild Events Store", "currency": "mk3_guild_event_token", "qty": 2, "cost": 720, "daily_limit": 1},
+      {"store": "Episode Shipment", "currency": "episode_currency", "qty": 4, "cost": 6000, "daily_limit": 1}
+    ],
+    "chromium_transistor": [
+      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 2, "cost": 1100}
+    ],
+    "aurodium_heatsink": [
+      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 2, "cost": 1300}
+    ],
+    "bronzium_wiring": [
+      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 2, "cost": 900}
+    ],
+    "carbonite_circuit_board": [
+      {"store": "Guild Activity Store", "currency": "mk2_raid_token", "qty": 2, "cost": 800}
+    ],
+    "droid_brain": [
+      {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 1500}
+    ],
+    "fragmented_signal_data": [
+      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 1600, "daily_limit": 1,
+       "_note": "Store/qty/cost read off the device 2026-08-20. Which of GET1/GET2/GET3 pays for it was NOT verified — watch the balance drop on the next purchase and rename the currency then."}
+    ],
+    "incomplete_signal_data": [
+      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 2000, "daily_limit": 1,
+       "_note": "Same caveat as fragmented_signal_data: tier unverified."}
+    ],
+    "flawed_signal_data": [],
+    "corrupted_signal_data": [],
+    "coaxial_servomotor": []
+  },
+
+  "event_only": {
+    "_note": "Materials with NO repeatable token route. These are hard gates: no amount of raid tickets converts into them, so the events below are mandatory rather than optional.",
+    "droid_brain": ["Assault Battles: Duel of the Fates / Peridea Patrol (5 at Tier VI)", "Era Battles: Knightfall (5 at Tier VI)", "Endor Escalation (0-2 Mythic)", "Coven of Shadows (0-5 Tier III)", "Episode Track premium (5)", "Territory War placement"],
+    "signal_data": ["FLAWED and CORRUPTED only: cantina energy, no store route found for those two", "⚠ Fragmented and Incomplete are NOT event-only — the Guild Events Store sells both (20 for 1,600 / 20 for 2,000, daily_limit 1), read off the device 2026-08-20. The previous blanket 'no store sells it' was wrong and is why routes.fragmented_signal_data was empty."]
+  },
+
+  "scavenger": {
+    "_note": "Scrap points needed per card, and the Mk 12 ArmaTek salvage that feeds it. A crafted Prototype is worth exactly 30x or 50x its salvage, i.e. the same rate — never craft just to scrap.",
+    "impulse_detector": {"points": 110, "per_salvage": 12, "gear": ["Mk 12 ArmaTek Bayonet Prototype Salvage", "Mk 12 ArmaTek Medpac Prototype Salvage", "Mk 12 ArmaTek Multi-tool Prototype Salvage"]},
+    "zinbiddle_card": {"points": 90, "per_salvage": 18, "gear": ["Mk 12 ArmaTek Thermal Detonator Prototype Salvage", "Mk 12 ArmaTek Key Pad Prototype Salvage", "Mk 12 ArmaTek Holo Lens Prototype Salvage"]},
+    "gyrda_keypad": {"points": 130, "per_salvage": 10, "gear": ["Mk 12 ArmaTek Fusion Furnace Prototype Salvage", "Mk 12 ArmaTek Data Pad Prototype Salvage", "Mk 12 ArmaTek Stun Gun Prototype Salvage"]}
+  },
+
+  "nodes": {
+    "_note": "Energy nodes that feed the R7->R9 basket. Signal data is cantina-only, which is why cantina energy is not interchangeable with the other pools despite paying the same 1 ticket.",
+    "flawed_signal_data": {"node": "Cantina 8-G", "pool": "cantina"},
+    "impulse_detector_feed": {"node": "Light Side 9-F (Normal)", "pool": "normal", "drops": "Mk 12 ArmaTek Bayonet Prototype Salvage"},
+    "gyrda_keypad_feed": {"node": "Fleet 3-E (Normal)", "pool": "ship", "drops": "Mk 12 ArmaTek Stun Gun Prototype Salvage"}
+  },
+
+  "energy": {
+    "_note": "1 ticket per 1 energy on Normal/Cantina/Mod/Ship. Conquest energy pays ZERO tickets. The 600/day cap is reachable from free energy with no crystal refresh, so energy spent beyond 600 buys materials only.",
+    "ticket_per_energy": 1,
+    "daily_ticket_cap": 600,
+    "pools_that_pay_tickets": ["normal", "cantina", "mod", "ship"],
+    "pools_that_pay_no_tickets": ["conquest"],
+    "free_daily": {"normal": 240, "cantina": 120, "mod": 240, "ship": 240, "bonus_normal": 135, "bonus_cantina": 45}
+  }
+}

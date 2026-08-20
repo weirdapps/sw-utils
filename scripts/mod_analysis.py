@@ -13,8 +13,11 @@ for line in open(os.path.join(D,"meta","mod_meta_report.txt")):
     tgt[p[0]]={"sets":p[1],"arrow":p[2]}
 cur=json.load(open(os.path.join(D,"current_mods.json")))["units"]
 res=json.load(open(os.path.join(D,"gac_result.json")))
-try: name={u["b"]:u["n"] for u in json.load(open(os.path.join(D,"roster","swgoh_roster_fresh_20260718.json")))["units"]}
-except: name={}
+try:
+    import sys; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+    import swgoh_data
+    name={u["b"]:u["n"] for u in json.load(open(swgoh_data.latest_roster_file()))["units"]}
+except Exception: name={}
 PRI=[("3v3","defense","3v3-DEF"),("3v3","offense","3v3-OFF"),("5v5","defense","5v5-DEF"),("5v5","offense","5v5-OFF")]
 rank={"3v3-DEF":0,"3v3-OFF":1,"5v5-DEF":2,"5v5-OFF":3}
 unit_team={}

@@ -1,29 +1,14 @@
 {
  "meta": {
-  "gp": 14366152,
-  "pulled": "2026-08-05",
+  "gp": 14453898,
+  "pulled": "2026-08-18",
   "season_5v5": "S80",
   "season_3v3": "S81",
   "datacron_sets": [
    {
-    "id": 30,
-    "name": "Peace & Power",
-    "days": 1,
-    "affixes": [
-     [
-      "faction",
-      "Sith"
-     ],
-     [
-      "faction",
-      "Galactic Republic"
-     ]
-    ]
-   },
-   {
     "id": 31,
     "name": "For Old Times",
-    "days": 28,
+    "expires": "2026-09-03",
     "affixes": [
      [
       "faction",
@@ -38,7 +23,7 @@
    {
     "id": 32,
     "name": "Necessary Means",
-    "days": 30,
+    "expires": "2026-10-01",
     "affixes": [
      [
       "role",
@@ -61,7 +46,7 @@
    {
     "id": 33,
     "name": "Supremacy Directive",
-    "days": 60,
+    "expires": "2026-10-29",
     "affixes": [
      [
       "faction",
@@ -89,16 +74,20 @@
      "STARKILLER",
      "VISASMARR"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 0.88,
     "lg_ratio": 1.0,
     "raw_rate": 57,
     "discount": "no-datacron baseline 43.5% vs 49.5% headline (n=17.5K); holds a Set 30 FOCUSED cron (Luminara Unduli) expiring 2026-08-06",
+    "relic_f": 1.0,
+    "ban_eff": 25.21,
+    "value": 114.92636363636365,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -106,7 +95,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.4
@@ -115,53 +104,51 @@
     "expiring": []
    },
    {
-    "rate": 42.55,
-    "seen": "8,799",
-    "seenN": 8799.0,
-    "ban": 40.33,
     "units": [
-     "QUEENAMIDALA",
-     "GRANDMASTERYODA",
-     "MACEWINDU",
-     "MASTERQUIGON",
-     "PADAWANOBIWAN"
+     "RACCOON",
+     "GAMORREANGUARD",
+     "GREEDO",
+     "CADBANE",
+     "HUMANTHUG"
     ],
+    "rate": 41.0,
+    "seen": "128",
+    "seenN": 128.0,
+    "cron": "Lj_hRktR",
+    "no_relic_penalty": true,
+    "why": "Rotta the Hutt FDC \u2014 the #1 defensive datacron in the game, 41.3% hold at Kyber Div 1 (swgoh.gg datacron tier list, S81). Astra owns the cron AT MAX (level 15/15) and all five units at G13. It already took 2 successful defends on the live S82 board.",
+    "ban": 36.3,
     "missing": [],
-    "dc_ratio": 1.15,
-    "lg_ratio": 1.0,
-    "raw_rate": 37,
-    "discount": "no-datacron baseline 30.8% vs 25.3% headline (n=41.4K)",
+    "thin": false,
+    "raw_rate": 41,
+    "discount": null,
+    "dc_ratio": null,
+    "lg_ratio": null,
+    "relic_f": 1.0,
+    "ban_eff": 36.3,
+    "value": 90.2,
     "datacron": [
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
-      "coverage": 0.6
+      "coverage": 0.4
      }
     ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
+    "expiring": []
    },
    {
-    "rate": 35.65,
+    "rate": 32.51369125,
     "seen": "13.3K",
     "seenN": 13300.0,
     "ban": 42.42,
@@ -172,16 +159,20 @@
      "CALKESTIS",
      "GENERALKENOBI"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 1.15,
     "lg_ratio": 1.0,
     "raw_rate": 31,
     "discount": "no-datacron baseline 22.4% vs 9.6% headline (n=90.1K)",
+    "relic_f": 0.912,
+    "ban_eff": 44.41,
+    "value": 69.36053687500001,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -189,7 +180,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -198,79 +189,7 @@
     "expiring": []
    },
    {
-    "rate": 27.29885057471264,
-    "seen": "120K",
-    "seenN": 120000.0,
-    "ban": 47.44,
-    "units": [
-     "LORDVADER",
-     "APPO",
-     "DISGUISEDCLONETROOPER",
-     "OPERATIVE",
-     "SCORCH"
-    ],
-    "missing": [],
-    "dc_ratio": 1.09,
-    "lg_ratio": 1.0,
-    "raw_rate": 25,
-    "discount": "no-datacron baseline 28.5% vs 26.1% headline (n=52.8K) | \u26a0 Kyber-D1 only 16.8% vs 26.1% all-league (n=6,946) \u2014 expect under the number shown",
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 22.0,
-    "seen": "5,976",
-    "seenN": 5976.0,
-    "ban": 49.09,
-    "units": [
-     "EMPERORPALPATINE",
-     "GRANDADMIRALTHRAWN",
-     "MARAJADE",
-     "ROYALGUARD",
-     "VADERDUELSEND"
-    ],
-    "missing": [],
-    "raw_rate": 22,
-    "discount": "\u26a0 Kyber-D1 only 15.7% vs 21.2% all-league (n=5,121) \u2014 expect under the number shown",
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 22.0,
+    "rate": 19.16164525,
     "seen": "5,884",
     "seenN": 5884.0,
     "ban": 49.39,
@@ -281,14 +200,18 @@
      "MARROK",
      "SHINHATI"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 22,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 51.4,
+    "value": 42.342467875,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -297,25 +220,29 @@
     "expiring": []
    },
    {
-    "rate": 20.0,
-    "seen": "13K",
-    "seenN": 13000.0,
-    "ban": 49.79,
+    "rate": 18.29937121375,
+    "seen": "5,976",
+    "seenN": 5976.0,
+    "ban": 49.09,
     "units": [
-     "SAWGERRERA",
-     "BAZEMALBUS",
-     "CHIRRUTIMWE",
-     "KYLEKATARN",
-     "LUTHENRAEL"
+     "EMPERORPALPATINE",
+     "GRANDADMIRALTHRAWN",
+     "MARAJADE",
+     "ROYALGUARD",
+     "VADERDUELSEND"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 20,
-    "discount": "\u26a0 Kyber-D1 only 8.4% vs 20% all-league (n=1,579) \u2014 expect under the number shown",
+    "raw_rate": 22,
+    "discount": "\u26a0 Kyber-D1 only 15.7% vs 21.2% all-league (n=5,121) \u2014 expect under the number shown",
+    "relic_f": 0.832,
+    "ban_eff": 51.77,
+    "value": 40.67905682062499,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -323,7 +250,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -332,7 +259,7 @@
     "expiring": []
    },
    {
-    "rate": 19.0,
+    "rate": 18.145,
     "seen": "22K",
     "seenN": 22000.0,
     "ban": 48.26,
@@ -343,14 +270,18 @@
      "JOLEEBINDO",
      "JUHANI"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 19,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 49.01,
+    "value": 43.2075,
     "datacron": [
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 28,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -358,7 +289,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -367,7 +298,79 @@
     "expiring": []
    },
    {
-    "rate": 19.0,
+    "rate": 16.0261033,
+    "seen": "14K",
+    "seenN": 14000.0,
+    "ban": 53.96,
+    "units": [
+     "QUEENAMIDALA",
+     "GRANDMASTERYODA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN",
+     "SHAAKTI"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 1.15,
+    "lg_ratio": 1.0,
+    "raw_rate": 16,
+    "discount": "no-datacron baseline 30.8% vs 25.3% headline (n=41.4K)",
+    "relic_f": 0.871,
+    "ban_eff": 55.38,
+    "value": 33.659154949999994,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.8
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 15.887181371937498,
+    "seen": "13K",
+    "seenN": 13000.0,
+    "ban": 49.79,
+    "units": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 20,
+    "discount": "\u26a0 Kyber-D1 only 8.4% vs 20% all-league (n=1,579) \u2014 expect under the number shown",
+    "relic_f": 0.794,
+    "ban_eff": 52.92,
+    "value": 35.91077205790624,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 15.092822303340622,
     "seen": "17.8K",
     "seenN": 17800.0,
     "ban": 50.54,
@@ -378,14 +381,18 @@
      "IMPERIALPROBEDROID",
      "KXSECURITYDROID"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 19,
     "discount": "contains Dedra Meero \u2014 Set 30 FOCUSED datacron expires 2026-08-06; no published baseline for this leader",
+    "relic_f": 0.794,
+    "ban_eff": 53.51,
+    "value": 34.12923345501093,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.8
@@ -394,36 +401,7 @@
     "expiring": []
    },
    {
-    "rate": 17.888297872340424,
-    "seen": "59.3K",
-    "seenN": 59300.0,
-    "ban": 51.42,
-    "units": [
-     "JABBATHEHUTT",
-     "BOUSHH",
-     "EMBO",
-     "KRRSANTAN",
-     "UNDERCOVERLANDO"
-    ],
-    "missing": [],
-    "dc_ratio": 0.94,
-    "lg_ratio": 1.0,
-    "raw_rate": 19,
-    "discount": "no-datacron baseline 17.7% vs 18.8% headline (n=29.3K) | \u26a0 Kyber-D1 only 12.7% vs 18.8% all-league (n=4,208) \u2014 expect under the number shown",
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.6
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 14.666666666666666,
+    "rate": 12.199580809166665,
     "seen": "11.9K",
     "seenN": 11900.0,
     "ban": 53.78,
@@ -434,16 +412,20 @@
      "MORGANELSBETH",
      "NIGHTTROOPER"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 1.13,
     "lg_ratio": 1.0,
     "raw_rate": 13,
     "discount": "no-datacron baseline 13.2% vs 11.7% headline (n=14.1K)",
+    "relic_f": 0.832,
+    "ban_eff": 55.67,
+    "value": 27.629371213749998,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -451,10 +433,49 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 11.51196807265,
+    "seen": "5,844",
+    "seenN": 5844.0,
+    "ban": 52.9,
+    "units": [
+     "GRIEVOUS",
+     "B1BATTLEDROIDV2",
+     "B2SUPERBATTLEDROID",
+     "MAGNAGUARD",
+     "STAP"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 16,
+    "discount": null,
+    "relic_f": 0.719,
+    "ban_eff": 56.29,
+    "value": 25.977952108975,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.6
      }
     ],
     "expiring": []
@@ -462,25 +483,29 @@
   ],
   "offense": [
    {
-    "rate": 96.0,
-    "seen": "10.5K",
-    "seenN": 10500.0,
-    "ban": 60.82,
+    "rate": 90.725,
+    "seen": "99K",
+    "seenN": 99000.0,
+    "ban": 61.04,
     "units": [
      "GLLEIA",
-     "C3POCHEWBACCA",
+     "ADMIRALRADDUS",
      "CAPTAINDROGAN",
-     "CAPTAINREX",
+     "JYNERSO",
      "R2D2_LEGENDARY"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 96,
+    "raw_rate": 95,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 58.29,
+    "value": 58.29,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -488,10 +513,77 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 86.0,
+    "seen": "17.5K",
+    "seenN": 17500.0,
+    "ban": 56.4,
+    "units": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 86,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 56.4,
+    "value": 56.4,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 0.5
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.5
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 85.95,
+    "seen": "29.1K",
+    "seenN": 29100.0,
+    "ban": 58.27,
+    "units": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA",
+     "MACEWINDU",
+     "PADMEAMIDALA"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 90,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 55.65,
+    "value": 55.65,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.6
      }
     ],
     "expiring": []
@@ -508,14 +600,18 @@
      "GENERALHUX",
      "KYLORENUNMASKED"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 90,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 55.57,
+    "value": 55.57,
     "datacron": [
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 60,
+      "days": 70,
       "kind": "faction",
       "tag": "First Order",
       "coverage": 1.0
@@ -523,7 +619,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -532,7 +628,43 @@
     "expiring": []
    },
    {
-    "rate": 90.0,
+    "rate": 82.0,
+    "seen": "62.4K",
+    "seenN": 62400.0,
+    "ban": 53.93,
+    "units": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 82,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 53.93,
+    "value": 53.93,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 1.0
+     },
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 0.5
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 78.38854875,
     "seen": "11K",
     "seenN": 11000.0,
     "ban": 57.83,
@@ -543,14 +675,18 @@
      "HUYANG",
      "PADAWANSABINE"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 90,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 50.37,
+    "value": 50.37,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -558,7 +694,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -567,237 +703,35 @@
     "expiring": []
    },
    {
-    "rate": 87.0,
-    "seen": "51K",
-    "seenN": 51000.0,
-    "ban": 55.51,
+    "rate": 77.0,
+    "seen": "12.2K",
+    "seenN": 12200.0,
+    "ban": 49.66,
     "units": [
-     "DARTHTRAYA",
-     "DARTHNIHILUS",
-     "DARTHSION",
-     "DARTHTALON",
-     "SAVAGEOPRESS"
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "EMBO",
+     "KRRSANTAN",
+     "UNDERCOVERLANDO"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 87,
+    "raw_rate": 77,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 49.66,
+    "value": 49.66,
     "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 87.0,
-    "seen": "8,405",
-    "seenN": 8405.0,
-    "ban": 53.64,
-    "units": [
-     "SITHPALPATINE",
-     "SITHTROOPER",
-     "WATTAMBOR"
-    ],
-    "missing": [],
-    "raw_rate": 87,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.67
-     },
-     {
-      "set": 31,
-      "name": "For Old Times",
-      "days": 28,
-      "kind": "faction",
-      "tag": "Separatist",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.67
-     }
-    ]
-   },
-   {
-    "rate": 86.0,
-    "seen": "58K",
-    "seenN": 58000.0,
-    "ban": 53.93,
-    "units": [
-     "DARTHMALGUS",
-     "BASTILASHANDARK",
-     "DARTHMALAK",
-     "DARTHREVAN",
-     "SITHMARAUDER"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 86.0,
-    "seen": "27.9K",
-    "seenN": 27900.0,
-    "ban": 55.88,
-    "units": [
-     "DOCTORAPHRA",
-     "B2SUPERBATTLEDROID",
-     "BT1",
-     "IG90",
-     "TRIPLEZERO"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
       "coverage": 0.6
      }
     ],
     "expiring": []
-   },
-   {
-    "rate": 86.0,
-    "seen": "25.5K",
-    "seenN": 25500.0,
-    "ban": 56.16,
-    "units": [
-     "BOSSNASS",
-     "BOOMADIER",
-     "CAPTAINTARPALS",
-     "GUNGANPHALANX",
-     "JARJARBINKS"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 83.0,
-    "seen": "5,879",
-    "seenN": 5879.0,
-    "ban": 54.57,
-    "units": [
-     "DARTHBANE",
-     "DARTHSIDIOUS"
-    ],
-    "missing": [],
-    "raw_rate": 83,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 1.0
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
    },
    {
     "rate": 81.0,
@@ -811,58 +745,18 @@
      "CT5555",
      "CT7567"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 81,
     "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 79.0,
-    "seen": "10.3K",
-    "seenN": 10300.0,
-    "ban": 50.02,
-    "units": [
-     "GRANDMASTERLUKE",
-     "HERMITYODA",
-     "JEDIKNIGHTCAL",
-     "JEDIKNIGHTLUKE",
-     "SHAAKTI"
-    ],
-    "missing": [],
-    "raw_rate": 79,
-    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 49.05,
+    "value": 49.05,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -870,7 +764,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -879,7 +773,46 @@
     "expiring": []
    },
    {
-    "rate": 76.0,
+    "rate": 74.90461325,
+    "seen": "58K",
+    "seenN": 58000.0,
+    "ban": 53.93,
+    "units": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK",
+     "DARTHREVAN",
+     "SITHMARAUDER"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 86,
+    "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 46.97,
+    "value": 46.97,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 72.58,
     "seen": "55.7K",
     "seenN": 55700.0,
     "ban": 48.35,
@@ -890,14 +823,18 @@
      "PAZVIZSLA",
      "THEMANDALORIANBESKARARMOR"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 76,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 46.17,
+    "value": 46.17,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -906,28 +843,210 @@
     "expiring": []
    },
    {
-    "rate": 67.0,
-    "seen": "7,503",
-    "seenN": 7503.0,
-    "ban": 41.62,
+    "rate": 68.31487989933125,
+    "seen": "25.5K",
+    "seenN": 25500.0,
+    "ban": 56.16,
     "units": [
-     "CEREJUNDA",
-     "FULCRUMAHSOKA",
-     "MAULS7",
-     "NINTHSISTER",
-     "TARONMALICOS"
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 67,
+    "raw_rate": 86,
     "discount": null,
+    "relic_f": 0.794,
+    "ban_eff": 44.61,
+    "value": 44.61,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.6
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 84.818325,
+    "seen": "4,609",
+    "seenN": 4609.0,
+    "ban": 60.58,
+    "units": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "thin": true,
+    "missing": [],
+    "raw_rate": 93,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 55.25,
+    "value": 55.25,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.5
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 69.10923896792812,
+    "seen": "51K",
+    "seenN": 51000.0,
+    "ban": 55.51,
+    "units": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION",
+     "DARTHTALON",
+     "SAVAGEOPRESS"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 87,
+    "discount": null,
+    "relic_f": 0.794,
+    "ban_eff": 44.09,
+    "value": 44.09,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 65.6658,
+    "seen": "20.3K",
+    "seenN": 20300.0,
+    "ban": 45.53,
+    "units": [
+     "COMMANDERLUKESKYWALKER",
+     "C3POCHEWBACCA",
+     "C3POLEGENDARY",
+     "CHEWBACCALEGENDARY",
+     "HANSOLO"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 72,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 41.52,
+    "value": 41.52,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.8
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 67.37495765062499,
+    "seen": "38.1K",
+    "seenN": 38100.0,
+    "ban": 47.86,
+    "units": [
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER",
+     "OPERATIVE",
+     "SCORCH"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 81,
+    "discount": null,
+    "relic_f": 0.832,
+    "ban_eff": 39.81,
+    "value": 39.81,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 61.02984012125,
+    "seen": "3,786",
+    "seenN": 3786.0,
+    "ban": 48.16,
+    "units": [
+     "CEREJUNDA",
+     "INQUISITORBARRISS",
+     "MAULS7",
+     "NINTHSISTER",
+     "TARONMALICOS"
+    ],
+    "thin": true,
+    "missing": [],
+    "raw_rate": 77,
+    "discount": null,
+    "relic_f": 0.793,
+    "ban_eff": 38.17,
+    "value": 38.17,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
      }
     ],
     "expiring": []
@@ -940,17 +1059,161 @@
     "units": [
      "WAMPA"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 55,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 38.09,
+    "value": 38.09,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 53.242852336006244,
+    "seen": "11.4K",
+    "seenN": 11400.0,
+    "ban": 47.9,
+    "units": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90",
+     "TRIPLEZERO",
+     "VADER"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 74,
+    "discount": null,
+    "relic_f": 0.719,
+    "ban_eff": 34.46,
+    "value": 34.46,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.6
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 52.98499755981249,
+    "seen": "3,896",
+    "seenN": 3896.0,
+    "ban": 45.29,
+    "units": [
+     "MOFFGIDEONS3",
+     "CAPTAINENOCH",
+     "DEATHTROOPER",
+     "MOFFGIDEONS1",
+     "SCOUTTROOPER_V3"
+    ],
+    "thin": true,
+    "missing": [],
+    "raw_rate": 70,
+    "discount": null,
+    "relic_f": 0.757,
+    "ban_eff": 34.28,
+    "value": 34.28,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 44.379216899062506,
+    "seen": "6,176",
+    "seenN": 6176.0,
+    "ban": 47.77,
+    "units": [
+     "HERASYNDULLAS3",
+     "CAPTAINREX",
+     "CHOPPERS3",
+     "KANANJARRUSS3",
+     "SABINEWRENS3"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 75,
+    "discount": null,
+    "relic_f": 0.592,
+    "ban_eff": 28.27,
+    "value": 28.27,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 35.52196167292501,
+    "seen": "3,013",
+    "seenN": 3013.0,
+    "ban": 39.74,
+    "units": [
+     "OMEGAS3",
+     "BATCHERS3",
+     "CROSSHAIRS3",
+     "HUNTERS3",
+     "WRECKERS3"
+    ],
+    "thin": true,
+    "missing": [],
+    "raw_rate": 63,
+    "discount": null,
+    "relic_f": 0.564,
+    "ban_eff": 22.41,
+    "value": 22.41,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
      }
     ],
     "expiring": []
@@ -959,6 +1222,20 @@
   "core_off": 11,
   "gaps": {
    "def": [
+    {
+     "rate": 39,
+     "seen": "4,022",
+     "units": [
+      "THIRDSISTER",
+      "GRANDINQUISITOR",
+      "INQUISITORBARRISS",
+      "NINTHSISTER",
+      "SEVENTHSISTER"
+     ],
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
     {
      "rate": 34,
      "seen": "16.4K",
@@ -985,6 +1262,38 @@
      ],
      "missing": [
       "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 30,
+     "seen": "2,600",
+     "units": [
+      "JANGOFETT",
+      "4LOM",
+      "ASAJJDARKDISCIPLE",
+      "GREEFKARGA",
+      "THEMANDALORIAN"
+     ],
+     "missing": [
+      "4LOM"
+     ]
+    },
+    {
+     "rate": 22,
+     "seen": "3,152",
+     "units": [
+      "GLHONDO",
+      "BRUTUS",
+      "CAPTAINSILVO",
+      "QUIGGOLD",
+      "VANE"
+     ],
+     "missing": [
+      "GLHONDO",
+      "BRUTUS",
+      "CAPTAINSILVO",
+      "QUIGGOLD",
+      "VANE"
      ]
     },
     {
@@ -1031,58 +1340,6 @@
       "CAPTAINSILVO",
       "VANE"
      ]
-    },
-    {
-     "rate": 18,
-     "seen": "5,386",
-     "units": [
-      "GLHONDO",
-      "CAPTAINSILVO",
-      "HONDO",
-      "SM33",
-      "VANE"
-     ],
-     "missing": [
-      "GLHONDO",
-      "CAPTAINSILVO",
-      "SM33",
-      "VANE"
-     ]
-    },
-    {
-     "rate": 17,
-     "seen": "82.2K",
-     "units": [
-      "GLHONDO",
-      "BRUTUS",
-      "CAPTAINSILVO",
-      "SM33",
-      "VANE"
-     ],
-     "missing": [
-      "GLHONDO",
-      "BRUTUS",
-      "CAPTAINSILVO",
-      "SM33",
-      "VANE"
-     ]
-    },
-    {
-     "rate": 15,
-     "seen": "15.3K",
-     "units": [
-      "MAZKANATA",
-      "HONDO",
-      "ITHANO",
-      "KIX",
-      "QUIGGOLD"
-     ],
-     "missing": [
-      "MAZKANATA",
-      "ITHANO",
-      "KIX",
-      "QUIGGOLD"
-     ]
     }
    ],
    "off": [
@@ -1092,6 +1349,20 @@
      "units": [
       "THIRDSISTER",
       "FIFTHBROTHER",
+      "GRANDINQUISITOR",
+      "INQUISITORBARRISS",
+      "SEVENTHSISTER"
+     ],
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 83,
+     "seen": "4,498",
+     "units": [
+      "THIRDSISTER",
+      "EIGHTHBROTHER",
       "GRANDINQUISITOR",
       "INQUISITORBARRISS",
       "SEVENTHSISTER"
@@ -1145,6 +1416,34 @@
      ]
     },
     {
+     "rate": 78,
+     "seen": "2,731",
+     "units": [
+      "JANGOFETT",
+      "4LOM",
+      "ASAJJDARKDISCIPLE",
+      "GREEFKARGA",
+      "THEMANDALORIAN"
+     ],
+     "missing": [
+      "4LOM"
+     ]
+    },
+    {
+     "rate": 78,
+     "seen": "2,348",
+     "units": [
+      "THIRDSISTER",
+      "FIFTHBROTHER",
+      "GRANDINQUISITOR",
+      "NINTHSISTER",
+      "SEVENTHSISTER"
+     ],
+     "missing": [
+      "THIRDSISTER"
+     ]
+    },
+    {
      "rate": 76,
      "seen": "8,024",
      "units": [
@@ -1157,40 +1456,7 @@
      "missing": [
       "MAZKANATA",
       "ITHANO",
-      "KIX",
       "QUIGGOLD"
-     ]
-    },
-    {
-     "rate": 75,
-     "seen": "14.1K",
-     "units": [
-      "GLHONDO",
-      "BRUTUS",
-      "CAPTAINSILVO",
-      "SM33",
-      "VANE"
-     ],
-     "missing": [
-      "GLHONDO",
-      "BRUTUS",
-      "CAPTAINSILVO",
-      "SM33",
-      "VANE"
-     ]
-    },
-    {
-     "rate": 62,
-     "seen": "8,519",
-     "units": [
-      "COBBVANTH",
-      "CHIEFNEBIT",
-      "CORUSCANTUNDERWORLDPOLICE",
-      "JAWASCAVENGER",
-      "LOBOT"
-     ],
-     "missing": [
-      "COBBVANTH"
      ]
     }
    ]
@@ -1199,68 +1465,35 @@
  "3v3": {
   "defense": [
    {
-    "rate": 24.221130221130217,
-    "seen": "70.4K",
-    "seenN": 70400.0,
-    "ban": 37.83,
+    "rate": 21.774596875,
+    "seen": "6,028",
+    "seenN": 6028.0,
+    "ban": 41.12,
     "units": [
-     "LORDVADER",
-     "APPO",
-     "OPERATIVE"
+     "MONMOTHMA",
+     "KLEYA",
+     "LUTHENRAEL"
     ],
+    "thin": false,
     "missing": [],
-    "dc_ratio": 0.78,
-    "lg_ratio": 1.0,
-    "raw_rate": 31,
-    "discount": "no-datacron baseline 31.8% vs 40.7% headline (n=34.8K)",
+    "raw_rate": 25,
+    "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 43.17,
+    "value": 46.4918953125,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Attacker",
+      "tag": "Support",
       "coverage": 0.67
      },
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 21.87457627118644,
-    "seen": "49.9K",
-    "seenN": 49900.0,
-    "ban": 40.53,
-    "units": [
-     "GLAHSOKATANO",
-     "EZRAEXILE",
-     "HUYANG"
-    ],
-    "missing": [],
-    "dc_ratio": 0.81,
-    "lg_ratio": 1.0,
-    "raw_rate": 27,
-    "discount": "no-datacron baseline 23.9% vs 29.5% headline (n=28.6K)",
-    "datacron": [
-     {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1269,58 +1502,27 @@
     "expiring": []
    },
    {
-    "rate": 21.352313167259783,
-    "seen": "11.7K",
-    "seenN": 11700.0,
-    "ban": 41.27,
-    "units": [
-     "GLLEIA",
-     "CAPTAINDROGAN",
-     "R2D2_LEGENDARY"
-    ],
-    "missing": [],
-    "dc_ratio": 0.89,
-    "lg_ratio": 1.0,
-    "raw_rate": 24,
-    "discount": "no-datacron baseline 25% vs 28.1% headline (n=3,902)",
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 0.33
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 21.0,
-    "seen": "9,918",
-    "seenN": 9918.0,
-    "ban": 42.35,
+    "rate": 20.0,
+    "seen": "14.5K",
+    "seenN": 14500.0,
+    "ban": 42.89,
     "units": [
      "SATELESHAN",
      "BASTILASHAN",
      "JEDIKNIGHTREVAN"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 21,
+    "raw_rate": 20,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 42.89,
+    "value": 44.11,
     "datacron": [
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 28,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -1328,7 +1530,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1337,100 +1539,95 @@
     "expiring": []
    },
    {
-    "rate": 19.455882352941178,
-    "seen": "73.9K",
-    "seenN": 73900.0,
-    "ban": 43.73,
+    "rate": 17.80952380952381,
+    "seen": "5,552",
+    "seenN": 5552.0,
+    "ban": 41.48,
     "units": [
-     "JABBATHEHUTT",
-     "BOUSHH",
-     "KRRSANTAN"
+     "STRANGER",
+     "MAULS7",
+     "STARKILLER"
     ],
+    "thin": false,
     "missing": [],
-    "dc_ratio": 0.93,
+    "dc_ratio": 0.74,
     "lg_ratio": 1.0,
-    "raw_rate": 21,
-    "discount": "no-datacron baseline 18.9% vs 20.4% headline (n=22.1K)",
+    "raw_rate": 24,
+    "discount": "no-datacron baseline 18.7% vs 25.2% headline (n=24.3K) | \u26a0 Kyber-D1 only 5% vs 25.2% all-league (n=3,888) \u2014 expect under the number shown",
+    "relic_f": 1.0,
+    "ban_eff": 41.48,
+    "value": 42.23428571428572,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.33
+      "coverage": 1.0
      }
     ],
     "expiring": []
    },
    {
-    "rate": 19.0,
-    "seen": "50.1K",
-    "seenN": 50100.0,
-    "ban": 44.32,
+    "rate": 14.806725875,
+    "seen": "76.1K",
+    "seenN": 76100.0,
+    "ban": 45.25,
     "units": [
      "EMPERORPALPATINE",
      "MARAJADE",
      "VADERDUELSEND"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 19,
+    "raw_rate": 17,
     "discount": "\u26a0 Kyber-D1 only 14.1% vs 19.8% all-league (n=5,300) \u2014 expect under the number shown",
+    "relic_f": 0.871,
+    "ban_eff": 46.77,
+    "value": 32.440088812499994,
     "datacron": [
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
       "coverage": 0.67
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "tag": "Support",
+      "coverage": 0.33
      }
     ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.67
-     }
-    ]
+    "expiring": []
    },
    {
-    "rate": 17.0,
-    "seen": "22.7K",
-    "seenN": 22700.0,
-    "ban": 46.43,
+    "rate": 13.064758124999999,
+    "seen": "34.4K",
+    "seenN": 34400.0,
+    "ban": 47.15,
     "units": [
      "STORMTROOPERLUKE",
      "PRINCESSLEIA",
      "STORMTROOPERHAN"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 17,
+    "raw_rate": 15,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 48.42,
+    "value": 28.177137187499998,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -1438,7 +1635,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1447,91 +1644,27 @@
     "expiring": []
    },
    {
-    "rate": 16.0,
-    "seen": "21.2K",
-    "seenN": 21200.0,
-    "ban": 46.83,
-    "units": [
-     "MAJORPARTAGAZ",
-     "DEDRAMEERO",
-     "KXSECURITYDROID"
-    ],
-    "missing": [],
-    "raw_rate": 16,
-    "discount": "contains Dedra Meero \u2014 Set 30 FOCUSED datacron expires 2026-08-06; no published baseline for this leader | \u26a0 Kyber-D1 only 10.9% vs 16% all-league (n=2,796) \u2014 expect under the number shown",
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 13.941176470588237,
-    "seen": "12.3K",
-    "seenN": 12300.0,
-    "ban": 44.32,
-    "units": [
-     "GREATMOTHERS",
-     "MORGANELSBETH",
-     "NIGHTSISTERSPIRIT"
-    ],
-    "missing": [],
-    "dc_ratio": 0.77,
-    "lg_ratio": 1.0,
-    "raw_rate": 18,
-    "discount": "no-datacron baseline 15.8% vs 20.4% headline (n=6,298)",
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 13.0,
-    "seen": "10.8K",
-    "seenN": 10800.0,
-    "ban": 48.09,
+    "rate": 13.064758124999999,
+    "seen": "19K",
+    "seenN": 19000.0,
+    "ban": 47.18,
     "units": [
      "BOSSNASS",
      "CAPTAINTARPALS",
      "JARJARBINKS"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 13,
+    "raw_rate": 15,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 48.45,
+    "value": 28.147137187499997,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -1539,7 +1672,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -1548,189 +1681,343 @@
     "expiring": []
    },
    {
-    "rate": 12.0,
-    "seen": "5,393",
-    "seenN": 5393.0,
-    "ban": 49.09,
+    "rate": 12.714701470588237,
+    "seen": "18.4K",
+    "seenN": 18400.0,
+    "ban": 44.44,
+    "units": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.77,
+    "lg_ratio": 1.0,
+    "raw_rate": 18,
+    "discount": "no-datacron baseline 15.8% vs 20.4% headline (n=6,298)",
+    "relic_f": 0.912,
+    "ban_eff": 45.54,
+    "value": 30.532052205882355,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 12.193774249999999,
+    "seen": "32.3K",
+    "seenN": 32299.999999999996,
+    "ban": 47.45,
+    "units": [
+     "MAJORPARTAGAZ",
+     "DEDRAMEERO",
+     "KXSECURITYDROID"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 14,
+    "discount": "contains Dedra Meero \u2014 Set 30 FOCUSED datacron expires 2026-08-06; no published baseline for this leader | \u26a0 Kyber-D1 only 10.9% vs 16% all-league (n=2,796) \u2014 expect under the number shown",
+    "relic_f": 0.871,
+    "ban_eff": 48.68,
+    "value": 26.610661375,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 11.681386363636364,
+    "seen": "13.7K",
+    "seenN": 13700.0,
+    "ban": 47.53,
+    "units": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.9,
+    "lg_ratio": 1.0,
+    "raw_rate": 15,
+    "discount": "no-datacron baseline 13.8% vs 15.4% headline (n=4,198); holds a Set 30 FOCUSED cron (Darth Revan) expiring 2026-08-06",
+    "relic_f": 0.869,
+    "ban_eff": 48.77,
+    "value": 25.752079545454542,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Old Republic",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.67
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 10.137384935165974,
+    "seen": "6,068",
+    "seenN": 6068.0,
+    "ban": 45.75,
+    "units": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.68,
+    "lg_ratio": 1.0,
+    "raw_rate": 17,
+    "discount": "no-datacron baseline 16.5% vs 24.1% headline (n=1,552)",
+    "relic_f": 0.871,
+    "ban_eff": 47.2,
+    "value": 25.006077402748957,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 9.514078977272726,
+    "seen": "72.1K",
+    "seenN": 72100.0,
+    "ban": 45.74,
+    "units": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.61,
+    "lg_ratio": 1.0,
+    "raw_rate": 17,
+    "discount": "no-datacron baseline 21.6% vs 35.2% headline (n=20.6K)",
+    "relic_f": 0.912,
+    "ban_eff": 46.73,
+    "value": 24.541118465909094,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 9.086825,
+    "seen": "8,212",
+    "seenN": 8212.0,
+    "ban": 49.69,
     "units": [
      "TARFFUL",
      "CLONEWARSCHEWBACCA",
      "YODACHEWBACCA"
     ],
-    "missing": [],
-    "raw_rate": 12,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 0.67
-     }
-    ]
-   },
-   {
-    "rate": 11.0,
-    "seen": "16K",
-    "seenN": 16000.0,
-    "ban": 49.01,
-    "units": [
-     "QUIGONJINN",
-     "ANAKINKNIGHT",
-     "KIADIMUNDI"
-    ],
+    "thin": false,
     "missing": [],
     "raw_rate": 11,
     "discount": null,
+    "relic_f": 0.826,
+    "ban_eff": 50.96,
+    "value": 19.6702375,
     "datacron": [
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "tag": "Tank",
+      "coverage": 0.33
      }
     ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
+    "expiring": []
    },
    {
-    "rate": 9.6,
-    "seen": "34.9K",
-    "seenN": 34900.0,
-    "ban": 36.35,
+    "rate": 9.0,
+    "seen": "53.2K",
+    "seenN": 53200.0,
+    "ban": 36.91,
     "units": [
      "GLREY",
      "BENSOLO",
      "LUMINARAUNDULI"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 0.68,
     "lg_ratio": 0.31,
-    "raw_rate": 32,
+    "raw_rate": 30,
     "discount": "no-datacron baseline 22.7% vs 33.2% headline (n=28.8K); holds a Set 30 FOCUSED cron (Luminara Unduli) expiring 2026-08-06 | Kyber-D1 10.3% vs 33.2% all-league (n=5,222) \u2014 and the build's Luminara Unduli carries a Set 30 FOCUSED datacron expiring 2026-08-06. Two independent reasons this wall does not hold at Astra's level.",
+    "relic_f": 1.0,
+    "ban_eff": 36.91,
+    "value": 33.59,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
      },
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Healer",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 8.70983875,
+    "seen": "6,274",
+    "seenN": 6274.0,
+    "ban": 50.17,
+    "units": [
+     "50RT",
+     "BB8",
+     "L3_37"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 10,
+    "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 51.05,
+    "value": 19.014758125,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
       "kind": "faction",
-      "tag": "Galactic Republic",
+      "tag": "Old Republic",
       "coverage": 0.33
      }
     ],
     "expiring": []
    },
    {
-    "rate": 9.45,
-    "seen": "23.9K",
-    "seenN": 23900.0,
-    "ban": 40.8,
+    "rate": 8.2994275,
+    "seen": "9,237",
+    "seenN": 9237.0,
+    "ban": 49.81,
     "units": [
-     "CASSIANUNDERCOVER",
-     "KLEYA",
-     "LUTHENRAEL"
+     "QUIGONJINN",
+     "ANAKINKNIGHT",
+     "MACEWINDU"
     ],
+    "thin": false,
     "missing": [],
-    "dc_ratio": 0.35,
-    "lg_ratio": 1.0,
-    "raw_rate": 27,
-    "discount": "no-datacron baseline 7.8% vs 28.9% headline (n=1,043); holds a Set 30 FOCUSED cron (Cassian Andor (Undercover)) expiring 2026-08-06 | \u26a0 Kyber-D1 only 15.9% vs 28.9% all-league (n=3,642) \u2014 expect under the number shown",
+    "raw_rate": 10,
+    "discount": null,
+    "relic_f": 0.83,
+    "ban_eff": 51.03,
+    "value": 18.41914125,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
+      "tag": "Tank",
       "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 8.59375,
-    "seen": "18.8K",
-    "seenN": 18800.0,
-    "ban": 49.52,
-    "units": [
-     "TUSKENCHIEFTAIN",
-     "TUSKENHUNTRESS",
-     "TUSKENRAIDER"
-    ],
-    "missing": [],
-    "dc_ratio": 0.78,
-    "lg_ratio": 1.0,
-    "raw_rate": 11,
-    "discount": "no-datacron baseline 10% vs 12.8% headline (n=5,835)",
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.33
      }
     ],
@@ -1740,189 +2027,119 @@
   "offense": [
    {
     "rate": 97.0,
-    "seen": "9,548",
-    "seenN": 9548.0,
-    "ban": 56.68,
+    "seen": "14.9K",
+    "seenN": 14900.0,
+    "ban": 56.53,
     "units": [
      "SITHPALPATINE"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 97,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 56.53,
+    "value": 56.53,
     "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 95.0,
-    "seen": "23.3K",
-    "seenN": 23300.0,
-    "ban": 53.87,
-    "units": [
-     "JEDIMASTERKENOBI",
-     "COMMANDERAHSOKA",
-     "MACEWINDU"
-    ],
-    "missing": [],
-    "raw_rate": 95,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 95.0,
-    "seen": "17K",
-    "seenN": 17000.0,
-    "ban": 51.95,
-    "units": [
-     "DARTHMALGUS",
-     "BASTILASHANDARK",
-     "DARTHMALAK"
-    ],
-    "missing": [],
-    "raw_rate": 95,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.67
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 92.0,
-    "seen": "42K",
-    "seenN": 42000.0,
-    "ban": 50.18,
-    "units": [
-     "SUPREMELEADERKYLOREN",
-     "DARKREY",
-     "GENERALHUX"
-    ],
-    "missing": [],
-    "raw_rate": 92,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 33,
-      "name": "Supremacy Directive",
-      "days": 60,
-      "kind": "faction",
-      "tag": "First Order",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
      }
     ],
     "expiring": []
    },
    {
-    "rate": 92.0,
-    "seen": "33.4K",
-    "seenN": 33400.0,
-    "ban": 50.55,
+    "rate": 97.0,
+    "seen": "5,308",
+    "seenN": 5308.0,
+    "ban": 56.41,
     "units": [
-     "STRANGER",
-     "MAULHATEFUELED",
-     "STARKILLER"
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 92,
+    "raw_rate": 97,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 56.41,
+    "value": 56.41,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 91.67999999999999,
+    "seen": "6,252",
+    "seenN": 6252.0,
+    "ban": 54.75,
+    "units": [
+     "DARTHMALGUS",
+     "DARTHMALAK"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 96,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 52.29,
+    "value": 52.29,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 88.815,
+    "seen": "5,997",
+    "seenN": 5997.0,
+    "ban": 52.94,
+    "units": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 93,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 50.56,
+    "value": 50.56,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
      },
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
       "coverage": 0.33
      }
     ],
@@ -1930,22 +2147,26 @@
    },
    {
     "rate": 91.0,
-    "seen": "29.1K",
-    "seenN": 29100.0,
-    "ban": 50.16,
+    "seen": "43.1K",
+    "seenN": 43100.0,
+    "ban": 50.23,
     "units": [
      "MANDALORBOKATAN",
      "IG12",
      "PAZVIZSLA"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 91,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 50.23,
+    "value": 50.23,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.33
@@ -1953,106 +2174,146 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 92.0,
+    "seen": "64K",
+    "seenN": 64000.0,
+    "ban": 50.09,
+    "units": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 92,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 50.09,
+    "value": 50.09,
+    "datacron": [
+     {
+      "set": 33,
+      "name": "Supremacy Directive",
+      "days": 70,
+      "kind": "faction",
+      "tag": "First Order",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.67
      }
     ],
     "expiring": []
    },
    {
     "rate": 89.0,
-    "seen": "13.3K",
-    "seenN": 13300.0,
-    "ban": 49.43,
+    "seen": "61.2K",
+    "seenN": 61200.0,
+    "ban": 49.17,
     "units": [
      "DARTHBANE",
-     "SITHASSASSIN"
+     "COUNTDOOKU"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 89,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 49.17,
+    "value": 49.17,
     "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 1.0
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 88.0,
-    "seen": "11.9K",
-    "seenN": 11900.0,
-    "ban": 46.69,
-    "units": [
-     "DARTHREVAN",
-     "MISSIONVAO",
-     "ZAALBAR"
-    ],
-    "missing": [],
-    "raw_rate": 88,
-    "discount": null,
-    "datacron": [
+     },
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 28,
+      "days": 14,
       "kind": "faction",
-      "tag": "Old Republic",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "tag": "Separatist",
+      "coverage": 0.5
      }
     ],
     "expiring": []
    },
    {
-    "rate": 88.0,
-    "seen": "8,661",
-    "seenN": 8661.0,
-    "ban": 49.66,
+    "rate": 86.0,
+    "seen": "32.5K",
+    "seenN": 32500.0,
+    "ban": 48.68,
+    "units": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 86,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 48.68,
+    "value": 48.68,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 84.99499999999999,
+    "seen": "12.7K",
+    "seenN": 12700.0,
+    "ban": 49.85,
     "units": [
      "GRANDMASTERLUKE",
      "HERMITYODA",
      "JEDIKNIGHTLUKE"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 88,
+    "raw_rate": 89,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 47.61,
+    "value": 47.61,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2060,7 +2321,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2069,248 +2330,64 @@
     "expiring": []
    },
    {
-    "rate": 88.0,
-    "seen": "5,759",
-    "seenN": 5759.0,
-    "ban": 49.96,
+    "rate": 84.818325,
+    "seen": "31.8K",
+    "seenN": 31800.0,
+    "ban": 50.12,
     "units": [
-     "MOFFGIDEONS3",
-     "MOFFGIDEONS1",
-     "SCOUTTROOPER_V3"
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 88,
+    "raw_rate": 93,
     "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 45.71,
+    "value": 45.71,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 87.0,
-    "seen": "52.4K",
-    "seenN": 52400.0,
-    "ban": 49.23,
-    "units": [
-     "DARTHTRAYA",
-     "DARTHNIHILUS",
-     "SAVAGEOPRESS"
-    ],
-    "missing": [],
-    "raw_rate": 87,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 86.0,
-    "seen": "17K",
-    "seenN": 17000.0,
-    "ban": 47.25,
-    "units": [
-     "UGNAUGHT",
-     "EZRABRIDGERS3",
-     "HONDO"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 85.0,
-    "seen": "51.6K",
-    "seenN": 51600.0,
-    "ban": 47.77,
-    "units": [
-     "QUEENAMIDALA",
-     "MASTERQUIGON",
-     "PADAWANOBIWAN"
-    ],
-    "missing": [],
-    "raw_rate": 85,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
+      "coverage": 0.67
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
-      "coverage": 0.67
+      "coverage": 0.33
      }
     ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
+    "expiring": []
    },
    {
     "rate": 84.0,
-    "seen": "29K",
-    "seenN": 29000.0,
-    "ban": 45.64,
+    "seen": "42.4K",
+    "seenN": 42400.0,
+    "ban": 45.7,
     "units": [
      "GENERALSKYWALKER",
      "CT5555",
      "CT7567"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 84,
     "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 83.0,
-    "seen": "49K",
-    "seenN": 49000.0,
-    "ban": 45.98,
-    "units": [
-     "CEREJUNDA",
-     "MAULS7",
-     "TARONMALICOS"
-    ],
-    "missing": [],
-    "raw_rate": 83,
-    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 45.7,
+    "value": 45.7,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 82.0,
-    "seen": "44K",
-    "seenN": 44000.0,
-    "ban": 45.96,
-    "units": [
-     "BAYLANSKOLL",
-     "MARROK",
-     "SHINHATI"
-    ],
-    "missing": [],
-    "raw_rate": 82,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2318,40 +2395,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 82.0,
-    "seen": "17.9K",
-    "seenN": 17900.0,
-    "ban": 46.53,
-    "units": [
-     "ADMIRALRADDUS",
-     "CASSIANANDOR",
-     "JYNERSO"
-    ],
-    "missing": [],
-    "raw_rate": 82,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2361,55 +2405,100 @@
    },
    {
     "rate": 80.0,
-    "seen": "6,471",
-    "seenN": 6471.0,
-    "ban": 43.17,
+    "seen": "135K",
+    "seenN": 135000.0,
+    "ban": 45.02,
     "units": [
-     "CAPTAINENOCH",
-     "DEATHTROOPERPERIDEA",
-     "NIGHTTROOPER"
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 80,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 45.02,
+    "value": 45.02,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "tag": "Tank",
+      "coverage": 0.33
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.33
      }
     ],
     "expiring": []
    },
    {
-    "rate": 78.0,
-    "seen": "5,796",
-    "seenN": 5796.0,
-    "ban": 44.19,
+    "rate": 79.265,
+    "seen": "65.8K",
+    "seenN": 65800.0,
+    "ban": 47.0,
     "units": [
-     "GRANDMOFFTARKIN",
-     "DISGUISEDCLONETROOPER",
-     "SCORCH"
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 78,
+    "raw_rate": 83,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 44.88,
+    "value": 44.88,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 78.31,
+    "seen": "26.8K",
+    "seenN": 26800.0,
+    "ban": 46.67,
+    "units": [
+     "ADMIRALRADDUS",
+     "CASSIANANDOR",
+     "JYNERSO"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 82,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 44.57,
+    "value": 44.57,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2417,7 +2506,44 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 73.86490475,
+    "seen": "8,414",
+    "seenN": 8414.0,
+    "ban": 50.39,
+    "units": [
+     "MOFFGIDEONS3",
+     "MOFFGIDEONS1",
+     "SCOUTTROOPER_V3"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 89,
+    "discount": null,
+    "relic_f": 0.83,
+    "ban_eff": 41.82,
+    "value": 41.82,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.33
@@ -2426,23 +2552,27 @@
     "expiring": []
    },
    {
-    "rate": 76.0,
-    "seen": "16.3K",
-    "seenN": 16300.0,
-    "ban": 42.72,
+    "rate": 83.0,
+    "seen": "2,864",
+    "seenN": 2864.0,
+    "ban": 45.64,
     "units": [
-     "DOCTORAPHRA",
-     "BT1",
-     "IG90"
+     "PADMEAMIDALA",
+     "AHSOKATANO",
+     "GRANDMASTERYODA"
     ],
+    "thin": true,
     "missing": [],
-    "raw_rate": 76,
+    "raw_rate": 83,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 45.64,
+    "value": 45.64,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.67
@@ -2450,7 +2580,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.33
@@ -2459,33 +2589,350 @@
     "expiring": []
    },
    {
-    "rate": 76.0,
-    "seen": "6,007",
-    "seenN": 6007.0,
-    "ban": 42.59,
+    "rate": 73.535,
+    "seen": "8,094",
+    "seenN": 8094.0,
+    "ban": 43.0,
     "units": [
      "COMMANDERLUKESKYWALKER",
      "C3POCHEWBACCA",
      "C3POLEGENDARY"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 76,
+    "raw_rate": 77,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 41.06,
+    "value": 41.06,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.67
      },
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 71.13795,
+    "seen": "3,728",
+    "seenN": 3728.0,
+    "ban": 44.49,
+    "units": [
+     "BOSSK",
+     "GREEFKARGA",
+     "THEMANDALORIAN"
+    ],
+    "thin": true,
+    "missing": [],
+    "raw_rate": 78,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 40.58,
+    "value": 40.58,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 71.13795,
+    "seen": "8,280",
+    "seenN": 8280.0,
+    "ban": 44.41,
+    "units": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 78,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 40.5,
+    "value": 40.5,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 73.520675,
+    "seen": "30.6K",
+    "seenN": 30600.0,
+    "ban": 48.62,
+    "units": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 89,
+    "discount": null,
+    "relic_f": 0.826,
+    "ban_eff": 40.16,
+    "value": 40.16,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 66.0,
+    "seen": "11.8K",
+    "seenN": 11800.0,
+    "ban": 39.46,
+    "units": [
+     "RACCOON"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 66,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 39.46,
+    "value": 39.46,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 70.225925,
+    "seen": "5,079",
+    "seenN": 5079.0,
+    "ban": 43.09,
+    "units": [
+     "CEREJUNDA",
+     "FULCRUMAHSOKA",
+     "TARONMALICOS"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 77,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 39.3,
+    "value": 39.3,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 71.42067775,
+    "seen": "9,738",
+    "seenN": 9738.0,
+    "ban": 43.79,
+    "units": [
+     "CAPTAINENOCH",
+     "DEATHTROOPERPERIDEA",
+     "NIGHTTROOPER"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 82,
+    "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 38.14,
+    "value": 38.14,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 67.48985,
+    "seen": "11.6K",
+    "seenN": 11600.0,
+    "ban": 41.78,
+    "units": [
+     "DASHRENDAR",
+     "CHEWBACCALEGENDARY",
+     "HANSOLO"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 74,
+    "discount": null,
+    "relic_f": 0.912,
+    "ban_eff": 38.1,
+    "value": 38.1,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.33
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 62.0,
+    "seen": "27.5K",
+    "seenN": 27500.0,
+    "ban": 36.52,
+    "units": [
+     "WAMPA"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 62,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 36.52,
+    "value": 36.52,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 61.53432675,
+    "seen": "24.4K",
+    "seenN": 24400.0,
+    "ban": 43.84,
+    "units": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 78,
+    "discount": null,
+    "relic_f": 0.789,
+    "ban_eff": 34.59,
+    "value": 34.59,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.67
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
       "coverage": 0.33
      }
     ],
@@ -2496,8 +2943,8 @@
   "gaps": {
    "def": [
     {
-     "rate": 31,
-     "seen": "7,837",
+     "rate": 25,
+     "seen": "13.4K",
      "units": [
       "JANGOFETT",
       "4LOM",
@@ -2508,8 +2955,8 @@
      ]
     },
     {
-     "rate": 17,
-     "seen": "9,524",
+     "rate": 16,
+     "seen": "13.2K",
      "units": [
       "GLHONDO",
       "HONDO",
@@ -2522,7 +2969,7 @@
     },
     {
      "rate": 16,
-     "seen": "7,524",
+     "seen": "11.1K",
      "units": [
       "KELLERANBEQ",
       "JOCASTANU",
@@ -2534,7 +2981,19 @@
     },
     {
      "rate": 13,
-     "seen": "45.8K",
+     "seen": "3,735",
+     "units": [
+      "COBBVANTH",
+      "CHIEFNEBIT",
+      "CORUSCANTUNDERWORLDPOLICE"
+     ],
+     "missing": [
+      "COBBVANTH"
+     ]
+    },
+    {
+     "rate": 12,
+     "seen": "70.1K",
      "units": [
       "JEDIMASTERMACEWINDU",
       "DEPABILLABA",
@@ -2545,8 +3004,21 @@
      ]
     },
     {
-     "rate": 13,
-     "seen": "8,424",
+     "rate": 12,
+     "seen": "5,712",
+     "units": [
+      "MAZKANATA",
+      "KIX",
+      "QUIGGOLD"
+     ],
+     "missing": [
+      "MAZKANATA",
+      "QUIGGOLD"
+     ]
+    },
+    {
+     "rate": 11,
+     "seen": "13.3K",
      "units": [
       "COBBVANTH",
       "CORUSCANTUNDERWORLDPOLICE",
@@ -2558,49 +3030,36 @@
     },
     {
      "rate": 11,
-     "seen": "26.5K",
+     "seen": "4,671",
      "units": [
-      "THIRDSISTER",
-      "GRANDINQUISITOR",
-      "SEVENTHSISTER"
+      "MAZKANATA",
+      "QUIGGOLD",
+      "SM33"
      ],
      "missing": [
-      "THIRDSISTER"
-     ]
-    },
-    {
-     "rate": 9,
-     "seen": "12.5K",
-     "units": [
-      "GLHONDO",
-      "SM33",
-      "VANE"
-     ],
-     "missing": [
-      "GLHONDO",
-      "SM33",
-      "VANE"
-     ]
-    },
-    {
-     "rate": 9,
-     "seen": "7,853",
-     "units": [
-      "GLHONDO",
-      "BRUTUS",
-      "VANE"
-     ],
-     "missing": [
-      "GLHONDO",
-      "BRUTUS",
-      "VANE"
+      "MAZKANATA",
+      "QUIGGOLD",
+      "SM33"
      ]
     }
    ],
    "off": [
     {
-     "rate": 79,
-     "seen": "36.4K",
+     "rate": 82,
+     "seen": "6,310",
+     "units": [
+      "MAZKANATA",
+      "KIX",
+      "QUIGGOLD"
+     ],
+     "missing": [
+      "MAZKANATA",
+      "QUIGGOLD"
+     ]
+    },
+    {
+     "rate": 81,
+     "seen": "53.4K",
      "units": [
       "THIRDSISTER",
       "GRANDINQUISITOR",
@@ -2611,8 +3070,47 @@
      ]
     },
     {
+     "rate": 81,
+     "seen": "2,774",
+     "units": [
+      "JANGOFETT",
+      "4LOM",
+      "ASAJJDARKDISCIPLE"
+     ],
+     "missing": [
+      "4LOM"
+     ]
+    },
+    {
+     "rate": 79,
+     "seen": "2,901",
+     "units": [
+      "GLHONDO",
+      "BRUTUS",
+      "VANE"
+     ],
+     "missing": [
+      "GLHONDO",
+      "BRUTUS",
+      "VANE"
+     ]
+    },
+    {
+     "rate": 79,
+     "seen": "2,879",
+     "units": [
+      "MAZKANATA",
+      "KIX",
+      "SM33"
+     ],
+     "missing": [
+      "MAZKANATA",
+      "SM33"
+     ]
+    },
+    {
      "rate": 78,
-     "seen": "5,914",
+     "seen": "8,721",
      "units": [
       "JEDIMASTERMACEWINDU",
       "DEPABILLABA",
@@ -2623,15 +3121,28 @@
      ]
     },
     {
-     "rate": 66,
-     "seen": "13.6K",
+     "rate": 78,
+     "seen": "7,662",
      "units": [
-      "COBBVANTH",
-      "CORUSCANTUNDERWORLDPOLICE",
-      "LOBOT"
+      "THIRDSISTER",
+      "GRANDINQUISITOR",
+      "INQUISITORBARRISS"
      ],
      "missing": [
-      "COBBVANTH"
+      "THIRDSISTER"
+     ]
+    },
+    {
+     "rate": 77,
+     "seen": "3,692",
+     "units": [
+      "MAZKANATA",
+      "ITHANO",
+      "KIX"
+     ],
+     "missing": [
+      "MAZKANATA",
+      "ITHANO"
      ]
     }
    ]
@@ -2640,53 +3151,51 @@
  "tw": {
   "defense": [
    {
-    "rate": 42.55,
-    "seen": "8,799",
-    "seenN": 8799.0,
-    "ban": 40.33,
     "units": [
-     "QUEENAMIDALA",
-     "GRANDMASTERYODA",
-     "MACEWINDU",
-     "MASTERQUIGON",
-     "PADAWANOBIWAN"
+     "RACCOON",
+     "GAMORREANGUARD",
+     "GREEDO",
+     "CADBANE",
+     "HUMANTHUG"
     ],
+    "rate": 41.0,
+    "seen": "128",
+    "seenN": 128.0,
+    "cron": "Lj_hRktR",
+    "no_relic_penalty": true,
+    "why": "Rotta the Hutt FDC \u2014 the #1 defensive datacron in the game, 41.3% hold at Kyber Div 1 (swgoh.gg datacron tier list, S81). Astra owns the cron AT MAX (level 15/15) and all five units at G13. It already took 2 successful defends on the live S82 board.",
+    "ban": 36.3,
     "missing": [],
-    "dc_ratio": 1.15,
-    "lg_ratio": 1.0,
-    "raw_rate": 37,
-    "discount": "no-datacron baseline 30.8% vs 25.3% headline (n=41.4K)",
+    "thin": false,
+    "raw_rate": 41,
+    "discount": null,
+    "dc_ratio": null,
+    "lg_ratio": null,
+    "relic_f": 1.0,
+    "ban_eff": 36.3,
+    "value": 90.2,
     "datacron": [
      {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
-      "coverage": 0.6
+      "coverage": 0.4
      }
     ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
+    "expiring": []
    },
    {
-    "rate": 42.18181818181818,
+    "rate": 40.28363636363636,
     "seen": "40.5K",
     "seenN": 40500.0,
     "ban": 32.7,
@@ -2697,16 +3206,20 @@
      "STARKILLER",
      "VISASMARR"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 0.88,
     "lg_ratio": 1.0,
     "raw_rate": 48,
     "discount": "no-datacron baseline 43.5% vs 49.5% headline (n=17.5K)",
+    "relic_f": 0.955,
+    "ban_eff": 34.15,
+    "value": 91.27545454545455,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -2714,7 +3227,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Healer",
       "coverage": 0.4
@@ -2723,7 +3236,7 @@
     "expiring": []
    },
    {
-    "rate": 35.65,
+    "rate": 32.51369125,
     "seen": "13.3K",
     "seenN": 13300.0,
     "ban": 42.42,
@@ -2734,16 +3247,20 @@
      "CALKESTIS",
      "GENERALKENOBI"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 1.15,
     "lg_ratio": 1.0,
     "raw_rate": 31,
     "discount": "no-datacron baseline 22.4% vs 9.6% headline (n=90.1K)",
+    "relic_f": 0.912,
+    "ban_eff": 44.41,
+    "value": 69.36053687500001,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -2751,7 +3268,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -2760,79 +3277,40 @@
     "expiring": []
    },
    {
-    "rate": 27.29885057471264,
-    "seen": "120K",
-    "seenN": 120000.0,
-    "ban": 47.44,
+    "rate": 24.0892365228125,
+    "seen": "8,799",
+    "seenN": 8799.0,
+    "ban": 40.33,
     "units": [
-     "LORDVADER",
-     "APPO",
-     "DISGUISEDCLONETROOPER",
-     "OPERATIVE",
-     "SCORCH"
+     "QUEENAMIDALA",
+     "GRANDMASTERYODA",
+     "MACEWINDU",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
     ],
+    "thin": false,
     "missing": [],
-    "dc_ratio": 1.09,
+    "dc_ratio": 1.15,
     "lg_ratio": 1.0,
-    "raw_rate": 25,
-    "discount": "no-datacron baseline 28.5% vs 26.1% headline (n=52.8K) | \u26a0 Kyber-D1 only 16.8% vs 26.1% all-league (n=6,946) \u2014 expect under the number shown",
+    "raw_rate": 37,
+    "discount": "no-datacron baseline 30.8% vs 25.3% headline (n=41.4K)",
+    "relic_f": 0.871,
+    "ban_eff": 43.51,
+    "value": 57.62385478421875,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
-      "coverage": 0.4
+      "coverage": 0.6
      }
     ],
     "expiring": []
    },
    {
-    "rate": 22.0,
-    "seen": "5,976",
-    "seenN": 5976.0,
-    "ban": 49.09,
-    "units": [
-     "EMPERORPALPATINE",
-     "GRANDADMIRALTHRAWN",
-     "MARAJADE",
-     "ROYALGUARD",
-     "VADERDUELSEND"
-    ],
-    "missing": [],
-    "raw_rate": 22,
-    "discount": "\u26a0 Kyber-D1 only 15.7% vs 21.2% all-league (n=5,121) \u2014 expect under the number shown",
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 22.0,
+    "rate": 19.16164525,
     "seen": "5,884",
     "seenN": 5884.0,
     "ban": 49.39,
@@ -2843,14 +3321,18 @@
      "MARROK",
      "SHINHATI"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 22,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 51.4,
+    "value": 42.342467875,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.6
@@ -2859,25 +3341,29 @@
     "expiring": []
    },
    {
-    "rate": 20.0,
-    "seen": "13K",
-    "seenN": 13000.0,
-    "ban": 49.79,
+    "rate": 18.29937121375,
+    "seen": "5,976",
+    "seenN": 5976.0,
+    "ban": 49.09,
     "units": [
-     "SAWGERRERA",
-     "BAZEMALBUS",
-     "CHIRRUTIMWE",
-     "KYLEKATARN",
-     "LUTHENRAEL"
+     "EMPERORPALPATINE",
+     "GRANDADMIRALTHRAWN",
+     "MARAJADE",
+     "ROYALGUARD",
+     "VADERDUELSEND"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 20,
-    "discount": "\u26a0 Kyber-D1 only 8.4% vs 20% all-league (n=1,579) \u2014 expect under the number shown",
+    "raw_rate": 22,
+    "discount": "\u26a0 Kyber-D1 only 15.7% vs 21.2% all-league (n=5,121) \u2014 expect under the number shown",
+    "relic_f": 0.832,
+    "ban_eff": 51.77,
+    "value": 40.67905682062499,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -2885,7 +3371,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -2894,7 +3380,7 @@
     "expiring": []
    },
    {
-    "rate": 19.0,
+    "rate": 18.145,
     "seen": "22K",
     "seenN": 22000.0,
     "ban": 48.26,
@@ -2905,14 +3391,18 @@
      "JOLEEBINDO",
      "JUHANI"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 19,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 49.01,
+    "value": 43.2075,
     "datacron": [
      {
       "set": 31,
       "name": "For Old Times",
-      "days": 28,
+      "days": 14,
       "kind": "faction",
       "tag": "Old Republic",
       "coverage": 1.0
@@ -2920,7 +3410,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Tank",
       "coverage": 0.4
@@ -2929,7 +3419,46 @@
     "expiring": []
    },
    {
-    "rate": 19.0,
+    "rate": 15.887181371937498,
+    "seen": "13K",
+    "seenN": 13000.0,
+    "ban": 49.79,
+    "units": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 20,
+    "discount": "\u26a0 Kyber-D1 only 8.4% vs 20% all-league (n=1,579) \u2014 expect under the number shown",
+    "relic_f": 0.794,
+    "ban_eff": 52.92,
+    "value": 35.91077205790624,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 15.092822303340622,
     "seen": "17.8K",
     "seenN": 17800.0,
     "ban": 50.54,
@@ -2940,14 +3469,18 @@
      "IMPERIALPROBEDROID",
      "KXSECURITYDROID"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 19,
     "discount": "contains Dedra Meero \u2014 Set 30 FOCUSED datacron expires 2026-08-06; no published baseline for this leader",
+    "relic_f": 0.794,
+    "ban_eff": 53.51,
+    "value": 34.12923345501093,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.8
@@ -2956,7 +3489,7 @@
     "expiring": []
    },
    {
-    "rate": 19.0,
+    "rate": 12.35465378875,
     "seen": "5,065",
     "seenN": 5065.0,
     "ban": 48.91,
@@ -2967,60 +3500,18 @@
      "KITFISTO",
      "LUMINARAUNDULI"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 19,
     "discount": "contains Luminara Unduli \u2014 Set 30 FOCUSED datacron expires 2026-08-06; no published baseline for this leader",
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.6
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 17.888297872340424,
-    "seen": "59.3K",
-    "seenN": 59300.0,
-    "ban": 51.42,
-    "units": [
-     "JABBATHEHUTT",
-     "BOUSHH",
-     "EMBO",
-     "KRRSANTAN",
-     "UNDERCOVERLANDO"
-    ],
-    "missing": [],
-    "dc_ratio": 0.94,
-    "lg_ratio": 1.0,
-    "raw_rate": 19,
-    "discount": "no-datacron baseline 17.7% vs 18.8% headline (n=29.3K) | \u26a0 Kyber-D1 only 12.7% vs 18.8% all-league (n=4,208) \u2014 expect under the number shown",
+    "relic_f": 0.65,
+    "ban_eff": 54.54,
+    "value": 28.991980683125,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3029,42 +3520,7 @@
     "expiring": []
    },
    {
-    "rate": 16.0,
-    "seen": "5,844",
-    "seenN": 5844.0,
-    "ban": 52.9,
-    "units": [
-     "GRIEVOUS",
-     "B1BATTLEDROIDV2",
-     "B2SUPERBATTLEDROID",
-     "MAGNAGUARD",
-     "STAP"
-    ],
-    "missing": [],
-    "raw_rate": 16,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 31,
-      "name": "For Old Times",
-      "days": 28,
-      "kind": "faction",
-      "tag": "Separatist",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.6
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 14.666666666666666,
+    "rate": 12.199580809166665,
     "seen": "11.9K",
     "seenN": 11900.0,
     "ban": 53.78,
@@ -3075,16 +3531,20 @@
      "MORGANELSBETH",
      "NIGHTTROOPER"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 1.13,
     "lg_ratio": 1.0,
     "raw_rate": 13,
     "discount": "no-datacron baseline 13.2% vs 11.7% headline (n=14.1K)",
+    "relic_f": 0.832,
+    "ban_eff": 55.67,
+    "value": 27.629371213749998,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3092,7 +3552,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3101,7 +3561,165 @@
     "expiring": []
    },
    {
-    "rate": 8.379518072289155,
+    "rate": 11.51196807265,
+    "seen": "5,844",
+    "seenN": 5844.0,
+    "ban": 52.9,
+    "units": [
+     "GRIEVOUS",
+     "B1BATTLEDROIDV2",
+     "B2SUPERBATTLEDROID",
+     "MAGNAGUARD",
+     "STAP"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 16,
+    "discount": null,
+    "relic_f": 0.719,
+    "ban_eff": 56.29,
+    "value": 25.977952108975,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 11.0,
+    "seen": "10.6K",
+    "seenN": 10600.0,
+    "ban": 55.82,
+    "units": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408",
+     "CT5555",
+     "CT7567"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 11,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 55.82,
+    "value": 25.68,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 7.531968259514003,
+    "seen": "7,311",
+    "seenN": 7311.0,
+    "ban": 53.18,
+    "units": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION",
+     "DARTHTALON",
+     "SAVAGEOPRESS"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.68,
+    "lg_ratio": 1.0,
+    "raw_rate": 14,
+    "discount": "no-datacron baseline 14.9% vs 22% headline (n=2,753)",
+    "relic_f": 0.794,
+    "ban_eff": 55.61,
+    "value": 20.687952389271004,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 6.685,
+    "seen": "6,257",
+    "seenN": 6257.0,
+    "ban": 58.81,
+    "units": [
+     "TRENCH",
+     "COUNTDOOKU",
+     "JANGOFETT",
+     "NUTEGUNRAY",
+     "WATTAMBOR"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 7,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 59.09,
+    "value": 15.937499999999996,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 6.6563461711942935,
     "seen": "15.7K",
     "seenN": 15700.0,
     "ban": 55.33,
@@ -3112,16 +3730,20 @@
      "ROSETICO",
      "ZORIIBLISS_V2"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 0.64,
     "lg_ratio": 1.0,
     "raw_rate": 13,
     "discount": "no-datacron baseline 10.7% vs 16.6% headline (n=4,790)",
+    "relic_f": 0.794,
+    "ban_eff": 57.32,
+    "value": 17.66451925679144,
     "datacron": [
      {
       "set": 33,
       "name": "Supremacy Directive",
-      "days": 60,
+      "days": 70,
       "kind": "faction",
       "tag": "Resistance",
       "coverage": 1.0
@@ -3129,7 +3751,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3138,7 +3760,128 @@
     "expiring": []
    },
    {
-    "rate": 6.417582417582418,
+    "rate": 5.544937812166421,
+    "seen": "53.8K",
+    "seenN": 53800.0,
+    "ban": 57.9,
+    "units": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.87,
+    "lg_ratio": 1.0,
+    "raw_rate": 8,
+    "discount": "no-datacron baseline 8.9% vs 10.2% headline (n=8,245) | \u26a0 Kyber-D1 only 6.5% vs 10.2% all-league (n=1,955) \u2014 expect under the number shown",
+    "relic_f": 0.794,
+    "ban_eff": 59.36,
+    "value": 13.957406718249633,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 5.284621264044944,
+    "seen": "25.1K",
+    "seenN": 25100.0,
+    "ban": 54.88,
+    "units": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK",
+     "DARTHREVAN",
+     "SITHMARAUDER"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.51,
+    "lg_ratio": 1.0,
+    "raw_rate": 12,
+    "discount": "no-datacron baseline 9% vs 17.8% headline (n=2,814); holds a Set 30 FOCUSED cron (Darth Revan) expiring 2026-08-06",
+    "relic_f": 0.871,
+    "ban_eff": 56.19,
+    "value": 16.736931896067418,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Tank",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 4.354919375,
+    "seen": "6,360",
+    "seenN": 6360.0,
+    "ban": 59.07,
+    "units": [
+     "ADMIRALRADDUS",
+     "BISTAN",
+     "CASSIANANDOR",
+     "JYNERSO",
+     "K2SO"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 5,
+    "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 59.84,
+    "value": 11.692379062499995,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 3.618493915400001,
     "seen": "10.1K",
     "seenN": 10100.0,
     "ban": 58.82,
@@ -3149,16 +3892,20 @@
      "HUNTERS3",
      "WRECKERS3"
     ],
+    "thin": false,
     "missing": [],
     "dc_ratio": 0.8,
     "lg_ratio": 1.0,
     "raw_rate": 8,
     "discount": "no-datacron baseline 7.3% vs 9.1% headline (n=2,525)",
+    "relic_f": 0.564,
+    "ban_eff": 61.52,
+    "value": 8.907740873099998,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3166,9 +3913,120 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 2.916036165469775,
+    "seen": "8,356",
+    "seenN": 8356.0,
+    "ban": 60.51,
+    "units": [
+     "MOFFGIDEONS3",
+     "CAPTAINENOCH",
+     "DEATHTROOPER",
+     "MOFFGIDEONS1",
+     "SCOUTTROOPER_V3"
+    ],
+    "thin": false,
+    "missing": [],
+    "dc_ratio": 0.77,
+    "lg_ratio": 1.0,
+    "raw_rate": 5,
+    "discount": "no-datacron baseline 4.7% vs 6.1% headline (n=3,701)",
+    "relic_f": 0.757,
+    "ban_eff": 61.6,
+    "value": 7.774054248204661,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 2.4953688018749998,
+    "seen": "6,420",
+    "seenN": 6420.0,
+    "ban": 62.45,
+    "units": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN",
+     "URORRURRR"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 3,
+    "discount": null,
+    "relic_f": 0.832,
+    "ban_eff": 62.88,
+    "value": 5.863053202812497,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 2.2553626459000005,
+    "seen": "9,518",
+    "seenN": 9518.0,
+    "ban": 61.86,
+    "units": [
+     "GEONOSIANBROODALPHA",
+     "GEONOSIANSOLDIER",
+     "GEONOSIANSPY",
+     "POGGLETHELESSER",
+     "SUNFAC"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 4,
+    "discount": null,
+    "relic_f": 0.564,
+    "ban_eff": 63.23,
+    "value": 5.153043968850004,
+    "datacron": [
+     {
+      "set": 31,
+      "name": "For Old Times",
+      "days": 14,
+      "kind": "faction",
+      "tag": "Separatist",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
       "coverage": 0.4
      }
     ],
@@ -3177,25 +4035,29 @@
   ],
   "offense": [
    {
-    "rate": 95.0,
-    "seen": "99K",
-    "seenN": 99000.0,
-    "ban": 61.04,
+    "rate": 91.67999999999999,
+    "seen": "10.5K",
+    "seenN": 10500.0,
+    "ban": 60.82,
     "units": [
      "GLLEIA",
-     "ADMIRALRADDUS",
+     "C3POCHEWBACCA",
      "CAPTAINDROGAN",
-     "JYNERSO",
+     "CAPTAINREX",
      "R2D2_LEGENDARY"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 95,
+    "raw_rate": 96,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 58.08,
+    "value": 58.080000000000005,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3203,7 +4065,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3213,6 +4075,73 @@
    },
    {
     "rate": 90.0,
+    "seen": "90.9K",
+    "seenN": 90900.0,
+    "ban": 55.57,
+    "units": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "FOSITHTROOPER",
+     "GENERALHUX",
+     "KYLORENUNMASKED"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 90,
+    "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 55.57,
+    "value": 55.57,
+    "datacron": [
+     {
+      "set": 33,
+      "name": "Supremacy Directive",
+      "days": 70,
+      "kind": "faction",
+      "tag": "First Order",
+      "coverage": 1.0
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 0.6
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 79.265,
+    "seen": "5,879",
+    "seenN": 5879.0,
+    "ban": 54.57,
+    "units": [
+     "DARTHBANE",
+     "DARTHSIDIOUS"
+    ],
+    "thin": false,
+    "missing": [],
+    "raw_rate": 83,
+    "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 52.11,
+    "value": 52.10999999999999,
+    "datacron": [
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Attacker",
+      "coverage": 1.0
+     }
+    ],
+    "expiring": []
+   },
+   {
+    "rate": 78.38854875,
     "seen": "11K",
     "seenN": 11000.0,
     "ban": 57.83,
@@ -3223,14 +4152,18 @@
      "HUYANG",
      "PADAWANSABINE"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 90,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 50.37,
+    "value": 50.37,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
@@ -3238,7 +4171,7 @@
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Support",
       "coverage": 0.4
@@ -3247,33 +4180,29 @@
     "expiring": []
    },
    {
-    "rate": 88.0,
-    "seen": "17.4K",
-    "seenN": 17400.0,
-    "ban": 53.61,
+    "rate": 77.0,
+    "seen": "12.2K",
+    "seenN": 12200.0,
+    "ban": 49.66,
     "units": [
-     "SUPREMELEADERKYLOREN",
-     "DARKREY",
-     "FIRSTORDERTROOPER",
-     "FOSITHTROOPER",
-     "GENERALHUX"
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "EMBO",
+     "KRRSANTAN",
+     "UNDERCOVERLANDO"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 88,
+    "raw_rate": 77,
     "discount": null,
+    "relic_f": 1.0,
+    "ban_eff": 49.66,
+    "value": 49.66,
     "datacron": [
-     {
-      "set": 33,
-      "name": "Supremacy Directive",
-      "days": 60,
-      "kind": "faction",
-      "tag": "First Order",
-      "coverage": 1.0
-     },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3282,292 +4211,7 @@
     "expiring": []
    },
    {
-    "rate": 87.0,
-    "seen": "51K",
-    "seenN": 51000.0,
-    "ban": 55.51,
-    "units": [
-     "DARTHTRAYA",
-     "DARTHNIHILUS",
-     "DARTHSION",
-     "DARTHTALON",
-     "SAVAGEOPRESS"
-    ],
-    "missing": [],
-    "raw_rate": 87,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 87.0,
-    "seen": "8,405",
-    "seenN": 8405.0,
-    "ban": 53.64,
-    "units": [
-     "SITHPALPATINE",
-     "SITHTROOPER",
-     "WATTAMBOR"
-    ],
-    "missing": [],
-    "raw_rate": 87,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.67
-     },
-     {
-      "set": 31,
-      "name": "For Old Times",
-      "days": 28,
-      "kind": "faction",
-      "tag": "Separatist",
-      "coverage": 0.33
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 0.67
-     }
-    ]
-   },
-   {
-    "rate": 86.0,
-    "seen": "58K",
-    "seenN": 58000.0,
-    "ban": 53.93,
-    "units": [
-     "DARTHMALGUS",
-     "BASTILASHANDARK",
-     "DARTHMALAK",
-     "DARTHREVAN",
-     "SITHMARAUDER"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 86.0,
-    "seen": "25.5K",
-    "seenN": 25500.0,
-    "ban": 56.16,
-    "units": [
-     "BOSSNASS",
-     "BOOMADIER",
-     "CAPTAINTARPALS",
-     "GUNGANPHALANX",
-     "JARJARBINKS"
-    ],
-    "missing": [],
-    "raw_rate": 86,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 83.0,
-    "seen": "5,879",
-    "seenN": 5879.0,
-    "ban": 54.57,
-    "units": [
-     "DARTHBANE",
-     "DARTHSIDIOUS"
-    ],
-    "missing": [],
-    "raw_rate": 83,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 1.0
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Sith",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 81.0,
-    "seen": "57.4K",
-    "seenN": 57400.0,
-    "ban": 49.05,
-    "units": [
-     "GENERALSKYWALKER",
-     "ARCTROOPER501ST",
-     "CT210408",
-     "CT5555",
-     "CT7567"
-    ],
-    "missing": [],
-    "raw_rate": 81,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": [
-     {
-      "set": 30,
-      "name": "Peace & Power",
-      "days": 1,
-      "kind": "faction",
-      "tag": "Galactic Republic",
-      "coverage": 1.0
-     }
-    ]
-   },
-   {
-    "rate": 79.0,
-    "seen": "10.3K",
-    "seenN": 10300.0,
-    "ban": 50.02,
-    "units": [
-     "GRANDMASTERLUKE",
-     "HERMITYODA",
-     "JEDIKNIGHTCAL",
-     "JEDIKNIGHTLUKE",
-     "SHAAKTI"
-    ],
-    "missing": [],
-    "raw_rate": 79,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
-     },
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.4
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 76.0,
+    "rate": 72.58,
     "seen": "55.7K",
     "seenN": 55700.0,
     "ban": 48.35,
@@ -3578,14 +4222,18 @@
      "PAZVIZSLA",
      "THEMANDALORIANBESKARARMOR"
     ],
+    "thin": false,
     "missing": [],
     "raw_rate": 76,
     "discount": null,
+    "relic_f": 0.955,
+    "ban_eff": 46.17,
+    "value": 46.169999999999995,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.6
@@ -3594,117 +4242,79 @@
     "expiring": []
    },
    {
-    "rate": 76.0,
-    "seen": "6,863",
-    "seenN": 6863.0,
-    "ban": 47.56,
+    "rate": 68.807726125,
+    "seen": "10.3K",
+    "seenN": 10300.0,
+    "ban": 50.02,
     "units": [
-     "CEREJUNDA",
-     "FULCRUMAHSOKA",
-     "KYLORENUNMASKED",
-     "MAULS7",
-     "TARONMALICOS"
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE",
+     "SHAAKTI"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 76,
+    "raw_rate": 79,
     "discount": null,
+    "relic_f": 0.871,
+    "ban_eff": 43.57,
+    "value": 43.57,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.6
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 75.0,
-    "seen": "6,176",
-    "seenN": 6176.0,
-    "ban": 47.77,
-    "units": [
-     "HERASYNDULLAS3",
-     "CAPTAINREX",
-     "CHOPPERS3",
-     "KANANJARRUSS3",
-     "SABINEWRENS3"
-    ],
-    "missing": [],
-    "raw_rate": 75,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.6
-     }
-    ],
-    "expiring": []
-   },
-   {
-    "rate": 74.0,
-    "seen": "11.4K",
-    "seenN": 11400.0,
-    "ban": 47.9,
-    "units": [
-     "DOCTORAPHRA",
-     "BT1",
-     "IG90",
-     "TRIPLEZERO",
-     "VADER"
-    ],
-    "missing": [],
-    "raw_rate": 74,
-    "discount": null,
-    "datacron": [
-     {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 30,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.6
+      "coverage": 0.4
      },
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
-      "tag": "Attacker",
+      "tag": "Support",
       "coverage": 0.4
      }
     ],
     "expiring": []
    },
    {
-    "rate": 72.0,
-    "seen": "20.3K",
-    "seenN": 20300.0,
-    "ban": 45.53,
+    "rate": 67.37495765062499,
+    "seen": "38.1K",
+    "seenN": 38100.0,
+    "ban": 47.86,
     "units": [
-     "COMMANDERLUKESKYWALKER",
-     "C3POCHEWBACCA",
-     "C3POLEGENDARY",
-     "CHEWBACCALEGENDARY",
-     "HANSOLO"
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER",
+     "OPERATIVE",
+     "SCORCH"
     ],
+    "thin": false,
     "missing": [],
-    "raw_rate": 72,
+    "raw_rate": 81,
     "discount": null,
+    "relic_f": 0.832,
+    "ban_eff": 39.81,
+    "value": 39.81,
     "datacron": [
      {
       "set": 32,
       "name": "Necessary Means",
-      "days": 30,
+      "days": 42,
       "kind": "role",
       "tag": "Attacker",
-      "coverage": 0.8
+      "coverage": 0.4
+     },
+     {
+      "set": 32,
+      "name": "Necessary Means",
+      "days": 42,
+      "kind": "role",
+      "tag": "Support",
+      "coverage": 0.4
      }
     ],
     "expiring": []
@@ -3812,6 +4422,122 @@
     "understarred": [
      "MG-100 StarFortress SF-17 5*"
     ]
+   }
+  ],
+  "TW Fleet - Defense": [
+   {
+    "name": "Chimaera",
+    "units": [
+     "CAPITALCHIMAERA",
+     "TIEADVANCED",
+     "TIEDEFENDER",
+     "TIEINTERCEPTOR",
+     "SCYTHE",
+     "TIEFIGHTERIMPERIAL",
+     "EMPERORSSHUTTLE",
+     "TIEBOMBERIMPERIAL"
+    ],
+    "note": "Best hold of the bench: 90% attacker win.",
+    "missing": [],
+    "understarred": []
+   },
+   {
+    "name": "Home One",
+    "units": [
+     "CAPITALMONCALAMARICRUISER",
+     "UWINGSCARIF",
+     "BWINGREBEL",
+     "RAVENSCLAW",
+     "UWINGROGUEONE",
+     "XWINGRED3",
+     "XWINGRED2",
+     "GHOST"
+    ],
+    "note": "90% attacker win. Raven's Claw at 6* is the weak link.",
+    "missing": [],
+    "understarred": [
+     "Raven's Claw 6*"
+    ]
+   },
+   {
+    "name": "Raddus",
+    "units": [
+     "CAPITALRADDUS",
+     "MILLENNIUMFALCONEP7",
+     "COMEUPPANCE",
+     "XWINGBLACKONE",
+     "MG100STARFORTRESSSF17",
+     "XWINGRESISTANCE",
+     "MILLENNIUMFALCONPRISTINE"
+    ],
+    "note": "94% attacker win. MG-100 is 5*.",
+    "missing": [],
+    "understarred": [
+     "MG-100 StarFortress SF-17 5*"
+    ]
+   },
+   {
+    "name": "Executor",
+    "units": [
+     "CAPITALEXECUTOR",
+     "HOUNDSTOOTH",
+     "PUNISHINGONE",
+     "RAZORCREST",
+     "XANADUBLOOD",
+     "SLAVE1",
+     "IG2000",
+     "EBONHAWK"
+    ],
+    "note": "Offense-grade fleet spent on a wall: on defense it still banks the flat +34 and forces a real fleet battle.",
+    "missing": [],
+    "understarred": []
+   },
+   {
+    "name": "Negotiator",
+    "units": [
+     "CAPITALNEGOTIATOR",
+     "JEDISTARFIGHTERANAKIN",
+     "BLADEOFDORIN",
+     "JEDISTARFIGHTERAHSOKATANO",
+     "MARAUDER",
+     "UMBARANSTARFIGHTER",
+     "YWINGCLONEWARS",
+     "ARC170REX"
+    ],
+    "note": "Same reasoning as Executor \u2014 flat +34, and it is a genuine wall against anything non-Home-One.",
+    "missing": [],
+    "understarred": []
+   },
+   {
+    "name": "Malevolence",
+    "units": [
+     "CAPITALMALEVOLENCE",
+     "VULTUREDROID",
+     "HYENABOMBER",
+     "GEONOSIANSTARFIGHTER1",
+     "GEONOSIANSTARFIGHTER2",
+     "GEONOSIANSTARFIGHTER3"
+    ],
+    "note": "All 7*, but only 6 ships, so two reinforcement slots go empty. Weakest hold of the six \u2014 place it BACK.",
+    "missing": [],
+    "understarred": []
+   }
+  ],
+  "TW Fleet - Offense": [
+   {
+    "name": "Leviathan",
+    "units": [
+     "CAPITALLEVIATHAN",
+     "FURYCLASSINTERCEPTOR",
+     "SITHBOMBER",
+     "TIEDAGGER",
+     "SITHINFILTRATOR",
+     "SITHSUPREMACYCLASS",
+     "SITHFIGHTER"
+    ],
+    "note": "The one fleet held off the wall. Universal opener: 99% vs Profundity, 96% mirror, 94% vs Executor. Point it at their BEST fleet.",
+    "missing": [],
+    "understarred": []
    }
   ],
   "Fleet - Arena": [

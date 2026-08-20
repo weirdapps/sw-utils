@@ -51,11 +51,11 @@ Endpoints (POST api.hotutils.com/Production/, body has {sessionId,...}; header a
 - **Slice / promote a tier:** `mods/tier {modIds:[id,...], getAllData:true}` — advances each mod ONE tier (5E→…→5A→6E→…→6A). rc 1 = "MODS TIERED". ⚠️ **`simulation:true` is NOT a dry run — it really slices.** Never trust it; every call is real.
 - **Level to 15 ("upgrade"):** `mods/level {modIds:[id,...], requestType:3}` (3=ToMax, 4=SingleLevel). Credits only. **Slicing REQUIRES level 15** — level sub-15 mods first or `mods/tier` errors.
 - **Calibrate (6-dot):** `mods/reroll {modId, stat:5}` (stat 5 = Speed) → returns `.mod` preview → `mods/acceptreroll {keepMod:true|false}`. Reverting (false) does NOT refund; EACH reroll attempt spends the calibration material.
-  - **Material = Micro Attenuators = `summary.currency` id 41** (NOT in `material.material` — that's why my slicing-only tracker showed "spent:{}" and I wrongly guessed a daily cap). Farmed in-game from **Mod Battles Map 9** only; cannot be acquired via HotUtils API.
+  - **Material = Micro Attenuators = `summary.currency` id 41** (NOT in `material.material` — that's why my slicing-only tracker showed "spent:{}" and I wrongly guessed a daily cap). Cannot be acquired via HotUtils API. Farmed in-game from **Mod Battles chapter 2** — this was "Map 9" until the 2026-04-27 update cut Mod Battles from 9 tiers to 2 and deleted Mod Challenges; chapter 2 IS the old tier 9, and `farmbot/config.json` already targets `chapter_tab_mod_2`. Two more faucets found 2026-08-17: **GET3 5-for-125** and **Episode currency 16-for-4,000**.
   - Rule (`okToCalibrate` in bundle): mod must be 6-dot; **max calibrations = tier+1** (6A=6); cost escalates by attempt — 1st needs ≥15 attenuators, 2nd ≥25, 3rd ≥35, …
   - When attenuators can't cover the next attempt, `mods/reroll` returns `responseCode 2 / "GOHServiceCall Error [40]"` on every mod (persists past pauses — it's material-out, not a timer).
   - Best practice: only calibrate maxed 6A mods, 1–3× each; target FLAT stats → speed (re-rolling speed→speed is only ~25% to hit). `mods/level` and reads are NOT gated by attenuators.
-  - This session: had 1000 attenuators → spent ~995 (Rey 23→26 kept; rest reverted/probed) → 5 left = exhausted. Refill via Mod Battles Map 9, then resume the sweep over the 50 never-calibrated 6A mods.
+  - This session: had 1000 attenuators → spent ~995 (Rey 23→26 kept; rest reverted/probed) → 5 left = exhausted. Refill via Mod Battles chapter 2 (see above), then resume the sweep over the 50 never-calibrated 6A mods.
 - Data model: `account/data/all` → d.data.mods.mods[] {id, unit.baseId(equipped) , rarity(dots 5/6), tier(1=E..5=A/gold), level, setId(4=Speed set), slot, secondaryStat[].stat.unitStatId(5=Speed, ÷10000)}. Materials at d.data.material.material[] by id.
 Material recipe (per tier-step) + binding constraints, CORRECTED from live before/after diffs (2026-07-25):
 - **T05_06 is the MASTER binding material** — consumed by BOTH promotes AND 6-dot slice steps. Farm it first.
@@ -2920,3 +2920,1011 @@ Owner's follow-up: *"keep what we need for when we farm and when we have mats av
 - Measured constant now encoded: **~41,700 credits per tier-step** (3,753,000 over 90 steps).
 - ⚠️ The T06_04 line is missing from the bundle because the one measured step was 6C->6B. Notes from
   2026-07-27 say 6B->6A also draws ~15× T06_04, so the shopping list under-states that one item.
+
+## 2026-08-12 (03:05–03:20) — GAC defense: the browser's last-used tab nearly set GL Leia as a WALL
+Picked up mid-flow: the device sat on `SELECT NEUTRAL SQUAD` with **GL Leia + Threepio & Chewie +
+Captain Drogan + R2-D2 + Admiral Raddus** staged and a live SET button. That is **O01, the 96%-win
+offense squad** — one tap from being frozen onto defense for the whole round.
+
+### ⭐ Root cause: SELECT SQUAD opens on the LAST-USED TAB, and it was `GAC 5v5 - Offense`
+`O01 GL Leia` is the first row of that tab, so a single blind tap on the top row stages the offense
+squad. Always confirm the sidebar tab (`GAC 5v5 - Defense`, y≈519) *before* tapping any header row.
+
+### The board was 13/14, not 14/14 — and the missing squad was NOT the one the plan named
+One `Character Territory` read **3/4** ("You have unused defensive slots", red dot on the zone).
+The in-flight plan said to place **D02 Q Amidala**; D02 raised RESTRICTED CHARACTERS, i.e. it was
+already committed. Walking the whole tab found **D01–D06 and D11 restricted, D07 free** — so
+**D07 Saw Gerrera** (20.0% hold, Power 142,890) was the squad the board was actually missing. Placed
+it; zone went to **ALLIED SQUADS 4/4** and the board back to 14/14. D08–D10 were left untested
+because all three sit at ≤19% hold and could not have beaten D07 anyway.
+
+### ⭐ Three traps, all hit live
+- **`RESTRICTED CHARACTERS` is the availability oracle in GAC too** (same as TW). Tapping a preset
+  header either loads it or raises the popup; nothing else on screen tells you.
+- **The maroon name-plate under a portrait is NOT a deployment marker.** It looked like one (D01 all
+  five maroon, D10 all five maroon) and a pixel scan built on it returned "D04 all free" — D04 then
+  raised RESTRICTED. D02 showed 2/5 maroon yet is fully committed. Ignore the plate; use the popup.
+- **The popup DIMS the whole screen, so the top-left title OCRs to noise.** A detector that asks
+  "did we leave INVENTORY?" first reads the dim as success and reports a restricted squad as LOADED
+  (it did, for D03). **Check for the popup FIRST**, then confirm arrival by OCRing `Squad Power:`.
+- Verification fingerprint: staging-screen **`Squad Power` == sum of the roster's `gp`** for the five
+  units (D07 142,890 vs 142,868 computed). Deployed squads read a few thousand higher — datacrons.
+
+### State left
+- **GAC**: 14/14 (4/4 + 3/3 ships + 3/3 + 4/4). **Round 1 starts in 20h24m**, so defense is still
+  editable — GL Leia is back in the free pool and available for offense.
+- **Open question for the rebuild:** the four squads in that zone read 188,714 / 154,725 / 158,887 /
+  142,890, and only D07's matches a preset exactly. Datacron power explains part of it, but it was
+  not proven that the deployed board *is* the graded bank. The preset oracle is gone once every zone
+  is full, so re-check at the START of the next round, before any slot is filled.
+- **TW (Jakku)**: not empty as an earlier note in this session said — Astra is **#1 with 1,776
+  banners** (runner-up 916), front territory 39/39, second 14/39. Setup closes in 17h22m.
+
+## 2026-08-12 (17:30–19:15) — TW attack phase, and what a published win% does NOT tell you
+Picked the war up in its attack phase (3h28m left, guild 15,347 v 14,148). Six attacks: **3 wins for
++51 banners, 2 losses, 1 abort**. New tool: **`scripts/tw_attack.sh`** (`list` / `target Y` / `go Y` /
+`fire`) — it stops at the two decisions the screen has to answer and scripts everything between.
+
+### ⭐ TW units are NOT single-use — each carries its own use cap, printed on the portrait
+The squad-select tiles read `0/3`, `1/2`, `1/1` under the green icon: **uses spent / uses allowed**,
+and the allowance **differs per unit**. This is the whole reason preset after preset failed — Astra
+had already spent most of the roster earning those 1,776 banners. Do not model TW like GAC.
+
+### ⭐ The RESTRICTED CHARACTERS popup is the ONLY availability oracle — the plate colour lies
+Re-confirms the GAC note from 03:20, now for TW. The maroon name-plate looked like a perfect
+"spent" marker across O01/O02/O03/O04 — and then **O07 Gungans, with clean grey plates, still raised
+RESTRICTED**. Conversely nothing on the tile predicts it. `tw_attack.sh go` therefore gates on a
+green-pixel probe of the BATTLE button and auto-taps CANCEL when the popup appears, so a dead preset
+costs ~8s instead of attacking with whatever was staged before.
+
+### ⭐ swgoh.gg's offense win% is measured against ALL defences, not against a GL wall
+This zone was 28 GL walls (JMK r7-8, GL Rey r7-8, 165–190K). Results, and they are not subtle:
+- **coherent GL squad + its real support wins**: O03 SLKR → GL Rey wall **+19**; O02 GL Ahsoka →
+  JMK wall **+19**.
+- **a GL with filler bodies loses**: hand-built SEE + JK Cal + Mando + Kylo Unmasked + JK Luke
+  (193,800) went **0-for-5** against a GL Rey r8 wall. A GL's leader ability does nothing for units
+  outside its faction, so "high squad power" is a mirage.
+- **a high-% non-GL squad loses**: O06 Malgus, rated **86%**, also went 0-for-5 to a GL Rey wall.
+- **against a non-GL target the filler squad is fine**: hand-built JMK + Bane + Wampa + Maul +
+  Bo-Katan (210,419) beat `jaba est` (125,587 Hutt/Nikto) for +13.
+⇒ Read the target before picking the squad. Against a GL wall only a coherent GL squad is worth the
+uses; save the loose parts for the sub-130K stragglers, which is where the soft targets hide (scroll
+the enemy list — the top rows were all 165K+, the 125K one was ~20 rows down).
+
+### Banner arithmetic worth remembering
+`Victory +5` · `First Attempt +10` · `Second Attempt +5` · `Surviving Units +1 each`. So an untouched
+squad is worth ~10 more than a chewed one — always prefer a `Battles: 0` row.
+
+## 2026-08-12 (19:00) — Assault battles: a loss does NOT burn the attempt
+"Secrets and Shadows" (Nightsisters/Phoenix). Tier I 3/3 collected; **Tier II 2/3 and Tier III 0/3
+both lost on AUTO** with the game's own auto-fill (Great Mothers lead + Captain Rex + Merrin + Night
+Trooper + Morgan Elsbeth, 156,790) — T3 is **8 waves** and the squad folded around 4-5.
+**After both losses each tier still displayed `BATTLE (1)`**, so retries are free and the only cost is
+wall-clock. Two things to fix before retrying: Captain Rex is Phoenix and gains nothing from Great
+Mothers' Nightsister lead (swap in a 5th Nightsister), and auto is the known failure mode for event
+battles — drive it manually.
+
+### Polling gotcha for multi-wave battles
+The "is the AUTO toggle still green?" probe **false-negatives during wave transitions** (the HUD
+blanks between waves), which ended a poll at wave 3/8 and reported the fight finished. Require
+**3 consecutive misses** before believing the battle is over. Also note the Bash tool caps `timeout`
+at 600000 ms, so an 8-wave fight needs its poll loop split across calls.
+
+### Blocked, and why (all verified on device this evening)
+- **Coliseum JOTAZ T4** — rank 249, high score 31,726 (61%), 60% milestone claimed. Attempts spent;
+  the only refresh is **250 crystals**, which the standing rule forbids. Next boss in ~2h50m.
+- **Yoda (Dark Side Vision)** — Marquee "A Dark Reflection". Tiers I-III done today (refresh 2h56m);
+  **Tier IV is star-gated, not battle-gated**: needs 5★ and he is 4★ at 15/65 shards. Tier V needs 6★.
+  Only other shard source is the crystal offer.
+- **Order 66 / Battle for Naboo** — "Raid is not active", guild at **83.9K of the 180K** launch
+  tickets. That also blocks Episode Quest "Attempt 2 Raid battles" (worth **5,000** track points).
+- **Regular energy** — do NOT dump it. `Guild Activities 600/600` means today's ticket cap is already
+  spent, so energy spent now buys **zero** tickets, and `invest_plan.md`'s gear queue is empty. Hold
+  the 1,433 until the ~23:25 reset, then put 600 into tickets — that is the one thing that actually
+  moves the guild toward launching the raid.
+
+## 2026-08-14 (01:45–02:40) — ⭐ COLISEUM SOLVED: Krayt Dragon T4 100%, and maxing a tier UNLOCKS the next
+Session ask: "research current meta, play optimal". Started on **Krayt Dragon T4, rank 175,
+73% (44,332), 3 attempts**. Ended **T5 rank 120**, having maxed T4 and opened T5. The whole gain came
+from research, not from a stronger roster — the squad was loaned units the account already had.
+
+### ⭐ Maxing a tier unlocks the NEXT tier AND refills attempts
+This is the single most valuable fact in this note. Hitting **100% on T4** immediately flipped the
+screen to **TIER 5 REWARDS with BATTLE (5)** — a brand-new reward ladder and a fresh set of attempts.
+So the tier hexagon (`4`, `5`) is a *progress indicator, not a selector*: tapping it does nothing.
+⇒ **Never stop at "milestones claimed". Max the tier and the game hands you a new one.**
+Rank moved 175 → 142 (T4 max) → 120 (T5 43%) in one sitting.
+
+### The grounded meta (holotables.xyz/boss/<boss>, filter Tier + "only squads I can run")
+`holotables.xyz` is the Coliseum equivalent of swgoh.gg for GAC: community-submitted squads per boss
+per tier, with reported %, MANUAL/AUTO flag, and written strategy notes. **WebFetch gets 403 — drive
+it with the Playwright MCP browser.** Its two-letter codes: JK=Jedi Knight Luke / Jedi Knight Cal
+Kestis, MJ=Mara Jade Skywalker, CL=CLS, C=Chewbacca, Q=Qi'ra, MW=Mace Windu, DT=Dark Trooper,
+T&=Threepio & Chewie, Y(=Yoda (Dark Side Vision) — the notes call Yoda "soda".
+**T4 100% lineup used (Danduan, and it worked first try):**
+`JKL (leader, Return of the Jedi) · JKCK · Mara Jade · Qi'ra · CLS` — all loaned at **EL 46**, Mara
+own 4★ EL 48. Community hit 100% at EL 32-40, so EL 46 is comfortable margin.
+**MANUAL is not optional:** community AUTO tops out ~57% at T4 where MANUAL hits 100%.
+
+### ⭐ Krayt Dragon kit — read the in-game Event Info (`i` → Bosses → KRAYT DRAGON), it is the real spec
+- **Apex Predator**: takes **30% less damage while it has buffs**; deals **+30% damage while it has
+  ≤3 debuffs**. ⇒ two independent reasons to strip its buffs and hold **4+ debuffs on it at all times**.
+- **Violent Eruption** (granted by Dune Burrow): AoE, **−5% damage per debuff on the Krayt, max −50%**.
+  This is what kills the squad. At T5 it wiped 3 of 5 because the debuff count was too low when it fired.
+- **Dune Burrow**: dispels its own debuffs, −40% Speed, **+50% Defense (a dispellable BUFF)**, cannot
+  counter, immune to TM removal.
+- **Roar Of The Crowd**: damage it deals rises and damage it takes falls **as points are earned**
+  (hard diminishing returns — late hits score far less than early ones). Enrage after **10 consecutive
+  player turns — but 20 while it is burrowed.**
+  ⇒ **⭐ The exploit: turns taken while it is underground are half-price.** Spend the turn-chain there.
+
+### The turn-by-turn line that produced 100% (repeat it)
+Openers, before it burrows: **Mara basic** → **CLS basic** (Speed Down) → **Qi'ra assist-call**
+(slot 3, target Mara) → basics → **Cal basic** (it is a BASIC, no "Reusable in" line: Speed Down on
+ALL enemies + Advantage to all allies + Stun) → **JKL special 1** (slot 2, calls Cal — only if Cal is
+**not Dazed**) → **Mara special 2** (slot 3, turn meter).
+**The moment it burrows** (tell: a **6th ability icon appears** = Violent Eruption granted, and its
+head leaves the field): **CLS Call to Action** (slot 3 — dispels debuffs on Luke, **+100% TM = an
+immediate extra turn**, +25% HP, +50% Accuracy/Crit) → **CLS Use the Force** (slot 2 — **dispels the
+50% Defense buff** and lands **Tenacity Down**, which makes every later debuff stick) → **Qi'ra
+Scattering Blast** (slot 2 — dispel + Stagger) → **JKL special 2** (slot 3, Vulnerability) → basics.
+Biggest single jumps measured: JKL-calls-Cal **+9,400**, Qi'ra-calls-Mara **+5,300**.
+
+### Gotchas paid for in real turns
+- **Daze blocks assists.** At T5 the opening venom spray Dazed 4 of 5, so every assist-caller was dead
+  weight until it wore off. Check for the spiral icon before spending an assist ability.
+- **Chain-locked ability icons = Ability Block**, not cooldown (cooldown shows a number). Only the
+  basic is usable; do not waste calls probing.
+- **The ability bar is right-aligned and re-flows with the count.** Measured this session at y≈985:
+  4 abilities → x = 1339/1503/1666/1830 · 3 → 1503/1666/1830 · 2 → 1666/1830.
+  (An older note said 1245/1545/1845 for three — that spacing was wrong here.)
+- **Adding a unit to a squad re-flows the whole selection sidebar**, so a position read before the add
+  is stale. Re-crop after every pick.
+- **The green person-icon fraction is a live synergy oracle** and it updates as you build: Mara read
+  **0/1** next to the old Sith squad and flipped to **2/2** once JKL was in. Cal read 2/2. Use it.
+- `scripts/turn.sh` (new) stacks score-HUD + squad bars + ability bar into ONE image, so a manual turn
+  costs one Read instead of three. `./scripts/turn.sh X Y [wait]` taps then looks.
+
+### State left
+- **Krayt Dragon T5, rank 120, high score 39,306 (43%), 4 attempts unspent**, boss rotates ~18h from
+  02:40. T5 max ≈ 91,400. Milestones banked this session: T4 80/90/100%, T5 10/20/30/40%.
+- To beat 43% on T5 the fix is explicit: **hold 4+ debuffs on the Krayt when Violent Eruption fires.**
+
+## 2026-08-16 — GAC REBUILT ON BANNERS AND ZONES. The old objective was the bug.
+Owner: "we are doing the setup wrong in Grand Arena." He was right, and the cause was not squad
+selection. Root-caused from Astra's own match data (HotUtils `gac/get`, 6 matches) plus an 11-stream
+research sweep. **Everything below is either first-party or measured off the live account.**
+
+### ⭐ THE MAP IS TWO GATED LANES (verified live, then reproduced in 6 past matches)
+`4zone_5v5_ga2_c3s1_82a` zones, read from `gac/get`:
+| zone | zoneId | phase | location | fleet | slots 5v5 / 3v3 |
+|---|---|---|---|---|---|
+| front_top | `4zone_phase01_conflict01_duel01` | 1 | 1 | no | 4 / 5 |
+| front_bottom | `4zone_phase01_conflict02_duel01` | 1 | 3 | no | 4 / 5 |
+| back_fleet | `4zone_phase02_conflict01_duel01` | 2 | 1 | **YES** | 3 / 3 |
+| back_bottom | `4zone_phase02_conflict02_duel01` | 2 | 3 | no | 3 / 5 |
+
+**A phase-2 zone scores 0 until the phase-1 zone at the SAME `location` is fully conquered.** Not
+folklore — in every one of six matches the back zone read `state:1, score:0` exactly when its front
+still had a squad standing, and `state:3+` the moment it did not. Fleets are a BACK zone (behind
+front_top), which is why Astra kept scoring zero in the fleet territory.
+
+### ⭐ THE SCORING MODEL (first-party; `scripts/gac_score.py`)
+Per battle: Victory 15 · First Attempt 30 (2nd 10, 3rd+ 0) · Surviving/Full-HP/Full-Prot/Defeated-Enemy
+1 each · **Unused Slot 4** · First Attack 10 once. Max = `45 + 5*slots - units_deployed`.
+Territory conquest = **120 + 30/squad (5v5), +28 (3v3), +33/fleet** = **47% of the entire score**.
+Ceilings **5v5 1915 / 3v3 2131**. ✅ The 3v3 number is confirmed by HotUtils printing "Your max: 2131".
+- **The defender earns ZERO banners.** The community `setSquadDefenceBanners=90` constant is stale GA1
+  and is arithmetically impossible against Astra's own 966-banner round.
+- One hold in a FRONT zone denies 657-696; in the back, 210-219. **2.7x.**
+
+### ⭐ WHERE THE ROUNDS ACTUALLY WENT (Astra's own numbers)
+Mean conversion **37% of available banners**. Per round, ~493 banners locked behind a front zone left
+at n-1 of n, and ~731 sitting in zones that were OPEN and never attacked.
+- S81 vs Drew, lost 966-1165: **one** surviving enemy squad in front_top cost 755 (57 battle + 260
+  territory + 438 fleet territory it kept locked). Opening that lane alone wins the match by ~250.
+- The fleet territory scored **0-31 banners in 6 of the last 10 rounds**.
+- S82 R2: Astra threw **seven** squads at one wall (`successfulDefends: 7`). Attempt 3+ pays 30 fewer
+  banners and the units are spent win or lose. ⇒ hard rule: two attempts, then walk.
+
+### ⭐ WHAT CHANGED IN THE PIPELINE
+- `gac_score.py` NEW — banner constants, zone topology, lane values, ceilings.
+- `gac_place.py` NEW — exact partition search over zone assignments, minimising expected banners
+  conceded, with the lane conditional priced properly. **Honest sizing: placement is worth ~3-5 banners
+  over a rank-order fill and ~130 over the worst case. It is cheap to get right and it is NOT the win.**
+- `gac_attack.py` NEW — the attack ROUTE against the live opponent board: rank lanes by
+  `P(conquer front) x prize behind it`, Hungarian-match our squads onto their squads on log P(win),
+  finish one lane before starting the other.
+- Objective swapped from `SUM Hold% + SUM Win%` (two incommensurable quantities) to **banners**, using
+  swgoh.gg's `banners` column, which the repo had been scraping and discarding since day one.
+- `RELIC_BASELINE=8 / RELIC_PER_LEVEL=0.045` NEW — published rates are population averages; Astra's
+  copy is often 1-3 relics below. This alone demoted the Traya team (pub 87%, relic x0.66) from #4
+  offense to #14, and Bad Batch (x0.56) off the board.
+- Bench 6 -> 12, and `BENCH_MIN_SEEN=800`: 5v5 offense 14 -> 20 squads for 14 required wins.
+
+### ⭐ DOCTRINE CORRECTIONS, EACH WITH ITS EVIDENCE
+- **SLKR walls in 5v5.** SLKR/Dark Rey/Sith Trooper/Hux/KRU is the **#2 wall at Kyber, 47.0% hold
+  (n=7,200)** and Astra had never placed it. Nothing is stranded — the wall and the attack squad are
+  the same five. `CORE_ALLOW` lets it past MIN_SEEN.
+- **Mace Windu is reserved for JMK** (`RESERVE_OFF_UNITS`). JMK is the only 79% answer Astra owns to an
+  enemy Stranger; the solver kept spending Mace on the Queen Amidala wall for two more banners.
+- **Queen Amidala/GMY/Mace haircut x0.65.** Its 37% was rented from the Mace L9 datacron, which died
+  with Set 30 on 2026-08-06 and has no replacement. Kyber-D1 reads 23.8%. The board now runs the
+  Shaak Ti build instead.
+- ⭐ **THE ROTTA WALL WAS MISSING ENTIRELY.** Rotta the Hutt / Gamorrean Guard / Greedo / Cad Bane /
+  Mob Enforcer is the **#1 defensive DATACRON in the game (41.3% Kyber-D1)** and Astra owns the focused
+  cron **at max, L15/15**, plus all five units. swgoh.gg files it on the datacron tier list, not the
+  squad list, so `data/meta/*` has never contained it and the board could not see it.
+  ⇒ `board_config.DATACRON_SQUADS`. FDCs have **no relic gate**, so no relic penalty applies to them.
+- **Datacron coverage was 4 of 11.** The live opponent ran 8 of 8. Astra owns 8 L9 crons and had five
+  sitting unused, including a set-33 L9 First Order / Kylo Ren (Unmasked) that maps exactly onto the
+  SLKR wall. `datacron_assign.py` now takes the board from 284% to **367% of expected hold, +83 points**.
+  ⚠ Set 31 (three L9 crons, two of them Old Republic for the Satele wall) **dies 2026-09-03**.
+
+### Corrections to earlier notes
+- **Astra is Kyber DIVISION 3**, set by SKILL RATING not GP (`divisionId: 15`; 25/20/15/10/5 = D1..D5).
+  The old GP-based Division-1 claim is wrong. Scrape `league=kyber`, not `league=kyber-d1`.
+- **The fleet hold ranking in `build_fleets.py` is built on the wrong statistic.** `/gac/ship-counters`
+  gives per-counter-squad WIN rates (a selected sample of published counters), not Hold%. The real
+  tier-list Hold% at Kyber: Leviathan 22.1 · Profundity 24.8 · Executor 15.0 · Endurance 14.4 (NEW, #1
+  at Kyber-D1 and rising three seasons) · Home One 14.0 · Chimaera 15.9. Leviathan is the best owned
+  DEFENSIVE fleet and is currently on offense. **Deliberately not changed:** Leviathan is also the only
+  99% answer to Profundity, which the live opponent flies, and the failure mode being fixed is failing
+  to CONQUER. The whole re-allocation is worth ~5-25 banners; Profundity is worth 456. Revisit after it.
+- **Merrin's omicron is gated to "no Galactic Legends"** in GA since May 2026 — she is a dead body
+  against any GL attacker. Nightsister Spirit is the catalogued fifth. (Moot: the Great Mothers wall is
+  now off the board.)
+- **Undersizing is +1 banner per empty slot, not more.** The measured "solo SEE 56.68 vs ~50" gap is
+  mostly a higher win rate and a cleaner clear. Its real value is unit economy.
+
+### Live state at session end
+S82 (5v5) round 2 was live, Astra **1092 - 1738** vs Two Fists In The Wind (15.2M), max 1788. Top lane
+fully conquered including all 3 fleets; bottom lane left at 3/4 with GL Ahsoka standing, which kept a
+417-banner back zone locked. 108 definitions pushed to HotUtils (was 98) and 6 tabs pushed in-game,
+defensive names now carrying the ZONE (`5v5 FT1 …`, `FB2 …`, `BB3 …`) so the board is placed where
+`gac_place.py` intends. Backup of the previous board: `data/hotutils_backup/squads_before_20260816.json`.
+
+### Open / next
+- Instrument one full round (enemy squad, my squad, attempt, result, banners) and fit `ATTEMPTS` and
+  the relic haircut from real data. Signal that the haircut is too mild: the #1 wall in the game took
+  **0 successful defends** on Astra's live board.
+- Scrape `/gac/counters/<LEADER>/` into `data/meta/counters_5v5.json` so `gac_attack.py` uses real
+  head-to-head rates instead of its two-marginal model.
+- Confirm the Profundity unlock in-game (every published gate reads MET off the live roster).
+- Re-key the mod ladder to GAC OFFENSE characters — 145 six-dot mods equips ~24 units, the board needs ~110.
+
+## 2026-08-17 — THE OFFENSE/DEFENSE SPLIT, SETTLED BY SIMULATION. The owner was right.
+He pushed back on the 2026-08-16 board: *"too much on defense; keep the best teams for offense and do
+the best we can in defense with GLs that are not good in offense and the rest of the meta teams."*
+That is a claim about opportunity cost, not about Hold%, so it was measured rather than argued.
+
+### The tool
+`scripts/gac_doctrine.py` simulates a WHOLE ROUND, both sides, under N doctrines:
+- defense → `gac_place.solve` (exact, gated) → banners conceded;
+- offense → walk the enemy board lane by lane, Hungarian-match our squads onto theirs on log P(win),
+  units single-use across the whole board, territory credited at P(all beaten in that zone), and each
+  back zone's whole value multiplied by P(its front was conquered);
+- run against TWO opponent boards: the captured live one and a synthetic top-of-meta Kyber board, so a
+  doctrine is never chosen on one opponent.
+
+### The result (5v5 net banners; absolute values are meaningless, the ORDERING is the answer)
+| doctrine | net |
+|---|---|
+| A SLKR released to defense (what shipped 2026-08-16) | −523 |
+| B the classic 5 attack-GLs are attack-only | −503 |
+| C only Lord Vader + Jabba may wall | −483 |
+| D no GL walls at all | −472 |
+| **E every GL WITH an offense role attacks** | **−425** |
+| F E but SLKR walls too | −471 |
+
+**E wins by 65-87 banners at every ATTEMPTS from 1.5 to 4.0 in 5v5, and at every realistic value in
+3v3** (it only loses at 3v3/ATTEMPTS=1.5, the "walls hold a lot" regime that Astra's own 14/14 wipe
+contradicts). The trend is monotone toward offense, which is the signature of a real effect.
+
+### Why defense loses the argument
+A defensive squad earns ZERO and denies only against an opponent who would otherwise have taken those
+banners. Against the live 15.2M opponent Astra's board denied exactly nothing — cleared 14/14. An
+offense squad earns its banners AND can be the one that conquers a territory: +210-240, plus it
+unlocks the entire gated lane behind it. The two sides are not symmetric and Hold% cannot see it.
+
+### ⭐ THE ONE EXCEPTION IS A DATA FACT, NOT A JUDGEMENT CALL
+**GL REY HAS NO OFFENSE ROW IN EITHER FORMAT** — not a weak one, none, in any meta file. Doctrine D
+(no GL walls) therefore strands five G13 units, which is exactly why it loses to E by 47.
+⇒ `ATTACK_ONLY_GLS_WITH_OFFENSE` = JMK, JML, SEE, SLKR, GL Leia, GL Ahsoka, Lord Vader, Jabba.
+⇒ GL Rey is the only GL on the board, in both formats.
+
+### Corrections to yesterday's entry
+- **SLKR ATTACKS after all.** Yesterday's "SLKR walls, he is the #2 Kyber wall at 47%" was right about
+  the hold number and wrong about the conclusion: doctrine F (E + SLKR walling) trails E by 46. SLKR /
+  Dark Rey is a **96% TWO-unit clear in 3v3** (n=1,931) and 90% in 5v5, and freeing him deepens the
+  bank that conquers lanes. `CORE_ALLOW` retired with it.
+- The per-GL marginal table (offense banners vs wall denial + gate share) agrees for every GL except
+  SLKR, where it says +11.9 for walling. The full-board simulation overrules it because the marginal
+  table cannot see the global re-optimisation or the territory unlock.
+
+### Board after the change
+5v5 **11 def / 21 off** (was 20), defense sum 250% → 318% with crons.
+3v3 **15 def / 26 off**, defense sum 180% → 206% with crons.
+110 definitions live on HotUtils, 6 tabs pushed in-game. Defense holds fell, offense depth rose — that
+is the trade, and it is the one the arithmetic endorses.
+
+### Guarded by tests
+`tests/test_gac_score.py` asserts (a) GL Rey is the ONLY GL allowed to wall, (b) she still has no
+offense row — the single fact the exception rests on, and the thing most likely to change under a new
+meta, (c) every defensive slot is filled and offense depth exceeds the required win count.
+
+## 2026-08-17 (session 2) — GAC defense PLACED in-game, and the banner model confirmed first-party
+Emulator driven via ADB. S82 Round 3 setup phase, opponent Law Craw (14.09M). R1 and R2 both LOST, so
+this was the last round of the event.
+
+### ⭐ THE GAME CONFIRMS gac_score.py, VERBATIM
+The Character Territory panel prints, per zone: **"Offense Win: +16-69 Banners"** and
+**"Conquer: +240 Banners"**. 240 = `territory_banners('5v5', 4)` = 120 + 30x4, computed independently
+from the wiki table. 69 = `MAX_BATTLE['5v5']`. Also printed: *"You must earn at least 10 banner(s) from
+any battle to qualify for rewards at the end of the round."* The model is no longer inferred.
+
+### ⭐ CORRECTION: ASTRA IS KYBER 4, NOT KYBER 3 AND NOT "DIVISION 3"
+In-game Championships screen: **Kyber 4, Skill Range 2970-3130, Your Skill Rating 3,128** — one point
+under the band ceiling. So HotUtils `divisionId: 15` maps to KYBER 4. Both earlier readings (a GP-based
+"Division 1", then "Division 3") were wrong. Division is skill-rating driven; league placements update
+in 16d 22h.
+
+### The map, confirmed visually
+Two 4-slot CHARACTER zones nearest the centre line (the fronts), and behind them a 3-fleet zone and a
+3-squad zone. Exactly the `gac_score.ZONES` topology. The fleet zone is unambiguously a BACK zone.
+
+### ⭐ THE API READ WAS INCOMPLETE — CHECK CRONS IN-GAME
+`gac/get` with `refresh:false` reported no datacron on most squads. In-game, The Stranger, GL Rey and
+Rotta all already carried theirs (Lvl 9 / Lvl 9 / **Lvl 15 max focused**). Do not trust a non-refreshed
+pull for cron state; the squad list in Edit Defenses shows it plainly.
+
+### What was placed (14/14)
+- **TOP-FRONT** Stranger (s32 cron) · GL Rey (s33 cron) · Rotta the Hutt (**s33 focused, L15 MAX**) ·
+  Satele Shan (s31 Old Republic/Satele — all three tiers apply to all five)
+- **BOTTOM-FRONT** Palpatine · Great Mothers · Queen Amidala/Shaak Ti (s31 Light Side: +15% max health
+  and protection per other Light Side ally = +60% across the squad) · Grievous Droids (s31 Separatist:
+  bonus turn on kill)
+- **FLEET** and **BOTTOM-BACK** left as they were (3/3 each)
+- **Lord Vader and Jabba pulled OFF defense** — the whole point of doctrine E; they are 39.8 and 47.4
+  banner attackers.
+
+### Judgement calls made at the device, both deliberate
+1. **Rotta stayed in TOP-FRONT** instead of moving to bottom-front as gac_place wanted. Both are fronts,
+   the swap was worth ~1 banner, and moving it risked detaching a maxed focused datacron. Not worth it.
+2. **The fleet zone was left alone.** In-game it is Executrix + Home One + Endurance. By the CORRECTED
+   Kyber Hold% (the tier list, not the counter win% `build_fleets.py` still uses) that reads
+   7.0 + 14.0 + 14.4 = 35.4, versus the plan's Chimaera + Home One + Raddus = 15.9 + 14.0 + ~1.2 = 31.1.
+   ⇒ **The live fleet defense is BETTER than what the repo would have set.** `build_fleets.py` needs
+   re-basing on `/tier-list/fleet/?side=defense` before it is trusted again.
+
+### UI notes for next time (saves a lot of taps)
+- Edit Defense → zone → ENTER → **REMOVE SQUAD** (red X per squad) → DONE → **ADD SQUAD**.
+- ADD SQUAD → **SELECT SQUAD** opens the in-game PRESET tabs — the ones `push_ingame_presets.py` writes.
+  Naming them `FT1 …` / `FB2 …` / `BB3 …` means placement is just picking by name. That naming change
+  paid for itself immediately.
+- **ADD DATACRON** lives in the squad builder, bottom-right, and the picker states per cron whether each
+  tier applies to the current squad ("No applicable bonus mechanics" vs lit portraits). Trust that over
+  any offline scorer.
+
+## 2026-08-17 (session 3) — ⭐ ECONOMY: where value per action actually comes from
+Desk research (no device — battery). Everything here is sourced; the two things I *measured*
+against this account's own data are called out, and one of them killed a change I had proposed.
+
+### ⚠ The game changed under our notes: 2026-04-27 update
+- **Mod Battles cut from 9 tiers to 2; Mod Challenges DELETED.** Chapter 2 == the old tier 9
+  (slicing mats + Micro Attenuators), at a lower unlock level. 1–4 dot mod rewards removed.
+  Our prose said "Mod Battles Map 9" in two places (now fixed); the *code* was already right —
+  `farmbot/config.json` targets `chapter_tab_mod_2`.
+- **Era Currency inflow +204% to +419%**, 40 extra free Era Levels, and **Era Level 135 converts
+  to Relic 8**. Tier-4 Lightspeed Tokens cut 5,000 → 3,500 EC. This is a relic engine we do not
+  currently track anywhere in the repo.
+- Training-droid and Mk I–III ability-mat drop rates up; star promotion no longer costs credits.
+
+### ⭐ Raid CADENCE is the R7→R9 supply line (the fix CLAUDE.md already asks for)
+CLAUDE.md: *"27 units at R9+ vs their 60, 156 parked at R7. Stop adding R7s; convert R7→R9."*
+The material for that comes from exactly one place worth using:
+- **Mk III raid tokens are the only reliable faucet for R8/R9 mats** (Electrium Conductor,
+  Zinbiddle Card, Aeromagnifier) and the best value for R6/R7. Mk III comes ONLY from raids.
+- Raids are gated by tickets: **600/member/day, 1 ticket per 1 energy spent on anything except
+  Conquest energy.** Free daily energy (240 normal + 120 cantina + 240 mod + 240 ship + 135/45
+  quest bonuses) covers 600 with **zero crystals**.
+- **Rule: never hoard energy for a higher Guild Activity tier at the expense of 600 tickets.**
+  Raid rewards dominate guild tokens. `memory/session_state.md` recorded the guild stuck at
+  **83.9K/180K, unable to launch Order 66** — that is the relic pipeline starving at the source.
+- Crate scaling flattens: 15M guild score → 1,000 Mk III, 60M → 2,000. **Cadence beats crate-chasing.**
+
+### Currency routing (spend each unit where it returns most)
+| Currency | Best use |
+|---|---|
+| Guild tokens | Blue roombas (Mk 7 BlasTech) 10/150 → **33.3 Chromium Transistors**, best relic-salvage deal |
+| Mk III raid | R6/R7 for value; **only** source for R8/R9 |
+| Conquest | **Sector-1 jawa tradeable salvage** → Impulse Detectors + Gyrda Keypads (R8–R10). NEVER buy IDs/GKs directly |
+| Episode (EC) | Omicrons → signal data/relic mats → **attenuators 16/4,000** + slicing mats 25/3,500. ⚠ hard cap 100k, overflow is burned |
+| GAC | Kyrotech only; slicing mats acceptable second |
+| Shard shop | G12 gear 360 shards/4 pieces; skip anything at 720 |
+| Fleet arena | Ships/pilots, then **zetas exclusively** |
+| Legend tokens | Omicrons only |
+| Credits | All bronziums always, + the 4 random Featured Shipment gear pieces each refresh (→ bronzium wiring) |
+
+### Mods — what the sources add, and what MEASUREMENT rejected
+- **5-roll cap is real**: no secondary can roll more than 5 times. Verified against our own
+  `data/mods_full_20260811.json` — across 2,330 mods `spdRolls` **never exceeds 5** (max speed per
+  rolls: 1→6, 2→12, 3→17, 4→23, 5→26). A capped mod can never gain speed from another slice.
+- ❌ **But do NOT teach `slice_plan.py` about it.** Measured: exactly **1 of 1,854** queued mods is
+  speed-capped, and **0 of the top 40**. The change would have been pure complexity. Measure first.
+- 5A→6E is deterministic (+2 speed on an arrow primary, +1 on a speed secondary) and is NOT
+  subject to the roll cap — only within-tier slices roll a random secondary.
+- Slice cheap tiers first (grey→green→blue→purple→gold); cull thresholds grey any-speed,
+  green 1–2 hits, blue 2–3 (thr 8), purple 3–4 (thr 10), gold thr 10.
+- Only level to 12 to reveal all 4 secondaries; 15 is needed only immediately before slicing.
+- **Never let mod energy cap** — it stops generating at the cap. **Lock every 6-dot mod.**
+
+### ⭐ `scripts/calibrate.py` — cost tier now beats ladder rank (CHANGED, tested)
+Attenuators are the binding constraint and an attempt is priced PER MOD by prior rerolls
+(1st ≥15, 2nd ≥25, 3rd ≥35) while the hit rate does **not** improve with rr. Ranking by
+importance first quietly spent the stock on the few expensive mods. On the 2026-08-11 pull the two
+top-ranked candidates are both rr=2, so with 86 attenuators the old order buys **3** attempts
+(35+35+15=85) and the new order buys **4** (15+15+15+35=80). Rank still breaks ties inside a price
+tier; `--by-rank` restores the old behaviour. Covered by `tests/test_calibrate.py` (8 tests).
+
+### Per-mode rules worth keeping
+- **Conquest: you may skip up to 34 keycards and still red-crate.** Read ALL feats before spending
+  any energy — burning attempts before reading feats is the classic waste. Hold Boss attempts until
+  the disk loadout is complete (Boss Feats are locked to that single battle).
+- **Energy: spread wide, never refresh deep.** A node reset is 25c for ~1.67 expected shards; the
+  same 50c buys 120 energy. Costs nothing to apply: run 5 attempts across two hard nodes rather
+  than 5 + reset on one. Cantina: one character at a time, to completion.
+- **RotE: deployment massively outweighs combat missions**, both alignments deploy on any planet,
+  and **deployment has no relic minimum** (missions need R5→R6→R7 by phase). Relevant to the empty
+  TB rung in `invest_plan.py`: there is a real argument for R9-ing platoon units over meta teams.
+- **Episode Quests: 28 per episode, one revealed per day, and a missed day is EP gone for good.**
+
+### ⭐ `datacron_exposure.SETS` was rotting by design — expiry is now a DATE
+Datacrons changed in Jan 2026: **monthly releases, 3-month lifespan** (was bi-monthly/4-month),
+**reroll costs for levels 4–6 HALVED**, fewer factions per set, and the datacron-currency cap
+raised to **100M — so banking currency across a weak set is now viable**. Reroll ladder is
+1–2 rerolls @200K, 3–4 @400K, 5+ @800K, with the 4–6 band halved. Focused Datacrons are the
+no-gamble alternative: linear, exactly what's displayed, go to **level 15**, can't be rerolled
+or dusted, one of each per player.
+The repo bug this exposed: `SETS` carried a hardcoded `days` countdown read off swgoh.gg on
+2026-08-05, so it was wrong the next morning — by 2026-08-17 it still listed **set 30 as live
+with "1 day" left, eleven days after it lapsed**, handing every Sith and Galactic Republic squad
+a phantom expiry haircut. Now `expires` is an ISO date (kept a string: `build_board.py` dumps
+this table into `board_result.json`) and `days_left()`/`live_sets()` derive the countdown, with
+`today` injectable. Live today: 31→17d, 32→45d, 33→73d. ⚠ Still needs a human when a set lapses —
+`live_sets()` drops the dead one but cannot invent its replacement; next set due ~2026-08-26.
+Covered by `tests/test_datacron_exposure.py` (7 tests).
+
+### Omicrons — use measured impact, not popularity
+**swgoh4.life/omicrons** ranks omicrons by *measured* GAC offense/defense impact from swgoh.gg's
+Kyber 1&2 insight data, not opinion. The gap between the top two entries is the whole lesson:
+**Wampa "Cornered Beast"** is 76.7% popularity AND **+40.3% offense impact**, while **Captain Rex
+"The Lost Commander"** is 53.9% popularity and roughly **zero** measured impact. Popularity ≠ value.
+**SaberUtils** publishes an "Omicron Order" for the multi-omicron units (Starkiller has 3, all GAC;
+Boba Fett SoJ has 3, all TW). swgoh.gg's ability report filters by mode AND bracket. Not yet
+scraped into the repo — both pages are JS-rendered, so it needs the MCP browser like the meta files.
+
+### ⭐ The `rt` +2 trap bit `advisor.py`, and it was hiding the whole R7 pile
+The roster's `rt` is comlink's `relic.currentTier` **verbatim, two higher than the number the game
+prints on the tile**. `arena_board`, `invest_plan`, `rote_ops`, `generate_hotutils` and
+`build_board.py:53` all convert it — `advisor.relic_priority()` did not. It compared and reported raw
+`rt`, so its documented "default target 9" actually meant **"below R7"**, and `daily_brief` printed an
+R7 unit as "relic 9". Consequences, both real:
+- The advisor was blind to exactly the **R7→R9 conversion this account most needs**: it treated the
+  152-unit R7 pile as already at target. Fixed, the same call surfaces **115** board units below R9
+  instead of **11** — top of the list is Captain Rex R7 (96% team), Mace Windu R7, Darth Malgus R7.
+- It is almost certainly the origin of CLAUDE.md's "already-owned **R9** Inquisitor bench". There is
+  no R9 Inquisitor: Grand Inquisitor / Fifth Brother / Inquisitor Barriss / Marrok / Seventh Sister
+  are all **R7**, Ninth Sister R6, Eighth Brother R5. CLAUDE.md corrected.
+Calibration, if this is ever doubted again: Starkiller rt=11 and the repo logged him R8→**R9**;
+Cad Bane rt=8, logged R5→**R6**; Gamorrean Guard rt=9, logged R5→**R7**. And CLAUDE.md's independent
+"27 units at R9+" reproduces EXACTLY at offset 2 (27) versus 233 at offset 0. Relic histogram
+(displayed): R4×4, R5×43, R6×36, **R7×152**, R8×54, R9×10, R10×17.
+`advisor.relic_priority` now takes and returns DISPLAYED levels and emits key `relic`, not `rt`.
+
+### ⭐ Both top-line gaps are unlocked and waiting (roster-verified 2026-08-17)
+- **Profundity — every published gate MET.** 7 ships all at 7★ (Bistan's + Cassian's U-wing, Biggs' +
+  Wedge's X-wing, Rebel Y-wing, Ghost, Outrider) and 7 character relics clear, **three exactly at
+  threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7; then Mon Mothma/Bistan/Jyn Erso R7
+  and Hera Syndulla R6. Tiers need 4★/5★/6★/7★ ships and pay 10/10/20/40 blueprints; a bonus tier pays
+  10 more, free once per run. **Stardust Transmission runs ~monthly; last ran 2026-07-31.**
+  ⚠ Two sources disagree on the character list — swgohevents gives the relic-gated seven above, an
+  older list names the Rogue One squad (Jyn/Cassian/K-2SO/Baze/Chirrut/Bistan/Scarif Pathfinder).
+  Astra owns all of those at G13 too, so the gate is met either way; no need to resolve it.
+- **Third Sister is NOT an event.** Reva shards come only from the **RotE Phase 3 Neutral special
+  mission**, 1 shard per victory across the guild, capped at 50. Gate: **Relic-7 Grand Inquisitor** —
+  Astra's is exactly R7, so it is farmable now. It is a special mission, so auto-battle fails it.
+
+### Double drops — the one lever that multiplies energy
+No published calendar; CG announces ad hoc, but the pattern is **May 4th, the November anniversary,
+the winter holidays, and whenever a character is needed for a special event**. Caps: normal 2000,
+cantina/mod/ship 1000 — and free bonus energy plus store-bought energy IGNORE the cap.
+The synthesis that matters here, because mods are the structural gap and tickets are the relic engine:
+**240 normal + 120 cantina + 240 ship = exactly 600 = the full daily raid-ticket cap.** So Astra can
+hit 600 tickets every day while banking **100% of mod energy** for a double-drop window — 1000 banked
+mod energy at 2× is the single biggest slicing-material spike available, and it costs no crystals and
+no raid cadence. Mod energy caps at 1000, so start banking ~4 days out, not sooner.
+
+### Open
+- **GAC Kyber-4 → Kyber-3 payout delta is unquantified.** Sources only establish that Aurodium-1 →
+  Kyber-5 is roughly a wash and that "A1 up to K3" is where it starts to matter. The in-game GAC
+  rewards preview shows current vs next division exactly — one screenshot settles it.
+- **7,731 crystals banked and growing** under the never-spend rule. Every source ranks 3× normal +
+  3× fleet refreshes daily as the top sink (~50c each, ~1,500c per accelerated unit). Not proposing
+  we break the rule — but the bank needs a stated purpose or it is the largest idle asset here.
+
+Sources: Kahzgul (energy efficiency, Finance 101), EA Community Update 2026-04-27, swgoh.wiki
+(Guild Activities, Mk III Raid Tokens, Episode Track, Mods Farming), swgoh4.life (conquest feats,
+relic 10), swgoh-cantina (RotE).
+
+---
+
+## 2026-08-18 (evening) — TW max-defense, the whole RotE map, and GAC to the top of the ladder
+
+Owner's asks, verbatim in three parts: far more Territory War squads (**mostly defense**), research
+RotE so phases stop being improvised, and clear every pending daily/store item. Mid-session he added
+**arena squad + fleet climb** and one standing rule: *"when optimizing TOP PRIORITY is ALWAYS GAC"*.
+No crystals, no real money.
+
+### ⭐ `tw_wall.py` had been DEAD since the doctrine rewrite — that is why the bank never grew
+It referenced `board_config.ATTACK_ONLY_GLS`, renamed to `ATTACK_ONLY_BY_FORMAT` when doctrine E
+landed on 2026-08-17. Every run since ended in `AttributeError` before printing a line. The 2026-08-11
+war's 43 squads were the last time the wall was actually computed. **If a script in this repo stops
+being mentioned in session notes, run it before assuming it works.**
+
+### ⭐ The comlink roster silently dropped per-unit `gp`, `o` and `z`
+`swgoh_data.map_roster()` replaced the HotUtils pull on 2026-08-18. HotUtils returned `gp`/`o`/`z`
+per unit; **comlink does not return GP at all** (it is a derived stat, not in `rosterUnit`). So
+`tw_wall` died on `KeyError('gp')` and nothing else noticed. `swgoh_data.unit_power()` is now the one
+place that knows this — real `gp` when present, else the gear/relic/star proxy that `rote_ops` already
+had. **Never read `unit["gp"]` again; the key is gone.** Zetas and omicrons are simply unavailable from
+this source — if something needs them, the roster needs a second producer.
+
+### Territory War: 55 defensive squads + 6 defensive fleets = 1,854 guaranteed banners
+Was 15+6. Composition, and each tier has a different source of truth:
+- **23 graded** — the ILP ceiling of the well-sampled lineup table. 24 is *infeasible* (HiGHS status 8),
+  measured, not guessed. Everything past 23 must come from a coarser source.
+- **1 leftover lineup + 21 leader-tier-list + 5 unranked-leader** (`tw_wall.py` tiers 1-3).
+- **5 no-synergy filler** (new tier 4). Five idle G13 bodies clear the 6,000-power minimum ~25x over and
+  bank the same flat +30 as a 28% wall. **BACK territories only** — the 39-slot cap is guild-wide and
+  first-come, so a filler in a front slot is a slot no guildmate can use.
+- Only **3 of 317** G13 characters are left idle.
+- **Six defensive fleets, not five.** All seven built lineups are mutually disjoint and fully owned, so
+  the sixth costs nothing and pays +34. Leviathan is the one kept for offense.
+- `output/tw_placement_sheet.txt` merges the graded bank and the wall into ONE front-to-back order —
+  doctrine step 3, which the 2026-08-11 war got backwards at the cost of its best real estate.
+
+**Offense cut to 8 squads on the owner's explicit max-defense call.** The cost was stated before he
+chose and he took it: 8 squads cannot clear a full enemy map, so +840 territory conquests are largely
+forfeited. Those 8 are therefore all coherent GL-led lineups — a thin attack bank must not be diluted.
+
+### The investment ladder: GAC 1-4, Arena 5-7
+Reversed on the owner's standing rule. The old Arena-first argument (only mode paying a ranked reward
+EVERY day, and the payout compounds) is **kept in the file rather than deleted** — it is a good argument
+that lost, and deleting it invites re-deriving it. Note what the change did NOT cost: T5/T6 came back
+EMPTY, because Astra's deployed arena wall *is* GAC 5v5 defense P02, so best-tier-wins already had those
+units at tier 1. GAC-first costs the arena climb nothing on this roster.
+
+### ⭐ RotE: the whole map is now data, and the blocker is relics, not roster
+`scripts/rote_missions.py` transcribes swgoh.wiki's Zone Information table into
+`data/rote/missions_1..6.json` — 71 combat, 12 special, 17 fleet across 18 territories. RotE encounters
+are **static**, so this is written once and reused every rotation. Two traps are encoded, not left to be
+rediscovered: a Dark Side territory also accepts **Neutral** (Hondo is the only Neutral unit owned, and
+he is a required unit on Felucia), and a **Mixed territory carries no `align` key at all**, because
+`_mission_pool` drops any unit missing from the 340-unit catalog whenever align is set and the roster is 398.
+
+**Fillability, and this is the headline:** phases 1-3 are 43/44; phase 4 is 10/15; **phases 5 and 6 are
+3/12 each.** The cause is relic depth — 157 characters sit at exactly R7 while phases 5-6 gate at R9,
+where only 27 qualify. And almost every locked mission is **one or two levels away**:
+
+> `python3 scripts/rote_missions.py --gaps`
+
+Six units are a **single relic level** from opening a mission: Geonosian Soldier (R5→6), Geonosian Spy
+(R5→6), L3-37 (R7→8), Qi'ra (R7→8), Bo-Katan Mand'alor (R8→9), Cassian Andor (R8→9). Bo-Katan alone
+opens a **74M-TP** row. This is the same R7→R9 conversion the repo already identified, now with named
+targets and an order to do them in.
+
+`rote_ops.py` no longer refuses to run without an operations scrape — operations need the device,
+missions do not. It degrades to a mission-only plan and says loudly that nothing is reserved for platoons.
+
+### ⭐ Mission squads were being filled by RAW POWER, which is not a team
+The first phase-2 plan returned "Coruscant Underworld Police, Ahsoka Tano, Rotta the Hutt, Ugnaught,
+Admiral Raddus". A leader ability only benefits its own faction, so that is one working leader and four
+bystanders — the exact shape notes.md 2026-08-12 measured going **0-for-5 at 193,800 power** in TW.
+Free slots now rank by rarity-weighted shared faction with the squad's anchor, power as tie-break, so it
+degrades to strongest-first when nothing matches. Phase 2 now returns the real GL Ahsoka and GL Leia
+lineups where it previously returned assortments.
+
+Also: **`GLREY` and `REY` are different units both displayed "Rey"**. The plan printed "Rey, Rey, Rey
+(Jedi Training)", which reads as a bug and invites picking the wrong one on the device. Colliding names
+inside a squad now carry their baseId.
+
+### Four more scripts were still pinned to hardcoded rosters
+`rote_ops` (5 Aug), `compute_teams` (5 Aug), `generate_hotutils` (31 Jul), `mod_analysis` and
+`mod_targets` (18 Jul). All now go through `swgoh_data.latest_roster_file()`. `rote_ops` was planning
+phase squads against a two-week-old account.
+
+### Live state read off the device this session
+- **RotE (Rise of the Empire) is RUNNING: phase 2/6, 22h left, guild #5, 6/56 stars, guild GP 518M.**
+  Phase 2 = Geonosis (Dark) / Felucia (Mixed) / Bracca (Light), R6+. Not a TW — the 55-squad wall waits
+  for the next war.
+- **All four energy pools at or over cap** (144/144, 194/144, 123/144, 244/144) — regen has been
+  wasting since the 06:25 session. Crystals 9,226.
+- **Squad Arena #26, Fleet Arena #12**, payout ~2h. Worse than the modelled #10.
+- ⚠ **Paid bundle popups interrupt the farmbot** and it does not close them (`ERA MODULE BUNDLE II`,
+  `YODA (DARK SIDE VISION) BUNDLE II`). They need a manual X or a popup-closer template.
+
+### ⭐ ARENA ON AUTO WENT 0-FOR-3 — the GAC proxy does not survive contact
+Squad Arena, rank #29, three attacks, three DEFEATS, with three different top squads:
+
+| squad | power | opponent | result |
+|---|---|---|---|
+| FT1 The Stranger / Luminara / Maul HF / Starkiller / Visas | 186,353 | #22 SLKR + datacron, 175,015 | DEFEAT, 4 enemies alive |
+| O03 JMK / Snips / Cmdr Ahsoka / Mace / Padmé (the "90% attacker") | 197,820 | #23 GL Leia team, 179,391 | DEFEAT, 5 enemies alive |
+| FT1 The Stranger (again) | 186,353 | #28 GL Leia team, 174,498 | DEFEAT |
+
+Every one was fought on **AUTO at 4X**, and every one was against a LOWER-power opponent.
+`arena_board.py` says so itself in its own `proxy` field and it should have been believed:
+*"swgoh.gg GAC 5v5 Hold%/Win%. GAC attackers are limited by the no-repeat rule and arena attackers
+are not, so real arena hold runs BELOW these numbers."* The 96%/90% figures are GAC numbers; they do
+not transfer, and **AUTO is the known failure mode for anything but a trivial fight** (the same note
+already exists in this file for event battles).
+
+⇒ **Do not climb arena on AUTO against a GL wall.** Either drive it manually or do not spend the
+attempt. Two mistakes to not repeat: I picked the first squad on RAW POWER (186K vs 175K) — the exact
+"high squad power is a mirage" error this file already documents — and then treated the model's 90%
+as an arena number when the model says in writing that it is not.
+
+Mechanics confirmed on the way:
+- A LOSS costs no rank, only the attempt, plus a **6-minute cooldown on all three matches** (or 50
+  crystals to skip — refused, standing rule).
+- Attempts **refreshed to 5 at the 22:59 daily reset** mid-session.
+- **Arena payout is 18h out, not 1h** — the 1h timer on the hub is the GAC attack phase, and they
+  were misread as the same clock. Climb near payout, not at the start of the window.
+- Squad Arena defense really is the last squad you ATTACKED with, win or lose: the header power
+  tracked 186,353 -> 197,820 -> 186,353 as the squads were swapped. The 57% Stranger wall was
+  deliberately restored with the third (losing) attack, which is what that attempt was spent on.
+
+### The farmbot: paid bundle popups were eating whole entries
+Run 1 halted 11 of 18 entries; the 21:50-21:54 halt screenshots are all the same full-screen
+**"YODA (DARK SIDE VISION) BUNDLE II"** offer, and it took out every energy node. `popup_close` does
+not match its X. Fixed with a `bundle_offer` template cropped on the words **"OFFER EXPIRES:"** —
+not the timer beside them (it counts down) and not the X (generic white chrome). Measured 1.000 on
+all four bundle captures and 0.40-0.50 on eleven non-bundle screens, against a 0.88 threshold; added
+to `DEFAULT_POPUP_CLOSERS` with a (980, 1) offset from the match centre to the X.
+Run 2 with a live watchdog: 7 halts instead of 11, ~331 energy drained, Coliseum NEW HIGH SCORE.
+
+### ⭐ FLEET arena on AUTO went 3-for-3: #12 → #8 → #4 → #1
+The same night Squad Arena lost three, Fleet Arena won three, on AUTO, with the `Leviathan Arena`
+lineup out of `build_fleets.FLEET_LINEUPS` (Scimitar / TIE Defender / Scythe / TIE Bomber
+reinforcements — the set the 2026-08-08 note proved beats the higher-power Sith Fighter / Mark VI
+build). Targets were chosen by LOWEST opponent power, and at #4 the rank-1 holder was the weakest
+of the three offered (440,729 against Astra's 606,329), so #1 was reachable in one hop.
+
+⇒ The split is the lesson: **fleet AUTO wins, squad AUTO does not.** It also matches the standing
+memory that Fleet Arena is the one worth the effort — rank 1 pays ~400 crystals/day against ~200 at
+rank 6, while Squad Arena pays no crystals at all. Three squad attempts were spent before that note
+was re-read; it should have been read first.
+
+Fleet mechanics confirmed: a ~4 min cooldown applies **even after a win**, the 💎50 skip was refused
+every time, and the defensive fleet is the one last attacked with — so ending on the Leviathan Arena
+lineup parks the 29.8%-hold set automatically.
+
+### Session end state (2026-08-19 ~01:50)
+- **Fleet Arena #1**, Squad Arena #29 (unchanged, 3 attempts lost).
+- **Guild Activities 600/600** — raid tickets maxed, which is the whole point of the energy dump.
+- Energy drained from 144/194/123/244 to 24/16/9/97; ~470 spent, cantina put through **8-G** (8 sims,
+  Flawed Signal Data) rather than the bot's default 1-A.
+- Daily quests: yesterday's 8/8 crate collected before the 22:59 reset; today's at 3/8.
+- **RotE phase 2/6 is live with ~19h left** and the mission plan is computed but NOT YET PLAYED.
+  Operations for phase 2 are still unscraped, so nothing is reserved for platoons — scrape before
+  committing squads (a deployed unit can never fill a platoon slot again).
+
+## 2026-08-19 (01:00-04:00) — RotE phase 2 played, and COMPOSITION measured against POWER
+
+Owner's challenge mid-session — *"have you researched the exact compositions for ROTE or are you
+playing random again?!"* — was correct and is the most useful thing to come out of the night. The
+requirements were researched and verified; **the compositions were not, and the game's auto-fill was
+being trusted instead of the repo's own plan.**
+
+### ⭐ OPERATIONS ARE THE PRIZE, AND THEY WERE COMPLETELY UNTOUCHED
+Felucia and Bracca both read **Assigned Units 0/10** — Astra had contributed nothing to platoons this
+phase. Four operations sat one or two slots from completion at **+11,000,000 TP each**.
+
+| territory | before | assigned | after |
+|---|---|---|---|
+| Felucia Op4 | 14/15 | 1 | **15/15 ✓ +11M** |
+| Felucia Op5 | 14/15 | 1 | **15/15 ✓ +11M** |
+| Felucia Op2 | 13/15 | 1 | 14/15 |
+| Felucia Op3 | 9/15  | 5 | 14/15 |
+| Bracca Op1  | 11/15 | 4 | **15/15 ✓ +11M** |
+| Bracca Op4  | 10/15 | 2 | 12/15 |
+
+**+33,000,000 TP from 14 units.** Guild rank moved #7 → #4 on the first two alone. Compare: those same
+14 units DEPLOYED would have paid about 40K each, ~560K total. The 18x in rote_ops' docstring is real.
+
+Three UI facts worth keeping: a slot tagged **UNDEPLOYED** is one Astra can fill; an unlabelled dark
+slot means **"UNIT ALREADY DEPLOYED"** and is dead for the phase; and the game warns **"Unit Required
+in another Territory"** before locking a unit — that warning is a genuine optimiser, and cancelling on
+it kept a ship free rather than burying it in a 9/15 operation.
+⚠ Slot taps need a **~5-6s settle**; at 2s they silently do not register.
+⚠ **Geonosis is LOCKED** — all six operations 0/15 with greyed buttons, planet at 0 TP. The Dark path
+never opened (Mustafar shows ⊘ on the map), so it is a guild-level block, not something Astra can fix.
+
+### ⭐ SPECIALS ARE MANUAL. This cost the Zeffo unlock.
+The Bracca Zeffo special was played on AUTO and lost, spending the phase's last attempt (50 Mk III
+tokens + 1/30 guild progress). The repo's own notes already said event specials fail on auto. The
+research then said it explicitly: W1 is two Purge Troopers **then an Imperial Probe Droid that appears
+mid-wave and taunts** — you hold the AoE dispel for it — W2 is Second Sister + PT + IPD, the enemy
+focuses **Cere** and she must not drop below max protection. Gaming-Fans' guild: **2-for-14** without
+that plan, **~90.9%** with it plus JKCK omicrons on both the leader ability and Impetuous Assault.
+Now encoded in `rote_missions.TACTICS`, and `auto` is a field on every mission.
+
+### ⭐ COMPOSITION BEATS POWER, and the margin is not subtle
+Measured across ten missions tonight, same account, same night:
+
+| squad | power | result |
+|---|---|---|
+| auto-fill, incoherent (Leia/Rotta/GAS/Satele/JKR) | 219,456 | 2/2 in 130s |
+| auto-fill, incoherent (SEE/Lando/Revan/Stranger/Bane) | 208,547 | **1/2 — 125K only** |
+| auto-fill, incoherent (Rey/CLS/Raddus/BoKatan/Cassian) | 203,103 | **1/2 — 125K only** |
+| **Bossk-led BOUNTY HUNTERS** (Bossk/Embo/Hondo/Zam/Krrsantan) | **166,589** | **2/2 in 40 SECONDS** |
+
+The Bounty Hunter squad had **27,000 LESS power** than the auto-fill it replaced and won three times
+faster, because every unit answered to "On The Hunt" and the Payout mechanic fired. Same lesson as the
+TW 0-for-5 note: **high squad power is a mirage.**
+
+Fleets prove it twice more — and CORRECT this file:
+- Bracca fleet: coherent **Negotiator** 611,548 beat the auto-fill's incoherent 670,075 mix. **WIN, 500K.**
+- Felucia fleet: **Leviathan** 521,336 over a 707,157 grab-bag. **WIN, 500K.**
+⇒ The old *"fleet missions no auto"* note (from a Negotiator+Outrider loss at 672K) was **wrong about
+the cause**. It was not auto; it was an incoherent lineup. Fleets auto fine when the preset is coherent.
+Also: a 7-ship preset in an 8-slot mission raises *"squad is not full"* — OK only dismisses, press
+BATTLE again.
+
+### ⭐ AUTO-FILL SPENDS GATED UNITS — twice, on the same unit
+It put **Jabba** into two Felucia missions that did not require him, while Jabba's OWN mission sat
+unplayed. It also grabbed **Bossk**, the lead of the researched Hondo comp. Both were manually pulled
+back out. This is exactly what `mission_squads()` pre-reserves against, and it is the strongest
+argument for using the computed plan rather than the in-game auto-fill.
+⇒ **Play the mission that REQUIRES a gated unit first.** Once Jabba was spent on his own mission the
+problem disappeared for the rest of the phase.
+
+### Other corrections
+- The **Felucia Hondo** row is filed "Special" by the wiki but the in-game panel reads **Combat
+  Mission** and pays Territory Points. Data corrected; it is auto-battleable and was won.
+- RotE combat missions pay **per wave**: the results screen reads `RESULTS n/m` and a 1-of-2 clear
+  earns 125,000 instead of 250,000. `rote_autobattle` does not recognise that screen and reports
+  "ended" — two of the night's "wins" were actually partials.
+- `rote_autobattle`'s 300s cap is shorter than a long fight; a "timeout" is not a loss. Jabba SOLOED
+  wave 2 after the driver gave up, and took the full 250K.
+- The AUTO toggle's **ring** changes colour, not the arrow — probing the centre pixel reads white in
+  both states. Sample the ring.
+
+### Phase 2 result
+10 missions played: **7 full wins, 2 partials, 1 loss** (the Zeffo special). Roughly **2.5M mission TP
++ ~1.9M deployed**, on top of the **33M from operations**. Felucia 26.4M → 89.2M, Bracca 5.9M → 29.2M,
+guild 6/56 → 7/56 stars and #7 → #4 at best. Phase 2 still has ~16h to run.
+
+## 2026-08-20 (01:30-04:30) — RotE phase 3: the 11M relic level, and two mechanics we had backwards
+
+Guild went **#8 → #1** in the bracket and **12 → 13 stars**. Astra contributed ~26M TP.
+
+### ⭐ THE UNLOCK RULE — looked up, after guessing it wrong twice
+**ONE star on the predecessor, and it lands at the NEXT PHASE.** Verbatim, from the RotE guides:
+
+> *"Once a territory has reached one star, the territory in the next zone that has arrows pointing
+> to it from the previous one will unlock **for the next phase**."*
+
+Phases are 24h tiers, so mid-phase progress never opens anything mid-phase.
+
+⛔ **This file twice asserted something else and both were wrong.** First "a planet needs 3 STARS on
+its predecessor" — invented from two data points. Then, when Bracca hit 3★ and Kashyyyk stayed
+locked, "the successor is locked while the predecessor is under 3★ … boundary theory, unconfirmed".
+Also wrong. The owner corrected it: *"planets unlock by tiers on a 24hr basis. A planet needs at
+least one star on its predecessor to unlock. You could have looked that up! You do not use research
+enough!"* — and he is right, it is in the first paragraph of every RotE guide. **Look up a game
+mechanic before inferring one from the board.**
+
+The real rule explains every observation cleanly:
+- Phase 2 ENDED with Felucia at 89.2M and Bracca at 29.2M — both under the 148M/142M 1★ line, so
+  **both finished phase 2 with ZERO stars**. That is why Tatooine and Kashyyyk did not open for
+  phase 3. Nothing to do with 2 vs 3 stars.
+- It is also why Felucia and Bracca were still fully playable during phase 3: **a territory that did
+  NOT earn a star stays open and its Combat, Platoon and Deployment missions can be run again.**
+- Conversely **a starred planet LOCKS at the end of its phase** — you cannot come back for the 2nd
+  and 3rd stars later. Felucia (2★) and Bracca (3★) therefore close at the phase-3 rollover.
+
+⇒ **Felucia 2★ and Bracca 3★ mean Tatooine and Kashyyyk OPEN at the phase-4 rollover.** The earlier
+claim in this file that "the Reva shard farm is downstream of Felucia's THIRD star (316M)" is
+retracted — it was a consequence of the invented rule. **The Reva farm is live in phase 4.**
+
+Bonus zones are a separate gate and the panel states it outright: Zeffo wants "Earn Stars in
+Bracca: 3/**1**" (met) plus "Complete Special Mission **30** Times: 3/30" (not met).
+
+Sources: starwars-fans.com RotE special-missions hub; swgoh.wiki Rise_of_the_Empire; the guild
+board itself.
+
+### ⭐ A COMBAT MISSION ALSO DEPLOYS THE SQUAD'S POWER
+The activity feed prints BOTH lines for one action:
+```
+Astra: Completed a Combat Mission (2/2 waves), earning 250,000 Territory Points
+Astra: Deployed 195,123 points          <- exactly the GL Leia squad's power
+```
+So a mission is **250K + squad power**, and plain deployment is **squad power**. There is NO
+trade-off between "run missions" and "deploy" — missions strictly dominate for the units they use.
+Run every mission first, then deploy the remainder. The earlier worry about "spending" units on
+missions was based on a mechanic that does not exist.
+
+### ⭐ ONE RELIC LEVEL WAS WORTH 11,000,000 TP
+Bracca Operation 3 sat at **14/15** all event. The empty slot wanted **Enfys Nest at Relic 6** and
+Astra had her at **R5**. One relic level → slot filled → **+11,000,000 TP** and "Rebel Strafing Run"
+levelled 2 → 3. All six Bracca operations then read 15/15; Felucia's six were already complete.
+⇒ **Check operation slots for a ONE-LEVEL gap before doing anything else in a phase.** Nothing else
+in the mode pays 11M for a 250K-credit upgrade.
+
+### The material hunt, and the tool that ends it
+Enfys R5→R6 needed **20 Electrium Conductor**; stock was 6. `data/economy.json` said "Guild Activity
+Store" and that store does not stock it. **The game answers this itself**: tap the red material on the
+Relic Amplifier screen → **FIND** → a card per route, with store, quantity, price and your balance.
+Authoritative, and it took one tap. Use it before editing economy.json from memory ever again.
+
+Routes it listed (and what actually happened):
+| store | pays in | qty/price | result |
+|---|---|---|---|
+| Guild Store | Mk II raid token | 6 / 450 | bought → 12 |
+| Guild Store | Mk II raid token | 4 / 300 | bought → 16 |
+| Guild Events Store | GET3 | 2 / 720 | bought → 18 |
+| Episode Shipment | episode currency | 4 / 6,000 | bought → **22** ✅ |
+| Shipments / Weekly | crystals | 10/1,150 · 20/2,300 | forbidden, never used |
+
+⚠ **Every token route is daily_limit 1.** You cannot bulk-buy a relic material from one store; you
+chain across four stores in one day. `action_value.py` does not model this yet — it will happily plan
+a purchase that the store will refuse. The limits are now recorded in economy.json.
+⚠ **`event_only.signal_data` was WRONG.** The Guild Events Store sells Fragmented (20/1,600) and
+Incomplete (20/2,000). Only **Flawed and Corrupted** are cantina-only. Corrected in both economy.json
+and the action_value.py docstring.
+
+### ⛔ `rote_autobattle`'s outcome is NOT a verdict — it was wrong on 5 of 8 missions
+| label | truth |
+|---|---|
+| bracca_ls1 "ended" | 2/2, 250,000 |
+| felucia_b "ended" | 2/2, 250,000 |
+| felucia_hondo "ended" | 2/2, 250,000 |
+| felucia_jabba "timeout" | 2/2, 250,000 — Jabba soloed wave 2 for 5 more minutes |
+| **felucia_lando "win"** | **1/2, 125,000 — a PARTIAL reported as a win** |
+
+A partial shows the same banner as a full clear and silently pays half. **Fixed**: `read_feed()` now
+OCRs the planet activity feed after every battle and reports `waves=n/m tp=N verdict=full|partial`,
+exit 3 on a partial. Six tests in `tests/test_rote_autobattle.py` pin the parsing against the real
+OCR text, including the wrapped-entry case (the name and "(2/2 waves)" land on different OCR lines,
+so per-line matching finds nothing) and the mangled-name fallback.
+⚠ **tesseract cannot read `/tmp` from this sandbox** — it silently treats the PNG bytes as a filename
+and prints nothing. Write OCR scratch into `output/`, which is what tw_place.py already does.
+
+### Composition, again — and the cost of ignoring it
+The one mission run on the game's auto-fill (Jabba + Darth Revan + Darth Bane + Wampa + Ahsoka,
+219,948, five factions) took **~13 minutes** and only won because Jabba soloed the last wave alone.
+Every coherent squad from the TW/GAC preset banks won in 50-330s. The owner's prompt mid-session —
+*"we already have ready made tw-tb squads why not use them?"* — is the right default: **open
+SELECT SQUAD and take a preset, do not hand-pick and do not accept the auto-fill.**
+⚠ In-game preset tabs cap at ~15 squads (TW 5v5 - Defense ends at D15). The 55-squad wall lives in
+HotUtils only, so `output/tw_placement_sheet.txt` is the lookup for anything past D15.
+
+### Other findings
+- **Bracca's Zeffo bonus zone**: "Progress 53%", gated on **Complete Special Mission 30 times (2/30)**,
+  requiring **Cere Junda R7+ and any Cal Kestis R7+**. Astra's attempts were already spent.
+- **Felucia operations were already 6/6** from phase 2 — operations persist across phases, so the
+  quota display ("Assigned Units: 0/10") resets while the slots stay filled.
+- Paid-bundle popups fire on EVERY store/shipments entry, not just at launch. `bundle_offer.png`
+  handles the launch case; the shop case still needs manual dismissal.
+- Login calendars: 5 claimed incl. Signal Booster day 3 (**Fragmented**, not Flawed — 10/day).
+
+## 2026-08-20 (14:00-15:00) — MOD PASS: arena team to rung 1, relocate, upgrade
+
+Owner: *"upgrade all mods. best possible setup. Rellocate too. first prio the one arena team.
+Second priority is always grand arena defense, and then grand arena offense."*
+
+### The ladder changed, and it is NOT a full reversal of the GAC-first rule
+`ARENA_DEFENSE_TIER` 5 → **1**, and `BOARD_ROLES` stops interleaving by format:
+2 = GAC 5v5 def, 3 = GAC 3v3 def, 4 = GAC 5v5 off, 5 = GAC 3v3 off. Arena climb (6) and
+fleet (7) stay below the whole GAC block. So exactly ONE squad — the five actually parked on
+the wall — outranks GAC. Deployed wall today = **Rotta the Hutt · Mob Enforcer · Greedo ·
+Gamorrean Guard · Cad Bane**.
+⚠ `invest_plan.py` could not run at all before this: `_base_ids` iterated whatever sat under
+`units`/`slots`, and rote_plan.json carries `slots: 5` and `deploy.units: 337` as plain ints,
+so the ladder died on TypeError. Guarded + tested. The crash predated the change.
+
+### ⛔ TWO NOTES IN THIS FILE WERE WRONG ABOUT GRANDIVORY
+1. *"Rotta had to be left out (he is locked instead, so nothing is lost)."* — **He was not
+   locked. `lockedCount: 0`; nothing in the profile was locked.** His mods were protected only
+   by the global `lockUnselectedCharacters`, which is a different thing: it stops mods being
+   TAKEN from him, and it equally stops him ever RECEIVING one. The arena leader — now rung 1 —
+   had been excluded from every optimisation run.
+2. *"adding a character to the selection could not be automated"* — true of the **UI** (React
+   16 + react-dnd, cards need genuine HTML5 drag-and-drop), **false of the state store.**
+   Appending `{id, target}` to `profiles[0].selectedCharacters` in IndexedDB and reloading
+   works. Copy `target` verbatim from a comparable already-selected unit rather than inventing
+   one — Rotta took Gamorrean Guard's "PvP" target, the other Hutt Cartel tank.
+
+### ⭐ +2.58%, against a file that said there was nothing left to get
+| run | set value | mods | credits |
+|---|---|---|---|
+| 2026-08-08 corrected order | −0.06% | 1,473 | 7.44M |
+| **2026-08-20 arena-first, Rotta added, fresh data** | **+2.58%** | **1,404** | **7,016,750** |
+
+262,089.74 → 268,849.86. This file said *"There is almost nothing left to gain globally … the
+best any ordering now finds is +0.12%. Treat the optimiser as a REDISTRIBUTION tool, not a
+gains tool."* That was **conditional on the inputs not changing**, and three changed at once:
+36 mods were sliced since (6-dot 145 → 156), the ladder was re-ordered, and a 310th character
+became eligible to receive mods for the first time. ⇒ The rule to keep is narrower: *a re-run
+on UNCHANGED inputs is redistribution.* When the mod pool or the selection changes, re-measure.
+⚠ Still confirm the order before running: `Fetch with HotUtils` first (data was 2 days stale),
+and `Optimize my mods!` is the **`!` button**, not the same-named nav tab — clicking the tab
+just switches view and looks like a hung optimise.
+Move took **~9 minutes** for 1,404 mods, ended "Mods successfully moved", no `Row not found`.
+
+### Upgrade pass — everything affordable was spent, T05_06 is the wall
+`mods_session.sh`: →6A 3 mods/5 steps, →6E 4/4, →5A 4/4. **Rotta the Hutt took the first
+slice**, which is the new rung 1 working. 6-dot **156 → 160**, 6A **99 → 102**, plusSpeed
+16,858 → 16,861, credits −2,042,000. modScore stayed 2.83 — as always, it measures inventory
+quality and never placement.
+- Calibration: 5 eligible, 1 attempt (Mob Enforcer 21→17, reverted, kept 21), then
+  `rc=2 GOHServiceCall Error [40]` = **out of Micro Attenuators** (22 → 7).
+- Materials after: T06_02 17, T05_06 91, T05_03 6, T05_04 27, attenuators 7. One promote also
+  failed mid-list on `Not enough player currency` for T05_04.
+- **Shopping list**: T05_06 short **1,033** (MASTER GATE), T06_02 short 863, T05_05 short 423,
+  T06_03 short 402. Farm Mod Battles Sector 9 / Guild Store / Episode Shipments, then re-run.
+
+### Where the arena five ended up
+All five carry **6 mods, all 6-dot**: Rotta Σspd 99 · Mob Enforcer 131 · Greedo 116 ·
+Gamorrean Guard 104 · Cad Bane 92 (542 total, 4.0% of the 13,548 inventory speed on 30 mods).
+
+### Allocation against REAL stock — and the cost model was wrong in both directions
+Owner: *"make the best allocation as per our prio order and the mats available. Do not assume
+an 'optimal' allocation we cannot reach."*
+
+⭐ **THE 5-DOT SLICE COST IS NOT A PER-TIER CONSTANT. IT VARIES PER MOD.** Two isolated
+single-step diffs on the same afternoon:
+| mod | tier | salvage | credits |
+|---|---|---|---|
+| Cassian Andor | t1 | T05_01 38→23 = **15** | 27,000 |
+| Boba Fett | t1 | T05_01 23→13 = **10** | 18,000 |
+Same tier, same 5 dots, same single step — and salvage and credits both moved by the same
+**1.5×**, so a per-mod multiplier drives it. No static table can be exactly right.
+
+The old constant was a flat **22**, derived as an AVERAGE ("512/499/514/535 of T05_01..04
+bought 89 steps"). Averaging hid the spread and cost real upgrades in BOTH directions:
+- **Over-charging hid affordable work.** 38 T05_01 buys two-to-three steps; the planner
+  proposed one. 13 in hand looked like nothing and actually bought a step.
+- **Under-charging proposed fiction.** It planned `Royal Guard t4` with 27 T05_04 in hand and
+  the server refused it — **twice, on two consecutive runs** — and planned a promote with 91
+  T05_06 that was also refused. That is precisely the unreachable plan the owner objected to.
+
+⇒ **Table now holds observed MINIMA and the SERVER arbitrates.** That is the cheap direction
+to be wrong in: `run()` checks responseCode and retires exactly that budget, so a refusal
+costs one API call and **no materials**, while a silent over-charge costs an upgrade.
+`PROMO_T0506` 76 → **92** and `STEP5_SALVAGE[4]` 22 → **35** are REFUSAL BOUNDS, not measured
+costs — the true numbers need a diff after a *successful* one. A promote may also consume a
+material this model does not track; T05_05 sat at 17 and is the obvious suspect.
+
+⚠ **`mode_of()` still encoded the old ladder** — `ARENA if tier <= 3` mislabelled GAC 5v5 and
+3v3 defence as ARENA, so the printed plan claimed the arena wall was getting work that was
+really going to a GAC squad. Display-only, but that line is exactly how a human checks the
+re-order took effect. Fixed and pinned by a test.
+
+### Where the day ended — genuinely exhausted, and the real shopping list is SMALL
+6A **99 → 102**, 6-dot **156 → 160**. Swept until the allocator proposed zero steps in every
+category. Every material now sits just under its cheapest next step:
+| action | material | need | have | short |
+|---|---|---|---|---|
+| 5-dot t1 slice | T05_01 | 10 | 3 | **7** |
+| 5-dot t2 slice | T05_02 | 15 | 10 | **5** |
+| 5-dot t3 slice | T05_03 | 22 | 6 | 16 |
+| 5-dot t4 slice | T05_04 | 35 | 27 | 8 |
+| 5A→6E promote | T05_06 | ≥92 | 91 | **1** |
+| 6-dot slice step | T06_02 | 20 | 17 | **3** |
+| calibration | attenuators | 15 | 7 | 8 |
+
+⇒ Report THIS, not `slice_plan`'s "T05_06 short 1,033". That number is the cost of the next
+*twenty* mods and is not a plan anyone can act on; the table above is a farming trip.

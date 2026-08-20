@@ -336,3 +336,83 @@ def test_plan_excludes_already_deployed_units_from_everything(roster, areas):
     assert "KYLORENUNMASKED" not in p["operations"]["reserved"]
     assert "CASSIANANDOR" not in p["operations"]["reserved"]
     assert all("CASSIANANDOR" not in s["units"] for s in p["missions"])
+
+
+# --- faction coherence in the free slots -------------------------------------------
+# A leader ability only benefits units of its own faction, so five unrelated G13s
+# field one working leader and four bystanders. notes.md 2026-08-12 measured this on
+# the live account: a GL with filler bodies went 0-for-5 at 193,800 power while a
+# coherent GL squad at similar power won.
+COHERENCE_CATALOG = {
+    "SITH_LEAD": {"n": "Sith Lead", "align": "Dark Side", "cats": ["Sith"]},
+    "SITH_1": {"n": "Sith 1", "align": "Dark Side", "cats": ["Sith"]},
+    "SITH_2": {"n": "Sith 2", "align": "Dark Side", "cats": ["Sith"]},
+    "LONER_1": {"n": "Loner 1", "align": "Dark Side", "cats": ["Bounty Hunter"]},
+    "LONER_2": {"n": "Loner 2", "align": "Dark Side", "cats": ["Empire"]},
+    "LONER_3": {"n": "Loner 3", "align": "Dark Side", "cats": ["Droid"]},
+}
+
+
+def _coherence_roster():
+    """The two Sith are WEAKER than every loner, so strongest-first would leave them
+    on the bench and field an incoherent squad."""
+    return {"units": [
+        _u("SITH_LEAD", rt=12, gp=90_000),
+        _u("LONER_1", rt=10, gp=80_000), _u("LONER_2", rt=10, gp=79_000),
+        _u("LONER_3", rt=10, gp=78_000),
+        _u("SITH_1", rt=10, gp=40_000), _u("SITH_2", rt=10, gp=39_000)]}
+
+
+def test_free_slots_prefer_faction_mates_of_the_anchor_over_raw_power():
+    m = [{"planet": "P", "mission": "m1", "kind": "combat", "slots": 3,
+          "gate": {"relic": 6}}]
+    squad = R.mission_squads(_coherence_roster(), m, catalog=COHERENCE_CATALOG)[0]
+    assert squad["units"][0] == "SITH_LEAD", "anchor is still the strongest unit"
+    assert set(squad["units"]) == {"SITH_LEAD", "SITH_1", "SITH_2"}, \
+        "the two weaker Sith beat three stronger loners"
+
+
+def test_required_units_anchor_the_faction_choice():
+    # The mission names a weak Sith; the rest of the squad should follow ITS faction,
+    # not the strongest-unit-on-the-roster faction.
+    m = [{"planet": "P", "mission": "m1", "kind": "combat", "slots": 3,
+          "gate": {"relic": 6}, "required": ["SITH_1"]}]
+    squad = R.mission_squads(_coherence_roster(), m, catalog=COHERENCE_CATALOG)[0]
+    assert squad["units"][0] == "SITH_1"
+    assert set(squad["units"]) == {"SITH_1", "SITH_LEAD", "SITH_2"}
+
+
+def test_coherence_degrades_to_strongest_first_when_nothing_shares_a_faction():
+    roster = {"units": [_u("LONER_1", rt=10, gp=80_000),
+                        _u("LONER_2", rt=10, gp=79_000),
+                        _u("LONER_3", rt=10, gp=78_000)]}
+    m = [{"planet": "P", "mission": "m1", "kind": "combat", "slots": 3,
+          "gate": {"relic": 6}}]
+    squad = R.mission_squads(roster, m, catalog=COHERENCE_CATALOG)[0]
+    assert squad["units"] == ["LONER_1", "LONER_2", "LONER_3"], "power is the tie-break"
+
+
+def test_one_galactic_legend_rule_survives_the_coherence_fill():
+    # All three GLs share the Sith/Jedi tags with the fillers, so a coherence-only
+    # rule would happily stack them.
+    m = [{"planet": "P", "mission": "m1", "kind": "combat", "slots": 5,
+          "gate": {"relic": 6}}]
+    squad = R.mission_squads(_gl_roster(), m, catalog=CATALOG)[0]
+    gls = [b for b in squad["units"] if b.startswith("GL_")]
+    assert len(gls) == 1 and gls == ["GL_A"]
+
+
+def test_colliding_display_names_are_disambiguated_by_baseid():
+    # GLREY and REY are different units both displayed as "Rey"; a printed squad
+    # reading "Rey, Rey" looks like a duplicate and risks picking the wrong one.
+    cat = {"A": {"n": "Rey", "align": "Light Side", "cats": ["Resistance"]},
+           "B": {"n": "Rey", "align": "Light Side", "cats": ["Resistance"]},
+           "C": {"n": "BB-8", "align": "Light Side", "cats": ["Resistance"]}}
+    roster = {"units": [_u("A", n="Rey", rt=10, gp=90_000),
+                        _u("B", n="Rey", rt=10, gp=80_000),
+                        _u("C", n="BB-8", rt=10, gp=70_000)]}
+    m = [{"planet": "P", "mission": "m1", "kind": "combat", "slots": 3,
+          "gate": {"relic": 6}}]
+    row = R.mission_squads(roster, m, catalog=cat)[0]
+    assert row["names"] == ["Rey [A]", "Rey [B]", "BB-8"]
+    assert len(set(row["units"])) == 3, "distinct units, only the label collided"

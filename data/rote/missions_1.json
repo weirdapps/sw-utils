@@ -1,0 +1,241 @@
+{
+ "phase": 1,
+ "relic_floor": 5,
+ "source": "https://swgoh.wiki/wiki/Rise_of_the_Empire/Zone_Information",
+ "verified": "2026-08-18",
+ "missions": [
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "ds_3",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Mustafar",
+   "alignment": "dark",
+   "mission": "vader",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Dark Side",
+    "Neutral"
+   ],
+   "required": [
+    "LORDVADER"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "mixed",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "auto": true
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "jabba",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "JABBATHEHUTT"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "aphra",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "DOCTORAPHRA"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Corellia",
+   "alignment": "mixed",
+   "mission": "special",
+   "kind": "special",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "required": [
+    "QIRA",
+    "YOUNGHAN"
+   ],
+   "reward": "800 Mk III Guild Event Tokens",
+   "auto": false,
+   "tactics": {
+    "squad": [
+     "QIRA",
+     "REY",
+     "YOUNGCHEWBACCA",
+     "L3_37",
+     "YOUNGHAN"
+    ],
+    "note": "Qi'ra leads. starwars-fans.com/rote-special-missions/"
+   }
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "ls_1",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "ls_2",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "auto": true
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "jedi",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi",
+   "auto": true
+  },
+  {
+   "planet": "Coruscant",
+   "alignment": "light",
+   "mission": "jedi_named",
+   "kind": "combat",
+   "slots": 5,
+   "gate": {
+    "relic": 5
+   },
+   "align": [
+    "Light Side",
+    "Neutral"
+   ],
+   "faction": "Jedi",
+   "required": [
+    "MACEWINDU",
+    "KITFISTO"
+   ],
+   "auto": true
+  }
+ ],
+ "fleets": [
+  {
+   "planet": "Mustafar",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [],
+   "preset": "Leviathan",
+   "why": null
+  },
+  {
+   "planet": "Corellia",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "MILLENNIUMFALCONPRISTINE"
+   ],
+   "preset": "Raddus",
+   "why": "Lando's Millennium Falcon is already in the Raddus lineup."
+  },
+  {
+   "planet": "Coruscant",
+   "mission": "fleet",
+   "kind": "fleet",
+   "gate": {
+    "stars": 7
+   },
+   "required": [
+    "OUTRIDER"
+   ],
+   "preset": "Home One",
+   "why": "Outrider is in no built lineup \u2014 bring it inside the best Rebel fleet and fill from Fleets > Main."
+  }
+ ]
+}
