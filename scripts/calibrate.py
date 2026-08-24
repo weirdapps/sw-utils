@@ -27,6 +27,20 @@ the same ordering execute_upgrades.py uses. It previously came from gac_result.j
 left the Squad/Fleet Arena units — the ones paying a ranked reward EVERY day, and the top of the
 stated ladder — completely ineligible for calibration.
 
+⚠️ 2026-08-24 — TWO MODELS OF THE MECHANIC DISAGREE, AND IT CHANGES THE TARGET LIST.
+  (a) THIS FILE: a reroll RE-SAMPLES the chosen secondary, so it regresses to the mean and you
+      should target mods sitting BELOW expectation. Backed by 7 measured rerolls on this account.
+  (b) COMMUNITY (gasapi.info/modcalibration, via a research pass, NOT independently verified):
+      a reroll MOVES a roll — one roll is stripped from the chosen secondary at random and a new
+      one lands on one of the four secondaries at random, so the hit rate on your target is ~25%
+      and PRIOR LUCK IS IRRELEVANT. Under (b), "only calibrate unlucky mods" is meaningless.
+  The 7 measurements do NOT separate them: both models predict a drop on an above-average mod.
+  ⭐ THE TEST THAT DOES: watch `spdRolls` across one reroll. Re-sampling leaves the roll COUNT
+  unchanged; moving decrements it ~75% of the time. One accepted reroll settles it. Until then
+  the ranking here is (a)'s, and note it currently proposes mods at `rolls5` — harmless under (a),
+  wasted attenuators under (b), since a secondary caps at 5 rolls and cannot take a 6th.
+  (The 5-roll cap itself IS verified: 0 of 2,330 mods in data/mods_full_20260811.json exceed it.)
+
 ⚠️ COST TIER COMES BEFORE IMPORTANCE (changed 2026-08-17). Attenuators, not candidates, are the
 binding constraint, and an attempt is priced PER MOD by how often that mod was already rerolled
 (1st >= 15, 2nd >= 25, 3rd >= 35). The hit rate does NOT improve with rr, so a repeat attempt buys
