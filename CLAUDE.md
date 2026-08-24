@@ -151,8 +151,20 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
 8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu is the
    last available fifth for JMK's 90% attacker (General Kenobi is committed to GL Rey's wall). Without
    the reservation JMK falls off the offense board and the round is 67 net banners worse.
-   ⚠ **Astra has NO good answer to The Stranger.** Best well-sampled is SLKR at 76% (n=2,769); the
-   often-quoted "JMK 79%" is the *General Kenobi* variant on n=403, and the Mace variant is 43%.
+   ⭐ **RETRACTED 2026-08-24: "Astra has NO good answer to The Stranger" IS FALSE.**
+   The answer is **Satele Shan (L) · Bastila Shan · Jedi Knight Revan · Jolee Bindo · Juhani**,
+   **79% on n=6,655**, off `/gac/counters/STRANGER/` (Season 82, Kyber-scoped, 29.9K battles).
+   That beats the SLKR 76% (n=2,769) this file used to name, on more than twice the sample.
+   **Astra owns all five at G13** (Satele/Bastila/JKR/Jolee R8, Juhani R7).
+   Verified twice: a research agent reported it and an independent browser pull of the same page
+   reproduced every quoted row (625/89%, 1414/88%, 318/85%, 305/83%, and the 6,655/79% itself).
+   ⚠ **That squad is currently sitting on 5v5 DEFENSE at 16.2% hold**, where it earns zero and
+   cannot attack. Moving it to offense is a real decision, not a formality: it is the account's
+   best Stranger answer, and The Stranger is the **#2 hardest defence in the game** (31% hold,
+   68% attacker win, n=29.9K). Only Rotta is harder (64% attacker win) and Astra answers Rotta
+   already with Lord Vader 96% (n=2,096) and SLKR 89% (n=1,303).
+   ⚠ **Time-boxed:** the 79% is measured with Set 31 live, whose L6 is Old Republic, and
+   **Set 31 expires 2026-09-03**. Expect the rate to soften after that.
 9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
 
 ## Pipeline order (run them in this order — each reads the previous one's output)
@@ -232,6 +244,15 @@ Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — th
 1. **Refresh roster** → `data/roster/` (browser_recipes.md §1). Update `ROSTER_FILE` in compute_teams.py to the new filename.
 2. **Read live board counts** from HotUtils GAC Planning (browser_recipes.md §2). Update `BOARD` if changed.
 3. **Scrape swgoh.gg meta** → `data/meta/`. 4 views: 5v5 def (JSON), 5v5 off, latest-3v3 def, latest-3v3 off (txt). Seasons: even = 5v5, odd = 3v3.
+   - ⛔ **`/gac/squads/` IS ALL-LEAGUE AND THE `league=` PARAM IS IGNORED.** Tested 2026-08-24:
+     `?league=kyber` returns byte-identical rows to no param at all. This file used to say
+     "scrape with `league=kyber`, not `league=kyber-d1`" — **neither does anything on this page.**
+     So every rate in `data/meta/*` is a league-MIXED number, and Kyber defences hold harder than
+     it shows. `league_adjust.py` corrects for this per leader, but **only on DEFENCE** (tables
+     exist for `('5v5','def')` and `('3v3','def')` only) — **offence is uncorrected**, and offence
+     is where the banners are.
+   - The pages that ARE genuinely Kyber-scoped: **`/gac/counters/<LEADER>/`** and the **tier
+     lists**. Prefer them whenever a decision turns on a rate.
    - **Transport: the in-session MCP browser, per browser_recipes.md §3.** This is the primary path, not a fallback. `scripts/fetch_meta.py` cannot do it: Cloudflare challenges every parameterised `/gac/squads/` URL for a Playwright-launched browser, and that was verified on 2026-08-12 across bundled Chromium and real Chrome, headed and headless, fresh and persistent profiles. The base page always loads; the moment any query parameter is added it is challenged. The MCP browser clears the same challenge in about 15 seconds.
    - **Conversion: `scripts/fetch_meta.py` is still what you use.** `rows_to_json()` turns the §3 extractor's `rate%|seen|banners|CSVunits` lines into the JSON envelope, and `EXTRACT_JS` holds the extractor itself so there is one copy of it. Both are tested against the shipped `meta_5v5_defense_s80.json`.
    - **Season ids need the full prefix**: `CHAMPIONSHIPS_GRAND_ARENA_GA2_EVENT_SEASON_<n>`. The bare `SEASON_80` returns a 404 that arrives behind the Cloudflare interstitial, so it reads as a block when it is not one.

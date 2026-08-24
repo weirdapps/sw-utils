@@ -57,6 +57,21 @@
       "First Order"
      ]
     ]
+   },
+   {
+    "id": 34,
+    "name": "The Art of Command",
+    "expires": "2026-11-26",
+    "affixes": [
+     [
+      "faction",
+      "Empire"
+     ],
+     [
+      "faction",
+      "Jedi Vanguard"
+     ]
+    ]
    }
   ]
  },
@@ -232,19 +247,19 @@
     "value": 40.67905682062499,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.4
      }
     ],
@@ -826,19 +841,19 @@
     "value": 43.34,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.4
      }
     ],
@@ -1042,6 +1057,14 @@
       "kind": "role",
       "tag": "Attacker",
       "coverage": 0.4
+     },
+     {
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 0.4
      }
     ],
     "expiring": []
@@ -1132,6 +1155,14 @@
     "ban_eff": 34.28,
     "value": 34.28,
     "datacron": [
+     {
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 0.8
+     },
      {
       "set": 32,
       "name": "Necessary Means",
@@ -1558,20 +1589,20 @@
     "value": 32.440088812499994,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
-      "coverage": 0.33
+      "tag": "Attacker",
+      "coverage": 0.67
      }
     ],
     "expiring": []
@@ -1708,20 +1739,20 @@
     "value": 26.610661375,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
+      "tag": "Support",
+      "coverage": 0.67
      }
     ],
     "expiring": []
@@ -2318,20 +2349,20 @@
     "value": 45.71,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.67
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
-      "coverage": 0.33
+      "tag": "Attacker",
+      "coverage": 0.67
      }
     ],
     "expiring": []
@@ -2503,20 +2534,20 @@
     "value": 41.82,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
+      "tag": "Support",
+      "coverage": 0.67
      }
     ],
     "expiring": []
@@ -2651,20 +2682,20 @@
     "value": 40.5,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Support",
-      "coverage": 0.67
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Tank",
-      "coverage": 0.33
+      "tag": "Support",
+      "coverage": 0.67
      }
     ],
     "expiring": []
@@ -3366,19 +3397,19 @@
     "value": 40.67905682062499,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.4
      }
     ],
@@ -3568,6 +3599,14 @@
       "days": 38,
       "kind": "role",
       "tag": "Attacker",
+      "coverage": 0.6
+     },
+     {
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Jedi Vanguard",
       "coverage": 0.6
      }
     ],
@@ -3908,6 +3947,14 @@
     "value": 7.774054248204661,
     "datacron": [
      {
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 0.8
+     },
+     {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
@@ -4156,19 +4203,19 @@
     "value": 43.34,
     "datacron": [
      {
-      "set": 32,
-      "name": "Necessary Means",
-      "days": 38,
-      "kind": "role",
-      "tag": "Attacker",
-      "coverage": 0.4
+      "set": 34,
+      "name": "The Art of Command",
+      "days": 94,
+      "kind": "faction",
+      "tag": "Empire",
+      "coverage": 1.0
      },
      {
       "set": 32,
       "name": "Necessary Means",
       "days": 38,
       "kind": "role",
-      "tag": "Support",
+      "tag": "Attacker",
       "coverage": 0.4
      }
     ],
