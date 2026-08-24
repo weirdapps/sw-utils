@@ -39,9 +39,36 @@ Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date
   ⚠ **The two division fields disagree** — `playerRating.playerRankStatus.divisionId` = 15 while
   `seasonStatus[S82].division` = 10. Since the in-game screen reads Kyber 3 with divisionId still 15,
   **divisionId 15 == Kyber 3**. Read the Championships screen; do not infer the mapping from HotUtils.
-  ⚠ **Kyber 1 is a POPULATION PERCENTILE, not a fixed rating.** CG targets 10/25/30/25/10% across
-  divisions 1-5, and skill rating is re-tuned ("squished") every season, so no fixed cutoff exists.
-  Kyber 3 is the middle 30%; Kyber 1 is the top 10% of Kyber. (swgoh.wiki Grand_Arena_Championships)
+
+## ⭐⭐ THE KYBER LADDER, AND WHAT ACTUALLY MOVES YOU UP (swgoh.wiki, 2026-08-24)
+
+| Division | Kyber skill rating | Astra |
+|---|---|---|
+| **Kyber 1** | **3610+** | **445 to go** |
+| Kyber 2 | 3310+ | 145 to go |
+| Kyber 3 | 3130+ | ← **3,165, here** |
+| Kyber 4 | 2970+ | |
+| Kyber 5 | < 2970 | |
+
+⭐⭐ **SKILL RATING MOVES ON WIN/LOSS ONLY. THE BANNER MARGIN DOES NOT AFFECT IT.**
+Verbatim: *"Skill Rating will be adjusted at the end of each round based on whether it was a win
+or a loss."* Banners decide **who wins the round**; they do not size the rating change. A 1-banner
+win and a 900-banner win are worth exactly the same rating. It is a Bayesian/Elo-like system on the
+two players' ratings, so beating a higher-rated opponent pays more; community tracking puts a
+typical swing in the **mid-30s per win**. ⇒ 445 points is roughly **13 net wins**.
+
+⇒ **This does NOT retire the banner work — it reframes it.** Banners are the MECHANISM for winning
+the round, and this account converts only ~37% of available banners with ~493/round stranded behind
+a front zone left at n-1. Fixing that is still the whole game. What changes:
+- **Never skip a weekly event.** Verbatim: *"Every weekly event you miss will reduce your Skill
+  Rating as if you had lost two matches during that week."* That is the cheapest rating in the game.
+- **Do not grind banners after the round is mathematically decided** — won or lost, the rating is
+  already set. Extra banners then buy only reward-crate thresholds, never rating.
+- **Roster upgrades do not bump rating directly.** They raise P(win), which pays out over the next
+  few rounds. Do not expect Profundity or a mod pass to move the number the same week.
+- Division changes happen **after each round**; League changes only at **season end**. Kyber is the
+  top league, so Kyber 1 is the ceiling.
+
   ⇒ **Scrape swgoh.gg with `league=kyber` (all divisions), not `league=kyber-d1`** — they are different
   buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
