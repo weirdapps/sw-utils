@@ -9,7 +9,7 @@ Maul (Hate-Fueled)
 Starkiller
 Visas Marr
 Rey
-50R-T
+Barriss Offee
 Ben Solo
 Cal Kestis
 General Kenobi
@@ -28,87 +28,80 @@ Bastila Shan
 Jedi Knight Revan
 Jolee Bindo
 Juhani
-Queen Amidala
-Grand Master Yoda
-Master Qui-Gon
-Padawan Obi-Wan
-Shaak Ti
+Boss Nass
+Gungan Boomadier
+Captain Tarpals
+Gungan Phalanx
+Jar Jar Binks
 Saw Gerrera
 Baze Malbus
 Chirrut Îmwe
 Kyle Katarn
 Luthen Rael
-Major Partagaz
-Dedra Meero
-Director Krennic
-Imperial Probe Droid
-KX Security Droid
-Great Mothers
-Death Trooper (Peridea)
-Merrin
-Morgan Elsbeth
-Night Trooper
+Queen Amidala
+Echo
+Master Qui-Gon
+Padawan Obi-Wan
+Shaak Ti
 General Grievous
 B1 Battle Droid
 B2 Super Battle Droid
 IG-100 MagnaGuard
 STAP
+Great Mothers
+Death Trooper (Peridea)
+Merrin
+Morgan Elsbeth
+Night Trooper
 Mon Mothma
 Kleya Marki
 Maul
-Boss Nass
 Stormtrooper Luke
-Captain Tarpals
 Princess Leia
-Jar Jar Binks
 Stormtrooper Han
 Nightsister Spirit
+Major Partagaz
+Dedra Meero
+KX Security Droid
 Darth Revan
 Mission Vao
 Zaalbar
 Darth Traya
 Darth Nihilus
 Savage Opress
+Cobb Vanth
+Coruscant Underworld Police
+Lobot
 Tarfful
 Clone Wars Chewbacca
 Yoda & Chewie
+50R-T
 BB-8
 L3-37
-Qui-Gon Jinn
-Jedi Knight Anakin
-Mace Windu
-Leia Organa
-Admiral Raddus
-Captain Drogan
-Jyn Erso
-R2-D2
 Supreme Leader Kylo Ren
 Rey (Dark Side Vision)
 Sith Trooper
 General Hux
 Kylo Ren (Unmasked)
+Darth Bane
+Count Dooku
+Leia Organa
+Admiral Raddus
+Captain Drogan
+Captain Rex
+R2-D2
 Sith Eternal Emperor
 Wat Tambor
 Jedi Master Kenobi
-Ahsoka Tano
+Ahsoka Tano (Snips)
 Commander Ahsoka Tano
+Mace Windu
 Padmé Amidala
-Jedi Master Luke Skywalker
-Hermit Yoda
-Jedi Knight Cal Kestis
-Jedi Knight Luke Skywalker
-Darth Bane
-Count Dooku
 General Skywalker
 ARC Trooper
 CT-21-0408 "Echo"
 CT-5555 "Fives"
 CT-7567 "Rex"
-Ahsoka Tano
-Ezra Bridger (Exile)
-General Syndulla
-Huyang
-Padawan Sabine Wren
 Jabba the Hutt
 Boushh (Leia Organa)
 Embo
@@ -118,15 +111,21 @@ Darth Malgus
 Bastila Shan (Fallen)
 Darth Malak
 Sith Marauder
+Ahsoka Tano
+Ezra Bridger (Exile)
+General Syndulla
+Huyang
+Padawan Sabine Wren
+Jedi Master Luke Skywalker
+Grand Master Yoda
+Hermit Yoda
+Jedi Knight Cal Kestis
+Jedi Knight Luke Skywalker
 Bo-Katan (Mand'alor)
 Bo-Katan Kryze
 IG-12 & Grogu
 Paz Vizsla
 The Mandalorian (Beskar Armor)
-Darth Sion
-Darth Talon
-Gungan Boomadier
-Gungan Phalanx
 Lord Vader
 CC-1119 "Appo"
 Disguised Clone Trooper
@@ -137,32 +136,32 @@ Threepio & Chewie
 C-3PO
 Chewbacca
 Han Solo
+Darth Sion
+Darth Talon
+Chief Nebit
+Jawa Scavenger
 Cere Junda
 Inquisitor Barriss
 Ninth Sister
 Taron Malicos
-Wampa
 Doctor Aphra
 BT-1
 IG-90
 0-0-0
 Darth Vader
+Wampa
 Dark Trooper Moff Gideon
 Captain Enoch
 Death Trooper
 Moff Gideon
 Scout Trooper
-Hera Syndulla
-Captain Rex
-Chopper
-Kanan Jarrus
-Sabine Wren
 Omega (Fugitive)
 Batcher
 Crosshair (Scarred)
 Hunter (Mercenary)
 Wrecker (Mercenary)
 Cassian Andor
+Jyn Erso
 Ugnaught
 Ezra Bridger
 Bossk
@@ -170,15 +169,20 @@ Grand Moff Tarkin
 Greef Karga
 The Mandalorian
 Ahsoka Tano (Fulcrum)
+Qui-Gon Jinn
+Jedi Knight Anakin
+Ki-Adi-Mundi
 Darth Maul
 Iden Versio
 Grand Inquisitor
 Fifth Brother
-Coruscant Underworld Police
 Ewok Scout
-Barriss Offee
-Ki-Adi-Mundi
 Kit Fisto
+Captain Carson Teva
+Colonel Ward
+Grogu & Anzellans
+R5-D4
+Zeb Orrelios (New Republic Pilot)
 Admiral Trench
 Jango Fett
 Nute Gunray
@@ -199,11 +203,11 @@ Geonosian Soldier
 Geonosian Spy
 Poggle the Lesser
 Sun Fac
-Darth Sidious
+Obi-Wan Kenobi (Old Ben)
 Admiral Ackbar
 Admiral Piett
 Amilyn Holdo
-Rey
+Rey (Scavenger)
 Dengar
 Plo Koon
 Scarif Rebel Pathfinder
@@ -224,4 +228,6 @@ Biggs Darklighter
 T3-M4
 Young Lando Calrissian
 Wedge Antilles
+Hera Syndulla
+Kanan Jarrus
 Garazeb "Zeb" Orrelios
