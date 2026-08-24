@@ -103,7 +103,29 @@ def map_roster(player, name_type_map):
 
     ⚠ No per-unit `gp`/`o`/`z` — comlink does not return them. Use unit_power()
     for power; zetas/omicrons are simply not available from this source.
+
+    The ACCOUNT total GP is a different matter and IS available, in profileStat.
+    build_board.py reads roster["meta"]["gp"] and crashed with KeyError('gp') on
+    every live pull; it only ever ran because the saved 2026-08-18 file happened
+    to carry the key. Same for the GAC skill rating and division, which sit in
+    `playerRating` and are the numbers the Kyber climb is actually measured in.
+    Missing stats stay ABSENT rather than defaulting to 0 — a zero GP would sail
+    through every downstream comparison instead of failing loudly.
     """
+    stats = {s.get("nameKey"): s.get("value")
+             for s in (player.get("profileStat") or [])}
+
+    def _stat(key):
+        val = stats.get(key)
+        try:
+            return int(val)
+        except (TypeError, ValueError):
+            return None
+
+    rating = player.get("playerRating") or {}
+    skill = (rating.get("playerSkillRating") or {}).get("skillRating")
+    rank = rating.get("playerRankStatus") or {}
+
     units = []
     for u in player.get("rosterUnit", []):
         base = u.get("definitionId", "").split(":")[0]
@@ -116,16 +138,26 @@ def map_roster(player, name_type_map):
             "r": u.get("currentRarity"),
             "rt": _relic_tier(u),
         })
-    return {
-        "meta": {
-            "name": player.get("name"),
-            "allyCode": player.get("allyCode"),
-            "pulled": _TODAY,
-            "count": len(units),
-            "source": "comlink",
-        },
-        "units": units,
+    meta = {
+        "name": player.get("name"),
+        "allyCode": player.get("allyCode"),
+        "pulled": _TODAY,
+        "count": len(units),
+        "source": "comlink",
     }
+    for key, stat in (("gp", "STAT_GALACTIC_POWER_ACQUIRED_NAME"),
+                      ("gp_char", "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME"),
+                      ("gp_ship", "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME")):
+        val = _stat(stat)
+        if val is not None:
+            meta[key] = val
+    if skill is not None:
+        meta["skill_rating"] = skill
+    if rank.get("leagueId"):
+        meta["league"] = rank["leagueId"]
+    if rank.get("divisionId") is not None:
+        meta["division_id"] = rank["divisionId"]
+    return {"meta": meta, "units": units}
 
 
 def load_name_type_map(path=DEFAULT_MAP):

@@ -39,6 +39,27 @@ def parse_json_def(path):
              "ban": float(x["banners"]), "units": x["units"]} for x in d["rows"]]
 
 
+def latest_season_file(meta_dir, prefix, fallback=None):
+    """Newest `<prefix>_s<N>.txt` in meta_dir, by the SEASON NUMBER in the name.
+
+    The same trap latest_roster_file() closes for rosters, which this repo had
+    already been bitten by once: build_board.py pinned "meta_def5v5_s80.txt" by
+    hand, so a fresh S82 scrape landed in data/meta/ and was silently ignored
+    while the board kept planning against a two-season-old meta.
+
+    Sort on the season number, never on mtime — re-saving an old season must not
+    make it look current. Returns `fallback` when nothing matches, so a caller
+    can keep an undated legacy file working.
+    """
+    best = None
+    pat = re.compile(re.escape(prefix) + r"_s(\d+)\.txt$")
+    for fn in os.listdir(meta_dir):
+        m = pat.match(fn)
+        if m and (best is None or int(m.group(1)) > best[0]):
+            best = (int(m.group(1)), fn)
+    return best[1] if best else fallback
+
+
 def load_meta(meta_files, meta_dir):
     """meta_files: {(fmt, persp): filename}. Returns {(fmt, persp): [team, ...]}."""
     meta = {}

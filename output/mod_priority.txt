@@ -174,19 +174,13 @@ Darth Maul
 Iden Versio
 Grand Inquisitor
 Fifth Brother
-Admiral Piett
-Cassian Andor (Undercover)
 Coruscant Underworld Police
-Boba Fett
 Ewok Scout
-Gar Saxon
-Canderous Ordo
-Imperial Super Commando
-Jango Fett
 Barriss Offee
 Ki-Adi-Mundi
 Kit Fisto
 Admiral Trench
+Jango Fett
 Nute Gunray
 Finn
 Resistance Hero Finn
@@ -207,6 +201,7 @@ Poggle the Lesser
 Sun Fac
 Darth Sidious
 Admiral Ackbar
+Admiral Piett
 Amilyn Holdo
 Rey
 Dengar
@@ -216,6 +211,7 @@ Second Sister
 Tech
 Poe Dameron
 Hunter
+Boba Fett
 Sith Empire Trooper
 Wrecker
 IG-88

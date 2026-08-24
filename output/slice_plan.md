@@ -1,24 +1,24 @@
 # Slice / calibrate priority queue
 
-Source: `mods_full_20260820.json` · 1962 equipped mods
+Source: `mods_full_20260822.json` · 1962 equipped mods
 
 
 ## Materials on hand
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 364 | 1123 | 17 | 38 | 229 | 38/25/6/27/17/91 | 154,419,402 |
+| 364 | 1123 | 19 | 41 | 229 | 3/60/1/22/37/114 | 156,863,902 |
 
 ## Queue: 1860 upgradeable mods (not yet 6A)
 
 By ladder rung × action:
 
-- **ARENA**: 6-dot slice-up=53, 5A->6 promote=219, 5-dot slice-up=103
+- **ARENA**: 6-dot slice-up=53, 5A->6 promote=220, 5-dot slice-up=102
 - **GAC**: 6-dot slice-up=4, 5A->6 promote=264, 5-dot slice-up=313
-- **TB**: 5A->6 promote=10, 5-dot slice-up=44
-- **TW**: 5A->6 promote=41, 5-dot slice-up=96
-- **fleet**: 6-dot slice-up=1, 5A->6 promote=34, 5-dot slice-up=102
-- **other**: 5A->6 promote=89, 5-dot slice-up=487
+- **TB**: 5A->6 promote=2, 5-dot slice-up=10
+- **TW**: 5A->6 promote=42, 5-dot slice-up=101
+- **fleet**: 6-dot slice-up=1, 5A->6 promote=39, 5-dot slice-up=109
+- **other**: 5A->6 promote=91, 5-dot slice-up=509
 
 ## Top 40 in queue (execute in this order)
 

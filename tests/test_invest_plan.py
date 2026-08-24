@@ -149,7 +149,23 @@ def test_displayed_relic_7_means_rt_9():
     assert ip.rt_for_displayed_relic(6) == 8          # RotE operations "Relic 6+"
     assert ip.displayed_relic(12) == 10
     assert ip.displayed_relic(None) is None
-    assert ip.DEFAULT_TARGET_RT == 9
+    assert ip.rt_for_displayed_relic(9) == 11
+    assert ip.DEFAULT_TARGET_RT == 11          # target is displayed R9, so rt 11
+
+
+def test_default_target_is_r9_so_the_r7_pile_is_visible():
+    # The account's structural problem is 161 characters parked at exactly R7
+    # against 27 at R9+, and CLAUDE.md's standing instruction is "stop adding
+    # R7s; convert R7->R9". A target of displayed R7 makes every one of those
+    # units read as DONE, so the ladder silently spent relic mats on R5/R6
+    # filler instead. This is the same off-by-a-tier that bit advisor.py on
+    # 2026-08-17; it was fixed there and missed here.
+    board = _board(**{"5v5": {"defense": [_sq(50, "PARKED")], "offense": []}})
+    roster = _roster(("PARKED", {"rt": 9}))        # displayed R7
+    priority = ip.priority_units(roster, board)
+    q = ip.relic_queue(roster, priority)
+    assert [e["unit"] for e in q] == ["PARKED"]
+    assert q[0]["relic"] == 7 and q[0]["levels_to_go"] == 2
 
 
 def test_relic_queue_uses_the_roster_scale_and_keeps_priority_order():
@@ -234,7 +250,7 @@ def test_build_reports_missing_inputs_and_renders():
     roster = _roster(("A",))
     result = ip.build(roster, missing=["arena_result.json"])
     assert result["meta"]["missing_inputs"] == ["arena_result.json"]
-    assert result["meta"]["target_displayed_relic"] == 7
+    assert result["meta"]["target_displayed_relic"] == 9
     md = ip.render_markdown(result)
     assert "Missing inputs: arena_result.json" in md
 

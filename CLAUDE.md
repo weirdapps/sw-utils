@@ -31,10 +31,17 @@ otherwise. `tw_wall.py` died on `KeyError('gp')` before this was centralised.
 Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date.
 
 ## Player
-- **Astra** · ally **145357294** · GAC **KYBER 4** · 14.47M GP · skill rating **3,128** (Kyber-4 band is
-  2970-3130, so he sits one point off promotion). Read off the in-game Championships screen 2026-08-17;
-  the HotUtils `divisionId: 15` maps to Kyber 4, NOT Division 3 as first inferred, and division is set by
-  **skill rating, not GP**. ⚠ Two earlier claims were wrong: the GP-based "Division 1", and "Division 3".
+- **Astra** · ally **145357294** · GAC **KYBER 3** · **14.57M GP** · skill rating **3,165**
+  (Kyber-3 band **3130-3310**). Read off the in-game Championships screen **2026-08-24**: he was 3,128
+  in the Kyber-4 band (2970-3130) on 08-17, crossed 3,130 and **was PROMOTED**. The bands are contiguous.
+  Division is set by **skill rating, not GP**. ⚠ Three earlier claims were wrong: the GP-based
+  "Division 1", "Division 3", and "Kyber 4" (true on 08-17, stale since).
+  ⚠ **The two division fields disagree** — `playerRating.playerRankStatus.divisionId` = 15 while
+  `seasonStatus[S82].division` = 10. Since the in-game screen reads Kyber 3 with divisionId still 15,
+  **divisionId 15 == Kyber 3**. Read the Championships screen; do not infer the mapping from HotUtils.
+  ⚠ **Kyber 1 is a POPULATION PERCENTILE, not a fixed rating.** CG targets 10/25/30/25/10% across
+  divisions 1-5, and skill rating is re-tuned ("squished") every season, so no fixed cutoff exists.
+  Kyber 3 is the middle 30%; Kyber 1 is the top 10% of Kyber. (swgoh.wiki Grand_Arena_Championships)
   ⇒ **Scrape swgoh.gg with `league=kyber` (all divisions), not `league=kyber-d1`** — they are different
   buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
@@ -46,7 +53,11 @@ Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date
   - **Profundity — every gate MET.** All 7 ships at 7★ (Bistan's + Cassian's U-wing, Biggs' + Wedge's
     X-wing, Rebel Y-wing, Ghost, Outrider) and all 7 character relics clear, **three of them exactly at
     threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7 (then Mon Mothma/Bistan/Jyn R7,
-    Hera R6). Stardust Transmission runs ~monthly, last ran 2026-07-31 ⇒ **next ~late Aug 2026. Play it.**
+    Hera R6). ⭐ **NEXT STARDUST TRANSMISSION IS 2026-08-31** (swgohevents.com/event/profundity).
+    Gates re-verified against the 08-24 roster with the CORRECT base ids — the ones implied by the
+    old note are guesses that do not resolve. Ships, all 7★: **UWINGSCARIF · UWINGROGUEONE ·
+    XWINGRED3 · XWINGRED2 · YWINGREBEL · GHOST · OUTRIDER**; Hera is **HERASYNDULLAS3** (R6, gate R6).
+    ⛔ **PLAY IT — it cannot be automated**, and it is the biggest free GAC upgrade available here.
   - **Third Sister has no event** — Reva shards drop from the **RotE Phase 3 Neutral special mission**,
     1 per guild victory, max 50. The gate is a **Relic-7 Grand Inquisitor**, and Astra's is exactly R7.
     ⇒ It is farmable now, but only by running that mission every RotE. Do not auto-battle it.
@@ -147,8 +158,11 @@ python3 scripts/rote_missions.py --write   # regenerate data/rote/missions_1..6.
 python3 scripts/rote_missions.py --gaps    # which required units miss their gate, CHEAPEST FIRST
 python3 scripts/rote_ops.py --phase N      # the squad to bring to every mission in phase N
 python3 scripts/rote_squads.py --phase N   # the RESEARCHED per-node teams + play order
-HU_SID=<live> python3 scripts/upload_hotutils.py --sync --payload output/rote_squads.json
+HU_SID=<live> python3 scripts/upload_hotutils.py --create --payload output/rote_squads.json
 ```
+⛔ **`--create`, never `--sync`, for a PARTIAL payload.** `--sync` deletes every definition not in
+the payload, so `--sync --payload rote_squads.json` wipes all ~114 GAC/TW squads and leaves 17.
+`--sync` is only for `output/upload_payload.json`, which is the whole board.
 - ⭐ **`rote_missions.TACTICS` is the researched per-node team list; `rote_squads.py` pushes it as
   a `TB RotE - P<n>` squad tab so the phase is played from SELECT SQUAD, never from auto-fill.**
   Play order is **specials → unit-gated → faction-gated → free**: auto-fill will spend a gated unit

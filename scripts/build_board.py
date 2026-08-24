@@ -37,22 +37,35 @@ META = os.path.join(DATA, "meta")
 OUT = os.path.join(ROOT, "output")
 ROSTER_FILE = swgoh_data.latest_roster_file()
 
-# main = swgoh.gg's own significance cutoff; deep = cutoff=0 sorted by usage, which
-# is where the Territory War bench comes from.
-# Season pairing (re-checked 2026-08-18 against the live /gac/squads/ dropdown):
-# swgoh.gg's DEFAULT page is the newest season with data, and that is S81 = 3v3
-# (3 units per row). S82 is still in progress so it has no table yet. The newest
-# EVEN (5v5) season with data is therefore S80. Do not "upgrade" the 5v5 files to
-# an odd season id — you will silently load 3v3 rows into the 5v5 board.
-META_MAIN = {("5v5", "def"): "meta_def5v5_s80.txt", ("5v5", "off"): "meta_off5v5.txt",
-             ("3v3", "def"): "meta_def3v3.txt", ("3v3", "off"): "meta_off3v3.txt"}
+# MAIN = the newest scraped season, resolved from the filename so a fresh scrape
+# is picked up automatically. DEEP = the older, fuller snapshot, kept only for
+# lineups the current season has not sampled yet.
+#
+# ⚠ SEASON PARITY IS LOAD-BEARING: even season = 5v5, odd = 3v3. The resolver is
+# scoped per prefix (meta_def5v5_* vs meta_def3v3_*), so it cannot cross them, but
+# never hand-point a 5v5 key at an odd season id — 3v3 rows are 3 units wide and
+# would load into the 5v5 board looking perfectly valid.
+#
+# 2026-08-24: S82 (5v5) now HAS a table — 27 def / 39 off rows — which is why the
+# main/deep split is meaningful again. The 2026-08-18 note collapsed them because
+# both tiers were reading the same scrape; that reason no longer holds.
+META_MAIN = {
+    ("5v5", "def"): swgoh_meta.latest_season_file(META, "meta_def5v5", "meta_def5v5_s80.txt"),
+    ("5v5", "off"): swgoh_meta.latest_season_file(META, "meta_off5v5", "meta_off5v5.txt"),
+    ("3v3", "def"): swgoh_meta.latest_season_file(META, "meta_def3v3", "meta_def3v3.txt"),
+    ("3v3", "off"): swgoh_meta.latest_season_file(META, "meta_off3v3", "meta_off3v3.txt"),
+}
+META_LEGACY = {("5v5", "def"): "meta_def5v5_s80.txt", ("5v5", "off"): "meta_off5v5.txt",
+               ("3v3", "def"): "meta_def3v3.txt", ("3v3", "off"): "meta_off3v3.txt"}
 # ⚠ 2026-08-18: the /gac/squads/ table is HARD-CAPPED AT 100 ROWS and is always
 # ordered by Seen descending, so `cutoff=0` returns exactly the same 100 rows as
-# `cutoff=0.1`. The main/deep split therefore collapses — pointing DEEP at the
-# stale Aug-5 *_deep.txt files only mixed a two-week-old meta into the TW bench.
-# Both tiers now read the same fresh scrape; re-split this only if swgoh.gg ever
-# paginates past 100.
-META_DEEP = META_MAIN
+# `cutoff=0.1`. Re-split this only if swgoh.gg ever paginates past 100.
+#
+# DEEP is the previous snapshot. It contributes lineups the current season has not
+# sampled yet — a running season has ~27 defence rows against a finished one's 100,
+# and the Territory War bench needs that tail. When MAIN and DEEP resolve to the
+# same file the merge below is a no-op, which is the correct degenerate case.
+META_DEEP = META_LEGACY
 
 
 def load_pools():
@@ -72,11 +85,16 @@ def load_pools():
 
     pools = {}
     for key in META_MAIN:
+        # Dedup on lineup, DEEP first so MAIN overwrites it. Not "keep the bigger
+        # sample": a finished season always out-samples a running one, so that rule
+        # handed every shared lineup back to the OLD season and a fresh scrape could
+        # never change a rate. Recency beats sample size here because the thing being
+        # measured — how a lineup performs against the current meta — is what moved.
         merged = {}
-        for s in main[key] + deep[key]:          # dedup on lineup, keep the bigger sample
-            k = tuple(s["units"])
-            if k not in merged or s["seenN"] > merged[k]["seenN"]:
-                merged[k] = s
+        for s in deep[key]:
+            merged[tuple(s["units"])] = s
+        for s in main[key]:
+            merged[tuple(s["units"])] = s
         out = []
         for s in merged.values():
             if s["seenN"] < cfg.BENCH_MIN_SEEN:
@@ -205,8 +223,13 @@ def build():
     # ---- Territory War (5v5, deeper, defense weighted up) --------------------
     D = fieldable(pools[("5v5", "def")])
     O = [dict(s, value=s["value"] * cfg.TW["off_weight"]) for s in fieldable(pools[("5v5", "off")])]
-    td, to = ob.solve(D, O, cfg.TW["def"], cfg.TW["off"],
-                      forced_off_leaders=cfg.ATTACK_ONLY_BY_FORMAT["5v5"])
+    td, to, tw_nd, tw_no = ob.solve_at_most(
+        D, O, cfg.TW["def"], cfg.TW["off"],
+        forced_off_leaders=cfg.ATTACK_ONLY_BY_FORMAT["5v5"])
+    if tw_nd < cfg.TW["def"] or tw_no < cfg.TW["off"]:
+        print(f"⚠ TW ILP ceiling moved: asked {cfg.TW['def']}def/{cfg.TW['off']}off, "
+              f"got {tw_nd}/{tw_no} — the graded bank is {cfg.TW['def'] - tw_nd} squads "
+              f"short ({(cfg.TW['def'] - tw_nd) * 30} banners); tw_wall.py fills the rest.")
     for s in to:                                   # undo the weighting for display
         s["value"] = s["value"] / cfg.TW["off_weight"]
     td.sort(key=lambda s: (-s["rate"], -s["seenN"]))
