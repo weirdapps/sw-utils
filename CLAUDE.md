@@ -58,9 +58,15 @@ Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date
     old note are guesses that do not resolve. Ships, all 7★: **UWINGSCARIF · UWINGROGUEONE ·
     XWINGRED3 · XWINGRED2 · YWINGREBEL · GHOST · OUTRIDER**; Hera is **HERASYNDULLAS3** (R6, gate R6).
     ⛔ **PLAY IT — it cannot be automated**, and it is the biggest free GAC upgrade available here.
-  - **Third Sister has no event** — Reva shards drop from the **RotE Phase 3 Neutral special mission**,
-    1 per guild victory, max 50. The gate is a **Relic-7 Grand Inquisitor**, and Astra's is exactly R7.
+  - **Third Sister has no event** — Reva shards drop from the RotE **Phase 3 · TATOOINE (mixed)**
+    special, `special_reva` in `data/rote/missions_3.json`, 1 per guild victory, max 50. The gate is a
+    **Relic-7 Grand Inquisitor**, and Astra's is exactly R7.
     ⇒ It is farmable now, but only by running that mission every RotE. Do not auto-battle it.
+    ⚠ **Do not confuse it with the PHASE 4 · Medical Station special**, which *requires* an owned
+    **Third Sister at R8** and pays **1,000 Mk III tokens**. `rote_missions.py --gaps` lists
+    THIRDSISTER against "P4 Medical Station/special" for exactly that reason, and reading that row
+    as "the Reva farm is in phase 4" is wrong — one mission FARMS her, the other SPENDS her.
+    The phase-4 row is a second reason to unlock her: Mk III is the R8/R9 relic supply line.
 - ⚠ **The real structural gap is MODS, not gear or relics.** Head-to-head with the live S82 opponent:
   145 six-dot mods vs 720, total mod speed 16,682 vs 25,873, 10 mods at 25+ speed vs 47 — while Astra's
   gearScore is *higher*. Relic spend is equal in total (2,213 vs 2,189 levels) but wrong in shape:
