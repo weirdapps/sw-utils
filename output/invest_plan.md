@@ -6,8 +6,7 @@ Roster 398 units (pulled 2026-08-24, source file-fallback). Relic target = displ
 
 | tier | units | leading unit |
 |---|---|---|
-| 1 | 5 | Rotta the Hutt — Squad Arena defense (deployed) |
-| 2 | 50 | The Stranger — GAC 5v5 defense (50%) |
+| 2 | 55 | The Stranger — GAC 5v5 defense (50%) |
 | 3 | 25 | Mon Mothma — GAC 3v3 defense (22%) |
 | 4 | 82 | Supreme Leader Kylo Ren — GAC 5v5 offense (91%) |
 | 5 | 12 | Cassian Andor — GAC 3v3 offense (78%) |
@@ -22,12 +21,12 @@ Roster 398 units (pulled 2026-08-24, source file-fallback). Relic target = displ
 
 | # | unit | relic | to go | tier | why |
 |---|---|---|---|---|---|
-| 1 | Mob Enforcer | R7 | +2 | 1 | Squad Arena defense (deployed) |
-| 2 | Greedo | R7 | +2 | 1 | Squad Arena defense (deployed) |
-| 3 | Gamorrean Guard | R7 | +2 | 1 | Squad Arena defense (deployed) |
-| 4 | Cad Bane | R7 | +2 | 1 | Squad Arena defense (deployed) |
-| 5 | Luminara Unduli | R8 | +1 | 2 | GAC 5v5 defense (50%) |
-| 6 | Visas Marr | R8 | +1 | 2 | GAC 5v5 defense (50%) |
+| 1 | Luminara Unduli | R8 | +1 | 2 | GAC 5v5 defense (50%) |
+| 2 | Visas Marr | R8 | +1 | 2 | GAC 5v5 defense (50%) |
+| 3 | Gamorrean Guard | R7 | +2 | 2 | GAC 5v5 defense (41%) |
+| 4 | Greedo | R7 | +2 | 2 | GAC 5v5 defense (41%) |
+| 5 | Cad Bane | R7 | +2 | 2 | GAC 5v5 defense (41%) |
+| 6 | Mob Enforcer | R7 | +2 | 2 | GAC 5v5 defense (41%) |
 | 7 | Barriss Offee | R7 | +2 | 2 | GAC 5v5 defense (41%) |
 | 8 | Ben Solo | R8 | +1 | 2 | GAC 5v5 defense (41%) |
 | 9 | Cal Kestis | R7 | +2 | 2 | GAC 5v5 defense (41%) |
