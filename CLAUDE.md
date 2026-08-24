@@ -86,9 +86,19 @@ a front zone left at n-1. Fixing that is still the whole game. What changes:
     XWINGRED3 · XWINGRED2 · YWINGREBEL · GHOST · OUTRIDER**; Hera is **HERASYNDULLAS3** (R6, gate R6).
     ⛔ **PLAY IT — it cannot be automated**, and it is the biggest free GAC upgrade available here.
   - **Third Sister has no event** — Reva shards drop from the RotE **Phase 3 · TATOOINE (mixed)**
-    special, `special_reva` in `data/rote/missions_3.json`, 1 per guild victory, max 50. The gate is a
-    **Relic-7 Grand Inquisitor**, and Astra's is exactly R7.
-    ⇒ It is farmable now, but only by running that mission every RotE. Do not auto-battle it.
+    special, `special_reva` in `data/rote/missions_3.json`, 1 per guild victory, guild max 50.
+    ⚠️ **THE GATE IS NOT "GRAND INQUISITOR R7". Zone 3 applies a BLANKET rule:** *"Requires all
+    units to be at 7 stars and Relic Level 7 for all missions except Deployment"*
+    (swgoh.wiki/Rise_of_the_Empire). **All five units you bring must be 7★ R7+.**
+    ⭐ **Checked against the 08-24 roster — Astra clears it with EXACTLY five:**
+    **Grand Inquisitor (lead) · Seventh Sister · Fifth Brother · Marrok · Inquisitor Barriss**
+    (all 7★ R7). **Ninth Sister is R6 and Eighth Brother is R5 — both FAIL the gate.**
+    ⇒ The comp published in guides (GI / 7th / 9th / 5th / 8th) is **UNPLAYABLE here**: it needs
+    both failing units. Any guide tactic that leans on Ninth Sister's team-wide crit avoidance
+    does not apply. **Ninth Sister R6→R7 is ONE relic level and restores the researched comp.**
+    ⇒ Grand Inquisitor cannot be swapped out of the leader slot.
+    ⇒ **One attempt, no retries** — *"Special Missions may only be completed once."* Do not
+    auto-battle it.
     ⚠ **Do not confuse it with the PHASE 4 · Medical Station special**, which *requires* an owned
     **Third Sister at R8** and pays **1,000 Mk III tokens**. `rote_missions.py --gaps` lists
     THIRDSISTER against "P4 Medical Station/special" for exactly that reason, and reading that row
@@ -195,6 +205,17 @@ python3 scripts/tw_wall.py         # extends to 55 via leader-tier-list, unranke
   bank and the wall into ONE ranking — sorting them separately is what put a 4% wall in front of a 42%
   one in the 2026-08-11 war. Rows flagged `BACK` are no-synergy filler and must never take a front slot.
 - Offense is deliberately only 8 coherent GL-led squads (owner's max-defense call; conquest forfeited).
+- ⚠️ **DO NOT OVERSELL THE WALL. Corrected 2026-08-24 after I overstated it.** Going 15 → 55 squads
+  adds **1,200 banners** (40 × 30) from ONE player. The guild's last three wars were
+  L 15,287-17,574 · L 16,020-18,625 · W 16,192-15,053, so the losing margins were **2,287 and
+  2,605** — **more than 1,200. A full wall does NOT flip either loss on its own.**
+- ⭐ **And the wall is not where the deficit is.** Their own score is flat at 15.3-16.2k across all
+  three wars, so the variable is the opponent, not them. Placement banners are near-symmetric when
+  both guilds fill; the differentiator is **CONQUEST**, at **+450 per territory and +900 for a back
+  row**, plus +10 per defensive slot in it. Two back-row conquers ≈ the whole losing margin.
+  ⇒ Fill every slot anyway — an empty one costs 30 directly **and gifts the enemy +10 on their
+  conquer bonus — but the war is lost on offense, and this repo forfeited offense by choice.**
+  Revisit the 8-squad offense cap with the owner before blaming the wall.
 
 ## Rise of the Empire (RotE) — the map is written down, stop improvising
 RotE encounters are **static**, so the whole 6-phase map lives in `data/rote/`.
@@ -226,6 +247,27 @@ the payload, so `--sync --payload rote_squads.json` wipes all ~114 GAC/TW squads
   its 2nd and 3rd stars. Bonus zones (Zeffo, Mandalore) are a separate gate — N clears of a special.
   ⛔ This repo invented a "3 stars" rule from two board readings on 2026-08-20 and was wrong twice
   before the owner pointed out it is stated plainly in every RotE guide. **Look the mechanic up.**
+- ⭐⭐ **OPERATIONS ARE ~90% OF A STAR, AND THAT IS THE WHOLE GUILD ARGUMENT FOR R7→R9.**
+  From the wiki Zone Information tables: a **Phase 6 operation pays 86,486,400**, so six of them
+  = **518,918,400** against Scarif's 1★ threshold of **555,710,999** — **93% of the star from
+  operations alone** (≈89% on Death Star and Hoth). Phase 5 ops are 33,264,000 each, ≈58% of a 1★.
+  ⇒ **One R9 unit filling one Phase-6 op slot returns ~86.5M TP. Deploying that same unit pays
+  its GP, ~1.5M. That is roughly 57x.** Nothing else in the mode is close.
+  ⚠️ **Phase 5/6 op slots gate at 7★ R9**, and Astra has 161 at exactly R7 against 27 at R9+, so
+  the roster is shaped precisely wrong for where the points are. This is the same R7→R9 conversion
+  GAC wants, paying twice.
+  ⚠️ The old "13.2M per operation in phase 5" figure was wrong: **13.2M is PHASE 3.**
+  **Guild sizing:** at 519M deployable the ceiling is ~28-33 stars and they finished at **20**, so
+  8-13 stars are on the table — and it is **unfilled operations and uncleared combat, not GP**.
+  ⭐ **Cheapest star on the map: Jedi Knight Cal Kestis collapses Zeffo's required deployment from
+  102,375,000 to 3,229,167, a 32x cut.** Astra owns him (he is on the GL Rey wall).
+- ⚠️ **"A deployed unit becomes ineligible" is too strong.** The real rules: a unit may be deployed
+  to ONE territory and used in one platoon/special/combat **in that territory** per phase; once
+  deployed there it can only be used for that territory; and entering a mission without deploying
+  auto-deploys it there. ⇒ Mass-deploying to one planet kills those units for **other planets'**
+  ops and combat, not for the one they are on. Correct order: **Special → Operations → Combat →
+  Deploy last.** Completing a platoon also raises that Platoon Mission's level (steps at 2/4/6),
+  so running combat before ops are full makes the combat strictly harder.
 - **Operations still need an on-device scrape** (`data/rote/operations_<phase>.json`). Without one
   `rote_ops` plans MISSIONS ONLY and reserves nothing for platoons — it says so loudly. Operations
   before deploy, always: a deployed unit is permanently ineligible for a platoon slot.
