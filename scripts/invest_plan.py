@@ -167,10 +167,18 @@ BOARD_ROLES = (
     (10, ("tw", "offense"), "TW offense"),
 )
 
-# ⭐ The single deployed Squad Arena team is rung 1. Owner, 2026-08-20:
-# "upgrade all mods … first prio the one arena team. Second priority is always grand
-# arena defense, and then grand arena offense."
-ARENA_DEFENSE_TIER = 1
+# ⭐ SQUAD ARENA SITS BELOW THE WHOLE GAC BLOCK. Owner, 2026-08-24:
+# "forget about the arena goal. Just do grand arena … optimized for Grand Arena, not
+# for a single arena world."
+# This REVERSES the 2026-08-20 call ("first prio the one arena team", which set this
+# to 1). Keeping both notes on purpose: the ladder has now flipped twice and the
+# reason it flips is that the two modes want the same five units, so whichever is
+# rung 1 silently owns the best mods.
+# ⚠ In practice this moves less than it looks: the deployed arena wall IS the GAC
+# 5v5 Rotta squad, so those five still rank high, just via GAC 5v5 defense (tier 2)
+# rather than as arena. What actually changes is that they no longer outrank The
+# Stranger's 50%-hold wall, which is the better GAC squad.
+ARENA_DEFENSE_TIER = 6
 ARENA_CLIMB_TIER = 6
 
 # board_result.json already carries the arena fleet as its own category, so when
@@ -203,7 +211,12 @@ MOD_LIST_MAX_TIER = 11
 # Every relic number in this module is either a `*_rt` or a `*_displayed`; the
 # two scales meet only in the two functions below.
 RELIC_FIELD_OFFSET = 2
-DEFAULT_TARGET_DISPLAYED_RELIC = 7
+# Target R9, not R7. 161 characters sit at exactly R7 against 27 at R9+, so a
+# target of 7 marked the entire pile DONE and the ladder could only ever propose
+# R5/R6 filler — the opposite of CLAUDE.md's "stop adding R7s; convert R7->R9".
+# Raising it to 9 takes the queue from 33 units to 200, of which 147 are on the
+# GAC board. Same off-by-a-tier that bit advisor.relic_priority on 2026-08-17.
+DEFAULT_TARGET_DISPLAYED_RELIC = 9
 
 
 def rt_for_displayed_relic(displayed):
@@ -482,7 +495,7 @@ def relic_queue(roster, priority, target_rt=DEFAULT_TARGET_RT):
     """Board units below a relic target, in priority order.
 
     `target_rt` is on the ROSTER scale, not the displayed one — pass
-    rt_for_displayed_relic(7) rather than 7. The default is displayed relic 7.
+    rt_for_displayed_relic(9) rather than 9. The default is displayed relic 9.
 
     WHY THIS IS NOT advisor.relic_priority(): that one answers a different
     question and must keep answering it. It reads data/gac_result.json (GAC only),

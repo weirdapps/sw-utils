@@ -116,8 +116,44 @@ def wall_order():
     return out
 
 
-ORDER = wall_order() if os.path.exists(
-    os.path.join(REPO, 'output', 'tw_wall.json')) else []
+def graded_order():
+    """[(label, normalised lead name)] for the GRADED bank — the strong 22 that live
+    in the 'TW 5v5 - Defense' tab.
+
+    ⛔ Why this exists: wall_order() reads tw_wall.json['wall'], which is ONLY the
+    33-squad overflow, so `tw_place.py D01` died with "D01 is not in tw_wall.json"
+    and the STRONGEST squads — the ones front-load doctrine puts in T1/B1 — were the
+    one thing this script could not place. They had to go in by hand.
+
+    Names are derived from output/upload_payload.json, the same file
+    push_ingame_presets.build() writes the tab from, so the strings match in-game
+    by construction rather than by hope.
+    """
+    pay = json.load(open(os.path.join(REPO, 'output', 'upload_payload.json')))
+    out = []
+    for p in pay:
+        if p.get('cat') != 'TW 5v5 - Defense':
+            continue
+        m = re.search(r'\b(D\d{2})\s+(.+?)\s*\d*%?$', p.get('n', ''))
+        if not m:
+            continue
+        nm = unicodedata.normalize('NFKD', m.group(2)).encode('ascii', 'ignore').decode()
+        out.append((m.group(1), _norm(nm)[:9]))
+    return sorted(out)
+
+
+def _exists(*parts):
+    return os.path.exists(os.path.join(REPO, *parts))
+
+
+ORDER = wall_order() if _exists('output', 'tw_wall.json') else []
+
+# Tab rows in the SELECT SQUAD browser's left rail, device coords. Measured off a
+# live capture: the rail lists Recommended / PROG / GAC 5v5 Def / GAC 5v5 Off /
+# GAC 3v3 Def / GAC 3v3 Off / TW 5v5 Def / TW 5v5 Off / TW 5v5 Wall, ~88px apart.
+TAB_TW_DEFENSE = (183, 878)
+TAB_TW_WALL = (183, 1052)
+TAB = None
 
 
 def read_rows(retries=2):
@@ -191,6 +227,14 @@ def place_one(label, max_scrolls=12):
     else:
         return False, f'{label}: squad browser would not open'
 
+    # ⛔ The browser opens on ITS OWN last-used tab, and that state is NOT shared
+    # with the Inventory > Squads screen — selecting the tab there and navigating
+    # back does nothing. Observed: it lands on 'TW 5v5 - Offense' every time, so a
+    # D-label seek scrolls the wrong list forever and dies "not found in list".
+    # Tap the tab we actually want, every time, before seeking.
+    if TAB:
+        tap(*TAB, wait=2.5)
+
     want = [i for i, (lab, _) in enumerate(ORDER) if lab == label]
     if not want:
         return False, f'{label} is not in tw_wall.json'
@@ -235,8 +279,24 @@ def main():
     ap.add_argument('labels', nargs='*')
     ap.add_argument('--from', dest='lo', type=int)
     ap.add_argument('--to', dest='hi', type=int)
+    ap.add_argument('--graded', action='store_true',
+                    help="place the strong 'TW 5v5 - Defense' bank (D01-D22) instead "
+                         "of the tw_wall overflow (W01-W33). Front territories want "
+                         "these; the wall is for the back.")
     a = ap.parse_args()
-    labels = a.labels or [f'W{i:02d}' for i in range(a.lo, a.hi + 1)]
+
+    global ORDER, TAB
+    ORDER = graded_order() if a.graded else ORDER
+    TAB = TAB_TW_DEFENSE if a.graded else TAB_TW_WALL
+    prefix = 'D' if a.graded else 'W'
+    labels = a.labels or [f'{prefix}{i:02d}' for i in range(a.lo, a.hi + 1)]
+
+    known = {lab for lab, _nm in ORDER}
+    unknown = [x for x in labels if x not in known]
+    if unknown:
+        print(f"not in the {'graded' if a.graded else 'wall'} bank: {', '.join(unknown)}")
+        print(f"available: {', '.join(lab for lab, _ in ORDER)}")
+        return
 
     shot()
     ok = 0

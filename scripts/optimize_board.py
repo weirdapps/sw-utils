@@ -117,6 +117,48 @@ def solve(defense_pool, offense_pool, n_def, n_off, forced_off_leaders=(),
     return chosen_def, chosen_off
 
 
+def solve_at_most(defense_pool, offense_pool, n_def, n_off, **kw):
+    """Best board at or BELOW (n_def, n_off), instead of failing when the target
+    is out of reach. Returns (defense, offense, n_def_used, n_off_used).
+
+    Why this exists: board_config.TW["def"] = 23 was MEASURED as the ILP ceiling
+    against a 100-row snapshot on 2026-08-18 ("24 is infeasible"). That ceiling is
+    a property of the meta POOL, not a constant — it moves whenever rates change,
+    a season rolls, or the roster shifts. Pinning it meant a fresh scrape crashed
+    the entire build with HiGHS status 8, taking the GAC half of the board down
+    with it even though GAC had solved fine.
+
+    Offense is held fixed first and defence is searched down, because the offense
+    count is an explicit owner decision (8 coherent GL-led squads) while the
+    defence count was only ever an observation. n_off is only reduced if no
+    defence count at all is feasible.
+
+    The caller must REPORT any shortfall. A board that quietly sets 19 walls where
+    23 were planned looks identical to a full one on screen and costs 4 x 30 = 120
+    guaranteed TW banners.
+    """
+    def _try(nd, no):
+        try:
+            d, o = solve(defense_pool, offense_pool, nd, no, **kw)
+            return d, o
+        except RuntimeError:
+            return None
+
+    for no in range(n_off, -1, -1):
+        lo, hi, best = 0, n_def, None
+        while lo <= hi:                      # binary search the largest feasible nd
+            mid = (lo + hi) // 2
+            got = _try(mid, no)
+            if got is None:
+                hi = mid - 1
+            else:
+                best, lo = (got, mid), mid + 1
+        if best is not None:
+            (d, o), nd = best[0], best[1]
+            return d, o, nd, no
+    raise RuntimeError("ILP infeasible even at (0, 0)")
+
+
 def add_bench(chosen_def, chosen_off, offense_pool, max_bench):
     """Fill out the offense list with extra unit-disjoint squads.
 

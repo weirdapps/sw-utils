@@ -170,11 +170,27 @@ for key, prefix in SECTIONS:
                 nm += f" [s{c['cron_set']}]"
             add(nm, cat, sq["units"], 1)
 
+def fleet_name(cat, i, capital):
+    """Squad name for a fleet, UNIQUE ACROSS CATEGORIES.
+
+    ⛔ HotUtils keys a definition by NAME, not by (name, category). The old format
+    was `Fleet {D|O}{i} {capital}` with no mode in it, so "GAC Fleet - Defense" #1
+    and "TW Fleet - Defense" #1 both produced `Fleet D1 Chimaera` — and the second
+    upsert OVERWROTE the first instead of adding one. Measured live 2026-08-24: a
+    117-definition payload synced to 113, and TW Fleet - Defense landed 3 of 6
+    while TW Fleet - Offense landed 0 of 1. Four fleets silently vanished, and the
+    failure looked like a partial upload rather than a naming collision.
+    """
+    if "Arena" in cat:
+        return f"Arena Fleet {capital}"
+    mode = "TW" if cat.startswith("TW") else "GAC"
+    p = "D" if "Defense" in cat else "O"
+    return f"{mode} Fleet {p}{i} {capital}"
+
+
 for cat, arr in res["fleets"].items():
     for i, f in enumerate(arr, 1):
-        p = "D" if "Defense" in cat else ("O" if "Offense" in cat else "A")
-        nm = f"Fleet {p}{i} {f['name']}" if p != "A" else f"Arena Fleet {f['name']}"
-        add(nm, cat, f["units"], 2)
+        add(fleet_name(cat, i, f["name"]), cat, f["units"], 2)
 
 os.makedirs(OUT, exist_ok=True)
 json.dump(payload, open(os.path.join(OUT, "upload_payload.json"), "w"), separators=(",", ":"))

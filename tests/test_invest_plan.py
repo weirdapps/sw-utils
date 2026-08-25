@@ -48,12 +48,12 @@ def test_tiers_follow_the_stated_order():
     roster = _roster(("WALL",), ("ATK",), ("TWWALL",), ("ARENADEF",),
                      ("ARENAOFF",), ("ROTEONLY",), ("IDLE",))
 
-    # Owner, 2026-08-20: "first prio the one arena team. Second priority is always
-    # grand arena defense, and then grand arena offense." The DEPLOYED arena wall is
-    # rung 1; everything else in arena (climb 6, fleet 7) stays below the GAC block,
-    # and GAC is now a defense block (2-3) then an offense block (4-5).
+    # Owner, 2026-08-24: "forget about the arena goal. Just do grand arena." The whole
+    # of Squad Arena (deployed wall, climb, fleet) now sits BELOW the GAC block, which
+    # is a defense block (2-3) then an offense block (4-5). This reverses the
+    # 2026-08-20 call that made the deployed arena wall rung 1.
     tiers = {e["unit"]: e["tier"] for e in ip.priority_units(roster, board, arena, rote)}
-    assert tiers == {"ARENADEF": 1, "WALL": 2, "ATK": 4, "ARENAOFF": 6,
+    assert tiers == {"ARENADEF": 6, "WALL": 2, "ATK": 4, "ARENAOFF": 6,
                      "ROTEONLY": 8, "TWWALL": 9, "IDLE": 12}
 
 
@@ -107,15 +107,16 @@ def test_board_arena_fleet_category_fills_the_fleet_rung_without_an_arena_file()
 
 def test_best_tier_wins_when_a_unit_fills_several_roles():
     # Same unit walls in GAC 5v5 (tier 2), attacks in 3v3 (tier 5) and defends
-    # in Squad Arena (tier 1). It must take the ARENA tier — the best one it holds —
-    # and keep both others visible, and its rate must be that rung's rate, not the
-    # 96% 3v3 clear.
+    # in Squad Arena. Best-tier-wins now hands it GAC 5v5 DEFENSE, because Squad Arena
+    # dropped below the GAC block on 2026-08-24. All three roles stay visible, and the
+    # rate must be the winning rung's, not the 96% 3v3 clear.
     board = _board(**{"5v5": {"defense": [_sq(50, "GL")], "offense": []},
                       "3v3": {"defense": [], "offense": [_sq(96, "GL")]}})
     arena = {"defense": _sq(31, "GL")}
     out = ip.priority_units(_roster(("GL",)), board, arena)
-    assert out[0]["tier"] == ip.ARENA_DEFENSE_TIER
-    assert out[0]["rate"] == 31
+    assert out[0]["tier"] == 2                      # GAC 5v5 defense, not arena
+    assert out[0]["tier"] < ip.ARENA_DEFENSE_TIER
+    assert out[0]["rate"] == 50                     # the 5v5 wall's hold, not arena's 31
     assert sorted(out[0]["roles"]) == ["GAC 3v3 offense", "GAC 5v5 defense",
                                        "Squad Arena defense"]
 
@@ -149,7 +150,37 @@ def test_displayed_relic_7_means_rt_9():
     assert ip.rt_for_displayed_relic(6) == 8          # RotE operations "Relic 6+"
     assert ip.displayed_relic(12) == 10
     assert ip.displayed_relic(None) is None
-    assert ip.DEFAULT_TARGET_RT == 9
+    assert ip.rt_for_displayed_relic(9) == 11
+    assert ip.DEFAULT_TARGET_RT == 11          # target is displayed R9, so rt 11
+
+
+def test_gac_outranks_squad_arena():
+    # Owner, 2026-08-24: "forget about the arena goal. Just do grand arena ...
+    # optimized for Grand Arena, not for a single arena world." Both modes want the
+    # same five units, so whichever rung is first silently owns the best mods.
+    # This pins the direction so a future edit cannot quietly flip it back.
+    assert ip.ARENA_DEFENSE_TIER > max(t for t, _r, _l in ip.BOARD_ROLES
+                                       if _l.startswith("GAC"))
+    board = _board(**{"5v5": {"defense": [_sq(50, "WALL")], "offense": []}})
+    arena = {"defense": _sq(0, "ARENADEF")}
+    roster = _roster(("WALL",), ("ARENADEF",))
+    order = [e["unit"] for e in ip.priority_units(roster, board, arena)]
+    assert order.index("WALL") < order.index("ARENADEF")
+
+
+def test_default_target_is_r9_so_the_r7_pile_is_visible():
+    # The account's structural problem is 161 characters parked at exactly R7
+    # against 27 at R9+, and CLAUDE.md's standing instruction is "stop adding
+    # R7s; convert R7->R9". A target of displayed R7 makes every one of those
+    # units read as DONE, so the ladder silently spent relic mats on R5/R6
+    # filler instead. This is the same off-by-a-tier that bit advisor.py on
+    # 2026-08-17; it was fixed there and missed here.
+    board = _board(**{"5v5": {"defense": [_sq(50, "PARKED")], "offense": []}})
+    roster = _roster(("PARKED", {"rt": 9}))        # displayed R7
+    priority = ip.priority_units(roster, board)
+    q = ip.relic_queue(roster, priority)
+    assert [e["unit"] for e in q] == ["PARKED"]
+    assert q[0]["relic"] == 7 and q[0]["levels_to_go"] == 2
 
 
 def test_relic_queue_uses_the_roster_scale_and_keeps_priority_order():
@@ -157,12 +188,12 @@ def test_relic_queue_uses_the_roster_scale_and_keeps_priority_order():
     arena = {"defense": _sq(0, "ARENADEF")}
     roster = _roster(("WALL", {"rt": 8}),        # displayed R6 -> below target, tier 2
                      ("ATK", {"rt": 9}),         # displayed R7 -> AT target, excluded
-                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, and tier 1
+                     ("ARENADEF", {"rt": 7}))    # displayed R5 -> below, arena tier 6
     priority = ip.priority_units(roster, board, arena)
     q = ip.relic_queue(roster, priority, ip.rt_for_displayed_relic(7))
-    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]   # the one arena wall first
-    assert q[0]["rt"] == 7 and q[0]["relic"] == 5
-    assert q[1]["relic"] == 6 and q[1]["levels_to_go"] == 1
+    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC wall first, arena after
+    assert q[0]["relic"] == 6 and q[0]["levels_to_go"] == 1
+    assert q[1]["rt"] == 7 and q[1]["relic"] == 5
 
 
 def test_relic_queue_skips_ships_residual_units_and_relicless_units():
@@ -184,9 +215,9 @@ def test_gear_queue_lists_only_sub_g13_board_characters_in_priority_order():
                      ("FULL", {"g": 13}), ("BENCH", {"g": 9}))
     priority = ip.priority_units(roster, board, arena)
     q = ip.gear_queue(roster, priority)
-    assert [e["unit"] for e in q] == ["ARENADEF", "WALL"]   # the one arena wall first
-    assert q[0]["tiers_to_go"] == 1                         # ARENADEF is g12
-    assert q[1]["tiers_to_go"] == 2                         # WALL is g11
+    assert [e["unit"] for e in q] == ["WALL", "ARENADEF"]   # GAC wall first, arena after
+    assert q[0]["tiers_to_go"] == 2                         # WALL is g11
+    assert q[1]["tiers_to_go"] == 1                         # ARENADEF is g12
 
 
 def test_mod_priority_order_is_a_duplicate_free_character_only_ordering():
@@ -234,7 +265,7 @@ def test_build_reports_missing_inputs_and_renders():
     roster = _roster(("A",))
     result = ip.build(roster, missing=["arena_result.json"])
     assert result["meta"]["missing_inputs"] == ["arena_result.json"]
-    assert result["meta"]["target_displayed_relic"] == 7
+    assert result["meta"]["target_displayed_relic"] == 9
     md = ip.render_markdown(result)
     assert "Missing inputs: arena_result.json" in md
 
@@ -252,9 +283,10 @@ def test_ability_queue_drops_unowned_units_and_sorts_by_priority():
         {"unit": "ARENADEF", "ability": "A1", "kind": "zeta", "mode": "squad-arena"},
     ]
     out = ip.ability_queue(priority, catalogue)
-    assert [e["unit"] for e in out] == ["ARENADEF", "WALL", "BENCH"]  # GHOST unowned
-    assert out[0]["tier"] == 1 and out[0]["name"] == "Arenadef"
-    assert out[1]["mode"] == "grand-arena"           # catalogue fields survive
+    assert [e["unit"] for e in out] == ["WALL", "ARENADEF", "BENCH"]  # GHOST unowned
+    assert out[0]["tier"] == 2 and out[0]["name"] == "Wall"
+    assert out[0]["mode"] == "grand-arena"           # catalogue fields survive
+    assert out[1]["mode"] == "squad-arena"           # arena now sorts BELOW GAC
 
 
 def test_ability_queue_keeps_catalogue_order_for_two_abilities_on_one_unit():

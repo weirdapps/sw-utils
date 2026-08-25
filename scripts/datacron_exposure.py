@@ -53,6 +53,17 @@ SETS = [
                  ("role", "Attacker"), ("role", "Support")]},
     {"id": 33, "name": "Supremacy Directive", "expires": "2026-10-29",
      "affixes": [("faction", "Resistance"), ("faction", "First Order")]},
+    # Set 34 landed ~19-21 Aug 2026, roughly a week BEFORE the "~2026-08-26" this
+    # repo predicted, so the table was already a set behind. Existence, expiry and
+    # tier structure (L3 alignments / L6 factions / L9 characters) VERIFIED by a
+    # direct browser pull of https://swgoh.gg/datacrons/34/ on 2026-08-24, which
+    # reads "Expiration: in 3mo".
+    # ⚠ The two FACTION names below are agent-reported and NOT independently
+    # verified — the names render in a variant panel the text dump did not capture.
+    # Confirm them in-game or on the set page before trusting an expiry haircut
+    # that depends on them.
+    {"id": 34, "name": "The Art of Command", "expires": "2026-11-26",
+     "affixes": [("faction", "Empire"), ("faction", "Jedi Vanguard")]},
 ]
 
 

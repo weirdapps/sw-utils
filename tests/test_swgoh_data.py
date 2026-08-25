@@ -72,6 +72,43 @@ def test_meta_carries_name_and_count():
     assert meta["count"] == 2
 
 
+def test_meta_carries_total_gp_from_profile_stat():
+    # build_board.py reads roster["meta"]["gp"] and died with KeyError('gp') on
+    # every fresh comlink pull — it only ever worked because the saved 08-18 file
+    # happened to carry the key. comlink does not give PER-UNIT gp, but it does
+    # give the account total in profileStat, so meta.gp is recoverable.
+    player = {"name": "Astra", "allyCode": 145357294,
+              "rosterUnit": [_unit("GRANDMASTERLUKE:SEVENSTAR")],
+              "profileStat": [
+                  {"nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME", "value": "9692684"},
+                  {"nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME", "value": "14569091"},
+                  {"nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME", "value": "4876407"}]}
+    meta = sd.map_roster(player, NAME_TYPE_MAP)["meta"]
+    assert meta["gp"] == 14569091          # the TOTAL, not the character subtotal
+    assert meta["gp_char"] == 9692684
+    assert meta["gp_ship"] == 4876407
+
+
+def test_meta_carries_gac_skill_rating_and_division():
+    # The primary goal is a GAC division climb, so the skill rating is the single
+    # number that measures it. It is in the player payload and was being dropped.
+    player = {"rosterUnit": [],
+              "playerRating": {"playerSkillRating": {"skillRating": 3165},
+                               "playerRankStatus": {"leagueId": "KYBER", "divisionId": 15}}}
+    meta = sd.map_roster(player, NAME_TYPE_MAP)["meta"]
+    assert meta["skill_rating"] == 3165
+    assert meta["league"] == "KYBER"
+    assert meta["division_id"] == 15
+
+
+def test_meta_gp_is_absent_not_zero_when_profile_stat_is_missing():
+    # A missing stat must not read as "this account has 0 GP" — a zero would sail
+    # through every downstream comparison and silently mis-rank the whole board.
+    meta = sd.map_roster({"rosterUnit": []}, NAME_TYPE_MAP)["meta"]
+    assert meta.get("gp") is None
+    assert meta.get("skill_rating") is None
+
+
 def test_load_roster_prefers_comlink(monkeypatch):
     sentinel = {"meta": {"source": "comlink"}, "units": [{"b": "Y"}]}
     monkeypatch.setattr(sd, "get_roster", lambda *a, **k: sentinel)
