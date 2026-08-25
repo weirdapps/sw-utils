@@ -11,10 +11,10 @@
 -r farmbot/requirements.txt
 
 # exact ILP for the board and RotE solvers (scipy.optimize.milp / HiGHS)
-scipy>=1.11
+scipy>=1.18.1
 
-pytest>=8.0
-pyflakes>=3.2
+pytest>=9.1.1
+pyflakes>=3.4.0
 
 # safe XML parsing for network input (reddit_swgoh.py)
-defusedxml>=0.7
+defusedxml>=0.7.1
