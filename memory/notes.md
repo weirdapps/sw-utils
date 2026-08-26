@@ -3928,3 +3928,128 @@ category. Every material now sits just under its cheapest next step:
 
 ⇒ Report THIS, not `slice_plan`'s "T05_06 short 1,033". That number is the cost of the next
 *twenty* mods and is not a plan anyone can act on; the table above is a farming trip.
+
+---
+
+## 2026-08-26 — TERRITORY WAR REBUILT FROM RESEARCH. `tw_wall.py` is dead.
+
+Owner, verbatim: *"Τα σκουάτς που έχεις φτιάξει, τόσο για offense όσο και για defense, όσο και για το
+wall, είναι όλα λάθος. Έχεις αφήσει GL χωρίς σκουάτς… Πρέπει να κάνεις research online… Don't be lazy."*
+He was right on every count, and the two root causes were structural, not cosmetic.
+
+### The two bugs that produced the bad board
+1. **`tw_wall.py` built squads by SHARED FACTION TAG.** Take an idle leader, give it the four roster
+   units with the rarest tag in common. That is not a team — no leader ability reaches them and no
+   mechanic survives contact. It shipped `Ugnaught / General Syndulla / Kuiil / Darth Sidious / Poe
+   Dameron` and `Tarfful / Zaalbar / Yoda & Chewie / Veteran Smuggler Chewbacca / Vandor Chewbacca`.
+2. **It imported a GAC rule into TW.** `ATTACK_ONLY_BY_FORMAT` is doctrine E, measured by
+   `gac_doctrine.py` on GAC rounds where a wall pays only if it denies banners. **TW pays a flat +30
+   for PLACING**, win or lose, no per-player cap. Under that rule a benched GL earns zero and denies
+   zero. Eight of nine GLs were locked off the wall and **four — JMK, JML, Jabba, GL Ahsoka — had no
+   TW squad at all**, i.e. the account's four highest-GP units were idle. Verified against the live
+   in-game tabs, not inferred: 308 units placed across 63 squads, and those four were not among them.
+
+### What replaced it
+`data/tw_board.json` (curated, every squad carries a `why` and a band) + `scripts/tw_board.py`
+(validator/emitter only) + `--categories` scoping on `upload_hotutils.py`. **61 defensive squads + 6
+fleets = 2,034 guaranteed banners**, 315 of 319 G13 characters placed, 4 idle (all R5-R6), offense
+10 units. Live on both surfaces: 64 HotUtils definitions under `TW - Def FRONT/MID/BACK` and
+`TW - Offense`, and four in-game tabs replacing `TW 5v5 - Defense/Offense/Wall`.
+
+### ⭐⭐ THE FINDING WORTH KEEPING: a published GAC rate is a BOUND, and the bias is TWO-SIDED
+Omicrons are hard-gated per mode and **no omicron in the game is dual-gated "TB or TW"** (checked
+against the verbatim `While in …:` prefix on all 193). Therefore:
+
+| Squad carries | Its swgoh.gg rate, read as a TW number |
+|---|---|
+| Grand-Arena omicrons | **UPPER bound** — they go inert in TW |
+| **TW omicrons** | **LOWER bound** — they were inert through every battle swgoh.gg measured |
+| none, or Territory-Battles omicrons | transfers clean |
+
+Half the team applied only the downward half, which would have systematically mis-ranked the board
+*against the units Astra has already paid for*. Concretely under-rated: Kelleran Beq, Admiral Trench,
+Dark Trooper Moff Gideon, Shin Hati, Master Qui-Gon, Boss Nass, Tarfful, Hera Syndulla, Poggle,
+Mara Jade. Astra has **30 TW omicrons applied across 22 units against ~94 Grand Arena omicrons that
+contribute nothing to a TW board.**
+⚠ **And a high `o` count still is not the answer**: `o` is a count, not a mode. Pull HotUtils
+`account/data/all` for per-unit `twOmiCount / gacOmiCount / tbOmiCount / cqOmiCount`.
+⚠ **Two TW omicrons gate on the ENEMY having no Galactic Legend** — **Poggle** (Geonosian Brood) and
+**Mara Jade** (the protection strip AND her 100% TM, both inside the conditional). On defence "the
+enemy" is the attacker, who leads with a GL, so both blank against exactly the attacks they exist to
+stop. Those two squads are **BACK-band only**.
+⚠ **Counting omicrons OVERSTATES the haircut**, because a unit's headline mechanic is often base kit.
+Ben Solo's *"While Ben Solo is active, Rey can't be defeated"* and the per-encounter Instant Defeat
+Immunity are **base**; the omicron only upgrades duration. Read the ability text before sizing a discount.
+
+### ⭐ The offence rule: `Net = 20p − 6U`
+A TW clear pays at most 20 banners **regardless of unit count** (Victory 5 + First Attempt 10 +
+1/survivor, and the +1-per-empty-slot bonus exactly offsets the survivor bonus — **a solo clear scores
+identically to a flawless 5-unit clear, 20 = 20**). A 5-unit wall banks 30, so each unit carries 6
+banners of placement value. **Break-even at U = 3.33.** Clears costing ≤3 units are banner-positive
+outright; 5-unit attackers need a conquest justification.
+⇒ **SEE attacks SOLO** (84%, n=2,466, **+10.8**), not with Wat Tambor (86%, n=17,478, +5.2). The duo
+is the better clear and the worse decision, and it frees Wat for the Trench wall.
+⇒ The owner named SEE as his archetype before any of this was computed. **His instinct and the
+arithmetic selected the same unit.** His stated *reason* was wrong, though — SEE's ultimate charge is
+**passive** and attacker-driven, so "the AI can't run SEE" is false. He is held back on opportunity
+cost. (He also measures **24.3% on defence**, n=81: a good wall correctly passed over for a better use.)
+
+### ⚠ The tier list only records 5-UNIT squads
+Every one of ~160 rows scraped is exactly 5 units. **A unit that fights below 5 is invisible in it.**
+SEE's 5-unit offence row is n=20 against ~19,900 duo/solo battles — reading it as "SEE is a weak
+attacker" is an artefact of the table's shape. Wampa and Darth Bane appear nowhere at all, same cause.
+
+### ⚠ Prefer the KYBER build over the all-league "best build"
+Best-build is a **post-hoc maximum over many variants and is upward-biased at small n**: GL Rey reads
+57.2% on n=101 all-league and **29.1% on n=1,901 in Kyber**; SLKR's "best build" (52.1%, n=224) is
+actually *worse* than his most-played (53.9%, n=2,784). Two of three squad conflicts dissolved once the
+Kyber build was used instead. Empirical all-league→Kyber ratio across leaders: **~0.62-0.75**.
+
+### Placement, from the map
+**FRONT 14 · MID 20 · BACK 27.** Every squad banks +30 regardless of band, so the split has **zero
+effect on Astra's own total** — it is purely a denial decision, and denial is a guild-wide public good.
+**Front denial is worth 2.3× back denial** (holding a front territory denies that territory *and the
+whole lane behind it*, ~2,970 vs ~1,290), a territory falls only when **every** squad in it is beaten,
+and the 39-slot cap is guild-wide and first-come and *does* fill. **Place the top 14 early and the
+bottom band deliberately late** — late placement self-corrects, and a 1%-hold wall in an otherwise
+empty front slot still beats empty. The `39` and the `+840` are device readings; **`1,290` is a
+derivation and has never been read off a panel — UNVERIFIED.**
+
+### ⛔ WATCH — Ahsoka (Fulcrum) "Perseverance": DO NOT BUY
+EA bug [11046963](https://forums.ea.com/discussions/swgoh-technical-issues-en/cal-kestisahsoka-fulcrum-omicron-not-working/11046963),
+reported at 100% reproduction, with repro steps naming the exact configuration: the debuff→buff
+conversion and the turn-meter grant **do not fire, solo AND alongside Cal Kestis**. Taunt-ignore does.
+So the omicron delivers materially less than advertised.
+**UNVERIFIED: whether the −60% Tenacity clause still fires. No source establishes it either way — do
+NOT record this as a net negative.** Astra's Fulcrum is `o0`, so nothing is currently lost.
+**Verification test:** one TW battle, solo Fulcrum, dispel a debuff, look for the opposite buff +20% TM
++Protection Up. **If CG patches it she becomes a 1-unit TW clear worth ~+14 net** — the best single item
+on the offence board — and it simultaneously activates **Cal Kestis's `o1`, which is a pure enabler for
+her and is doing nothing today.** Cal keeps his GL Rey slot on base kit regardless.
+Pinned as a self-resolving check: `data/claims.json` → `fulcrum-omicron-unbought`, and
+`verify_facts.py` grew an `omicrons` branch **in the same commit** so the claim actually verifies
+something. Adding the key alone would have been a false green.
+
+### Omicron buy order (unapplied, TW-gated, ranked)
+1. **Great Mothers ×2** — five once-per-battle in-place full resurrections; robust under every open
+   question here. 2. Padawan Sabine · 3. General Syndulla (both → GL Ahsoka, the most upgradeable wall
+   on the roster) · 4. Droideka (whole-squad revive at 100% Health) · 5. Disguised Clone Trooper (names
+   Lord Vader explicitly, keys off Order 66) · 6. Embo (→ Jabba) · 7. Cinta Kaz · 8. KX Security Droid
+   (alone turns five otherwise-idle ISB units into a real wall) · 9. Death Trooper (Peridea) ·
+   10. Gungan Phalanx. **Juhani is conditional** — her Redeemed rider needs a Dark Side *and* a Light
+   Side Unaligned Force User ally, and **none of Astra's eleven Old Republic units is a UFU**, so in the
+   Satele squad she is a 2-turn taunt and nothing else. **No Galactic Legend has an omicron in any
+   mode** — the `o0` on all nine is structural, never spend material there.
+
+### Process lessons, which cost more than the squad data
+- ⭐ **Agreement is only evidence when the agreeing parties did not get it from each other.** Every bad
+  claim this session was caught by someone *arriving independently*; the one that survived three rounds
+  (an inference about Fulcrum's Tenacity clause, nearly written into this file as fact) travelled
+  strictly downstream, each hop adding confidence and no evidence.
+- ⛔ **A subagent has no browser MCP.** One agent spent an entire session reporting swgoh.gg as
+  Cloudflare-blocked and "the biggest remaining hole" while `browser_recipes.md` §3 and §7 already
+  solved it — its own 403 was an environment limit, not a project constraint. **Scraping is a
+  main-session job.** A delegated scrape 403s and reads exactly like a stale recipe.
+- **A GAC-derived source would never have found the two best walls.** Lord Vader and Jabba are the only
+  squads on this roster that genuinely *improve* in TW rather than surviving the translation — Vader
+  because his cheap counters are themselves GAC-omicron-gated and stop working, Jabba because of Embo.

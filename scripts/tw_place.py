@@ -102,12 +102,28 @@ def _norm(s):
 
 
 def wall_order():
-    """[(label, normalised lead name)] in list order, from output/tw_wall.json.
+    """[(label, normalised lead name)] in list order — the whole defensive board.
 
-    Matching rows by NAME, not by the 'Wnn' prefix: the squad icon left of the
-    name OCRs as a digit often enough that 'W21' comes back as 'W221', which
+    Matching rows by NAME, not by the 'Fnn/Mnn/Bnn' prefix: the squad icon left of
+    the name OCRs as a digit often enough that 'W21' comes back as 'W221', which
     made a number-based seek believe it had overshot and oscillate forever.
+
+    ⭐ Reads data/tw_board.json since 2026-08-26. That file replaced tw_wall.py's
+    generated overflow, and it holds the ENTIRE board — graded bank and bench in one
+    front-to-back order — so graded_order() is no longer a separate special case.
+    The labels it yields are the in-game preset names (`F01`, `M14`, `B27`), which
+    push_ingame_presets.build_tw_board() writes from the same file, so the strings
+    match on the device by construction rather than by hope. Falls back to the old
+    tw_wall.json only if the board file is missing.
     """
+    board = os.path.join(REPO, 'data', 'tw_board.json')
+    if os.path.exists(board):
+        src = json.load(open(board))
+        out = []
+        for s in src['defense']:
+            nm = unicodedata.normalize('NFKD', s['name']).encode('ascii', 'ignore').decode()
+            out.append((s['id'], _norm(nm)[:9]))
+        return out
     src = json.load(open(os.path.join(REPO, 'output', 'tw_wall.json')))
     out = []
     for i, s in enumerate(src['wall'], 1):
@@ -146,11 +162,22 @@ def _exists(*parts):
     return os.path.exists(os.path.join(REPO, *parts))
 
 
-ORDER = wall_order() if _exists('output', 'tw_wall.json') else []
+ORDER = (wall_order() if _exists('data', 'tw_board.json') or _exists('output', 'tw_wall.json')
+         else [])
 
 # Tab rows in the SELECT SQUAD browser's left rail, device coords. Measured off a
-# live capture: the rail lists Recommended / PROG / GAC 5v5 Def / GAC 5v5 Off /
+# live capture: the rail listed Recommended / PROG / GAC 5v5 Def / GAC 5v5 Off /
 # GAC 3v3 Def / GAC 3v3 Off / TW 5v5 Def / TW 5v5 Off / TW 5v5 Wall, ~88px apart.
+#
+# ⛔ STALE AS OF 2026-08-26 AND NOT RE-MEASURED. The three TW tabs those coordinates
+# point at were deleted and replaced by FOUR — `TW 1 Def FRONT`, `TW 2 Def MID`,
+# `TW 3 Def BACK`, `TW 4 Offense` — so the rail is one row longer and everything
+# below the GAC block has moved. These y-values now select the WRONG TAB, and the
+# failure is silent: the browser opens, OCR finds no matching squad name, and the
+# seek looks like a scroll problem rather than a wrong tab. **Re-measure against a
+# live capture before the next placement run** (~88px apart, first TW row is the
+# 7th). Left in place rather than guessed at: a guessed coordinate that is nearly
+# right is worse than one that is obviously stale.
 TAB_TW_DEFENSE = (183, 878)
 TAB_TW_WALL = (183, 1052)
 TAB = None

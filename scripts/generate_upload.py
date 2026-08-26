@@ -153,7 +153,16 @@ def add(nm, cat, units, combat):
                     "u": [[b, name(b)] for b in units]})
 
 
-SECTIONS = [("5v5", "GAC 5v5"), ("3v3", "GAC 3v3"), ("tw", "TW 5v5")]
+# ⛔ TW IS NO LONGER SOLVED HERE. Territory War moved to the curated, researched
+# data/tw_board.json on 2026-08-26 (see tw_board.py for why the solver's output was
+# unusable). This file still emits ONE payload for the whole board, because
+# upload_hotutils.py --sync voids anything the payload does not name — dropping TW
+# from the payload rather than re-sourcing it would delete the TW board on the next
+# GAC sync. So: GAC is solved below, TW is read in from tw_board.py, one payload out.
+SECTIONS = [("5v5", "GAC 5v5"), ("3v3", "GAC 3v3")]
+TW_FROM_BOARD_FILE = os.path.exists(os.path.join(DATA, "tw_board.json"))
+if not TW_FROM_BOARD_FILE:                       # no curated board yet: keep the old path
+    SECTIONS.append(("tw", "TW 5v5"))
 for key, prefix in SECTIONS:
     for persp, p in (("defense", "D"), ("offense", "O")):
         cat = f"{prefix} - {persp.capitalize()}"
@@ -189,8 +198,16 @@ def fleet_name(cat, i, capital):
 
 
 for cat, arr in res["fleets"].items():
+    if TW_FROM_BOARD_FILE and cat.startswith("TW "):
+        continue                                 # TW fleets come from data/tw_board.json
     for i, f in enumerate(arr, 1):
         add(fleet_name(cat, i, f["name"]), cat, f["units"], 2)
+
+if TW_FROM_BOARD_FILE:
+    import tw_board                              # noqa: E402
+    _tw = json.load(open(os.path.join(DATA, "tw_board.json")))
+    _own, _ = tw_board.load_roster()
+    payload += tw_board.payload(_tw, _own)
 
 os.makedirs(OUT, exist_ok=True)
 json.dump(payload, open(os.path.join(OUT, "upload_payload.json"), "w"), separators=(",", ":"))
@@ -331,13 +348,24 @@ html += table("GAC 3v3 &#9679; DEFENSE &#8212; set all 15", res["3v3"]["defense"
               "Category <code>GAC 3v3 - Defense</code>.")
 html += table("GAC 3v3 &#9679; OFFENSE", res["3v3"]["offense"], "Win%",
               f"Category <code>GAC 3v3 - Offense</code>. First {res['3v3']['core_off']} are the core.")
-html += table("TERRITORY WAR &#9679; DEFENSE", res["tw"]["defense"], "Hold%",
-              "Category <code>TW 5v5 - Defense</code>. Set top-down until your TW map runs out of slots. "
-              "TW defense is worth more than GAC defense: the enemy guild has a finite pool of attempts and "
-              "a territory pays nothing unless it is fully cleared, so a wall that merely eats attempts scores.")
-html += table("TERRITORY WAR &#9679; OFFENSE", res["tw"]["offense"], "Win%",
-              "Category <code>TW 5v5 - Offense</code>. Unit-disjoint from the TW defense list above, so you "
-              "can set defense and still field every one of these.")
+if TW_FROM_BOARD_FILE:
+    # The solver's TW plan is still in board_result.json and is still WRONG — it is
+    # what data/tw_board.json replaced. Rendering it here would put two contradictory
+    # TW plans in front of the player, so the playbook points at the real one instead.
+    html += ("<div style='font-size:15pt;font-weight:bold;color:#16324f;margin:22px 0 8px 0;'>"
+             "TERRITORY WAR</div><div style='margin:0 0 18px 0;'>Curated in "
+             "<code>data/tw_board.json</code> and placed from "
+             "<code>output/tw_placement_sheet.txt</code>, front band first. Not solved here: "
+             "TW defense banks a flat +30 per squad with no per-player cap, so the board is a "
+             "coverage problem, not a hold%% maximisation.</div>")
+else:
+    html += table("TERRITORY WAR &#9679; DEFENSE", res["tw"]["defense"], "Hold%",
+                  "Category <code>TW 5v5 - Defense</code>. Set top-down until your TW map runs out of slots. "
+                  "TW defense is worth more than GAC defense: the enemy guild has a finite pool of attempts and "
+                  "a territory pays nothing unless it is fully cleared, so a wall that merely eats attempts scores.")
+    html += table("TERRITORY WAR &#9679; OFFENSE", res["tw"]["offense"], "Win%",
+                  "Category <code>TW 5v5 - Offense</code>. Unit-disjoint from the TW defense list above, so you "
+                  "can set defense and still field every one of these.")
 html += fleet_table("FLEETS &#9679; GAC OFFENSE", res["fleets"]["GAC Fleet - Offense"],
                     "Category <code>GAC Fleet - Offense</code>. These three answer all 11 defendable capitals "
                     "at &ge;94%.")

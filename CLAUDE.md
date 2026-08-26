@@ -23,12 +23,19 @@ Encoded as tiers 1-4 in `invest_plan.py`; Arena dropped to 5-7. The superseded A
 kept in that file on purpose, so it is not re-derived. Note it costs the arena climb nothing here: the
 deployed arena wall *is* GAC 5v5 defense, so best-tier-wins already had those units at tier 1.
 
-## ⚠ The roster has NO per-unit `gp` any more
-`swgoh_data.map_roster()` (comlink) replaced the HotUtils pull on 2026-08-18. Comlink does not return
-per-unit GP — nor omicrons (`o`) or zetas (`z`). **Never read `unit["gp"]`**; call
+## ⚠ Per-unit `gp` depends on WHICH producer wrote the roster
+`swgoh_data.map_roster()` (comlink) does not return per-unit GP — nor omicrons (`o`) or zetas (`z`),
+and `tw_wall.py` died on `KeyError('gp')` because of it. **Never read `unit["gp"]` directly**; call
 `swgoh_data.unit_power()`, which returns real `gp` when present and a documented gear/relic/star proxy
-otherwise. `tw_wall.py` died on `KeyError('gp')` before this was centralised.
+otherwise. ⚠ **Corrected 2026-08-26: the newest roster files are NOT comlink.**
+`data/roster/swgoh_roster_fresh_20260824.json` carries `meta.source: "swgoh.gg"` and populates `gp`,
+`o` and `z` on every unit — which is what made the TW omicron audit possible at all. So the rule is
+"check `meta.source` and use `unit_power()`", not "the fields are gone".
+⚠ **`o` is a COUNT, not a mode.** It cannot tell you whether an omicron is Grand Arena, Territory
+Battles, Territory War or Conquest. For that, pull HotUtils `account/data/all`, which returns per-unit
+`twOmiCount / gacOmiCount / tbOmiCount / cqOmiCount` plus the applied ability ids.
 Roster path: always `swgoh_data.latest_roster_file()` — never a hardcoded date.
+Relic level is `rt - 2` (the API's `rt` is offset by 2); `r` is RARITY (stars), not relic.
 
 ## Player
 - **Astra** · ally **145357294** · GAC **KYBER 3** · **14.57M GP** · skill rating **3,165**
@@ -192,19 +199,65 @@ python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrine
 ```
 `build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
 
-## Territory War — 55 defensive squads, not 15
+## Territory War — the board is DATA, not a solver (rebuilt 2026-08-26)
 TW is its own mode: it shares no units with GAC, defense banks a **flat +30 per squad** the moment it is
 set (a fleet +34), and the map holds 390 slots against a **guild-wide, first-come** pool.
 ```
-python3 scripts/build_board.py     # 23 graded TW walls (the ILP ceiling — 24 is infeasible) + 8 offense
-python3 scripts/tw_wall.py         # extends to 55 via leader-tier-list, unranked-leader, then filler
-                                   # -> output/tw_wall.json + output/tw_placement_sheet.txt
+python3 scripts/tw_board.py        # validate data/tw_board.json -> output/tw_upload_payload.json
+                                   #                             -> output/tw_placement_sheet.txt
+HU_SID=<live> python3 scripts/upload_hotutils.py --sync --payload output/tw_upload_payload.json \
+                                                 --categories "TW "
+HU_SID=<live> python3 scripts/push_ingame_presets.py --tw-board --push
 ```
-- **55 squads × 30 + 6 fleets × 34 = 1,854 guaranteed banners** (was 1,494). 3 of 317 G13 chars idle.
-- **Place from `tw_placement_sheet.txt`, in order, front-most territory first.** It merges the graded
-  bank and the wall into ONE ranking — sorting them separately is what put a 4% wall in front of a 42%
-  one in the 2026-08-11 war. Rows flagged `BACK` are no-synergy filler and must never take a front slot.
-- Offense is deliberately only 8 coherent GL-led squads (owner's max-defense call; conquest forfeited).
+⛔ **`--categories "TW "` IS NOT OPTIONAL.** `--sync` voids every live definition the payload does not
+name, so a partial payload without a scope wipes the GAC board.
+
+- **61 squads × 30 + 6 fleets × 34 = 2,034 guaranteed banners.** 315 of 319 G13 characters placed;
+  4 idle (all R5-R6). Offense is **10 units**: SEE solo, JML+3, Inquisitorius.
+- ⛔ **`tw_wall.py` IS SUPERSEDED — do not run it.** It built the deep bench by *shared-faction-tag
+  affinity* (an idle leader plus the four roster units with the rarest tag in common), which is not a
+  team: it shipped "Ugnaught / General Syndulla / Kuiil / Darth Sidious / Poe Dameron". Worse, it
+  imported `ATTACK_ONLY_BY_FORMAT`, a GAC rule measured by `gac_doctrine.py` on GAC rounds — and TW
+  does not work that way. **Eight of nine GLs were benched and FOUR (JMK, JML, Jabba, GL Ahsoka) had
+  no TW squad at all**, while the account's four highest-GP units sat idle earning zero.
+- **`data/tw_board.json` is the source of truth**, hand-curated from research, every squad carrying a
+  `why` and a band. `tw_board.py` only proves it is fieldable — all owned, all G13+, no unit twice
+  anywhere (a TW unit is single-use), 5 per squad, bands in front-to-back order.
+- **`generate_upload.py` reads it** and emits it into the one whole-board payload, so a GAC `--sync`
+  cannot delete the TW board.
+- **Place from `tw_placement_sheet.txt`, top down, front-most territory first.** Sorting the tiers
+  separately is what put a 4% wall in front of a 42% one in the 2026-08-11 war.
+- **Bands: FRONT 14 · MID 20 · BACK 27.** Front slots are guild-wide, first-come and *do* fill
+  (`Max Capacity Reached` at 39/39, device-verified), so a weak wall in a front slot is a slot no
+  guildmate can use. 14 is where this roster's quality cliff sits. **Place the top 14 early and the
+  bottom band deliberately late** — late placement self-corrects, because if guildmates already filled
+  the front, the mid-tier lands where it belongs, and if they did not, it beats an empty slot.
+- ⭐ **Front denial is worth 2.3× back denial**: holding a front territory denies the attacker that
+  territory *and the whole lane behind it* (~2,970 vs ~1,290). A territory falls only when **every**
+  squad in it is beaten, so one survivor keeps the lane locked.
+- ⭐⭐ **A PUBLISHED GAC RATE IS A BOUND, NOT A VALUE — and the bias runs BOTH WAYS.** Omicrons are
+  hard-gated per mode and there is **no dual-gated "TB or TW" omicron in the game**. So a squad carrying
+  Grand-Arena omicrons is **overstated** in TW (they go inert), and a squad carrying TW omicrons is
+  **understated** (they were inert through every battle swgoh.gg measured). Squads with no omicron
+  transfer clean. Applying only the downward half systematically mis-ranks the board against the units
+  already paid for. Astra: **30 TW omicrons applied across 22 units, ~94 Grand Arena omicrons that
+  contribute nothing to a TW board.** First-party per-unit `twOmiCount` comes from HotUtils
+  `account/data/all` — never infer mode from the roster's aggregate `o` count.
+- ⭐ **Prefer the KYBER-validated build over an all-league "best build".** Best-build is a post-hoc
+  maximum over many variants and is upward-biased at small n: GL Rey reads 57.2% on n=101 all-league
+  and 29.1% on n=1,901 in Kyber. Two of three squad conflicts dissolved once the Kyber build was used.
+- ⭐ **Offense is sized by UNIT COUNT, not by win rate.** `Net = 20p − 6U`: a clear pays at most 20
+  regardless of how many units it uses, and a 5-unit wall banks 30, so each unit carries 6 banners of
+  placement value. Break-even at **U = 3.33** — clears costing ≤3 units are banner-positive outright.
+  That is why SEE goes **solo** (84%, n=2,466, net **+10.8**) rather than with Wat Tambor (86%,
+  n=17,478, net +5.2): the duo is a better clear and a worse decision, and Wat is worth more in the
+  Trench wall. **A solo clear scores identically to a flawless 5-unit clear (20 = 20)** — the +1
+  empty-slot bonus exactly offsets the survivor bonus, so solos pay in unit economy, never in banners.
+- **The tier list only records 5-unit squads**, so a unit that fights below 5 is invisible in it. SEE's
+  5-unit offense row is n=20 against ~19,900 duo/solo battles — reading that row as "SEE is a bad
+  attacker" is an artefact of the table's shape.
+- **Datacrons go on OFFENSE.** On defense they add zero banners (the +30 is for *placing*; holding pays
+  nothing) and they are visible to the attacker, who routes around them.
 - ⚠️ **DO NOT OVERSELL THE WALL. Corrected 2026-08-24 after I overstated it.** Going 15 → 55 squads
   adds **1,200 banners** (40 × 30) from ONE player. The guild's last three wars were
   L 15,287-17,574 · L 16,020-18,625 · W 16,192-15,053, so the losing margins were **2,287 and
@@ -295,7 +348,7 @@ Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — th
      is where the banners are.
    - The pages that ARE genuinely Kyber-scoped: **`/gac/counters/<LEADER>/`** and the **tier
      lists**. Prefer them whenever a decision turns on a rate.
-   - **Transport: the in-session MCP browser, per browser_recipes.md §3.** This is the primary path, not a fallback. `scripts/fetch_meta.py` cannot do it: Cloudflare challenges every parameterised `/gac/squads/` URL for a Playwright-launched browser, and that was verified on 2026-08-12 across bundled Chromium and real Chrome, headed and headless, fresh and persistent profiles. The base page always loads; the moment any query parameter is added it is challenged. The MCP browser clears the same challenge in about 15 seconds.
+   - **Transport: the in-session MCP browser, per browser_recipes.md §3.** This is the primary path, not a fallback. `scripts/fetch_meta.py` cannot do it: Cloudflare challenges every parameterised `/gac/squads/` URL for a Playwright-launched browser, and that was verified on 2026-08-12 across bundled Chromium and real Chrome, headed and headless, fresh and persistent profiles. The base page always loads; the moment any query parameter is added it is challenged. The MCP browser clears the same challenge in about 15 seconds. ⚠ **Two corrections, 2026-08-26.** (a) `browser_recipes.md` §3 says chrome-devtools *cannot* solve the challenge and only Playwright MCP can, with the base page warmed first — but **chrome-devtools MCP pulled four parameterised `/tier-list/gac/` URLs with no challenge at all** that day. Neither blanket claim holds; try chrome-devtools, fall back to warmed Playwright. (b) ⛔ **A SUBAGENT HAS NO BROWSER MCP.** "In-session" is literal: spawned agents inherit neither browser, so a delegated scrape returns 403 and *reads exactly like a stale recipe*. One research agent spent a whole session reporting swgoh.gg as blocked while §3 and §7 already solved it. **Scraping is a main-session job — never delegate it.**
    - **Conversion: `scripts/fetch_meta.py` is still what you use.** `rows_to_json()` turns the §3 extractor's `rate%|seen|banners|CSVunits` lines into the JSON envelope, and `EXTRACT_JS` holds the extractor itself so there is one copy of it. Both are tested against the shipped `meta_5v5_defense_s80.json`.
    - **Season ids need the full prefix**: `CHAMPIONSHIPS_GRAND_ARENA_GA2_EVENT_SEASON_<n>`. The bare `SEASON_80` returns a 404 that arrives behind the Cloudflare interstitial, so it reads as a block when it is not one.
    - `fetch_meta.py`'s `main()` remains in the tree for the day the challenge stops firing. It fails loudly with the page title when it cannot get a table, which distinguishes a wrong season from a live challenge.

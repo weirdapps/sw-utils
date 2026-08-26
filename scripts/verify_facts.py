@@ -90,6 +90,17 @@ def _check_unit(claim, base_id, roster, failures):
         failures.append(f"{base_id} relic is R{rel}, claim says R{claim['relic']}")
     if "min_relic" in claim and rel < claim["min_relic"]:
         failures.append(f"{base_id} relic is R{rel}, claim needs at least R{claim['min_relic']}")
+    # `o` is a COUNT of applied omicrons and says nothing about their MODE. It is still
+    # the only omicron fact the roster can prove, and "this omicron has NOT been bought"
+    # is exactly the claim a watch item needs: the day it is bought, the check fails and
+    # forces someone to re-read why it was being watched.
+    # ⚠ Added 2026-08-26 WITH its first claim. An unknown key is silently ignored by this
+    # function, so adding `"omicrons": N` to claims.json without this branch produces a
+    # claim that always passes while verifying nothing — a false green, and worse than
+    # no claim at all.
+    if "omicrons" in claim and unit.get("o") != claim["omicrons"]:
+        failures.append(f"{base_id} has {unit.get('o')} omicrons applied, "
+                        f"claim says {claim['omicrons']}")
 
 
 def check_claim(claim, roster):

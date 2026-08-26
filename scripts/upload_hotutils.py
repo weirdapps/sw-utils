@@ -6,6 +6,11 @@ upload_hotutils.py — push output/upload_payload.json to HotUtils. Browser-free
     HU_SID=<live session id> python3 scripts/upload_hotutils.py --delete-all
     HU_SID=<live session id> python3 scripts/upload_hotutils.py --create
 
+⛔ A PARTIAL payload must pass --categories. `--sync` voids every live definition the
+payload does not name, so `--sync --payload tw_upload_payload.json` without a scope
+wipes the whole GAC board. With `--categories "TW "` the delete half only ever touches
+definitions whose category starts with that prefix.
+
 A previous rebuild died mid-flight after deleting 62 squads and creating 42,
 because HotUtils throttles at roughly 40+ rapid calls. Two things follow, and
 both are built in:
@@ -68,6 +73,10 @@ def main():
     ap.add_argument("--sync", action="store_true",
                     help="delete stale/changed definitions, then create what is missing")
     ap.add_argument("--payload", default=os.path.join(ROOT, "output", "upload_payload.json"))
+    ap.add_argument("--categories", default=None,
+                    help="comma-separated category prefixes. Scopes --sync/--delete-all to "
+                         "those categories only, so a PARTIAL payload cannot delete the rest "
+                         "of the board. Without it --sync compares against every definition.")
     a = ap.parse_args()
 
     sid = os.environ.get("HU_SID")
@@ -75,19 +84,37 @@ def main():
         sys.exit("set HU_SID to a live HotUtils session id")
     want = json.load(open(a.payload))
 
+    def scoped(all_defs):
+        """The definitions --sync/--delete-all are allowed to VOID.
+
+        Without --categories that is everything, which is only safe for a whole-board
+        payload. A partial payload (TW only, one RotE phase) must pass --categories or
+        --sync will delete the rest of the board — the trap CLAUDE.md warns about.
+        """
+        if not a.categories:
+            return all_defs
+        pre = tuple(s.strip() for s in a.categories.split(",") if s.strip())
+        return [d for d in all_defs
+                if any(c.startswith(pre) for c in (d.get("category") or []))]
+
     _, defs = listing(sid)
-    have = {d.get("name"): d for d in defs}
+    have = {d.get("name"): d for d in defs}   # every live name: --create must not duplicate
     print(f"live: {len(defs)} definitions   payload: {len(want)} definitions")
+    if a.categories:
+        print(f"scoped to {a.categories!r}: {len(scoped(defs))} live definitions in scope")
 
     if a.plan:
         missing = [w for w in want if w["n"] not in have]
-        stale = [d for d in defs if d.get("name") not in {w["n"] for w in want}]
+        stale = [d for d in scoped(defs) if d.get("name") not in {w["n"] for w in want}]
         print(f"  would delete {len(stale)}, create {len(missing)}, keep {len(want) - len(missing)}")
+        for d in stale:
+            print(f"    - {d.get('category')} {d.get('name')}")
         for k, v in sorted(Counter(w["cat"] for w in want).items()):
             print(f"    {v:3}  {k}")
         return
 
     if a.delete_all:
+        defs = scoped(defs)
         print(f"deleting {len(defs)} ...")
         for i, d in enumerate(defs, 1):
             r = api("squads/upsert", {"id": d["id"], "void": True}, sid)
@@ -113,7 +140,7 @@ def main():
                 return None
 
         wanted = {w["n"]: [u[0] for u in w["u"]] for w in want}
-        drop = [d for d in defs
+        drop = [d for d in scoped(defs)
                 if d.get("name") not in wanted or contents_of(d) != wanted[d["name"]]]
         print(f"stale/changed: {len(drop)}")
         for d in drop:

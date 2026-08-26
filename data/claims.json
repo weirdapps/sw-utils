@@ -17,6 +17,10 @@
     {"id": "third-sister-gate", "source": "CLAUDE.md", "unit": "GRANDINQUISITOR", "min_relic": 7,
      "note": "Reva shards need a Relic-7 Grand Inquisitor; CLAUDE.md says his is exactly R7"},
 
+    {"id": "fulcrum-omicron-unbought", "source": "memory/notes.md", "unit": "FULCRUMAHSOKA",
+     "omicrons": 0,
+     "note": "WATCH. Ahsoka (Fulcrum) 'Perseverance' is the highest-rated TW omicron she could hold, and it is DEFECTIVE (EA 11046963, reported at 100% reproduction, solo AND alongside Cal Kestis). If this claim ever FAILS, someone bought it — go re-read the watch item in notes.md before building a zone around her."},
+
     {"id": "4lom-gap", "source": "CLAUDE.md", "unit": "4LOM", "gear": 11, "relic": 0,
      "note": "'the only sub-G13 units gating anything' — if this ever passes G11 the gap text is stale"},
     {"id": "zuckuss-gap", "source": "CLAUDE.md", "unit": "ZUCKUSS", "gear": 11, "relic": 0},

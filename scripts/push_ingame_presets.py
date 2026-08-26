@@ -47,6 +47,18 @@ CATEGORY_TO_TAB = [("GAC 5v5 - Defense", "GAC 5v5 - Defense"),
 
 WALL_TAB = "TW 5v5 - Wall"
 
+# The three tabs the 2026-08-26 rebuild replaces. They were built by tw_wall.py's
+# faction-tag affinity and left four Galactic Legends off the TW board entirely.
+TW_LEGACY_TABS = ["TW 5v5 - Defense", "TW 5v5 - Offense", WALL_TAB]
+
+# Territory War, rebuilt from data/tw_board.json. One tab per placement band, because
+# that is the decision you make at the map: this tab goes in the front-most territories,
+# this one in the middle, this one last. A single 60-squad tab cannot tell you where to
+# stop. Numbered so the tab order matches the placement order whatever the client sorts by.
+TW_BOARD_TABS = [("FRONT", "TW 1 Def FRONT"), ("MID", "TW 2 Def MID"),
+                 ("BACK", "TW 3 Def BACK")]
+TW_OFFENSE_TAB = "TW 4 Offense"
+
 
 def api(path, body, sid, tries=4):
     payload = dict(body)
@@ -106,6 +118,27 @@ def build_wall(limit=None):
     return [{"tab": WALL_TAB, "squads": squads}] if squads else []
 
 
+def build_tw_board():
+    """data/tw_board.json -> one in-game tab per placement band, plus offense.
+
+    Squad names carry the board id (`F01`, `M14`, `B37`, `O2`), so the tab you are in
+    tells you the territory band and the number tells you the order inside it. That is
+    the whole placement instruction, on a 16-character button.
+    """
+    board = json.load(open(os.path.join(ROOT, "data", "tw_board.json")))
+    out = []
+    for band, tab in TW_BOARD_TABS:
+        squads = [{"name": ascii_name(f"{s['id']} {s['name']}"), "unitBaseIds": s["units"]}
+                  for s in board.get("defense", []) if s.get("band") == band]
+        if squads:
+            out.append({"tab": tab, "squads": squads})
+    offense = [{"name": ascii_name(f"{s['id']} {s['name']}"), "unitBaseIds": s["units"]}
+               for s in board.get("offense", [])]
+    if offense:
+        out.append({"tab": TW_OFFENSE_TAB, "squads": offense})
+    return out
+
+
 def ascii_name(s):
     """NAME_MAX is enforced on the server and the server is not known to be
     unicode-safe, so fold accents and drop quotes before truncating: 'Padme',
@@ -124,13 +157,21 @@ def main():
                     help="push output/tw_wall.json as the %r tab INSTEAD of the "
                          "season board (the board tabs are already in-game)" % WALL_TAB)
     ap.add_argument("--wall-limit", type=int, default=None)
+    ap.add_argument("--tw-board", action="store_true",
+                    help="push data/tw_board.json as the banded TW tabs "
+                         f"({', '.join(t for _b, t in TW_BOARD_TABS)}, {TW_OFFENSE_TAB})")
+    ap.add_argument("--drop-legacy-tw", action="store_true",
+                    help=f"also delete the superseded tabs {TW_LEGACY_TABS}")
     a = ap.parse_args()
 
     sid = os.environ.get("HU_SID")
     if not sid:
         sys.exit("set HU_SID to a live HotUtils session id")
 
-    plan = build_wall(a.wall_limit) if a.wall else build()
+    if a.drop_legacy_tw:
+        a.delete_tab = list(a.delete_tab) + TW_LEGACY_TABS
+    plan = (build_tw_board() if a.tw_board else
+            build_wall(a.wall_limit) if a.wall else build())
     live = api("squads/game/get", {}, sid)
     by_name = {t["name"]: t for t in live.get("tabs", [])}
     print("live tabs: " + ", ".join(

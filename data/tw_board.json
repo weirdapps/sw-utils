@@ -1,0 +1,1025 @@
+{
+ "_what": "Territory War board for Astra. DEFENCE IS THE PRODUCT: a set squad banks a flat +30 the instant it is placed, win or lose, and there is no per-player cap. Squad order IS placement order, front band first.",
+ "_rebuilt": "2026-08-26",
+ "_supersedes": "scripts/tw_wall.py's generated wall, which built squads by shared-faction-tag affinity and left four Galactic Legends (JMK, JML, Jabba, GL Ahsoka) with no TW squad at all.",
+ "_sources": [
+  "swgoh.gg /tier-list/gac/ S82, four cuts (Kyber-D1 and all-league, most-played and best-build) - scraped 2026-08-26, data/meta/tierlist_5v5_*.json. This page IS league-scoped; /gac/squads/ is not.",
+  "HotUtils account/data/all 2026-08-26 - per-unit twOmiCount/gacOmiCount, first-party omicron ground truth.",
+  "swgoh.wiki Territory_War - banner table, gating, 5-character squads.",
+  "swgoh.gg /stats/ability-report/?type=omicron&fo=territory-wars - the authoritative 56-unit TW omicron set."
+ ],
+ "_rules": [
+  "Prefer the KYBER-validated build over an all-league 'best build': best-build is a post-hoc maximum and is upward-biased at small n (GL Rey reads 57.2% on n=101 all-league vs 29.1% on n=1,901 in Kyber).",
+  "A published GAC rate is a BOUND, not a value. Grand-Arena omicrons are 100% inert in TW, so a squad carrying them is OVERSTATED; a squad carrying TW omicrons is UNDERSTATED, because they sat inert through every battle swgoh.gg measured. Squads with no omicron transfer clean.",
+  "Net(attack) = 20p - 6U. A clear pays at most 20 regardless of unit count; a 5-unit wall banks 30, so each unit carries 6 banners of placement value. Break-even at U = 3.33 - which is why the offence bank is 1, 4 and 5 units and not three 5-unit squads.",
+  "Defence quality has ZERO banner value. Hold% buys denial only, and denial is worth 2.3x more in a front territory (2,970) than a back one (1,290) because the front gates the whole lane behind it."
+ ],
+ "bands": {
+  "FRONT": 14,
+  "MID": 20,
+  "BACK": 27,
+  "_why": "placement's split. Front slots are guild-wide, first-come and DO fill; a weak wall in a front slot is a slot no guildmate can use. 14 is where this roster's quality cliff sits."
+ },
+ "defense": [
+  {
+   "id": "F01",
+   "name": "Kelleran Beq",
+   "band": "FRONT",
+   "units": [
+    "KELLERANBEQ",
+    "MACEWINDU",
+    "ANAKINKNIGHT",
+    "PLOKOON",
+    "LUMINARAUNDULI"
+   ],
+   "why": "2 live TW omicrons. Lead gives +500% Defense and he cannot be defeated while any ally holds Protection. Measured 7 squads to clear \u2014 the biggest attempt-eater observed.",
+   "hu_name": "TW F01 Kelleran Beq"
+  },
+  {
+   "id": "F02",
+   "name": "Lord Vader",
+   "band": "FRONT",
+   "units": [
+    "LORDVADER",
+    "APPO",
+    "DISGUISEDCLONETROOPER",
+    "OPERATIVE",
+    "SCORCH"
+   ],
+   "why": "Needs no omicron. Cheap GAC counters are omicron-gated to GAC (Bo-Katan's ignore-taunt dies in TW). Measured 3\u20137 squads every round.",
+   "hu_name": "TW F02 Lord Vader"
+  },
+  {
+   "id": "F03",
+   "name": "Boss Nass",
+   "band": "FRONT",
+   "units": [
+    "BOSSNASS",
+    "JARJARBINKS",
+    "CAPTAINTARPALS",
+    "BOOMADIER",
+    "GUNGANPHALANX"
+   ],
+   "why": "28.2% Kyber-D1 (n=3,290) and a live TW omicron that was inert in that measurement \u2014 per-turn self-dispel, 20% Protection regen, Daze/Stun cleanse. Lower bound.",
+   "hu_name": "TW F03 Boss Nass"
+  },
+  {
+   "id": "F04",
+   "name": "Supreme Leader Kylo Ren",
+   "band": "FRONT",
+   "units": [
+    "SUPREMELEADERKYLOREN",
+    "DARKREY",
+    "FOSITHTROOPER",
+    "GENERALHUX",
+    "KYLORENUNMASKED"
+   ],
+   "why": "33.3% Kyber-D1 (n=60) corroborated by 33.9% all-league (n=2,784). Zero omicron dependency, so the rate transfers to TW intact \u2014 the most trustworthy number on the board.",
+   "hu_name": "TW F04 Supreme Leader Kylo Ren"
+  },
+  {
+   "id": "F05",
+   "name": "Rey",
+   "band": "FRONT",
+   "units": [
+    "GLREY",
+    "50RT",
+    "BENSOLO",
+    "CALKESTIS",
+    "BARRISSOFFEE"
+   ],
+   "why": "31% (n=13.3K) on the Sortie build. \u26a0 ORDER-SENSITIVE \u2014 50R-T must sit before BENSOLO so her unique resolves first and grants him VIP\u2192Stealth; Rey is untargetable until he dies. Cal earns his slot on base kit (LS-UFU doubling lands on Rey herself).",
+   "hu_name": "TW F05 Rey"
+  },
+  {
+   "id": "F06",
+   "name": "Satele Shan",
+   "band": "FRONT",
+   "units": [
+    "SATELESHAN",
+    "BASTILASHAN",
+    "JEDIKNIGHTREVAN",
+    "JOLEEBINDO",
+    "JUHANI"
+   ],
+   "why": "28.2% on n=5,235 \u2014 the best-sampled wall on the board, and the measurement includes Juhani.",
+   "hu_name": "TW F06 Satele Shan"
+  },
+  {
+   "id": "F07",
+   "name": "Admiral Trench",
+   "band": "FRONT",
+   "units": [
+    "TRENCH",
+    "JANGOFETT",
+    "COUNTDOOKU",
+    "NUTEGUNRAY",
+    "WATTAMBOR"
+   ],
+   "why": "3 live TW omicrons incl. the basic granting undispellable, unresistable Ability Block. Lower bound.",
+   "hu_name": "TW F07 Admiral Trench"
+  },
+  {
+   "id": "F08",
+   "name": "Dark Trooper Moff Gideon",
+   "band": "FRONT",
+   "units": [
+    "MOFFGIDEONS3",
+    "CAPTAINENOCH",
+    "NIGHTTROOPER",
+    "DEATHTROOPERPERIDEA",
+    "SCOUTTROOPER_V3"
+   ],
+   "why": "3 live TW omicrons: undispellable turn-1 Taunt, IR +75% Health, taunt dispels all enemy buffs, unresistable Healing Immunity. Lower bound.",
+   "hu_name": "TW F08 Dark Trooper Moff Gideon"
+  },
+  {
+   "id": "F09",
+   "name": "Leia Organa",
+   "band": "FRONT",
+   "units": [
+    "GLLEIA",
+    "ADMIRALRADDUS",
+    "CAPTAINDROGAN",
+    "JYNERSO",
+    "R2D2_LEGENDARY"
+   ],
+   "why": "23.7% (n=2,097) most-played. \u26a0 Drogan/Raddus/Rex omicrons are GAC-tagged \u2192 upper bound in TW.",
+   "hu_name": "TW F09 Leia Organa"
+  },
+  {
+   "id": "F10",
+   "name": "Baylan Skoll",
+   "band": "FRONT",
+   "units": [
+    "BAYLANSKOLL",
+    "SHINHATI",
+    "MARROK",
+    "ZAALBAR",
+    "DOCTORAPHRA"
+   ],
+   "why": "Shin Hati's TW omicron is live: all allies +50% Max Health AND Max Protection until she first dies. Baylan's own omicrons are GAC-only. Zaalbar is the Kyber-measured body, not Hondo.",
+   "hu_name": "TW F10 Baylan Skoll"
+  },
+  {
+   "id": "F11",
+   "name": "Queen Amidala",
+   "band": "FRONT",
+   "units": [
+    "QUEENAMIDALA",
+    "GRANDMASTERYODA",
+    "MASTERQUIGON",
+    "PADAWANOBIWAN",
+    "SHAAKTI"
+   ],
+   "why": "20.0% on n=3,346, one of the best-sampled rows in the file, and Master Qui-Gon's TW omicron is live \u2192 lower bound.",
+   "hu_name": "TW F11 Queen Amidala"
+  },
+  {
+   "id": "F12",
+   "name": "GL Ahsoka",
+   "band": "FRONT",
+   "units": [
+    "GLAHSOKATANO",
+    "EZRAEXILE",
+    "GENERALSYNDULLA",
+    "HUYANG",
+    "PADAWANSABINE"
+   ],
+   "why": "8.9% Kyber on n=3,546, the largest Kyber sample of any GL wall. Two unapplied TW omicrons (Padawan Sabine, General Syndulla) are the biggest buyable upgrade on the board.",
+   "hu_name": "TW F12 GL Ahsoka"
+  },
+  {
+   "id": "F13",
+   "name": "Cassian Andor",
+   "band": "FRONT",
+   "units": [
+    "CASSIANUNDERCOVER",
+    "CINTA",
+    "KLEYA",
+    "LUTHENRAEL",
+    "VEL"
+   ],
+   "why": "16.3% Kyber-D1 (n=1,973). Cinta's TW omicron is a MUST-HAVE and unbought \u2192 lower bound once purchased.",
+   "hu_name": "TW F13 Cassian Andor"
+  },
+  {
+   "id": "F14",
+   "name": "Rotta the Hutt",
+   "band": "FRONT",
+   "units": [
+    "RACCOON",
+    "CADBANE",
+    "HUMANTHUG",
+    "GAMORREANGUARD",
+    "GREEDO"
+   ],
+   "why": "15.8% Kyber-D1 (n=1,574), his measured most-played build. Rotta's 3 omicrons are GAC-mode \u2192 upper bound; he keeps base-kit Tank Taunt and the Bleed/Detonator lead engine.",
+   "hu_name": "TW F14 Rotta the Hutt"
+  },
+  {
+   "id": "M01",
+   "name": "Jabba the Hutt",
+   "band": "MID",
+   "units": [
+    "JABBATHEHUTT",
+    "BOUSHH",
+    "EMBO",
+    "KRRSANTAN",
+    "UNDERCOVERLANDO"
+   ],
+   "why": "7.6% Kyber (n=776) \u2014 but a lower bound: Embo's TW omicron (BH +40% Max Protection, continuous regen, 5% TM per debuffed-ally hit) was inert throughout. The only Jabba build with a live TW upgrade path.",
+   "hu_name": "TW M01 Jabba the Hutt"
+  },
+  {
+   "id": "M02",
+   "name": "Great Mothers",
+   "band": "MID",
+   "units": [
+    "GREATMOTHERS",
+    "MERRIN",
+    "MORGANELSBETH",
+    "ASAJVENTRESS",
+    "DAKA"
+   ],
+   "why": "Both Great Mothers omicrons are TW MUST-HAVE and unbought \u2014 five in-place full resurrections once purchased. \u26a0 Merrin, Morgan and Asajj omicrons are all GAC-mode, so Great Mothers' two are the squad's *only* possible live tech.",
+   "hu_name": "TW M02 Great Mothers"
+  },
+  {
+   "id": "M03",
+   "name": "The Stranger",
+   "band": "MID",
+   "units": [
+    "STRANGER",
+    "STARKILLER",
+    "MAULHATEFUELED",
+    "VISASMARR",
+    "REY"
+   ],
+   "why": "Maul (Hate-Fueled)'s 3 TW omicrons are live (100 Edge-of-Madness stacks at start). \u26a0 Stranger's and Starkiller's omicrons are all GAC \u2192 dead here. Rebuilt after Juhani went to Satele; REY = Rey (Scavenger), from the Kyber-measured build.",
+   "hu_name": "TW M03 The Stranger"
+  },
+  {
+   "id": "M04",
+   "name": "Bo-Katan",
+   "band": "MID",
+   "units": [
+    "MANDALORBOKATAN",
+    "BOKATAN",
+    "IG12",
+    "PAZVIZSLA",
+    "THEMANDALORIANBESKARARMOR"
+   ],
+   "why": "21.0% (n=2,911), the Kyber-validated Bo-Katan Kryze variant.",
+   "hu_name": "TW M04 Bo-Katan"
+  },
+  {
+   "id": "M05",
+   "name": "General Skywalker",
+   "band": "MID",
+   "units": [
+    "GENERALSKYWALKER",
+    "ARCTROOPER501ST",
+    "CT210408",
+    "CT5555",
+    "CT7567"
+   ],
+   "why": "12.3% (n=4,581). GAS is `o0`, so nothing is lost to mode-gating.",
+   "hu_name": "TW M05 General Skywalker"
+  },
+  {
+   "id": "M06",
+   "name": "Jedi Master Kenobi",
+   "band": "MID",
+   "units": [
+    "JEDIMASTERKENOBI",
+    "AHSOKATANO",
+    "COMMANDERAHSOKA",
+    "GENERALKENOBI",
+    "PADMEAMIDALA"
+   ],
+   "why": "16.7% (n=5,228) most-played. \u26a0 Exposed to Grand Inquisitor's \"Ready to Die?\" instant-defeat-no-revive on Jedi \u2014 do not front-band it.",
+   "hu_name": "TW M06 Jedi Master Kenobi"
+  },
+  {
+   "id": "M07",
+   "name": "General Grievous",
+   "band": "MID",
+   "units": [
+    "GRIEVOUS",
+    "DROIDEKA",
+    "B1BATTLEDROIDV2",
+    "B2SUPERBATTLEDROID",
+    "MAGNAGUARD"
+   ],
+   "why": "Droideka's unbought TW omicron revives the entire squad at 100% Health when he first dies while Marked. Grievous himself has no omicron at all \u2014 one point of failure.",
+   "hu_name": "TW M07 General Grievous"
+  },
+  {
+   "id": "M08",
+   "name": "Hera Syndulla",
+   "band": "MID",
+   "units": [
+    "HERASYNDULLAS3",
+    "CAPTAINREX",
+    "KANANJARRUSS3",
+    "SABINEWRENS3",
+    "CHOPPERS3"
+   ],
+   "why": "11.5% (n=1,247); Hera's TW omicron is live \u2192 lower bound.",
+   "hu_name": "TW M08 Hera Syndulla"
+  },
+  {
+   "id": "M09",
+   "name": "ISB",
+   "band": "MID",
+   "units": [
+    "MAJORPARTAGAZ",
+    "DIRECTORKRENNIC",
+    "DEDRAMEERO",
+    "KXSECURITYDROID",
+    "IMPERIALPROBEDROID"
+   ],
+   "why": "KX's unapplied TW omicron gives all allies +50% Max Health and Protection all battle, behind a 3-turn opening taunt with Retribution.",
+   "hu_name": "TW M09 ISB"
+  },
+  {
+   "id": "M10",
+   "name": "New Republic (Carson Teva)",
+   "band": "MID",
+   "units": [
+    "CARSONTEVA",
+    "BISHOP",
+    "GOPHERANTS",
+    "R5D4",
+    "RANGERZEB"
+   ],
+   "why": "Measured 17.0% (n=1,532); NR tanks open with Retribution and anything 300+ Speed above Teva eats irresistible Speed Down.",
+   "hu_name": "TW M10 New Republic (Carson Teva)"
+  },
+  {
+   "id": "M11",
+   "name": "Constables + Jawas (Cobb Vanth)",
+   "band": "MID",
+   "units": [
+    "COBBVANTH",
+    "CHIEFNEBIT",
+    "CORUSCANTUNDERWORLDPOLICE",
+    "JAWASCAVENGER",
+    "LOBOT"
+   ],
+   "why": "Measured 16.7% (n=3,775) \u2014 the best-sampled non-meta wall Astra can field; Nebit's detonators behind CUP and Lobot bodies.",
+   "hu_name": "TW M11 Constables + Jawas (Cobb Vanth)"
+  },
+  {
+   "id": "M12",
+   "name": "Sith Triumvirate (Traya)",
+   "band": "MID",
+   "units": [
+    "DARTHTRAYA",
+    "DARTHNIHILUS",
+    "DARTHSION",
+    "SAVAGEOPRESS",
+    "DARTHTALON"
+   ],
+   "why": "Isolate removes one attacker from the fight entirely \u2014 unresistable, undispellable, no buffs, no out-of-turn actions.",
+   "hu_name": "TW M12 Sith Triumvirate (Traya)"
+  },
+  {
+   "id": "M13",
+   "name": "First Order (Phasma TW omicron)",
+   "band": "MID",
+   "units": [
+    "PHASMA",
+    "FIRSTORDEROFFICERMALE",
+    "FIRSTORDERSPECIALFORCESPILOT",
+    "FIRSTORDEREXECUTIONER",
+    "FIRSTORDERTROOPER"
+   ],
+   "why": "TW omicron applied: heals on every out-of-turn attack and stacks permanent Offense plus team TM on every Advantage. It snowballs.",
+   "hu_name": "TW M13 First Order (Phasma TW omicron)"
+  },
+  {
+   "id": "M14",
+   "name": "Sith Empire (Malgus)",
+   "band": "MID",
+   "units": [
+    "DARTHMALGUS",
+    "DARTHREVAN",
+    "DARTHMALAK",
+    "BASTILASHANDARK",
+    "SITHMARAUDER"
+   ],
+   "why": "Immune to TM reduction while debuffed and +10% Crit Chance and 15 Speed per debuff on themselves \u2014 debuffing them speeds them up.",
+   "hu_name": "TW M14 Sith Empire (Malgus)"
+  },
+  {
+   "id": "M15",
+   "name": "Imperial Troopers (Veers)",
+   "band": "MID",
+   "units": [
+    "VEERS",
+    "ADMIRALPIETT",
+    "SHORETROOPER",
+    "RANGETROOPER",
+    "COLONELSTARCK"
+   ],
+   "why": "Veers' unique gives the whole team a turn-meter cascade every time an ally dies, behind Shoretrooper's taunt and Regroup.",
+   "hu_name": "TW M15 Imperial Troopers (Veers)"
+  },
+  {
+   "id": "M16",
+   "name": "Empire (Thrawn)",
+   "band": "MID",
+   "units": [
+    "GRANDADMIRALTHRAWN",
+    "VADER",
+    "DEATHTROOPER",
+    "DARKTROOPER",
+    "STORMTROOPER"
+   ],
+   "why": "Fracture removes a unit from the fight for two turns with no counterplay; Thrawn feeds 15% TM to every Empire special.",
+   "hu_name": "TW M16 Empire (Thrawn)"
+  },
+  {
+   "id": "M17",
+   "name": "Tuskens",
+   "band": "MID",
+   "units": [
+    "TUSKENCHIEFTAIN",
+    "TUSKENRAIDER",
+    "TUSKENHUNTRESS",
+    "TUSKENSHAMAN",
+    "URORRURRR"
+   ],
+   "why": "At 10 Momentum a targeted Tusken unresistably stuns every attacking enemy and takes a bonus turn; DoT-immune and they heal off DoTs.",
+   "hu_name": "TW M17 Tuskens"
+  },
+  {
+   "id": "M18",
+   "name": "Ewoks",
+   "band": "MID",
+   "units": [
+    "CHIEFCHIRPA",
+    "PRINCESSKNEESAA",
+    "LOGRAY",
+    "PAPLOO",
+    "EWOKELDER"
+   ],
+   "why": "Paploo to Logray assist gives team-wide TM, Foresight, Offense Up and Advantage before the attacker moves.",
+   "hu_name": "TW M18 Ewoks"
+  },
+  {
+   "id": "M19",
+   "name": "CLS Rebels",
+   "band": "MID",
+   "units": [
+    "COMMANDERLUKESKYWALKER",
+    "C3POCHEWBACCA",
+    "C3POLEGENDARY",
+    "CHEWBACCALEGENDARY",
+    "HANSOLO"
+   ],
+   "why": "Exact measured build (8.2%, n=2,129); crushing counters plus Protection regeneration, and the AI needs no decisions to play it.",
+   "hu_name": "TW M19 CLS Rebels"
+  },
+  {
+   "id": "M20",
+   "name": "Mauldalorians",
+   "band": "MID",
+   "units": [
+    "MAULS7",
+    "CANDEROUSORDO",
+    "GARSAXON",
+    "IMPERIALSUPERCOMMANDO",
+    "THEMANDALORIAN"
+   ],
+   "why": "Measured build (8.2%, n=844); Maul's Mandalorian lead over the dodge and counter layer, all four allies R7+.",
+   "hu_name": "TW M20 Mauldalorians"
+  },
+  {
+   "id": "B01",
+   "name": "Bounty Hunters (Aurra contract)",
+   "band": "BACK",
+   "units": [
+    "AURRA_SING",
+    "BOSSK",
+    "GREEFKARGA",
+    "ZAMWESELL",
+    "FENNECSHAND"
+   ],
+   "why": "Built to complete the Contract before the enemy moves, firing all Payouts; Bossk then taunts and regenerates through the rest.",
+   "hu_name": "TW B01 Bounty Hunters (Aurra contract)"
+  },
+  {
+   "id": "B02",
+   "name": "Rebel Fighters (Mon Mothma)",
+   "band": "BACK",
+   "units": [
+    "MONMOTHMA",
+    "KYLEKATARN",
+    "HOTHREBELSCOUT",
+    "PAO",
+    "CARADUNE"
+   ],
+   "why": "Mon Mothma cannot be targeted and is taunt-immune, so you must clear four Rebel Fighters who assist each other every turn.",
+   "hu_name": "TW B02 Rebel Fighters (Mon Mothma)"
+  },
+  {
+   "id": "B03",
+   "name": "Smugglers (Dash Rendar)",
+   "band": "BACK",
+   "units": [
+    "DASHRENDAR",
+    "IG11",
+    "KUIIL",
+    "L3_37",
+    "YOUNGHAN"
+   ],
+   "why": "Measured 7.9% (n=232); Prepared re-applies itself and every crit feeds team turn meter.",
+   "hu_name": "TW B03 Smugglers (Dash Rendar)"
+  },
+  {
+   "id": "B04",
+   "name": "Wookiees (Tarfful TW omicron)",
+   "band": "BACK",
+   "units": [
+    "TARFFUL",
+    "CLONEWARSCHEWBACCA",
+    "SMUGGLERCHEWBACCA",
+    "YODACHEWBACCA",
+    "YOUNGCHEWBACCA"
+   ],
+   "why": "TW omicron applied: the first time each Wookiee dies, every Wookiee refreshes cooldowns and recovers 100% Health. Five resets.",
+   "hu_name": "TW B04 Wookiees (Tarfful TW omicron)"
+  },
+  {
+   "id": "B05",
+   "name": "Imperial Troopers (Iden)",
+   "band": "BACK",
+   "units": [
+    "IDENVERSIOEMPIRE",
+    "SNOWTROOPER",
+    "MAGMATROOPER",
+    "REMNANTSNOWCOMMANDER",
+    "TIEFIGHTERPILOT"
+   ],
+   "why": "Solo-leader clause gives +100% counter chance and, in Arenas, +35% Max Health and Protection with recovery on out-of-turn attacks.",
+   "hu_name": "TW B05 Imperial Troopers (Iden)"
+  },
+  {
+   "id": "B06",
+   "name": "Nightsisters (Talzin)",
+   "band": "BACK",
+   "units": [
+    "MOTHERTALZIN",
+    "NIGHTSISTERZOMBIE",
+    "NIGHTSISTERSPIRIT",
+    "TALIA",
+    "NIGHTSISTERACOLYTE"
+   ],
+   "why": "Mass revive plus Zombie's respawning taunt \u2014 you kill the same units three times, and no ability combo is required of the AI.",
+   "hu_name": "TW B06 Nightsisters (Talzin)"
+  },
+  {
+   "id": "B07",
+   "name": "Bad Batch (Mercenary)",
+   "band": "BACK",
+   "units": [
+    "OMEGAS3",
+    "HUNTERS3",
+    "WRECKERS3",
+    "CROSSHAIRS3",
+    "BATCHERS3"
+   ],
+   "why": "Batcher lets them ignore taunts and Crosshair bursts; measured only 7.0% on defence, so it is a MID wall at best.",
+   "hu_name": "TW B07 Bad Batch (Mercenary)"
+  },
+  {
+   "id": "B08",
+   "name": "Aphras Droids (BT-1)",
+   "band": "BACK",
+   "units": [
+    "BT1",
+    "TRIPLEZERO",
+    "IG88",
+    "IG90",
+    "HK47"
+   ],
+   "why": "Measured build (23.1%, n=760) minus Aphra; 0-0-0's torture stacking and BT-1's AoE, uniform R7.",
+   "hu_name": "TW B08 Aphras Droids (BT-1)"
+  },
+  {
+   "id": "B09",
+   "name": "Bad Batch (classic)",
+   "band": "BACK",
+   "units": [
+    "BADBATCHHUNTER",
+    "BADBATCHTECH",
+    "BADBATCHECHO",
+    "BADBATCHWRECKER",
+    "BADBATCHOMEGA"
+   ],
+   "why": "Stealth forces every attack onto Wrecker, who pre-taunts and AoE-stuns; stealthed units cannot be counter-attacked.",
+   "hu_name": "TW B09 Bad Batch (classic)"
+  },
+  {
+   "id": "B10",
+   "name": "Rebel Fighters (Wedge)",
+   "band": "BACK",
+   "units": [
+    "WEDGEANTILLES",
+    "BIGGSDARKLIGHTER",
+    "BAZEMALBUS",
+    "CHIRRUTIMWE",
+    "SCARIFREBEL"
+   ],
+   "why": "Baze and Chirrut are a real sustain pair \u2014 heal-over-time on every crit behind Baze's taunt; uniform R7, zero zetas.",
+   "hu_name": "TW B10 Rebel Fighters (Wedge)"
+  },
+  {
+   "id": "B11",
+   "name": "Unaligned Force Users (Cere)",
+   "band": "BACK",
+   "units": [
+    "CEREJUNDA",
+    "TARONMALICOS",
+    "FULCRUMAHSOKA",
+    "KYLOREN",
+    "INQUISITORBARRISS"
+   ],
+   "why": "All five carry the UFU tag so Cere's Force-echo buffs reach everyone; Taron's self-sustain makes it a grind rather than a burst-down.",
+   "hu_name": "TW B11 Unaligned Force Users (Cere)"
+  },
+  {
+   "id": "B12",
+   "name": "Emperor Palpatine",
+   "band": "BACK",
+   "units": [
+    "EMPERORPALPATINE",
+    "MARAJADE",
+    "VADERDUELSEND",
+    "GRANDMOFFTARKIN",
+    "ROYALGUARD"
+   ],
+   "why": "\u26a0 BACK ONLY. Mara Jade's omicron \u2014 including her 100% Turn Meter \u2014 is gated on *\"if the enemy Leader is not a Galactic Legend.\"* Blank against any GL-led attack.",
+   "hu_name": "TW B12 Emperor Palpatine"
+  },
+  {
+   "id": "B13",
+   "name": "Geonosian Brood Alpha",
+   "band": "BACK",
+   "units": [
+    "GEONOSIANBROODALPHA",
+    "POGGLETHELESSER",
+    "SUNFAC",
+    "GEONOSIANSOLDIER",
+    "GEONOSIANSPY"
+   ],
+   "why": "\u26a0 BACK ONLY. Poggle's omicron is gated on *\"if there are no enemy Galactic Legends.\"* Same failure mode as #21. Measured 3 squads to clear when attacked by non-GL squads.",
+   "hu_name": "TW B13 Geonosian Brood Alpha"
+  },
+  {
+   "id": "B14",
+   "name": "Old Republic (Carth)",
+   "band": "BACK",
+   "units": [
+    "CARTHONASI",
+    "MISSIONVAO",
+    "T3_M4",
+    "MAUL",
+    "EIGHTHBROTHER"
+   ],
+   "why": "Carth gives +30% Potency, Tenacity and Crit Avoidance and an 80% assist call on every basic, with team healing per DoT tick.",
+   "hu_name": "TW B14 Old Republic (Carth)"
+  },
+  {
+   "id": "B15",
+   "name": "Galactic Republic Jedi (Qui-Gon)",
+   "band": "BACK",
+   "units": [
+    "QUIGONJINN",
+    "AAYLASECURA",
+    "KITFISTO",
+    "DEPABILLABA",
+    "VANGUARDTEMPLEGUARD"
+   ],
+   "why": "Coherent Jedi block; Qui-Gon's lead gives offense and turn meter on assists. R5.6 average is the weakness.",
+   "hu_name": "TW B15 Galactic Republic Jedi (Qui-Gon)"
+  },
+  {
+   "id": "B16",
+   "name": "Resistance Veterans (Holdo)",
+   "band": "BACK",
+   "units": [
+    "AMILYNHOLDO",
+    "SMUGGLERHAN",
+    "RESISTANCETROOPER",
+    "RESISTANCEPILOT",
+    "HOTHHAN"
+   ],
+   "why": "All five carry the Resistance tag; zero zetas, so this is coherent body count rather than a threat.",
+   "hu_name": "TW B16 Resistance Veterans (Holdo)"
+  },
+  {
+   "id": "B17",
+   "name": "Hoth Rebels (Officer Leia)",
+   "band": "BACK",
+   "units": [
+    "HOTHLEIA",
+    "STORMTROOPERHAN",
+    "HOTHREBELSOLDIER",
+    "PRINCESSLEIA",
+    "OLDBENKENOBI"
+   ],
+   "why": "Coherent Rebel block under a Rebel lead; Old Ben R7 upgrades it and his taunt-on-death forces a longer fight.",
+   "hu_name": "TW B17 Hoth Rebels (Officer Leia)"
+  },
+  {
+   "id": "B18",
+   "name": "Solo crew / Scoundrels",
+   "band": "BACK",
+   "units": [
+    "YOUNGLANDO",
+    "QIRA",
+    "ADMINISTRATORLANDO",
+    "SANASTARROS",
+    "BOBAFETT"
+   ],
+   "why": "Scoundrel block; Sana's assists and Boba's burn behind Young Lando's lead. Uniform R7 bodies.",
+   "hu_name": "TW B18 Solo crew / Scoundrels"
+  },
+  {
+   "id": "B19",
+   "name": "Pirates (Hondo)",
+   "band": "BACK",
+   "units": [
+    "HONDO",
+    "VANE",
+    "ENFYSNEST",
+    "STAP",
+    "DENGAR"
+   ],
+   "why": "Profit-stacking crew; Hondo dispels all debuffs on Mercenary and Scoundrel allies then calls an assist and assists himself.",
+   "hu_name": "TW B19 Pirates (Hondo)"
+  },
+  {
+   "id": "B20",
+   "name": "Jedi Vanguard B (Temple)",
+   "band": "BACK",
+   "units": [
+    "JEDIKNIGHTGUARDIAN",
+    "JEDIKNIGHTCONSULAR",
+    "EETHKOTH",
+    "IMAGUNDI",
+    "KIADIMUNDI"
+   ],
+   "why": "All-Jedi block after Ki-Adi-Mundi replaced Zeb; zero zetas and zero omicrons, so it is a speed bump, not a wall.",
+   "hu_name": "TW B20 Jedi Vanguard B (Temple)"
+  },
+  {
+   "id": "B21",
+   "name": "Jawa / spare bodies",
+   "band": "BACK",
+   "units": [
+    "DATHCHA",
+    "JAWA",
+    "JAWAENGINEER",
+    "MOFFGIDEONS1",
+    "ASAJJDARKDISCIPLE"
+   ],
+   "why": "Three spare Jawas plus two bodies. Nebit leads the Cobb build instead, so the TW omicron does not fire here. Pure body count.",
+   "hu_name": "TW B21 Jawa / spare bodies"
+  },
+  {
+   "id": "B22",
+   "name": "Sith / dark bodies (Sidious)",
+   "band": "BACK",
+   "units": [
+    "DARTHSIDIOUS",
+    "SITHASSASSIN",
+    "SITHTROOPER",
+    "NIGHTSISTERINITIATE",
+    "FIRSTORDERTIEPILOT"
+   ],
+   "why": "Shared Dark Side alignment under a Sith lead; three of five get Sidious's bonus. Buying his TW omicron promotes this squad.",
+   "hu_name": "TW B22 Sith / dark bodies (Sidious)"
+  },
+  {
+   "id": "B23",
+   "name": "Clone / Republic bodies",
+   "band": "BACK",
+   "units": [
+    "CC2224",
+    "CLONESERGEANTPHASEI",
+    "KIX",
+    "EZRABRIDGERS3",
+    "IG86SENTINELDROID"
+   ],
+   "why": "Shared Light Side alignment; the weakest squad on the board and an absolute last resort for the deepest back territory.",
+   "hu_name": "TW B23 Clone / Republic bodies"
+  },
+  {
+   "id": "B24",
+   "name": "Ewok B-team (Teebo)",
+   "band": "BACK",
+   "units": [
+    "TEEBO",
+    "WICKET",
+    "EWOKSCOUT",
+    "UGNAUGHT",
+    "WAMPA"
+   ],
+   "why": "R8.6 average, the highest in the catalogue \u2014 three spare Ewoks plus the only two faction-less units, both R10. Stat bulk, no synergy.",
+   "hu_name": "TW B24 Ewok B-team (Teebo)"
+  },
+  {
+   "id": "B25",
+   "name": "Resistance JTR",
+   "band": "BACK",
+   "units": [
+    "REYJEDITRAINING",
+    "BB8",
+    "EPIXFINN",
+    "EPIXPOE",
+    "ROSETICO"
+   ],
+   "why": "Expose on crits feeds team turn meter while every special drains the attacker's; Rey's Foresight wastes damage. Nine zetas invested.",
+   "hu_name": "TW B25 Resistance JTR"
+  },
+  {
+   "id": "B26",
+   "name": "Rogue One",
+   "band": "BACK",
+   "units": [
+    "SAWGERRERA",
+    "CASSIANANDOR",
+    "K2SO",
+    "BISTAN",
+    "BODHIROOK"
+   ],
+   "why": "Spark of Rebellion converts into a six-buff suite the moment it is dispelled, so dispel-based attackers buff them; K-2SO taunts and counters.",
+   "hu_name": "TW B26 Rogue One"
+  },
+  {
+   "id": "B27",
+   "name": "Resistance + bodies",
+   "band": "BACK",
+   "units": [
+    "FINN",
+    "POE",
+    "ZORIIBLISS_V2",
+    "STORMTROOPERLUKE",
+    "DARTHBANE"
+   ],
+   "why": "Three Resistance under Finn's lead plus two high-relic bodies. No synergy for the last two - a filled slot banks the same +30. BACK only.",
+   "hu_name": "TW B27 Resistance + bodies"
+  }
+ ],
+ "offense": [
+  {
+   "id": "O1",
+   "name": "SEE solo",
+   "hu_name": "TW O1 SEE solo",
+   "size": 1,
+   "units": [
+    "SITHPALPATINE"
+   ],
+   "for": "84% solo clear on n=2,466. The only banner-POSITIVE squad on the board: Net = 20p - 6U = +10.8, because a clear pays 20 regardless of unit count while a 5-unit wall banks 30. No omicron anywhere in it, so the rate transfers from Grand Arena to TW intact."
+  },
+  {
+   "id": "O2",
+   "name": "JML",
+   "hu_name": "TW O2 JML",
+   "size": 4,
+   "units": [
+    "GRANDMASTERLUKE",
+    "HERMITYODA",
+    "JEDIKNIGHTCAL",
+    "JEDIKNIGHTLUKE"
+   ],
+   "for": "93% on n=4,609 at only four units (the 5-unit variant is 87.4% on n=871 - worse AND dearer). JML has essentially no defensive usage in the tracked population. Jedi Knight Cal's omicrons are Territory Battles, so they were inert in the measurement and stay inert here: zero translation loss."
+  },
+  {
+   "id": "O3",
+   "name": "Inquisitorius",
+   "hu_name": "TW O3 Inquisitorius",
+   "size": 5,
+   "units": [
+    "GRANDINQUISITOR",
+    "SEVENTHSISTER",
+    "FIFTHBROTHER",
+    "NINTHSISTER",
+    "SECONDSISTER"
+   ],
+   "for": "Grand Inquisitor's three TW omicrons are an OFFENCE package - ignores Taunt, and at 6 Purge stacks instantly deletes a Jedi with no revive. Its defensive row is 10.3% and that row contains Third Sister, whom Astra does not own, so his version is worse. A squad that genuinely does not belong on a wall."
+  }
+ ],
+ "fleets": {
+  "defense": [
+   {
+    "id": "FD1",
+    "name": "Chimaera",
+    "hu_name": "TW Fleet D1 Chimaera",
+    "units": [
+     "CAPITALCHIMAERA",
+     "TIEADVANCED",
+     "TIEDEFENDER",
+     "TIEINTERCEPTOR",
+     "SCYTHE",
+     "TIEFIGHTERIMPERIAL",
+     "EMPERORSSHUTTLE",
+     "TIEBOMBERIMPERIAL"
+    ]
+   },
+   {
+    "id": "FD2",
+    "name": "Home One",
+    "hu_name": "TW Fleet D2 Home One",
+    "units": [
+     "CAPITALMONCALAMARICRUISER",
+     "UWINGSCARIF",
+     "BWINGREBEL",
+     "RAVENSCLAW",
+     "UWINGROGUEONE",
+     "XWINGRED3",
+     "XWINGRED2",
+     "GHOST"
+    ]
+   },
+   {
+    "id": "FD3",
+    "name": "Raddus",
+    "hu_name": "TW Fleet D3 Raddus",
+    "units": [
+     "CAPITALRADDUS",
+     "MILLENNIUMFALCONEP7",
+     "COMEUPPANCE",
+     "XWINGBLACKONE",
+     "MG100STARFORTRESSSF17",
+     "XWINGRESISTANCE",
+     "MILLENNIUMFALCONPRISTINE"
+    ]
+   },
+   {
+    "id": "FD4",
+    "name": "Executor",
+    "hu_name": "TW Fleet D4 Executor",
+    "units": [
+     "CAPITALEXECUTOR",
+     "HOUNDSTOOTH",
+     "PUNISHINGONE",
+     "RAZORCREST",
+     "XANADUBLOOD",
+     "SLAVE1",
+     "IG2000",
+     "EBONHAWK"
+    ]
+   },
+   {
+    "id": "FD5",
+    "name": "Negotiator",
+    "hu_name": "TW Fleet D5 Negotiator",
+    "units": [
+     "CAPITALNEGOTIATOR",
+     "JEDISTARFIGHTERANAKIN",
+     "BLADEOFDORIN",
+     "JEDISTARFIGHTERAHSOKATANO",
+     "MARAUDER",
+     "UMBARANSTARFIGHTER",
+     "YWINGCLONEWARS",
+     "ARC170REX"
+    ]
+   },
+   {
+    "id": "FD6",
+    "name": "Malevolence",
+    "hu_name": "TW Fleet D6 Malevolence",
+    "units": [
+     "CAPITALMALEVOLENCE",
+     "VULTUREDROID",
+     "HYENABOMBER",
+     "GEONOSIANSTARFIGHTER1",
+     "GEONOSIANSTARFIGHTER2",
+     "GEONOSIANSTARFIGHTER3"
+    ]
+   }
+  ],
+  "offense": [
+   {
+    "id": "FO1",
+    "name": "Leviathan",
+    "hu_name": "TW Fleet O1 Leviathan",
+    "units": [
+     "CAPITALLEVIATHAN",
+     "FURYCLASSINTERCEPTOR",
+     "SITHBOMBER",
+     "TIEDAGGER",
+     "SITHINFILTRATOR",
+     "SITHSUPREMACYCLASS",
+     "SITHFIGHTER"
+    ]
+   }
+  ]
+ }
+}

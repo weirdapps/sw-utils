@@ -1,60 +1,157 @@
-TERRITORY WAR — DEFENSIVE PLACEMENT ORDER (55 squads, 1650 banners)
-Place P01 first into the FRONT-most territory with room, then work back.
-A BACK-only filler must NEVER take a front slot — the 39/territory cap is
-guild-wide and first-come, so that slot is one a guildmate cannot use.
+TERRITORY WAR — DEFENSIVE PLACEMENT ORDER
+61 squads x30 + 6 fleets x34 = 2034 guaranteed banners
 
-P01 FRONT  41.0% [graded-board] Rotta the Hutt · Gamorrean Guard · Greedo · Cad Bane · Mob Enforcer  (5)
-P02 FRONT  32.5% [graded-board] Rey · 50R-T · Ben Solo · Cal Kestis · General Kenobi  (5)
-P03 FRONT  30.2% [graded-board] The Stranger · Barriss Offee · Maul (Hate-Fueled) · Starkiller · Visas Marr  (5)
-P04 FRONT  28.3% [leader-tier-] Admiral Ackbar · Cassian Andor (Undercover) · Ahsoka Tano (Fulcrum) · Mon Mothma · Cara Dune  (5)
-P05 FRONT  25.9% [leader-tier-] Cere Junda · Commander Ahsoka Tano · Maul · Rey (Jedi Training) · Grand Inquisitor  (5)
-P06 FRONT  25.5% [leader-tier-] Kelleran Beq · Shaak Ti · Plo Koon · Temple Guard · Depa Billaba  (5)
-P07 FRONT  24.1% [graded-board] Queen Amidala · Grand Master Yoda · Mace Windu · Master Qui-Gon · Padawan Obi-Wan  (5)
-P08 FRONT  19.2% [graded-board] Baylan Skoll · Dash Rendar · Hondo Ohnaka · Marrok · Shin Hati  (5)
-P09 FRONT  18.3% [graded-board] Emperor Palpatine · Grand Admiral Thrawn · Mara Jade, The Emperor's Hand · Royal Guard · Darth Vader (Duel's End)  (5)
-P10 FRONT  17.2% [leader-tier-] Padmé Amidala · Clone Wars Chewbacca · Ahsoka Tano (Snips) · Hunter · Echo  (5)
-P11 FRONT  16.2% [graded-board] Satele Shan · Bastila Shan · Jedi Knight Revan · Jolee Bindo · Juhani  (5)
-P12 FRONT  15.9% [graded-board] Boss Nass · Gungan Boomadier · Captain Tarpals · Gungan Phalanx · Jar Jar Binks  (5)
-P13 FRONT  15.9% [graded-board] Saw Gerrera · Baze Malbus · Chirrut Îmwe · Kyle Katarn · Luthen Rael  (5)
-P14 FRONT  12.7% [graded-board] General Grievous · B1 Battle Droid · B2 Super Battle Droid · IG-100 MagnaGuard · STAP  (5)
-P15 FRONT  12.4% [graded-board] Qui-Gon Jinn · Jedi Knight Anakin · Ki-Adi-Mundi · Kit Fisto · Luminara Unduli  (5)
-P16 FRONT  12.2% [leader-tier-] Hera Syndulla · Sabine Wren · Kanan Jarrus · Ezra Bridger · Chopper  (5)
-P17 FRONT  12.2% [graded-board] Great Mothers · Death Trooper (Peridea) · Merrin · Morgan Elsbeth · Night Trooper  (5)
-P18 FRONT  11.0% [graded-board] General Skywalker · ARC Trooper · CT-21-0408 "Echo" · CT-5555 "Fives" · CT-7567 "Rex"  (5)
-P19 MID    10.5% [graded-board] Captain Carson Teva · Colonel Ward · Grogu & Anzellans · R5-D4 · Zeb Orrelios (New Republic Pilot)  (5)
-P20 MID    10.3% [leader-tier-] Sana Starros · Enfys Nest · Vane · Kix · Qi'ra  (5)
-P21 MID    10.1% [leader-tier-] Aurra Sing · Embo · Krrsantan · Zam Wesell · Fennec Shand  (5)
-P22 MID     8.9% [leader-tier-] Tarfful · Zaalbar · Yoda & Chewie · Veteran Smuggler Chewbacca · Vandor Chewbacca  (5)
-P23 MID     8.5% [leader-tier-] Mother Talzin · Asajj Ventress · Asajj Ventress (Dark Disciple) · Nightsister Spirit · Nightsister Zombie  (5)
-P24 MID     7.9% [leader-tier-] CC-2224 "Cody" · Clone Sergeant - Phase I · Wrecker · Tech · Omega  (5)
-P25 MID     7.5% [graded-board] Darth Traya · Darth Nihilus · Darth Sion · Darth Talon · Savage Opress  (5)
-P26 MID     6.7% [graded-board] Admiral Trench · Count Dooku · Jango Fett · Nute Gunray · Wat Tambor  (5)
-P27 MID     6.4% [lineup-table] Major Partagaz · Dedra Meero · Director Krennic · Imperial Probe Droid · KX Security Droid  (5)
-P28 MID     6.2% [leader-tier-] General Veers · Admiral Piett · Dark Trooper · Colonel Starck · Iden Versio  (5)
-P29 MID     6.1% [graded-board] Finn · Resistance Hero Finn · Resistance Hero Poe · Rose Tico · Zorii Bliss  (5)
-P30 MID     5.3% [lineup-table] Commander Luke Skywalker · Threepio & Chewie · C-3PO · Chewbacca · Han Solo  (5)
-P31 MID     4.9% [leader-tier-] Chief Chirpa · Ewok Scout · Logray · Wicket · Princess Kneesaa  (5)
-P32 MID     4.4% [graded-board] Admiral Raddus · Bistan · Cassian Andor · Jyn Erso · K-2SO  (5)
-P33 MID     4.1% [lineup-table] Omega (Fugitive) · Batcher · Crosshair (Scarred) · Hunter (Mercenary) · Wrecker (Mercenary)  (5)
-P34 MID     3.5% [graded-board] Darth Malgus · Bastila Shan (Fallen) · Darth Malak · Darth Revan · Sith Marauder  (5)
-P35 MID     3.2% [leader-tier-] Grand Moff Tarkin · Fifth Brother · Seventh Sister · Ninth Sister · Second Sister  (5)
-P36 MID     3.2% [lineup-table] Stormtrooper Luke · Captain Han Solo · Rebel Officer Leia Organa · Princess Leia · Stormtrooper Han  (5)
-P37 BACK    2.9% [graded-board] Dark Trooper Moff Gideon · Captain Enoch · Death Trooper · Moff Gideon · Scout Trooper  (5)
-P38 BACK    2.5% [graded-board] Tusken Chieftain · Tusken Warrior · Tusken Raider · Tusken Shaman · URoRRuR'R'R  (5)
-P39 BACK    2.3% [graded-board] Geonosian Brood Alpha · Geonosian Soldier · Geonosian Spy · Poggle the Lesser · Sun Fac  (5)
-P40 BACK    1.7% [leader-tier-] Inquisitor Barriss · Eighth Brother · Taron Malicos · Padawan Sabine Wren · Rey (Scavenger)  (5)
-P41 BACK    1.6% [leader-tier-] Captain Phasma · Kylo Ren · First Order Stormtrooper · First Order Officer · First Order SF TIE Pilot  (5)
-P42 BACK    1.4% [leader-tier-] Boba Fett · Boushh (Leia Organa) · Skiff Guard (Lando Calrissian) · Bossk · Greef Karga  (5)
-P43 BACK    0.7% [leader-tier-] The Mandalorian · Canderous Ordo · Imperial Super Commando · Gar Saxon · The Armorer  (5)
-P44 BACK    n/a [unranked-lea] Jedi Knight Cal Kestis · L3-37 · Dengar · Young Lando Calrissian · Veteran Smuggler Han Solo  (5)
-P45 BACK    n/a [unranked-lea] Jedi Knight Luke Skywalker · Ezra Bridger (Exile) · Hermit Yoda · Aayla Secura · Ima-Gun Di  (5)
-P46 BACK    n/a [unranked-lea] HK-47 · Sith Empire Trooper · Sith Assassin · BB-8 · Huyang  (5)
-P47 BACK    n/a [unranked-lea] IG-88 · IG-11 · T3-M4 · Droideka · IG-86 Sentinel Droid  (5)
-P48 BACK    n/a [unranked-lea] Luke Skywalker (Farmboy) · Kleya Marki · Cinta Kaz · Vel Sartha · Wedge Antilles  (5)
-P49 BACK    n/a [unranked-lea] Lando Calrissian · Pao · Scarif Rebel Pathfinder · Bodhi Rook · Biggs Darklighter  (5)
-P50 BACK    n/a [unranked-lea] Snowtrooper Commander · Stormtrooper · Snowtrooper · TIE Fighter Pilot · Shoretrooper  (5)
-P51 BACK    n/a [filler      ] Ugnaught · General Syndulla · Kuiil · Darth Sidious · Poe Dameron  (5)
-P52 BACK    n/a [filler      ] Darth Maul · Jawa Engineer · Dathcha · Jawa · Carth Onasi  (5)
-P53 BACK    n/a [filler      ] Range Trooper · Teebo · Young Han Solo · Ewok Elder · Paploo  (5)
-P54 BACK    n/a [filler      ] Magmatrooper · Resistance Pilot · Mission Vao · Amilyn Holdo · Resistance Trooper  (5)
-P55 BACK    n/a [filler      ] Garazeb "Zeb" Orrelios · Old Daka · Nightsister Initiate · Talia · Eeth Koth  (5)
+Place TOP-DOWN. FRONT rows go into the front-most territories (the ones the
+enemy must clear first); BACK rows are the last thing you set, and must never
+take a front slot — the per-territory cap is GUILD-WIDE and first-come, so a
+front slot spent on filler is a slot no guildmate can use.
+
+
+===== FRONT =====
+
+F01  Kelleran Beq                       Kelleran Beq · Mace Windu · Jedi Knight Anakin · Plo Koon · Luminara Unduli
+     ^ 2 live TW omicrons. Lead gives +500% Defense and he cannot be defeated while any ally holds Protection. Measured 7 squads to clear — the biggest attempt-eater observed.
+F02  Lord Vader                         Lord Vader · CC-1119 "Appo" · Disguised Clone Trooper · CX-2 · RC-1262 "Scorch"
+     ^ Needs no omicron. Cheap GAC counters are omicron-gated to GAC (Bo-Katan's ignore-taunt dies in TW). Measured 3–7 squads every round.
+F03  Boss Nass                          Boss Nass · Jar Jar Binks · Captain Tarpals · Gungan Boomadier · Gungan Phalanx
+     ^ 28.2% Kyber-D1 (n=3,290) and a live TW omicron that was inert in that measurement — per-turn self-dispel, 20% Protection regen, Daze/Stun cleanse. Lower bound.
+F04  Supreme Leader Kylo Ren            Supreme Leader Kylo Ren · Rey (Dark Side Vision) · Sith Trooper · General Hux · Kylo Ren (Unmasked)
+     ^ 33.3% Kyber-D1 (n=60) corroborated by 33.9% all-league (n=2,784). Zero omicron dependency, so the rate transfers to TW intact — the most trustworthy number on the board.
+F05  Rey                                Rey · 50R-T · Ben Solo · Cal Kestis · Barriss Offee
+     ^ 31% (n=13.3K) on the Sortie build. ⚠ ORDER-SENSITIVE — 50R-T must sit before BENSOLO so her unique resolves first and grants him VIP→Stealth; Rey is untargetable until he dies. Cal earns his slot on base kit (LS-UFU doubling lands on Rey herself).
+F06  Satele Shan                        Satele Shan · Bastila Shan · Jedi Knight Revan · Jolee Bindo · Juhani
+     ^ 28.2% on n=5,235 — the best-sampled wall on the board, and the measurement includes Juhani.
+F07  Admiral Trench                     Admiral Trench · Jango Fett · Count Dooku · Nute Gunray · Wat Tambor
+     ^ 3 live TW omicrons incl. the basic granting undispellable, unresistable Ability Block. Lower bound.
+F08  Dark Trooper Moff Gideon           Dark Trooper Moff Gideon · Captain Enoch · Night Trooper · Death Trooper (Peridea) · Scout Trooper
+     ^ 3 live TW omicrons: undispellable turn-1 Taunt, IR +75% Health, taunt dispels all enemy buffs, unresistable Healing Immunity. Lower bound.
+F09  Leia Organa                        Leia Organa · Admiral Raddus · Captain Drogan · Jyn Erso · R2-D2
+     ^ 23.7% (n=2,097) most-played. ⚠ Drogan/Raddus/Rex omicrons are GAC-tagged → upper bound in TW.
+F10  Baylan Skoll                       Baylan Skoll · Shin Hati · Marrok · Zaalbar · Doctor Aphra
+     ^ Shin Hati's TW omicron is live: all allies +50% Max Health AND Max Protection until she first dies. Baylan's own omicrons are GAC-only. Zaalbar is the Kyber-measured body, not Hondo.
+F11  Queen Amidala                      Queen Amidala · Grand Master Yoda · Master Qui-Gon · Padawan Obi-Wan · Shaak Ti
+     ^ 20.0% on n=3,346, one of the best-sampled rows in the file, and Master Qui-Gon's TW omicron is live → lower bound.
+F12  GL Ahsoka                          Ahsoka Tano · Ezra Bridger (Exile) · General Syndulla · Huyang · Padawan Sabine Wren
+     ^ 8.9% Kyber on n=3,546, the largest Kyber sample of any GL wall. Two unapplied TW omicrons (Padawan Sabine, General Syndulla) are the biggest buyable upgrade on the board.
+F13  Cassian Andor                      Cassian Andor (Undercover) · Cinta Kaz · Kleya Marki · Luthen Rael · Vel Sartha
+     ^ 16.3% Kyber-D1 (n=1,973). Cinta's TW omicron is a MUST-HAVE and unbought → lower bound once purchased.
+F14  Rotta the Hutt                     Rotta the Hutt · Cad Bane · Mob Enforcer · Gamorrean Guard · Greedo
+     ^ 15.8% Kyber-D1 (n=1,574), his measured most-played build. Rotta's 3 omicrons are GAC-mode → upper bound; he keeps base-kit Tank Taunt and the Bleed/Detonator lead engine.
+
+===== MID =====
+
+M01  Jabba the Hutt                     Jabba the Hutt · Boushh (Leia Organa) · Embo · Krrsantan · Skiff Guard (Lando Calrissian)
+     ^ 7.6% Kyber (n=776) — but a lower bound: Embo's TW omicron (BH +40% Max Protection, continuous regen, 5% TM per debuffed-ally hit) was inert throughout. The only Jabba build with a live TW upgrade path.
+M02  Great Mothers                      Great Mothers · Merrin · Morgan Elsbeth · Asajj Ventress · Old Daka
+     ^ Both Great Mothers omicrons are TW MUST-HAVE and unbought — five in-place full resurrections once purchased. ⚠ Merrin, Morgan and Asajj omicrons are all GAC-mode, so Great Mothers' two are the squad's *only* possible live tech.
+M03  The Stranger                       The Stranger · Starkiller · Maul (Hate-Fueled) · Visas Marr · Rey (Scavenger)
+     ^ Maul (Hate-Fueled)'s 3 TW omicrons are live (100 Edge-of-Madness stacks at start). ⚠ Stranger's and Starkiller's omicrons are all GAC → dead here. Rebuilt after Juhani went to Satele; REY = Rey (Scavenger), from the Kyber-measured build.
+M04  Bo-Katan                           Bo-Katan (Mand'alor) · Bo-Katan Kryze · IG-12 & Grogu · Paz Vizsla · The Mandalorian (Beskar Armor)
+     ^ 21.0% (n=2,911), the Kyber-validated Bo-Katan Kryze variant.
+M05  General Skywalker                  General Skywalker · ARC Trooper · CT-21-0408 "Echo" · CT-5555 "Fives" · CT-7567 "Rex"
+     ^ 12.3% (n=4,581). GAS is `o0`, so nothing is lost to mode-gating.
+M06  Jedi Master Kenobi                 Jedi Master Kenobi · Ahsoka Tano (Snips) · Commander Ahsoka Tano · General Kenobi · Padmé Amidala
+     ^ 16.7% (n=5,228) most-played. ⚠ Exposed to Grand Inquisitor's "Ready to Die?" instant-defeat-no-revive on Jedi — do not front-band it.
+M07  General Grievous                   General Grievous · Droideka · B1 Battle Droid · B2 Super Battle Droid · IG-100 MagnaGuard
+     ^ Droideka's unbought TW omicron revives the entire squad at 100% Health when he first dies while Marked. Grievous himself has no omicron at all — one point of failure.
+M08  Hera Syndulla                      Hera Syndulla · Captain Rex · Kanan Jarrus · Sabine Wren · Chopper
+     ^ 11.5% (n=1,247); Hera's TW omicron is live → lower bound.
+M09  ISB                                Major Partagaz · Director Krennic · Dedra Meero · KX Security Droid · Imperial Probe Droid
+     ^ KX's unapplied TW omicron gives all allies +50% Max Health and Protection all battle, behind a 3-turn opening taunt with Retribution.
+M10  New Republic (Carson Teva)         Captain Carson Teva · Colonel Ward · Grogu & Anzellans · R5-D4 · Zeb Orrelios (New Republic Pilot)
+     ^ Measured 17.0% (n=1,532); NR tanks open with Retribution and anything 300+ Speed above Teva eats irresistible Speed Down.
+M11  Constables + Jawas (Cobb Vanth)    Cobb Vanth · Chief Nebit · Coruscant Underworld Police · Jawa Scavenger · Lobot
+     ^ Measured 16.7% (n=3,775) — the best-sampled non-meta wall Astra can field; Nebit's detonators behind CUP and Lobot bodies.
+M12  Sith Triumvirate (Traya)           Darth Traya · Darth Nihilus · Darth Sion · Savage Opress · Darth Talon
+     ^ Isolate removes one attacker from the fight entirely — unresistable, undispellable, no buffs, no out-of-turn actions.
+M13  First Order (Phasma TW omicron)    Captain Phasma · First Order Officer · First Order SF TIE Pilot · First Order Executioner · First Order Stormtrooper
+     ^ TW omicron applied: heals on every out-of-turn attack and stacks permanent Offense plus team TM on every Advantage. It snowballs.
+M14  Sith Empire (Malgus)               Darth Malgus · Darth Revan · Darth Malak · Bastila Shan (Fallen) · Sith Marauder
+     ^ Immune to TM reduction while debuffed and +10% Crit Chance and 15 Speed per debuff on themselves — debuffing them speeds them up.
+M15  Imperial Troopers (Veers)          General Veers · Admiral Piett · Shoretrooper · Range Trooper · Colonel Starck
+     ^ Veers' unique gives the whole team a turn-meter cascade every time an ally dies, behind Shoretrooper's taunt and Regroup.
+M16  Empire (Thrawn)                    Grand Admiral Thrawn · Darth Vader · Death Trooper · Dark Trooper · Stormtrooper
+     ^ Fracture removes a unit from the fight for two turns with no counterplay; Thrawn feeds 15% TM to every Empire special.
+M17  Tuskens                            Tusken Chieftain · Tusken Raider · Tusken Warrior · Tusken Shaman · URoRRuR'R'R
+     ^ At 10 Momentum a targeted Tusken unresistably stuns every attacking enemy and takes a bonus turn; DoT-immune and they heal off DoTs.
+M18  Ewoks                              Chief Chirpa · Princess Kneesaa · Logray · Paploo · Ewok Elder
+     ^ Paploo to Logray assist gives team-wide TM, Foresight, Offense Up and Advantage before the attacker moves.
+M19  CLS Rebels                         Commander Luke Skywalker · Threepio & Chewie · C-3PO · Chewbacca · Han Solo
+     ^ Exact measured build (8.2%, n=2,129); crushing counters plus Protection regeneration, and the AI needs no decisions to play it.
+M20  Mauldalorians                      Maul · Canderous Ordo · Gar Saxon · Imperial Super Commando · The Mandalorian
+     ^ Measured build (8.2%, n=844); Maul's Mandalorian lead over the dodge and counter layer, all four allies R7+.
+
+===== BACK =====
+
+B01  Bounty Hunters (Aurra contract)    Aurra Sing · Bossk · Greef Karga · Zam Wesell · Fennec Shand
+     ^ Built to complete the Contract before the enemy moves, firing all Payouts; Bossk then taunts and regenerates through the rest.
+B02  Rebel Fighters (Mon Mothma)        Mon Mothma · Kyle Katarn · Hoth Rebel Scout · Pao · Cara Dune
+     ^ Mon Mothma cannot be targeted and is taunt-immune, so you must clear four Rebel Fighters who assist each other every turn.
+B03  Smugglers (Dash Rendar)            Dash Rendar · IG-11 · Kuiil · L3-37 · Young Han Solo
+     ^ Measured 7.9% (n=232); Prepared re-applies itself and every crit feeds team turn meter.
+B04  Wookiees (Tarfful TW omicron)      Tarfful · Clone Wars Chewbacca · Veteran Smuggler Chewbacca · Yoda & Chewie · Vandor Chewbacca
+     ^ TW omicron applied: the first time each Wookiee dies, every Wookiee refreshes cooldowns and recovers 100% Health. Five resets.
+B05  Imperial Troopers (Iden)           Iden Versio · Snowtrooper · Magmatrooper · Snowtrooper Commander · TIE Fighter Pilot
+     ^ Solo-leader clause gives +100% counter chance and, in Arenas, +35% Max Health and Protection with recovery on out-of-turn attacks.
+B06  Nightsisters (Talzin)              Mother Talzin · Nightsister Zombie · Nightsister Spirit · Talia · Nightsister Acolyte
+     ^ Mass revive plus Zombie's respawning taunt — you kill the same units three times, and no ability combo is required of the AI.
+B07  Bad Batch (Mercenary)              Omega (Fugitive) · Hunter (Mercenary) · Wrecker (Mercenary) · Crosshair (Scarred) · Batcher
+     ^ Batcher lets them ignore taunts and Crosshair bursts; measured only 7.0% on defence, so it is a MID wall at best.
+B08  Aphras Droids (BT-1)               BT-1 · 0-0-0 · IG-88 · IG-90 · HK-47
+     ^ Measured build (23.1%, n=760) minus Aphra; 0-0-0's torture stacking and BT-1's AoE, uniform R7.
+B09  Bad Batch (classic)                Hunter · Tech · Echo · Wrecker · Omega
+     ^ Stealth forces every attack onto Wrecker, who pre-taunts and AoE-stuns; stealthed units cannot be counter-attacked.
+B10  Rebel Fighters (Wedge)             Wedge Antilles · Biggs Darklighter · Baze Malbus · Chirrut Îmwe · Scarif Rebel Pathfinder
+     ^ Baze and Chirrut are a real sustain pair — heal-over-time on every crit behind Baze's taunt; uniform R7, zero zetas.
+B11  Unaligned Force Users (Cere)       Cere Junda · Taron Malicos · Ahsoka Tano (Fulcrum) · Kylo Ren · Inquisitor Barriss
+     ^ All five carry the UFU tag so Cere's Force-echo buffs reach everyone; Taron's self-sustain makes it a grind rather than a burst-down.
+B12  Emperor Palpatine                  Emperor Palpatine · Mara Jade, The Emperor's Hand · Darth Vader (Duel's End) · Grand Moff Tarkin · Royal Guard
+     ^ ⚠ BACK ONLY. Mara Jade's omicron — including her 100% Turn Meter — is gated on *"if the enemy Leader is not a Galactic Legend."* Blank against any GL-led attack.
+B13  Geonosian Brood Alpha              Geonosian Brood Alpha · Poggle the Lesser · Sun Fac · Geonosian Soldier · Geonosian Spy
+     ^ ⚠ BACK ONLY. Poggle's omicron is gated on *"if there are no enemy Galactic Legends."* Same failure mode as #21. Measured 3 squads to clear when attacked by non-GL squads.
+B14  Old Republic (Carth)               Carth Onasi · Mission Vao · T3-M4 · Darth Maul · Eighth Brother
+     ^ Carth gives +30% Potency, Tenacity and Crit Avoidance and an 80% assist call on every basic, with team healing per DoT tick.
+B15  Galactic Republic Jedi (Qui-Gon)   Qui-Gon Jinn · Aayla Secura · Kit Fisto · Depa Billaba · Temple Guard
+     ^ Coherent Jedi block; Qui-Gon's lead gives offense and turn meter on assists. R5.6 average is the weakness.
+B16  Resistance Veterans (Holdo)        Amilyn Holdo · Veteran Smuggler Han Solo · Resistance Trooper · Resistance Pilot · Captain Han Solo
+     ^ All five carry the Resistance tag; zero zetas, so this is coherent body count rather than a threat.
+B17  Hoth Rebels (Officer Leia)         Rebel Officer Leia Organa · Stormtrooper Han · Hoth Rebel Soldier · Princess Leia · Obi-Wan Kenobi (Old Ben)
+     ^ Coherent Rebel block under a Rebel lead; Old Ben R7 upgrades it and his taunt-on-death forces a longer fight.
+B18  Solo crew / Scoundrels             Young Lando Calrissian · Qi'ra · Lando Calrissian · Sana Starros · Boba Fett
+     ^ Scoundrel block; Sana's assists and Boba's burn behind Young Lando's lead. Uniform R7 bodies.
+B19  Pirates (Hondo)                    Hondo Ohnaka · Vane · Enfys Nest · STAP · Dengar
+     ^ Profit-stacking crew; Hondo dispels all debuffs on Mercenary and Scoundrel allies then calls an assist and assists himself.
+B20  Jedi Vanguard B (Temple)           Jedi Knight Guardian · Jedi Consular · Eeth Koth · Ima-Gun Di · Ki-Adi-Mundi
+     ^ All-Jedi block after Ki-Adi-Mundi replaced Zeb; zero zetas and zero omicrons, so it is a speed bump, not a wall.
+B21  Jawa / spare bodies                Dathcha · Jawa · Jawa Engineer · Moff Gideon · Asajj Ventress (Dark Disciple)
+     ^ Three spare Jawas plus two bodies. Nebit leads the Cobb build instead, so the TW omicron does not fire here. Pure body count.
+B22  Sith / dark bodies (Sidious)       Darth Sidious · Sith Assassin · Sith Empire Trooper · Nightsister Initiate · First Order TIE Pilot
+     ^ Shared Dark Side alignment under a Sith lead; three of five get Sidious's bonus. Buying his TW omicron promotes this squad.
+B23  Clone / Republic bodies            CC-2224 "Cody" · Clone Sergeant - Phase I · Kix · Ezra Bridger · IG-86 Sentinel Droid
+     ^ Shared Light Side alignment; the weakest squad on the board and an absolute last resort for the deepest back territory.
+B24  Ewok B-team (Teebo)                Teebo · Wicket · Ewok Scout · Ugnaught · Wampa
+     ^ R8.6 average, the highest in the catalogue — three spare Ewoks plus the only two faction-less units, both R10. Stat bulk, no synergy.
+B25  Resistance JTR                     Rey (Jedi Training) · BB-8 · Resistance Hero Finn · Resistance Hero Poe · Rose Tico
+     ^ Expose on crits feeds team turn meter while every special drains the attacker's; Rey's Foresight wastes damage. Nine zetas invested.
+B26  Rogue One                          Saw Gerrera · Cassian Andor · K-2SO · Bistan · Bodhi Rook
+     ^ Spark of Rebellion converts into a six-buff suite the moment it is dispelled, so dispel-based attackers buff them; K-2SO taunts and counters.
+B27  Resistance + bodies                Finn · Poe Dameron · Zorii Bliss · Stormtrooper Luke · Darth Bane
+     ^ Three Resistance under Finn's lead plus two high-relic bodies. No synergy for the last two - a filled slot banks the same +30. BACK only.
+
+===== AIRSPACE (fleet territory) =====
+
+FD1  Chimaera                           Chimaera · TIE Advanced x1 · TIE Defender · TIE/IN Interceptor Prototype · Scythe · Imperial TIE Fighter · Emperor's Shuttle · Imperial TIE Bomber
+FD2  Home One                           Home One · Bistan's U-wing · Rebel B-wing · Raven's Claw · Cassian's U-wing · Biggs Darklighter's X-wing · Wedge Antilles's X-wing · Ghost
+FD3  Raddus                             Raddus · Rey's Millennium Falcon · Comeuppance · Poe Dameron's X-wing · MG-100 StarFortress SF-17 · Resistance X-wing · Lando's Millennium Falcon
+FD4  Executor                           Executor · Hound's Tooth · Punishing One · Razor Crest · Xanadu Blood · Slave I · IG-2000 · Ebon Hawk
+FD5  Negotiator                         Negotiator · Anakin's Eta-2 Starfighter · Plo Koon's Jedi Starfighter · Ahsoka Tano's Jedi Starfighter · Marauder · Umbaran Starfighter · BTL-B Y-wing Starfighter · Rex's ARC-170
+FD6  Malevolence                        Malevolence · Vulture Droid · Hyena Bomber · Sun Fac's Geonosian Starfighter · Geonosian Soldier's Starfighter · Geonosian Spy's Starfighter
+
+===== HELD BACK FOR OFFENSE (do NOT set on defense) =====
+
+O1   SEE solo                           Sith Eternal Emperor
+     ^ 84% solo clear on n=2,466. The only banner-POSITIVE squad on the board: Net = 20p - 6U = +10.8, because a clear pays 20 regardless of unit count while a 5-unit wall banks 30. No omicron anywhere in it, so the rate transfers from Grand Arena to TW intact.
+O2   JML                                Jedi Master Luke Skywalker · Hermit Yoda · Jedi Knight Cal Kestis · Jedi Knight Luke Skywalker
+     ^ 93% on n=4,609 at only four units (the 5-unit variant is 87.4% on n=871 - worse AND dearer). JML has essentially no defensive usage in the tracked population. Jedi Knight Cal's omicrons are Territory Battles, so they were inert in the measurement and stay inert here: zero translation loss.
+O3   Inquisitorius                      Grand Inquisitor · Seventh Sister · Fifth Brother · Ninth Sister · Second Sister
+     ^ Grand Inquisitor's three TW omicrons are an OFFENCE package - ignores Taunt, and at 6 Purge stacks instantly deletes a Jedi with no revive. Its defensive row is 10.3% and that row contains Third Sister, whom Astra does not own, so his version is worse. A squad that genuinely does not belong on a wall.
