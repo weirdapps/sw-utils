@@ -202,6 +202,21 @@ python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrine
 ## Territory War — the board is DATA, not a solver (rebuilt 2026-08-26)
 TW is its own mode: it shares no units with GAC, defense banks a **flat +30 per squad** the moment it is
 set (a fleet +34), and the map holds 390 slots against a **guild-wide, first-come** pool.
+
+⛔⛔ **READ EVERY TERRITORY'S NOTE BEFORE PLACING A SINGLE SQUAD, AND OBEY IT (owner, 2026-08-29).**
+Each territory panel carries a **gold officer note** under the activity feed naming the team(s) the
+guild wants stacked there (`Lord V-Rey`, `Queen A. / Jaba`, `Bugs`, `GG / nightsisters`, `Inquis`).
+**Only the named teams go in a noted territory.** Owner's rule verbatim: *"Check out what others have
+placed and follow suit. The only areas where you can place whatever you want are the back ones."*
+`scripts/tw_scan_notes.py` reads all ten notes into one image (OCR of the note alone is unreliable);
+`scripts/tw_peek.py` shows what guildmates actually placed, at legible size.
+⚠ **SET IS IRREVERSIBLE.** Ignoring this on 2026-08-29 stuck six off-note squads in Trenches.
+⚠ **Slot counts and the per-territory cap are PER WAR**: 36, not 39, on Jakku; the cap scales with
+the smaller guild's member count. Un-noted zones DO fill and close: three hit 36/36 that day.
+⚠ **A map can have TWO fleet territories** (Jakku: Airspace *and* Main Base). The activity feed says
+"setting a defensive **fleet**"; a squad fill there opens a capital-ship picker instead.
+⭐ **A short lineup still banks the full +30/+34**, so split leftover ships across two unused
+capitals rather than building one full fleet: +68 beats +34, and it is two battles, not one.
 ```
 python3 scripts/tw_board.py        # validate data/tw_board.json -> output/tw_upload_payload.json
                                    #                             -> output/tw_placement_sheet.txt

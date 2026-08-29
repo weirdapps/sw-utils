@@ -231,10 +231,17 @@ def allied_count():
 
 
 def squad_power():
-    """'Squad Power: 125,988' on the SELECT DEFENSIVE SQUAD screen."""
+    """'Squad Power: 125,988' on the SELECT DEFENSIVE SQUAD screen.
+
+    Take EVERY digit after the label, not the first `[\\d.,]{4,}` run: tesseract
+    renders the thousands separator as a comma, a period or a space more or less
+    at random, and on a space it returned 116 for 116,650 -- fine as a truthy
+    'a squad loaded' test, useless once the number itself is the check.
+    """
     txt = ocr((0, 155, 520, 215), psm='7')
-    m = re.search(r'([\d.,]{4,})', txt)
-    return int(re.sub(r'[.,]', '', m.group(1))) if m else None
+    tail = txt.split(':')[-1] if ':' in txt else txt
+    digits = re.sub(r'\D', '', tail)
+    return int(digits) if digits else None
 
 
 def place_one(label, max_scrolls=12):

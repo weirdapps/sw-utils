@@ -28,7 +28,10 @@ CANDS = [# zoomed-OUT view (both discs on screen)
          # zoomed-IN view (our disc fills the frame)
          (843, 279), (1009, 258), (1173, 300), (1340, 271),
          (813, 419), (1009, 419), (1173, 440), (1340, 430),
-         (813, 672), (1030, 681), (1236, 655), (1445, 594)]
+         (813, 672), (1030, 681), (1236, 655), (1445, 594),
+         # Jakku, 2026-08-29: these five were unreachable from the list above.
+         # tw_scan_notes.py --dense found them on a plain grid sweep.
+         (560, 620), (260, 360), (110, 750), (110, 490), (410, 490)]
 EMPTY = (400, 500)          # dead console area — deselects without opening chat
 ENTER = (1497, 985)
 TITLE_BOX = (1050, 158, 1910, 216)
@@ -53,9 +56,15 @@ def probe(xy):
     return panel(TITLE_BOX), panel(LABEL_BOX)
 
 
+# The map keeps whatever zoom and pan the last panel left it at, and there is no
+# ADB gesture for pinch-to-zoom, so a fixed candidate list goes stale mid-session.
+# This grid is the fallback sweep: slower, but it does not care where the disc is.
+GRID = [(x, y) for y in range(230, 960, 130) for x in range(110, 1560, 150)]
+
+
 def goto(name, enter=True):
     want = re.sub(r"[^a-z]", "", name.lower())
-    for xy in CANDS:
+    for xy in CANDS + GRID:
         title, label = probe(xy)
         flat = re.sub(r"[^a-z]", "", title.lower())
         if want and want in flat:

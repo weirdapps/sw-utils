@@ -4053,3 +4053,75 @@ something. Adding the key alone would have been a false green.
 - **A GAC-derived source would never have found the two best walls.** Lord Vader and Jabba are the only
   squads on this roster that genuinely *improve* in TW rather than surviving the translation — Vader
   because his cheap counters are themselves GAC-omicron-gated and stop working, Jabba because of Embo.
+
+## 2026-08-29 — TW LIVE PLACEMENT: 2,140 banners, guild #1. The map itself carries the orders.
+
+Jakku, season vs an unnamed guild, setup phase. Astra went 0 -> **2,140 banners = 60 squads x30 +
+10 fleets x34**, guild #1 with the runner-up on 984. Guild total 4,198 -> 7,790 during the session.
+
+### ⭐⭐ THE THING THIS REPO DID NOT KNOW: EACH TERRITORY CARRIES AN OFFICER NOTE
+The territory info panel has a **gold bar under the activity feed** holding a short officer note,
+and it is the guild's placement order. On this map:
+
+| territory | note | position |
+|---|---|---|
+| Trenches | **Lord V-Rey** | FRONT (orange ring) |
+| Forward Turrets | **Queen A. / Jaba** | FRONT (orange ring) |
+| Infirmary | **Inquis** | 2nd rank |
+| Supply Depot | **Bugs** (Geonosians) | mid |
+| Ion Cannon | **GG / nightsisters** | back-ish |
+| Hangar · Airspace · Main Base · Command Post · Special Ops Center | none | |
+
+⛔ **The owner stopped the run over exactly this.** The first pass put SEVEN squads into Trenches
+(the whole FRONT band) when the note said Lord Vader and Rey only. **SET IS IRREVERSIBLE**, so six
+off-note squads are stuck there for this war. His rule, verbatim: *"Check out what others have
+placed and follow suit. The only areas where you can place whatever you want are the back ones."*
+⇒ **Read the note on every territory BEFORE placing. Only note-named teams go in a noted zone.**
+`scripts/tw_scan_notes.py` crops the title bar + note bar of all ten and stacks them into one image,
+because OCR of the note is unreliable (`tw_goto --scan` returned "Jaba" and "eee SO EEE").
+Corroborate with the allied list: `scripts/tw_peek.py` upscales the portrait strip enough to read
+(at native scale a portrait is ~55px after the Read pipeline downsamples, which is guesswork).
+
+### ⭐ THIS MAP HAS **TWO** FLEET TERRITORIES: Airspace AND Main Base
+Discovered by failure: a character-squad fill in Main Base opened **SELECT YOUR CAPITAL SHIP**.
+The note-scan crop had said so already, "setting a defensive fleet" in both activity feeds, and it
+was read past. Check the feed wording before planning a territory's contents.
+
+### Numbers read off the panels this war
+- **Per-territory cap 36, not 39** — it scales with the SMALLER guild's member count, so it is a
+  per-war number. Never hardcode it.
+- **Conquer: +810 in the front territories, +1,260 in Special Ops Center.** First device confirmation
+  of the back-row doubling this repo had only derived.
+- Guild-wide first-come is real and it BINDS: the three un-noted ground zones (Hangar, Command Post,
+  Special Ops Center) all hit **36/36** and closed, which is what stranded the last 2 squads.
+
+### ⭐ A SHORT LINEUP BANKS THE FULL +34, SO SPLIT THE LEFTOVER SHIPS
+Eight preset fleets went into Airspace. Main Base then offered **two** unused capitals (Chimaera,
+Home One) and exactly 7 free ships. One full 8-slot Chimaera fleet is +34; **Chimaera+3 and
+Home One+4 is +68**, and it is two battles the enemy must win instead of one. The "not full" warning
+only DISMISSES — press SET a second time. Ships ran out exactly there ("No other Ships available").
+
+### Driving lessons that cost passes
+- ⛔ **`tp.screen_title()` cannot see a CENTRED modal title.** It reads the top-left box, so
+  'SELECT YOUR CAPITAL SHIP' comes back as `'BS'`, and branching on that read made the fallback tap
+  land on an ability card of the capital picker and wedge the flow. OCR `(600,35,1360,100)` instead.
+- ⛔ **The squad list bottoms out.** With VIS=3 visible rows, the last two rows of a tab can never be
+  scrolled to the top slot, so `steps=idx; tap ROW_Y` re-tapped row N-3 and returned RESTRICTED.
+  Past `idx > N-VIS`, over-scroll and index UP from the last header (`Y_LAST = 805`).
+- ⛔ **The left-hand TAB list scrolls too and keeps its position.** After scrolling down to reach
+  `TW 4 Offense`, the fixed coordinate for `TW 1 Def FRONT` points at `TW 3`. Rewind it every pass.
+- **`TW 4 Offense` has 3 rows, so it does not scroll at all** — row i is simply at `ROW_Y + 318*i`.
+- **`squad_power()` only read the first digit group** when tesseract rendered the thousands separator
+  as a space (116 for 116,650). Fixed to take every digit after the label.
+- ⚠ **Squad Power is NOT a reliable identity check.** Roster `gp` drifts ~2,000 in BOTH directions
+  because the mod optimiser moves mods, and adjacent rows can sit 1,208 apart, so a tight test
+  rejects correct loads (F14 read 159,927 against a stale 160,527 and matched F11 instead). It is
+  worth having as a GROSS check only (`--loose`, 12,000). Where a slip only swaps two squads bound
+  for the same territory, let the game arbitrate: RESTRICTED means already committed, re-sweep after.
+- ⚠ **A maroon-chip colour audit of "which rows are already placed" did NOT work** and was deleted:
+  it reported F01/F02 free when both were verifiably on the board. The chip row does not sit at a
+  fixed offset from the tap slot. **Count banners instead** — `total = 30*squads + 34*fleets` is
+  exact and free.
+- `tw_goto.py` grew a dense grid fallback: the map keeps the zoom and pan the last panel left it at,
+  there is no ADB pinch gesture, and the fixed candidate list goes stale mid-session. Also note the
+  title OCRs "Ion Cannon" as **"lon Cannon"**, so `goto("Ion Cannon")` never matches; search "Cannon".
