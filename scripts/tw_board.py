@@ -178,7 +178,7 @@ def sheet(board, own):
     fleets = board.get("fleets", {}).get("defense", [])
     total = len(d) * BANNERS_PER_SQUAD + len(fleets) * FLEET_BANNERS
     lines = [
-        f"TERRITORY WAR — DEFENSIVE PLACEMENT ORDER",
+        "TERRITORY WAR — DEFENSIVE PLACEMENT ORDER",
         f"{len(d)} squads x{BANNERS_PER_SQUAD} + {len(fleets)} fleets x{FLEET_BANNERS} "
         f"= {total} guaranteed banners",
         "",
