@@ -83,13 +83,15 @@ def tealish(c):
 
 # Probe points, in 1100-space.
 P_COMBAT_BATTLE = (895, 573)   # green BATTLE on the Combat Details side panel
+# A repeatable bonus node adds a MULTI SIM button, which pushes BATTLE to the right.
+P_BONUS_BATTLE = (995, 573)
 P_SQUAD_BATTLE = (953, 575)    # green BATTLE on the squad screen
 P_SQUAD_CLEAR = (428, 575)     # teal CLEAR SQUAD, only on the squad screen
 P_CONTINUE = (550, 535)        # the wide green CONTINUE on the REWARDS card
-P_AUTO = (163, 32)             # AUTO toggle, green once running
+P_AUTO = (158, 36)             # AUTO toggle: blue when off, yellow-green when on
 P_STORE = (1014, 535)          # CONQUEST STORE button, only on the sector map
 P_PANEL = (900, 103)           # "Combat Details" panel header, only with a node open
-P_RETREAT = (118, 32)          # green retreat square, only while a battle is running
+P_RETREAT = (100, 36)          # green retreat square, only while a battle is running
 
 PROBES = {
     "combat_battle": P_COMBAT_BATTLE,
@@ -108,20 +110,28 @@ def state(im):
     # A loss lands on the "you have upgrades available" card, whose green VIEW
     # COLLECTION sits higher than the REWARDS card's CONTINUE bar. Without this the
     # runner just waits out the full battle timeout on every defeat.
-    if greenish(box(im, 550, 499)) and not greenish(box(im, 780, 535)):
+    # VIEW COLLECTION (green) sits directly above HELP (teal) on the defeat card, and
+    # nothing else in Conquest stacks those two. Testing the green button alone
+    # matched half-drawn REWARDS cards and cost real battles to sort out.
+    if greenish(box(im, 550, 499)) and tealish(box(im, 550, 561)) \
+            and not greenish(box(im, 780, 535)):
         return "defeat"
     if greenish(box(im, *P_CONTINUE)) and greenish(box(im, 780, 535)):
         return "rewards"
     # Both screens carry a green BATTLE and the buttons overlap, so CLEAR SQUAD is the tell.
     if greenish(box(im, *P_SQUAD_BATTLE)) and tealish(box(im, *P_SQUAD_CLEAR)):
         return "squad"
-    if greenish(box(im, *P_COMBAT_BATTLE)) and tealish(box(im, *P_PANEL)):
+    if tealish(box(im, *P_PANEL)) and (greenish(box(im, *P_COMBAT_BATTLE))
+                                       or greenish(box(im, *P_BONUS_BATTLE))):
         return "combat_details"
     # The battle HUD's green retreat square is the only reliable in-battle tell: the
     # map's CONQUEST STORE button and the battle screen's ability tray sit at the same
     # spot and read almost the same colour, which had the runner call a live fight "map".
     if greenish(box(im, *P_RETREAT, w=14, h=14)):
-        return "battle_auto" if greenish(box(im, *P_AUTO, w=14, h=14)) else "battle_manual"
+        # AUTO is blue while off and yellow-green while on, and yellow-green fails a
+        # plain "is it green" test, so read the red-versus-blue balance instead.
+        c = box(im, *P_AUTO, w=14, h=14)
+        return "battle_auto" if c[0] > c[2] else "battle_manual"
     return "map"
 
 
@@ -146,16 +156,29 @@ def play(node):
         im = grab()
         st = state(im)
     if st == "combat_details":
-        tap(*P_COMBAT_BATTLE, wait=4)
+        tap(*(P_BONUS_BATTLE if greenish(box(im, *P_BONUS_BATTLE)) else P_COMBAT_BATTLE),
+            wait=4)
         st, im = wait_for({"squad"}, timeout=40, poll=3)
     if st == "squad":
         tap(*P_SQUAD_BATTLE, wait=12)
         st, im = wait_for({"battle_manual", "battle_auto", "rewards"}, timeout=90, poll=5)
     if st == "battle_manual":
-        tap(*P_AUTO, wait=3)
-        st = "battle_auto"
+        # A battle left on manual never acts, and the clock still runs, so the whole
+        # node reads as a timeout loss. Confirm the toggle actually took.
+        for _ in range(3):
+            tap(*P_AUTO, wait=3)
+            st = state(grab())
+            if st != "battle_manual":
+                break
     if st in ("battle_auto", "battle_manual"):
         st, im = wait_for({"rewards", "defeat"}, timeout=420, poll=8)
+    if st == "defeat":
+        # The REWARDS card animates in, and for a frame or two its CONTINUE bar is
+        # only half drawn, which reads exactly like the defeat card. Re-sample before
+        # believing it: a real defeat costs a five-minute retry to discover.
+        time.sleep(5)
+        im = grab()
+        st = state(im)
     if st == "defeat":
         tap(33, 33, wait=4)      # out of the upgrade-offer card
         tap(550, 300, wait=5)    # "tap anywhere to continue"

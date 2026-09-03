@@ -4125,3 +4125,103 @@ only DISMISSES — press SET a second time. Ships ran out exactly there ("No oth
 - `tw_goto.py` grew a dense grid fallback: the map keeps the zoom and pan the last panel left it at,
   there is no ADB pinch gesture, and the fixed candidate list goes stale mid-session. Also note the
   title OCRs "Ion Cannon" as **"lon Cannon"**, so `goto("Ion Cannon")` never matches; search "Cannon".
+
+## 2026-09-03/04 — Conquest 24 (3rd instance) HARD: 93 → ~181 keycards, and FIVE driver bugs
+Continued the Vol-24 run. **Sector 1 FEATS 4/4 ✓**, event feats 1/9 → 3/9, Sector 2 opened and
+walked to ~43/96. Most of the session went on driver bugs, all now fixed and all worth knowing.
+
+### ⭐⭐ THE GATE TO THE NEXT SECTOR IS *ADVANCING PAST* THE BOSS, NOT BEATING IT
+Sector 1's boss sat at **3/3 stars** and Sector 2 still read **LOCKED**. Taking the Data Disk
+Stockpile that sits one step BEYOND the boss unlocked Sector 2 immediately. So the rule is
+positional: your token has to leave the boss node. A previous session ended believing S2 "should
+be unlocked" and it was not.
+
+### ⭐⭐ A SQUAD IS ONLY COMMITTED BY PRESSING BATTLE. BACKING OUT DISCARDS IT.
+This is the bug that cost the most. `cq_auto` opened with "if I am not on the map, tap back", which
+from the squad screen threw away the squad just built. Every subsequent fight then ran the previous
+weak squad, and the run read as *"Sector 2 is too hard"*: a no-Attacker 185k squad timed out at
+296-334s on three nodes in a row and the 219k SEE squad "lost" as well. Watching one battle showed
+Ahsoka/Tarkin/Gideon/Scout/Scorch on the field when SEE had been built.
+⇒ **After building a squad, the very next action must be BATTLE.** `cq_auto` now fights when it
+finds itself on the squad screen instead of navigating away.
+
+### ⭐ AUTO IS STICKY BUT MUST BE VERIFIED — a manual battle never acts and reads as a timeout
+The clock runs while the squad waits for input, so a battle left on manual burns the full 5 minutes
+and lands on DEFEAT. Correct HUD probe points, **1100-space, y=36**: gear **37** · retreat square
+**100** · **AUTO 158** · speed 226. The old constants (retreat 118 / auto 163) sat between icons.
+⚠ **AUTO is BLUE when off and YELLOW-GREEN when on**, and yellow-green FAILS a plain "is it green"
+test (`g > r + 30`) because r=176 vs g=199. Test **red vs blue** (`c[0] > c[2]`) instead.
+`play()` now re-taps AUTO up to three times and confirms the state changed.
+
+### ⭐ THE DEFEAT CARD NEEDS TWO PROBES, NOT ONE
+`greenish(550,499)` alone matched a half-drawn REWARDS card and reported a loss on a won battle.
+The defeat card is the only screen with **green VIEW COLLECTION at (550,499) directly above teal
+HELP at (550,561)**. Both, plus a re-sample 5s later, before believing it.
+
+### ⭐ MULTI SIM DOES NOT PROGRESS FEATS — tested, stop wondering
+A repeatable bonus node grows a **MULTI SIM** button after its first clear. 8 sims (8 sim tickets +
+160 conquest energy) paid 585K credits and 3 mod salvage and moved **Mission Above All 4/20 and
+Striking Back 0/50 by exactly zero**. Sim tickets are their own currency (37.7K owned), NOT
+crystals, so the test was cheap, and the conclusion is final: sims are for credits only.
+
+### ⭐ STAMINA IS A HARD GATE AT 0%, WHATEVER IT DOES TO STATS
+`STAMINA EXHAUSTED` greys the BATTLE button out. ~10% per battle, so a squad is good for ~10 fights,
+and the SEE five hit 0% together mid-run. The 2026-08-05 correction ("stamina does not affect
+performance") is about STATS; availability is a separate, absolute limit. Plan a rotation: nine
+GL-led squads is ~90 battles, and a full sector run needs more than that.
+
+### ⭐ Deployable Cooling Systems is a **TECH consumable**, not a data disk
+`You Must Learn Control` (15 keycards) reads like a disk feat and is not. Pass+ grants **3** of them;
+they live under CONSUMABLES > TECHS in the Conquest inventory. Activate one, win any battle, done.
+That was the cheapest 15 keycards of the session.
+
+### ⭐ The node panel has a FEATS tab — the ▶ beside "ENEMIES" cycles to it
+That is the only way to read a boss node's feat pair. Measured this run:
+- **S1 boss (6/9):** *Unguarded* (no Tanks) ✓ · **Imperial Oversight — win with a FULL ISB squad, 3 kc**,
+  still open. The five ISB (Partagaz/Dedra/Krennic/Probe/KX) are **145k and lose even a relic-4
+  Sector-1 bonus node**, so this needs consumables or it stays unpaid.
+- **S2 mini-boss (4/7):** *The Empire is Gone* (no Empire units) ✓ with the SEE five · **Master of
+  Evil — win with Darth Vader (Duel's End), 2 kc**, still open. Mutually exclusive: budget 2 battles.
+  ⚠ `Sith Empire` is NOT `Empire`: Revan/Malak pass the no-Empire feat.
+
+### Squad-picker mechanics, learned the hard way (`scripts/cq_add.sh`)
+- **A picked unit lands in the FIRST EMPTY slot, whichever slot you tapped.** So slot order is just
+  call order, and **slot 1 (the leader) must be the first call**. `cq_pick.sh`'s per-slot coordinates
+  are therefore misleading; `cq_add.sh` replaces it.
+- **Tapping an occupied slot removes that unit** and returns it to the result list, where it sorts
+  FIRST again — so re-picking without changing the search text just puts the same unit back.
+- Search matches ability text, so index matters: **"Partagaz" → Emperor Palpatine first**,
+  **"Krennic" → Death Trooper first**, **"Luthen" → Mon Mothma first**, "Darth Vader" → base Vader.
+- The green `x/y` pip on a squad card is the **omicron count**, not stamina. Stamina is the % bar.
+
+### Squads that worked
+| Squad | Power | Result |
+|---|---|---|
+| **Lord Vader (L) · Darth Vader · Major Partagaz · KX Security Droid · Grand Moff Tarkin** | 183k | ⭐ **6/6, 79-117s.** Closed ALL FOUR Sector-1 feats in six battles (DoT + Retaliate + KX wins). |
+| **SEE (L) · Darth Revan · Darth Bane · Darth Malak · Rey (Dark Side Vision)** | 219k | ⭐ The Sector-2 workhorse: 56-120s wins, took the mini-boss. |
+| Leia Organa (GL, L) · Vel Sartha · Kleya · Luthen Rael · Cassian (Undercover) | 179k | All Rebel Fighter: carries Vel-20 + Undermine-50 + Striking Back-50 in one squad. Untested at speed. |
+| Ahsoka Tano (GL, L) · Tarkin · Dark Trooper Moff Gideon · Scout Trooper · Scorch | 185k | The no-Attacker four-feat S2 squad. **Too slow for Sector 2** — timed out repeatedly. Park it on bonus nodes. |
+
+### Data disks taken this run
+Equipped 12/12: **Booming Voice(4) · Certain Defeat(2) · Master's Technique(2) · Zealous Ambition(2)
+· Defensive Formation I(1) · Legendary Consumable Boost(1)**. Dropped **Perseverance(3)** — its
+flat **−30% allied damage** is a poor trade when the failure mode is the 5-minute timer. Bench:
+Perseverance, Guard and Penetrate, Unshakable Focus, F-34T Training Droids.
+
+### `scripts/cq_auto.py` — the sector runner, and what it still cannot do
+Finds the next thing to do by Hough-voting bright node RINGS on the map (a reachable node is a thin
+bright circle, an unreachable one is dim, a cleared one is amber and fails a `min channel > 140`
+test, which is exactly the filter we want), then probes each candidate for a green BATTLE and
+`stars_banked < 3`. It plays a stockpile by committing the first option.
+⚠ **It still loses the frontier.** Sorting candidates by raw x sent it to unreachable nodes at the
+sector's far end; sorting by distance from screen centre is better but the map does not recentre
+after a probe tap or a stockpile, only after a win. **Backing out of a node panel leaves the SECTOR**,
+and the sector chooser also carries a CONQUEST STORE button, so the "am I on the map" probe reads
+true there and the runner walks into the wrong sector — it now aborts instead. Until the player
+marker (the four cyan chevrons) is detected properly, drive long stretches with
+`cq_grind.py --node X Y --runs 1` off a screenshot; that path is reliable.
+
+### Standing rails confirmed this run (owner, 2026-09-03)
+⛔ **Spend NO Conquest Credits and NO crystals.** The Wandering Scavenger sells **Leia (Jedi
+Training) shards, 5 for 525 credits** and Cobb Vanth 5 for 475; the owner wants the credits banked
+for characters. **COMMIT with nothing selected** to walk past a scavenger.
