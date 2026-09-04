@@ -4257,3 +4257,24 @@ settings"*, and a clean quit-and-relaunch does not clear it. `adb devices` still
 and `exec-out screencap` still returns frames, but **`adb shell` answers `error: closed`**, so the
 device looks half-alive while being useless. Quit BlueStacks through its own dialog and wait for the
 process to disappear; if it is wedged, wait for the host load to fall rather than killing it.
+
+### ⭐ "BlueStacks data is corrupted" was the HOST, not the VM
+An overnight run left the Mac at **load average ~700** (Chrome, OneDrive, Defender, Spotlight
+indexing, several claude sessions). BlueStacks froze at 0% CPU, was hard-killed, and then refused to
+start for hours with *"BlueStacks Air couldn't start due to corrupted data. To fix this, you need to
+reset your data, which will remove all apps, accounts, and settings."* Cancel was pressed and
+**Reset data never was**. Once the load fell to **6**, the same binary started cleanly on the first
+try with no error at all. ⇒ **Check `uptime` before believing any emulator-corruption message**, and
+never `kill -9` BlueStacks: quit it through its own dialog and wait for the process to exit.
+Second half of the same lesson: after that restart `adb shell` came back `error: closed`, i.e. the
+**ADB toggle in Settings > Advanced had reset to OFF**, while `exec-out screencap` kept working. A
+device that screenshots but cannot `shell` is that toggle, every time.
+
+### ⚠ Never click the host screen blind while the owner is at the keyboard
+`h.sh tap` drives the real mouse. Two clicks meant for the BlueStacks window landed in Acrobat and
+in a live Teams conversation because other windows kept taking focus. Guard every host click:
+```bash
+osascript -e 'tell application "BlueStacks" to activate'; sleep 3
+front=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
+[ "$front" = "BlueStacks" ] && ./scripts/h.sh tap X Y || echo ABORT
+```
