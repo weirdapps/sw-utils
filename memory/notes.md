@@ -4225,3 +4225,35 @@ marker (the four cyan chevrons) is detected properly, drive long stretches with
 ⛔ **Spend NO Conquest Credits and NO crystals.** The Wandering Scavenger sells **Leia (Jedi
 Training) shards, 5 for 525 credits** and Cobb Vanth 5 for 475; the owner wants the credits banked
 for characters. **COMMIT with nothing selected** to walk past a scavenger.
+
+## 2026-09-04 — the Vol-24 feat map is now DATA, and BlueStacks corrupted itself
+### ⭐⭐ `swgoh4.life/conquest/feats` IS the planner. Use it, do not improvise.
+It lists every feat of the live volume per sector with its keycard value, a suggested squad for
+each, and (the useful part) **which OTHER feats that same battle progresses**. Written up against
+Astra's roster in **`data/conquest/feat_plan_vol24.md`**, with squad powers computed from the
+roster. HotUtils' own Conquest pages are only Data Disks and Status, `/conquest` is gated above
+this Patreon tier, and its Discord SSO is not available from an automated browser, so it is NOT
+the tool for this job whatever the menu suggests.
+- ⚠ **Two "event feats" pay a DATA DISK, not keycards:** Undermine x50 pays Booming Voice and
+  Vel x20 wins pays Deployable Cooling Systems. **Conquest Pass+ grants both up front**, so on a
+  Pass+ account they are worth ZERO, and the 16 battles this repo had budgeted for Vel were waste.
+  Read the REWARDS panel of a feat before committing to it.
+- Budget for Vol 24: 572 sector + 90 global = **662 against a 630 red crate**, i.e. **~32 may be
+  missed**. That is the whole strategy: every battle must be a NODE (3 kc) that also feeds a feat.
+  Bonus nodes pay zero keycards and are only for feats a squad is too slow to farm on real nodes.
+- ⭐ Sector 2's four feats collapse into ONE squad: Emperor Palpatine · Dark Trooper Moff Gideon ·
+  Grand Moff Tarkin · Darth Malak · Bastila Shan (Fallen), all non-Attackers, DTMG included.
+  ⚠ Measured **240s per win** on an S2 node against 56-120s for the SEE five. No-Attacker squads
+  have no damage by construction, so run them where a slow win is safe, not on the path.
+- ⭐ Sector 5's "Cheese" squad (Darth Vader · Mara Jade · Tarkin · Stormtrooper Luke · Fifth Brother)
+  carries Buff Disruption + Tactical Supremacy + Potency Up, **45 keycards in one squad**, and has
+  to be played MANUALLY because the AI never picks Stormtrooper Luke's basic.
+
+### ⛔ NEVER `kill -9` BLUESTACKS. It corrupted the VM and the only offered fix wipes it.
+The Mac hit **load average ~700** (Chrome, OneDrive, Defender, Spotlight, several claude sessions);
+BlueStacks froze at 0% CPU and was hard-killed. Every relaunch since shows *"BlueStacks Air couldn't
+start due to corrupted data ... reset your data, which will remove all apps, accounts, and
+settings"*, and a clean quit-and-relaunch does not clear it. `adb devices` still lists the stale VM
+and `exec-out screencap` still returns frames, but **`adb shell` answers `error: closed`**, so the
+device looks half-alive while being useless. Quit BlueStacks through its own dialog and wait for the
+process to disappear; if it is wedged, wait for the host load to fall rather than killing it.

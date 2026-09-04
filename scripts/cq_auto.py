@@ -221,10 +221,15 @@ def main():
         # centred on the player: it is right after a win, and is not after a probe
         # tap or a stockpile, and a runner that panned once could never find its way
         # back to the frontier.
-        for attempt in range(4):
+        for attempt in range(10):
             im = back_to_map()
-            if attempt:
-                pan("right" if attempt < 3 else "left")
+            if attempt == 1:
+                # Lost the frontier: rewind to the sector's start and sweep right.
+                for _ in range(5):
+                    pan("left")
+                im = G.grab()
+            elif attempt > 1:
+                pan("right")
                 im = G.grab()
             rings = find_rings(im)
             # The map recentres on the player after every win, so the frontier is the
