@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot|mcp__plugin_playwright_playwright__browser_take_screenshot",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/shrink_read_images.py\"",
+            "timeout": 40
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/oversize_recovery.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/memory/session_state.md\"; if [ -f \"$f\" ] && [ -n \"$(find \"$f\" -mmin -1440 2>/dev/null)\" ]; then echo '=== IN-FLIGHT WORK (memory/session_state.md, <24h old) ==='; cat \"$f\"; echo '=== end. Delete this file once the work has landed. ==='; fi; true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

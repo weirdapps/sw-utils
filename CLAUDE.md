@@ -470,7 +470,21 @@ python3 scripts/verify_facts.py --unit IMAGUNDI   # ground truth for one unit, i
   payload in 66 dead sessions (78 crashes, every day 2026-08-02→08-17). Auto-compact can never rescue
   it — 60 images is ~90k tokens but ~29MB, so the byte cap lands while the window is barely a third
   full, and `/compact` is itself an oversize call. `scripts/hooks/shrink_read_images.py` (PreToolUse
-  on Read, wired in `.claude/settings.json`) transcodes anything over 150KB to 1100px/q55 JPEG —
-  measured 1.9MB→71KB with in-game text still readable — and hard-denies once ~20MB is banked.
-  Originals on disk are untouched, so the vision/OCR scripts still get native resolution.
-  If it ever does die: `/clear`, then say "continue" — SessionStart replays `memory/session_state.md`.
+  on Read plus the two screenshot MCP tools) warns at 12MB, transcodes anything over 150KB to
+  1100px/q55 JPEG — measured 1.9MB→71KB with in-game text still readable — and hard-denies once
+  20MB is banked. Originals on disk are untouched, so the vision/OCR scripts still get native
+  resolution. If it ever does die: **`/clear`, then say "continue"** — the SessionStart hook replays
+  `memory/session_state.md`, which `scripts/hooks/oversize_recovery.py` writes on StopFailure.
+  ⛔ **`/compact` is NOT a recovery.** It is an API call carrying the whole context, so it fails
+  with the same 400. Only `/clear` is client-side.
+  ⚠ **All of this was FICTION until 2026-09-05.** This file claimed the hook was "wired in
+  `.claude/settings.json`" and that SessionStart replayed the ledger. `.claude/` did not exist,
+  no settings file anywhere referenced the script, `/tmp/claude-img-cache/` had never been created,
+  and `memory/session_state.md` had no writer and no reader. The script had never executed once.
+  Two sessions died that day at 30,040,215 and 30,040,700 bytes, 219 images / 28.7MB of base64.
+  The guard would have warned at image #88 and refused at #152. **Documenting a hook is not
+  wiring one:** the wiring now lives in `.claude/settings.json`, explained in `.claude/README.md`,
+  and covered by `tests/test_shrink_read_images.py` + `tests/test_oversize_recovery.py`.
+  ⚠ **The refusal, not the transcode, is what saves you here.** The `cq_*` scripts write ~90KB
+  JPEGs, under the 150KB transcode threshold, so 20MB is only ~165 of them. Budget screenshots
+  during a long grind; do not assume shrinking buys headroom it cannot buy.
