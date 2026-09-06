@@ -14,20 +14,18 @@ PY="${SWPY:-$HOME/Downloads/swvenv/bin/python}"
 N="${1:-5}"
 
 for i in $(seq 1 "$N"); do
-  xy=$("$PY" scripts/cq_step.py --scan 2>/dev/null \
-       | awk -F'[(),]' '/ring j=/ {print $2, $3; exit}')
+  # Only rings ADJACENT to the token. `cq_step.py --scan` lists every bright ring on
+  # screen and its order repeatedly put an unreachable far-edge node first, which stalls
+  # the run with "screen was not where the script expected"; the map does not recentre
+  # after a probe, so "nearest the middle" is no better. cq_next.py measures from the
+  # token itself.
+  xy=$("$PY" scripts/cq_next.py --first 2>/dev/null)
   if [ -z "$xy" ]; then
     echo "[$i/$N] no reachable ring in view; stopping"
     exit 0
   fi
   echo "[$i/$N] node $xy"
-  # cq_grind.play() owns the screen sequence: it re-arms AUTO up to three times, clears
-  # the "squad is not full" modal, tells a half-drawn REWARDS card from a real defeat,
-  # and returns a verdict. A hand-rolled tap chain does none of that and walked a run
-  # into the Conquest inventory and then the EA Help chat on 2026-09-06.
-  out=$("$PY" scripts/cq_grind.py --node $xy --runs 1 2>&1 | tail -2)
+  out=$(cd scripts && "$PY" cq_play.py $xy 2>&1 | tail -1)
   echo "  $out"
-  # cq_grind prints a per-node verdict AND a "wins=n/m" tally, and `*win*` matches the
-  # tally, so a run of straight losses looked like a run of wins. Test the tally.
-  case "$out" in *"wins=0/"*) echo "  stopping: not a win"; exit 1 ;; esac
+  case "$out" in win*) ;; *) echo "  stopping: $out"; exit 1 ;; esac
 done

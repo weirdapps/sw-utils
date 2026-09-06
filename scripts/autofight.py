@@ -75,7 +75,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--timeout", type=int, default=420)
     a = ap.parse_args()
+    run(a.timeout)
 
+
+def run(timeout=420):
     # Wait for the HUD, THEN arm. Giving up early is the expensive bug: the fight runs
     # on manual, nobody acts, the 5-minute clock expires and it lands on DEFEAT looking
     # exactly like "the squad was too weak". Two Conquest nodes were lost that way on
@@ -93,7 +96,7 @@ def main():
         return
     set_speed_4x()
 
-    deadline = time.time() + a.timeout
+    deadline = time.time() + timeout
     misses = 0
     while time.time() < deadline:
         time.sleep(12)
