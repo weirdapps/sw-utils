@@ -65,33 +65,40 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 # rung carries the reason it sits where it does, and rejected alternatives are
 # recorded so they are not retried.
 #
-# ⭐ 1    THE ONE DEPLOYED SQUAD ARENA TEAM. Owner, 2026-08-20, on the mod pass:
-#      "first prio the one arena team. Second priority is always grand arena
-#      defense, and then grand arena offense."
-#      This narrows the 2026-08-18 "GAC is ALWAYS first" rule rather than undoing
-#      it: exactly ONE squad — the five units actually parked on the arena wall —
-#      now outranks GAC, and every other arena rung (climb at 6, fleet at 7) still
-#      sits below the whole GAC block. The compounding-payout argument recorded
-#      below is what justifies it: the deployed wall is the only squad in the game
-#      earning a ranked crystal payout EVERY day, and it is on duty for the ~23
-#      hours nobody is playing.
+# ⭐ 1-3  THE WHOLE ARENA BLOCK: deployed wall, then Squad climb, then Fleet.
+#      Owner, 2026-09-06, on the mod pass: "optimize my mods first to arena then
+#      grand arena then rote then tw order of priority." Every arena rung now sits
+#      above every GAC rung, which is a change from 2026-08-20 (when only the one
+#      deployed wall did) and from 2026-08-24 (when none of them did).
+#      The compounding-payout argument recorded below is what justifies it: the
+#      deployed wall is the only squad in the game earning a ranked crystal payout
+#      EVERY day, and it is on duty for the ~23 hours nobody is playing.
 #      In practice this mostly settles tie-breaks rather than moving units, because
 #      the deployed wall IS a GAC 5v5 defensive squad (currently the Hutt Cartel
 #      five: Rotta, Mob Enforcer, Greedo, Gamorrean Guard, Cad Bane), so best-tier-
 #      wins already had them near the top. It matters for the ORDER Grandivory
 #      receives, which is what decides who gets the contested speed arrows.
-#      ⚠ It is ONE squad by construction — ARENA_DEFENSE_SLOTS is 1 and _arena_roles
-#      enforces it. Do not let a second "alternative wall" reach rung 1.
+#      ⚠ Rung 1 is ONE squad by construction: ARENA_DEFENSE_SLOTS is 1 and
+#      _arena_roles enforces it. Do not let a second "alternative wall" reach it.
+#      COMPOUNDING PAYOUT, which is why all three rungs sit where they do: Squad
+#      and Fleet Arena are the only modes paying a ranked reward EVERY DAY, and it
+#      compounds, because crystals banked today raise the farming rate that defends
+#      the rank tomorrow. Astra is Squad Arena #11 and Fleet Arena #3, inside the
+#      band where one rank is real crystals per day.
+#      2 after 1: the climb squads run five attempts and then stop, while the wall
+#      is on duty all day. 3 after 2: a fleet cannot absorb the three biggest
+#      queues at all (see the fleet note below), so its rung only decides ability
+#      materials, and it takes no mods whatsoever.
 #
-# 2-5  GRAND ARENA, defense block then offense block, per the same instruction.
+# 4-7  GRAND ARENA, defense block then offense block, per the same instruction.
 #      This CHANGED on 2026-08-20: the ladder used to interleave by format
 #      (5v5 def, 5v5 off, 3v3 def, 3v3 off), so 5v5 OFFENSE outranked 3v3 DEFENSE.
 #      The owner's phrasing puts all GAC defense above all GAC offense, so 3v3
-#      defense now takes rung 3. Only format-unique units are affected — seasons
+#      defense now takes rung 5. Only format-unique units are affected — seasons
 #      alternate, and 73 of Astra's 148 GAC units sit on both boards.
-#      GAC remains above everything except the one arena wall: it is solo, and it
-#      moves the player's OWN league, the standing Kyber 4 -> 3 goal, where a TW
-#      result is not yours to determine at all.
+#      GAC remains above everything except arena: it is solo, and it moves the
+#      player's OWN league, the standing Kyber 3 -> 2 goal, where a TW result is
+#      not yours to determine at all.
 #      DEFENSE before OFFENSE inside every mode, for the reason already recorded
 #      in board_config.py: defense is the side you cannot adapt. It is set once
 #      and then met by whoever turns up, so an under-invested wall gets found and
@@ -104,21 +111,10 @@ MOD_PRIORITY_TXT = os.path.join(OUT, "mod_priority.txt")
 #      because a 5-unit squad's rate depends on all five members while a 3v3
 #      squad leans on its leader, so a weak support costs more in 5v5.
 #
-# 6-7  THE REST OF ARENA (Squad climb, then Fleet). Below the whole GAC block.
-#      COMPOUNDING-PAYOUT ARGUMENT, which is why rung 1 exists and why these two
-#      sit as high as they do: Squad and Fleet Arena are the only modes paying a
-#      ranked reward EVERY DAY, and it compounds — crystals banked today raise the
-#      farming rate that defends the rank tomorrow. Astra is Squad Arena #27 and
-#      Fleet Arena #1, inside the band where one rank is real crystals per day.
-#      The climb squads only run five attempts and then stop, which is why they
-#      are here and not with the deployed wall at rung 1.
-#      7 after 6: a fleet cannot absorb the three biggest queues at all (see
-#      the fleet note below), so its rung only decides ability materials.
-#
 # 8    TERRITORY BATTLES (RotE) — operations first, then combat missions. Placed
-#      here by the owner's stated order on 2026-08-11: "Arena, then Grand Arena,
-#      then Territory Battles and Territory Wars". This MOVED TB up from 11, above
-#      TW, reversing the previous ladder. Its own gate is relic depth (operations
+#      here by the owner's stated order on 2026-08-11 and restated verbatim on
+#      2026-09-06: "Arena, then Grand Arena, then Territory Battles and Territory
+#      Wars". Its own gate is relic depth (operations
 #      demand "Relic 6+", i.e. rt >= 8), which the relic queue already serves for
 #      every unit that is also on a GAC board; TB-ONLY units are what this rung
 #      actually orders.
@@ -159,32 +155,38 @@ ARENA_CLIMB_SQUADS_KEY = "squads"
 ARENA_DEFENSE_SLOTS = 1
 
 BOARD_ROLES = (
-    (2, ("5v5", "defense"), "GAC 5v5 defense"),
-    (3, ("3v3", "defense"), "GAC 3v3 defense"),
-    (4, ("5v5", "offense"), "GAC 5v5 offense"),
-    (5, ("3v3", "offense"), "GAC 3v3 offense"),
+    (4, ("5v5", "defense"), "GAC 5v5 defense"),
+    (5, ("3v3", "defense"), "GAC 3v3 defense"),
+    (6, ("5v5", "offense"), "GAC 5v5 offense"),
+    (7, ("3v3", "offense"), "GAC 3v3 offense"),
     (9, ("tw", "defense"), "TW defense"),
     (10, ("tw", "offense"), "TW offense"),
 )
 
-# ⭐ SQUAD ARENA SITS BELOW THE WHOLE GAC BLOCK. Owner, 2026-08-24:
-# "forget about the arena goal. Just do grand arena … optimized for Grand Arena, not
-# for a single arena world."
-# This REVERSES the 2026-08-20 call ("first prio the one arena team", which set this
-# to 1). Keeping both notes on purpose: the ladder has now flipped twice and the
-# reason it flips is that the two modes want the same five units, so whichever is
-# rung 1 silently owns the best mods.
-# ⚠ In practice this moves less than it looks: the deployed arena wall IS the GAC
-# 5v5 Rotta squad, so those five still rank high, just via GAC 5v5 defense (tier 2)
-# rather than as arena. What actually changes is that they no longer outrank The
-# Stranger's 50%-hold wall, which is the better GAC squad.
-ARENA_DEFENSE_TIER = 6
-ARENA_CLIMB_TIER = 6
+# ⭐ THE WHOLE ARENA BLOCK SITS ABOVE GAC. Owner, 2026-09-06, on the mod pass:
+# "optimize my mods first to arena then grand arena then rote then tw order of
+# priority."
+# ⚠ This is the THIRD setting of this rung. It re-reverses the 2026-08-24 call
+# ("forget about the arena goal. Just do grand arena"), which had itself reversed
+# the 2026-08-20 call ("first prio the one arena team"). All three notes are kept
+# on purpose: the ladder flips because Squad Arena and GAC want the SAME five
+# units, so whichever rung is first silently owns the contested speed arrows.
+# Nothing about the roster decides it; only the owner does. Do not "restore" an
+# earlier version of this rung from the comments here, which are history rather
+# than instructions.
+# ⚠ It also outranks the ⭐ standing "GAC IS ALWAYS TOP PRIORITY" rule in CLAUDE.md
+# for MODS specifically. That rule was stated 2026-08-18 about what to invest in;
+# this is a later, narrower instruction about the order Grandivory receives.
+# ⚠ In practice it moves less than it looks: the deployed arena wall IS the GAC
+# 5v5 Rotta squad, so those five were already near the top via GAC 5v5 defense.
+# What changes is that they now outrank The Stranger's wall instead of the reverse.
+ARENA_DEFENSE_TIER = 1
+ARENA_CLIMB_TIER = 2
 
 # board_result.json already carries the arena fleet as its own category, so when
-# output/arena_result.json is missing the tier-7 rung still fills itself.
+# output/arena_result.json is missing the tier-3 rung still fills itself.
 ARENA_FLEET_CATEGORY = "Fleet - Arena"
-ARENA_FLEET_TIER = 7
+ARENA_FLEET_TIER = 3
 GAC_FLEET_TIER = 11
 
 # rote_ops.py's plan() writes {"operations", "missions", "deploy", ...}. "deploy" is

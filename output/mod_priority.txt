@@ -1,13 +1,26 @@
+Rotta the Hutt
+Mob Enforcer
+Greedo
+Gamorrean Guard
+Cad Bane
+Leia Organa
+Threepio & Chewie
+Captain Drogan
+Captain Rex
+R2-D2
+Darth Revan
+Darth Malgus
+Sith Marauder
+Sith Trooper
+Darth Maul
+Iden Versio
+Grand Inquisitor
+Fifth Brother
 The Stranger
 Luminara Unduli
 Maul (Hate-Fueled)
 Starkiller
 Visas Marr
-Rotta the Hutt
-Gamorrean Guard
-Greedo
-Cad Bane
-Mob Enforcer
 Rey
 Barriss Offee
 Ben Solo
@@ -63,7 +76,6 @@ Nightsister Spirit
 Major Partagaz
 Dedra Meero
 KX Security Droid
-Darth Revan
 Mission Vao
 Zaalbar
 Darth Traya
@@ -80,16 +92,11 @@ BB-8
 L3-37
 Supreme Leader Kylo Ren
 Rey (Dark Side Vision)
-Sith Trooper
 General Hux
 Kylo Ren (Unmasked)
 Darth Bane
 Count Dooku
-Leia Organa
 Admiral Raddus
-Captain Drogan
-Captain Rex
-R2-D2
 Sith Eternal Emperor
 Wat Tambor
 Jedi Master Kenobi
@@ -107,10 +114,8 @@ Boushh (Leia Organa)
 Embo
 Krrsantan
 Skiff Guard (Lando Calrissian)
-Darth Malgus
 Bastila Shan (Fallen)
 Darth Malak
-Sith Marauder
 Ahsoka Tano
 Ezra Bridger (Exile)
 General Syndulla
@@ -132,7 +137,6 @@ Disguised Clone Trooper
 CX-2
 RC-1262 "Scorch"
 Commander Luke Skywalker
-Threepio & Chewie
 C-3PO
 Chewbacca
 Han Solo
@@ -172,11 +176,6 @@ Ahsoka Tano (Fulcrum)
 Qui-Gon Jinn
 Jedi Knight Anakin
 Ki-Adi-Mundi
-Darth Maul
-Iden Versio
-Grand Inquisitor
-Fifth Brother
-Ewok Scout
 Kit Fisto
 Captain Carson Teva
 Colonel Ward

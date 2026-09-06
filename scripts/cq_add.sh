@@ -19,9 +19,16 @@ rx=$(( 85 + col * 105 ))
 ry=$(( 320 + row * 100 ))
 
 "$D" jtap 150 235 1 _p >/dev/null          # open SELECT FILTER
-"$D" jtap 300 549 1 _p >/dev/null          # focus the text box
+# ⚠ The box sits at x=361, and a tap that misses it leaves it UNFOCUSED, so the DELs
+# below go nowhere and the next `input text` APPENDS. On 2026-09-06 three calls in a
+# row built the filter "KatanBeskarMandalorian", which matches nothing, and the screen
+# answers "None of the units in this filter can be used in this mission", reading
+# exactly like a mission restriction when it is not one. Before believing an empty
+# result, reopen the filter and check the box is actually empty.
+"$D" jtap 361 549 1 _p >/dev/null          # focus the text box
 $ADB shell input keyevent 123 >/dev/null 2>&1          # MOVE_END
 for _ in $(seq 1 40); do $ADB shell input keyevent 67 >/dev/null 2>&1; done  # DEL
+# ⚠ No apostrophes: `input text` mangles them, so search "Mandalor", never "Mand'alor".
 $ADB shell input text "${name// /%s}"
 sleep 1
 "$D" jtap 1053 582 1 _p >/dev/null         # OK, dismiss the IME

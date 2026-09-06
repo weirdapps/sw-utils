@@ -88,10 +88,11 @@ P_BONUS_BATTLE = (995, 573)
 P_SQUAD_BATTLE = (953, 575)    # green BATTLE on the squad screen
 P_SQUAD_CLEAR = (428, 575)     # teal CLEAR SQUAD, only on the squad screen
 P_CONTINUE = (550, 535)        # the wide green CONTINUE on the REWARDS card
-P_AUTO = (158, 36)             # AUTO toggle: blue when off, yellow-green when on
+P_AUTO = (158, 37)             # AUTO toggle: blue when off, green when on
 P_STORE = (1014, 535)          # CONQUEST STORE button, only on the sector map
 P_PANEL = (900, 103)           # "Combat Details" panel header, only with a node open
-P_RETREAT = (100, 36)          # green retreat square, only while a battle is running
+P_RETREAT = (100, 36)          # retreat square; its colour depends on the battle
+                               # BACKGROUND, so it is no longer used to detect a fight
 
 PROBES = {
     "combat_battle": P_COMBAT_BATTLE,
@@ -124,14 +125,26 @@ def state(im):
     if tealish(box(im, *P_PANEL)) and (greenish(box(im, *P_COMBAT_BATTLE))
                                        or greenish(box(im, *P_BONUS_BATTLE))):
         return "combat_details"
-    # The battle HUD's green retreat square is the only reliable in-battle tell: the
-    # map's CONQUEST STORE button and the battle screen's ability tray sit at the same
-    # spot and read almost the same colour, which had the runner call a live fight "map".
-    if greenish(box(im, *P_RETREAT, w=14, h=14)):
-        # AUTO is blue while off and yellow-green while on, and yellow-green fails a
-        # plain "is it green" test, so read the red-versus-blue balance instead.
-        c = box(im, *P_AUTO, w=14, h=14)
-        return "battle_auto" if c[0] > c[2] else "battle_manual"
+    # In-battle tell: the AUTO button. It is a big LIT circle (white arrow on blue when
+    # off, white arrow on green when on) and nothing else in Conquest puts anything
+    # bright at that spot -- the sector map has the "Ends: 9d 16h" subtitle there, which
+    # measures ~(34,45,51).
+    #
+    # The previous tell was "the retreat square is green", and it was wrong: that box
+    # straddles the edge of the retreat circle, so what it actually measured was the
+    # BATTLE BACKGROUND showing through. On a sand-coloured Tatooine floor it read
+    # green and the runner worked; on a dark interior it read blue, the runner never
+    # saw a battle at all, never switched AUTO on, and the squad stood still until it
+    # died. That cost four straight "losses" with squads that should not lose.
+    c = box(im, *P_AUTO, w=16, h=16)
+    if max(c) > 110:
+        return "battle_auto" if c[1] > c[2] else "battle_manual"
+    # The full-screen "DEFEAT! / Tap anywhere to continue" splash has no HUD at all, so
+    # everything above passes it through as "map" -- and a loss then reads as the
+    # no-reward win that a replayed 3/3 node produces. The red banner is the tell.
+    d = box(im, 550, 300, w=200, h=30)
+    if d[0] > 90 and d[0] > d[1] + 45 and d[0] > d[2] + 45:
+        return "defeat"
     return "map"
 
 
@@ -160,7 +173,17 @@ def play(node):
             wait=4)
         st, im = wait_for({"squad"}, timeout=40, poll=3)
     if st == "squad":
-        tap(*P_SQUAD_BATTLE, wait=12)
+        tap(*P_SQUAD_BATTLE, wait=6)
+        # A squad of fewer than five raises "you are attempting to enter battle with a
+        # squad that is not full", which is a modal and eats the BATTLE press. Solo runs
+        # (the Sector-2 boss feat wants The Stranger alone) hit it every time.
+        # Two different modals can eat the BATTLE press, and BOTH dim the squad screen
+        # enough that `state` no longer calls it "squad": "squad is not full" (any solo
+        # or short lineup) and "large unit ... prevents summoning" (Jabba plus Aphra).
+        # So the test is "we are not in a battle yet", not "we are still on the squad
+        # screen", and the OK button is in the same place for both.
+        if state(grab()) not in ("battle_manual", "battle_auto"):
+            tap(550, 396, wait=4)        # OK
         st, im = wait_for({"battle_manual", "battle_auto", "rewards"}, timeout=90, poll=5)
     if st == "battle_manual":
         # A battle left on manual never acts, and the clock still runs, so the whole
@@ -171,7 +194,33 @@ def play(node):
             if st != "battle_manual":
                 break
     if st in ("battle_auto", "battle_manual"):
-        st, im = wait_for({"rewards", "defeat"}, timeout=420, poll=8)
+        # 4x on every fight (owner, 2026-09-06). Sticky between battles, so this is
+        # normally one screenshot and no taps, and it roughly halves a long grind.
+        try:
+            import autofight
+            autofight.set_speed_4x()
+        except Exception:
+            pass
+        # A node that is already 3/3 pays nothing, so its win shows the VICTORY splash
+        # and drops straight back to the map with no REWARDS card at all. The splash
+        # itself also reads as "map" (it is a full-screen render with no HUD), so treat
+        # a map that is still a map five seconds later as the end of the fight.
+        # Wait for the end of the fight. "map" is NOT a reliable end marker on its own:
+        # a full-screen ability animation hides the AUTO button for a frame or two and
+        # reads exactly like the map, so require it three polls running. It has to be
+        # accepted eventually, because a node that is already 3/3 pays nothing and its
+        # win goes VICTORY -> map with no REWARDS card at all.
+        end = time.time() + 420
+        maps = 0
+        st = "battle_auto"
+        while time.time() < end:
+            st = state(grab())
+            if st in ("rewards", "defeat"):
+                break
+            maps = maps + 1 if st in ("map", "combat_details") else 0
+            if maps >= 3:
+                return "win-noreward"
+            time.sleep(6)
     if st == "defeat":
         # The REWARDS card animates in, and for a frame or two its CONTINUE bar is
         # only half drawn, which reads exactly like the defeat card. Re-sample before
@@ -180,8 +229,17 @@ def play(node):
         im = grab()
         st = state(im)
     if st == "defeat":
-        tap(33, 33, wait=4)      # out of the upgrade-offer card
-        tap(550, 300, wait=5)    # "tap anywhere to continue"
+        # One back tap leaves the upgrade-offer card and lands on the sector map. A
+        # second tap leaves the SECTOR, which is how a losing run kept ending up on the
+        # chooser with the next node three navigations away.
+        # Two different screens can be showing: the "DEFEAT! tap anywhere" splash, which
+        # wants a tap in the middle, and the "you have upgrades available" card, which
+        # wants the back arrow. Alternate, and stop the moment the map is back -- a
+        # second back tap from the map leaves the SECTOR.
+        for i in range(4):
+            tap(550, 300, wait=3) if i % 2 == 0 else tap(33, 33, wait=4)
+            if state(grab()) in ("map", "combat_details"):
+                break
         return "loss"
     if st == "rewards":
         tap(*P_CONTINUE, wait=6)
