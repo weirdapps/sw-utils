@@ -55,7 +55,10 @@ def main():
         # times at slightly different centres), which the runner then re-plays forever.
         if 55 < d <= STEP:
             out.append((d, jx, jy, score, A.is_gold(im, cx, cy)))
-    out.sort()
+    # A sector runs LEFT TO RIGHT, so a candidate behind the token is a node already
+    # cleared; picking one replays it for nothing and the run reads as "win-noreward"
+    # forever. Prefer forward, and only fall back to backward if there is nothing else.
+    out.sort(key=lambda t: (t[1] <= hx, t[0]))
     if not out:
         print("no adjacent ring", file=sys.stderr)
         return 1
