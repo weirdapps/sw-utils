@@ -4415,3 +4415,43 @@ misread here before the kit was checked.
 ### Sector state at 10:45
 S1 93/96 · S2 90/96 · **S3 103/118 with all four feats DONE and the boss at 11/11**, so its
 residue is on branches the token cannot reach · S4 89/120 · S5 67/142. **533 of the 630 crate.**
+
+## 2026-09-07 (session 3) — SECTOR 4 AND SECTOR 5 ARE BOTH 4/4 ON FEATS. 462 → 581.
+### ⭐⭐ WHEN A FEAT STALLS, CHECK WHETHER THE EFFECT HAS OTHER SOURCES
+`Accurate Battle` (Potency Up x50) was being farmed off Grand Moff Tarkin because he is one of only
+three Tactical Supremacy sources, and the assumption carried over. **Potency Up has about sixty
+sources** (swgoh.gg `/effects/potency-up/`, readable as text in the chrome-devtools MCP browser).
+`Deactivate` (Buff Disruption x30) is genuinely Stormtrooper-Luke-only, but **he was still at 100%
+stamina all day because his single outing had been a LOSS, and losses cost no stamina.**
+⭐ Both live in one fully-owned, fully-fresh squad, the classic cheese five:
+**Commander Luke Skywalker (L) · Veteran Smuggler Han Solo · Tarfful · C-3PO · Stormtrooper Luke,
+160k** (C-3PO grants Potency Up, Stormtrooper Luke applies Buff Disruption).
+Measured on the **second** S5 node: **+4 Potency Up and +2.4 Buff Disruption per battle**, and
+**defeats still counted the Buff Disruption attempts**. Both feats closed. **+30 keycards.**
+
+### ⭐⭐ A FEAT SQUAD CAN BE TOO FAST, AND THAT IS WHY THE FIRST NODE IS THE WRONG FARM
+Seven wins on the sector's SOFTEST node moved `The Upper Hand` and `Accurate Battle` by **zero**:
+a fresh R10 carry kills the node before Tarkin ever takes a turn. The identical squad on the
+**second** node, which lasts longer, scored **+5 Tactical Supremacy in three wins** and closed it.
+⇒ **Farm on the softest node the squad can still win, not the softest node in the sector.**
+
+### ⭐⭐ CONSUMABLES ARE THE LEVER FOR A CONQUEST BOSS. NOTHING ELSE MOVED IT.
+The Sector-4 Great Mothers boss beat a 194k JMK squad, then a 196k SLKR squad that is the
+**99%-win-rate GAC counter (n=217)**. With **one Booster, one Medpac and one Tech activated** the
+same SLKR squad **won it**, taking the node from **1/11 to 3/11**.
+- Activate from **INVENTORY > CONSUMABLES**, not from the squad screen's `+` (that is Stim Packs).
+- **Only ONE of each category can be active at a time**: a second pick raises "Confirm Consumable
+  Replacement".
+- **Max Duration is counted in battles and a LOSS does not consume one**, so arming before a boss
+  attempt is free and survives failed attempts.
+- ⛔ Even so, the **Sector-5 boss (Jedi Master Luke, R5 with 6 omicrons) resisted everything**:
+  the 100% GAC counter at full stamina, a 190k Stranger squad, and a boosted attempt. It is the
+  hardest thing on the board and probably needs manual driving.
+
+### Where the run stands
+**581 of the 630 red crate, 49 short**, 7d 6h left. **S4 feats 4/4 · S5 feats 4/4 · S3 feats 4/4.**
+S1 93/96 · S2 90/96 · S3 103/118 (residue on unreachable branches) · S4 91/120 · S5 113/142.
+The remaining 49 has to come from **boss and mini-boss feats plus unwalked nodes**, all of which
+now depend on consumable-backed or manually driven boss fights, and on a roster that is spent.
+Stims left: Medium x2, Small x2 (Large all used). ⚠ The Conquest Store sells more for Conquest
+Credits (2,255 banked) and the standing rail is to bank those, so none were spent.
