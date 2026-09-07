@@ -4354,3 +4354,64 @@ Rotation used, in order: Mandos → Jabba BH → Maul BH → SEE five → SEE+Th
 Lord Vader power five → Empire five.
 ⭐ **`Fallen` in the unit search returns THE STRANGER** (R10, 41.9k GP) — the strongest drop-in
 replacement on the account and a better fifth for the SEE squad than Rey (Dark Side Vision).
+
+## 2026-09-07 (session 2) — 505 → 533+ keycards, and the two facts that were blocking the run
+### ⭐⭐ STAMINA SCALES STATS LINEARLY, AND THE GAME SAYS SO ON ITS OWN SCREEN
+Tap the **`+` on a unit's card on the SELECT SQUAD screen** and Conquest prints a CURRENT vs MAX
+stat table for that unit. Grand Moff Tarkin at **14% stamina**, read off the device 2026-09-07:
+
+| | CURRENT | MAX |
+|---|---|---|
+| Health | 21,384 | 53,729 |
+| Protection | 17,027 | 42,783 |
+| Speed | **83** | **210** |
+| Physical Damage | 2,513 | 6,316 |
+| Special Damage | 3,877 | 9,742 |
+| Mastery | 23.88 | 60 |
+
+That is **~40% of max at 14% stamina**, i.e. roughly linear, and swgoh.wiki puts it at "about 9.3%
+every 10% stamina". ⛔ **The 2026-08-05 note in this file saying stamina does not affect stats is
+WRONG, and so is the widespread belief that it only gates availability.** The behavioural evidence
+matched before the screen was found: the same 190k Empire five WON the Sector-5 first node at
+82/100/81/100/100% and then LOST it five times out of six at 10/28/9/28/28%.
+⇒ A tired squad is a weaker squad, it loses, and **a loss scores no feats at all**. Rotate out at
+~40%, and check the `+` panel rather than arguing about the mechanic.
+
+### ⭐⭐ THERE ARE STIM PACKS IN THE INVENTORY ALREADY. USE THEM.
+Same `+` panel: **Large ×3 (50% stamina) · Medium ×5 (25%) · Small ×3 (10%)**, already owned, no
+purchase. That is **305% of stamina, about 30 extra battles**, and it was sitting unused while the
+run stalled on tired squads. `ADD MORE` is the buy button (Conquest Credits / crystals) and is the
+only part of this that touches the standing "bank the credits" rail.
+⇒ **Spend stims on the unit that GATES a feat**, not on the carry. Two Larges went into Tarkin,
+who alone gates `The Upper Hand` + `Accurate Battle` = 30 keycards.
+
+### ⭐ RESEARCH THE COUNTER, DO NOT STACK GP (owner, 2026-09-07: "you cannot expect to win by playing lazy")
+The Sector-5 Mandalorian wall beat a **217k** squad and a **190k** squad, then fell on the first
+attempt to a **185k** one taken off the counter tables:
+**The Stranger (L) · Maul (Hate-Fueled) · Starkiller · Barriss Offee · Visas Marr.**
+The reason is mechanical, not statistical: Bo-Katan (Mand'alor) **ignores Taunt and converts
+debuffs into Defense**, so the taunt-plus-DoT squad was feeding her.
+⭐ **`/gac/counters/<BASEID>/` on swgoh.gg is fetchable for free.** WebFetch gets 403 on every
+swgoh.gg URL, but the page loads in the **chrome-devtools MCP browser**, and `evaluate_script`
+returns the whole table as TEXT, so it costs no screenshot budget. A row is **5 attackers then
+5 defenders**. Full pulls are in `data/conquest/feat_plan_vol24.md`.
+⚠ **GAC counter data does NOT transfer to a Conquest boss.** The 100%-win-rate JML counter
+(Satele Shan · Bastila Shan · JKR · Jolee · Juhani, n=35, all owned, all at 100% stamina) still
+LOST the Sector-5 boss. A Conquest boss carries boss modifiers and is fought on AUTO, while the
+counter data is manual GAC play. Use the counters to pick the ARCHETYPE, then expect to need
+consumables or manual driving on top.
+
+### Measured feat rates this session (all on the sector's FIRST node)
+| Squad | Feat | Rate |
+|---|---|---|
+| Jabba (L) · Boba · Jango · Bossk · Krrsantan, 190k | `Two Guns, One Legacy` | 1 per WIN, ~4 wins in 6 before it faded. **CLOSED, +15** |
+| JKL (L) · Threepio & Chewie · Jedi Master Luke · Sun Fac · Zaalbar, 176k | `Blinding Assault` | **+5.75 blinds per win** (46 → 69 in four). **CLOSED, +10** |
+| Emperor Palpatine (L) · Tarkin · Admiral Piett · Grand Inquisitor · Seventh Sister, 168k | `The Upper Hand` + `Accurate Battle` | in progress |
+⭐ **Jedi Knight Luke is the Blind engine** (Blind on his BASIC, and he spreads it). Threepio &
+Chewie, Mission Vao, Sun Fac and Jabba also apply it. ⛔ **Jar Jar Binks does NOT blind enemies,
+he blinds HIMSELF** whenever he would gain Foresight; a search snippet suggesting otherwise was
+misread here before the kit was checked.
+
+### Sector state at 10:45
+S1 93/96 · S2 90/96 · **S3 103/118 with all four feats DONE and the boss at 11/11**, so its
+residue is on branches the token cannot reach · S4 89/120 · S5 67/142. **533 of the 630 crate.**

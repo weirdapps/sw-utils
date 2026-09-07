@@ -88,3 +88,42 @@ GL Leia Rebels **179k** · Gal Republic **168k** · S4 Mandos **166k** · S2 fou
 Inquisitors **161k** · S5 Fetts **161k** · S3 Stun **158k** · S5 Supremacy **151k** · ISB **145k** ·
 Rebel Fighters **143k** · Nightsisters **129k** · Bad Batch **127k**.
 Stamina is ~10% per battle and 0% locks a unit out, so this list is also the rotation.
+
+## ⭐ LIVE COUNTER DATA, pulled from swgoh.gg 2026-09-07 (S82, via the in-session MCP browser)
+⛔ **WebFetch gets 403 from swgoh.gg on every URL, path or query.** The `/gac/counters/<ID>/` pages
+DO load in the chrome-devtools MCP browser, and `evaluate_script` returns them as TEXT, so a full
+counter table costs no screenshot budget at all. On those pages a row is **5 attackers then 5
+defenders**, in that order.
+
+| Defence | Counter squad (attackers) | Win% | n | Owned? |
+|---|---|---|---|---|
+| **Great Mothers** (S4 boss) | Third Sister · Fifth Brother · Grand Inquisitor · Inquisitor Barriss · Seventh Sister | 100% | 1,245 | ⛔ no Third Sister |
+| **Great Mothers** | ⭐ **SLKR · Dark Rey · FO Sith Trooper · General Hux · Kylo Ren Unmasked** | **99%** | 217 | ✅ **all five** |
+| Great Mothers | Darth Malgus · Bastila Shan (Fallen) · Darth Malak · Darth Revan · Darth Talon | 100% | 154 | Talon? |
+| Great Mothers | JMK · Ahsoka Tano · Commander Ahsoka · General Kenobi · Padmé | 100% | 124 | ✅ |
+| Great Mothers | General Skywalker · ARC Trooper · Echo · Fives · Rex | 100% | 91 | ✅ |
+| **Jedi Master Luke** (S5 boss) | Third Sister + Inquisitors | 100% | 234 | ⛔ no Third Sister |
+| **Jedi Master Luke** | ⭐ **Satele Shan · Bastila Shan · Jedi Knight Revan · Jolee Bindo · Juhani** | **100%** | 35 | ✅ **all five** |
+| Jedi Master Luke | Jabba · Boba Fett · Boushh · Krrsantan · Undercover Lando | 100% | 42 | partial |
+| **Mandalorians** (S5 frontier wall) | ⭐ **The Stranger · Maul (Hate-Fueled) · Starkiller · Barriss Offee · Visas Marr** | Master tier | | ✅ **beat it first try** |
+
+⭐ **Mandalorian walls punish the obvious answer.** Bo-Katan (Mand'alor) ignores Taunt and converts
+debuffs into Defense, so a taunt-plus-DoT squad is worse than a weaker balanced one: the 217k
+Lord Vader / Stranger / Maul-HF / Starkiller / Malak squad LOST the node that the 185k researched
+five above then won on the first attempt.
+⭐ **Great Mothers dispel and ignore Taunt while Fate Weaving IF THE ENEMY LEADER IS LIGHT SIDE**,
+which is why every good counter is Dark-Side-led. Their Blessed buff is instant-defeat immunity,
+so Mando/Boba instakill teams are blanked.
+
+## ⭐ S5 BOSS FEATS: BOTH ARE LIVE, the old "forfeit" note was wrong
+`Hope of the Galaxy` (win with **Rey (Jedi Training)** surviving) **5** and `Whirling Blades`
+(win with a **full squad of Inquisitors surviving**) **5**, plus 3 stars = the node's 13.
+⛔ This file used to say Rey (Jedi Training) was "not owned so forfeit". **She IS owned, R7,
+34,806 GP.** Check the roster before writing off a feat.
+Inquisitors owned: Grand Inquisitor R7 · Seventh Sister R7 · Fifth Brother R7 · Marrok R7 ·
+Inquisitor Barriss R7 (Ninth Sister R6, Eighth Brother R5, **no Third Sister**).
+
+## ⛔ BOTH REMAINING EVENT FEATS ARE WORTHLESS, verified in game 2026-09-07
+`Mission Above All` (win 20 with Vel Sartha, at 14/20) pays **1 keycard + 2 techs**.
+`Family United` (win 3 with Princess Leia, Kylo Ren and Han Solo) pays **1 card pack**.
+Neither is worth a battle. The crate has to come out of the sectors.
