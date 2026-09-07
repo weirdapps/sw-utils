@@ -4455,3 +4455,98 @@ The remaining 49 has to come from **boss and mini-boss feats plus unwalked nodes
 now depend on consumable-backed or manually driven boss fights, and on a roster that is spent.
 Stims left: Medium x2, Small x2 (Large all used). ⚠ The Conquest Store sells more for Conquest
 Credits (2,255 banked) and the standing rail is to bank those, so none were spent.
+
+## 2026-09-07 (evening) — RED CRATE SECURED at 630/630, six days early
+"Max Crate Reward Achieved. Reward will be sent via inbox at the end of the conquest event."
+**593 → 630 in one session**, 37 keycards, ~25 battles, zero Conquest Credits spent.
+Final: S1 93/96 · S2 **96/96** · S3 103/118 · S4 112/120 · S5 135/142.
+
+### ⭐⭐ THE SCORING MODEL, DERIVED AND THEN RECONCILED TO THE KEYCARD
+`sector total = Σ node keycards + Σ sector-feat rewards`. Sector 4 balanced exactly before a
+single battle: 20 normal nodes (12 at 3/3, 2 at 2/3, 6 at 1/3) + mini-boss 2/9 + boss 3/11 +
+4 feats × 10 = 36+4+6+2+3+40 = **91/120**. Sector 2 balanced too. **Do this arithmetic first:**
+if it balances, nothing is hiding and every remaining keycard has a named home. The 14:50
+handoff's "49 to go, all boss fights, roster spent" was three wrong readings of the same board.
+
+- **1 keycard per STAR**, 3 per normal node. Stars = how much of the squad survives.
+- ⭐⭐ **A VISITED NODE CAN BE REPLAYED AT ANY TIME AND THE STAR DELTA IS PAID.** Measured: a
+  1/3 node re-fought went to 2/3 and the sector counter moved with it. **Twenty of the 37 came
+  from re-winning nodes left at 1/3 or 2/3.** This is the cheapest keycard in the mode and it is
+  invisible if you only ever look at the frontier.
+- ⭐ **Boss and mini-boss nodes carry TWO FEATS OF THEIR OWN.** That is why their denominators
+  are 7/9/11/13 rather than 3. They are **not** in the sector FEATS list: open the node panel and
+  press `►` past ENEMIES to reach FEATS, where a greyed row is already earned. Values scale by
+  sector — S1/S2 boss 3+3, S3/S4 boss 4+4, S5 boss 5+5; mini-boss 2+2 in S1-S3, 3+3 in S4-S5.
+- ⛔ **CORRECTION to the 2026-08-04 entry above** ("A 3/3-STARRED NODE IS EXHAUSTED — RE-FIGHTING
+  IT PAYS NOTHING", and "`3/9` on a 3/3 node does NOT mean 6 are farmable"). True for NORMAL
+  nodes. **False for boss nodes**, whose surplus is feat-locked, not star-locked, and is very much
+  farmable: the S5 boss sat at 8/13 with 3/3 stars and paid 5 more for one feat.
+- ⭐ **Rank targets by keycards per BATTLE, not by keycards available.** A boss feat pays 3-5 for
+  one win; a star gap pays 1-2 and demands a flawless win. Feat-first, star gaps as the top-up.
+- ⭐ **The whole Hard feat table is public** at `https://swgoh.gg/conquest/CONQUEST_VOL24/`. It
+  403s for WebFetch and loads clean in the **chrome-devtools MCP browser**, where
+  `document.body.innerText` returns all 49 feats as text. Read it there, never off the device.
+- **Event feats are worthless for keycards**: both open ones paid **1** each.
+
+### ⭐ A LOSS IS FREE, AND THAT CHANGES THE ORDER OF OPERATIONS
+Verified twice: stamina was identical across a defeat, and the armed Booster/Medpac still read
+`1/1` on the map bar afterwards. **A defeat costs no stamina and does not consume a consumable
+duration** — only the 20 energy. So: **probe unarmed, then arm the retry.**
+⭐ The **Sector 5 boss (Jedi Master Luke R5, 6 omicrons), written off at 14:50 as the hardest
+thing on the board after several unarmed losses, fell on the FIRST ARMED ATTEMPT** and paid the
+5 keycards that finished the crate. Those losses were a consumables problem, not a roster
+problem, and reading them as evidence about the roster nearly cost the run.
+Two multipliers: the equipped **Legendary Consumable Boost** disk **doubles Booster stat gains**
+and adds +25% Speed (so Overcharged Defense = +300% Defense), and **Conquest Pass+ makes data-disk
+swapping free** — still an unused lever.
+⚠ A 10m-timer boss outruns `autofight`'s 420s default: it returned `timeout / unknown` while the
+fight was still running and about to be won. Poll `state()` for `rewards` before concluding.
+
+### The 37, in the order they fell
+| Where | What | KC |
+|---|---|---|
+| S4 mini-boss | `Kenobiii!` (Maul (Hate-Fueled) in squad) — Stranger(L)·Maul HF·Starkiller·Barriss·Visas 185k | 3 |
+| S4 mini-boss | `Disarmed` (no Attackers) + 3rd star — JML(L)·General Kenobi·GMY·Jolee·Barriss 190k | 4 |
+| S4 | eight nodes replayed to 3/3 | 14 |
+| S2 mini-boss | `Master of Evil` (Darth Vader (Duel's End) in squad) — GL Rey(L)·Vader DE·GK·GMY·Jolee 193k | 2 |
+| S2 | two 1/3 nodes to 3/3 → **sector complete** | 4 |
+| S5 | five 2/3 nodes to 3/3 — **004 GL Leia** preset 195k | 5 |
+| S5 boss | `Hope of the Galaxy` (Rey (Jedi Training) surviving) — GL Rey(L)·Rey JT·GK·Jolee·GMY 196k, ARMED | 5 |
+
+### Two feats this roster cannot field, dropped on evidence
+- **S4 boss `Wisdom and Wookiee` / `Get Wrecked` (8).** Lost twice, once armed.
+  ⭐ `Wisdom and Wookiee` wants **`YODACHEWBACCA`, which is ONE unit** (Support, G13 **R5**), not
+  Yoda plus a Chewbacca. `Get Wrecked` wants all five Bad Batch, all G13 **R6**.
+- **S1 boss `Imperial Oversight`, full ISB squad (3).** Lost twice, once armed with the
+  Overcharged Defense Penetration Booster. All five ISB — Major Partagaz (L), Dedra Meero,
+  Imperial Probe Droid, KX Security Droid, Director Krennic — are G13 R7 at **100% stamina** and
+  still total only **143k**. The squad is too small; rest was never the issue.
+  ⚠ **Dedra Meero has no leader ability**; Partagaz and Krennic are the only ISB leaders.
+
+### New drivers — `scripts/cq_{open,build,fight,sweep}.py`
+- `cq_open.py --pan N --node X Y [--panel-only] [--anchor right]` — opens one node, verifying a
+  green BATTLE is really there before pressing it.
+- `cq_build.py --clear "term" ...` — builds a squad through **SELECT FILTER's TEXT SEARCH**
+  instead of scrolling 398 portraits two at a time. ⚠ Parentheses break `adb input text`, so use
+  `"maul"`, not `"maul (hate"`. Grid order is power-DESCENDING, so `"chewie"` gives Threepio &
+  Chewie first and Yoda & Chewie second: that is what `--pick` is for.
+- `cq_fight.py` — presses BATTLE from the squad screen, auto-fights, clears the cards. Separate
+  from `cq_farm.py` so a hand-built squad is not thrown away by re-entering the node.
+- `cq_sweep.py pan:x,y ...` — re-fights a list of nodes once each. The star-cleanup tool.
+- ⛔ **`cq_grind.state()` RETURNS "map" AS ITS FALLBACK.** The squad screen with a greyed-out
+  BATTLE (squad not full) matches none of its earlier tests and therefore reads as **"map"**.
+  A sweep started from there put map coordinates onto the roster grid and **silently removed the
+  squad leader**, then reported three nodes "unreachable". `cq_sweep.to_map()` now tests
+  `tealish(P_STORE)` — CONQUEST STORE is a positive tell for a clean sector map. Any future
+  driver that taps map coordinates must gate on that, not on `state() == "map"`.
+
+### UI facts worth keeping
+- **SELECT SQUAD applies a preset only if you tap the squad's NAME.** Tapping its group icon opens
+  the preset EDITOR, and CONFIRM there merely saves the preset back — the battle squad is unchanged.
+- The **`+` on a squad card** is the Stim Pack / stat panel, not a swap button.
+- A win costs about **10% stamina**; the Stranger five went 95% → 8% over nine wins.
+
+### Left on the table before Sep 14 (none of it needed)
+S3 **15** — never inspected this session, and the old "residue on unreachable branches" claim
+deserves one look now that replays are known to pay. S4 boss **8** · S5 mini-boss **6** and one
+star **1** · S1 boss **3**.
