@@ -44,22 +44,44 @@ POPUP_SET = (1184, 710)
 LIST_SWIPE = (960, 900, 960, 320, 420)   # one screenful up in the squad list
 
 
+# ⛔ tap/swipe/shot used to shell out to `python3 -m farmbot.devtool`, which
+# imports farmbot.vision and therefore cv2. cv2 is installed in NEITHER the
+# system python NOR .venv, so with capture_output=True every gesture was a
+# silent no-op: the script reported "stuck on 'PVP MISSION'" and looked like a
+# navigation bug when in fact not one tap had reached the device. Speak to adb
+# directly; there is nothing here that needs the vision stack.
+ADB = ['/opt/homebrew/bin/adb', '-s', '127.0.0.1:5555']
+
+
 def tap(x, y, wait=2.5):
-    subprocess.run(['python3', '-m', 'farmbot.devtool', 'tap', str(x), str(y)],
-                   cwd=REPO, capture_output=True)
+    subprocess.run(ADB + ['shell', 'input', 'tap', str(x), str(y)],
+                   capture_output=True)
     time.sleep(wait)
 
 
-def swipe(down=True, wait=2.6):
-    """down=True scrolls the list toward HIGHER Wnn (content moves up)."""
+def swipe(down=True, wait=2.6, frac=1.0):
+    """down=True scrolls the list toward HIGHER Wnn (content moves up).
+
+    `frac` shortens the throw. A full swipe moves almost exactly two header
+    rows, so a row can sit permanently between the two resting positions and
+    be clipped by CROP's top edge at both of them: seeking F11 oscillated
+    F10 -> F12/F13 -> F10 forever and reported "not found in list". Half a
+    swipe lands on it.
+    """
     x1, y1, x2, y2, ms = LIST_SWIPE
+    if frac != 1.0:
+        y2 = int(y1 - (y1 - y2) * frac)
     args = (x1, y1, x2, y2, ms) if down else (x1, y2, x2, y1, ms)
-    subprocess.run(['python3', '-m', 'farmbot.devtool', 'swipe',
-                    *map(str, args)], cwd=REPO, capture_output=True)
+    subprocess.run(ADB + ['shell', 'input', 'swipe', *map(str, args)],
+                   capture_output=True)
     time.sleep(wait)
 
 
-CROP = (430, 140, 1150, 1080)   # squad-name column of the browser, below the tabs
+# Squad-name column of the browser, below the tabs. ⛔ The top edge was 140, which
+# clips the FIRST row's header when the list is scrolled fully up: F01 was invisible
+# at every scroll position and the seek burned all 12 swipes on a row it could never
+# see. 110 shows it with margin and still excludes the RENAME/CREATE button row.
+CROP = (430, 110, 1150, 1080)
 
 
 def _header_rows(thresh=140):
@@ -87,13 +109,20 @@ def _header_rows(thresh=140):
     for ws in lines.values():
         ws.sort()
         txt = ' '.join(w[3] for w in ws)
-        m = re.search(r'\bW\s?([O0-9oO]{2,3})\b', txt)   # OCR renders 0 as O
+        # ⛔ This used to require a literal `W`, from the tw_wall era of W01-W33.
+        # data/tw_board.json ships F/M/B labels, so on 2026-09-08 the gate matched
+        # nothing, _header_rows returned [], and every seek scrolled 12 times and
+        # reported "not found in list" with the correct tab open in front of it.
+        # OCR renders 0 as O/o and 1 as I/l, so 'F01' comes back as 'FOI'.
+        m = re.search(r'\b([WDFMB])\s?([O0-9oOIl]{2,3})\b', txt)
         if not m:
             continue
-        num = m.group(1).replace('O', '0').replace('o', '0')
+        band = m.group(1)
+        num = (m.group(2).replace('O', '0').replace('o', '0')
+                         .replace('I', '1').replace('l', '1'))
         top = sum(w[1] for w in ws) / len(ws)
         h = sum(w[2] for w in ws) / len(ws)
-        out.append((f"W{int(num):02d}", int(CROP[1] + (top + h / 2) / 2), txt))
+        out.append((f"{band}{int(num):02d}", int(CROP[1] + (top + h / 2) / 2), txt))
     return sorted(out, key=lambda r: r[1])
 
 
@@ -165,6 +194,17 @@ def _exists(*parts):
 ORDER = (wall_order() if _exists('data', 'tw_board.json') or _exists('output', 'tw_wall.json')
          else [])
 
+
+POS = {}                       # label -> index in ORDER; see read_rows
+
+
+def _index_order():
+    POS.clear()
+    POS.update({lab: i for i, (lab, _) in enumerate(ORDER)})
+
+
+_index_order()
+
 # Tab rows in the SELECT SQUAD browser's left rail, device coords. Measured off a
 # live capture: the rail listed Recommended / PROG / GAC 5v5 Def / GAC 5v5 Off /
 # GAC 3v3 Def / GAC 3v3 Off / TW 5v5 Def / TW 5v5 Off / TW 5v5 Wall, ~88px apart.
@@ -182,14 +222,35 @@ TAB_TW_DEFENSE = (183, 878)
 TAB_TW_WALL = (183, 1052)
 TAB = None
 
+# Re-measured live 2026-09-08 against the rail scrolled to the TOP (its own
+# first row, 'Squads', visible). The four TW tabs sit 89px apart under the GAC
+# block, and the band a label belongs to is already encoded in its prefix, so
+# pick the tab from the label rather than from a CLI flag. This is what the
+# ⛔ note above asked for: FRONT and BACK happened to land on the two old
+# constants, MID never had one, which is why every `M**` seek silently
+# searched the BACK tab and reported "not found in list".
+TAB_BY_BAND = {'F': (183, 878), 'M': (183, 967), 'B': (183, 1056)}
+
 
 def read_rows(retries=2):
-    """[(index, label, y)] for the visible header rows, matched on squad name."""
+    """[(index, label, y)] for the visible header rows.
+
+    ⛔ Matching used to be on the squad NAME truncated to 9 characters, taking
+    the FIRST hit in ORDER. `Imperial Troopers (Veers)` (M15) and `Imperial
+    Troopers (Iden)` (B05) both normalise to `imperialt`, so B05's row reported
+    as M15, an index 10 lower, and the seek scrolled away from a row already on
+    screen, forever. The label the game prints in the header (`B05`) is unique
+    by construction, so trust that and keep the name as a fallback for a header
+    whose label OCRs badly.
+    """
     for _ in range(retries + 1):
         shot()
         found = _header_rows()
         hits = []
-        for _label, y, txt in found:
+        for row_label, y, txt in found:
+            if row_label in POS:
+                hits.append((POS[row_label], row_label, y))
+                continue
             t = _norm(txt)
             for i, (label, nm) in enumerate(ORDER):
                 if nm and nm in t:
@@ -202,8 +263,16 @@ def read_rows(retries=2):
 
 
 def shot():
-    subprocess.run(['python3', '-m', 'farmbot.devtool', 'shot'], cwd=REPO,
-                   capture_output=True)
+    # Straight adb screencap. This used to shell out to `python3 -m
+    # farmbot.devtool shot`, which imports farmbot.vision and therefore cv2 --
+    # absent from both the system python and .venv, so every call failed
+    # silently (capture_output) and the next ocr() died on a missing file.
+    os.makedirs(os.path.dirname(SHOT), exist_ok=True)
+    png = subprocess.run(ADB + ['exec-out', 'screencap', '-p'],
+                         capture_output=True).stdout
+    if png:
+        with open(SHOT, 'wb') as fh:
+            fh.write(png)
 
 
 def ocr(box, thresh=140, psm='6'):
@@ -266,8 +335,9 @@ def place_one(label, max_scrolls=12):
     # back does nothing. Observed: it lands on 'TW 5v5 - Offense' every time, so a
     # D-label seek scrolls the wrong list forever and dies "not found in list".
     # Tap the tab we actually want, every time, before seeking.
-    if TAB:
-        tap(*TAB, wait=2.5)
+    band_tab = TAB_BY_BAND.get(label[0]) if TAB is None else TAB
+    if band_tab:
+        tap(*band_tab, wait=2.5)
 
     want = [i for i, (lab, _) in enumerate(ORDER) if lab == label]
     if not want:
@@ -284,9 +354,11 @@ def place_one(label, max_scrolls=12):
         if not idx:
             swipe(down=True)                    # blank read: nudge and re-look
         elif min(idx) > want:
-            swipe(down=False)                   # overshot — come back up
+            # Half-step when the target is the row immediately above what we can
+            # see: a full swipe back overshoots to where it was already invisible.
+            swipe(down=False, frac=0.5 if min(idx) - want <= 1 else 1.0)
         else:
-            swipe(down=True)
+            swipe(down=True, frac=0.5 if want - max(idx) <= 1 else 1.0)
     if not target:
         return False, f'{label} not found in list'
 
@@ -321,8 +393,9 @@ def main():
 
     global ORDER, TAB
     ORDER = graded_order() if a.graded else ORDER
-    TAB = TAB_TW_DEFENSE if a.graded else TAB_TW_WALL
-    prefix = 'D' if a.graded else 'W'
+    _index_order()                                  # ORDER may have just changed
+    TAB = TAB_TW_DEFENSE if a.graded else None      # None => pick per label band
+    prefix = 'D' if a.graded else 'F'
     labels = a.labels or [f'{prefix}{i:02d}' for i in range(a.lo, a.hi + 1)]
 
     known = {lab for lab, _nm in ORDER}
