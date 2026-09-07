@@ -23,8 +23,18 @@ STEP = 150
 
 
 def marker(im):
-    """Centre of the cyan chevrons, in DEVICE px. Saturated cyan is unique to the token:
-    no node ring, keycard label or hex uses it."""
+    """Centre of the cyan chevrons, in DEVICE px.
+
+    ⛔ **KNOWN WRONG, verified on device 2026-09-07.** The claim this was built on, that
+    "saturated cyan is unique to the token", is false: an UNPLAYED node draws a bright
+    cyan ring that passes this same mask, so on a map with one unplayed node the mean of
+    the matching pixels lands on that ring instead of the token. The runner then measures
+    adjacency from the wrong place, ranks unreachable nodes first, and twice tapped its
+    way into the Conquest INVENTORY. Until this discriminates the four solid chevrons
+    from a thin ring, drive long stretches by reading the map and calling
+    `cq_play.py X Y` with real coordinates; `cq_run.sh` is only safe for a node or two
+    at a time, with eyes on it.
+    """
     a = np.asarray(im).astype(int)
     r, g, b = a[:, :, 0], a[:, :, 1], a[:, :, 2]
     m = (b > 170) & (g > 170) & (r < 130)

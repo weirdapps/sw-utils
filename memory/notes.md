@@ -4278,3 +4278,79 @@ osascript -e 'tell application "BlueStacks" to activate'; sleep 3
 front=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
 [ "$front" = "BlueStacks" ] && ./scripts/h.sh tap X Y || echo ABORT
 ```
+
+## 2026-09-07 — Conquest 24 (4th instance): 462 → 505+ keycards, and how the feats ACTUALLY score
+Picked the run up at **462/630** with 7d 17h left, Hard, event feats 7/9, sectors at
+S1 93/96 · S2 90/96 · S3 103/118 · S4 59/120 · S5 26/142.
+
+### ⭐⭐ FEAT FARMING BEATS WALKING FORWARD, AND IT IS NOT CLOSE
+A forward node pays **3 keycards** and, this deep in S4/S5, resists 190-217k squads. A sector
+feat pays **10 (S4) or 15 (S5)** and can be farmed on the sector's SOFTEST node, which is
+already 3/3 and therefore always winnable. Measured this session:
+- **S4 in 5 battles: `For Mandalore` ✓ + `Armor Up` ✓ = +20 keycards.**
+- **S5 first node, one win with the Empire five: +5 Tactical Supremacy and +6 Potency Up**,
+  i.e. ~8 battles for **30 keycards**, against 3 per hard forward node.
+⇒ Walk a sector only far enough to open it; then turn around and farm its feats.
+
+### ⭐ A CLEARED NODE STILL PAYS FEATS — and a LOSS pays almost nothing
+Both halves matter and both are first-party measurements, not forum lore:
+- Replaying a **3/3** node progressed `For Mandalore`, `Armor Up`, `Blinding Assault`,
+  `The Upper Hand` and `Accurate Battle`. The community claim that feats only register on
+  uncleared nodes is **false here**.
+- The "Cheese" squad **LOST** the S5 first node and moved Tactical Supremacy, Buff Disruption
+  and Potency Up by **exactly zero**. The same feats then moved +5/+6 on a WIN. So
+  "gain/attempt feats progress win or lose" is far too strong: the unit that grants the buff
+  has to **survive long enough to cast it**, and in a loss it does not.
+⇒ Never farm a buff-gain feat with a squad that cannot win. Bring the hammer, not the theme.
+
+### ⭐ The three feat squads that were measured, with real per-battle rates
+| Squad | Power | Per battle |
+|---|---|---|
+| **Bo-Katan (Mand'alor) · Bo-Katan Kryze · Beskar Mando · Paz Vizsla · IG-12 & Grogu** | 164k | S4: **+1 For Mandalore · +10 Armor Up · +4 Blinding Assault**. Wins the S4 first node every time. |
+| ⭐ **Lord Vader (L) · Darth Vader · Grand Moff Tarkin · Mara Jade · Fifth Brother** | 190k | S5: **+5 Tactical Supremacy · +6 Potency Up**. Wins the S5 first node. |
+| Darth Vader · Mara Jade · Tarkin · Stormtrooper Luke · Fifth Brother ("Cheese") | 165k | **0 · 0 · 0** — it loses, and a dead Tarkin casts nothing. |
+⚠ `data/conquest/feat_plan_vol24.md` says Defense Up and Blind come "40x/battle". **They do not.**
+Measured 10 and 4. Treat every rate in that file as unverified until it is watched on device.
+
+### ⭐ Who grants what (looked up, not guessed — swgoh.gg / swgoh.wiki, 2026-09-07)
+- **Tactical Supremacy has exactly three sources in the game: Grand Moff Tarkin, Admiral Trench,
+  Major Partagaz.** Tarkin's *Intimidation Tactics* grants it to **Empire** allies **and grants
+  Tarkin himself Potency Up** — one unit feeds `The Upper Hand` and `Accurate Battle` at once,
+  which is why the Empire five above is the right squad and the Cheese five is not.
+- **Buff Disruption comes from Stormtrooper Luke and nobody else**, on **his own turn's basic
+  only** (an assist does not count), and it only registers when the debuff **lands** — a killing
+  blow scores nothing. That makes `Deactivate` a manual, stall-setup feat. **Deprioritised.**
+
+### Where the run stands and what is left
+S4 **79/120** (only `Blinding Assault` 46/80 + the boss's 10) · S5 **49/142**.
+- **S4 boss (Great Mothers, R5 Nightsisters) beat a 194k JMK/GMY/Chewbacca/GK/Ahsoka squad.**
+  Its panel: **1/11**, 1 of 3 stars, and two feats — *Wisdom and Wookiee* (win with Yoda &
+  Chewie surviving, **4**) and *Get Wrecked* (full Bad Batch, **4**). So 10 keycards sit there
+  behind a fight that needs consumables or a manual run.
+- **S5's forward wall is a full Mandalorian defence** (Maul · Beskar Mando · Bo-Katan · Paz ·
+  Sabine, all R5) that beat both the 217k Lord Vader/Stranger/Maul-HF/Starkiller/Malak squad
+  and the 190k Jabba bounty hunters. Consumables (6 boosters, 11 medpacs, 11 techs, with
+  **Legendary Consumable Boost equipped**) are the untried lever.
+- Scavenger passed with **nothing bought** (Leia JT 5/525, Cobb Vanth 5/475). Stockpile took
+  **Zealous Ambition 54.4%**.
+
+### ⚠ Two driver bugs that cost most of the session's stalls
+- **`cq_next.py` mistakes a bright cyan NODE RING for the player token.** `marker()` masks
+  saturated cyan, and an unplayed node's ring is exactly that, so it reported the token metres
+  away, ranked unreachable nodes first, and walked the runner into the Conquest INVENTORY twice.
+  Drive long stretches by reading the map and calling `cq_play.py X Y` with real coordinates.
+- **`cq_play.py` cannot pass a Wandering Scavenger.** The scavenger panel's own green COMMIT
+  sits at the `PANEL_BATTLE` coordinate, so `greenish(PANEL_BATTLE)` is true and the code takes
+  the battle branch instead of `pass_blocker()`. It then presses COMMIT (harmless, and actually
+  the correct button) and `SQUAD_BATTLE` (which lands on the confirm modal), and autofight
+  reports "never saw the battle HUD". Pass a scavenger by hand until the probe is title-based.
+- ⚠ `cq_run.sh` exits **silently** when `cq_next.py` finds nothing: `set -e` fires on the
+  failing command substitution before the `if [ -z "$xy" ]` guard can print anything.
+
+### Stamina is the session clock, confirmed again
+~10% per battle. The SEE five went 62% → 0% in five fights and `Unit stamina exhausted` greys
+BATTLE out, which surfaces as a `win-noreward` from `cq_play.py` because no battle ever ran.
+Rotation used, in order: Mandos → Jabba BH → Maul BH → SEE five → SEE+The Stranger →
+Lord Vader power five → Empire five.
+⭐ **`Fallen` in the unit search returns THE STRANGER** (R10, 41.9k GP) — the strongest drop-in
+replacement on the account and a better fifth for the SEE squad than Rey (Dark Side Vision).

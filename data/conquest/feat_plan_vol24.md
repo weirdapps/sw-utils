@@ -52,17 +52,29 @@ node wins with it pays 20 feat keycards on top of 30 node keycards.
 ## SECTOR 4 (10 each, mini-boss 9, boss 11)
 ⭐ **Bo-Katan (Mand'alor) · Beskar Mando · IG-12 & Grogu · Bo-Katan Kryze · Paz Vizsla, 166k**
 carries **Mandos + Defense Up + Breach + Blind** together.
-- Defense Up x80 also from Clone Wars Chewbacca · Old Ben · Plo · Barriss · FO Stormtrooper (40x/battle).
-- Blind x80 also from Jabba · Hermit Yoda · Wat (40x/battle).
+⚠ **MEASURED ON DEVICE 2026-09-07: +1 For Mandalore, +10 Armor Up, +4 Blinding Assault per
+win.** Five battles on the sector's FIRST node closed *For Mandalore* and *Armor Up*.
+- Defense Up x80 also from Clone Wars Chewbacca · Old Ben · Plo · Barriss · FO Stormtrooper.
+- Blind x80 also from Jabba · Hermit Yoda · Wat. ⚠ **Measured +4 per battle, NOT 40.** The
+  "40x/battle" figures below and above are the guide's, and both that were checked were wrong
+  by an order of magnitude. Watch one battle before sizing any grind off this file.
 - Mini-boss Bo Mandalore (9): *Maul (Hate Fueled) in squad* / *no Attackers*.
 - Final boss Great Mothers (11): *Yoda and Chewie surviving* / *full Bad Batch squad* (**127k, weak**).
 
 ## SECTOR 5 (15 each, mini-boss 9, boss 13)
-⭐ The "Cheese" squad **Darth Vader · Mara Jade · Tarkin · Stormtrooper Luke · Fifth Brother**
-carries **Buff Disruption (30) + Tactical Supremacy (25) + Potency Up (60)** in one, which is **45
-keycards of sector feats**, and it feeds Purge and Booming Voice too.
-⚠ Buff Disruption comes only from Stormtrooper Luke's BASIC on his own turn, and the AI never picks
-it on auto (measured 0/30 across a full battle in August). **This squad has to be played manually.**
+⛔ **DO NOT FIELD THE "CHEESE" SQUAD (Darth Vader · Mara Jade · Tarkin · Stormtrooper Luke ·
+Fifth Brother, 165k). It LOSES the Sector-5 first node and therefore scores NOTHING.** Measured
+2026-09-07: Tactical Supremacy 0, Buff Disruption 0, Potency Up 0 across a full battle, because
+a dead Tarkin never casts *Intimidation Tactics*.
+⭐ **Use `Lord Vader (L) · Darth Vader · Grand Moff Tarkin · Mara Jade · Fifth Brother`, 190k.**
+Same Tarkin, real damage around him: it wins the first node and banks **+5 Tactical Supremacy and
++6 Potency Up per win**, i.e. `The Upper Hand` + `Accurate Battle` = **30 keycards in ~13 wins**.
+Tarkin's *Intimidation Tactics* grants Empire allies Tactical Supremacy **and grants Tarkin
+himself Potency Up**, which is why one unit feeds both feats. Only Tarkin, **Admiral Trench** and
+**Major Partagaz** grant Tactical Supremacy at all (swgoh.gg, 2026-09-07).
+⚠ **Buff Disruption comes from Stormtrooper Luke and nobody else**, on **his own turn's basic
+only** (an assist does not count) and only when the debuff **lands**: a killing blow scores zero.
+It needs a manual stall setup, so it is the last 15 keycards to chase, not the first.
 - Fetts (10 wins): Maul · Boba · Jango · Wat · Canderous **161k**.
 - Mini-boss Dark Gideon (9): *Cassian Undercover in squad* / *full Galactic Republic squad surviving*.
 - Final boss Master Luke (13): *Rey (Jedi Training) surviving*, **not owned so forfeit**,

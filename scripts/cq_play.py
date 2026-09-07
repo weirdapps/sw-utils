@@ -10,6 +10,7 @@ one run into the Conquest inventory and then the EA Help chat).
 
     python3 scripts/cq_play.py 107 227      # prints win | defeat | <state>
 """
+import os
 import subprocess
 import sys
 import time
@@ -18,6 +19,8 @@ from PIL import Image
 
 import autofight
 import cq_grind as G
+
+OCR_PATH = autofight.OCR_PATH.replace("_afspeed", "_cqtitle")
 
 PANEL_BATTLE = (900, 573)
 BONUS_BATTLE = (995, 573)      # a repeatable bonus node grows a MULTI SIM button,
@@ -35,12 +38,18 @@ def green(pt):
 
 def panel_title():
     """OCR the right-hand panel's header. The two blockers look nothing alike in
-    behaviour and identical in pixels, so branch on the words."""
+    behaviour and identical in pixels, so branch on the words.
+
+    ⛔ The scratch file must NOT live in /tmp: tesseract cannot open /tmp from the agent
+    sandbox and answers with an empty stdout, so this returned "" on every call and
+    `pass_blocker` matched neither branch. Same fix as `autofight.speed_label`.
+    """
     im = Image.open(G.SHOT).crop((int(680 * G.K), int(80 * G.K),
                                   int(1080 * G.K), int(120 * G.K)))
     im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS)
-    im.save("/tmp/cqtitle.png")
-    out = subprocess.run(["/opt/homebrew/bin/tesseract", "/tmp/cqtitle.png", "stdout",
+    os.makedirs(os.path.dirname(OCR_PATH), exist_ok=True)
+    im.save(OCR_PATH)
+    out = subprocess.run(["/opt/homebrew/bin/tesseract", OCR_PATH, "stdout",
                           "--psm", "7"], capture_output=True, timeout=30)
     return out.stdout.decode("utf-8", "replace").strip()
 
@@ -95,8 +104,16 @@ def main():
     G.tap(int(sys.argv[1]), int(sys.argv[2]), wait=4)
 
     im = G.grab()
-    if not (G.greenish(G.box(im, *PANEL_BATTLE))
-            or G.greenish(G.box(im, *BONUS_BATTLE))):
+    # ⛔ Ask the TITLE first, never the colour. A Wandering Scavenger's own green COMMIT
+    # sits exactly on PANEL_BATTLE, so `greenish(PANEL_BATTLE)` is true on a panel that
+    # has no battle in it: on 2026-09-07 that sent this function down the fight branch,
+    # which pressed COMMIT (right button, by luck), then SQUAD_BATTLE (which landed on
+    # the confirm modal), and autofight reported "never saw the battle HUD" while the
+    # token had not moved at all. A Data Disk Stockpile has the same shape.
+    title = panel_title().lower()
+    blocker = "scavenger" in title or "disk" in title or "stockpile" in title
+    if blocker or not (G.greenish(G.box(im, *PANEL_BATTLE))
+                       or G.greenish(G.box(im, *BONUS_BATTLE))):
         # Not a fight. A Data Disk Stockpile or a Wandering Scavenger can be the ONLY
         # way forward, and each throws a "you will advance and be unable to select a
         # different path" modal that no vision runner recognises, so the grind stalls

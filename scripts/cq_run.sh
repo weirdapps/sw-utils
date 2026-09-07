@@ -19,7 +19,11 @@ for i in $(seq 1 "$N"); do
   # the run with "screen was not where the script expected"; the map does not recentre
   # after a probe, so "nearest the middle" is no better. cq_next.py measures from the
   # token itself.
-  xy=$("$PY" scripts/cq_next.py --first 2>/dev/null)
+  # `|| true` is load-bearing: cq_next.py exits 1 when it cannot see the token or any
+  # adjacent ring, and under `set -e` a failing command substitution kills the script
+  # BEFORE the guard below can print anything. That is why a stalled run looked like
+  # cq_run.sh producing no output at all.
+  xy=$("$PY" scripts/cq_next.py --first 2>/dev/null || true)
   if [ -z "$xy" ]; then
     echo "[$i/$N] no reachable ring in view; stopping"
     exit 0
@@ -27,5 +31,5 @@ for i in $(seq 1 "$N"); do
   echo "[$i/$N] node $xy"
   out=$(cd scripts && "$PY" cq_play.py $xy 2>&1 | tail -1)
   echo "  $out"
-  case "$out" in win*) ;; *) echo "  stopping: $out"; exit 1 ;; esac
+  case "$out" in win*|moved) ;; *) echo "  stopping: $out"; exit 1 ;; esac
 done

@@ -13,16 +13,26 @@ plain "is it green" test (r=176 vs g=199), so the probe compares red against
 blue. A battle left on manual burns the full timer and lands on DEFEAT.
 """
 import argparse
+import os
 import subprocess
 import time
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 ADB = "/opt/homebrew/bin/adb"
 SERIAL = "127.0.0.1:5555"
 K = 1920 / 1100.0
 AUTO = (158, 36)
 SPEED = (226, 36)
+
+# ⛔ NOT /tmp. tesseract cannot read /tmp from the agent sandbox: it answers
+# "failed to open locally ... image file not found" on stderr and an EMPTY string on
+# stdout, so every OCR probe silently returns "" and the caller reads that as "the
+# label is not there yet". `rote_autobattle.py` already writes its scratch under
+# output/ for exactly this reason. Screenshots keep going to /tmp; only what tesseract
+# must OPEN moves here.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OCR_PATH = os.path.join(ROOT, "output", "_afspeed.png")
 
 
 def tap(x, y, wait=1.5):
@@ -47,28 +57,45 @@ def hud(im):
 
 
 def speed_label():
-    """OCR the multiplier printed beside the SPEED button, e.g. 'x4'."""
-    im = Image.open("/tmp/autofight.png")
-    box = im.crop((int(238 * K), int(20 * K), int(275 * K), int(52 * K)))
-    box = box.resize((box.width * 4, box.height * 4), Image.LANCZOS)
-    box.save("/tmp/afspeed.png")
+    """OCR the multiplier printed INSIDE the SPEED button, e.g. '2X'.
+
+    ⚠ The text sits ON the button (centred on SPEED), not beside it. This crop used to
+    start at x=238, i.e. entirely to the right of the glyphs, so it returned '' on every
+    call; `set_speed_4x` then blind-tapped its full budget of five and the cycle
+    1→2→3→4→1→2 parked every fight on 2X. Measured off a live HUD 2026-09-06.
+    """
+    im = Image.open("/tmp/autofight.png").convert("L")
+    # Inside the ring, not around it: the ring itself is as bright as the glyphs and
+    # tesseract reads the pair as a blob.
+    box = im.crop((int(209 * K), int(25 * K), int(235 * K), int(49 * K)))
+    box = box.resize((box.width * 8, box.height * 8), Image.LANCZOS)
+    box = box.point(lambda v: 255 if v < 140 else 0)   # white-on-blue -> black-on-white
+    box = ImageOps.expand(box, border=30, fill=255)    # tesseract wants a quiet margin
+    os.makedirs(os.path.dirname(OCR_PATH), exist_ok=True)
+    box.save(OCR_PATH)
     # tesseract writes non-UTF8 bytes to stderr on some builds, which makes text=True
     # raise UnicodeDecodeError before the caller ever sees stdout. Decode by hand.
-    out = subprocess.run(["/opt/homebrew/bin/tesseract", "/tmp/afspeed.png", "stdout",
-                          "--psm", "7", "-c", "tessedit_char_whitelist=x1234"],
+    out = subprocess.run(["/opt/homebrew/bin/tesseract", OCR_PATH, "stdout", "--psm", "7"],
                          capture_output=True, timeout=30)
     return out.stdout.decode("utf-8", "replace").strip()
 
 
 def set_speed_4x():
     """Cycle the speed button up to 4x. The owner asks for 4x on every fight, and it is
-    sticky between battles, so this normally costs one screenshot and no taps."""
-    for _ in range(5):
+    sticky between battles, so this normally costs one screenshot and no taps.
+
+    Tap at most THREE times. The cycle is 1X, 2X, 3X, 4X and then back to 1X, so three
+    taps reach 4X from any starting point and a fourth walks straight back off it. If
+    the OCR never resolves, stop rather than spin: an unreadable label is not a reason
+    to keep pressing.
+    """
+    for _ in range(4):
         grab()
         if "4" in speed_label():
             return True
         tap(*SPEED, wait=1.2)
-    return False
+    grab()
+    return "4" in speed_label()
 
 
 def main():
