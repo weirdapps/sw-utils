@@ -45,6 +45,34 @@ Extract (unit base IDs are in `data-unit-def-tooltip-app`, leader first):
 ```
 Save 4 files to `data/meta/`: `meta_5v5_defense_s<N>.json` (or txt), `meta_off5v5.txt`, `meta_def3v3.txt`, `meta_off3v3.txt`.
 (The 5v5 defense file this repo ships is JSON with `rows[].hold/seen/banners/units`; the others are the txt line format above. compute_teams.py reads both — see `META_FILES`.)
+### ⭐ 2026-09-11: the TIER LISTS are the reliable path, and they are Kyber-scoped
+`/gac/squads/?...` still gets a Cloudflare interstitial that does not clear. The **tier lists do not**:
+`https://swgoh.gg/tier-list/gac/` (5v5 off), `?side=defense`, `/tier-list/3v3/`, `/tier-list/fleet/`,
+`/tier-list/datacrons/` all load clean in chrome-devtools MCP against real Chrome, and they carry
+`League Kyber` plus the sample size ("3.53M first-attempt, full-squad GAC battles").
+⚠ **They are React now and there are NO `data-unit-def-tooltip-app` attributes.** Unit names live in
+`img.alt`. Extractor:
+```js
+// expand the ladders first
+for (let p=0;p<6;p++){const b=[...document.querySelectorAll('button')].filter(x=>/Show \d+ more/i.test(x.textContent));
+  if(!b.length)break; b.forEach(x=>x.click()); await new Promise(r=>setTimeout(r,700));}
+document.querySelectorAll('div.flex-1.min-w-0').forEach(c=>{
+  const lead=c.querySelector('div.w-12 img'); if(!lead) return;          // leader
+  const rest=[...c.querySelectorAll('div.w-10 img')].map(i=>i.alt);      // members
+  const t=c.innerText.replace(/\s+/g,' ');                              // "Elo … Hold % … Battles …"
+});
+```
+⛔ **Do NOT filter to a fixed squad size.** 3v3 offence has 1- and 2-unit rows and they are the TOP of
+the table (SEE + Darth Bane #1). Rank and `DATACRON DEPENDENT` are on an ancestor, not the card.
+⚠ **Dedup by unit SET keeping the highest `Battles`**: the same three units appear in a reversed order
+with a tiny sample (The Stranger trio is 25.7% on n=86.3K and 16.9% on n=37), and a naive dict write
+keeps the wrong one.
+
+**`/gac/counters/<LEADER>/` still uses real base ids** in `data-unit-def-tooltip-app`, inside
+`div.panel.panel--size-sm`. Split attacker from defender by the anchor href: `a_lead`/`a_member` vs
+`d_lead`/`d_member`. A plain navigation works (it may report a nav timeout while the page is in fact
+loaded); a same-origin `fetch()` of the same URL gets a 403 interstitial, so navigate, do not fetch.
+
 Fleet meta: `/gac/ship-counters/` — per defending capital, Seen + attacker-Win% (**lower = better hold**).
 Per-capital detail (full counters) at `/gac/ship-counters/<CAPITAL_ID>/?season_id=...` (same warm-session rule).
 

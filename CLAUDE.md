@@ -165,6 +165,20 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    otherwise have taken those banners — Astra's board was cleared 14/14, so it denied zero. An attacker
    earns its banners *and* can be the squad that conquers a territory, worth 210-240 more plus the lane
    behind it. Re-run `gac_doctrine.py` when the meta shifts; don't reason about it from Hold%.
+   ⛔⛔ **THAT RULE IS 5v5 ONLY. IN 3v3 IT IS BACKWARDS, MEASURED 2026-09-11.** Re-run against the
+   live Kyber 3v3 tier list (15 def + 15 off, ILP + exhaustive zone split), four doctrines scored in
+   banners: **free optimisation 2,884** (7 GLs walling) · all GLs wall 2,865 · only-GL-Rey-walls 2,771 ·
+   **rule 7, all GLs attack, 2,715**. So rule 7 costs **169 banners a round** in 3v3.
+   The mechanism is pool depth, not GL strength: the 3v3 non-GL OFFENCE pool is deep (Darth Malgus
+   93.6% n=62.6K, Darth Bane + Count Dooku 88.9% n=101K, Satele 87.7% n=130K, Ugnaught 86.2%), while the
+   non-GL DEFENCE pool falls off a cliff after The Stranger / Cassian / Bo-Katan: 20.4%, then 17.5%,
+   then 15%. So the GLs are worth more walling and the deep pool attacks.
+   ⇒ **Pick the doctrine from the FORMAT.** 5v5: GLs attack. 3v3: GLs wall. Never carry one over.
+9b. ⭐ **3v3 OFFENCE HAS 1- AND 2-UNIT SQUADS AND THEY ARE THE TOP OF THE TABLE.** The #1 3v3 offence
+   is **SEE + Darth Bane, 90.6% on n=53.4K**, #5 is **Darth Bane + Count Dooku 89.6% on n=101K**, and
+   **Rotta the Hutt SOLO is 64.9% on n=14.7K**. An extractor that filters swgoh.gg cards to exactly
+   three units silently drops all of them, which is what happened on the first pass this session.
+   Undersized offence also banks +1 per empty slot.
 8. **Reserve support units the attack bank cannot replace** (`RESERVE_OFF_UNITS`) — Mace Windu is the
    last available fifth for JMK's 90% attacker (General Kenobi is committed to GL Rey's wall). Without
    the reservation JMK falls off the offense board and the round is 67 net banners worse.
@@ -198,6 +212,60 @@ python3 scripts/gac_attack.py        # the attack ROUTE vs the live opponent boa
 python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrines
 ```
 `build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
+
+## ⭐ CHECK THE FORMAT BEFORE ANY GAC WORK. IT IS NOT ALWAYS 5v5. (2026-09-11)
+`gac/get` returns `gac.tournamentMapId`, e.g. `4zone_3v3_ga2_c3s1_83a`, and that string is the
+whole answer: `3v3`, season `83`. Even season = 5v5, odd = 3v3, and swgoh.gg's own nav prints both
+("5v5 Season 82", "3v3 Season 83"). A whole session was nearly spent optimising the 5v5 board while
+the live event was 3v3. **Read the mapId first, then pick the tier list.**
+- **Kyber 3v3 board = 15 squads + 3 fleets.** `phase01_conflict01` (5, loc 1) gates the **FLEET**
+  territory `phase02_conflict01` (3); `phase01_conflict02` (5, loc 3) gates `phase02_conflict02` (5).
+- **3v3 gate arithmetic**: territory conquest is 120 + 28/squad, so a 5-squad territory is 260 and the
+  3-fleet one is 219. Front-B gate = 260 + (260 + 5x57) = **805**. Front-A gate = 260 + (219 + 3x76) =
+  **707**. A back-zone hold is worth only its own 260. **A front hold is ~2.5x a back hold.**
+- ⛔ **THE ERROR THIS ACCOUNT KEEPS MAKING: the five best walls sit in the BACK zone.** On the live
+  S83 board The Stranger, GL Ahsoka, Jabba, GL Leia and Lord Vader were all in `phase02_conflict02`,
+  behind a front that was cleared 5/5. Re-assigning the SAME 15 squads is worth **+126 banners** and
+  lifts P(front holds) from 58%/64% to 75%/76%. **Spread the top 10 across the two fronts, do not
+  stack one**: P(zone holds) = 1 - prod(1 - h_i) is concave, so balancing beats concentrating.
+- **Shrink small-n rates before ranking.** `adj = (n*rate + 3000*pool_mean)/(n + 3000)`. Without it a
+  35.9% hold on n=375 outranks a 25.7% on n=86.3K. The tier list ships plenty of n<500 rows.
+- ⚠ **The stored rates in this repo are systematically PESSIMISTIC and go stale fast.** The live
+  HotUtils 3v3 board still carried `GL Rey 9%` and `The Stranger 18%` when the Kyber tier list read
+  **32.3%** and **25.7%**. Re-pull before trusting any number in a squad name.
+
+## ⭐ DATACRONS: pull them, they decide more than the tier list does (2026-09-11)
+`account/data/all` returns `data.datacrons[]`. **Affix array LENGTH is the level**, and each affix's
+`targetRule` is its scope, so the chain reads alignment then faction then character
+(`target_datacron_darkside`, `..._firstorder`, `..._kylorenunmasked`). Live sets are **32 / 33 / 34**
+(set 31 expired 2026-09-03). **Set 33 goes to level 15; set 34, the newest, caps at 9.**
+- ⭐⭐ **Astra's best cron is a set-33 LEVEL 15 scoped to all five Hutt Cartel units**
+  (`raccoon`, `cadbane`, `greedo`, `gamorreanguard`, `humanthug`), id `Lj_hRktRR9Wlrwrg4shybQ`.
+  It was equipped to NOTHING. Two exact-match lvl-9s were idle too: `..._glrey` and
+  `..._kylorenunmasked`. Meanwhile GL Rey on the live board carried an off-scope set-32 cron.
+  **Audit cron-to-squad scope every season; a perfectly scoped cron sitting idle is free banners.**
+- **A published rate is a bound when a cron is involved**, exactly like the TW omicron rule below.
+  Rotta / Cad Bane / Gamorrean Guard publishes 12.6% on n=665 measured across players who mostly do
+  NOT hold a level-15 Hutt cron. Astra does, so 12.6% is his floor.
+- ⚠ **Two set-34 crons sit at level 0, unbuilt.** Levelling is a random affix roll, so it is a gamble
+  and an owner decision, not an autonomous one.
+- ⚠ Base ids in cron scopes are lowercase and sometimes surprising: **`raccoon` is Rotta the Hutt**,
+  `humanthug` is Mob Enforcer, and `vader` is Darth Vader, NOT Lord Vader.
+
+## Squad Arena: auto loses with omicron squads, and datacrons are why (measured 2026-09-11)
+Five auto battles at rank #18: **0-for-3 with the SLKR squad at 196K power**, 0-for-1 with the GL Leia
+squad, then **1 win with Rotta / Cad Bane / Gamorrean Guard / Greedo / Mob Enforcer at 160K**, beating
+a 182K GL Leia team. Power is not the discriminator and neither is the GAC counter table: SLKR beats
+GL Leia 99-100% in GAC and lost twice here.
+- **Why**: omicrons do not fire in Squad Arena (see `arena_board.py`), so an omicron-heavy GL squad
+  loses most of its kit, while Rotta's `A Legacy Reforged` lead (+50 speed, 200% defence to Hutt
+  Cartel) is a BASE ability and his squad carries a level-15 cron. **Datacrons DO fire in arena.**
+- **Rank 1 is not reachable in one session from #18**: the board only offers opponents about 5 ranks
+  above, so even a perfect run of the daily attempts caps out around #5.
+- **Defence is the squad you LAST ATTACKED WITH**, so spend the final attempt on what you want parked.
+- ⚠ **`gac/get {refresh:true}` and `account/data/all` log HotUtils into the game account and KICK the
+  BlueStacks client** with `CONNECTION LOST / Your session has expired`. Harmless, tap RELOAD, but do
+  not do it mid-battle.
 
 ## Territory War — the board is DATA, not a solver (rebuilt 2026-08-26)
 TW is its own mode: it shares no units with GAC, defense banks a **flat +30 per squad** the moment it is

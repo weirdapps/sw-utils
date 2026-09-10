@@ -1,0 +1,54 @@
+GAC 3v3 SEASON 83 BOARD  (built 2026-09-11, Kyber tier list + live datacron inventory)
+15 squads + 3 fleets.  Modelled denial 1508 banners; P(front-A holds) 76%, P(front-B) 79%.
+
+== FRONT-A  phase01_conflict01 loc=1   GATES THE 3 FLEETS
+   A1 GL Rey         31.4% n=  57100 [s33L9]    Rey / Ben Solo / Luminara Unduli
+                    cron 3CGBb-AfT1iYI8jOBugMnw  lightside>resistance>GLREY, exact
+   A2 SLKR           29.0% n=  10000 [s33L9]    Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
+                    cron C9xVm3l3Q3i1rb4PLFynwQ  darkside>firstorder>kylorenunmasked, exact
+   A3 GL Leia        25.7% n=  36200 [s34L9]    Leia Organa / Captain Drogan / R2-D2
+                    cron VJFrEeptQ0mAcjKoWS9W3g  lightside tier applies to all three
+   A4 Jabba          20.4% n= 175000 [s34L3]    Jabba the Hutt / Boushh (Leia Organa) / Krrsantan
+                    cron 9c0ab_AzSEi3zx4WzcyDAQ  darkside
+   A5 STLuke         17.5% n=  44100 [no cron]  Stormtrooper Luke / Princess Leia / Stormtrooper Han
+
+== FRONT-B  phase01_conflict02 loc=3   GATES THE 5-SQUAD BACK
+   B1 LordVader      31.5% n= 143000 [s34L9]    Lord Vader / CC-1119 "Appo" / CX-2
+                    cron MfzzKyieRQmcVrd8TPZKrw  darkside>empire, all three
+   B2 GL Ahsoka      26.8% n=  91100 [s34L6]    Ahsoka Tano / Ezra Bridger (Exile) / Huyang
+                    cron SlEoEjUJT_GWpnZ3xRfwjw  lightside
+   B3 Cassian        25.5% n=  40000 [s33L6]    Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
+                    cron _bf0z47YQfqk1o2u8EB1bA  lightside
+   B4 Stranger       25.3% n=  86300 [s33L4]    The Stranger / Maul (Hate-Fueled) / Starkiller
+                    cron HZ5tOF3TQGev9YIE-gF7Eg  darkside
+   B5 BoKatan        25.2% n=   4870 [s32L6]    Bo-Katan (Mand'alor) / IG-12 & Grogu / Paz Vizsla
+                    cron X09cqmfARYiVWAbOD0xqdg  tank/support
+
+== BACK-B   phase02_conflict02 loc=3
+   K1 SEE            17.0% n=    375 [s34L3]    Sith Eternal Emperor / Sith Empire Trooper / Wat Tambor
+                    cron 49T9LlEsQdCvX8r8dmdwow  darkside
+   K2 Partagaz       15.1% n=  38100 [s33L3]    Major Partagaz / Dedra Meero / KX Security Droid
+                    cron og2nbKpDTvil_csWUnrrJA  darkside
+   K3 CarsonTeva     14.6% n=   2346 [s33L8]    Captain Carson Teva / R5-D4 / Zeb Orrelios (New Republic Pilot)
+                    cron bpkoYMAGTCGpyaNtdUEY_w  carsonteva named
+   K4 OldDaka        14.5% n=    182 [s34L3]    Old Daka / Merrin / Nightsister Zombie
+                    cron ClvpcGYSTEaRWc3gnPYWMw  darkside
+   K5 Rotta          12.6% n=    665 [s33L15]   Rotta the Hutt / Cad Bane / Gamorrean Guard
+                    cron Lj_hRktRR9Wlrwrg4shybQ  ALL THREE units scoped, the best cron on the account
+
+== OFFENCE (15), unit-disjoint from every wall above
+   O1 Malgus         93.6% n=  62600            Darth Malgus / Darth Malak / Darth Revan
+   O2 Bane           88.9% n= 101000 (2 units)  Darth Bane / Count Dooku
+   O3 Satele         87.7% n= 130000            Satele Shan / Bastila Shan / Jedi Knight Revan
+   O4 JMK            86.6% n= 102000            Jedi Master Kenobi / Commander Ahsoka Tano / General Kenobi
+   O5 Ugnaught       86.2% n=  33700            Ugnaught / Ezra Bridger / Hondo Ohnaka
+   O6 DTGideon       84.4% n=  12800            Dark Trooper Moff Gideon / Moff Gideon / Scout Trooper
+   O7 QAmidala       84.4% n=  98000            Queen Amidala / Master Qui-Gon / Padawan Obi-Wan
+   O8 GAS            83.2% n=  66900            General Skywalker / CT-5555 "Fives" / CT-7567 "Rex"
+   O9 Cere           82.7% n=  88200            Cere Junda / Maul / Taron Malicos
+   O10 BossNass      79.5% n=  13400            Boss Nass / Captain Tarpals / Jar Jar Binks
+   O11 EP            78.1% n=  32800            Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
+   O12 Aphra         76.7% n=  30000            Doctor Aphra / BT-1 / IG-90
+   O13 JKLS          72.3% n=   1650            Jedi Knight Luke Skywalker / Hermit Yoda / Jedi Knight Cal Kestis
+   O14 Bossk         70.8% n=   5778            Bossk / Greef Karga / The Mandalorian
+   O15 CobbVanth     69.7% n=  24900            Cobb Vanth / Coruscant Underworld Police / Lobot
