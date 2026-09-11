@@ -505,6 +505,34 @@ def assign_datacrons(squads, crons, tags):
 
 
 # ---------------------------------------------------------------------- report
+# The in-game preset name limit is short, about 16 characters; anything longer is
+# rejected outright with INVALID_SQUAD_PRESET_NAME_LENGTH_KEY. The zone tag has to
+# survive, so the leader is what gets abbreviated.
+LEADER_SHORT = {
+    "Supreme Leader Kylo Ren": "SLKR", "Sith Eternal Emperor": "SEE",
+    "Jedi Master Kenobi": "JMK", "Jedi Master Luke Skywalker": "JML",
+    "Jedi Knight Luke Skywalker": "JKLS", "Lord Vader": "LordVader",
+    "Leia Organa": "GL Leia", "Ahsoka Tano": "GLAhsoka", "Rey": "GL Rey",
+    "Jabba the Hutt": "Jabba", "Cassian Andor (Undercover)": "Cassian",
+    "Emperor Palpatine": "EmpPalp", "Stormtrooper Luke": "STLuke",
+    "Great Mothers": "GreatMoms", "Major Partagaz": "Partagaz",
+    "Bo-Katan (Mand'alor)": "BoKatan", "Queen Amidala": "QAmidala",
+    "Dark Trooper Moff Gideon": "DTGideon", "General Skywalker": "GAS",
+    "Tusken Chieftain": "Tusken", "Qui-Gon Jinn": "QuiGon",
+    "Kelleran Beq": "Kelleran", "Admiral Raddus": "AdmRaddus",
+    "The Stranger": "Stranger", "Darth Malgus": "Malgus", "Darth Traya": "Traya",
+    "Baylan Skoll": "Baylan", "Cere Junda": "Cere", "Ugnaught": "Ugnaught",
+}
+
+
+def short_name(tag, leader, limit=16):
+    base = LEADER_SHORT.get(leader) or leader.split(" (")[0]
+    name = f"{tag} {base}"
+    if len(name) <= limit:
+        return name
+    return f"{tag} {base[:limit - len(tag) - 1]}"
+
+
 def fmt_squad(s, tag=""):
     return (f"{s['rate']*100:5.1f}% (raw {s['raw']:4.1f} n={int(s['n']):>7,})"
             f"{' DC' if s['dc'] else '   '} {tag} {' / '.join(s['names'])}")
@@ -525,6 +553,10 @@ def main():
     ap.add_argument("--realization", type=float, default=1.0,
                     help="fraction of published offense actually converted (see offense_value)")
     ap.add_argument("--json", help="write the board to this path")
+    ap.add_argument("--upload", metavar="PATH",
+                    help="also emit a HotUtils payload (upload_hotutils.py shape). Squad names "
+                         "carry the ZONE so the board can be placed straight off the pick-list, "
+                         "and stay inside the ~16-char in-game preset name limit.")
     ap.add_argument("--min-gear", type=int, default=13)
     ap.add_argument("--p-front-a-falls", type=float, default=0.25)
     args = ap.parse_args()
@@ -685,6 +717,23 @@ def main():
         }
         json.dump(payload, open(args.json, "w"), indent=2)
         print(f"\nwrote {args.json}")
+
+    if args.upload:
+        rows = []
+        for tag, ids in (("A", fa), ("B", fb), ("K", kb)):
+            for r, i in enumerate(sorted(ids, key=lambda j: -holds[j]), 1):
+                s = dpool[dsel[i]]
+                rows.append({"n": short_name(f"{tag}{r}", s["leader"]), "sz": 3, "ct": 1,
+                             "cat": "GAC 3v3 - Defense",
+                             "u": list(zip(s["bases"], s["names"]))})
+        for r, i in enumerate(sorted(osel, key=lambda j: -opool[j]["rate"]), 1):
+            s = opool[i]
+            rows.append({"n": short_name(f"O{r}", s["leader"]), "sz": s["size"], "ct": 1,
+                         "cat": "GAC 3v3 - Offense",
+                         "u": list(zip(s["bases"], s["names"]))})
+        json.dump(rows, open(args.upload, "w"), indent=2)
+        print(f"wrote {args.upload}  ({len(rows)} definitions, "
+              f"longest name {max(len(r['n']) for r in rows)} chars)")
 
 
 if __name__ == "__main__":

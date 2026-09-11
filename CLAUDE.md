@@ -220,11 +220,16 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    Executor 15.4% (n=28.8K) · Home One 13.7% · Negotiator 12.8% · Endurance 10.2% · Executrix 8.3% ·
    Raddus 7.1% · Malevolence 5.6% · Finalizer 2.9%. Best owned triple: **Leviathan + Chimaera +
    Executor**, no shared ship, P(fleet territory holds) 44%.
-   ⚠ **The GAC Leviathan and the FLEET ARENA Leviathan are different lineups on this account.** The
-   arena one runs Scimitar / Scythe / TIE Bomber / TIE Defender; the one on the GAC board is all
-   Sith (Sith Bomber / Fury / TIE Dagger / Sith Supremacy / Sith Fighter / Sith Infiltrator) and is
-   **missing B-28 Extinction-class Bomber**, the meta build's third starter. Do not reason about one
-   from the other, and check the live board rather than the arena notes.
+   ⛔ **SHIP BASE IDS LIE ABOUT SHIP NAMES, AND IT COST A WRONG FINDING ON 2026-09-11.**
+   `SITHBOMBER` is **B-28 Extinction-class Bomber**, `SITHINFILTRATOR` is **Scimitar**,
+   `SITHSUPREMACYCLASS` is **Mark VI Interceptor**, `XWINGBLACKONE` is **Poe Dameron's X-wing**,
+   `MILLENNIUMFALCON` is **Han's** (Rey's is `MILLENNIUMFALCONEP7`, Lando's `MILLENNIUMFALCONPRISTINE`).
+   Reading the live board's base ids as names produced "the GAC Leviathan is missing B-28" when B-28
+   was sitting in it. **Resolve every ship through the roster's `n` field before saying anything
+   about a lineup.** The GAC Leviathan does run the meta starting three (Fury / B-28 / TIE Dagger).
+   What is actually true of it: **6 of 7 non-capital slots filled**, so it donates a banner, and it
+   carries **Mark VI Interceptor**, which Kahzgul (13 Oct 2025) says "dramatically harms your own
+   Levi's defensive capabilities" because Mk VI is the pivot of the best counter to it.
    ⚠ **Never build a defensive fleet around a specific reinforcement arriving first.** Your
    left-to-right order is only a tiebreaker inside the AI's own priority tiers, and ships jump tiers
    on battlefield conditions nobody has mapped (swgoh.wiki, Ship Reinforcement Order Priority List).

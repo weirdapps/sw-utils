@@ -90,14 +90,22 @@ def preset_name(payload_name):
     return f"{slot} {label}"[:NAME_MAX].rstrip()
 
 
-def build():
-    payload = json.load(open(os.path.join(ROOT, "output", "upload_payload.json")))
+def build(path=None, names_as_is=False):
+    """Tabs from a HotUtils payload.
+
+    `names_as_is` skips preset_name(). gac3v3_board.py already emits names that
+    carry the zone and fit NAME_MAX ('B1 LordVader'), and preset_name would eat
+    the zone tag off them: it assumes the older '5v5 D01 The Stranger 57%' shape
+    and drops the first and last token, so a two-token name loses its slot id.
+    """
+    payload = json.load(open(path or os.path.join(ROOT, "output", "upload_payload.json")))
     by_cat = {}
     for p in payload:
         by_cat.setdefault(p["cat"], []).append(p)
     out = []
     for cat, tab in CATEGORY_TO_TAB:
-        squads = [{"name": preset_name(p["n"]), "unitBaseIds": [u[0] for u in p["u"]]}
+        squads = [{"name": p["n"] if names_as_is else preset_name(p["n"]),
+                   "unitBaseIds": [u[0] for u in p["u"]]}
                   for p in by_cat.get(cat, [])]
         if squads:
             out.append({"tab": tab, "squads": squads})
@@ -162,6 +170,12 @@ def main():
                          f"({', '.join(t for _b, t in TW_BOARD_TABS)}, {TW_OFFENSE_TAB})")
     ap.add_argument("--drop-legacy-tw", action="store_true",
                     help=f"also delete the superseded tabs {TW_LEGACY_TABS}")
+    ap.add_argument("--payload", default=None,
+                    help="HotUtils payload to build the tabs from "
+                         "(default output/upload_payload.json, the whole board)")
+    ap.add_argument("--names-as-is", action="store_true",
+                    help="use the payload names verbatim instead of reformatting them; "
+                         "required for gac3v3_board.py output, whose names already carry the zone")
     a = ap.parse_args()
 
     sid = os.environ.get("HU_SID")
@@ -171,7 +185,7 @@ def main():
     if a.drop_legacy_tw:
         a.delete_tab = list(a.delete_tab) + TW_LEGACY_TABS
     plan = (build_tw_board() if a.tw_board else
-            build_wall(a.wall_limit) if a.wall else build())
+            build_wall(a.wall_limit) if a.wall else build(a.payload, a.names_as_is))
     live = api("squads/game/get", {}, sid)
     by_name = {t["name"]: t for t in live.get("tabs", [])}
     print("live tabs: " + ", ".join(

@@ -62,3 +62,40 @@ BOARD, structure `free`   denial 1353 / 2082   offense 1072   net +343
    O15  82.5% (raw 83.2 n= 93,800) 3u  Bo-Katan (Mand'alor) / IG-12 & Grogu / The Mandalorian (Beskar Armor)
 
 wrote output/gac3v3_board_r3.json
+
+== FLEETS  (the preset API rejects combatType 2, so these are set by hand in game)
+   Fill all 7 non-capital slots: an undersized DEFENSIVE fleet lets the attacker
+   cap at 74 instead of 73. Opposite of the TW rule. P(fleet territory holds) 44%.
+
+   DEFEND  phase02_conflict01 slot 1
+     Leviathan  21.3% (raw 22.5, n=17.8K)
+       start  Fury-class Interceptor / B-28 Extinction-class Bomber / TIE Dagger
+       reinf  Sith Fighter / Scimitar / Mark VI Interceptor / TIE Defender
+
+   DEFEND  phase02_conflict01 slot 2
+     Chimaera   16.1% (raw 19.2, n=1,990)
+       start  Scythe / TIE Advanced x1 / Imperial TIE Bomber
+       reinf  Imperial TIE Fighter / Emperor's Shuttle / Gauntlet Starfighter / TIE Reaper
+
+   DEFEND  phase02_conflict01 slot 3
+     Executor   15.3% (raw 15.4, n=28.8K)
+       start  Punishing One / Razor Crest / Xanadu Blood
+       reinf  Hound's Tooth / Slave I / IG-2000 / Han's Millennium Falcon
+
+   ATTACK  (yours to play)
+     Negotiator 79.1% (raw 79.3, n=14.3K)
+       start  Anakin's Eta-2 Starfighter / Marauder / BTL-B Y-wing Starfighter
+       reinf  Plo Koon's Jedi Starfighter / Ahsoka Tano's Jedi Starfighter / Umbaran Starfighter / Rex's ARC-170
+
+   ATTACK  (yours to play)
+     Home One   77.3% (raw 76.3, n=1,805)
+       start  Raven's Claw / Cassian's U-wing / Biggs Darklighter's X-wing
+       reinf  Ghost / Phantom II / Outrider / Rebel Y-wing
+
+   ATTACK  (yours to play)
+     Raddus     74.9% (raw 71.9, n=2,964)
+       start  MG-100 StarFortress SF-17 / Rey's Millennium Falcon / Poe Dameron's X-wing
+       reinf  Resistance X-wing / Wedge Antilles's X-wing / Bistan's U-wing / Rogue One
+       !! MG-100 StarFortress SF-17 is 6*
+
+   ships used twice: none   (fleets are single-use, like characters)
