@@ -4,35 +4,35 @@ off     SWGOH GAC 3v3 Squad Offense Tier List — Season 81 -   124 fieldable, p
 board   2082 banners available to the attacker (3 x 545 squad zones + 447 fleet)
 
 FLEETS  (ships are single-use too, so a capital that walls cannot attack)
-  defend:  Home One 13.7% (raw 13.7%, n=24,600), Negotiator 12.9% (raw 12.8%, n=31,800), Raddus 8.1% (raw 7.1%, n=16,800)
-  attack:  Chimaera 81.7% (raw 83.8%, n=5,597), Executor 91.4% (raw 92.9%, n=27,700), Leviathan 95.5% (raw 96.6%, n=46,700)
-  P(fleet territory holds) = 31%   expected denial 24, expected offense 360
+  defend:  Leviathan 21.3% (raw 22.5%, n=17,800), Chimaera 16.1% (raw 19.2%, n=1,990), Executor 15.3% (raw 15.4%, n=28,800)
+  attack:  Negotiator 79.1% (raw 79.3%, n=14,300), Home One 77.3% (raw 76.3%, n=1,805), Raddus 74.9% (raw 71.9%, n=2,964)
+  P(fleet territory holds) = 44%   expected denial 34, expected offense 276
 
 GL DOCTRINE: 5 wall (Rey, Lord Vader, Supreme Leader Kylo Ren, Leia Organa, Ahsoka Tano); the other 4 attack
 
-BOARD, structure `free`   denial 1342 / 2082   offense 1120   net +380
+BOARD, structure `free`   denial 1353 / 2082   offense 1072   net +343
 
-== FRONT-A  phase01_conflict01  gates the 3 FLEETS   P(holds) 75%, 707 banners ride on it
-    31.5% (raw 31.9 n=143,000)    [1] Lord Vader / CC-1119 "Appo" / CX-2
-        cron HZ5tOF3TQGev9YIE-gF7Eg  set 33 L4  scope darkside  (3/3 units)
-    28.1% (raw 33.3 n= 10,000)    [2] Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
+== FRONT-A  phase01_conflict01  gates the 3 FLEETS   P(holds) 74%, 707 banners ride on it
+    28.1% (raw 33.3 n= 10,000)    [1] Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
         cron C9xVm3l3Q3i1rb4PLFynwQ  set 33 L9  scope darkside>firstorder>kylorenunmasked  (1/3 units)
-    25.2% (raw 26.3 n= 40,000) DC [3] Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
-        cron X09cqmfARYiVWAbOD0xqdg  set 32 L6  scope tank>support  (2/3 units)
-    17.8% (raw 18.0 n= 87,000)    [4] Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
-        cron ClvpcGYSTEaRWc3gnPYWMw  set 34 L3  scope darkside  (3/3 units)
-    17.3% (raw 17.7 n= 44,100)    [5] Stormtrooper Luke / Princess Leia / Stormtrooper Han
-
-== FRONT-B  phase01_conflict02  gates BACK-B   P(holds) 75%, 805 banners ride on it
-    31.2% (raw 32.3 n= 57,100)    [1] Rey / Ben Solo / Luminara Unduli
-        cron 3CGBb-AfT1iYI8jOBugMnw  set 33 L9  scope lightside>resistance>glrey  (1/3 units)
     26.7% (raw 27.2 n= 91,100)    [2] Ahsoka Tano / Ezra Bridger (Exile) / Huyang
     25.4% (raw 26.6 n= 36,200)    [3] Leia Organa / Captain Drogan / R2-D2
         cron _bf0z47YQfqk1o2u8EB1bA  set 33 L6  scope lightside>resistance  (1/3 units)
     19.6% (raw 20.4 n= 31,100)    [4] Great Mothers / Morgan Elsbeth / Nightsister Spirit
         cron 49T9LlEsQdCvX8r8dmdwow  set 34 L3  scope darkside  (3/3 units)
-    18.6% (raw 22.4 n=  5,979)    [5] Maul / Gar Saxon / Imperial Super Commando
+    17.8% (raw 18.0 n= 87,000)    [5] Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
+        cron ClvpcGYSTEaRWc3gnPYWMw  set 34 L3  scope darkside  (3/3 units)
+
+== FRONT-B  phase01_conflict02  gates BACK-B   P(holds) 76%, 805 banners ride on it
+    31.5% (raw 31.9 n=143,000)    [1] Lord Vader / CC-1119 "Appo" / CX-2
+        cron HZ5tOF3TQGev9YIE-gF7Eg  set 33 L4  scope darkside  (3/3 units)
+    31.2% (raw 32.3 n= 57,100)    [2] Rey / Ben Solo / Luminara Unduli
+        cron 3CGBb-AfT1iYI8jOBugMnw  set 33 L9  scope lightside>resistance>glrey  (1/3 units)
+    25.2% (raw 26.3 n= 40,000) DC [3] Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
+        cron X09cqmfARYiVWAbOD0xqdg  set 32 L6  scope tank>support  (2/3 units)
+    18.6% (raw 22.4 n=  5,979)    [4] Maul / Gar Saxon / Imperial Super Commando
         cron 9c0ab_AzSEi3zx4WzcyDAQ  set 34 L3  scope darkside  (3/3 units)
+    17.3% (raw 17.7 n= 44,100)    [5] Stormtrooper Luke / Princess Leia / Stormtrooper Han
 
 == BACK-B   phase02_conflict02   P(holds) 54%
     15.6% (raw 17.2 n=  8,782)    [1] Cere Junda / Cal Kestis / Taron Malicos

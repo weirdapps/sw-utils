@@ -165,10 +165,22 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    otherwise have taken those banners — Astra's board was cleared 14/14, so it denied zero. An attacker
    earns its banners *and* can be the squad that conquers a territory, worth 210-240 more plus the lane
    behind it. Re-run `gac_doctrine.py` when the meta shifts; don't reason about it from Hold%.
-   ⛔⛔ **THAT RULE IS 5v5 ONLY. IN 3v3 IT IS BACKWARDS, MEASURED 2026-09-11.** Re-run against the
-   live Kyber 3v3 tier list (15 def + 15 off, ILP + exhaustive zone split), four doctrines scored in
-   banners: **free optimisation 2,884** (7 GLs walling) · all GLs wall 2,865 · only-GL-Rey-walls 2,771 ·
-   **rule 7, all GLs attack, 2,715**. So rule 7 costs **169 banners a round** in 3v3.
+   ⛔⛔ **THAT RULE IS 5v5 ONLY. IN 3v3 IT IS BACKWARDS, AND THE ANSWER IS FOUR OR FIVE GLs, NOT
+   NINE (re-measured 2026-09-11 on a corrected pool).** The first 3v3 measurement that day said
+   "7 GLs wall, rule 7 costs 169 banners" and was run on a tier list that had silently lost 100 of
+   156 rows, so the fieldable defensive pool looked like 48 squads when it is 121 and the deep
+   non-GL bench was invisible. `gac3v3_board.py --doctrine` sweeps K = 0..9 GLs walling against the
+   full pool and peaks at **K = 4 or 5 at every offence-conversion assumption** (r = 1.0 down to
+   0.37); K = 0 costs 145 banners, K = 9 costs 14. Rank the GLs by hold divided by win and take the
+   top of that list, which is **GL Rey · Lord Vader · SLKR · GL Leia · GL Ahsoka walling, JML ·
+   Jabba · JMK · SEE attacking**. Two independent routes landed on that same nine-unit split.
+   ⚠ **Rule 7's stated reason for GL Rey is FALSE in 3v3.** She does have an offence row:
+   `Rey / Ben Solo / Rey (Jedi Training)`, 76.8% on n=3,715, offence rank 19. She still walls,
+   because that is the weakest GL attack row on the account against the best wall in the format.
+   ⚠ **Her defensive third is Luminara Unduli, not Rey (Jedi Training); GL Ahsoka's is Huyang, not
+   Padawan Sabine.** Both squads differ between the offence and defence builds, so reusing a saved
+   offence preset on defence quietly costs the hold. Against Rey/Ben Solo/Luminara, JMK wins 22%
+   and JML 6%; swap in Rey (Jedi Training) and those become 77% and 70%.
    The mechanism is pool depth, not GL strength: the 3v3 non-GL OFFENCE pool is deep (Darth Malgus
    93.6% n=62.6K, Darth Bane + Count Dooku 88.9% n=101K, Satele 87.7% n=130K, Ugnaught 86.2%), while the
    non-GL DEFENCE pool falls off a cliff after The Stranger / Cassian / Bo-Katan: 20.4%, then 17.5%,
@@ -197,6 +209,25 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    ⚠ **Time-boxed:** the 79% is measured with Set 31 live, whose L6 is Old Republic, and
    **Set 31 expires 2026-09-03**. Expect the rate to soften after that.
 9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
+   ⭐ **A GAC fleet is capital + 3 starters + up to 4 reinforcements, 8 tiles, IDENTICAL in 3v3 and
+   5v5** (swgoh.wiki gives squads separate 3v3/5v5 banner charts but fleets a single shared one, so
+   S82 5v5 fleet data is directly usable in 3v3). Kyber gets 3 fleet slots in both formats.
+   ⛔ **FILL ALL 7 NON-CAPITAL SLOTS.** Unlike TW, undersizing a DEFENSIVE fleet donates banners:
+   the chart pays the attacker 73 for a full 7 and 79 for a solo. The live board's Leviathan has
+   only 6 and is giving one away.
+   **Kyber defensive hold, first-party (`data/meta/tierlist_fleet_def_kyber_s82_20260911.json`):**
+   Leviathan 22.5% (n=17.8K) · Profundity 24.9% (NOT owned) · Chimaera 19.2% (n=1,990) ·
+   Executor 15.4% (n=28.8K) · Home One 13.7% · Negotiator 12.8% · Endurance 10.2% · Executrix 8.3% ·
+   Raddus 7.1% · Malevolence 5.6% · Finalizer 2.9%. Best owned triple: **Leviathan + Chimaera +
+   Executor**, no shared ship, P(fleet territory holds) 44%.
+   ⚠ **The GAC Leviathan and the FLEET ARENA Leviathan are different lineups on this account.** The
+   arena one runs Scimitar / Scythe / TIE Bomber / TIE Defender; the one on the GAC board is all
+   Sith (Sith Bomber / Fury / TIE Dagger / Sith Supremacy / Sith Fighter / Sith Infiltrator) and is
+   **missing B-28 Extinction-class Bomber**, the meta build's third starter. Do not reason about one
+   from the other, and check the live board rather than the arena notes.
+   ⚠ **Never build a defensive fleet around a specific reinforcement arriving first.** Your
+   left-to-right order is only a tiebreaker inside the AI's own priority tiers, and ships jump tiers
+   on battlefield conditions nobody has mapped (swgoh.wiki, Ship Reinforcement Order Priority List).
 
 ## Pipeline order (run them in this order — each reads the previous one's output)
 ```
@@ -225,9 +256,23 @@ the live event was 3v3. **Read the mapId first, then pick the tier list.**
   **707**. A back-zone hold is worth only its own 260. **A front hold is ~2.5x a back hold.**
 - ⛔ **THE ERROR THIS ACCOUNT KEEPS MAKING: the five best walls sit in the BACK zone.** On the live
   S83 board The Stranger, GL Ahsoka, Jabba, GL Leia and Lord Vader were all in `phase02_conflict02`,
-  behind a front that was cleared 5/5. Re-assigning the SAME 15 squads is worth **+126 banners** and
-  lifts P(front holds) from 58%/64% to 75%/76%. **Spread the top 10 across the two fronts, do not
-  stack one**: P(zone holds) = 1 - prod(1 - h_i) is concave, so balancing beats concentrating.
+  behind a front that was cleared 5/5. The opponent scored **exactly 1091 = 545 + 545**: front-B and
+  the whole lane behind it, and never touched front-A. Re-assigning the SAME 15 squads is worth
+  **+171 banners** on this repo's model and **+59 to +69** on an independently built one; both agree
+  it is the single biggest lever on the board.
+- ⭐ **Get the top 10 out of the back zone, then STOP optimising the split.** Front-versus-back is
+  worth 59-171 banners; balanced-versus-stacked is worth **0.1 to 12**. Two models measured that
+  ratio at 14x and 76x. Balancing still wins on principle (P(zone holds) = 1 - prod(1 - h_i) is
+  concave, so balancing beats concentrating) and nothing published defends stacking one front, but
+  it is a rounding error next to getting the walls out of `phase02_conflict02`.
+- **Which front gets the stronger half depends on the FLEET zone's own hold, q.** Below q ~20%
+  front-A leads, because it is then the only thing between the attacker and 219 + 3x76; above it
+  front-B leads. With the best owned fleets walling, q = 44%, so **front-B takes the stronger half.**
+- ⚠ **`1 - Win%` IS NEVER A HOLD RATE.** swgoh.gg measures the two against different populations:
+  Win% over the squads that qualify as counters, Hold% over all attackers. A subagent derived fleet
+  holds by inverting `/gac/ship-counters/` win rates and got a table **anti-correlated** with the
+  real one (Profundity 2% against an actual 24.9%, Executrix 22% against an actual 8.3%). Both
+  columns are in `data/meta/`; use the right one.
 - **Shrink small-n rates before ranking.** `adj = (n*rate + 3000*pool_mean)/(n + 3000)`. Without it a
   35.9% hold on n=375 outranks a 25.7% on n=86.3K. The tier list ships plenty of n<500 rows.
 - ⚠ **The stored rates in this repo are systematically PESSIMISTIC and go stale fast.** The live
