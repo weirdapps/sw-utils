@@ -35,7 +35,7 @@
      "gear": 13, "relic": 5,
      "note": "THE 2026-08-17 REGRESSION. The file said 'gear 5-7, zero relics'. They are G13 R5. Keep this claim so the wrong reading cannot come back."},
     {"id": "order66-jocasta-no-relic", "source": "memory/order66-raid-mechanics.md",
-     "unit": "JOCASTANU", "gear": 12, "relic": 0,
-     "note": "The one genuine non-relic in that squad — which is why the badge looked inconsistent"}
+     "unit": "JOCASTANU", "gear": 13, "relic": 5,
+     "note": "WAS G12 R0 on 2026-08-17 and was the one genuine non-relic in that squad, which is why the badge looked inconsistent. She has since been geared to G13 R5, so the counter-example is gone: every unit in the Order 66 Jedi squad is now G13 R5+. Updated 2026-09-11 after this claim failed. The badge lesson it protects is unchanged, Arabic numeral in the cog is RELIC and Roman is GEAR."}
   ]
 }
