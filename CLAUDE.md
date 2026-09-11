@@ -267,6 +267,16 @@ GL Leia 99-100% in GAC and lost twice here.
   BlueStacks client** with `CONNECTION LOST / Your session has expired`. Harmless, tap RELOAD, but do
   not do it mid-battle.
 
+## Order 66 raid: auto caps it, but the AUTO toggle drops mid-battle (2026-09-11)
+All 5 attempts scored the **300,000 per-attempt maximum on AUTO** with the faction-pure Jedi squad
+**Qui-Gon Jinn (L) / Kit Fisto / Ima-Gun Di / Eeth Koth / Jocasta Nu at only 116,604 power**, for
+1,397,500 of 1,500,000 and rank 2 in the guild. Faction purity beats power here, as
+`memory/notes.md` already said.
+⚠️ **The raid swaps you onto a DARK SIDE squad for the boss phase and AUTO silently switches OFF.**
+The battle then sits frozen and the score stops moving, which reads exactly like a long fight.
+**Poll the score; if it is unchanged across two polls, re-tap AUTO.** A naive "wait N minutes then
+submit" loop loses the attempt. Rewards pay out when the raid CLOSES, not per attempt.
+
 ## Territory War — the board is DATA, not a solver (rebuilt 2026-08-26)
 TW is its own mode: it shares no units with GAC, defense banks a **flat +30 per squad** the moment it is
 set (a fleet +34), and the map holds 390 slots against a **guild-wide, first-come** pool.
