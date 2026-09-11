@@ -1,3 +1,4 @@
+OVERRIDE  Rotta the Hutt hold set to 25.0% (1 squad(s)). This is an ASSUMPTION, not published data.
 roster  swgoh_roster_fresh_20260911.json  (331 characters, 321 at G13+)
 def     SWGOH GAC 3v3 Squad Defense Tier List — Season 81 -   121 fieldable, prior 10.9%
 off     SWGOH GAC 3v3 Squad Offense Tier List — Season 81 -   124 fieldable, prior 61.1%
@@ -8,30 +9,30 @@ FLEETS  (ships are single-use too, so a capital that walls cannot attack)
   attack:  Negotiator 79.1% (raw 79.3%, n=14,300), Home One 77.3% (raw 76.3%, n=1,805), Raddus 74.9% (raw 71.9%, n=2,964)
   P(fleet territory holds) = 44%   expected denial 34, expected offense 276
 
-GL DOCTRINE: 5 wall (Rey, Lord Vader, Supreme Leader Kylo Ren, Leia Organa, Ahsoka Tano); the other 4 attack
+PINNED  wall: Rotta the Hutt, Jabba the Hutt, Rey, Lord Vader, Ahsoka Tano
+        attack: Leia Organa, Supreme Leader Kylo Ren
 
-BOARD, structure `free`   denial 1353 / 2082   offense 1072   net +343
+BOARD, structure `free`   denial 1332 / 2082   offense 1097   net +347
 
-== FRONT-A  phase01_conflict01  gates the 3 FLEETS   P(holds) 74%, 707 banners ride on it
-    28.1% (raw 33.3 n= 10,000)    [1] Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
-        cron C9xVm3l3Q3i1rb4PLFynwQ  set 33 L9  scope darkside>firstorder>kylorenunmasked  (1/3 units)
-    26.7% (raw 27.2 n= 91,100)    [2] Ahsoka Tano / Ezra Bridger (Exile) / Huyang
-    25.4% (raw 26.6 n= 36,200)    [3] Leia Organa / Captain Drogan / R2-D2
-        cron _bf0z47YQfqk1o2u8EB1bA  set 33 L6  scope lightside>resistance  (1/3 units)
-    19.6% (raw 20.4 n= 31,100)    [4] Great Mothers / Morgan Elsbeth / Nightsister Spirit
-        cron 49T9LlEsQdCvX8r8dmdwow  set 34 L3  scope darkside  (3/3 units)
+== FRONT-A  phase01_conflict01  gates the 3 FLEETS   P(holds) 73%, 707 banners ride on it
+    31.5% (raw 31.9 n=143,000)    [1] Lord Vader / CC-1119 "Appo" / CX-2
+        cron HZ5tOF3TQGev9YIE-gF7Eg  set 33 L4  scope darkside  (3/3 units)
+    25.0% (raw 25.0 n=    665) DC [2] Rotta the Hutt / Cad Bane / Gamorrean Guard
+        cron Lj_hRktRR9Wlrwrg4shybQ  set 33 L15  scope greedo>cadbane>raccoon  (1/3 units)
+    20.3% (raw 20.5 n=175,000)    [3] Jabba the Hutt / Boushh (Leia Organa) / Krrsantan
+    18.6% (raw 22.4 n=  5,979)    [4] Maul / Gar Saxon / Imperial Super Commando
+        cron 9c0ab_AzSEi3zx4WzcyDAQ  set 34 L3  scope darkside  (3/3 units)
     17.8% (raw 18.0 n= 87,000)    [5] Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
         cron ClvpcGYSTEaRWc3gnPYWMw  set 34 L3  scope darkside  (3/3 units)
 
-== FRONT-B  phase01_conflict02  gates BACK-B   P(holds) 76%, 805 banners ride on it
-    31.5% (raw 31.9 n=143,000)    [1] Lord Vader / CC-1119 "Appo" / CX-2
-        cron HZ5tOF3TQGev9YIE-gF7Eg  set 33 L4  scope darkside  (3/3 units)
-    31.2% (raw 32.3 n= 57,100)    [2] Rey / Ben Solo / Luminara Unduli
+== FRONT-B  phase01_conflict02  gates BACK-B   P(holds) 75%, 805 banners ride on it
+    31.2% (raw 32.3 n= 57,100)    [1] Rey / Ben Solo / Luminara Unduli
         cron 3CGBb-AfT1iYI8jOBugMnw  set 33 L9  scope lightside>resistance>glrey  (1/3 units)
+    26.7% (raw 27.2 n= 91,100)    [2] Ahsoka Tano / Ezra Bridger (Exile) / Huyang
     25.2% (raw 26.3 n= 40,000) DC [3] Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
         cron X09cqmfARYiVWAbOD0xqdg  set 32 L6  scope tank>support  (2/3 units)
-    18.6% (raw 22.4 n=  5,979)    [4] Maul / Gar Saxon / Imperial Super Commando
-        cron 9c0ab_AzSEi3zx4WzcyDAQ  set 34 L3  scope darkside  (3/3 units)
+    19.6% (raw 20.4 n= 31,100)    [4] Great Mothers / Morgan Elsbeth / Nightsister Spirit
+        cron 49T9LlEsQdCvX8r8dmdwow  set 34 L3  scope darkside  (3/3 units)
     17.3% (raw 17.7 n= 44,100)    [5] Stormtrooper Luke / Princess Leia / Stormtrooper Han
 
 == BACK-B   phase02_conflict02   P(holds) 54%
@@ -47,14 +48,14 @@ BOARD, structure `free`   denial 1353 / 2082   offense 1072   net +343
 == OFFENCE (15), unit-disjoint from every wall above
    O1   93.4% (raw 94.9 n= 62,600) 3u  Darth Malgus / Darth Malak / Darth Revan
    O2   90.1% (raw 91.3 n= 69,600) 3u  The Stranger / Maul (Hate-Fueled) / Starkiller
-   O3   89.0% (raw 90.6 n= 53,400) 2u  Sith Eternal Emperor / Darth Bane
-   O4   87.6% (raw 88.2 n=130,000) 3u  Satele Shan / Bastila Shan / Jedi Knight Revan
-   O5   86.6% (raw 87.3 n=106,000) 3u  Jedi Master Luke Skywalker / Jedi Knight Cal Kestis / Jedi Knight Luke Skywalker
-   O6   86.5% (raw 87.2 n=110,000) 3u  Darth Traya / Darth Nihilus / Savage Opress
-   O7   86.5% (raw 87.2 n=102,000) 3u  Jedi Master Kenobi / Commander Ahsoka Tano / General Kenobi
-   O8   85.7% (raw 87.9 n= 33,700) 3u  Ugnaught / Ezra Bridger / Hondo Ohnaka
-   O9   84.2% (raw 84.9 n= 98,000) 3u  Queen Amidala / Master Qui-Gon / Padawan Obi-Wan
-   O10  83.5% (raw 84.9 n= 47,700) 3u  Jabba the Hutt / Boushh (Leia Organa) / Krrsantan
+   O3   89.8% (raw 90.6 n=109,000) 3u  Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
+   O4   89.0% (raw 90.6 n= 53,400) 2u  Sith Eternal Emperor / Darth Bane
+   O5   87.6% (raw 88.2 n=130,000) 3u  Satele Shan / Bastila Shan / Jedi Knight Revan
+   O6   86.6% (raw 87.3 n=106,000) 3u  Jedi Master Luke Skywalker / Jedi Knight Cal Kestis / Jedi Knight Luke Skywalker
+   O7   86.5% (raw 87.2 n=110,000) 3u  Darth Traya / Darth Nihilus / Savage Opress
+   O8   86.5% (raw 87.2 n=102,000) 3u  Jedi Master Kenobi / Commander Ahsoka Tano / General Kenobi
+   O9   85.7% (raw 87.9 n= 33,700) 3u  Ugnaught / Ezra Bridger / Hondo Ohnaka
+   O10  84.2% (raw 84.9 n= 98,000) 3u  Queen Amidala / Master Qui-Gon / Padawan Obi-Wan
    O11  83.4% (raw 88.6 n= 12,800) 3u  Dark Trooper Moff Gideon / Moff Gideon / Scout Trooper
    O12  83.3% (raw 84.0 n= 97,600) 3u  Baylan Skoll / Marrok / Shin Hati
    O13  82.9% (raw 83.9 n= 66,900) 3u  General Skywalker / CT-5555 "Fives" / CT-7567 "Rex"
@@ -62,56 +63,19 @@ BOARD, structure `free`   denial 1353 / 2082   offense 1072   net +343
    O15  82.5% (raw 83.2 n= 93,800) 3u  Bo-Katan (Mand'alor) / IG-12 & Grogu / The Mandalorian (Beskar Armor)
 
 wrote output/gac3v3_board_r3.json
+wrote output/gac3v3_upload_payload.json  (30 definitions, longest name 14 chars)
 
-== FLEETS  (the preset API rejects combatType 2, so these are set by hand in game)
-   Fill all 7 non-capital slots: an undersized DEFENSIVE fleet lets the attacker
-   cap at 74 instead of 73. Opposite of the TW rule. P(fleet territory holds) 44%.
-
-   DEFEND  phase02_conflict01 slot 1
-     Leviathan  21.3% (raw 22.5, n=17.8K)
-       start  Fury-class Interceptor / B-28 Extinction-class Bomber / TIE Dagger
-       reinf  Sith Fighter / Scimitar / Mark VI Interceptor / TIE Defender
-
-   DEFEND  phase02_conflict01 slot 2
-     Chimaera   16.1% (raw 19.2, n=1,990)
-       start  Scythe / TIE Advanced x1 / Imperial TIE Bomber
-       reinf  Imperial TIE Fighter / Emperor's Shuttle / Gauntlet Starfighter / TIE Reaper
-
-   DEFEND  phase02_conflict01 slot 3
-     Executor   15.3% (raw 15.4, n=28.8K)
-       start  Punishing One / Razor Crest / Xanadu Blood
-       reinf  Hound's Tooth / Slave I / IG-2000 / Han's Millennium Falcon
-
-   ATTACK  (yours to play)
-     Negotiator 79.1% (raw 79.3, n=14.3K)
-       start  Anakin's Eta-2 Starfighter / Marauder / BTL-B Y-wing Starfighter
-       reinf  Plo Koon's Jedi Starfighter / Ahsoka Tano's Jedi Starfighter / Umbaran Starfighter / Rex's ARC-170
-
-   ATTACK  (yours to play)
-     Home One   77.3% (raw 76.3, n=1,805)
-       start  Raven's Claw / Cassian's U-wing / Biggs Darklighter's X-wing
-       reinf  Ghost / Phantom II / Outrider / Rebel Y-wing
-
-   ATTACK  (yours to play)
-     Raddus     74.9% (raw 71.9, n=2,964)
-       start  MG-100 StarFortress SF-17 / Rey's Millennium Falcon / Poe Dameron's X-wing
-       reinf  Resistance X-wing / Wedge Antilles's X-wing / Bistan's U-wing / Rogue One
-       !! MG-100 StarFortress SF-17 is 6*
-
-   ships used twice: none   (fleets are single-use, like characters)
-
-== PLACED IN GAME 2026-09-11 13:5x, during the Round-1 attack phase
-   EDIT DEFENSE is live during the attack phase and the changes deploy at the next one, so this
-   did not have to wait for the reset. All three character zones cleared first (units are locked
-   while placed), then filled from the pushed presets.
-   Verified by reading squad POWER back per zone against the payload, 15 of 15 exact:
-     front-A  132,738 / 123,521 / 127,380 /  90,324 /  95,352
-     front-B  118,727 / 126,304 /  93,585 /  92,551 /  89,744
-     back-B    92,441 /  82,097 /  87,135 /  79,585 /  97,668
-   Datacrons attached: GL Rey the set-33 L9 lightside>resistance>glrey (the #2 defensive cron in
-   the game, 30.9% on n=131K) and SLKR the set-33 L9 darkside>firstorder>kylorenunmasked (#4,
-   28.7%). Both showed a full Lvl 9 with no relic downgrade.
-   FLEETS LEFT AS THEY WERE: Leviathan / Executor / Negotiator. A defensive fleet cannot be edited
-   in place, only removed and rebuilt by hand, so the Chimaera-for-Negotiator swap (worth about 4
-   banners, and it trades n=31.8K for n=1,990) and filling Leviathan's empty 8th slot (worth 1)
-   were both declined as bad risk trades.
+== PLACED IN GAME 2026-09-11 ~15:0x  (revision 2, owner's personnel change)
+   SLKR and GL Leia freed for OFFENCE; Jabba and Rotta wall in their place. Four GLs now wall
+   (GL Rey, Lord Vader, GL Ahsoka, Jabba), which is inside the measured 4-5 optimum.
+   Verified by reading squad POWER back per zone, 15 of 15 exact:
+     front-A  118,727 LordVader / 102,617 Rotta / 122,858 Jabba /  92,551 Maul /  95,352 EmpPalp
+     front-B   93,585 Cassian  /  89,744 STLuke /126,304 GL Rey / 123,521 GLAhsoka / 90,324 GreatMoms
+     back-B    unchanged from revision 1
+   Datacrons: Rotta carries the set-33 LEVEL 15 Hutt Cartel cron at FULL level, no relic downgrade,
+   and the picker's "does not apply" warning is gone, so all three units are in scope. GL Rey keeps
+   her set-33 L9. SLKR's cron is freed with him.
+   ⚠ Rotta is modelled at 25% hold, which is an ASSUMPTION (--rate-override), not published data.
+   Published is 12.6% raw on n=665 across players who do not hold this cron. Break-even for the
+   whole swap is 24.5%. The datacron tier list puts squads running this exact focused cron at 29.8%
+   on n=77.4K, but that is a Season 82 (5v5) sample.

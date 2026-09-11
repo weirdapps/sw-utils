@@ -328,7 +328,7 @@ def gl_ratio_order(dpool, opool):
 # ------------------------------------------------------------------- selection
 def select(def_pool, off_pool, fleets_def, fleets_off, n_def=15, n_off=15,
            passes=4, verbose=False, realization=1.0,
-           ban_def=None, ban_off=None):
+           ban_def=None, ban_off=None, force_def=()):
     """Greedy plus local search over which squads defend and which attack.
 
     Units are single-use across the WHOLE format (rule 2), so choosing a squad for
@@ -355,7 +355,21 @@ def select(def_pool, off_pool, fleets_def, fleets_off, n_def=15, n_off=15,
     def m_off(i):
         return off_pool[i]["rate"] * gs.battle_banners("3v3", team_size=off_pool[i]["size"])
 
+    # Pinned walls go down first and their units are then unavailable to offence.
+    # `force_def` is a list of unit names; the best fieldable squad containing each
+    # is taken. Local search below is not allowed to swap them out.
     used, dsel, osel = set(), [], []
+    pinned = set()
+    for want in force_def:
+        cand = [i for i, s in enumerate(def_pool)
+                if want in s["names"] and i not in dsel and not (used & set(s["bases"]))]
+        if not cand:
+            raise SystemExit(f"--pin-def {want!r}: no fieldable squad left containing it")
+        i = max(cand, key=lambda j: def_pool[j]["rate"])
+        dsel.append(i)
+        pinned.add(len(dsel) - 1)
+        used |= set(def_pool[i]["bases"])
+
     while len(dsel) < n_def or len(osel) < n_off:
         cand = []
         if len(dsel) < n_def:
@@ -379,6 +393,8 @@ def select(def_pool, off_pool, fleets_def, fleets_off, n_def=15, n_off=15,
         improved = False
         for side, sel, pool in (("d", dsel, def_pool), ("o", osel, off_pool)):
             for pos in range(len(sel)):
+                if side == "d" and pos in pinned:
+                    continue
                 cur = sel[pos]
                 others = set()
                 for j, k in enumerate(dsel):
@@ -520,6 +536,7 @@ LEADER_SHORT = {
     "Dark Trooper Moff Gideon": "DTGideon", "General Skywalker": "GAS",
     "Tusken Chieftain": "Tusken", "Qui-Gon Jinn": "QuiGon",
     "Kelleran Beq": "Kelleran", "Admiral Raddus": "AdmRaddus",
+    "Rotta the Hutt": "Rotta", "Great Mothers": "GreatMoms",
     "The Stranger": "Stranger", "Darth Malgus": "Malgus", "Darth Traya": "Traya",
     "Baylan Skoll": "Baylan", "Cere Junda": "Cere", "Ugnaught": "Ugnaught",
 }
@@ -547,6 +564,15 @@ def main():
                     help="price GLs-wall against GLs-attack, swept over offense realization")
     ap.add_argument("--fleets-on-defense", action="store_true",
                     help="force the three best DEFENSIVE capitals into the fleet territory")
+    ap.add_argument("--rate-override", default="", metavar="NAME=PCT[,...]",
+                    help="override a defensive squad's shrunk hold, e.g. "
+                         "'Rotta the Hutt=25'. Use when the account holds a cron the published "
+                         "sample does not, and SAY SO in the writeup: it is an assumption, not data")
+    ap.add_argument("--pin-def", default="", metavar="NAMES",
+                    help="comma-separated unit names that MUST wall (their best fieldable squad "
+                         "is taken and locked, and their units are barred from offence)")
+    ap.add_argument("--pin-off", default="", metavar="NAMES",
+                    help="comma-separated unit names that MUST attack (barred from defence)")
     ap.add_argument("--gl-wall", type=int, default=None, metavar="K",
                     help="force the K best-walling Galactic Legends onto defense "
                          "and the rest onto offense (see --doctrine for the sweep)")
@@ -566,6 +592,18 @@ def main():
     opool, oprior, _, otitle = load_squads(OFF_TIERLIST, "win", chars, args.min_gear)
     fdef, _ = load_fleets(FLEET_DEF, "hold", ships)
     foff, _ = load_fleets(FLEET_OFF, "win", ships)
+
+    for spec in (s for s in args.rate_override.split(",") if s.strip()):
+        name, _, pct = spec.rpartition("=")
+        hits = [s for s in dpool if name.strip() in s["names"]]
+        if not hits:
+            sys.exit(f"--rate-override {name!r}: no fieldable defensive squad has that unit")
+        for s in hits:
+            s["rate"] = float(pct) / 100.0
+            s["raw"] = float(pct)
+        dpool.sort(key=lambda s: -s["rate"])
+        print(f"OVERRIDE  {name.strip()} hold set to {float(pct):.1f}% "
+              f"({len(hits)} squad(s)). This is an ASSUMPTION, not published data.")
 
     print(f"roster  {os.path.basename(rpath)}  ({len(chars)} characters, "
           f"{sum(1 for c in chars.values() if (c.get('g') or 0) >= 13)} at G13+)")
@@ -645,6 +683,7 @@ def main():
         return
 
     bd = bo = None
+    force = [n.strip() for n in args.pin_def.split(",") if n.strip()]
     if args.gl_wall is not None:
         order, _ = gl_ratio_order(dpool, opool)
         wall, attack = set(order[:args.gl_wall]), set(order[args.gl_wall:])
@@ -652,10 +691,16 @@ def main():
         bo = lambda s: any(u in wall for u in s["names"])     # noqa: E731
         print(f"GL DOCTRINE: {args.gl_wall} wall ({', '.join(order[:args.gl_wall])}); "
               f"the other {9-args.gl_wall} attack\n")
+    if args.pin_off or force:
+        must_attack = {n.strip() for n in args.pin_off.split(",") if n.strip()}
+        bd = lambda s: any(u in must_attack for u in s["names"])   # noqa: E731
+        bo = lambda s: any(u in set(force) for u in s["names"])    # noqa: E731
+        print(f"PINNED  wall: {', '.join(force) or 'none'}\n"
+              f"        attack: {', '.join(sorted(must_attack)) or 'none'}\n")
 
     dsel, osel, _, dpool, opool = select(dpool, opool, fleets_def, fleets_off,
                                          realization=args.realization,
-                                         ban_def=bd, ban_off=bo)
+                                         ban_def=bd, ban_off=bo, force_def=force)
     holds = [dpool[i]["rate"] for i in dsel]
 
     names = list(SPLITTERS) if args.compare else [args.structure]

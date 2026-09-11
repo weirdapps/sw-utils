@@ -347,6 +347,11 @@ GL Leia 99-100% in GAC and lost twice here.
 - ⚠ **`gac/get {refresh:true}` and `account/data/all` log HotUtils into the game account and KICK the
   BlueStacks client** with `CONNECTION LOST / Your session has expired`. Harmless, tap RELOAD, but do
   not do it mid-battle.
+  ⛔ **`squads/upsert` and `squads/game/set` DO IT TOO, and that is worse**, because those are the
+  calls you make while setting a board. On 2026-09-11 a `--sync` plus a preset push fired mid-way
+  through clearing a GAC zone and the client dropped; the in-flight removals were silently discarded
+  (nothing was corrupted, but nothing had committed either). **Do every HotUtils write BEFORE opening
+  the game, never interleaved with device work**, and re-read the board after any reload.
 
 ## Order 66 raid: auto caps it, but the AUTO toggle drops mid-battle (2026-09-11)
 All 5 attempts scored the **300,000 per-attempt maximum on AUTO** with the faction-pure Jedi squad
