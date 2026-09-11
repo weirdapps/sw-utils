@@ -290,8 +290,34 @@ def split_balanced(holds, fleets):
                         [holds[i] for i in kb], fleets), (fa, fb, kb)
 
 
+def split_explicit(holds, fleets, names="", leaders=()):
+    """Zone assignment dictated by name, for when the owner has decided the shape.
+
+    `names` is 'A:leader,leader,...|B:leader,...'; whatever is left over goes to the
+    back. Exists so a hand-chosen board is reproducible and priced by the same model
+    as the optimiser's, instead of being typed into the game and forgotten.
+    """
+    want = {}
+    for part in names.split("|"):
+        tag, _, lst = part.partition(":")
+        want[tag.strip().upper()] = [x.strip() for x in lst.split(",") if x.strip()]
+    idx = {}
+    for i, ldr in enumerate(leaders):
+        idx.setdefault(ldr, []).append(i)
+    fa, fb = [], []
+    for tag, bucket in (("A", fa), ("B", fb)):
+        for n in want.get(tag, []):
+            if not idx.get(n):
+                raise SystemExit(f"--layout: {n!r} is not on the selected board")
+            bucket.append(idx[n].pop(0))
+    kb = [i for i in range(len(holds)) if i not in fa and i not in fb]
+    return board_denial([holds[i] for i in fa], [holds[i] for i in fb],
+                        [holds[i] for i in kb], fleets), (fa, fb, kb)
+
+
 SPLITTERS = {
     "free": split_exhaustive,
+    "explicit": split_explicit,
     "owner": split_owner,
     "balanced": split_balanced,
     "back": split_stacked_back,
@@ -537,6 +563,7 @@ LEADER_SHORT = {
     "Tusken Chieftain": "Tusken", "Qui-Gon Jinn": "QuiGon",
     "Kelleran Beq": "Kelleran", "Admiral Raddus": "AdmRaddus",
     "Rotta the Hutt": "Rotta", "Great Mothers": "GreatMoms",
+    "Boba Fett, Scion of Jango": "BobaSoJ",
     "The Stranger": "Stranger", "Darth Malgus": "Malgus", "Darth Traya": "Traya",
     "Baylan Skoll": "Baylan", "Cere Junda": "Cere", "Ugnaught": "Ugnaught",
 }
@@ -564,6 +591,9 @@ def main():
                     help="price GLs-wall against GLs-attack, swept over offense realization")
     ap.add_argument("--fleets-on-defense", action="store_true",
                     help="force the three best DEFENSIVE capitals into the fleet territory")
+    ap.add_argument("--layout", default="", metavar="A:...|B:...",
+                    help="with --structure explicit, name the leaders in each FRONT zone; "
+                         "everything else falls to the back")
     ap.add_argument("--rate-override", default="", metavar="NAME=PCT[,...]",
                     help="override a defensive squad's shrunk hold, e.g. "
                          "'Rotta the Hutt=25'. Use when the account holds a cron the published "
@@ -703,8 +733,15 @@ def main():
                                          ban_def=bd, ban_off=bo, force_def=force)
     holds = [dpool[i]["rate"] for i in dsel]
 
-    names = list(SPLITTERS) if args.compare else [args.structure]
-    results = {n: SPLITTERS[n](holds, fd) for n in names}
+    leaders = [dpool[i]["leader"] for i in dsel]
+    names = [n for n in SPLITTERS if n != "explicit"] if args.compare else [args.structure]
+
+    def run(n):
+        if n == "explicit":
+            return split_explicit(holds, fd, args.layout, leaders)
+        return SPLITTERS[n](holds, fd)
+
+    results = {n: run(n) for n in names}
     offv = offense_value([opool[i]["rate"] for i in osel], fo, args.realization)
 
     if args.compare:
