@@ -99,3 +99,19 @@ wrote output/gac3v3_board_r3.json
        !! MG-100 StarFortress SF-17 is 6*
 
    ships used twice: none   (fleets are single-use, like characters)
+
+== PLACED IN GAME 2026-09-11 13:5x, during the Round-1 attack phase
+   EDIT DEFENSE is live during the attack phase and the changes deploy at the next one, so this
+   did not have to wait for the reset. All three character zones cleared first (units are locked
+   while placed), then filled from the pushed presets.
+   Verified by reading squad POWER back per zone against the payload, 15 of 15 exact:
+     front-A  132,738 / 123,521 / 127,380 /  90,324 /  95,352
+     front-B  118,727 / 126,304 /  93,585 /  92,551 /  89,744
+     back-B    92,441 /  82,097 /  87,135 /  79,585 /  97,668
+   Datacrons attached: GL Rey the set-33 L9 lightside>resistance>glrey (the #2 defensive cron in
+   the game, 30.9% on n=131K) and SLKR the set-33 L9 darkside>firstorder>kylorenunmasked (#4,
+   28.7%). Both showed a full Lvl 9 with no relic downgrade.
+   FLEETS LEFT AS THEY WERE: Leviathan / Executor / Negotiator. A defensive fleet cannot be edited
+   in place, only removed and rebuilt by hand, so the Chimaera-for-Negotiator swap (worth about 4
+   banners, and it trades n=31.8K for n=1,990) and filling Leviathan's empty 8th slot (worth 1)
+   were both declined as bad risk trades.

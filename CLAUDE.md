@@ -249,6 +249,37 @@ python3 scripts/gac_doctrine.py      # simulates whole rounds under six doctrine
 ```
 `build_board.py --sweep` re-calibrates `GATE_WEIGHT` by measurement rather than feel.
 
+## ⭐⭐ DEFENCE CAN BE RE-SET DURING THE ATTACK PHASE. DO NOT WAIT FOR THE ROUND TO FLIP.
+Championships screen has an **EDIT DEFENSE** button that is live all through the attack phase, and
+the screen it opens states the rule itself: *"Defense changes deploy when the next Attack Phase
+starts."* So the whole board can be rebuilt hours early and it lands automatically at the reset.
+⛔ **The HotUtils API does NOT show this.** `gac/get` keeps returning the CURRENT round's board with
+`state 3/4`, which reads exactly like "defence is locked" and is what made this repo plan an
+overnight placement window that was never needed. **Trust the in-game button, not the API state.**
+- **Order of operations matters: CLEAR ALL THREE character zones first, then fill.** Units are locked
+  while placed, so a squad you want in front-A is unavailable until you empty the zone it is in now.
+- Zone map, `EDIT DEFENSES` 3v3 view, in the 1100px screenshot frame: front-A `5/5` at (505,225),
+  fleet `3/3` at (262,268) (tap the zone BODY, the badge is not a hit target), back-B at (305,348),
+  front-B at (505,463). Squad list: `REMOVE SQUAD` (283,562) then the row X at (57,159) repeatedly,
+  the list shifts up after each; `ADD SQUAD` (810,562), `SELECT SQUAD` (692,576), preset, `SET`
+  (952,576). **The preset tab is remembered between adds but the scroll position resets to the top.**
+- **A placed squad cannot be edited in place.** To attach a datacron you must remove it and re-add it
+  through the builder, which has `ADD DATACRON` at (955,426). The picker is honest: it prints
+  *"Does not apply to any characters in the current squad"* for an off-scope cron, and shows
+  `Lvl 9 ▶ 8` when the squad's lowest relic caps the cron below its own level. Pick the one with no
+  downgrade arrow.
+- ⛔ **A defensive FLEET cannot be edited at all.** No per-ship slot is tappable, only REMOVE/ADD.
+  Filling an empty 8th slot is worth ONE banner and costs a full manual 8-ship rebuild. Not worth it.
+
+## ⭐ FIRST-PARTY CONFIRMATION OF gac_score.py, read off the territory panels (2026-09-11)
+The in-game territory info panel prints the constants, so they are no longer inferred:
+**3v3 squad territory: "Squad Size: 3 · Offense Win +16-59 Banners · Conquer +260 Banners".**
+**Fleet territory: "Fleet Size: 8 · Offense Win +16-79 Banners · Conquer +219 Banners".**
+That matches `territory_banners` exactly (120 + 28x5 = 260, 120 + 33x3 = 219) and `MAX_BATTLE`
+(3v3 59, fleet 79). **Fleet Size 8 = capital + 3 starters + 4 reinforcements, identical in 3v3 and
+5v5.** The 16 floor is a win that loses units; the model's 57 for a clean 3-unit clear sits inside
+the published range.
+
 ## ⭐ CHECK THE FORMAT BEFORE ANY GAC WORK. IT IS NOT ALWAYS 5v5. (2026-09-11)
 `gac/get` returns `gac.tournamentMapId`, e.g. `4zone_3v3_ga2_c3s1_83a`, and that string is the
 whole answer: `3v3`, season `83`. Even season = 5v5, odd = 3v3, and swgoh.gg's own nav prints both
