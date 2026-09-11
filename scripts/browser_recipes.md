@@ -52,21 +52,44 @@ Save 4 files to `data/meta/`: `meta_5v5_defense_s<N>.json` (or txt), `meta_off5v
 `League Kyber` plus the sample size ("3.53M first-attempt, full-squad GAC battles").
 ⚠ **They are React now and there are NO `data-unit-def-tooltip-app` attributes.** Unit names live in
 `img.alt`. Extractor:
+⛔⛔ **"Show N more" IS A `<summary>`, NOT A `<button>`, AND THIS FAILS SILENTLY.** Each tier band
+below S is a `<details>` accordion. A click loop over `button` finds nothing, expands nothing, and
+the extractor then returns the ~56 S-and-A rows it can see PLUS ~100 collapsed rows with every stat
+field `null`. Nothing errors. The first 3v3 pull on 2026-09-11 lost 100 of 156 rows exactly this way,
+and the board built on it was missing most of the fieldable pool. **Set `.open` on the details:**
 ```js
-// expand the ladders first
-for (let p=0;p<6;p++){const b=[...document.querySelectorAll('button')].filter(x=>/Show \d+ more/i.test(x.textContent));
-  if(!b.length)break; b.forEach(x=>x.click()); await new Promise(r=>setTimeout(r,700));}
+// expand the ladders first: `Show N more` is a <summary> inside <details>, not a <button>
+for (let p=0;p<6;p++){
+  document.querySelectorAll('details').forEach(d=>{
+    if(/Show \d+ more/i.test(d.querySelector('summary')?.textContent||'')) d.open=true; });
+  await new Promise(r=>setTimeout(r,700));
+}
 document.querySelectorAll('div.flex-1.min-w-0').forEach(c=>{
   const lead=c.querySelector('div.w-12 img'); if(!lead) return;          // leader
   const rest=[...c.querySelectorAll('div.w-10 img')].map(i=>i.alt);      // members
-  const t=c.innerText.replace(/\s+/g,' ');                              // "Elo … Hold % … Battles …"
+  // walk UP to the innermost ancestor holding exactly ONE stat block, else an
+  // outer container swallows several cards and you get 9 units in one "squad"
+  let anc=c, txt='';
+  for(let i=0;i<6&&anc;i++){
+    const t=(anc.innerText||'').replace(/\s+/g,' ');
+    const n=(t.match(/Hold % [\d.]+%/g)||[]).length;                     // Win % on offence
+    if(n===1){ txt=t; if(t.match(/#(\d+)/)) break; }
+    if(n>1) break;
+    anc=anc.parentElement;
+  }
 });
 ```
+✅ **Count-check every pull before you trust it**: `document.body.innerText.match(/Hold % /g).length`
+must equal the highest `#N` on the page. 151 of 156 is fine (a few rows genuinely lack stats);
+56 of 156 means the accordions never opened.
 ⛔ **Do NOT filter to a fixed squad size.** 3v3 offence has 1- and 2-unit rows and they are the TOP of
 the table (SEE + Darth Bane #1). Rank and `DATACRON DEPENDENT` are on an ancestor, not the card.
 ⚠ **Dedup by unit SET keeping the highest `Battles`**: the same three units appear in a reversed order
 with a tiny sample (The Stranger trio is 25.7% on n=86.3K and 16.9% on n=37), and a naive dict write
 keeps the wrong one.
+⚠ **`/tier-list/datacrons/` and `/tier-list/fleet/` are NOT format-scoped.** Both print "3.53M
+first-attempt ... Season 82", the same sample as the 5v5 list, while the 3v3 list prints 4.02M. So
+their numbers are the 5v5 season's. Do not quote a datacron or fleet hold rate as a 3v3 figure.
 
 **`/gac/counters/<LEADER>/` still uses real base ids** in `data-unit-def-tooltip-app`, inside
 `div.panel.panel--size-sm`. Split attacker from defender by the anchor href: `a_lead`/`a_member` vs

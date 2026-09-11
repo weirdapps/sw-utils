@@ -1,54 +1,64 @@
-GAC 3v3 SEASON 83 BOARD  (built 2026-09-11, Kyber tier list + live datacron inventory)
-15 squads + 3 fleets.  Modelled denial 1508 banners; P(front-A holds) 76%, P(front-B) 79%.
+roster  swgoh_roster_fresh_20260911.json  (331 characters, 321 at G13+)
+def     SWGOH GAC 3v3 Squad Defense Tier List — Season 81 -   121 fieldable, prior 10.9%
+off     SWGOH GAC 3v3 Squad Offense Tier List — Season 81 -   124 fieldable, prior 61.1%
+board   2082 banners available to the attacker (3 x 545 squad zones + 447 fleet)
 
-== FRONT-A  phase01_conflict01 loc=1   GATES THE 3 FLEETS
-   A1 GL Rey         31.4% n=  57100 [s33L9]    Rey / Ben Solo / Luminara Unduli
-                    cron 3CGBb-AfT1iYI8jOBugMnw  lightside>resistance>GLREY, exact
-   A2 SLKR           29.0% n=  10000 [s33L9]    Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
-                    cron C9xVm3l3Q3i1rb4PLFynwQ  darkside>firstorder>kylorenunmasked, exact
-   A3 GL Leia        25.7% n=  36200 [s34L9]    Leia Organa / Captain Drogan / R2-D2
-                    cron VJFrEeptQ0mAcjKoWS9W3g  lightside tier applies to all three
-   A4 Jabba          20.4% n= 175000 [s34L3]    Jabba the Hutt / Boushh (Leia Organa) / Krrsantan
-                    cron 9c0ab_AzSEi3zx4WzcyDAQ  darkside
-   A5 STLuke         17.5% n=  44100 [no cron]  Stormtrooper Luke / Princess Leia / Stormtrooper Han
+FLEETS  (ships are single-use too, so a capital that walls cannot attack)
+  defend:  Home One 13.7% (raw 13.7%, n=24,600), Negotiator 12.9% (raw 12.8%, n=31,800), Raddus 8.1% (raw 7.1%, n=16,800)
+  attack:  Chimaera 81.7% (raw 83.8%, n=5,597), Executor 91.4% (raw 92.9%, n=27,700), Leviathan 95.5% (raw 96.6%, n=46,700)
+  P(fleet territory holds) = 31%   expected denial 24, expected offense 360
 
-== FRONT-B  phase01_conflict02 loc=3   GATES THE 5-SQUAD BACK
-   B1 LordVader      31.5% n= 143000 [s34L9]    Lord Vader / CC-1119 "Appo" / CX-2
-                    cron MfzzKyieRQmcVrd8TPZKrw  darkside>empire, all three
-   B2 GL Ahsoka      26.8% n=  91100 [s34L6]    Ahsoka Tano / Ezra Bridger (Exile) / Huyang
-                    cron SlEoEjUJT_GWpnZ3xRfwjw  lightside
-   B3 Cassian        25.5% n=  40000 [s33L6]    Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
-                    cron _bf0z47YQfqk1o2u8EB1bA  lightside
-   B4 Stranger       25.3% n=  86300 [s33L4]    The Stranger / Maul (Hate-Fueled) / Starkiller
-                    cron HZ5tOF3TQGev9YIE-gF7Eg  darkside
-   B5 BoKatan        25.2% n=   4870 [s32L6]    Bo-Katan (Mand'alor) / IG-12 & Grogu / Paz Vizsla
-                    cron X09cqmfARYiVWAbOD0xqdg  tank/support
+GL DOCTRINE: 5 wall (Rey, Lord Vader, Supreme Leader Kylo Ren, Leia Organa, Ahsoka Tano); the other 4 attack
 
-== BACK-B   phase02_conflict02 loc=3
-   K1 SEE            17.0% n=    375 [s34L3]    Sith Eternal Emperor / Sith Empire Trooper / Wat Tambor
-                    cron 49T9LlEsQdCvX8r8dmdwow  darkside
-   K2 Partagaz       15.1% n=  38100 [s33L3]    Major Partagaz / Dedra Meero / KX Security Droid
-                    cron og2nbKpDTvil_csWUnrrJA  darkside
-   K3 CarsonTeva     14.6% n=   2346 [s33L8]    Captain Carson Teva / R5-D4 / Zeb Orrelios (New Republic Pilot)
-                    cron bpkoYMAGTCGpyaNtdUEY_w  carsonteva named
-   K4 OldDaka        14.5% n=    182 [s34L3]    Old Daka / Merrin / Nightsister Zombie
-                    cron ClvpcGYSTEaRWc3gnPYWMw  darkside
-   K5 Rotta          12.6% n=    665 [s33L15]   Rotta the Hutt / Cad Bane / Gamorrean Guard
-                    cron Lj_hRktRR9Wlrwrg4shybQ  ALL THREE units scoped, the best cron on the account
+BOARD, structure `free`   denial 1342 / 2082   offense 1120   net +380
+
+== FRONT-A  phase01_conflict01  gates the 3 FLEETS   P(holds) 75%, 707 banners ride on it
+    31.5% (raw 31.9 n=143,000)    [1] Lord Vader / CC-1119 "Appo" / CX-2
+        cron HZ5tOF3TQGev9YIE-gF7Eg  set 33 L4  scope darkside  (3/3 units)
+    28.1% (raw 33.3 n= 10,000)    [2] Supreme Leader Kylo Ren / Rey (Dark Side Vision) / Kylo Ren (Unmasked)
+        cron C9xVm3l3Q3i1rb4PLFynwQ  set 33 L9  scope darkside>firstorder>kylorenunmasked  (1/3 units)
+    25.2% (raw 26.3 n= 40,000) DC [3] Cassian Andor (Undercover) / Kleya Marki / Luthen Rael
+        cron X09cqmfARYiVWAbOD0xqdg  set 32 L6  scope tank>support  (2/3 units)
+    17.8% (raw 18.0 n= 87,000)    [4] Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
+        cron ClvpcGYSTEaRWc3gnPYWMw  set 34 L3  scope darkside  (3/3 units)
+    17.3% (raw 17.7 n= 44,100)    [5] Stormtrooper Luke / Princess Leia / Stormtrooper Han
+
+== FRONT-B  phase01_conflict02  gates BACK-B   P(holds) 75%, 805 banners ride on it
+    31.2% (raw 32.3 n= 57,100)    [1] Rey / Ben Solo / Luminara Unduli
+        cron 3CGBb-AfT1iYI8jOBugMnw  set 33 L9  scope lightside>resistance>glrey  (1/3 units)
+    26.7% (raw 27.2 n= 91,100)    [2] Ahsoka Tano / Ezra Bridger (Exile) / Huyang
+    25.4% (raw 26.6 n= 36,200)    [3] Leia Organa / Captain Drogan / R2-D2
+        cron _bf0z47YQfqk1o2u8EB1bA  set 33 L6  scope lightside>resistance  (1/3 units)
+    19.6% (raw 20.4 n= 31,100)    [4] Great Mothers / Morgan Elsbeth / Nightsister Spirit
+        cron 49T9LlEsQdCvX8r8dmdwow  set 34 L3  scope darkside  (3/3 units)
+    18.6% (raw 22.4 n=  5,979)    [5] Maul / Gar Saxon / Imperial Super Commando
+        cron 9c0ab_AzSEi3zx4WzcyDAQ  set 34 L3  scope darkside  (3/3 units)
+
+== BACK-B   phase02_conflict02   P(holds) 54%
+    15.6% (raw 17.2 n=  8,782)    [1] Cere Junda / Cal Kestis / Taron Malicos
+    15.4% (raw 16.3 n= 14,800)    [2] Kelleran Beq / Jocasta Nu / Temple Guard
+        cron VJFrEeptQ0mAcjKoWS9W3g  set 34 L9  scope lightside>jedivanguard>jocastanu  (1/3 units)
+    14.8% (raw 15.1 n= 38,100)    [3] Major Partagaz / Dedra Meero / KX Security Droid
+        cron og2nbKpDTvil_csWUnrrJA  set 33 L3  scope darkside  (3/3 units)
+    13.3% (raw 13.5 n= 36,200)    [4] Qui-Gon Jinn / Jedi Knight Anakin / Ki-Adi-Mundi
+        cron 3BG4fttfQ3aj8NCCr6eQtA  set 34 L9  scope lightside>jedivanguard>quigonjinn  (1/3 units)
+    13.2% (raw 13.4 n= 44,600)    [5] Tusken Chieftain / Tusken Warrior / Tusken Raider
 
 == OFFENCE (15), unit-disjoint from every wall above
-   O1 Malgus         93.6% n=  62600            Darth Malgus / Darth Malak / Darth Revan
-   O2 Bane           88.9% n= 101000 (2 units)  Darth Bane / Count Dooku
-   O3 Satele         87.7% n= 130000            Satele Shan / Bastila Shan / Jedi Knight Revan
-   O4 JMK            86.6% n= 102000            Jedi Master Kenobi / Commander Ahsoka Tano / General Kenobi
-   O5 Ugnaught       86.2% n=  33700            Ugnaught / Ezra Bridger / Hondo Ohnaka
-   O6 DTGideon       84.4% n=  12800            Dark Trooper Moff Gideon / Moff Gideon / Scout Trooper
-   O7 QAmidala       84.4% n=  98000            Queen Amidala / Master Qui-Gon / Padawan Obi-Wan
-   O8 GAS            83.2% n=  66900            General Skywalker / CT-5555 "Fives" / CT-7567 "Rex"
-   O9 Cere           82.7% n=  88200            Cere Junda / Maul / Taron Malicos
-   O10 BossNass      79.5% n=  13400            Boss Nass / Captain Tarpals / Jar Jar Binks
-   O11 EP            78.1% n=  32800            Emperor Palpatine / Mara Jade, The Emperor's Hand / Darth Vader (Duel's End)
-   O12 Aphra         76.7% n=  30000            Doctor Aphra / BT-1 / IG-90
-   O13 JKLS          72.3% n=   1650            Jedi Knight Luke Skywalker / Hermit Yoda / Jedi Knight Cal Kestis
-   O14 Bossk         70.8% n=   5778            Bossk / Greef Karga / The Mandalorian
-   O15 CobbVanth     69.7% n=  24900            Cobb Vanth / Coruscant Underworld Police / Lobot
+   O1   93.4% (raw 94.9 n= 62,600) 3u  Darth Malgus / Darth Malak / Darth Revan
+   O2   90.1% (raw 91.3 n= 69,600) 3u  The Stranger / Maul (Hate-Fueled) / Starkiller
+   O3   89.0% (raw 90.6 n= 53,400) 2u  Sith Eternal Emperor / Darth Bane
+   O4   87.6% (raw 88.2 n=130,000) 3u  Satele Shan / Bastila Shan / Jedi Knight Revan
+   O5   86.6% (raw 87.3 n=106,000) 3u  Jedi Master Luke Skywalker / Jedi Knight Cal Kestis / Jedi Knight Luke Skywalker
+   O6   86.5% (raw 87.2 n=110,000) 3u  Darth Traya / Darth Nihilus / Savage Opress
+   O7   86.5% (raw 87.2 n=102,000) 3u  Jedi Master Kenobi / Commander Ahsoka Tano / General Kenobi
+   O8   85.7% (raw 87.9 n= 33,700) 3u  Ugnaught / Ezra Bridger / Hondo Ohnaka
+   O9   84.2% (raw 84.9 n= 98,000) 3u  Queen Amidala / Master Qui-Gon / Padawan Obi-Wan
+   O10  83.5% (raw 84.9 n= 47,700) 3u  Jabba the Hutt / Boushh (Leia Organa) / Krrsantan
+   O11  83.4% (raw 88.6 n= 12,800) 3u  Dark Trooper Moff Gideon / Moff Gideon / Scout Trooper
+   O12  83.3% (raw 84.0 n= 97,600) 3u  Baylan Skoll / Marrok / Shin Hati
+   O13  82.9% (raw 83.9 n= 66,900) 3u  General Skywalker / CT-5555 "Fives" / CT-7567 "Rex"
+   O14  82.8% (raw 84.2 n= 46,700) 3u  Admiral Raddus / Cassian Andor / Jyn Erso
+   O15  82.5% (raw 83.2 n= 93,800) 3u  Bo-Katan (Mand'alor) / IG-12 & Grogu / The Mandalorian (Beskar Armor)
+
+wrote output/gac3v3_board_r3.json
