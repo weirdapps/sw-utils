@@ -5,95 +5,98 @@ For every unit: **set combo** + **primary per variable slot** (Square=Offense%, 
 ## 3v3 DEFENSE (current season)
 | # | Unit | Sets | Arrow | Triangle | Circle | Cross |
 |---|---|---|---|---|---|---|
-| 1 | Cassian Andor (Undercover) | Speed+Potency | Speed | Health | Health | Health |
-| 2 | Kleya Marki | Offense+Potency | Speed | Protection | Protection | Offense |
-| 3 | Luthen Rael | Health+Speed | Speed | Health | Health | Potency |
-| 4 | Rey | Health+Speed | Speed | Health / Critical Damage | Health | Offense |
-| 5 | Ben Solo | Offense+Potency | Speed | Offense | Health | Offense |
-| 6 | Luminara Unduli | Health+Speed | Speed | Protection | Protection / Health | Protection / Health |
-| 7 | The Stranger | Health+Speed | Speed | Critical Damage | Health | Health |
-| 8 | Maul (Hate-Fueled) | Health+Health+Health | Speed | Protection / Health | Protection / Health | Protection / Health |
-| 9 | Starkiller | Health+CritDamage | Speed | Critical Damage | Health / Protection | Offense |
-| 10 | Lord Vader | Health+Speed | Speed | Critical Damage | Protection | Protection |
-| 11 | CC-1119 "Appo" | Offense+CritChance | Speed | Critical Damage | Protection | Offense |
-| 12 | CX-2 | Health+Speed | Speed | Health / Protection | Protection / Health | Protection / Health |
+| 1 | Rey | Health+Speed | Speed | Health / Critical Damage | Health | Offense |
+| 2 | Ben Solo | Offense+Potency | Speed | Offense | Health | Offense |
+| 3 | Luminara Unduli | Health+Speed | Speed | Protection | Protection / Health | Protection / Health |
+| 4 | Lord Vader | Health+Speed | Speed | Critical Damage | Protection | Protection |
+| 5 | CC-1119 "Appo" | Offense+CritChance | Speed | Critical Damage | Protection | Offense |
+| 6 | CX-2 | Health+Speed | Speed | Health / Protection | Protection / Health | Protection / Health |
+| 7 | Ahsoka Tano | Health+Speed | Speed | Health | Health | Health |
+| 8 | Ezra Bridger (Exile) | Health+Health+Health | Speed | Critical Chance / Health | Health | Health |
+| 9 | Huyang | Offense+CritChance | Speed | Health | Health | Health / Protection |
+| 10 | Cassian Andor (Undercover) | Speed+Potency | Speed | Health | Health | Health |
+| 11 | Kleya Marki | Offense+Potency | Speed | Protection | Protection | Offense |
+| 12 | Luthen Rael | Health+Speed | Speed | Health | Health | Potency |
 | 13 | Leia Organa | Health+Speed | Speed | Health | Health | Health |
 | 14 | Captain Drogan | Offense+CritChance | Speed | Critical Damage | Protection / Health | Offense |
 | 15 | R2-D2 | Speed+Potency | Speed | Critical Damage | Protection | Protection |
-| 16 | Jabba the Hutt | Health+Speed | Speed | Health | Health | Health |
-| 17 | Boushh (Leia Organa) | Speed+Potency | Speed | Critical Damage | Protection | Potency |
-| 18 | Krrsantan | Health+Health+Defense | Speed | Health | Health | Health |
-| 19 | Ahsoka Tano | Health+Speed | Speed | Health | Health | Health |
-| 20 | Ezra Bridger (Exile) | Health+Health+Health | Speed | Critical Chance / Health | Health | Health |
-| 21 | Huyang | Offense+CritChance | Speed | Health | Health | Health / Protection |
-| 22 | Emperor Palpatine | Speed+Potency | Speed | Protection | Protection | Protection / Potency |
-| 23 | Mara Jade, The Emperor's Hand | Speed+CritChance | Speed | Critical Chance | Health | Potency |
-| 24 | Darth Vader (Duel's End) | Health+Offense | Health | Offense | Protection | Protection / Offense |
-| 25 | Baylan Skoll | Health+Speed | Speed | Protection | Protection | Protection |
-| 26 | Marrok | Health+Potency+Potency | Speed | Health | Health | Protection / Potency |
-| 27 | Shin Hati | CritChance+CritDamage | Speed | Critical Damage / Critical Chance | Protection | Health |
-| 28 | Great Mothers | Health+Speed | Speed | Health | Health / Protection | Offense |
-| 29 | Morgan Elsbeth | Health+Health+Defense | Speed | Protection | Health | Health |
-| 30 | Nightsister Spirit | Offense+Potency | Speed | Critical Damage | Protection | Offense / Protection |
-| 31 | Queen Amidala | Health+Speed | Speed | Health | Health | Health / Potency |
-| 32 | Master Qui-Gon | Defense+Speed | Speed | Health | Protection / Health | Protection / Health |
-| 33 | Padawan Obi-Wan | Health+CritDamage | Speed | Critical Damage | Protection / Health | Offense |
-| 34 | Major Partagaz | Health+Speed | Speed | Protection | Protection | Tenacity |
-| 35 | Dedra Meero | Health+Speed | Speed | Health | Protection | Health |
-| 36 | KX Security Droid | Health+Health+Tenacity | Speed | Health | Health | Tenacity |
-| 37 | Satele Shan | Health+Speed | Speed / Protection | Protection | Protection | Protection |
-| 38 | Bastila Shan | Health+Speed | Speed | Protection | Protection | Protection |
-| 39 | Jedi Knight Revan | Offense+CritChance | Speed | Critical Chance | Protection | Protection |
-| 40 | Stormtrooper Luke | Health+Speed | Speed | Protection | Protection | Protection |
-| 41 | Princess Leia | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
-| 42 | Stormtrooper Han | Speed+Potency | Protection / Critical Avoidance | Protection | Protection | Protection |
-| 43 | Darth Revan | Offense+CritChance | Speed | Offense / Critical Damage | Protection | Offense |
-| 44 | Mission Vao | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
-| 45 | Zaalbar | Health+Health+Health | Protection | Protection | Protection | Protection |
+| 16 | The Stranger | Health+Speed | Speed | Critical Damage | Health | Health |
+| 17 | Maul (Hate-Fueled) | Health+Health+Health | Speed | Protection / Health | Protection / Health | Protection / Health |
+| 18 | Starkiller | Health+CritDamage | Speed | Critical Damage | Health / Protection | Offense |
+| 19 | Jabba the Hutt | Health+Speed | Speed | Health | Health | Health |
+| 20 | Boushh (Leia Organa) | Speed+Potency | Speed | Critical Damage | Protection | Potency |
+| 21 | Krrsantan | Health+Health+Defense | Speed | Health | Health | Health |
+| 22 | Satele Shan | Health+Speed | Speed / Protection | Protection | Protection | Protection |
+| 23 | Bastila Shan | Health+Speed | Speed | Protection | Protection | Protection |
+| 24 | Jedi Knight Revan | Offense+CritChance | Speed | Critical Chance | Protection | Protection |
+| 25 | Emperor Palpatine | Speed+Potency | Speed | Protection | Protection | Protection / Potency |
+| 26 | Mara Jade, The Emperor's Hand | Speed+CritChance | Speed | Critical Chance | Health | Potency |
+| 27 | Darth Vader (Duel's End) | Health+Offense | Health | Offense | Protection | Protection / Offense |
+| 28 | Queen Amidala | Health+Speed | Speed | Health | Health | Health / Potency |
+| 29 | Master Qui-Gon | Defense+Speed | Speed | Health | Protection / Health | Protection / Health |
+| 30 | Padawan Obi-Wan | Health+CritDamage | Speed | Critical Damage | Protection / Health | Offense |
+| 31 | Great Mothers | Health+Speed | Speed | Health | Health / Protection | Offense |
+| 32 | Morgan Elsbeth | Health+Health+Defense | Speed | Protection | Health | Health |
+| 33 | Nightsister Spirit | Offense+Potency | Speed | Critical Damage | Protection | Offense / Protection |
+| 34 | Stormtrooper Luke | Health+Speed | Speed | Protection | Protection | Protection |
+| 35 | Princess Leia | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
+| 36 | Stormtrooper Han | Speed+Potency | Protection / Critical Avoidance | Protection | Protection | Protection |
+| 37 | Major Partagaz | Health+Speed | Speed | Protection | Protection | Tenacity |
+| 38 | Dedra Meero | Health+Speed | Speed | Health | Protection | Health |
+| 39 | KX Security Droid | Health+Health+Tenacity | Speed | Health | Health | Tenacity |
+| 40 | Darth Revan | Offense+CritChance | Speed | Offense / Critical Damage | Protection | Offense |
+| 41 | Mission Vao | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
+| 42 | Zaalbar | Health+Health+Health | Protection | Protection | Protection | Protection |
+| 43 | Boss Nass | Health+Health+Potency | Speed | Protection | Protection | Protection / Potency |
+| 44 | Captain Tarpals | Speed+CritChance | Speed | Critical Chance | Protection | Health / Offense |
+| 45 | Jar Jar Binks | Speed+Potency | Speed | Protection / Health | Protection / Health | Potency |
 
 ## 3v3 OFFENSE
 | # | Unit | Sets | Arrow | Triangle | Circle | Cross |
 |---|---|---|---|---|---|---|
 | 1 | Sith Eternal Emperor | Health+Speed | Speed | Health | Health | Health / Offense |
-| 2 | Darth Malgus | Health+Health+Health | Speed | Health | Health | Health |
-| 3 | Bastila Shan (Fallen) | Health+Speed | Speed | Protection | Protection | Protection |
-| 4 | Darth Malak | Tenacity+Tenacity+Tenacity | Speed | Protection | Protection | Tenacity / Protection |
-| 5 | Jedi Master Kenobi | Health+Speed | Speed | Critical Damage | Health | Offense |
-| 6 | Commander Ahsoka Tano | Health+Speed | Speed | Critical Damage | Health | Offense |
-| 7 | Mace Windu | Health+Health+Health | Speed | Critical Damage | Protection | Protection |
-| 8 | Bo-Katan (Mand'alor) | Health+Offense | Speed | Offense | Health | Offense |
-| 9 | IG-12 & Grogu | Health+Speed | Speed | Health | Health | Health |
-| 10 | Paz Vizsla | Health+Health+Health | Speed | Protection | Protection | Protection |
-| 11 | Darth Bane | Health+Health+Health | Speed / Health | Health | Health | Health |
-| 12 | Sith Assassin | Speed+CritChance | Speed | Critical Damage | Protection | Offense / Protection |
-| 13 | Darth Nihilus | Speed+Tenacity | Speed | Critical Damage | Protection | Protection |
-| 14 | Darth Traya | Offense+CritChance | Speed | Offense | Protection | Offense / Health |
-| 15 | Savage Opress | Health+CritDamage | Speed | Critical Damage / Health | Health / Protection | Health / Protection |
+| 2 | Jedi Master Kenobi | Health+Speed | Speed | Critical Damage | Health | Offense |
+| 3 | Commander Ahsoka Tano | Health+Speed | Speed | Critical Damage | Health | Offense |
+| 4 | Mace Windu | Health+Health+Health | Speed | Critical Damage | Protection | Protection |
+| 5 | Darth Malgus | Health+Health+Health | Speed | Health | Health | Health |
+| 6 | Bastila Shan (Fallen) | Health+Speed | Speed | Protection | Protection | Protection |
+| 7 | Darth Malak | Tenacity+Tenacity+Tenacity | Speed | Protection | Protection | Tenacity / Protection |
+| 8 | Supreme Leader Kylo Ren | Health+Speed | Speed | Critical Damage | Health | Offense |
+| 9 | Rey (Dark Side Vision) | CritChance+CritDamage | Speed | Critical Damage | Health | Offense / Health |
+| 10 | General Hux | Speed+Tenacity | Speed | Protection | Protection | Protection / Health |
+| 11 | Bo-Katan (Mand'alor) | Health+Offense | Speed | Offense | Health | Offense |
+| 12 | IG-12 & Grogu | Health+Speed | Speed | Health | Health | Health |
+| 13 | Paz Vizsla | Health+Health+Health | Speed | Protection | Protection | Protection |
+| 14 | Darth Bane | Health+Health+Health | Speed / Health | Health | Health | Health |
+| 15 | Count Dooku | Speed+Potency | Speed | Critical Damage | Protection | Potency |
 | 16 | Jedi Master Luke Skywalker | Health+Health+Health | Protection / Speed | Protection | Protection | Protection |
 | 17 | Jedi Knight Cal Kestis | Health+Speed | Speed | Critical Damage / Critical Chance | Health | Health |
 | 18 | Jedi Knight Luke Skywalker | Offense+CritChance | Speed | Critical Damage / Offense | Protection | Offense |
-| 19 | Supreme Leader Kylo Ren | Health+Speed | Speed | Critical Damage | Health | Offense |
-| 20 | Rey (Dark Side Vision) | CritChance+CritDamage | Speed | Critical Damage | Health | Offense / Health |
-| 21 | General Hux | Speed+Tenacity | Speed | Protection | Protection | Protection / Health |
-| 22 | Admiral Raddus | Health+Speed | Speed | Defense | Health | Defense |
-| 23 | Cassian Andor | Offense+Potency | Speed | Protection | Protection | Potency |
-| 24 | Jyn Erso | Speed+Tenacity | Speed | Critical Chance / Protection | Protection | Potency |
+| 19 | Darth Traya | Offense+CritChance | Speed | Offense | Protection | Offense / Health |
+| 20 | Darth Nihilus | Speed+Tenacity | Speed | Critical Damage | Protection | Protection |
+| 21 | Savage Opress | Health+CritDamage | Speed | Critical Damage / Health | Health / Protection | Health / Protection |
+| 22 | Ugnaught | Speed+Potency | Speed | Critical Damage / Critical Chance | Protection / Health | Potency |
+| 23 | Ezra Bridger | Offense+CritChance | Speed | Critical Damage | Protection | Protection |
+| 24 | Hondo Ohnaka | Health+Speed | Speed | Protection / Health | Health | Protection |
 | 25 | General Skywalker | Health+Speed | Speed | Protection | Protection | Protection |
 | 26 | CT-5555 "Fives" | Defense+Defense+Tenacity | Speed | Protection | Protection | Protection |
 | 27 | CT-7567 "Rex" | Health+Speed | Speed | Protection | Protection | Protection |
-| 28 | Boss Nass | Health+Health+Potency | Speed | Protection | Protection | Protection / Potency |
-| 29 | Captain Tarpals | Speed+CritChance | Speed | Critical Chance | Protection | Health / Offense |
-| 30 | Jar Jar Binks | Speed+Potency | Speed | Protection / Health | Protection / Health | Potency |
-| 31 | Dash Rendar | Speed+CritChance | Speed | Critical Chance | Health | Potency / Offense |
-| 32 | Chewbacca | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
-| 33 | Han Solo | CritChance+CritDamage | Speed | Critical Damage | Protection | Offense / Protection |
-| 34 | Wampa | Offense+CritChance | Speed | Offense / Health | Protection / Health | Offense / Tenacity |
-| 35 | Doctor Aphra | Potency+Potency+Potency | Speed | Offense | Health / Protection | Potency |
-| 36 | BT-1 | Offense+CritChance | Speed | Offense | Health | Offense |
-| 37 | IG-90 | Speed+CritChance | Speed | Critical Chance | Health | Potency |
-| 38 | Cere Junda | Health+Health+Health | Protection | Protection | Protection | Protection |
-| 39 | Maul | Health+Health+Health | Speed | Health / Offense | Health | Health / Offense |
-| 40 | Taron Malicos | Offense+CritChance | Speed | Critical Damage | Health | Offense |
+| 28 | Cere Junda | Health+Health+Health | Protection | Protection | Protection | Protection |
+| 29 | Maul | Health+Health+Health | Speed | Health / Offense | Health | Health / Offense |
+| 30 | Taron Malicos | Offense+CritChance | Speed | Critical Damage | Health | Offense |
+| 31 | Baylan Skoll | Health+Speed | Speed | Protection | Protection | Protection |
+| 32 | Marrok | Health+Potency+Potency | Speed | Health | Health | Protection / Potency |
+| 33 | Shin Hati | CritChance+CritDamage | Speed | Critical Damage / Critical Chance | Protection | Health |
+| 34 | Admiral Raddus | Health+Speed | Speed | Defense | Health | Defense |
+| 35 | Cassian Andor | Offense+Potency | Speed | Protection | Protection | Potency |
+| 36 | Jyn Erso | Speed+Tenacity | Speed | Critical Chance / Protection | Protection | Potency |
+| 37 | Doctor Aphra | Potency+Potency+Potency | Speed | Offense | Health / Protection | Potency |
+| 38 | BT-1 | Offense+CritChance | Speed | Offense | Health | Offense |
+| 39 | IG-90 | Speed+CritChance | Speed | Critical Chance | Health | Potency |
+| 40 | Dash Rendar | Speed+CritChance | Speed | Critical Chance | Health | Potency / Offense |
+| 41 | Chewbacca | CritChance+CritDamage | Speed | Critical Damage | Protection | Protection / Offense |
+| 42 | Han Solo | CritChance+CritDamage | Speed | Critical Damage | Protection | Offense / Protection |
+| 43 | Wampa | Offense+CritChance | Speed | Offense / Health | Protection / Health | Offense / Tenacity |
 
 ## 5v5 DEFENSE
 | # | Unit | Sets | Arrow | Triangle | Circle | Cross |

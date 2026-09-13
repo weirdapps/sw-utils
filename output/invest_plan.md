@@ -1,6 +1,6 @@
-# Investment plan — 2026-09-06
+# Investment plan — 2026-09-14
 
-Roster 398 units (pulled 2026-08-24, source file-fallback). Relic target = displayed R9 (rt >= 11).
+Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displayed R9 (rt >= 11).
 
 > Missing inputs: rote_plan.json — those rungs of the ladder contributed nothing.
 
@@ -18,9 +18,9 @@ Roster 398 units (pulled 2026-08-24, source file-fallback). Relic target = displ
 | 9 | 26 | Kit Fisto — TW defense (12%) |
 | 10 | 1 | Obi-Wan Kenobi (Old Ben) — TW offense (81%) |
 | 11 | 71 | Admiral Ackbar — GAC Fleet - Defense: Home One (crew) |
-| 12 | 114 | Ewok Scout — not on any board |
+| 12 | 116 | Ewok Scout — not on any board |
 
-## Relic queue (206)
+## Relic queue (204)
 
 | # | unit | relic | to go | tier | why |
 |---|---|---|---|---|---|
@@ -29,207 +29,205 @@ Roster 398 units (pulled 2026-08-24, source file-fallback). Relic target = displ
 | 3 | Gamorrean Guard | R7 | +2 | 1 | Squad Arena defense (deployed) |
 | 4 | Cad Bane | R7 | +2 | 1 | Squad Arena defense (deployed) |
 | 5 | Threepio & Chewie | R8 | +1 | 2 | Squad Arena climb |
-| 6 | Captain Drogan | R8 | +1 | 2 | Squad Arena climb |
-| 7 | Captain Rex | R7 | +2 | 2 | Squad Arena climb |
-| 8 | R2-D2 | R8 | +1 | 2 | Squad Arena climb |
-| 9 | Darth Malgus | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 10 | Sith Marauder | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 11 | Sith Trooper | R8 | +1 | 3 | Fleet - Arena: Leviathan (crew) |
-| 12 | Darth Maul | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 13 | Iden Versio | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 14 | Grand Inquisitor | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 15 | Fifth Brother | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
-| 16 | Luminara Unduli | R8 | +1 | 4 | GAC 5v5 defense (50%) |
-| 17 | Visas Marr | R8 | +1 | 4 | GAC 5v5 defense (50%) |
-| 18 | Barriss Offee | R7 | +2 | 4 | GAC 5v5 defense (41%) |
-| 19 | Ben Solo | R8 | +1 | 4 | GAC 5v5 defense (41%) |
-| 20 | Cal Kestis | R7 | +2 | 4 | GAC 5v5 defense (41%) |
-| 21 | Baylan Skoll | R8 | +1 | 4 | GAC 5v5 defense (19%) |
-| 22 | Dash Rendar | R7 | +2 | 4 | GAC 5v5 defense (19%) |
-| 23 | Hondo Ohnaka | R7 | +2 | 4 | GAC 5v5 defense (19%) |
-| 24 | Marrok | R7 | +2 | 4 | GAC 5v5 defense (19%) |
-| 25 | Shin Hati | R8 | +1 | 4 | GAC 5v5 defense (19%) |
-| 26 | Emperor Palpatine | R7 | +2 | 4 | GAC 5v5 defense (18%) |
-| 27 | Grand Admiral Thrawn | R7 | +2 | 4 | GAC 5v5 defense (18%) |
-| 28 | Mara Jade, The Emperor's Hand | R7 | +2 | 4 | GAC 5v5 defense (18%) |
-| 29 | Royal Guard | R8 | +1 | 4 | GAC 5v5 defense (18%) |
-| 30 | Darth Vader (Duel's End) | R7 | +2 | 4 | GAC 5v5 defense (18%) |
-| 31 | Satele Shan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
-| 32 | Bastila Shan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
-| 33 | Jedi Knight Revan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
-| 34 | Jolee Bindo | R8 | +1 | 4 | GAC 5v5 defense (16%) |
-| 35 | Juhani | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 36 | Boss Nass | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 37 | Gungan Boomadier | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 38 | Captain Tarpals | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 39 | Gungan Phalanx | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 40 | Jar Jar Binks | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 41 | Saw Gerrera | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 42 | Baze Malbus | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 43 | Chirrut Îmwe | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 44 | Kyle Katarn | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 45 | Luthen Rael | R7 | +2 | 4 | GAC 5v5 defense (16%) |
-| 46 | Queen Amidala | R8 | +1 | 4 | GAC 5v5 defense (15%) |
-| 47 | Echo | R6 | +3 | 4 | GAC 5v5 defense (15%) |
-| 48 | Master Qui-Gon | R7 | +2 | 4 | GAC 5v5 defense (15%) |
-| 49 | Padawan Obi-Wan | R7 | +2 | 4 | GAC 5v5 defense (15%) |
-| 50 | Shaak Ti | R7 | +2 | 4 | GAC 5v5 defense (15%) |
-| 51 | General Grievous | R7 | +2 | 4 | GAC 5v5 defense (13%) |
-| 52 | B1 Battle Droid | R7 | +2 | 4 | GAC 5v5 defense (13%) |
-| 53 | B2 Super Battle Droid | R7 | +2 | 4 | GAC 5v5 defense (13%) |
-| 54 | IG-100 MagnaGuard | R7 | +2 | 4 | GAC 5v5 defense (13%) |
-| 55 | STAP | R7 | +2 | 4 | GAC 5v5 defense (13%) |
-| 56 | Great Mothers | R7 | +2 | 4 | GAC 5v5 defense (12%) |
-| 57 | Death Trooper (Peridea) | R7 | +2 | 4 | GAC 5v5 defense (12%) |
-| 58 | Merrin | R7 | +2 | 4 | GAC 5v5 defense (12%) |
-| 59 | Morgan Elsbeth | R8 | +1 | 4 | GAC 5v5 defense (12%) |
-| 60 | Night Trooper | R7 | +2 | 4 | GAC 5v5 defense (12%) |
-| 61 | Mon Mothma | R7 | +2 | 5 | GAC 3v3 defense (22%) |
-| 62 | Kleya Marki | R7 | +2 | 5 | GAC 3v3 defense (22%) |
-| 63 | Maul | R8 | +1 | 5 | GAC 3v3 defense (18%) |
-| 64 | Stormtrooper Luke | R7 | +2 | 5 | GAC 3v3 defense (13%) |
-| 65 | Princess Leia | R7 | +2 | 5 | GAC 3v3 defense (13%) |
-| 66 | Stormtrooper Han | R7 | +2 | 5 | GAC 3v3 defense (13%) |
-| 67 | Nightsister Spirit | R7 | +2 | 5 | GAC 3v3 defense (13%) |
-| 68 | Major Partagaz | R7 | +2 | 5 | GAC 3v3 defense (12%) |
-| 69 | Dedra Meero | R7 | +2 | 5 | GAC 3v3 defense (12%) |
-| 70 | KX Security Droid | R7 | +2 | 5 | GAC 3v3 defense (12%) |
-| 71 | Mission Vao | R6 | +3 | 5 | GAC 3v3 defense (12%) |
-| 72 | Zaalbar | R7 | +2 | 5 | GAC 3v3 defense (12%) |
-| 73 | Darth Traya | R7 | +2 | 5 | GAC 3v3 defense (10%) |
-| 74 | Darth Nihilus | R7 | +2 | 5 | GAC 3v3 defense (10%) |
-| 75 | Savage Opress | R7 | +2 | 5 | GAC 3v3 defense (10%) |
-| 76 | Cobb Vanth | R7 | +2 | 5 | GAC 3v3 defense (10%) |
-| 77 | Lobot | R7 | +2 | 5 | GAC 3v3 defense (10%) |
-| 78 | Tarfful | R7 | +2 | 5 | GAC 3v3 defense (9%) |
-| 79 | Yoda & Chewie | R5 | +4 | 5 | GAC 3v3 defense (9%) |
-| 80 | 50R-T | R7 | +2 | 5 | GAC 3v3 defense (9%) |
-| 81 | BB-8 | R7 | +2 | 5 | GAC 3v3 defense (9%) |
-| 82 | L3-37 | R7 | +2 | 5 | GAC 3v3 defense (9%) |
-| 83 | Rey (Dark Side Vision) | R8 | +1 | 6 | GAC 5v5 offense (91%) |
-| 84 | General Hux | R8 | +1 | 6 | GAC 5v5 offense (91%) |
-| 85 | Kylo Ren (Unmasked) | R8 | +1 | 6 | GAC 5v5 offense (91%) |
-| 86 | Count Dooku | R8 | +1 | 6 | GAC 5v5 offense (88%) |
-| 87 | Wat Tambor | R8 | +1 | 6 | GAC 5v5 offense (86%) |
-| 88 | Mace Windu | R7 | +2 | 6 | GAC 5v5 offense (84%) |
-| 89 | Padmé Amidala | R8 | +1 | 6 | GAC 5v5 offense (84%) |
-| 90 | ARC Trooper | R8 | +1 | 6 | GAC 5v5 offense (83%) |
-| 91 | CT-21-0408 "Echo" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
-| 92 | CT-5555 "Fives" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
-| 93 | CT-7567 "Rex" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
-| 94 | Boushh (Leia Organa) | R8 | +1 | 6 | GAC 5v5 offense (80%) |
-| 95 | Embo | R8 | +1 | 6 | GAC 5v5 offense (80%) |
-| 96 | Krrsantan | R8 | +1 | 6 | GAC 5v5 offense (80%) |
-| 97 | Skiff Guard (Lando Calrissian) | R8 | +1 | 6 | GAC 5v5 offense (80%) |
-| 98 | Bastila Shan (Fallen) | R7 | +2 | 6 | GAC 5v5 offense (79%) |
-| 99 | Ezra Bridger (Exile) | R8 | +1 | 6 | GAC 5v5 offense (78%) |
-| 100 | General Syndulla | R7 | +2 | 6 | GAC 5v5 offense (78%) |
-| 101 | Huyang | R7 | +2 | 6 | GAC 5v5 offense (78%) |
-| 102 | Padawan Sabine Wren | R7 | +2 | 6 | GAC 5v5 offense (78%) |
-| 103 | Grand Master Yoda | R8 | +1 | 6 | GAC 5v5 offense (75%) |
-| 104 | Hermit Yoda | R7 | +2 | 6 | GAC 5v5 offense (75%) |
-| 105 | Jedi Knight Cal Kestis | R7 | +2 | 6 | GAC 5v5 offense (75%) |
-| 106 | Jedi Knight Luke Skywalker | R8 | +1 | 6 | GAC 5v5 offense (75%) |
-| 107 | Bo-Katan (Mand'alor) | R8 | +1 | 6 | GAC 5v5 offense (74%) |
-| 108 | Bo-Katan Kryze | R7 | +2 | 6 | GAC 5v5 offense (74%) |
-| 109 | IG-12 & Grogu | R8 | +1 | 6 | GAC 5v5 offense (74%) |
-| 110 | Paz Vizsla | R8 | +1 | 6 | GAC 5v5 offense (74%) |
-| 111 | The Mandalorian (Beskar Armor) | R8 | +1 | 6 | GAC 5v5 offense (74%) |
-| 112 | CC-1119 "Appo" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 113 | Disguised Clone Trooper | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 114 | CX-2 | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 115 | RC-1262 "Scorch" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 116 | Commander Luke Skywalker | R8 | +1 | 6 | GAC 5v5 offense (68%) |
-| 117 | C-3PO | R7 | +2 | 6 | GAC 5v5 offense (68%) |
-| 118 | Chewbacca | R7 | +2 | 6 | GAC 5v5 offense (68%) |
-| 119 | Han Solo | R8 | +1 | 6 | GAC 5v5 offense (68%) |
-| 120 | Darth Sion | R7 | +2 | 6 | GAC 5v5 offense (66%) |
-| 121 | Darth Talon | R7 | +2 | 6 | GAC 5v5 offense (66%) |
-| 122 | Chief Nebit | R7 | +2 | 6 | GAC 5v5 offense (65%) |
-| 123 | Jawa Scavenger | R7 | +2 | 6 | GAC 5v5 offense (65%) |
-| 124 | Cere Junda | R7 | +2 | 6 | GAC 5v5 offense (61%) |
-| 125 | Inquisitor Barriss | R7 | +2 | 6 | GAC 5v5 offense (61%) |
-| 126 | Ninth Sister | R6 | +3 | 6 | GAC 5v5 offense (61%) |
-| 127 | Taron Malicos | R7 | +2 | 6 | GAC 5v5 offense (61%) |
-| 128 | Doctor Aphra | R7 | +2 | 6 | GAC 5v5 offense (59%) |
-| 129 | BT-1 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
-| 130 | IG-90 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
-| 131 | 0-0-0 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
-| 132 | Darth Vader | R7 | +2 | 6 | GAC 5v5 offense (59%) |
-| 133 | Dark Trooper Moff Gideon | R6 | +3 | 6 | GAC 5v5 offense (53%) |
-| 134 | Captain Enoch | R7 | +2 | 6 | GAC 5v5 offense (53%) |
-| 135 | Death Trooper | R7 | +2 | 6 | GAC 5v5 offense (53%) |
-| 136 | Moff Gideon | R7 | +2 | 6 | GAC 5v5 offense (53%) |
-| 137 | Scout Trooper | R7 | +2 | 6 | GAC 5v5 offense (53%) |
-| 138 | Omega (Fugitive) | R5 | +4 | 6 | GAC 5v5 offense (36%) |
-| 139 | Batcher | R6 | +3 | 6 | GAC 5v5 offense (36%) |
-| 140 | Crosshair (Scarred) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
-| 141 | Hunter (Mercenary) | R5 | +4 | 6 | GAC 5v5 offense (36%) |
-| 142 | Wrecker (Mercenary) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
-| 143 | Cassian Andor | R8 | +1 | 7 | GAC 3v3 offense (78%) |
-| 144 | Jyn Erso | R7 | +2 | 7 | GAC 3v3 offense (78%) |
-| 145 | Ezra Bridger | R5 | +4 | 7 | GAC 3v3 offense (74%) |
-| 146 | Bossk | R8 | +1 | 7 | GAC 3v3 offense (71%) |
-| 147 | Grand Moff Tarkin | R8 | +1 | 7 | GAC 3v3 offense (71%) |
-| 148 | Greef Karga | R7 | +2 | 7 | GAC 3v3 offense (71%) |
-| 149 | The Mandalorian | R7 | +2 | 7 | GAC 3v3 offense (71%) |
-| 150 | Qui-Gon Jinn | R6 | +3 | 7 | GAC 3v3 offense (49%) |
-| 151 | Jedi Knight Anakin | R7 | +2 | 7 | GAC 3v3 offense (49%) |
-| 152 | Ki-Adi-Mundi | R5 | +4 | 7 | GAC 3v3 offense (49%) |
-| 153 | Kit Fisto | R5 | +4 | 9 | TW defense (12%) |
-| 154 | Captain Carson Teva | R5 | +4 | 9 | TW defense (10%) |
-| 155 | Colonel Ward | R4 | +5 | 9 | TW defense (10%) |
-| 156 | Grogu & Anzellans | R5 | +4 | 9 | TW defense (10%) |
-| 157 | R5-D4 | R4 | +5 | 9 | TW defense (10%) |
-| 158 | Zeb Orrelios (New Republic Pilot) | R4 | +5 | 9 | TW defense (10%) |
-| 159 | Admiral Trench | R7 | +2 | 9 | TW defense (7%) |
-| 160 | Jango Fett | R8 | +1 | 9 | TW defense (7%) |
-| 161 | Nute Gunray | R8 | +1 | 9 | TW defense (7%) |
-| 162 | Finn | R7 | +2 | 9 | TW defense (6%) |
-| 163 | Resistance Hero Finn | R7 | +2 | 9 | TW defense (6%) |
-| 164 | Resistance Hero Poe | R7 | +2 | 9 | TW defense (6%) |
-| 165 | Rose Tico | R7 | +2 | 9 | TW defense (6%) |
-| 166 | Zorii Bliss | R7 | +2 | 9 | TW defense (6%) |
-| 167 | Bistan | R7 | +2 | 9 | TW defense (4%) |
-| 168 | K-2SO | R7 | +2 | 9 | TW defense (4%) |
-| 169 | Tusken Chieftain | R7 | +2 | 9 | TW defense (2%) |
-| 170 | Tusken Warrior | R7 | +2 | 9 | TW defense (2%) |
-| 171 | Tusken Raider | R8 | +1 | 9 | TW defense (2%) |
-| 172 | Tusken Shaman | R7 | +2 | 9 | TW defense (2%) |
-| 173 | URoRRuR'R'R | R7 | +2 | 9 | TW defense (2%) |
-| 174 | Geonosian Brood Alpha | R6 | +3 | 9 | TW defense (2%) |
-| 175 | Geonosian Soldier | R5 | +4 | 9 | TW defense (2%) |
-| 176 | Geonosian Spy | R5 | +4 | 9 | TW defense (2%) |
-| 177 | Poggle the Lesser | R6 | +3 | 9 | TW defense (2%) |
-| 178 | Sun Fac | R6 | +3 | 9 | TW defense (2%) |
-| 179 | Obi-Wan Kenobi (Old Ben) | R7 | +2 | 10 | TW offense (81%) |
-| 180 | Admiral Ackbar | R6 | +3 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 181 | Admiral Piett | R8 | +1 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 182 | Amilyn Holdo | R6 | +3 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 183 | Rey (Scavenger) | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 184 | Dengar | R6 | +3 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 185 | Plo Koon | R8 | +1 | 11 | GAC Fleet - Offense: Negotiator (crew) |
-| 186 | Scarif Rebel Pathfinder | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 187 | Second Sister | R7 | +2 | 11 | GAC Fleet - Defense: Chimaera (crew) |
-| 188 | Tech | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
-| 189 | Poe Dameron | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 190 | Hunter | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
-| 191 | Boba Fett | R8 | +1 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 192 | Sith Empire Trooper | R7 | +2 | 11 | GAC Fleet - Offense: Leviathan (crew) |
-| 193 | Wrecker | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
-| 194 | IG-88 | R6 | +3 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 195 | Resistance Trooper | R6 | +3 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 196 | Sith Assassin | R5 | +4 | 11 | GAC Fleet - Offense: Leviathan (crew) |
-| 197 | TIE Fighter Pilot | R5 | +4 | 11 | GAC Fleet - Defense: Chimaera (crew) |
-| 198 | Carth Onasi | R7 | +2 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 199 | Resistance Pilot | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 200 | Biggs Darklighter | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 201 | T3-M4 | R7 | +2 | 11 | GAC Fleet - Offense: Executor (crew) |
-| 202 | Young Lando Calrissian | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
-| 203 | Wedge Antilles | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 204 | Hera Syndulla | R6 | +3 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 205 | Kanan Jarrus | R5 | +4 | 11 | GAC Fleet - Defense: Home One (crew) |
-| 206 | Garazeb "Zeb" Orrelios | R5 | +4 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 6 | Captain Rex | R8 | +1 | 2 | Squad Arena climb |
+| 7 | R2-D2 | R8 | +1 | 2 | Squad Arena climb |
+| 8 | Darth Malgus | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 9 | Sith Marauder | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 10 | Sith Trooper | R8 | +1 | 3 | Fleet - Arena: Leviathan (crew) |
+| 11 | Darth Maul | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 12 | Iden Versio | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 13 | Grand Inquisitor | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 14 | Fifth Brother | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 15 | Luminara Unduli | R8 | +1 | 4 | GAC 5v5 defense (50%) |
+| 16 | Visas Marr | R8 | +1 | 4 | GAC 5v5 defense (50%) |
+| 17 | Barriss Offee | R7 | +2 | 4 | GAC 5v5 defense (41%) |
+| 18 | Ben Solo | R8 | +1 | 4 | GAC 5v5 defense (41%) |
+| 19 | Cal Kestis | R7 | +2 | 4 | GAC 5v5 defense (41%) |
+| 20 | Baylan Skoll | R8 | +1 | 4 | GAC 5v5 defense (19%) |
+| 21 | Dash Rendar | R7 | +2 | 4 | GAC 5v5 defense (19%) |
+| 22 | Hondo Ohnaka | R7 | +2 | 4 | GAC 5v5 defense (19%) |
+| 23 | Marrok | R7 | +2 | 4 | GAC 5v5 defense (19%) |
+| 24 | Shin Hati | R8 | +1 | 4 | GAC 5v5 defense (19%) |
+| 25 | Emperor Palpatine | R7 | +2 | 4 | GAC 5v5 defense (18%) |
+| 26 | Grand Admiral Thrawn | R7 | +2 | 4 | GAC 5v5 defense (18%) |
+| 27 | Mara Jade, The Emperor's Hand | R7 | +2 | 4 | GAC 5v5 defense (18%) |
+| 28 | Royal Guard | R8 | +1 | 4 | GAC 5v5 defense (18%) |
+| 29 | Darth Vader (Duel's End) | R7 | +2 | 4 | GAC 5v5 defense (18%) |
+| 30 | Satele Shan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
+| 31 | Bastila Shan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
+| 32 | Jedi Knight Revan | R8 | +1 | 4 | GAC 5v5 defense (16%) |
+| 33 | Jolee Bindo | R8 | +1 | 4 | GAC 5v5 defense (16%) |
+| 34 | Juhani | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 35 | Boss Nass | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 36 | Gungan Boomadier | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 37 | Captain Tarpals | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 38 | Gungan Phalanx | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 39 | Jar Jar Binks | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 40 | Saw Gerrera | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 41 | Baze Malbus | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 42 | Chirrut Îmwe | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 43 | Kyle Katarn | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 44 | Luthen Rael | R7 | +2 | 4 | GAC 5v5 defense (16%) |
+| 45 | Queen Amidala | R8 | +1 | 4 | GAC 5v5 defense (15%) |
+| 46 | Echo | R7 | +2 | 4 | GAC 5v5 defense (15%) |
+| 47 | Master Qui-Gon | R7 | +2 | 4 | GAC 5v5 defense (15%) |
+| 48 | Padawan Obi-Wan | R7 | +2 | 4 | GAC 5v5 defense (15%) |
+| 49 | Shaak Ti | R7 | +2 | 4 | GAC 5v5 defense (15%) |
+| 50 | General Grievous | R7 | +2 | 4 | GAC 5v5 defense (13%) |
+| 51 | B1 Battle Droid | R7 | +2 | 4 | GAC 5v5 defense (13%) |
+| 52 | B2 Super Battle Droid | R7 | +2 | 4 | GAC 5v5 defense (13%) |
+| 53 | IG-100 MagnaGuard | R7 | +2 | 4 | GAC 5v5 defense (13%) |
+| 54 | STAP | R7 | +2 | 4 | GAC 5v5 defense (13%) |
+| 55 | Great Mothers | R8 | +1 | 4 | GAC 5v5 defense (12%) |
+| 56 | Death Trooper (Peridea) | R7 | +2 | 4 | GAC 5v5 defense (12%) |
+| 57 | Merrin | R7 | +2 | 4 | GAC 5v5 defense (12%) |
+| 58 | Morgan Elsbeth | R8 | +1 | 4 | GAC 5v5 defense (12%) |
+| 59 | Night Trooper | R8 | +1 | 4 | GAC 5v5 defense (12%) |
+| 60 | Mon Mothma | R7 | +2 | 5 | GAC 3v3 defense (22%) |
+| 61 | Kleya Marki | R7 | +2 | 5 | GAC 3v3 defense (22%) |
+| 62 | Maul | R8 | +1 | 5 | GAC 3v3 defense (18%) |
+| 63 | Stormtrooper Luke | R7 | +2 | 5 | GAC 3v3 defense (13%) |
+| 64 | Princess Leia | R7 | +2 | 5 | GAC 3v3 defense (13%) |
+| 65 | Stormtrooper Han | R7 | +2 | 5 | GAC 3v3 defense (13%) |
+| 66 | Nightsister Spirit | R7 | +2 | 5 | GAC 3v3 defense (13%) |
+| 67 | Major Partagaz | R7 | +2 | 5 | GAC 3v3 defense (12%) |
+| 68 | Dedra Meero | R7 | +2 | 5 | GAC 3v3 defense (12%) |
+| 69 | KX Security Droid | R7 | +2 | 5 | GAC 3v3 defense (12%) |
+| 70 | Mission Vao | R6 | +3 | 5 | GAC 3v3 defense (12%) |
+| 71 | Zaalbar | R7 | +2 | 5 | GAC 3v3 defense (12%) |
+| 72 | Darth Traya | R7 | +2 | 5 | GAC 3v3 defense (10%) |
+| 73 | Darth Nihilus | R7 | +2 | 5 | GAC 3v3 defense (10%) |
+| 74 | Savage Opress | R7 | +2 | 5 | GAC 3v3 defense (10%) |
+| 75 | Cobb Vanth | R8 | +1 | 5 | GAC 3v3 defense (10%) |
+| 76 | Lobot | R7 | +2 | 5 | GAC 3v3 defense (10%) |
+| 77 | Tarfful | R7 | +2 | 5 | GAC 3v3 defense (9%) |
+| 78 | Yoda & Chewie | R5 | +4 | 5 | GAC 3v3 defense (9%) |
+| 79 | 50R-T | R7 | +2 | 5 | GAC 3v3 defense (9%) |
+| 80 | BB-8 | R7 | +2 | 5 | GAC 3v3 defense (9%) |
+| 81 | L3-37 | R7 | +2 | 5 | GAC 3v3 defense (9%) |
+| 82 | General Hux | R8 | +1 | 6 | GAC 5v5 offense (91%) |
+| 83 | Kylo Ren (Unmasked) | R8 | +1 | 6 | GAC 5v5 offense (91%) |
+| 84 | Count Dooku | R8 | +1 | 6 | GAC 5v5 offense (88%) |
+| 85 | Wat Tambor | R8 | +1 | 6 | GAC 5v5 offense (86%) |
+| 86 | Mace Windu | R8 | +1 | 6 | GAC 5v5 offense (84%) |
+| 87 | Padmé Amidala | R8 | +1 | 6 | GAC 5v5 offense (84%) |
+| 88 | ARC Trooper | R8 | +1 | 6 | GAC 5v5 offense (83%) |
+| 89 | CT-21-0408 "Echo" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
+| 90 | CT-5555 "Fives" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
+| 91 | CT-7567 "Rex" | R8 | +1 | 6 | GAC 5v5 offense (83%) |
+| 92 | Boushh (Leia Organa) | R8 | +1 | 6 | GAC 5v5 offense (80%) |
+| 93 | Embo | R8 | +1 | 6 | GAC 5v5 offense (80%) |
+| 94 | Krrsantan | R8 | +1 | 6 | GAC 5v5 offense (80%) |
+| 95 | Skiff Guard (Lando Calrissian) | R8 | +1 | 6 | GAC 5v5 offense (80%) |
+| 96 | Bastila Shan (Fallen) | R7 | +2 | 6 | GAC 5v5 offense (79%) |
+| 97 | Ezra Bridger (Exile) | R8 | +1 | 6 | GAC 5v5 offense (78%) |
+| 98 | General Syndulla | R7 | +2 | 6 | GAC 5v5 offense (78%) |
+| 99 | Huyang | R7 | +2 | 6 | GAC 5v5 offense (78%) |
+| 100 | Padawan Sabine Wren | R7 | +2 | 6 | GAC 5v5 offense (78%) |
+| 101 | Grand Master Yoda | R8 | +1 | 6 | GAC 5v5 offense (75%) |
+| 102 | Hermit Yoda | R7 | +2 | 6 | GAC 5v5 offense (75%) |
+| 103 | Jedi Knight Cal Kestis | R7 | +2 | 6 | GAC 5v5 offense (75%) |
+| 104 | Jedi Knight Luke Skywalker | R8 | +1 | 6 | GAC 5v5 offense (75%) |
+| 105 | Bo-Katan (Mand'alor) | R8 | +1 | 6 | GAC 5v5 offense (74%) |
+| 106 | Bo-Katan Kryze | R7 | +2 | 6 | GAC 5v5 offense (74%) |
+| 107 | IG-12 & Grogu | R8 | +1 | 6 | GAC 5v5 offense (74%) |
+| 108 | Paz Vizsla | R8 | +1 | 6 | GAC 5v5 offense (74%) |
+| 109 | The Mandalorian (Beskar Armor) | R8 | +1 | 6 | GAC 5v5 offense (74%) |
+| 110 | CC-1119 "Appo" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
+| 111 | Disguised Clone Trooper | R7 | +2 | 6 | GAC 5v5 offense (73%) |
+| 112 | CX-2 | R7 | +2 | 6 | GAC 5v5 offense (73%) |
+| 113 | RC-1262 "Scorch" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
+| 114 | Commander Luke Skywalker | R8 | +1 | 6 | GAC 5v5 offense (68%) |
+| 115 | C-3PO | R7 | +2 | 6 | GAC 5v5 offense (68%) |
+| 116 | Chewbacca | R7 | +2 | 6 | GAC 5v5 offense (68%) |
+| 117 | Han Solo | R8 | +1 | 6 | GAC 5v5 offense (68%) |
+| 118 | Darth Sion | R7 | +2 | 6 | GAC 5v5 offense (66%) |
+| 119 | Darth Talon | R7 | +2 | 6 | GAC 5v5 offense (66%) |
+| 120 | Chief Nebit | R7 | +2 | 6 | GAC 5v5 offense (65%) |
+| 121 | Jawa Scavenger | R7 | +2 | 6 | GAC 5v5 offense (65%) |
+| 122 | Cere Junda | R7 | +2 | 6 | GAC 5v5 offense (61%) |
+| 123 | Inquisitor Barriss | R7 | +2 | 6 | GAC 5v5 offense (61%) |
+| 124 | Ninth Sister | R6 | +3 | 6 | GAC 5v5 offense (61%) |
+| 125 | Taron Malicos | R7 | +2 | 6 | GAC 5v5 offense (61%) |
+| 126 | Doctor Aphra | R7 | +2 | 6 | GAC 5v5 offense (59%) |
+| 127 | BT-1 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
+| 128 | IG-90 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
+| 129 | 0-0-0 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
+| 130 | Darth Vader | R7 | +2 | 6 | GAC 5v5 offense (59%) |
+| 131 | Dark Trooper Moff Gideon | R7 | +2 | 6 | GAC 5v5 offense (53%) |
+| 132 | Captain Enoch | R7 | +2 | 6 | GAC 5v5 offense (53%) |
+| 133 | Death Trooper | R7 | +2 | 6 | GAC 5v5 offense (53%) |
+| 134 | Moff Gideon | R7 | +2 | 6 | GAC 5v5 offense (53%) |
+| 135 | Scout Trooper | R7 | +2 | 6 | GAC 5v5 offense (53%) |
+| 136 | Omega (Fugitive) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
+| 137 | Batcher | R6 | +3 | 6 | GAC 5v5 offense (36%) |
+| 138 | Crosshair (Scarred) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
+| 139 | Hunter (Mercenary) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
+| 140 | Wrecker (Mercenary) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
+| 141 | Cassian Andor | R8 | +1 | 7 | GAC 3v3 offense (78%) |
+| 142 | Jyn Erso | R7 | +2 | 7 | GAC 3v3 offense (78%) |
+| 143 | Ezra Bridger | R5 | +4 | 7 | GAC 3v3 offense (74%) |
+| 144 | Bossk | R8 | +1 | 7 | GAC 3v3 offense (71%) |
+| 145 | Grand Moff Tarkin | R8 | +1 | 7 | GAC 3v3 offense (71%) |
+| 146 | Greef Karga | R7 | +2 | 7 | GAC 3v3 offense (71%) |
+| 147 | The Mandalorian | R7 | +2 | 7 | GAC 3v3 offense (71%) |
+| 148 | Qui-Gon Jinn | R6 | +3 | 7 | GAC 3v3 offense (49%) |
+| 149 | Jedi Knight Anakin | R7 | +2 | 7 | GAC 3v3 offense (49%) |
+| 150 | Ki-Adi-Mundi | R5 | +4 | 7 | GAC 3v3 offense (49%) |
+| 151 | Kit Fisto | R5 | +4 | 9 | TW defense (12%) |
+| 152 | Captain Carson Teva | R5 | +4 | 9 | TW defense (10%) |
+| 153 | Colonel Ward | R4 | +5 | 9 | TW defense (10%) |
+| 154 | Grogu & Anzellans | R5 | +4 | 9 | TW defense (10%) |
+| 155 | R5-D4 | R4 | +5 | 9 | TW defense (10%) |
+| 156 | Zeb Orrelios (New Republic Pilot) | R4 | +5 | 9 | TW defense (10%) |
+| 157 | Admiral Trench | R7 | +2 | 9 | TW defense (7%) |
+| 158 | Jango Fett | R8 | +1 | 9 | TW defense (7%) |
+| 159 | Nute Gunray | R8 | +1 | 9 | TW defense (7%) |
+| 160 | Finn | R7 | +2 | 9 | TW defense (6%) |
+| 161 | Resistance Hero Finn | R7 | +2 | 9 | TW defense (6%) |
+| 162 | Resistance Hero Poe | R7 | +2 | 9 | TW defense (6%) |
+| 163 | Rose Tico | R7 | +2 | 9 | TW defense (6%) |
+| 164 | Zorii Bliss | R7 | +2 | 9 | TW defense (6%) |
+| 165 | Bistan | R7 | +2 | 9 | TW defense (4%) |
+| 166 | K-2SO | R7 | +2 | 9 | TW defense (4%) |
+| 167 | Tusken Chieftain | R7 | +2 | 9 | TW defense (2%) |
+| 168 | Tusken Warrior | R7 | +2 | 9 | TW defense (2%) |
+| 169 | Tusken Raider | R8 | +1 | 9 | TW defense (2%) |
+| 170 | Tusken Shaman | R7 | +2 | 9 | TW defense (2%) |
+| 171 | URoRRuR'R'R | R7 | +2 | 9 | TW defense (2%) |
+| 172 | Geonosian Brood Alpha | R6 | +3 | 9 | TW defense (2%) |
+| 173 | Geonosian Soldier | R5 | +4 | 9 | TW defense (2%) |
+| 174 | Geonosian Spy | R5 | +4 | 9 | TW defense (2%) |
+| 175 | Poggle the Lesser | R6 | +3 | 9 | TW defense (2%) |
+| 176 | Sun Fac | R6 | +3 | 9 | TW defense (2%) |
+| 177 | Obi-Wan Kenobi (Old Ben) | R7 | +2 | 10 | TW offense (81%) |
+| 178 | Admiral Ackbar | R6 | +3 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 179 | Admiral Piett | R8 | +1 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 180 | Amilyn Holdo | R6 | +3 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 181 | Rey (Scavenger) | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 182 | Dengar | R6 | +3 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 183 | Plo Koon | R8 | +1 | 11 | GAC Fleet - Offense: Negotiator (crew) |
+| 184 | Scarif Rebel Pathfinder | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 185 | Second Sister | R7 | +2 | 11 | GAC Fleet - Defense: Chimaera (crew) |
+| 186 | Tech | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
+| 187 | Poe Dameron | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 188 | Hunter | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
+| 189 | Boba Fett | R8 | +1 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 190 | Sith Empire Trooper | R7 | +2 | 11 | GAC Fleet - Offense: Leviathan (crew) |
+| 191 | Wrecker | R6 | +3 | 11 | GAC Fleet - Offense: Negotiator (crew) |
+| 192 | IG-88 | R6 | +3 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 193 | Resistance Trooper | R6 | +3 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 194 | Sith Assassin | R5 | +4 | 11 | GAC Fleet - Offense: Leviathan (crew) |
+| 195 | TIE Fighter Pilot | R5 | +4 | 11 | GAC Fleet - Defense: Chimaera (crew) |
+| 196 | Carth Onasi | R7 | +2 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 197 | Resistance Pilot | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 198 | Biggs Darklighter | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 199 | T3-M4 | R7 | +2 | 11 | GAC Fleet - Offense: Executor (crew) |
+| 200 | Young Lando Calrissian | R7 | +2 | 11 | GAC Fleet - Defense: Raddus (crew) |
+| 201 | Wedge Antilles | R7 | +2 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 202 | Hera Syndulla | R6 | +3 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 203 | Kanan Jarrus | R5 | +4 | 11 | GAC Fleet - Defense: Home One (crew) |
+| 204 | Garazeb "Zeb" Orrelios | R5 | +4 | 11 | GAC Fleet - Defense: Home One (crew) |
 
 ## Gear queue (0)
 

@@ -12,6 +12,11 @@ for line in open(os.path.join(D,"meta","mod_meta_report.txt")):
     if len(p)<6: continue
     tgt[p[0]]={"sets":p[1],"arrow":p[2]}
 cur=json.load(open(os.path.join(D,"current_mods.json")))["units"]
+# "low speed" used to be a flat <180. Nothing on this roster reaches 180 (max 141), so it
+# flagged 137 of 137 units and the report was unreadable. Calibrate against the roster
+# itself: a top-priority unit should at least sit in the top quartile of your own mods.
+_spd=sorted(v.get("speed",0) for v in cur.values())
+SLOW=int(os.environ.get("MOD_SLOW_MIN") or _spd[3*len(_spd)//4] if _spd else 0)
 res=json.load(open(os.path.join(D,"gac_result.json")))
 try:
     import sys; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
@@ -42,13 +47,13 @@ for b in units:
             act.append(f"set→{t['sets']} (have {c['sets']})"); n["setw"]+=1
         if t.get("arrow","").startswith("Speed") and not c.get("spdArrow"):
             act.append("add Speed arrow"); n["arrow"]+=1
-        if c.get("speed",0)<180: act.append(f"low speed ({c.get('speed')})"); n["slow"]+=1
+        if c.get("speed",0)<SLOW: act.append(f"low speed ({c.get('speed')})"); n["slow"]+=1
         if c.get("minLvl",15)<15: act.append(f"level mods (min L{c['minLvl']})"); n["lvl"]+=1
         if c.get("sixDot",6)<6: act.append(f"slice to 6-dot ({c['sixDot']}/6)"); n["dot"]+=1
     if not act: n["ok"]+=1; act=["OK"]
     lines.append((lab,b,c,t,act))
 md=["# Accurate Mod Gap Report — GAC (current vs swgoh.gg best-mods)","",
-    f"Units: {len(units)} | fully OK: {n['ok']} | wrong set: {n['setw']} | missing Speed arrow: {n['arrow']} | low speed(<180): {n['slow']} | unleveled: {n['lvl']} | not full 6-dot: {n['dot']}","",
+    f"Units: {len(units)} | fully OK: {n['ok']} | wrong set: {n['setw']} | missing Speed arrow: {n['arrow']} | low speed(<{SLOW}): {n['slow']} | unleveled: {n['lvl']} | not full 6-dot: {n['dot']}","",
     "Priority: current season **3v3** first. 'Action' lists what to fix, most-impactful first.","",
     "| Team | Unit | Speed | Current sets | Action |","|---|---|---|---|---|"]
 for lab,b,c,t,act in lines:

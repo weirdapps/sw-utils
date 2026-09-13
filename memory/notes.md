@@ -4550,3 +4550,111 @@ fight was still running and about to be won. Poll `state()` for `rewards` before
 S3 **15** — never inspected this session, and the old "residue on unreachable branches" claim
 deserves one look now that replays are known to pay. S4 boss **8** · S5 mini-boss **6** and one
 star **1** · S1 boss **3**.
+
+## 2026-09-12 (10:30) — mod session: placement AUDITED as correct, and two broken inputs fixed
+
+### The material names, finally pinned to the internal ids
+Matched by diffing "You Own" in the in-game stores against `pull_mods.py`'s material dict:
+**T05_06 (the MASTER GATE) = `Mk 1 Capacitor`** · T05_05 = `Mk 1 Amplifier` ·
+**PROMO_T5_T6 = `Mk 2 Pulse Modulator`**. All three are sold in **Episode Shipments** (25 per
+2,500 EC) and the Guild Activity store, which is what makes the 100K-capped Episode currency
+worth spending on slicing rather than on gear.
+
+### Session result (HU_SID captured via chrome-devtools, Discord silent SSO worked this time)
+34 tier-steps executed in ladder order: 3 mods to 6A, 5 promotes to 6E, 18 slices to 5A.
+**6A 107 -> 110 · 6-dot 170 -> 175 · plusSpeed 16,823 -> 16,834 · speed20 51 -> 52.**
+Cost 3.06M credits. Stopped at true material exhaustion (T06_02 225 -> 85, T05_06 667 -> 287).
+
+### ⚠ Calibration is still a bad trade, now with a fourth data point
+6 attempts on genuinely under-rolled mods (deficit >= 1), **1 kept** (General Kenobi 17 -> 19),
+4 reverted, 1 stopped on `rc=2 GOHServiceCall Error [40]` when attenuators ran out.
+**175 attenuators for +2 speed.** Cumulative record across sessions is now roughly 1 hit in 24.
+⇒ Treat `calibrate.py` as a last call on a farming trip, never as a reason to farm attenuators.
+
+### ⭐⭐ PLACEMENT IS CORRECT, and this is a direct audit rather than an optimiser measurement
+Earlier the case rested on "a Grandivory re-run measured +0.12% for ~1,473 moves / ~7.4M credits".
+Stronger evidence now: bucket every 6-dot mod by its unit's rung in `invest_plan.mod_priority`.
+**T1 arena wall 30 · T2 arena attack 11 · GAC (11-100) 127 · rest 7 · off-ladder 0 · unequipped 0.**
+So 168 of 175 six-dot mods sit in the top 100 and the arena wall is a perfect 30/30. Exactly ONE
+6-dot mod with 15+ speed sits below rank 100 (17 spd on RC-1262 "Scorch", rank 137).
+⇒ There is nothing for the optimiser to move. **Do not churn placement. Farm materials instead.**
+
+Mean mod-speed by rung: T1 arena wall **97.0** · T2 arena attack 59.6 · GAC 58.1 · rest 42.1,
+against a roster median of 38 and a roster maximum of 141.
+⇒ The one real shape problem is **T2, the GL Leia arena ATTACK squad**: only 1 of 5 units is fully
+6-dot and Captain Drogan, Captain Rex and R2-D2 are at **0/6**. Rotta also carries **no speed
+arrow** and the lowest T1 speed (73).
+
+### ⛔ TWO INPUTS WERE SILENTLY WRONG, and both flattered/inflated the report
+1. **`data/current_mods.json` had NO WRITER anywhere in the repo.** It was hand-built on
+   2026-09-04 and `mod_analysis.py` is its only reader, so the gap report was grading an
+   8-day-old roster and every slicing session made it staler. It claimed **49 unleveled units**;
+   the true figure on fresh data is **0**. Added `scripts/build_current_mods.py`; run it after
+   every `pull_mods.py`.
+2. **`mod_analysis.py` gated "low speed" at a flat `<180`.** Nothing on this roster reaches 180
+   (max 141), so it flagged **137 of 137 units** and the report was noise. It now calibrates off
+   the roster's own 75th percentile (61 today), overridable with `MOD_SLOW_MIN`.
+   Post-fix: `OK=1 wrongSet=126 noSpeedArrow=71 lowSpeed=85 unleveled=0 not6dot=134 (of 142)`.
+   ⚠ `mod_analysis.py` also reads `data/gac_result.json` for its unit list, so run
+   `compute_teams.py` first or it grades last season's board.
+
+## 2026-09-14 — full daily run: 8/8 quests, 600/600 tickets, and three store facts corrected
+
+### Where the account actually stands (read off the device, not inferred)
+- **GAC: KYBER 3, skill rating 3,203** (3,165 on 08-24, so +38). Season 83 is **3v3**.
+  Weekly event: **R1 LOSS · R2 WIN 1,737-65 vs Exar Kun · R3 SETUP PHASE, 23h left.**
+  ⭐ The R3 **defence board was already full — 5/5 · 5/5 · 5/5 · 3/3 fleet** — carried over from the
+  09-11/09-12 placement. Nothing to re-place. Offence left untouched per the standing rail.
+- **TW ended in DEFEAT, 11,735 vs 18,433.** That is the third loss in four wars and the margin
+  (6,698) is nearly triple the 2,287/2,605 losses the wall argument was sized against. The
+  ~1,888 banners this repo placed did not move it. **The deficit is offence, not the wall** —
+  which is what the 08-24 correction already said. Revisit the 8-squad offence cap with the owner.
+- **Conquest: MAX CRATE ALREADY ACHIEVED (Hard-07)**, feats 7/9, sectors 93/96 · 96/96 · 103/118,
+  12,449 conquest energy banked. Extra keycards buy nothing once the crate is maxed ⇒ nothing to do.
+- Raid (Order 66): all 5 attempts submitted, 1,397,500, guild 84.3M, rank 18.
+- TB/RotE **not running** — guild chat says "ROTE coming soon".
+- Arenas: fleet **#1 held** (auto win vs the lowest-power board target, per the measured rule);
+  squad #2, untouched (auto loses there, also measured).
+
+### ⛔ THREE STORE FACTS THE 09-12 NOTE GOT WRONG
+1. **Episode Shipments does NOT sell mod slicing materials.** The 09-12 instruction to "buy ~69K EC
+   via Episode Shipments" cannot be executed: the store's whole inventory is Supremacy Directives,
+   omicron/Mk III ability mats, Signal Data, Kyrotech Mk7/Mk9, Injector salvage, then character
+   shards. Verified by walking every row. **74.1K/100K Episode currency is still unspent.**
+2. **The Guild Activity store is the slicing-mat route, and it is ONE purchase per 4h39m refresh:**
+   `Mk 2 Pulse Modulator ×6 for 900`. Bought (442 -> 448). No Mk 1 Capacitor/Amplifier in today's
+   rotation, so T05_06 (the MASTER GATE) has no route today at all.
+3. **`execute_upgrades.py` prints "farm at Mod Battles Sector 9" and that node does not exist** —
+   the 2026-04-27 update cut Mod Battles to chapters 1-2. Treat that string as stale.
+
+### The purchases that WERE worth making (3/3 shipments quest, all forced materials)
+Guild Events store, daily-limit 1 each: **Fragmented Signal Data +20** (1,652->1,672),
+**Incomplete Signal Data +20** (786->806), **Zinbiddle Card +2** (45->47). `action_value.py` marks
+the first two FORCED (no substitute route), so this is the highest-value recurring daily buy on the
+account. Do it every day; it is cheap in guild-event tokens and nothing else spends them.
+
+### Mods session (SID captured via chrome-devtools, Discord silent SSO worked again)
+10 tier-steps: 1 mod to 6A, 2 promotes to 6E, 5 slices to 5A. **6-dot 175 -> 177 · 6A 110 -> 111 ·
+plusSpeed 16,834 -> 16,835 · speed15 327 -> 328.** Cost 1.11M credits.
+Stopped at true exhaustion again: **T06_02 85 -> 35, T05_06 287 -> 142.**
+⚠ **Calibration, fifth data point, same answer:** 1 attempt, 0 kept, then
+`rc=2 GOHServiceCall Error [40]` when attenuators ran out (67 -> 42). Cumulative ~1 hit in 25.
+Shopping list to clear the next 20 mods: T06_02 short 1,165 · T05_06 short 918 · T06_03 short 583.
+
+### Gear: the two named sub-G13 units are now as far as free materials take them
+CLAUDE.md names **4-LOM + Zuckuss** as the only sub-G13 units gating anything (the Kyber-D1 #1
+offence squad). Every craftable slot on both was crafted and equipped:
+**4-LOM 18,577 -> 19,369** (4 slots) · **Zuckuss 17,976 -> 18,570** (3 slots).
+⛔ **Both are now hard-blocked, not resource-blocked.** The remaining slots want
+**Mk 9 TaggeCo Holo Lens** (FIND offers crystals only: 1,000-2,000 💎) and **Mk 8 Neuro-Saav
+Electrobinoculars** (FIND returns *"No locations found"*). Do not farm for these and do not buy them.
+
+### UI facts worth keeping
+- **The AUTO button in a battle is at device (282,65), not (222,54).** The second icon in that row is
+  hide-UI, and tapping it looks exactly like AUTO refusing to engage — 4 wasted screenshots and a
+  battle driven by hand before the zoom showed the real centre. SPEED is (395,65).
+- The hub's bottom-left thumbnail is a **jump-to-last-node shortcut**, not a nav menu.
+- Challenges have a **MULTI SIM** button that sims the highest tier of every challenge at once
+  (14 battles, 1 tap) — it covers both the "2 Challenges" and "1 Fleet Challenge" dailies.
+- The free **Bronzium is 10/day on an ~8-minute cooldown**, and those 10 pulls complete the
+  Episode-quest row "Open 10 Data Cards in the Store" (5,000 episode points).
