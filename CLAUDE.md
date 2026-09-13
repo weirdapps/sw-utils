@@ -75,9 +75,6 @@ a front zone left at n-1. Fixing that is still the whole game. What changes:
   few rounds. Do not expect Profundity or a mod pass to move the number the same week.
 - Division changes happen **after each round**; League changes only at **season end**. Kyber is the
   top league, so Kyber 1 is the ceiling.
-
-  ⇒ **Scrape swgoh.gg with `league=kyber` (all divisions), not `league=kyber-d1`** — they are different
-  buckets and disagree materially (Chimaera 15.9% vs 0.8% hold).
 - **9 Galactic Legends:** JMK, JML, SEE, SLKR, GL Leia, Lord Vader, GL Rey, Jabba, GL Ahsoka.
 - **Known gaps, ranked by banners:** **Profundity** (24.8% hold AND 98.4% win — best in the game on
   both sides) · **Third Sister** (turns an already-owned **R7** Inquisitor bench into both a 26% wall
@@ -87,7 +84,9 @@ a front zone left at n-1. Fixing that is still the whole game. What changes:
   - **Profundity — every gate MET.** All 7 ships at 7★ (Bistan's + Cassian's U-wing, Biggs' + Wedge's
     X-wing, Rebel Y-wing, Ghost, Outrider) and all 7 character relics clear, **three of them exactly at
     threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7 (then Mon Mothma/Bistan/Jyn R7,
-    Hera R6). ⭐ **NEXT STARDUST TRANSMISSION IS 2026-08-31** (swgohevents.com/event/profundity).
+    Hera R6). ⭐ **Profundity is event-gated: PLAY the Stardust Transmission, it cannot be automated.**
+    Check the next occurrence at swgohevents.com/event/profundity rather than trusting a date here;
+    the last one written down was 2026-08-31 and went stale unnoticed.
     Gates re-verified against the 08-24 roster with the CORRECT base ids — the ones implied by the
     old note are guesses that do not resolve. Ships, all 7★: **UWINGSCARIF · UWINGROGUEONE ·
     XWINGRED3 · XWINGRED2 · YWINGREBEL · GHOST · OUTRIDER**; Hera is **HERASYNDULLAS3** (R6, gate R6).
@@ -206,8 +205,9 @@ Kyber ceilings: **5v5 1915 · 3v3 2131** (HotUtils printed 2131 independently �
    best Stranger answer, and The Stranger is the **#2 hardest defence in the game** (31% hold,
    68% attacker win, n=29.9K). Only Rotta is harder (64% attacker win) and Astra answers Rotta
    already with Lord Vader 96% (n=2,096) and SLKR 89% (n=1,303).
-   ⚠ **Time-boxed:** the 79% is measured with Set 31 live, whose L6 is Old Republic, and
-   **Set 31 expires 2026-09-03**. Expect the rate to soften after that.
+   ⚠ **The 79% is stale and needs re-measuring.** It was taken with Set 31 live, whose L6 was Old
+   Republic; Set 31 expired 2026-09-03 and the live sets are now 32/33/34. Treat the figure as an
+   upper bound until someone re-runs it.
 9. Fleets are single-use too; the 6 fleets share no ship. The fleet territory is a BACK zone.
    ⭐ **A GAC fleet is capital + 3 starters + up to 4 reinforcements, 8 tiles, IDENTICAL in 3v3 and
    5v5** (swgoh.wiki gives squads separate 3v3/5v5 banner charts but fleets a single shared one, so
@@ -515,7 +515,7 @@ the payload, so `--sync --payload rote_squads.json` wipes all ~114 GAC/TW squads
 Browser steps can't be pure scripts (Cloudflare + authenticated sessions) — the JS snippets are in
 `scripts/browser_recipes.md`. Run them via the in-session MCP browser.
 
-1. **Refresh roster** → `data/roster/` (browser_recipes.md §1). Update `ROSTER_FILE` in compute_teams.py to the new filename.
+1. **Refresh roster** → `data/roster/` (browser_recipes.md §1). Nothing to edit afterwards: `compute_teams.py:34` resolves the newest file itself via `swgoh_data.latest_roster_file()`, and uses it only as the offline fallback behind the live comlink pull.
 2. **Read live board counts** from HotUtils GAC Planning (browser_recipes.md §2). Update `BOARD` if changed.
 3. **Scrape swgoh.gg meta** → `data/meta/`. 4 views: 5v5 def (JSON), 5v5 off, latest-3v3 def, latest-3v3 off (txt). Seasons: even = 5v5, odd = 3v3.
    - ⛔ **`/gac/squads/` IS ALL-LEAGUE AND THE `league=` PARAM IS IGNORED.** Tested 2026-08-24:
