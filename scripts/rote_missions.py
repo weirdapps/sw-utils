@@ -241,9 +241,148 @@ PHASES = {
 # here when there is a researched composition or a turn plan worth carrying.
 # Sources are per-entry; re-fetch before trusting one that looks stale.
 TACTICS = {
+    # ---- PHASE 1 -------------------------------------------------------------
+    # Researched 2026-09-14 against a LIVE phase 1, the first one this repo has
+    # played. Every row below is a published walkthrough's composition, changed
+    # only where Astra does not own the printed unit or where a unit is locked
+    # into an Operation. The phase-1 floor is R5, so nothing here is gated out.
+    # Sources: gaming-fans.com's per-mission Phase 1 walkthroughs (2022/12 to
+    # 2023/01) and starwars-fans.com/rote-special-missions/.
+    (1, "Mustafar", "vader"): {
+        "squad": ["LORDVADER"],
+        "note": "⭐ LORD VADER SOLO. The published clear used him alone at 54,378 "
+                "power and Astra's is R10 / 56,646. W1 is the Separatist leadership: "
+                "OPEN WITH ORBITAL BOMBARDMENT and focus WAT TAMBOR, after which the "
+                "wave collapses. W2 is Jedi Master Kenobi alone and is a survival "
+                "check, the fight being about lasting until Lord Vader's ULTIMATE "
+                "comes online, which kills him. If the panel leaves the other four "
+                "slots open, fill them: a mission pays 250K plus the whole squad's "
+                "power, so a solo forfeits four units' deployment unless they are "
+                "wanted in an Operation. gaming-fans.com 2022/12 P1 DS CM with Lord "
+                "Vader.",
+    },
+    (1, "Mustafar", "ds_1"): {
+        "squad": ["SITHPALPATINE", "DARTHMALAK", "DARTHMALGUS", "BASTILASHANDARK",
+                  "SITHMARAUDER"],
+        "note": "Sith Empire under SEE, the published winning squad unit for unit. "
+                "Enemy is SEPARATIST DROIDS: W1 a DROIDEKA hiding behind TWO taunting "
+                "MagnaGuards plus B1/B2s, W2 the same plus NUTE GUNRAY. Hold SEE's "
+                "ultimate for the MagnaGuard and B1 opening, then clear the B2s and "
+                "leave Nute last. ⚠ An EMPIRE team (Palpatine / Mara Jade / Thrawn / "
+                "Piett / Royal Guard, 162k) was WIPED on this row for 0 points: the "
+                "MagnaGuard taunts plus the Droideka punish a squad with no mass "
+                "dispel. gaming-fans.com 2022/12 P1 DS CM (Left).",
+    },
+    (1, "Mustafar", "ds_2"): {
+        "squad": ["SUPREMELEADERKYLOREN", "KYLORENUNMASKED", "GENERALHUX",
+                  "FOSITHTROOPER", "FIRSTORDEROFFICERMALE"],
+        "note": "First Order under SLKR, the published winning squad at only 170k. "
+                "W1 opens with a DROIDEKA: lead with an AoE ability block and put "
+                "SLKR's STUN on the Droideka. W2 is GEONOSIANS (Geo Spy, a Brute to "
+                "dispel, Brood Alpha to stun) and is the real test. Hux and the "
+                "Officer feed turn meter into SLKR's ULTIMATE, which ends the wave. "
+                "gaming-fans.com 2023/01 P1 DS CM (Middle).",
+    },
+    (1, "Mustafar", "ds_3"): {
+        "squad": ["GRANDINQUISITOR", "SEVENTHSISTER", "FIFTHBROTHER", "SECONDSISTER",
+                  "MARROK"],
+        "note": "⚠ THE PUBLISHED ANSWER FOR THIS ROW IS A KNOWN LOSS. The author's "
+                "Imperial Troopers under a General Veers lead took ~100k and broke an "
+                "otherwise perfect phase, because the W1 DROIDEKA's DAMAGE IMMUNITY "
+                "let it kill Veers before he acted. So this is a substitution, not a "
+                "transcription: Inquisitorius is the strongest coherent non-GL Dark "
+                "Side five Astra fields (all R7) once SEE, SLKR and Lord Vader are "
+                "committed to the other three Mustafar rows, and its mass Purge and "
+                "DoT do not care about a taunt wall. Do NOT bring Imperial Troopers.",
+    },
     (1, "Corellia", "special"): {
         "squad": ["QIRA", "REY", "YOUNGCHEWBACCA", "L3_37", "YOUNGHAN"],
-        "note": "Qi'ra leads. starwars-fans.com/rote-special-missions/",
+        "manual": True,
+        "note": "⛔ MANUAL. Specials are one attempt and turn on ability timing. "
+                "Qi'ra leads. TURN PLAN: keep L3-37 TAUNTING continuously and route "
+                "every bonus Protection Up onto her (Rey's and Vandor Chewbacca's), "
+                "which is what makes the Troopers unable to dent the squad; let Rey "
+                "carry the damage; HOLD Qi'ra's Scattering Blast until the enemies "
+                "have Defense Up or an unwanted taunt. Kill the high-offense enemies "
+                "first. Mods: health on Vandor Chewie, crit chance and crit damage on "
+                "Qi'ra. Reward 800 Mk III Guild Event Tokens. "
+                "starwars-fans.com/rote-special-missions/",
+    },
+    (1, "Corellia", "jabba"): {
+        "squad": ["JABBATHEHUTT", "KRRSANTAN", "CADBANE", "RACCOON", "GAMORREANGUARD"],
+        "note": "Jabba leads a full HUTT CARTEL: faction purity is the point, and the "
+                "published clear ran Jabba plus four Cartel. ⚠ W1: the taunter is the "
+                "CARTEL SPY, not the obvious bruiser; stack thermal detonators and "
+                "push to PAYOUT, after which the wave falls fast. W2 is Qi'ra, Young "
+                "Han and more Cartel, where Han gets Disarmed and the Rancor finishes "
+                "Qi'ra. ⚠ The published lineup used Boushh and Skiff Guard Lando; "
+                "Rotta the Hutt (R10) and Gamorrean Guard (R7) are the stronger "
+                "substitutes here and keep Boushh free. ⚠ Datacrons DO NOT fire in "
+                "Territory Battles, so Astra's level-15 Hutt cron buys nothing here.",
+    },
+    (1, "Corellia", "aphra"): {
+        "squad": ["DOCTORAPHRA", "TRIPLEZERO", "BT1", "IG88", "VADER"],
+        "note": "The published droid core. OPENER: Aphra's third ability to put Doubt "
+                "on every enemy, then summon the Hacked Commando Droid. Torture the "
+                "TAUNTING STORMTROOPER, send Darth Vader into Merciless Massacre, then "
+                "IG-88's AoE. BT-1's middle ability spreads Expose and grants an extra "
+                "turn, and chaining it into his third is what carries the fight. "
+                "Getting stuck behind the Stormtrooper taunt is the only real failure "
+                "mode. ⚠ The author's best run swapped IG-88 for the IMPERIAL PROBE "
+                "DROID, but IPD is worth 10,000,000 TP in a Corellia Operation slot "
+                "against 200,000 for this whole mission: spend it there and use "
+                "IG-88, which won this row twice. gaming-fans.com 2023/01 P1 Neutral "
+                "CM with Doctor Aphra.",
+    },
+    (1, "Corellia", "mixed"): {
+        "squad": ["BOSSK", "BOBAFETT", "EMBO", "ZAMWESELL", "JANGOFETT"],
+        "note": "No gate at all on this row, so it takes the account's own measured "
+                "fast clear: a BOSSK-led Bounty Hunter five went 2/2 in 40 SECONDS at "
+                "166,589 power on 2026-08-19, while a 219,456-power auto-fill took "
+                "130s and two other auto-fills only managed 1/2. Every unit answers "
+                "'On The Hunt' and the Payout mechanic fires. Keeps all nine GLs free "
+                "for the gated rows.",
+    },
+    (1, "Coruscant", "jedi_named"): {
+        "squad": ["JEDIMASTERKENOBI", "MACEWINDU", "KITFISTO", "SHAAKTI",
+                  "PADAWANOBIWAN"],
+        "note": "Mace Windu AND Kit Fisto are both hard-gated here; the other three "
+                "slots are free Jedi. Community consensus is a JMK lead, whose "
+                "Bequeath and Call to Action carry Mace's damage. Shaak Ti and Padawan "
+                "Obi-Wan keep the five Galactic-Republic-coherent so JMK's leader "
+                "ability buffs all of them. ⚠ Kit Fisto is R5, exactly the phase-1 "
+                "floor, and is worth nothing outside this one mission, so do not spend "
+                "relics on him.",
+    },
+    (1, "Coruscant", "jedi"): {
+        "squad": ["GRANDMASTERLUKE", "HERMITYODA", "JOLEEBINDO", "GENERALKENOBI",
+                  "JEDIKNIGHTCAL"],
+        "note": "5x Jedi R5+ against two waves of CLONE TROOPERS. The published clear "
+                "was JML (lead) / JK Luke / Hermit Yoda / JK Revan / Jolee at 189k: "
+                "grant JML *Jedi's Will* so he COUNTERS every Clone Trooper attack, "
+                "and the wave melts once a second stack of No Confidence lands. ⚠ JK "
+                "Luke, JK Revan and Grand Master Yoda were all spent in Coruscant "
+                "Operations on 2026-09-14, because a 10,000,000 TP slot beats a "
+                "200,000 TP mission by 50x. General Kenobi R10 and Jedi Knight Cal "
+                "Kestis R7 substitute, both Jedi. gaming-fans.com 2022/12 P1 LS CM "
+                "with Jedi.",
+    },
+    (1, "Coruscant", "ls_1"): {
+        "squad": ["GLREY", "BENSOLO", "EPIXFINN", "EPIXPOE", "REYJEDITRAINING"],
+        "note": "No faction gate, just Light Side or Neutral at R5+. The published "
+                "clear is this exact RESISTANCE five at 175,740 (the author's Rey was "
+                "the base R9 one; Astra brings GL Rey R10, strictly better and still "
+                "Resistance). The enemy is standard Geonosis-TB CLONE TROOPERS who "
+                "regain PROTECTION UP over and over, and the battle's *Democracy* "
+                "trait is the key to breaking that. gaming-fans.com 2022/12 P1 LS CM "
+                "(Left).",
+    },
+    (1, "Coruscant", "ls_2"): {
+        "squad": ["GLLEIA", "COMMANDERLUKESKYWALKER", "HANSOLO", "CHEWBACCALEGENDARY",
+                  "R2D2_LEGENDARY"],
+        "note": "Second free Light Side row, so it takes the coherent GL Leia REBEL "
+                "core. ⚠ C-3PO, the usual fifth, is locked in a Coruscant Operation, "
+                "so R2-D2 R8 substitutes and keeps the squad Rebel-pure.",
     },
     (2, "Felucia", "special"): {
         # The wiki files this under "Special" but it pays TERRITORY POINTS, not
@@ -437,6 +576,84 @@ TACTICS = {
         "aspirational": True,
         "note": "ASPIRATIONAL — Iden is the gate at R9 and is R7; Malgus and Sith Trooper are "
                 "R7 free slots against the same R9 floor. starwars-fans.com",
+    },
+}
+
+# ⭐ ROTE_FLEETS: the fleet rows, which missions_*.json does NOT carry.
+#
+# The module docstring says fleet missions are "recorded under 'fleets'". They are
+# not: as of 2026-09-14 the six mission files hold 72 combat and 11 special rows and
+# ZERO fleet rows, while CLAUDE.md claims 17 of them. Both statements were wrong, and
+# the gap only showed up when a live phase 1 turned out to have three fleet markers
+# the plan could not name. This table closes it for phase 1; phases 2 to 6 still need
+# the same treatment.
+#
+# A RotE fleet is capital + 3 starters + 4 reinforcements, 8 tiles, and each row is
+# gated on ONE named 7-star ship. The rest of the lineup is free, so it comes from
+# build_fleets.FLEET_LINEUPS, which is derived from 51k observed battles rather than
+# guessed. Coherence beats power here exactly as it does on the ground: a coherent
+# Negotiator at 611,548 beat an incoherent 670,075 grab-bag on Bracca, and a coherent
+# Leviathan at 521,336 beat a 707,157 one on Felucia.
+ROTE_FLEETS = {
+    (1, "Mustafar"): {
+        "gate": "SCYTHE",
+        "capital": "CAPITALEXECUTOR",
+        "starters": ["SCYTHE", "TIEADVANCED", "TIEFIGHTERIMPERIAL"],
+        "reinforcements": ["TIEDEFENDER", "TIEINTERCEPTOR", "EMPERORSSHUTTLE",
+                           "TIEBOMBERIMPERIAL"],
+        "note": "Gate is the SCYTHE at 7 stars, Dark Side ships. Enemy capital is the "
+                "MALEVOLENCE with Hyena Bomber, Sun Fac and Vulture Droids (plus "
+                "summoned copies). ⭐ THE TIE DEFENDER IS THE SWING SHIP: the author "
+                "calls it 'the key reason this worked' and says it turns the battle. "
+                "Kill order: Hyena Bomber and Sun Fac first, then find and kill the "
+                "ORIGINAL Vulture Droid, not a summon. Use the summoned TIE Fighters' "
+                "specials to gain Foresight, which feeds turn meter to the capital's "
+                "ultimate, and hold the Emperor's Shuttle to cleanse Buzz Droids off "
+                "the TIE Defender. The fight is RNG-heavy: if the Scythe gets focused "
+                "down early the run derails. ⚠ The walkthrough's capital is the "
+                "EXECUTRIX; Executor is the substitution, because this account's "
+                "Executor has every ability MAXED and it out-ranks Executrix on the "
+                "repo's own hold table (87 vs 92 attacker win). The Imperial ship set "
+                "is build_fleets' 'Chimaera' lineup, whose own capital is locked in a "
+                "Mustafar Operation. Reward 400k TP. gaming-fans.com 2023/01 P1 DS "
+                "Fleet CM with Scythe.",
+    },
+    (1, "Corellia"): {
+        "gate": "MILLENNIUMFALCONPRISTINE",
+        "capital": "CAPITALLEVIATHAN",
+        "starters": ["MILLENNIUMFALCONPRISTINE", "FURYCLASSINTERCEPTOR", "SITHBOMBER"],
+        "reinforcements": ["TIEDAGGER", "SITHINFILTRATOR", "SITHSUPREMACYCLASS",
+                           "SITHFIGHTER"],
+        "note": "Gate is LANDO'S MILLENNIUM FALCON at 7 stars; the territory is Mixed "
+                "so any alignment flies. Enemy capital is the EXECUTRIX, with Darth "
+                "Vader's TIE and a mirror Hound's Tooth. Focus Darth Vader's TIE "
+                "first and expect to lose a ship or two; the Executrix fires an "
+                "ultimate late. ⚠ The walkthrough flew Executor plus Lando's Falcon, "
+                "Hound's Tooth and Razor Crest. This substitutes the LEVIATHAN meta "
+                "lineup around the same gate ship, because Leviathan is the account's "
+                "single best fleet (97% overall attack on 51k battles, and the only "
+                "owned fleet that answers a Sith mirror) and Executor is committed to "
+                "Mustafar's Scythe row. Mark VI Interceptor and Sith Fighter are fine "
+                "HERE: the reinforcement-order problem that bans them is a Fleet "
+                "Arena and GAC DEFENCE concern, not an offence one. Reward 400k TP.",
+    },
+    (1, "Coruscant"): {
+        "gate": "OUTRIDER",
+        "capital": "CAPITALMONCALAMARICRUISER",
+        "starters": ["OUTRIDER", "MILLENNIUMFALCON", "YWINGREBEL"],
+        "reinforcements": ["PHANTOM2", "XWINGRED3", "XWINGRED2", "GHOST"],
+        "note": "Gate is the OUTRIDER at 7 stars, Light Side ships. Enemy is CLONE "
+                "TROOPERS: Rex behind a taunt, a Clone Sergeant's ARC-170 and an "
+                "enemy Y-wing. Let the Rebel Y-wing soak while the Outrider heals, "
+                "play around the taunt to kill REX first, then the Clone Sergeant and "
+                "the Y-wing. Phantom II comes in after Rex dies; Biggs' X-wing "
+                "finishes the Sergeant. ⚠ HOME ONE, not Negotiator, is the capital "
+                "even though Negotiator is bigger (90,970 vs 59,046) and all-maxed: "
+                "every ship this row wants is REBEL, Home One is the Rebel capital, "
+                "and a leader ability only buffs its own faction. That is the same "
+                "rule that made a 611k Negotiator beat a 670k grab-bag on Bracca. The "
+                "walkthrough used Home One too and won 'with relative ease'. Reward "
+                "400k TP. gaming-fans.com 2022/12 P1 LS Fleet CM with Outrider.",
     },
 }
 
