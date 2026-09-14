@@ -81,7 +81,7 @@ PHASES = {
             {"id": "jabba", "required": ["JABBATHEHUTT"]},
             {"id": "aphra", "required": ["DOCTORAPHRA"]},
             {"id": "special", "kind": "special", "required": ["QIRA", "YOUNGHAN"],
-             "reward": "800 Mk III Guild Event Tokens"},
+             "reward": "15 Mk III Guild Event Tokens per clear (panel-read 2026-09-14)"},
         ], [{"id": "fleet", "required": ["MILLENNIUMFALCONPRISTINE"], "preset": "Raddus",
              "why": "Lando's Millennium Falcon is already in the Raddus lineup."}]),
         ("Coruscant", "light", [
@@ -255,11 +255,11 @@ TACTICS = {
                 "OPEN WITH ORBITAL BOMBARDMENT and focus WAT TAMBOR, after which the "
                 "wave collapses. W2 is Jedi Master Kenobi alone and is a survival "
                 "check, the fight being about lasting until Lord Vader's ULTIMATE "
-                "comes online, which kills him. If the panel leaves the other four "
-                "slots open, fill them: a mission pays 250K plus the whole squad's "
-                "power, so a solo forfeits four units' deployment unless they are "
-                "wanted in an Operation. gaming-fans.com 2022/12 P1 DS CM with Lord "
-                "Vader.",
+                "comes online, which kills him. ⭐ MEASURED 2026-09-14: 2/2, 200,000 TP "
+                "on AUTO after firing Orbital Bombardment on turn 1. The other four "
+                "slots are HARD LOCKED ('This slot is unavailable due to slot "
+                "restrictions'), so there is no decision to make here. "
+                "gaming-fans.com 2022/12 P1 DS CM with Lord Vader.",
     },
     (1, "Mustafar", "ds_1"): {
         "squad": ["SITHPALPATINE", "DARTHMALAK", "DARTHMALGUS", "BASTILASHANDARK",
@@ -293,7 +293,11 @@ TACTICS = {
                 "transcription: Inquisitorius is the strongest coherent non-GL Dark "
                 "Side five Astra fields (all R7) once SEE, SLKR and Lord Vader are "
                 "committed to the other three Mustafar rows, and its mass Purge and "
-                "DoT do not care about a taunt wall. Do NOT bring Imperial Troopers.",
+                "DoT do not care about a taunt wall. Do NOT bring Imperial Troopers. "
+                "⚠ MEASURED 2026-09-14: 1/2 on AUTO at 160,326, so 100,000 of 200,000. "
+                "It clears wave 1 and dies in wave 2. This is one of the three phase-1 "
+                "rows with no Galactic Legend available, and all three dropped a wave on "
+                "AUTO while every GL row went 2/2. PLAY THIS ONE MANUALLY next phase.",
     },
     (1, "Corellia", "special"): {
         "squad": ["QIRA", "REY", "YOUNGCHEWBACCA", "L3_37", "YOUNGHAN"],
@@ -305,7 +309,8 @@ TACTICS = {
                 "carry the damage; HOLD Qi'ra's Scattering Blast until the enemies "
                 "have Defense Up or an unwanted taunt. Kill the high-offense enemies "
                 "first. Mods: health on Vandor Chewie, crit chance and crit damage on "
-                "Qi'ra. Reward 800 Mk III Guild Event Tokens. "
+                "Qi'ra. Reward is 15 Mk III Guild Event Tokens PER CLEAR, read off the "
+                "panel on 2026-09-14; this file said 800 and was wrong. "
                 "starwars-fans.com/rote-special-missions/",
     },
     (1, "Corellia", "jabba"): {
@@ -331,8 +336,12 @@ TACTICS = {
                 "mode. ⚠ The author's best run swapped IG-88 for the IMPERIAL PROBE "
                 "DROID, but IPD is worth 10,000,000 TP in a Corellia Operation slot "
                 "against 200,000 for this whole mission: spend it there and use "
-                "IG-88, which won this row twice. gaming-fans.com 2023/01 P1 Neutral "
-                "CM with Doctor Aphra.",
+                "IG-88, which won this row twice. ⚠ MEASURED 2026-09-14: 1/2 on AUTO at "
+                "154,173, so 100,000 of 200,000. The guide's wins are MANUAL and turn on "
+                "the opener above; AUTO walks into the Stormtrooper taunt, which the "
+                "guide names as the only real failure mode. No GL is available for this "
+                "row, so play it manually next phase. "
+                "gaming-fans.com 2023/01 P1 Neutral CM with Doctor Aphra.",
     },
     (1, "Corellia", "mixed"): {
         "squad": ["BOSSK", "BOBAFETT", "EMBO", "ZAMWESELL", "JANGOFETT"],
@@ -341,7 +350,13 @@ TACTICS = {
                 "166,589 power on 2026-08-19, while a 219,456-power auto-fill took "
                 "130s and two other auto-fills only managed 1/2. Every unit answers "
                 "'On The Hunt' and the Payout mechanic fires. Keeps all nine GLs free "
-                "for the gated rows.",
+                "for the gated rows. ⛔⛔ MEASURED 2026-09-14 AND THIS ROW SCORED ZERO. "
+                "I fielded Bossk / Embo / Zam / JANGO FETT / BOBA FETT because the squad "
+                "picker found them faster, not the measured five above, and went 0/2 at "
+                "166,855. HONDO and KRRSANTAN are in the measured squad for a reason: "
+                "Hondo's Captive and Krrsantan's sustain are what carry it. FIELD THE "
+                "PRINTED FIVE. This was the single most expensive mistake of the phase "
+                "on the ground, and it was a substitution made for convenience.",
     },
     (1, "Coruscant", "jedi_named"): {
         "squad": ["JEDIMASTERKENOBI", "MACEWINDU", "KITFISTO", "SHAAKTI",
@@ -382,7 +397,14 @@ TACTICS = {
                   "R2D2_LEGENDARY"],
         "note": "Second free Light Side row, so it takes the coherent GL Leia REBEL "
                 "core. ⚠ C-3PO, the usual fifth, is locked in a Coruscant Operation, "
-                "so R2-D2 R8 substitutes and keeps the squad Rebel-pure.",
+                "so R2-D2 R8 substitutes and keeps the squad Rebel-pure. ⚠ MEASURED "
+                "2026-09-14: 1/2 on AUTO at 186,226 (Chewbacca and Veteran Smuggler Han "
+                "Solo filled the last two slots). Four of the five died in wave 1. This "
+                "is the one row that HAD a Galactic Legend and still dropped a wave, so "
+                "the rule is 'a GL plus a current-meta squad', not 'a GL'. Commander "
+                "Luke / Han / Chewie / R2 is an old team against Clone Troopers who "
+                "regain Protection Up every turn. Try GL Ahsoka's squad here next phase "
+                "and give the Corellia special the Rebel core instead.",
     },
     (2, "Felucia", "special"): {
         # The wiki files this under "Special" but it pays TERRITORY POINTS, not
@@ -615,8 +637,13 @@ ROTE_FLEETS = {
                 "Executor has every ability MAXED and it out-ranks Executrix on the "
                 "repo's own hold table (87 vs 92 attacker win). The Imperial ship set "
                 "is build_fleets' 'Chimaera' lineup, whose own capital is locked in a "
-                "Mustafar Operation. Reward 400k TP. gaming-fans.com 2023/01 P1 DS "
-                "Fleet CM with Scythe.",
+                "Mustafar Operation. ⛔ MEASURED 2026-09-14, AND THIS ROW WAS LOST: "
+                "flown as LEVIATHAN (all abilities MAXED) plus the Imperial TIE set "
+                "the auto-fill offered, 706,160 power, 0/1. A Sith capital forfeits "
+                "its Reinforcement Bonus over Imperial ships. Next time take the "
+                "auto-fill's own suggestion or fly EXECUTRIX with this Imperial set, "
+                "which is what the walkthrough did. Reward 400k TP. "
+                "gaming-fans.com 2023/01 P1 DS Fleet CM with Scythe.",
     },
     (1, "Corellia"): {
         "gate": "MILLENNIUMFALCONPRISTINE",
@@ -635,7 +662,14 @@ ROTE_FLEETS = {
                 "owned fleet that answers a Sith mirror) and Executor is committed to "
                 "Mustafar's Scythe row. Mark VI Interceptor and Sith Fighter are fine "
                 "HERE: the reinforcement-order problem that bans them is a Fleet "
-                "Arena and GAC DEFENCE concern, not an offence one. Reward 400k TP.",
+                "Arena and GAC DEFENCE concern, not an offence one. ⭐ MEASURED "
+                "2026-09-14, AND THIS IS THE ONLY PHASE-1 FLEET THAT WON: 1/1, "
+                "400,000 TP. It was flown as the GAME'S OWN AUTO-FILL, which "
+                "produced build_fleets' Executor lineup (Executor + Hound's Tooth + "
+                "Razor Crest, reinforced Punishing One / Xanadu Blood / Slave I / "
+                "IG-2000) with Lando's Falcon slotted in, at 629,354, the LOWEST "
+                "power of the three fleets flown that night. Take the auto-fill. "
+                "Reward 400k TP.",
     },
     (1, "Coruscant"): {
         "gate": "OUTRIDER",
@@ -647,13 +681,16 @@ ROTE_FLEETS = {
                 "enemy Y-wing. Let the Rebel Y-wing soak while the Outrider heals, "
                 "play around the taunt to kill REX first, then the Clone Sergeant and "
                 "the Y-wing. Phantom II comes in after Rex dies; Biggs' X-wing "
-                "finishes the Sergeant. ⚠ HOME ONE, not Negotiator, is the capital "
-                "even though Negotiator is bigger (90,970 vs 59,046) and all-maxed: "
-                "every ship this row wants is REBEL, Home One is the Rebel capital, "
-                "and a leader ability only buffs its own faction. That is the same "
-                "rule that made a 611k Negotiator beat a 670k grab-bag on Bracca. The "
-                "walkthrough used Home One too and won 'with relative ease'. Reward "
-                "400k TP. gaming-fans.com 2022/12 P1 LS Fleet CM with Outrider.",
+                "finishes the Sergeant. ⛔ MEASURED 2026-09-14, AND THIS ROW WAS "
+                "LOST: I overrode the capital to NEGOTIATOR because its abilities are "
+                "all MAXED while Home One sits at Level 6, filled the rest with the "
+                "six highest-power Galactic Republic ships, and went 0/1 at 631,697 "
+                "power. PHASES already named Home One here and so does the "
+                "walkthrough, which won 'with relative ease' at 554k. Two lessons: "
+                "the capital's ability level does not outweigh the printed lineup, "
+                "and picking ships by POWER puts the wrong three in the STARTING "
+                "slots, which is where a fleet battle is decided. Reward 400k TP. "
+                "gaming-fans.com 2022/12 P1 LS Fleet CM with Outrider.",
     },
 }
 

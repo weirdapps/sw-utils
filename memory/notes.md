@@ -4658,3 +4658,139 @@ Electrobinoculars** (FIND returns *"No locations found"*). Do not farm for these
   (14 battles, 1 tap) — it covers both the "2 Challenges" and "1 Fleet Challenge" dailies.
 - The free **Bronzium is 10/day on an ~8-minute cooldown**, and those 10 pulls complete the
   Episode-quest row "Open 10 Data Cards in the Store" (5,000 episode points).
+
+## 2026-09-14/15 — RotE PHASE 1 played end to end, and the FLEETS were the expensive mistake
+Phase 1/6, 21h left at the start, guild 0/56 stars, Guild GP 517,612,030. Board:
+**Mustafar (DS)** 23.8M/116.4M · **Corellia (Mixed)** 61.4M/111.7M · **Coruscant (LS)** 68.0M/116.4M.
+Star gates 116M/186M/248M (Mustafar, Coruscant) and 112M/179M/238M (Corellia).
+Astra finished the session at **guild rank #1**, from #13 when the operations started.
+
+### The phase-1 board, which this repo had never seen
+**15 missions: 11 combat + 1 special + 3 fleet**, plus one Operations area per planet. That matches
+`data/rote/missions_1.json` for the ground rows and exposes the gap the mission files had: they carry
+ZERO fleet rows. Each fleet row is gated on one 7-star ship: **Scythe** (Mustafar), **Lando's
+Millennium Falcon** (Corellia), **Outrider** (Coruscant), 400,000 TP each. Now in
+`rote_missions.ROTE_FLEETS`.
+
+### ⭐⭐ OPERATIONS PAID 50,000,000 TP FOR 9 UNITS, AND THE ENUMERATE-FIRST RULE EARNED ITS KEEP
+Gate is **Relic 5+ characters / 7-star ships**, **+10,000,000 TP** per completed operation, quota 10
+assigned units per area. Astra had contributed 0/10 everywhere. Five operations were one to three
+slots short AND fillable:
+
+| area | op | before | units | after |
+|---|---|---|---|---|
+| Coruscant | 4 | 14/15 | 1 | **15/15 ✓ +10M** |
+| Coruscant | 5 | 13/15 | 2 | **15/15 ✓ +10M** |
+| Corellia | 5 | 13/15 | 2 | **15/15 ✓ +10M** |
+| Corellia | 6 | 12/15 | 3 | **15/15 ✓ +10M** |
+| Mustafar | 3 | 14/15 | 1 | **15/15 ✓ +10M** |
+
+Then the partials: Mustafar 6 12→14/15, Mustafar 5 11→13/15, Mustafar 4 11→12/15, Coruscant 6 8→12/15.
+**18 units placed, +50,000,000 TP banked.** The same 18 units deployed would have paid about 720,000.
+- ⚠ **The shared-unit cost is real and visible.** Mustafar Op6 showed badge `3+` and needed exactly 3.
+  After Corellia Op6 took the third unit the badge fell to `2`, so Mustafar Op6 could only reach 14/15.
+  One of the two was always going to be stranded; enumerating first is what made the choice deliberate
+  rather than accidental. Do it before assigning anything.
+- ⚠ **Tapping an UNDEPLOYED slot auto-picks the matching unit and shows it immediately.** Zoom the
+  portrait and read the relic badge BEFORE pressing ASSIGN; that is the only chance to cancel.
+- The `DUPLICATE UNIT SELECTION` modal fires when two slots in the same operation want one unit, and
+  `OK` sits at (948,690). The remaining picks stay staged, so just OK and press ASSIGN.
+
+### ⭐⭐ THE RESULT THAT DECIDES HOW TO PLAY A PHASE-1 GROUND ROW: BRING A GALACTIC LEGEND
+Eleven combat rows plus the special, all on AUTO unless noted:
+
+| row | squad | power | result |
+|---|---|---|---|
+| Mustafar vader | **Lord Vader SOLO** (GL) | 56,646 | **2/2** 200K |
+| Mustafar ds_1 | **SEE** (GL) + Sith Empire | 181,447 | **2/2** 200K |
+| Mustafar ds_2 | **SLKR** (GL) + First Order | 179,058 | **2/2** 200K |
+| Mustafar ds_3 | Inquisitorius, no GL | 160,326 | 1/2 100K |
+| Corellia jabba | **Jabba** (GL) + Hutt Cartel | 182,195 | **2/2** 200K |
+| Corellia aphra | Aphra droids, no GL | 154,173 | 1/2 100K |
+| Corellia mixed | Bounty Hunters, no GL | 166,855 | **0/2 ZERO** |
+| Corellia special | Qi'ra core + **GL Ahsoka** | 163,097 | **CLEARED** |
+| Coruscant jedi | **JML** (GL) + Jedi | 195,108 | **2/2** 200K |
+| Coruscant jedi_named | **JMK** (GL) + Mace/Fisto | 178,024 | **2/2** 200K |
+| Coruscant ls_1 | **GL Rey** + Resistance | 186,827 | **2/2** 200K |
+| Coruscant ls_2 | **GL Leia** + Rebel core | 186,226 | 1/2 100K |
+
+**Every row carrying a modern GL squad went 2/2. All three rows without one dropped a wave.** Power did
+not discriminate: the 0/2 squad out-powered three of the 2/2 squads. Astra owns 9 GLs against 12 ground
+rows, so **three rows are always GL-less and should be treated as the ones to play manually**, not as
+free auto-clears. `TACTICS` marks phase-1 combat `auto: True`; that was inherited from phase 2 and is
+only true for the GL rows.
+⚠ **GL Leia's Rebel core is the exception that refines the rule.** It has a GL and still went 1/2, so
+the real predicate is "a GL plus a squad from the current meta", not "a GL". Commander Luke / Han /
+Chewie / R2 is an old team.
+⭐ **The one squad I varied from the published five is the only ZERO of the night.** The measured
+Bossk Bounty Hunter clear is Bossk/Embo/Hondo/Zam/Krrsantan; I fielded Bossk/Embo/Zam/Jango/Boba
+because the search was quicker. 0/2, and the whole 200,000 with it. Field the printed five.
+
+### ⛔⛔ THE FLEETS COST 800,000 TP, AND IT WAS THE MANUAL REBUILDS THAT LOST THEM
+| fleet | lineup | power | result |
+|---|---|---|---|
+| Corellia (Lando's MF) | **the game's own auto-fill**: Executor + Lando's MF + Hound's Tooth + Razor Crest, reinforced Punishing One / Xanadu Blood / Slave I / IG-2000 | 629,354 | **1/1 400K** |
+| Mustafar (Scythe) | rebuilt: Leviathan capital + Scythe + Imperial TIEs | 706,160 | **0/1 ZERO** |
+| Coruscant (Outrider) | rebuilt: Negotiator + Outrider + the six highest-power Galactic Republic ships | 631,697 | **0/1 ZERO** |
+
+The auto-fill's Corellia lineup is, ship for ship, `build_fleets.FLEET_LINEUPS["Executor"]` with the
+gate ship swapped in. It won at the LOWEST power of the three. Both losses were lineups I assembled.
+- The Mustafar loss has an obvious explanation and the Coruscant one refutes it. Mustafar paired a
+  **Sith** capital with **Imperial** ships, which forfeits Leviathan's Reinforcement Bonus and is the
+  incoherence this file has measured before. But Coruscant was 7 of 8 Galactic Republic under an
+  all-MAXED Republic capital and lost anyway. **So "coherence" is not the whole story and I should not
+  pretend it is.** What both losses share is that a human picked the ships by power while the win came
+  from the game's own suggestion.
+- ⚠ **The starting three are not the highest-power three.** On Coruscant the picks were consumed in
+  power order, so Umbaran Starfighter and Outrider opened instead of the meta pair (Anakin's Eta-2 and
+  Blade of Dorin). In a fleet battle the opening three set the whole tempo.
+- ⇒ **Next phase: take the auto-fill's fleet, check only that the gate ship is present and that no
+  ship it picked is needed by a later fleet row, and press BATTLE.** Rebuild only against a published
+  lineup for that exact node, never against a power sort.
+- The capital picker appears once the obvious capital is already spent, and it prints **ability levels**:
+  Negotiator all MAXED, Home One Level 6, Endurance Level 3, Raddus Level 1, Executrix Level 7,
+  Finalizer Level 4, Malevolence Level 1. Worth reading before choosing.
+
+### Corrections to this file and to CLAUDE.md
+- ⛔ **"A 0/2 wipe pays NOTHING" (2026-08-09) is WRONG.** Both wipes still printed
+  `Astra: Deployed <squad power> points`. The Bounty Hunter 0/2 banked 166,855 and the Mustafar fleet
+  0/1 banked 706,160. A loss forfeits the mission prize, never the deployment.
+- ⛔ **The Corellia special pays 15 Mk III Guild Event Tokens per clear, not 800.** The panel prints
+  `15` next to the token icon plus `Total Earned / Successful Attempts`. `TACTICS` said 800.
+- ⭐ **The Lord Vader row is a HARD solo.** The other four slots read
+  `This slot is unavailable due to slot restrictions`, so there is no decision to make.
+- ⭐ **Mustafar battles hand you ORBITAL BOMBARDMENT as a battle button**, bottom right of the ability
+  row at **(1592,819)**, and it is free opening damage that goes on cooldown (13%) once fired. Fire it
+  on turn 1 of every Mustafar battle before switching AUTO on. Coruscant's equivalent was still
+  charging at 10% and never became available.
+- ⚠ **AUTO is at (276,63), not (222,63).** A tap at 222 lands between the buttons, and the battle then
+  sits on turn 1 with every enemy at full health for as long as you leave it. Four minutes were lost to
+  that before the first fight even started.
+- ⚠ **A required mission unit cannot be moved out of the leader slot.** On the Mace Windu / Kit Fisto
+  row Mace occupies slot 1 and therefore LEADS; the community's "JMK lead" is not fieldable. Removing
+  him raises `REQUIRED MISSION UNIT · Required mission units cannot be removed`.
+- ⚠ **Hermit Yoda is not eligible for the Coruscant 5x Jedi row** (`None of the units in this filter
+  can be used in this mission`), although Grand Master Yoda is. Do not plan him into it.
+
+### The squad picker, which is where the session actually lost time
+- The filter dropdown opens a checkbox grid **plus a free TEXT SEARCH box** at the bottom. Type, press
+  the IME `OK` at (1840,1014), and the filter becomes `TEXT SEARCH`.
+- ⚠ **The search matches ABILITY TEXT, not just names.** `"Grand Inquisitor"` returns **The Stranger**
+  first, `"Sith Marauder"` returns The Stranger, `"General Skywalker"` returns Ahsoka Tano, and
+  `"BT-1"` helpfully returns 0-0-0 as well. **Identify every pick by its POWER against the roster
+  before tapping**, never by list position alone.
+- Parentheses break `adb shell input text`; search `Bastila`, not `Bastila Shan (Fallen)`.
+- Character screen tiles: two columns at x 129 / 340, rows at y 550, 800. **The FLEET screen list sits
+  lower: x 129 / 340, rows 667, 917.** Reusing the character offsets on the fleet screen taps the
+  faction dropdown instead and silently opens the filter dialog.
+- `CLEAR SQUAD` (750,1005) leaves mission units in place, which is what you want every time.
+- ⚠ **The in-game auto-fill grabbed JABBA for the Aphra row**, exactly as the 2026-08-19 entry warns.
+  Clear the squad before building anything.
+
+### Deployment, and the guild's territory notes
+Notes read **Corellia `3*`**, **Coruscant `3*`**, **Mustafar `Do not 1* preload only`**. Mustafar was
+the laggard all night (49.3M against a 116.4M gate) and the other two were within reach, so the
+10,107,895 of unallocated GP went to **Coruscant**, which needed 12,274,762 and finished the session at
+**114,239,383, i.e. 2,166,867 short of its first star**. Corellia needed 16.3M and Mustafar 68M.
+⚠ The Mustafar note is genuinely ambiguous and I did not resolve it. Ask the officers what it means
+before next phase rather than guessing again.
