@@ -4872,3 +4872,54 @@ attempts left. A second auto attempt scored 285,289 (81%), so the spread on this
   respectively, which is the safety check working, not a failure.
 - **Character Quests and the Collection dot are the only red dots left on purpose.** Both are the
   character-improvement rail, which the standing rule says to leave alone.
+
+## 2026-09-15 (07:45) — COLISEUM: the Krayt Dragon squad, measured
+Tier 7, one attempt left, boss rotating in 13h. Researched the comp, swapped ONE unit, and the score
+went **338,278 (96%) -> 344,942 (98%)**, a new high score. 100% (~352,400) was not reached and no
+attempts remained, so the 100% reward rung and Tier 8 are still locked. Rank 333 -> 336.
+
+### ⭐ THE COMP, AND THE ONE UNIT THAT WAS WRONG
+The Coliseum hands you a pool of **LOANED** units and you pick five; nothing here comes off the roster,
+so this is pure selection and it transfers to every account.
+**Field: Jedi Knight Luke Skywalker (leader, "Return of the Jedi") / Darth Talon / Mara Jade Skywalker
+/ Yoda (Dark Side Vision) / Stormtrooper (Concept).**
+That is Holotables' #4 Krayt squad verbatim (T11 82%, "its all about the counters" and not getting
+dazed). The game's own pre-fill had **Starkiller (Luke Concept)** in Talon's slot, and swapping only
+that one unit was worth +2 percentage points on AUTO with nothing else changed.
+- Two independent reasons Starkiller was the weak slot: a T7 guide author says outright he is looking
+  for "a character able to boost defenses, which may work better than Cal, **Starkiller**, or even
+  Moff"; and mechanically the win condition is stripping DEFIANCE with debuff spam, which is Darth
+  Talon's kit and not Starkiller's burst.
+- Holotables' other top comps, for when the loaned pool rotates: **#1 T12** Moff Gideon (L) / Yoda
+  (DSV) / Mara Jade Skywalker / Darth Talon / Dark Trooper. **#2 T11 95%** JKLS (L) / Mara Jade
+  Skywalker / Jedi Knight Cal Kestis / Mace Windu / Chewbacca. **#3 T11 83%** same as #2 with Barriss
+  Offee for Chewbacca, "call Mace to assist".
+- **Mara Jade Skywalker and Yoda (Dark Side Vision) appear in all four top comps.** Treat them as
+  auto-includes and spend the thinking on the other three.
+- Astra's live loaned pool on this rotation also held Chewbacca, Moff Gideon and a Dark Trooper, so
+  #1 and #2 were both buildable. Searching the pool by name works: the filter's TEXT SEARCH box is on
+  this screen too.
+
+### The mechanics that decide the score, none of which AUTO plays around
+- **Enrage clock**: +1% per character turn, +4% and 4 Defiance on each of the dragon's turns. At 100%
+  it Enrages and the battle ends 5 turns later. ⚠ **Removing its turn meter FEEDS Enrage**, 1% per 10%
+  removed, so TM-control units are actively bad here.
+- **The burst window**: damage it takes is **+75% while it has no bonus Protection**. While it holds
+  bonus Protection it cannot lose Defiance, Health or Turn Meter at all. Save everything for the gap.
+- **Swallow**: strips the unit's buffs and gives the dragon 20 Defiance; the unit only returns when
+  Defiance is fully stripped, which is why debuff spam is the core loop. Corrosive Venom Spray
+  instantly kills whoever is Swallowed.
+- **Score snowballs**: past 50,000, every 5,000 points grants a stacking +3% Offense, and the bonus
+  grows by another 3% each time. Early damage is worth more than late damage.
+⇒ AUTO with this squad lands **81-98%** across four observed runs. The last 2 points almost certainly
+need a manual run that holds fire for the no-Protection windows. Budget the attempts for that next
+rotation rather than spending them all on AUTO.
+
+### Housekeeping
+- **Attempts are 5/day and the button becomes a 250-crystal refresh once spent**, which is never worth
+  buying. High score is BEST-OF, so an attempt can never lose ground; the only cost of a bad run is
+  the attempt itself.
+- The reward ladder rungs are at 70 / 77 / 80 / 90 / 100 percent. **98% earns nothing that 90% did
+  not**, so the whole game at this tier is reaching exactly 100.
+Sources: holotables.xyz/boss/krayt-dragon (919 submitted squads, filterable by ally code),
+ahnaldt101.com/swgoh/coliseum.
