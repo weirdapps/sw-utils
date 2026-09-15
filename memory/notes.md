@@ -5044,3 +5044,76 @@ bounding box so a scrolling filter list can be hit reliably instead of by dead r
 write to ~/Downloads for that reason. Do not move them back.
 ⚠ A useful trick that costs nothing: **verify a win by arithmetic.** The territory delta equals the
 mission TP plus the squad's GP, so 448,622 after a 198,622 squad proves a 250,000 clear.
+
+## 2026-09-16 early hours — arena rank 1, and why AUTO is the wrong tool twice over
+
+### Results
+- **SQUAD ARENA #3 -> #1**, one battle. **FLEET ARENA #13 -> #2**, three wins and two losses.
+- **Dailies 8/8** plus the COMPLETE ALL QUESTS crate. Episode Track 800 -> 1,400 / 5,000.
+- ~780 energy spent: 384 normal (Naboo 1-F x64), 140 ship (x14), 112 cantina (**Mandalore 8-G** x7,
+  the Flawed Signal Data node, which was already the selected node), 144 mod (x8).
+
+### ⭐ THE SQUAD ARENA ANSWER IS THE DATACRON, NOT THE POWER
+Climbed with **Rotta the Hutt (L, "A Legacy Reforged") / Gamorrean Guard / Greedo / Krrsantan /
+Mob Enforcer at 165,133**, behind the **level-15 set-33 Hutt datacron**. The saved squad had
+Krrsantan AND Boushh, so only three units sat inside the cron's scope (`raccoon`, `cadbane`,
+`greedo`, `gamorreanguard`, `humanthug`); swapping Boushh out for **Greedo** puts four inside it and
+is worth more than the ~6k raw power it costs. Rank #1 on the shard was only 148,402.
+⚠ **CAD BANE COULD NOT BE FIELDED** in the arena picker ("None of the units in this filter can be
+used in this mission"), which is the only reason Krrsantan keeps the fifth slot. Find out why.
+⭐ **Defence is the squad you LAST ATTACKED WITH**, so this squad is now the parked defence too.
+That is the real reason to get the composition right before the final attack of a session.
+
+### ⛔ BOTH FLEET LOSSES WERE THE SAME MIRROR, ON AUTO, WHILE HOLDING THE POWER EDGE
+Rank #1 "VERSO" runs a **Leviathan mirror at 587,691** against my **606,832**, and beat me twice on
+auto. Kahzgul rates the mirror at a **99% win rate on offence**, so this is execution, not matchup.
+The published offence line is **Sabotage the Engines -> reinforce Scimitar -> Sabotage the Hangars
+-> reinforce Mark VI Interceptor**, and auto never fires it. Every ship is owned:
+`SITHINFILTRATOR` = Scimitar, `SITHSUPREMACYCLASS` = Mark VI Interceptor, and my starting three
+(`SITHBOMBER` B-28, `TIEDAGGER`, `FURYCLASSINTERCEPTOR`) are already the meta trio.
+⇒ **Play the mirror manually.** Source: kahzgul.substack.com/p/leviathan-counters.
+
+### Arena mechanics worth knowing before the next climb
+- **There is a ~5-6 minute cooldown between arena battles.** A BATTLE tap during it does nothing,
+  silently, and consumes no attempt. Budget ~30 minutes of wall clock for a 5-battle climb.
+- **"Your opponent's rank is no longer valid" costs no attempt.** Refresh the board and re-pick.
+- Beating an opponent **swaps ranks**, and the board offers about 5 ranks above you, so the ladder
+  collapses quickly: #13 -> #8 -> #4 -> #2 in three wins.
+- **Payouts are what matter, not the rank right now.** Squad ~16:55, fleet ~17:50. Both get knocked
+  down overnight, so the real climb belongs in the hour before payout with all 5 battles in hand.
+- ⚠ **OCR reads 5 as 9 in this font.** Rank #1's power scanned as 987,691 when it was 587,691, which
+  nearly made me skip an attackable target. Re-crop any suspiciously large number before deciding.
+
+### Dailies: the fast path
+- **MULTI SIM clears the Challenges dailies in one tap** (10 battles) and **Galactic War in one**
+  (12 battles). GW needs **RESTART** first if its board is already cleared, which greys Multi Sim.
+- ⛔ **The Featured Shipment store charges CRYSTALS** (400/320/320). The "Purchase 3 store Shipments"
+  daily belongs in **Shipments > Guild Activity**, which charges guild tokens. Bought Mk 2 Pulse
+  Modulator x6 (900, mod SLICING salvage, the documented binding constraint), Mk 9 BioTech Implant
+  Salvage x10 (380), Mk 6 Arakyd Droid Caller Salvage x20 (760).
+- The purchase dialog's **BUY** button sits at a different height per item, because the description
+  length moves it. Read the dialog title's y and offset from that rather than hardcoding.
+- Bonus Energy claims run on their own clock, roughly 11:00 and 17:00.
+
+### Coliseum rotated to ZEFFO TOMB GUARDIANS: researched, then deliberately left alone
+High score **196,314 (43%)**, rank 98, **4 of 5 attempts unspent on purpose**.
+**Armor Plating**: 3 stacks at start, +2 at the start of each of its turns, cap 3, **-25% damage
+received per stack**, and **one stack falls off per attack that damages it**. So the loop is strip
+3 -> 0 with separate cheap hits, then burst in the window. Punishments: damaging it at 0 stacks makes
+its next Special **+100% stronger, stacking**; **ten consecutive 1-damage hits give it +1000%
+damage**; ten consecutive enemy turns give it +30% Offense, +200 Speed, a bonus turn and a full
+dispel. Immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock,
+Stagger, Stun. ⇒ **AUTO chips, which is precisely what this boss punishes**, so burning the other
+four attempts on auto would be the definition of a wasted attempt.
+Community #1 (holotables.xyz/boss/zeffo-tomb-guardians, 963 submissions) is **JKL (L, loaned) /
+Mara Jade Skywalker / JK Cal Kestis (loaned) / Barriss Offee (loaned) / Yoda (Dark Side Vision)**
+at T11 75%. Saved in the slot now: **Darth Maul (L, loaned) / Yoda (DSV) / JK Cal Kestis / Mara Jade
+Skywalker / Barriss Offee**. ⚠ **The loaned Jedi Knight Luke shows in the picker but will not place**,
+which is the only reason Maul leads.
+
+### Coliseum squad-screen traps
+- **The filter's CONFIRM stays greyed until something is selected**; after clearing the text box you
+  must tick **ALL** before it goes live.
+- **Text search matches anywhere in the name**: "Cal" returns Young Lando **Cal**rissian. Use "Kestis".
+- Slot taps and CLEAR SQUAD do work, but the name-band OCR lags a frame, so re-read before concluding
+  a tap failed. Two taps were wasted chasing a phantom failure.
