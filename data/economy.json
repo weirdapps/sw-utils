@@ -75,12 +75,12 @@
       {"store": "Weekly Shipment", "currency": "crystals", "qty": 5, "cost": 1500}
     ],
     "fragmented_signal_data": [
-      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 1600, "daily_limit": 1,
-       "_note": "Store/qty/cost read off the device 2026-08-20. Which of GET1/GET2/GET3 pays for it was NOT verified — watch the balance drop on the next purchase and rename the currency then."}
+      {"store": "Guild Events Store", "currency": "guild_event_token_mk2", "qty": 20, "cost": 1600, "daily_limit": 1,
+       "_note": "VERIFIED 2026-09-15 by watching the balance: the purchase moved the Mk II counter 32.9K to 31.3K, so this is Mk II Guild Event Tokens. The 2026-08-20 note said the tier was unverified; it is now settled."}
     ],
     "incomplete_signal_data": [
-      {"store": "Guild Events Store", "currency": "guild_event_token_tier_unverified", "qty": 20, "cost": 2000, "daily_limit": 1,
-       "_note": "Same caveat as fragmented_signal_data: tier unverified."}
+      {"store": "Guild Events Store", "currency": "guild_event_token_mk3", "qty": 20, "cost": 2000, "daily_limit": 1,
+       "_note": "VERIFIED 2026-09-15 the same way: the Mk III counter went 2,255 to 255. WARNING: that puts this in direct competition with AEROMAGNIFIERS, the one material CLAUDE.md says FORCES Mk III. One purchase drains a day of Mk III float, so choose between the two deliberately instead of buying whichever closes the shipments quest."}
     ],
     "flawed_signal_data": [],
     "corrupted_signal_data": [],

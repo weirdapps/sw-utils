@@ -22,7 +22,7 @@
         "quests_entry"
       ],
       "claim": "daily_activity_claim",
-      "for": "Every green CLAIM on the Quests screen: the daily-activity milestone crates (which is how the free +45 energy grants are handed out \u2014 2-hour windows, LOST if missed) and the reward of any daily quest that has flipped to complete. One template covers both because they are the same button; `count` just keeps tapping until none is left. Runs FIRST so the energy it grants is available to the nodes below."
+      "for": "Every green CLAIM on the Quests screen: the daily-activity milestone crates (which is how the free +45 energy grants are handed out — 2-hour windows, LOST if missed) and the reward of any daily quest that has flipped to complete. One template covers both because they are the same button; `count` just keeps tapping until none is left. Runs FIRST so the energy it grants is available to the nodes below."
     },
     {
       "kind": "collect",
@@ -38,7 +38,7 @@
         }
       ],
       "claim": "inbox_claim",
-      "for": "Squad/Fleet/Grand Arena daily payouts + gifts. Rank-based, so collecting them needs NO battle \u2014 this is how the bot banks arena rewards without ever playing PvP."
+      "for": "Squad/Fleet/Grand Arena daily payouts + gifts. Rank-based, so collecting them needs NO battle — this is how the bot banks arena rewards without ever playing PvP."
     },
     {
       "kind": "collect",
@@ -90,7 +90,7 @@
         "cal_tab_crystal"
       ],
       "claim": "calendar_claim",
-      "for": "crystal resupply calendar \u2014 free crystals IN, never out"
+      "for": "crystal resupply calendar — free crystals IN, never out"
     },
     {
       "kind": "collect",
@@ -107,7 +107,7 @@
         "cal_tab_relic"
       ],
       "claim": "calendar_claim",
-      "for": "relic resupply calendar \u2014 free relic materials, the endgame gear bottleneck"
+      "for": "relic resupply calendar — free relic materials, the endgame gear bottleneck"
     },
     {
       "kind": "energy_node",
@@ -115,15 +115,15 @@
       "chapter": 2,
       "node": "2-F",
       "sim": "max",
-      "for": "Mod Battles T2 'Cargo Ship' (device-confirmed: 3 slicing-salvage types + 10 mod droids, 18 Mod energy). Top priority \u2014 the slicing chain is the account's active bottleneck. OPEN QUESTION: the 2026 research says 2-D feeds the actually-binding material (T06_02) while 2-F feeds a surplus one; memory/notes.md says the opposite (T05_06 at 3 units). Settle it with `scripts/pull_mods.py` + `scripts/slice_plan.py` against live inventory, not by guessing \u2014 then swap the node and capture node_mod_2-D."
+      "for": "Mod Battles T2 'Cargo Ship' (device-confirmed: 3 slicing-salvage types + 10 mod droids, 18 Mod energy). Top priority — the slicing chain is the account's active bottleneck. OPEN QUESTION: the 2026 research says 2-D feeds the actually-binding material (T06_02) while 2-F feeds a surplus one; memory/notes.md says the opposite (T05_06 at 3 units). Settle it with `scripts/pull_mods.py` + `scripts/slice_plan.py` against live inventory, not by guessing — then swap the node and capture node_mod_2-D."
     },
     {
       "kind": "energy_node",
       "campaign": "cantina",
-      "chapter": 1,
-      "node": "1-A",
+      "chapter": 8,
+      "node": "8-G",
       "sim": "max",
-      "for": "Cantina energy. Device-confirmed 2026-08-03: 1-A is 'Bracca', dropping his shards plus Mk I-III ability mats. SUBOPTIMAL and knowingly so \u2014 Astra already holds 7,700+ low-tier ability mats, and Cantina is the scarcest pool (5/hr). The better targets are 6-A (Captain Silvo, a 2-star GL-Hondo blocker) and the Stage-9 Omicron nodes, but neither has a captured node template yet and the two research passes disagree on which Stage-9 nodes carry Omicron. Kept because it is validated and does drop shards; replace after a targeted capture pass that reads the reward icons."
+      "for": "Cantina 8-G. data/economy.json nodes.flawed_signal_data names this node, and FLAWED SIGNAL DATA is the largest single line in every relic recipe from R6 to R9 (35/45/55/45 units) with NO store route at all, which is exactly why cantina energy is not interchangeable with the other pools. Replaces 1-A, whose own comment here called it SUBOPTIMAL and kept it only because no better node had a captured template. It turned out node_cantina_8-G AND node_cantina_8-G_sel were both already captured and sitting in the unused list, so the blocker had been gone for a while. Device-verified 2026-09-15: sim max spent 336 of 339 cantina energy in one entry. ⚠ node_cantina_1-A_sel was never captured, which is why the 1-A entry halted at SELECT_NODE on the first run of the day and left the whole pool unspent."
     },
     {
       "kind": "energy_node",
@@ -214,7 +214,7 @@
           "template": "bronzium_skip"
         }
       ],
-      "for": "The daily FREE Bronzium = the 'Open 1 Data Card in the Store' daily quest. The template is cropped around the word FREE, so it can never match the crystal- or euro-priced cards in the same grid. (store_entry is the word 'Store', which is itself the hit target \u2014 no blind offset.)"
+      "for": "The daily FREE Bronzium = the 'Open 1 Data Card in the Store' daily quest. The template is cropped around the word FREE, so it can never match the crystal- or euro-priced cards in the same grid. (store_entry is the word 'Store', which is itself the hit target — no blind offset.)"
     },
     {
       "kind": "battle",
@@ -225,7 +225,7 @@
       ],
       "start": "battle_start",
       "attempts": 1,
-      "for": "Coliseum boss-score PvE auto-battle. EACH ATTEMPT IS TWO PRESSES of the same button \u2014 the Coliseum screen's `BATTLE (n)`, then the squad-select `BATTLE` \u2014 because one template matches both. That second press used to be smuggled in here as a `nav` hop, which is why attempt 1 worked and every later attempt sat on squad select until the outcome timed out; the engine now does both presses per attempt, so `nav` stops at the tile. `victory_alt` lists the screens Coliseum shows INSTEAD of the normal VICTORY one: NEW HIGH SCORE when the run beats the banked score, ATTEMPT OVER! when it does not, and TIER COMPLETE / NEW TIER UNLOCKED when it clears a tier. All are wins to book; all stranded the run when unhandled (2026-08-03: one un-dismissed banner cascaded into three further entries failing their HOME check). The fourth result screen, BATTLE RESULTS, is handled as a popup closer instead because its CONTINUE sits far below the title. NOTE: tier_complete has no crop yet \u2014 until it does it simply never matches, which --doctor reports as soft-missing rather than a preflight failure. On `attempts`: the button is REPLACED by a \ud83d\udc8e250 refresh once the day's 5 are spent, which no template matches, so a too-high value self-limits safely. It stays at 1 deliberately \u2014 auto-battling all 5 blind with the pre-filled loaned squad scored 51% and moved rank 241 \u2192 216 \u2192 222 on 2026-08-04, and the payout is DAILY, so those were spent for nothing. Raise it only alongside a squad worth spending them on.",
+      "for": "Coliseum boss-score PvE auto-battle. EACH ATTEMPT IS TWO PRESSES of the same button — the Coliseum screen's `BATTLE (n)`, then the squad-select `BATTLE` — because one template matches both. That second press used to be smuggled in here as a `nav` hop, which is why attempt 1 worked and every later attempt sat on squad select until the outcome timed out; the engine now does both presses per attempt, so `nav` stops at the tile. `victory_alt` lists the screens Coliseum shows INSTEAD of the normal VICTORY one: NEW HIGH SCORE when the run beats the banked score, ATTEMPT OVER! when it does not, and TIER COMPLETE / NEW TIER UNLOCKED when it clears a tier. All are wins to book; all stranded the run when unhandled (2026-08-03: one un-dismissed banner cascaded into three further entries failing their HOME check). The fourth result screen, BATTLE RESULTS, is handled as a popup closer instead because its CONTINUE sits far below the title. NOTE: tier_complete has no crop yet — until it does it simply never matches, which --doctor reports as soft-missing rather than a preflight failure. On `attempts`: the button is REPLACED by a 💎250 refresh once the day's 5 are spent, which no template matches, so a too-high value self-limits safely. It stays at 1 deliberately — auto-battling all 5 blind with the pre-filled loaned squad scored 51% and moved rank 241 → 216 → 222 on 2026-08-04, and the payout is DAILY, so those were spent for nothing. Raise it only alongside a squad worth spending them on.",
       "victory_alt": [
         "coliseum_highscore",
         "attempt_over",
@@ -284,7 +284,7 @@
           "item": "shop_item_ship_materials"
         }
       ],
-      "for": "Token spends. The confirm template carries the Cantina coin, so a crystal-priced dialog can never be confirmed. THREE items, deliberately: they close the `Purchase 3 store Shipments` daily quest (7,000 guild-activity + 300 episode-track), which was the only one of the two quests the bot used to leave open \u2014 the other is the Arena PvP battle, which it will never play. Each shipment slot is ONE PURCHASE PER REFRESH CYCLE (measured 2026-08-05: the tile greys and takes a checkmark immediately after buying), so three purchases need three DIFFERENT items \u2014 `count: 3` on one item would buy once and skip twice. WHICH items barely matters: every character in Astra's Cantina store reads Max (Embo, Kit Fisto, Stormtrooper Han, Chopper, Cassian's U-wing) and the materials sit at 7,947 / 7,470 / 2,602 / 43.99M owned, so 800 tokens/day comes out of a 30.5K pile that has nothing else to buy. The item template is the CARD TITLE STRIP, not the green price button: tapping the title opens the same buy dialog (verified live), and a title-only crop excludes both the `You Own: N` counter and the price, which is what lets it survive a purchase and a price change. It also gives idempotence for free \u2014 the sold-out state stamps a checkmark OVER the title, dropping the match to 0.46-0.57 against the 0.85 threshold, so a second run the same day skips instead of re-buying. That only works while the crop includes the title's right-hand end. Do NOT add `Ability Material Mk I` as a cheaper fourth (100 vs 200): measured 2026-08-05, its title strip matches the `Ability Material Mk II` CARD at 0.975, because one extra `I` glyph over a 375x42 strip is not enough signal for TM_CCOEFF_NORMED. The three chosen names share no prefix, so none of them can match another's card."
+      "for": "Token spends. The confirm template carries the Cantina coin, so a crystal-priced dialog can never be confirmed. THREE items, deliberately: they close the `Purchase 3 store Shipments` daily quest (7,000 guild-activity + 300 episode-track), which was the only one of the two quests the bot used to leave open — the other is the Arena PvP battle, which it will never play. Each shipment slot is ONE PURCHASE PER REFRESH CYCLE (measured 2026-08-05: the tile greys and takes a checkmark immediately after buying), so three purchases need three DIFFERENT items — `count: 3` on one item would buy once and skip twice. WHICH items barely matters: every character in Astra's Cantina store reads Max (Embo, Kit Fisto, Stormtrooper Han, Chopper, Cassian's U-wing) and the materials sit at 7,947 / 7,470 / 2,602 / 43.99M owned, so 800 tokens/day comes out of a 30.5K pile that has nothing else to buy. The item template is the CARD TITLE STRIP, not the green price button: tapping the title opens the same buy dialog (verified live), and a title-only crop excludes both the `You Own: N` counter and the price, which is what lets it survive a purchase and a price change. It also gives idempotence for free — the sold-out state stamps a checkmark OVER the title, dropping the match to 0.46-0.57 against the 0.85 threshold, so a second run the same day skips instead of re-buying. That only works while the crop includes the title's right-hand end. Do NOT add `Ability Material Mk I` as a cheaper fourth (100 vs 200): measured 2026-08-05, its title strip matches the `Ability Material Mk II` CARD at 0.975, because one extra `I` glyph over a 375x42 strip is not enough signal for TM_CCOEFF_NORMED. The three chosen names share no prefix, so none of them can match another's card."
     },
     {
       "kind": "collect",
@@ -300,7 +300,7 @@
   "manual": [
     {
       "task": "1 Squad or Fleet Arena battle",
-      "why": "PvP against a real roster. The bot has no code path that plays a PvP match \u2014 this is the one daily quest it will never close for you."
+      "why": "PvP against a real roster. The bot has no code path that plays a PvP match — this is the one daily quest it will never close for you."
     },
     {
       "task": "Grand Arena: set defense / run attacks",
@@ -320,11 +320,11 @@
     },
     {
       "task": "Check the guild raid-ticket counter reads 600/600",
-      "why": "1 ticket per energy spent (anything but Conquest), capped at 600/day, and free daily energy covers it with no crystals. Tickets gate how often the guild launches a raid, and Mk III raid tokens are the ONLY reliable source of R8/R9 relic materials \u2014 which is the exact conversion this account needs. A day under 600 is a day of relic progress lost, and the guild has stalled at 83.9K/180K before. The bot dumps the energy but cannot read the guild screen."
+      "why": "1 ticket per energy spent (anything but Conquest), capped at 600/day, and free daily energy covers it with no crystals. Tickets gate how often the guild launches a raid, and Mk III raid tokens are the ONLY reliable source of R8/R9 relic materials — which is the exact conversion this account needs. A day under 600 is a day of relic progress lost, and the guild has stalled at 83.9K/180K before. The bot dumps the energy but cannot read the guild screen."
     },
     {
       "task": "Crystal energy refreshes",
-      "why": "Costs crystals. The bot's hardest rail is that it never spends them \u2014 refreshing stays your call."
+      "why": "Costs crystals. The bot's hardest rail is that it never spends them — refreshing stays your call."
     },
     {
       "task": "Shop purchases outside the configured buy list",

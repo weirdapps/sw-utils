@@ -4794,3 +4794,81 @@ the laggard all night (49.3M against a 116.4M gate) and the other two were withi
 **114,239,383, i.e. 2,166,867 short of its first star**. Corellia needed 16.3M and Mustafar 68M.
 ⚠ The Mustafar note is genuinely ambiguous and I did not resolve it. Ask the officers what it means
 before next phase rather than guessing again.
+
+## 2026-09-15 (02:10-04:00) — the dailies, run mostly by the FARMBOT, and three config facts
+Second half of the same night as the RotE phase-1 session above. Daily reset had happened at ~02:10.
+Finished **8/8 daily quests + the all-quests crate**, **raid tickets 600/600**, **fleet arena #9 -> #1**.
+
+### ⭐ THE FARMBOT IS THE RIGHT TOOL AND IT WAS NOT SET UP
+`farmbot/config.json` is **gitignored** (`.gitignore:28`) and had vanished along with the repo's
+`.venv`, so the bot looked absent. It is not: `cp farmbot/config.example.json farmbot/config.json`
+restores the full documented 19-entry routine and `--doctor` reported PREFLIGHT OK with every
+blocking template present. One 33-minute unattended run did 4 energy nodes, 2 challenge multi-sims,
+Galactic War restart+sim, 6 collects, the Coliseum battle, the free Bronzium and a shop buy, and it
+cost ZERO of the session image budget because its vision never goes through Read. **Run it first,
+every time, and hand-play only what its report lists as "still yours".**
+- ⚠ `.venv` points at `~/Downloads/swvenv`, which no longer exists. A throwaway
+  `uv venv /tmp/swvenv` + `uv pip install pytest pillow numpy scipy defusedxml opencv-python-headless`
+  runs both the bot and the 518-test suite. Put the real venv outside ~/Downloads.
+- ⚠ The routine still has a `login_august` entry. In September its `cal_tab_august` cannot match, so
+  it halts at NAV_2 twice per run. Harmless, but rename it to the live month.
+- ⚠ The bot must start ON THE HUB. Leaving the device inside any dialog halts it at OPEN_CAMPAIGNS
+  before it does anything.
+
+### ⭐⭐ CANTINA 1-A WAS COSTING THE ACCOUNT ITS BIGGEST RELIC LINE, AND THE FIX WAS ALREADY CAPTURED
+The first run halted at SELECT_NODE and left **339 of 339 cantina energy unspent**, because
+`node_cantina_1-A_sel` was never captured and the map keeps the last node SELECTED.
+That forced a look at which cantina node is even correct, and `data/economy.json` already answered it:
+`nodes.flawed_signal_data = Cantina 8-G`, and **Flawed Signal Data is the largest single line in every
+relic recipe from R6 to R9 (35 / 45 / 55 / 45) with NO store route at all**. The example config's own
+comment called 1-A "SUBOPTIMAL and knowingly so", kept only because better nodes had no template.
+**`node_cantina_8-G` and `node_cantina_8-G_sel` were both already captured and sitting in the UNUSED
+list.** Swapped in `config.example.json`; a one-entry run then spent 336 of 339 energy cleanly.
+⇒ Before accepting any "we kept the worse option because no template exists", check the unused list.
+
+### ⭐ GUILD EVENTS STORE: THE TWO SIGNAL-DATA CURRENCIES ARE NOW VERIFIED
+`economy.json` carried "which of GET1/GET2/GET3 pays for it was NOT verified". Watching the balances:
+- **Fragmented Signal Data, 20 for 1,600 -> Mk II tokens** (32.9K to 31.3K).
+- **Incomplete Signal Data, 20 for 2,000 -> Mk III tokens** (2,255 to 255).
+⚠ The second one matters more than it looks. CLAUDE.md says **aeromagnifiers are the one material
+that FORCES Mk III**, and a single Incomplete Signal Data purchase drains a whole day of Mk III float.
+Both are now recorded in `routes`. Choose between them deliberately next time; today's purchase was
+made to close the shipments quest and the currency was only checked afterwards.
+
+### ⚠ THE RAID-TICKET METER IS NOT THE "USE 600 ENERGY" QUEST, AND IT RESETS ON ITS OWN CLOCK
+The daily quest read **600/600** while `Quests > Guild Activities > Personal Raid Tickets` read
+**336/600** at the same moment. The ticket meter had reset part-way through the night, so the
+farmbot's 237 energy was spent before the reset and never counted. **Read the ticket meter directly;
+never infer it from the energy quest.** Topping it up took 216 energy through Light Side 1-F normal
+(6 energy a sim, 36 sims) and 100 through Fleet 2-E normal, which closed it at 600/600.
+- Hard nodes cap at 5 attempts a day and were already spent by the bot, so the top-up has to go
+  through NORMAL-difficulty nodes. `node_light_1-D` does not match on the normal tab.
+
+### Fleet arena: two battles, #9 to #1
+The arena fleet was already the repo's `Leviathan Arena` build (Fury / B-28 / TIE Dagger starters,
+601,709). Beat #5 at 479,440, then **#1 at 462,805**. Both on AUTO at 4x.
+⚠ There is a **~5 minute cooldown between arena battles**, skippable only for 50 crystals. Plan other
+work into that gap rather than waiting. Squad arena was already #1 and was left alone; it had slipped
+to #3 by the end of the session, which is normal shard churn.
+
+### Coliseum: the boss is the KRAYT DRAGON and auto tops out around 90%
+Tier 7, high score **316,160 = 90%**, rewards banked up to the 90% rung, **100% still open** with 3
+attempts left. A second auto attempt scored 285,289 (81%), so the spread on this squad is 81-90% and
+100% is not reachable by pressing AUTO. High score is BEST-OF, so extra attempts can never lose ground.
+- The squad is entirely **LOANED** and already contains **Yoda (Dark Side Vision) + Mara Jade
+  Skywalker**, which are the core of holotables' top three Krayt comps; the leader is Darth Maul where
+  the #1 comp uses Moff Gideon.
+- Mechanics worth playing around next time: every character turn feeds 1% Enrage and **turn-meter
+  removal actively hurts you**; damage taken by the dragon is **+75% while it has no bonus
+  Protection**; and score snowballs, +3% stacking Offense per 5,000 points past 50,000, growing by a
+  further 3% each time. Sources: holotables.xyz/boss/krayt-dragon, ahnaldt101.com/swgoh/coliseum.
+
+### Smaller facts
+- **Marquee "Blade and Bastion"** (Stormtrooper Concept): tiers I-IV SIM with sim tickets, 20 -> 30
+  shards. **Tier V is gated on the unit at 6 stars**, so the ladder stops there until he is farmed.
+- **Kyrotech Ascension is NOT an event.** It is a paid store pack ladder, tier 1 at EUR 2.49, and
+  Egnards' valuation piece warns that some tiers are negative value. Nothing to claim, nothing to do.
+- Conquest and the guild raid are both INACTIVE. The bot halted at SECTOR_LIST and OUTCOME_0
+  respectively, which is the safety check working, not a failure.
+- **Character Quests and the Collection dot are the only red dots left on purpose.** Both are the
+  character-improvement rail, which the standing rule says to leave alone.
