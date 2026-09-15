@@ -474,9 +474,18 @@ the payload, so `--sync --payload rote_squads.json` wipes all ~114 GAC/TW squads
 - Source is swgoh.wiki's Zone Information table; re-fetch it before editing a row and bump `SOURCE_VERIFIED`.
 - ⭐ **HOW PLANETS UNLOCK — ONE star on the predecessor, effective the NEXT phase.** Phases are 24h
   tiers, so mid-phase progress never opens anything mid-phase. Two corollaries that drive planning:
-  a territory that earned **no** star stays open and its missions can be run again in later phases;
-  a territory that **did** star **locks at the end of its phase**, so you can never come back for
-  its 2nd and 3rd stars. Bonus zones (Zeffo, Mandalore) are a separate gate — N clears of a special.
+  ⛔ **CORRECTED 2026-09-15, device-verified: A STARRED TERRITORY DOES *NOT* LOCK.** This line used to
+  say "a territory that **did** star locks at the end of its phase, so you can never come back for its
+  2nd and 3rd stars." That is FALSE. In live phase 2, Mustafar held 1★ and **every one of its combat
+  missions was reset to `BATTLE (1)`**, its operations were open, and the guild pushed it 118M → 180M.
+  Corellia and Coruscant were open too, merely pointless at 3★. **Every previously-opened planet stays
+  playable for the whole event**, which is what makes "run the old planets' rows again" a real source
+  of TP each phase. What IS true is the unlock direction: a planet opens only when its predecessor held
+  a star at a PHASE BOUNDARY, so Mustafar crossing 116M one hour *into* phase 2 left **Geonosis LOCKED
+  at 0 / 148,125,000 for the whole phase**, putting the Dark Side lane a full phase behind. ⇒ Getting a
+  predecessor over its 1st star BEFORE the rollover is worth an entire territory.
+  Bonus zones (Zeffo, Mandalore) are a separate gate, and the Zeffo panel states it exactly:
+  **"Earn Stars in Bracca: 0/1" AND "Complete Special Mission 30 Times: 0/30"**.
   ⛔ This repo invented a "3 stars" rule from two board readings on 2026-08-20 and was wrong twice
   before the owner pointed out it is stated plainly in every RotE guide. **Look the mechanic up.**
 - ⭐⭐ **OPERATIONS ARE ~90% OF A STAR, AND THAT IS THE WHOLE GUILD ARGUMENT FOR R7→R9.**

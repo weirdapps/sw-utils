@@ -17,7 +17,17 @@
     "Dark Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "SITHPALPATINE",
+     "DARTHMALAK",
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "SITHMARAUDER"
+    ],
+    "note": "Sith Empire under SEE, the published winning squad unit for unit. Enemy is SEPARATIST DROIDS: W1 a DROIDEKA hiding behind TWO taunting MagnaGuards plus B1/B2s, W2 the same plus NUTE GUNRAY. Hold SEE's ultimate for the MagnaGuard and B1 opening, then clear the B2s and leave Nute last. \u26a0 An EMPIRE team (Palpatine / Mara Jade / Thrawn / Piett / Royal Guard, 162k) was WIPED on this row for 0 points: the MagnaGuard taunts plus the Droideka punish a squad with no mass dispel. gaming-fans.com 2022/12 P1 DS CM (Left)."
+   }
   },
   {
    "planet": "Mustafar",
@@ -32,7 +42,17 @@
     "Dark Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "SUPREMELEADERKYLOREN",
+     "KYLORENUNMASKED",
+     "GENERALHUX",
+     "FOSITHTROOPER",
+     "FIRSTORDEROFFICERMALE"
+    ],
+    "note": "First Order under SLKR, the published winning squad at only 170k. W1 opens with a DROIDEKA: lead with an AoE ability block and put SLKR's STUN on the Droideka. W2 is GEONOSIANS (Geo Spy, a Brute to dispel, Brood Alpha to stun) and is the real test. Hux and the Officer feed turn meter into SLKR's ULTIMATE, which ends the wave. gaming-fans.com 2023/01 P1 DS CM (Middle)."
+   }
   },
   {
    "planet": "Mustafar",
@@ -47,7 +67,17 @@
     "Dark Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER",
+     "FIFTHBROTHER",
+     "SECONDSISTER",
+     "MARROK"
+    ],
+    "note": "\u26a0 THE PUBLISHED ANSWER FOR THIS ROW IS A KNOWN LOSS. The author's Imperial Troopers under a General Veers lead took ~100k and broke an otherwise perfect phase, because the W1 DROIDEKA's DAMAGE IMMUNITY let it kill Veers before he acted. So this is a substitution, not a transcription: Inquisitorius is the strongest coherent non-GL Dark Side five Astra fields (all R7) once SEE, SLKR and Lord Vader are committed to the other three Mustafar rows, and its mass Purge and DoT do not care about a taunt wall. Do NOT bring Imperial Troopers. \u26a0 MEASURED 2026-09-14: 1/2 on AUTO at 160,326, so 100,000 of 200,000. It clears wave 1 and dies in wave 2. This is one of the three phase-1 rows with no Galactic Legend available, and all three dropped a wave on AUTO while every GL row went 2/2. PLAY THIS ONE MANUALLY next phase."
+   }
   },
   {
    "planet": "Mustafar",
@@ -65,7 +95,13 @@
    "required": [
     "LORDVADER"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "LORDVADER"
+    ],
+    "note": "\u2b50 LORD VADER SOLO. The published clear used him alone at 54,378 power and Astra's is R10 / 56,646. W1 is the Separatist leadership: OPEN WITH ORBITAL BOMBARDMENT and focus WAT TAMBOR, after which the wave collapses. W2 is Jedi Master Kenobi alone and is a survival check, the fight being about lasting until Lord Vader's ULTIMATE comes online, which kills him. \u2b50 MEASURED 2026-09-14: 2/2, 200,000 TP on AUTO after firing Orbital Bombardment on turn 1. The other four slots are HARD LOCKED ('This slot is unavailable due to slot restrictions'), so there is no decision to make here. gaming-fans.com 2022/12 P1 DS CM with Lord Vader."
+   }
   },
   {
    "planet": "Corellia",
@@ -76,7 +112,17 @@
    "gate": {
     "relic": 5
    },
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "BOSSK",
+     "BOBAFETT",
+     "EMBO",
+     "ZAMWESELL",
+     "JANGOFETT"
+    ],
+    "note": "No gate at all on this row, so it takes the account's own measured fast clear: a BOSSK-led Bounty Hunter five went 2/2 in 40 SECONDS at 166,589 power on 2026-08-19, while a 219,456-power auto-fill took 130s and two other auto-fills only managed 1/2. Every unit answers 'On The Hunt' and the Payout mechanic fires. Keeps all nine GLs free for the gated rows. \u26d4\u26d4 MEASURED 2026-09-14 AND THIS ROW SCORED ZERO. I fielded Bossk / Embo / Zam / JANGO FETT / BOBA FETT because the squad picker found them faster, not the measured five above, and went 0/2 at 166,855. HONDO and KRRSANTAN are in the measured squad for a reason: Hondo's Captive and Krrsantan's sustain are what carry it. FIELD THE PRINTED FIVE. This was the single most expensive mistake of the phase on the ground, and it was a substitution made for convenience."
+   }
   },
   {
    "planet": "Corellia",
@@ -90,7 +136,17 @@
    "required": [
     "JABBATHEHUTT"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "JABBATHEHUTT",
+     "KRRSANTAN",
+     "CADBANE",
+     "RACCOON",
+     "GAMORREANGUARD"
+    ],
+    "note": "Jabba leads a full HUTT CARTEL: faction purity is the point, and the published clear ran Jabba plus four Cartel. \u26a0 W1: the taunter is the CARTEL SPY, not the obvious bruiser; stack thermal detonators and push to PAYOUT, after which the wave falls fast. W2 is Qi'ra, Young Han and more Cartel, where Han gets Disarmed and the Rancor finishes Qi'ra. \u26a0 The published lineup used Boushh and Skiff Guard Lando; Rotta the Hutt (R10) and Gamorrean Guard (R7) are the stronger substitutes here and keep Boushh free. \u26a0 Datacrons DO NOT fire in Territory Battles, so Astra's level-15 Hutt cron buys nothing here."
+   }
   },
   {
    "planet": "Corellia",
@@ -104,7 +160,17 @@
    "required": [
     "DOCTORAPHRA"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "DOCTORAPHRA",
+     "TRIPLEZERO",
+     "BT1",
+     "IG88",
+     "VADER"
+    ],
+    "note": "The published droid core. OPENER: Aphra's third ability to put Doubt on every enemy, then summon the Hacked Commando Droid. Torture the TAUNTING STORMTROOPER, send Darth Vader into Merciless Massacre, then IG-88's AoE. BT-1's middle ability spreads Expose and grants an extra turn, and chaining it into his third is what carries the fight. Getting stuck behind the Stormtrooper taunt is the only real failure mode. \u26a0 The author's best run swapped IG-88 for the IMPERIAL PROBE DROID, but IPD is worth 10,000,000 TP in a Corellia Operation slot against 200,000 for this whole mission: spend it there and use IG-88, which won this row twice. \u26a0 MEASURED 2026-09-14: 1/2 on AUTO at 154,173, so 100,000 of 200,000. The guide's wins are MANUAL and turn on the opener above; AUTO walks into the Stormtrooper taunt, which the guide names as the only real failure mode. No GL is available for this row, so play it manually next phase. gaming-fans.com 2023/01 P1 Neutral CM with Doctor Aphra."
+   }
   },
   {
    "planet": "Corellia",
@@ -119,7 +185,7 @@
     "QIRA",
     "YOUNGHAN"
    ],
-   "reward": "800 Mk III Guild Event Tokens",
+   "reward": "15 Mk III Guild Event Tokens per clear (panel-read 2026-09-14)",
    "auto": false,
    "tactics": {
     "squad": [
@@ -129,7 +195,7 @@
      "L3_37",
      "YOUNGHAN"
     ],
-    "note": "Qi'ra leads. starwars-fans.com/rote-special-missions/"
+    "note": "\u26d4 MANUAL. Specials are one attempt and turn on ability timing. Qi'ra leads. TURN PLAN: keep L3-37 TAUNTING continuously and route every bonus Protection Up onto her (Rey's and Vandor Chewbacca's), which is what makes the Troopers unable to dent the squad; let Rey carry the damage; HOLD Qi'ra's Scattering Blast until the enemies have Defense Up or an unwanted taunt. Kill the high-offense enemies first. Mods: health on Vandor Chewie, crit chance and crit damage on Qi'ra. Reward is 15 Mk III Guild Event Tokens PER CLEAR, read off the panel on 2026-09-14; this file said 800 and was wrong. starwars-fans.com/rote-special-missions/"
    }
   },
   {
@@ -145,7 +211,17 @@
     "Light Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "GLREY",
+     "BENSOLO",
+     "EPIXFINN",
+     "EPIXPOE",
+     "REYJEDITRAINING"
+    ],
+    "note": "No faction gate, just Light Side or Neutral at R5+. The published clear is this exact RESISTANCE five at 175,740 (the author's Rey was the base R9 one; Astra brings GL Rey R10, strictly better and still Resistance). The enemy is standard Geonosis-TB CLONE TROOPERS who regain PROTECTION UP over and over, and the battle's *Democracy* trait is the key to breaking that. gaming-fans.com 2022/12 P1 LS CM (Left)."
+   }
   },
   {
    "planet": "Coruscant",
@@ -160,7 +236,17 @@
     "Light Side",
     "Neutral"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "GLLEIA",
+     "COMMANDERLUKESKYWALKER",
+     "HANSOLO",
+     "CHEWBACCALEGENDARY",
+     "R2D2_LEGENDARY"
+    ],
+    "note": "Second free Light Side row, so it takes the coherent GL Leia REBEL core. \u26a0 C-3PO, the usual fifth, is locked in a Coruscant Operation, so R2-D2 R8 substitutes and keeps the squad Rebel-pure. \u26a0 MEASURED 2026-09-14: 1/2 on AUTO at 186,226 (Chewbacca and Veteran Smuggler Han Solo filled the last two slots). Four of the five died in wave 1. This is the one row that HAD a Galactic Legend and still dropped a wave, so the rule is 'a GL plus a current-meta squad', not 'a GL'. Commander Luke / Han / Chewie / R2 is an old team against Clone Troopers who regain Protection Up every turn. Try GL Ahsoka's squad here next phase and give the Corellia special the Rebel core instead."
+   }
   },
   {
    "planet": "Coruscant",
@@ -176,7 +262,17 @@
     "Neutral"
    ],
    "faction": "Jedi",
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JOLEEBINDO",
+     "GENERALKENOBI",
+     "JEDIKNIGHTCAL"
+    ],
+    "note": "5x Jedi R5+ against two waves of CLONE TROOPERS. The published clear was JML (lead) / JK Luke / Hermit Yoda / JK Revan / Jolee at 189k: grant JML *Jedi's Will* so he COUNTERS every Clone Trooper attack, and the wave melts once a second stack of No Confidence lands. \u26a0 JK Luke, JK Revan and Grand Master Yoda were all spent in Coruscant Operations on 2026-09-14, because a 10,000,000 TP slot beats a 200,000 TP mission by 50x. General Kenobi R10 and Jedi Knight Cal Kestis R7 substitute, both Jedi. gaming-fans.com 2022/12 P1 LS CM with Jedi."
+   }
   },
   {
    "planet": "Coruscant",
@@ -196,7 +292,17 @@
     "MACEWINDU",
     "KITFISTO"
    ],
-   "auto": true
+   "auto": true,
+   "tactics": {
+    "squad": [
+     "JEDIMASTERKENOBI",
+     "MACEWINDU",
+     "KITFISTO",
+     "SHAAKTI",
+     "PADAWANOBIWAN"
+    ],
+    "note": "Mace Windu AND Kit Fisto are both hard-gated here; the other three slots are free Jedi. Community consensus is a JMK lead, whose Bequeath and Call to Action carry Mace's damage. Shaak Ti and Padawan Obi-Wan keep the five Galactic-Republic-coherent so JMK's leader ability buffs all of them. \u26a0 Kit Fisto is R5, exactly the phase-1 floor, and is worth nothing outside this one mission, so do not spend relics on him."
+   }
   }
  ],
  "fleets": [

@@ -4923,3 +4923,124 @@ rotation rather than spending them all on AUTO.
   not**, so the whole game at this tier is reaching exactly 100.
 Sources: holotables.xyz/boss/krayt-dragon (919 submitted squads, filterable by ally code),
 ahnaldt101.com/swgoh/coliseum.
+
+## 2026-09-15 evening — RotE PHASE 2 played live, and six rules this repo had wrong
+
+Phase 2/6 (Geonosis / Felucia / Bracca, relic floor R6) was live from ~20:00 with 22h51m on the
+clock. Guild #2 of 56 stars at start. Everything below is device-verified, not inferred.
+
+### Board at the end of the session (23:35)
+| Territory | Stars | TP | Thresholds | Note on the panel |
+|---|---|---|---|---|
+| Corellia (P1) | 3★ | 238,333,333 / 238,333,333 | 112 / 179 / 238M | "3* go for broke." MAXED |
+| Coruscant (P1) | 3★ | 248,333,333 / 248,333,333 | 116 / 186 / 248M | "3*" MAXED |
+| Mustafar (P1) | 1★ | **180,659,382 / 186,250,000** | 116 / 186 / 248M | "3*" |
+| Geonosis (P2) | 0★ | 0 / 148,125,000 | 148 / 237 / 316M | **LOCKED** |
+| Felucia (P2) | 0★ | 29,213,866 / 148,125,000 | 148 / 237 / 316M | "ops n combat" |
+| Bracca (P2) | 0★ | 18,014,120 / 142,265,625 | 142 / 228 / 304M | "ops n combat" |
+
+### ⭐⭐ 1. OPERATIONS ARE THE WHOLE GAME, AND THEY PAY 11,000,000 IN PHASE 2
+Six operations per territory, 15 unit-slots each, **+11,000,000 TP each** on completion (phase-1
+Mustafar and Corellia groups pay 10,000,000 and were already 6/6 full). **A player may assign only
+10 units per territory's operation GROUP** ("Assigned Units: n/10"), gate R6+ characters and 7-star
+ships. Partial fills pay NOTHING; only 15/15 pays.
+⇒ **One operation is worth 44 ground combat missions.** Fill them before anything else.
+Measured tonight: 10 units into Felucia (Op1 6→14/15, Op2 8→13/15, Op5 2→5/15) and 10 into Bracca
+(Op1 10→14/15, Op2 8→11/15, Op3 5→8/15). Three of those four near-complete operations were then
+finished by guildmates: Bracca went 1.4M to 13.96M and Felucia 0.87M to 28.9M within the hour.
+**That is 33,000,000 TP that 16 of my units helped unlock**, against 1,475,000 from every combat
+mission I won all night.
+
+### ⚠ 2. THREE TRAPS IN THE OPERATION UI, ALL OF WHICH COST SOMETHING TONIGHT
+- **It is a RACE.** Staging 8 slots then pressing ASSIGN lost 6 of them to guildmate "Leiferman",
+  who committed the same units in the seconds between. Assign in small batches and re-read the grid.
+- ⛔ **"Unit Required in another Territory" is a real warning and it FORECLOSES MISSIONS.** Accepting
+  it for one ship locked **Scythe** into a Felucia platoon, which killed the **Mustafar fleet mission
+  worth 400,000 TP** ("REQUIRED UNITS 2/3", unplayable). The same thing happened to **Jabba the Hutt**,
+  which killed Felucia's Jabba-gated row (250,000). **Open every gated row and write down its named
+  unit BEFORE filling any platoon.**
+- Red-tinted slots are units you do not own or cannot field. They are why 14/15 happens and why you
+  should count them before choosing which operation to concentrate on.
+
+### ⭐ 3. A STARRED TERRITORY DOES NOT LOCK. CLAUDE.md IS WRONG ABOUT THIS.
+CLAUDE.md says "a territory that did star locks at the end of its phase, so you can never come back
+for its 2nd and 3rd stars." False. Mustafar had 1★ and every one of its combat missions was reset to
+`BATTLE (1)` in phase 2, with the guild pushing it 118M to 180M. Corellia and Coruscant are open too,
+merely pointless. **Previous phases' planets stay playable for the whole event.**
+
+### ⛔ 4. THE UNLOCK RULE IS REAL, AND MISSING IT COSTS A WHOLE TERRITORY
+Geonosis reads `0 / 148,125,000` with DEPLOY greyed to **LOCKED**. Cause: a planet opens only when its
+predecessor held a star at a PHASE BOUNDARY, and Mustafar's 1st star landed *during* phase 2 (118.3M
+against a 116M threshold an hour in). The Dark Side lane is therefore a full phase behind and
+**Geonosis opens in phase 3**. ⇒ Getting a predecessor over its 1st star BEFORE the rollover is worth
+an entire territory, which is a guild-level scheduling argument, not a personal one.
+
+### ⭐ 5. A LOST COMBAT MISSION STILL DEPLOYS THE SQUAD'S FULL GP
+Verified twice: lost a row 0/2 and the feed still logged "Astra: Deployed 160,925 points". Only the
+mission bonus is forfeit. **Forfeiting mid-battle also pays the TP earned so far**, and the game says
+so on the confirm dialog. ⇒ Combat rows are upside-only, so do not agonise over squads; spend the
+care on gated rows and fleets instead.
+⚠ **But a full 5-unit squad is MANDATORY.** Undersizing is rejected outright with "You don't meet the
+minimum number of units required for this mission". That is the opposite of TW and it silently
+blocked three battles tonight before I read the dialog.
+
+### 6. WHAT EACH ROW ACTUALLY PAYS (read off the panels, they differ)
+Mustafar ground **200,000** · Bracca ground **250,000** · Felucia ground **250,000** ·
+Mustafar fleet **400,000** · Bracca fleet **500,000** · Felucia fleet **500,000**.
+⇒ **Fleet rows are worth 2x a ground row and should be played FIRST**, with a researched lineup.
+
+### Results, squad by squad
+| Territory | Row | Squad | Result |
+|---|---|---|---|
+| Mustafar | Lord Vader solo | LORDVADER R10, Orbital Bombardment turn 1 then AUTO | WIN 2/2 **+200,000** |
+| Mustafar | DS (Separatist droids) | Darth Revan (L) / Malgus / HK-47 / Sith Empire Trooper / Bastila Fallen, 160,925 | **LOSS 0/2** |
+| Mustafar | DS | SLKR (L) / Kylo Ren Unmasked / Sith Trooper / Phasma / FO Officer, 170,460 | WIN 2/2 **+200,000** |
+| Mustafar | DS | Sith Eternal Emperor (L) / Rey DSV / Darth Malak / Emperor Palpatine / Darth Traya, 199,551 | WIN 2/2 **+200,000** |
+| Mustafar | fleet 400k | none | BLOCKED, Scythe in a platoon |
+| Bracca | LS row | JML (L) / General Kenobi / Ezra Bridger (Exile) / Jedi Knight Luke / Ahsoka Snips, 198,622 | WIN **+250,000** |
+| Bracca | LS row | Satele Shan (L) / Kelleran Beq / Jocasta Nu / Jolee Bindo / Hermit Yoda, 169,971 | LOSS |
+| Bracca | LS row | GL Rey (L) / Captain Drogan / Commander Luke / Rotta / Mace Windu, 214,800 | WIN **+250,000** |
+| Bracca | fleet 500k | Negotiator + GR starfighters, auto-fill, 631,697 | **LOSS** |
+| Felucia | younglando | auto-fill, 206,282 | 1 of 2 waves **+125,000** |
+| Felucia | mixed | auto-fill, 208,425 | WIN **+250,000** |
+| Felucia | jabba | none | BLOCKED, Jabba in a platoon |
+| Felucia | Hondo row | auto-fill, 203,718 | stalemate in wave 2, FORFEITED |
+| Felucia | fleet 500k | **Leviathan** MAXED, 726,158 | **LOSS** |
+
+⚠ **The Revan loss was my own substitution error.** This file already records the measured winner for
+that row as SEE-led Sith Empire; I swapped in a Darth Revan lead, which has no mass dispel for the
+Droideka plus MagnaGuard taunt wall the note explicitly warns about. **Use the recorded comp.**
+⚠ **Both fleets lost, and a guildmate won the same Felucia row for 500,000 with the same mission.**
+The capital was almost certainly right (Leviathan, all abilities MAXED, on a no-alignment-filter
+planet); what I let the game choose was the **reinforcement order**. That is the thing to research.
+
+### Deployment
+Ended with **Unallocated: 10,773,814** and put all of it on Mustafar, taking it 169,885,568 to
+**180,659,382**, i.e. 5,590,618 from its 2nd star. Chosen over Felucia and Bracca because only
+Mustafar was within reach of a threshold, and because the officer notes read "3*" on Mustafar and
+"ops n combat" on the other two. ⇒ **Deploy LAST and deploy to the territory nearest a threshold**,
+not to the one furthest behind.
+
+### The Zeffo bonus zone, in full
+Bracca's panel carries `Bonus: Zeffo`, and the zone's own panel prints the unlock conditions:
+**"Earn Stars in Bracca: 0/1"** AND **"Complete Special Mission 30 Times: 0/30"**. So Zeffo needs a
+Bracca star and thirty guild clears of the Bracca special. Bracca finished the session at 18.0M
+against a 142.3M first star, so **Zeffo could not unlock this phase whatever I did**, which is why the
+deploy-all was taken over reserving Cere Junda and Cal Kestis for one clear. Both are R7 and both
+clear the special's R7 gate, so they are available whenever the Bracca star becomes reachable.
+✅ Re-confirmed, and the repo already had it right: the Felucia HONDO row carries the *id* `special`
+but its `kind` is `combat`, and `rote_missions.py` line 107 records exactly why (device-verified
+2026-08-19). The panel reads "Combat Mission, 5x characters (Relic 6+), Hondo Ohnaka", up to 250,000
+TP, `BATTLE (1)`. **Only Bracca `unlock_zeffo` is a true one-shot special in this phase.** I briefly
+"fixed" the JSON by renaming that id, which would have broken the `(2, "Felucia", "special")` TACTICS
+key; the JSON is GENERATED, so edit `rote_missions.py` and re-run `--write`, never the JSON.
+
+### Tooling added
+`scripts/ocr.sh` and `scripts/tapword.sh`. The image budget, not the token budget, is what kills a
+long device session (30MB of base64 and the API call dies). Tesseract reads the RESULTS banner, the
+territory counter and the activity feed for zero budget, and `tapword.sh` locates a label by its
+bounding box so a scrolling filter list can be hit reliably instead of by dead reckoning.
+⚠ **tesseract cannot read from /tmp under the Bash sandbox** ("failed to open locally"). Both scripts
+write to ~/Downloads for that reason. Do not move them back.
+⚠ A useful trick that costs nothing: **verify a win by arithmetic.** The territory delta equals the
+mission TP plus the squad's GP, so 448,622 after a 198,622 squad proves a 250,000 clear.
