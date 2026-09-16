@@ -5241,3 +5241,61 @@ tier list: **on a row with no unit gate, lead with a GL.** A GAC hold rate does 
 - ⚠ `.venv` is a **dangling symlink** to a deleted `~/Downloads/swvenv`, so `pytest` only runs from
   the homebrew interpreter and 10 test modules cannot collect (numpy, PIL). 402 tests pass;
   `tests/test_rote_missions.py` is 20/20.
+
+## 2026-09-17 (00:15-02:30) — dailies 8/8, arena #1/#2, and the farmbot config had drifted
+Run straight after the RotE phase-3 session above. **Daily Quests 8/8 plus the all-quests crate**,
+**Squad Arena #8 -> #1**, **Fleet Arena #10 -> #2**, **Coliseum 5/5 attempts**.
+
+### The farmbot did the bulk of it, and it costs ZERO image budget
+One `--daily` run (29 min, unattended): 5 energy nodes, 2 challenge multi-sims, 7 collects, 1
+bonus-energy grant, 1 PvE battle, 1 token purchase, 4 harmless halts. Report at
+`farmbot/reports/2026-09-17_0015.md`. The 2026-09-15 advice holds exactly: **run it first, every
+time, and hand-play only what its report lists as "still yours".**
+- ⚠ **`.venv` is still a dangling symlink to a deleted `~/Downloads/swvenv`.** Rebuild with
+  `uv venv /tmp/swvenv && uv pip install --python /tmp/swvenv/bin/python pillow numpy
+  opencv-python-headless defusedxml scipy pytest`. That runs the bot and the test suite.
+- ⛔ **`farmbot/config.json` is gitignored and HAD DRIFTED from the tracked `config.example.json`.**
+  The live file still farmed **cantina 1-A** while the example has carried **cantina 8-G** since
+  2026-09-15. 8-G is the Flawed Signal Data node, the largest single line in every relic recipe from
+  R6 to R9 with no store route at all. **Diff config.json against config.example.json at the start of
+  every run**, because the gitignored file silently survives across sessions and loses fixes.
+- The routine still carries a `login_august` entry; in September its `cal_tab_august` cannot match and
+  it halts twice. Harmless with `--daily`, and there is no September template captured.
+
+### What the bot will never do, and what each one cost
+- ⭐ **SQUAD ARENA #8 -> #1** in two battles with the **Hutt datacron squad** (Rotta the Hutt (L) /
+  Gamorrean Guard / Greedo / Krrsantan / Mob Enforcer, 165,133). It beat a **195,973** team and then a
+  **181,741** team. Power is not the discriminator here, the level-15 Hutt cron is. Defence is the
+  squad you last attacked with, so that squad is now parked correctly.
+- ⭐ **FLEET ARENA #10 -> #2** in three battles (606,832). Target selection is the whole game: the
+  board offers about five ranks up, and **beating an opponent swaps ranks**, so always attack the
+  HIGHEST-ranked opponent you can beat rather than the weakest. #2 at 426,182 was both.
+- ⛔ **The #1 fleet (VERSO, 587,691, Leviathan mirror) beat AUTO for the third time.** The repo's fix
+  is to play it manually on the published line (Sabotage the Engines, reinforce Scimitar, Sabotage
+  the Hangars, reinforce Mark VI Interceptor). **That is not executable over ADB: the fleet battle
+  has a FIVE MINUTE timer and one screenshot-decide-tap round trip costs about 10 seconds**, so the
+  clock went 4:42 to 3:30 across a single turn before I aborted to auto. Either the owner plays that
+  one battle by hand, or the account accepts fleet #2. Do not burn more attempts on auto.
+- ⚠ **OCR misreads 5 as 9 in the arena font, again.** #1's power scanned as 987,691 and is 587,691.
+  The 2026-09-16 note predicted exactly this. Re-read any suspiciously large number from a crop.
+- **Coliseum**: all 5 attempts on auto, high score stuck at **264,585 (81%)** across every one of
+  them, next boss in 20h. Auto converges to the same score, so extra attempts add nothing once the
+  first has run.
+- **Grand Arena**: 3v3, Kyber 3, skill 3,164, Round 1 Setup with 23h left. **Defence was ALREADY
+  fully set (5/5, 3/3, 5/5, 5/5)**, carried over, so nothing was donating free banners and it was
+  left alone. `gac3v3_board.py --structure balanced` produces a better zone split (net +351, with
+  Rey 31.2%, Leia 25.4% and Cassian 25.2% in the FRONTS rather than the back), but it runs off the
+  **Season 81** tier list and re-placing all 15 squads is a fresh-session job.
+
+### Closing the last two quests by hand
+- **"Use 600 Energy" was stuck at 516/600** and every configured node was exhausted: the two hard
+  campaign nodes reported `hard_depleted`, and the mod node reported out of energy despite 229 banked.
+  ⭐ **The fix is the quest's own GO button**: it lands on **Light Side 1-A on NORMAL**, which is
+  repeatable, costs 6 energy, and offers MULTI SIM. One 38-sim tap spent 228 energy and closed both
+  the quest and the raid-ticket meter. **Remember that normal campaign nodes are the energy dump of
+  last resort; the farmbot only knows hard nodes, which are attempt-capped.**
+- **"Purchase 3 store Shipments"**: use **Shipments > Guild** (gold guild-token prices), never the
+  Featured tab, which is crystals. ⚠ **Tapping the item ICON opens an info popup with no BUY button.**
+  The purchase control is the **green price button on the tile**, and only then does a BUY confirm
+  appear. Three attempts were wasted on the icon before that was clear.
+- ⚠ A quest **GO** button can drop you straight into the crystal-priced Featured store. Back out.
