@@ -116,7 +116,7 @@
      "ROYALGUARD",
      "VADERDUELSEND"
     ],
-    "note": "No gate at all on this row, so take a coherent Empire core (this is the GAC front_top #4 wall). \u26a0 Do NOT reuse the Great Mothers Nightsisters here even though Dathomir looks unreachable \u2014 they are Dathomir/special's only fillable comp, and a unit can be spent once per phase. Caught by test_no_unit_is_double_booked_inside_one_phase."
+    "note": "\u26d4 MEASURED 2026-09-16: this Empire core went 1 OF 2 WAVES (+162,500 of 325,000). The row has NO gate, and the phase-1 finding is that an ungated row wants a GALACTIC LEGEND plus a current-meta squad, not a themed non-GL wall. Every GL-led squad that night went 2/2 and every GL-less one dropped a wave. Keep the Empire core only as the fallback when no GL is free; otherwise lead with whichever GL is still unspent. (It is the GAC front_top #4 wall, which is why it was picked, and that is the mistake: a GAC hold rate does not predict a TB clear.) \u26a0 Do NOT reuse the Great Mothers Nightsisters here even though Dathomir looks unreachable \u2014 they are Dathomir/special's only fillable comp, and a unit can be spent once per phase. Caught by test_no_unit_is_double_booked_inside_one_phase."
    }
   },
   {
@@ -136,11 +136,11 @@
     "squad": [
      "JABBATHEHUTT",
      "CADBANE",
-     "KRRSANTAN",
-     "RACCOON",
-     "GAMORREANGUARD"
+     "GREEDO",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
     ],
-    "note": "\u2b50 KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same Bounty Hunter/Scoundrel pool, and the published walkthrough deliberately slots CAD BANE here so Boba stays available for Fennec. These two squads are encoded DISJOINT, so the order between them no longer matters \u2014 but only because of that split. test_the_jabba_row_keeps_boba_fett_free_for_fennec pins it. Jabba summons the Rancor. W1 is Pirates opening with a Bruiser taunt: land thermal detonators and heal Krrsantan to reach payout, after which the detonators clear them one at a time. W2 is led by HONDO \u2014 have the Rancor devour him immediately. (Skiff Guard Lando from the guide is unowned; Rotta the Hutt R10 substitutes.) gaming-fans.com 2022/12 Phase 3 Neutral CM with Jabba the Hutt."
+    "note": "\u26d4\u26d4 THE PUBLISHED COMP IS NOT FIELDABLE: the game enforces a LARGE UNIT LIMIT of 2 per squad, and JABBATHEHUTT, KRRSANTAN, RACCOON and GAMORREANGUARD are all large. Jabba plus Gamorrean Guard already fills it and the third add is refused with 'Your squad already contains the maximum number of large units'. The five above are what actually fielded, 173,304 power, and WON 2/2 on auto 2026-09-16. \u2b50 KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same Bounty Hunter/Scoundrel pool, and the published walkthrough deliberately slots CAD BANE here so Boba stays available for Fennec. These two squads are encoded DISJOINT, so the order between them no longer matters \u2014 but only because of that split. test_the_jabba_row_keeps_boba_fett_free_for_fennec pins it. Jabba summons the Rancor. W1 is Pirates opening with a Bruiser taunt: land thermal detonators and heal Krrsantan to reach payout, after which the detonators clear them one at a time. W2 is led by HONDO \u2014 have the Rancor devour him immediately. (Skiff Guard Lando from the guide is unowned; Rotta the Hutt R10 substitutes.) gaming-fans.com 2022/12 Phase 3 Neutral CM with Jabba the Hutt."
    }
   },
   {
@@ -188,9 +188,9 @@
      "FIFTHBROTHER",
      "SEVENTHSISTER",
      "SECONDSISTER",
-     "MARROK"
+     "INQUISITORBARRISS"
     ],
-    "note": "\u2b50 THE REVA SHARD FARM \u2014 1 Third Sister shard per guild win, max 50, and Third Sister is the account's #2 gap. Grand Inquisitor leads. \u26a0 The published comp is GI/Ninth Sister/Fifth/Seventh/Eighth Brother, but Astra's NINTH SISTER is R6 and EIGHTH BROTHER R5 \u2014 both BELOW the phase-3 relic-7 floor, so neither can be deployed. Second Sister and Marrok are R7 and substitute; Inquisitor Barriss is a third R7 option. MODS: DoT damage here scales off MAX HEALTH, so run PROTECTION primaries and de-emphasise health. W1 Jawas (Chief Nebit): get 6 stacks of Purge on Nebit, get Tenacity Up BEFORE any AoE, then cleanse with GI's middle ability once you are at 6-9 DoTs \u2014 the usual loss is being greedy and holding that cleanse until the stacked DoTs wipe you at the end of the wave. Open Fifth Brother basic, Torture Nebit, Ninth/substitute uses her third; once the Jawas have buffs use Fifth Brother's AoE to dispel, then GI's AoE health-equaliser on his second turn. Nebit dies first at 10+ DoTs each. W2 is Jedi Master Kenobi ALONE and is easy if W1 went well: stack Purge to 6, add Armor Shred, layer Torture. gaming-fans.com 2022/12 Phase 3 Neutral SM (Third Sister shards)."
+    "note": "\u2b50 THE REVA SHARD FARM \u2014 1 Third Sister shard per guild win, max 50, and Third Sister is the account's #2 gap. Grand Inquisitor leads. \u2b50 WON 2026-09-16 phase 3 with exactly this five, 160,065 power. \u26a0 The published comp is GI/Ninth Sister/Fifth/Seventh/Eighth Brother, but Astra's NINTH SISTER is R6 and EIGHTH BROTHER R5, both BELOW the phase-3 relic-7 floor, so neither can be deployed. \u26d4 The CURRENT meta answer is 'full auto with the MARROK OMICRON' (swgohrote.com), and it is NOT available here: MARROK HAS 0 OMICRONS. Take INQUISITORBARRISS over Marrok instead. Her base id is `INQUISITORBARRISS`, she is owned at 7\u2605 R7, and her dispel-all plus health-equalise on Unaligned Force User allies answers the exact thing that loses this node (DoT pile-up). swgohrote.com lists 'GI (Inq Bariss)' as the community non-omicron comp. Second Sister is the documented stand-in for Eighth Brother. MODS: DoT damage here scales off MAX HEALTH, so run PROTECTION primaries and de-emphasise health. W1 Jawas (Chief Nebit): get 6 stacks of Purge on Nebit, get Tenacity Up BEFORE any AoE, then cleanse with GI's middle ability once you are at 6-9 DoTs \u2014 the usual loss is being greedy and holding that cleanse until the stacked DoTs wipe you at the end of the wave. Open Fifth Brother basic, Torture Nebit, Ninth/substitute uses her third; once the Jawas have buffs use Fifth Brother's AoE to dispel, then GI's AoE health-equaliser on his second turn. Nebit dies first at 10+ DoTs each. W2 is Jedi Master Kenobi ALONE and is easy if W1 went well: stack Purge to 6, add Armor Shred, layer Torture. gaming-fans.com 2022/12 Phase 3 Neutral SM (Third Sister shards)."
    }
   },
   {

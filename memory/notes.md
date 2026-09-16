@@ -5117,3 +5117,127 @@ which is the only reason Maul leads.
 - **Text search matches anywhere in the name**: "Cal" returns Young Lando **Cal**rissian. Use "Kestis".
 - Slot taps and CLEAR SQUAD do work, but the name-band OCR lags a frame, so re-read before concluding
   a tap failed. Two taps were wasted chasing a phantom failure.
+
+## 2026-09-16 evening — RotE PHASE 3 played, and the fleet doctrine is now inverted
+Phase 3/6 opened ~20:22 Athens. Guild GP 518.2M, **11/56 stars at start, 12/56 at the end**
+(Bracca earned its first). Astra went #1 -> #3 on the contributor board as guildmates pushed.
+Board at the end: Mustafar/Corellia/Coruscant 3★ MAXED · Bracca **176,032,389 / 227,625,000 (1★)** ·
+Felucia 268,633,501 / 316,000,000 (2★) · Geonosis 38,128,365 / 148,125,000 · Tatooine
+18,238,567 / 190,953,125 · **Dathomir and Kashyyyk LOCKED** (their predecessors held no star at the
+phase boundary, so the DS and LS lanes are each a full phase behind).
+
+### ⛔⛔ THE GUILD ORDER IS AN IN-GAME MECHANIC, NOT JUST A GOLD NOTE
+Pressing ASSIGN on a **Bracca operation** raised **"Disobey Guild Order. One of the officers of your
+guild has flagged this mission to be ignored. Are you sure you want to disobey orders?"** with
+`DISOBEY ORDER` (red) and `BACK TO MAP` (green, ~(1187,691)). Obeyed, no Bracca operations filled.
+- **The red no-entry overlay on a map marker IS that flag.** On Bracca it sat on the operations
+  square and the deploy chevron; the 3 combat pins, the fleet pin and the Zeffo special had none and
+  raised no dialog. Deployment to Bracca also raised no dialog, so **the flag is per-mission, and the
+  overlay is the only advance warning. Read it before planning a territory.**
+- ⚠ The dialog is centred at y≈691, nowhere near ASSIGN at (1166,988), so a blind ASSIGN tap does
+  NOTHING and the operation silently stays unchanged. Two assigns were lost that way before the
+  modal was noticed. **Re-read the fill count after every assign.**
+
+### OPERATIONS: the pay scale, and one label that nearly cost 79M
+**Tatooine (P3) pays 13,200,000 per completed operation; Geonosis and Bracca (P2) pay 11,000,000.**
+Gate is R7+ on Tatooine, R6+ on the P2 planets, 7★ ships everywhere. Quota is 10 units per territory.
+- ⛔ **"(Full Strength)" is the ABILITY level, not the fill count.** Felucia's *friendly* ability read
+  "Profitable Ventures (Full Strength)" with the bar at 6/6 and was genuinely done. Tatooine's
+  *enemy* ability read "Wretched Hive (Full Strength)" with the bar at **0/6** and the scale running
+  **Lvl 3 -> Lvl 2 -> Lvl 1 -> Disabled**: six operations still to fill, worth 79.2M. Friendly
+  abilities are strengthened, enemy abilities are weakened. **Read the bar, never the parenthetical.**
+- Assigned: **Tatooine 10/10** (Op1 8->13/15, Op5 4->9/15), **Geonosis 7/10** (Op1 6->8/15,
+  Op2 5->10/15). Bracca untouched (flagged). Felucia already 6/6.
+- **A platoon assignment banks the unit's GP as territory points immediately** (the feed logged
+  "Astra: Deployed 174,577 points" seconds after ASSIGN).
+- Duplicate slots inside one operation want the SAME unit; the second tap raises
+  `DUPLICATE UNIT SELECTION` (OK at (948,690)) and that modal then swallows the following taps.
+- ⭐ **Keep Galactic Legends out of platoons whenever a non-GL slot is available.** JML was
+  auto-staged into Tatooine Op5 and swapped for Starkiller. SEE and Darth Maul did go in, and both
+  then rendered RED (unavailable) in Geonosis Op1: the cross-territory lock is real and visible.
+
+### ⭐⭐ THE FLEET RULE FROM PHASE 1 IS WRONG, AND THIS IS THE MEASUREMENT THAT INVERTS IT
+Phase 1 concluded "take the game's auto-fill and press BATTLE". On Tatooine (gate ship **Executor**)
+the auto-fill produced a power-sorted incoherent mix, Executor plus Rebel B-wing, Han's Millennium
+Falcon and Emperor's Shuttle at **706,848**: the same shape as both phase-1 losses and the phase-2
+losses. Replacing it with the repo's own **`build_fleets.FLEET_LINEUPS["Executor"]`** (Hound's Tooth /
+Punishing One / Razor Crest starting, reinforcing Xanadu Blood / Slave I / IG-2000 / Ebon Hawk) at a
+LOWER **626,875** won immediately for **+682,500 TP**.
+⇒ The phase-1 Corellia win only looked like "auto-fill works" because the gate ship there (Lando's
+Millennium Falcon) forced the auto-fill into that same Bounty Hunter lineup. **The auto-fill is a
+power sort. Field the coherent published lineup.**
+- ⭐ **`SELECT FLEET` loads saved presets and is the fast path.** Leviathan, Executor, Negotiator,
+  Home One and Raddus are already saved on the account. The Executor preset was one reinforcement
+  short at 547,975; adding **Ebon Hawk** took it to 626,875, within 0.4% of the 629,354 that won in P1.
+- ⚠ **A fleet with an empty slot refuses to start**: "You are attempting to enter battle with a squad
+  that is not full", and the BATTLE tap just does nothing until you acknowledge it. Fill all 7
+  non-capital slots.
+- ⚠ **The capital picker prints ability levels and is worth reading.** Negotiator is the only owned
+  Light Side capital with everything MAXED (Endurance L3, Home One L6, Raddus L1).
+- The other two fleets both LOST: Bracca (Light Side ships, saved **Negotiator** preset 619,465) and
+  Geonosis (Dark Side ships, **Leviathan** preset 521,479 topped up to 619,552 with the
+  highest-power ship on the list). **Power was not the difference; the Executor fleet is coherent
+  Bounty Hunter and the other two were not.** Next phase: top a preset up with a ship of the
+  SAME faction, not the top of the list.
+
+### ⭐ AN UNGATED COMBAT ROW STILL WANTS A GALACTIC LEGEND
+`missions_3.json` sent the Empire core (Palpatine / Thrawn / Mara Jade / Royal Guard / Vader Duel's
+End, 156,285) to the Tatooine `mixed` row because it is the GAC front_top #4 wall. It went **1/2,
++162,500 of 325,000**. Every GL-led squad this session went 2/2. The phase-1 rule outranks the GAC
+tier list: **on a row with no unit gate, lead with a GL.** A GAC hold rate does not predict a TB clear.
+`rote_missions.py` now says so on that row.
+
+### Results, mission by mission
+| Mission | Squad | Result |
+|---|---|---|
+| Tatooine **Reva special** | GI (L) / Fifth Brother / Seventh Sister / **Inquisitor Barriss** / Second Sister, 160,065 | **WON**, guild 1/50 -> 2/50 |
+| Tatooine **Mandalore special** (Krayt Dragon) | Bo-Katan Mand'alor (L) / **IG-12 & Grogu** / Mando Beskar, 101,884 | **WON**, bonus zone 3% -> 7% |
+| Tatooine **fleet** | Executor lineup, 626,875 | **WON +682,500** |
+| Tatooine **fennec** | Bossk (L) / Fennec / Boba / Zam / Embo, 164,093 | **WON** (341,250) |
+| Tatooine **jabba** | Jabba (L) / Cad Bane / Greedo / Gamorrean Guard / Mob Enforcer, 173,304 | **WON** |
+| Tatooine **mixed** | Empire core, 156,285 | 1/2, **+162,500** |
+| Bracca **Jedi** | JMK (L) / General Skywalker / Ezra (Exile) / Shaak Ti / Mace Windu, 204,009 | 1/2, **+125,000** |
+| Bracca **LS row A** | auto-fill, GL Rey led, 217,835 | **WON** |
+| Bracca **LS row B** | auto-fill, GL Leia led, 206,430 | **LOST, +0** |
+| Bracca **Zeffo special** | Cere Junda + Jedi Knight Cal Kestis, 66,444 | **LOST** |
+| Bracca **fleet** | Negotiator preset, 619,465 | **LOST, +0** |
+| Geonosis **fleet** | Leviathan preset, 619,552 | **LOST, +0** |
+| **DEPLOY** | 10,832,733 unallocated, all to **Bracca** | Bracca 153.2M -> 176.0M |
+
+### The two omicron checks that decided two missions
+- ⛔ **`MARROK` has 0 omicrons**, so the current meta Reva answer ("100% FULL AUTO with the Marrok
+  omicron", swgohrote.com) is unavailable on this account. **`INQUISITORBARRISS` IS owned** (that is
+  the base id; `INQUISITORBARRISSOFFEE` does not exist) at 7★ R7, and swgohrote.com lists
+  **"GI (Inq Bariss)"** as the community non-omicron comp. Her dispel-all plus health-equalise on
+  Unaligned Force User allies answers the DoT pile-up that is the documented way to lose that node.
+  It won first try.
+- ⛔ **`JEDIKNIGHTCAL` has 0 omicrons**, and this file already recorded that the Zeffo special runs
+  "~2/14 versus ~90.9%" without omicrons on both his leader ability and Impetuous Assault. It lost
+  exactly as predicted, Cal dying in wave 1. **Do not spend the Zeffo attempt again until he has
+  both.** The loss was still upside-only: the squad's 66,444 GP banked to Bracca.
+
+### Device and UI facts learned tonight
+- ⚠ **LARGE UNIT LIMIT is 2 per squad.** The published Tatooine Jabba comp (Jabba / Cad Bane /
+  Krrsantan / Rotta / Gamorrean Guard) is **not fieldable**: three of those five are large. Jabba plus
+  Gamorrean Guard fills the limit and the third add is refused outright.
+- ⚠ **The squad-screen TEXT SEARCH matches ability text, and it silently fields the wrong unit.**
+  "Emperor Palpatine" returned **Darth Bane** and he was fielded as leader; "Krrsantan" returned
+  **Doctor Aphra**; "Jedi Master Luke" returned **Jedi Master Kenobi**; "General Kenobi" returned
+  **General Skywalker**. **Read the slot label after every single add.**
+- ⚠ **A CLIENT RESTART mid-session resets a squad you just built** back to the auto-fill, and it does
+  NOT consume the mission attempt (verified twice, on the Reva special and the Bracca Jedi row).
+  Re-check the squad after any reload. A newsletter popup also lands in front of the hub afterwards.
+- **Felucia's combat rows all read COMPLETE (greyed) for me this phase** while Tatooine's, Bracca's
+  and Geonosis's read `BATTLE (1)`. **Felucia's DEPLOY button was also greyed** while Bracca's and
+  Tatooine's worked. Cause not established; worth pinning down next phase, because it made the
+  officer note "Felucia first the rest here" resolve to Bracca in practice.
+- **`swgohrote.com` is a live and useful source**: per-node auto-battle teams, phase tabs, a Special
+  Missions tab and community suggestions. It is a JS app, so drive it with the Playwright MCP and
+  read `document.body.innerText`. Its Mandalore entry ("Bo Katan Mandalore" lead, "IG12",
+  *"IG call bo to assist, don't use Birds with BAM. Ballista if someone gets eaten"*) made that
+  Krayt Dragon clear work first try.
+- The image budget again was the binding constraint, 12MB of 20MB by 22:35. `scripts/ocr.sh`,
+  `scripts/tapword.sh` and an 800px/q45 screencap (about 60KB) keep verification nearly free.
+- ⚠ `.venv` is a **dangling symlink** to a deleted `~/Downloads/swvenv`, so `pytest` only runs from
+  the homebrew interpreter and 10 test modules cannot collect (numpy, PIL). 402 tests pass;
+  `tests/test_rote_missions.py` is 20/20.

@@ -459,15 +459,27 @@ TACTICS = {
     (3, "Tatooine", "mixed"): {
         "squad": ["EMPERORPALPATINE", "GRANDADMIRALTHRAWN", "MARAJADE", "ROYALGUARD",
                   "VADERDUELSEND"],
-        "note": "No gate at all on this row, so take a coherent Empire core (this is the GAC "
-                "front_top #4 wall). ⚠ Do NOT reuse the Great Mothers Nightsisters here even "
+        "note": "⛔ MEASURED 2026-09-16: this Empire core went 1 OF 2 WAVES (+162,500 of 325,000). "
+                "The row has NO gate, and the phase-1 finding is that an ungated row wants a "
+                "GALACTIC LEGEND plus a current-meta squad, not a themed non-GL wall. Every "
+                "GL-led squad that night went 2/2 and every GL-less one dropped a wave. "
+                "Keep the Empire core only as the fallback when no GL is free; otherwise lead "
+                "with whichever GL is still unspent. "
+                "(It is the GAC front_top #4 wall, which is why it was picked, and that is the "
+                "mistake: a GAC hold rate does not predict a TB clear.) "
+                "⚠ Do NOT reuse the Great Mothers Nightsisters here even "
                 "though Dathomir looks unreachable — they are Dathomir/special's only fillable "
                 "comp, and a unit can be spent once per phase. Caught by "
                 "test_no_unit_is_double_booked_inside_one_phase.",
     },
     (3, "Tatooine", "jabba"): {
-        "squad": ["JABBATHEHUTT", "CADBANE", "KRRSANTAN", "RACCOON", "GAMORREANGUARD"],
-        "note": "⭐ KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same "
+        "squad": ["JABBATHEHUTT", "CADBANE", "GREEDO", "GAMORREANGUARD", "HUMANTHUG"],
+        "note": "⛔⛔ THE PUBLISHED COMP IS NOT FIELDABLE: the game enforces a LARGE UNIT LIMIT "
+                "of 2 per squad, and JABBATHEHUTT, KRRSANTAN, RACCOON and GAMORREANGUARD are all "
+                "large. Jabba plus Gamorrean Guard already fills it and the third add is refused "
+                "with 'Your squad already contains the maximum number of large units'. The five "
+                "above are what actually fielded, 173,304 power, and WON 2/2 on auto 2026-09-16. "
+                "⭐ KEEP BOBA FETT OUT OF THIS ROW. The Jabba and Fennec rows draw on the same "
                 "Bounty Hunter/Scoundrel pool, and the published walkthrough deliberately slots "
                 "CAD BANE here so Boba stays available for Fennec. These two squads are encoded "
                 "DISJOINT, so the order between them no longer matters — but only because of "
@@ -512,14 +524,22 @@ TACTICS = {
     },
     (3, "Tatooine", "special_reva"): {
         "squad": ["GRANDINQUISITOR", "FIFTHBROTHER", "SEVENTHSISTER", "SECONDSISTER",
-                  "MARROK"],
+                  "INQUISITORBARRISS"],
         "manual": True,
         "note": "⭐ THE REVA SHARD FARM — 1 Third Sister shard per guild win, max 50, and "
                 "Third Sister is the account's #2 gap. Grand Inquisitor leads. "
+                "⭐ WON 2026-09-16 phase 3 with exactly this five, 160,065 power. "
                 "⚠ The published comp is GI/Ninth Sister/Fifth/Seventh/Eighth Brother, but "
-                "Astra's NINTH SISTER is R6 and EIGHTH BROTHER R5 — both BELOW the phase-3 "
-                "relic-7 floor, so neither can be deployed. Second Sister and Marrok are "
-                "R7 and substitute; Inquisitor Barriss is a third R7 option. "
+                "Astra's NINTH SISTER is R6 and EIGHTH BROTHER R5, both BELOW the phase-3 "
+                "relic-7 floor, so neither can be deployed. "
+                "⛔ The CURRENT meta answer is 'full auto with the MARROK OMICRON' "
+                "(swgohrote.com), and it is NOT available here: MARROK HAS 0 OMICRONS. "
+                "Take INQUISITORBARRISS over Marrok instead. Her base id is "
+                "`INQUISITORBARRISS`, she is owned at 7★ R7, and her dispel-all plus "
+                "health-equalise on Unaligned Force User allies answers the exact thing "
+                "that loses this node (DoT pile-up). swgohrote.com lists "
+                "'GI (Inq Bariss)' as the community non-omicron comp. Second Sister is the "
+                "documented stand-in for Eighth Brother. "
                 "MODS: DoT damage here scales off MAX HEALTH, so run PROTECTION primaries "
                 "and de-emphasise health. "
                 "W1 Jawas (Chief Nebit): get 6 stacks of Purge on Nebit, get Tenacity Up "
