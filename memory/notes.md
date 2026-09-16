@@ -5299,3 +5299,19 @@ time, and hand-play only what its report lists as "still yours".**
   The purchase control is the **green price button on the tile**, and only then does a BUY confirm
   appear. Three attempts were wasted on the icon before that was clear.
 - ⚠ A quest **GO** button can drop you straight into the crystal-priced Featured store. Back out.
+
+### `.venv` rebuilt for real, 2026-09-17 02:20
+`.venv` had been a **dangling symlink to a deleted `~/Downloads/swvenv`** since at least 2026-09-15,
+which is why `pytest` only ran from the homebrew interpreter and 10 test modules could not collect.
+Replaced with a real directory at `/Users/plessas/SourceCode/sw-utils/.venv` (Python 3.12.14) using
+the recipe the repo already documents at the top of `requirements-dev.txt`:
+
+    rm .venv && uv venv .venv && uv pip install --python .venv/bin/python -r requirements-dev.txt
+
+**Full suite is 518 passed**, up from the 402 that were merely collectable. `.venv/bin/python -m
+farmbot.run --doctor` reports PREFLIGHT OK and `scripts/daily_brief.py` runs, so `scripts/daily.sh`
+and every `.venv/bin/...` line in this file work again. `.venv` is gitignored, so this is machine
+state, not a commit.
+- ⚠ **`requirements-dev.txt` is the complete contract.** The 2026-08-01 note that "comlink-python
+  lives only in `.venv`" is WRONG: `scripts/swgoh_data.py` imports only `json`, `os`, `re` and
+  `datetime` and talks to comlink over plain `urllib`. There is no comlink package to install.
