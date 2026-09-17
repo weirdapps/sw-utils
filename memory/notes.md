@@ -5315,3 +5315,119 @@ state, not a commit.
 - ⚠ **`requirements-dev.txt` is the complete contract.** The 2026-08-01 note that "comlink-python
   lives only in `.venv`" is WRONG: `scripts/swgoh_data.py` imports only `json`, `os`, `re` and
   `datetime` and talks to comlink over plain `urllib`. There is no comlink package to install.
+
+## 2026-09-17/18 — RotE PHASE 4 played, and OPERATIONS are the whole game
+
+Phase 4 opened ~21:30 local on 09-17. Guild GP 518,474,625, **16/56 stars at the start, 17/56 at
+the end** — Tatooine starred, which **unlocks Kessel for phase 5**. Account went from guild rank
+#4 to **#1** on the phase leaderboard.
+
+### The live board, and which officer notes were actually actionable
+| Planet | Zone | Start | Note | What was possible |
+|---|---|---|---|---|
+| Mustafar / Corellia / Coruscant / Bracca | P1-P2 | 3★ MAX | — | nothing worth doing |
+| Geonosis | P2 | 246.0M/316M, 2★ | `3 star` | **combat only** (ops + deploy CLOSED) |
+| Felucia | P2 | 268.6M/316M, 2★ | `All in!!` | **combat only** (ops + deploy CLOSED) |
+| Tatooine | P3 | 117.5M/191M, 0★ | `3 star` | everything → **STARRED** |
+| Dathomir | P3 | 1.2M/159M, 0★ | `preload 1st` | everything |
+| Kashyyyk | P3 | 0.8M/191M, 0★ | `preload 2nd` | everything |
+
+Phase-4 planets proper (Medical Station, Kessel, Lothal) stayed **LOCKED** all phase: their
+predecessors held no star at the phase boundary. Mandalore bonus went 39% → **60%**.
+
+### ⭐⭐ THREE MECHANICS THIS REPO HAD WRONG OR MISSING
+- ⭐ **"Preload" is not "deploy here first". It means deliberately banking territory points
+  BELOW a star threshold** so the zone does not unlock its downstream neighbour before the guild
+  can feed it. Confirmed against swgoh.wiki / ROTE-planner write-ups. So `preload 1st/2nd` on
+  Dathomir/Kashyyyk is a *hold*, not a push — which is why both sit at ~1M against a 159-191M bar.
+- ⛔ **OPERATIONS AND DEPLOY CLOSE ON PLANETS OLDER THAN THE CURRENT ZONE. COMBAT DOES NOT.**
+  Geonosis's operation screen refuses with a hard dialog — *"Invalid Action / Units cannot be
+  assigned during this phase"* — and its DEPLOY button is greyed, while all four of its combat
+  markers are live `BATTLE (1)`. Felucia the same. Tatooine/Dathomir/Kashyyyk (zone 3) were fully
+  open in phase 4. ⇒ **The 2026-09-15 mystery of "Felucia's DEPLOY was greyed" is solved: it is
+  the rule, not a bug.** ⇒ A `3 star` note on a zone-2 planet in phase 4 is **stale**: with deploy
+  shut, 47-51M cannot be closed by combat rows worth 250-341K each.
+- ⛔ **RotE SPECIAL MISSIONS ARE ONCE PER EVENT, NOT PER PHASE.** Both Tatooine specials showed a
+  greyed **COMPLETE** button with `Successful Attempts 4 of 4` / `3 of 4` — they were spent in
+  phase 3 and never came back. Only Dathomir's and Kashyyyk's were available, because those
+  planets had only just opened. ⇒ Budget the Reva farm across the WHOLE event: Tatooine's
+  `Complete Special Mission 25 Times: 4/25` advances once per player per event, not per phase.
+
+### ⭐⭐ OPERATIONS PAY 40x A COMBAT ROW AND ARE THE ONLY THING THAT MOVED THE NEEDLE
+First-party, off the operation screens: **zone-3 operations pay `+13,200,000 TP` each, zone-2
+`+11,000,000`**, 6 per planet, 15 slots each, and each player may assign **10 units per
+territory** (`Assigned Units: n/10`). A combat row pays at most 341,250. That is a **39x** ratio.
+- ⭐ **Tatooine had two operations sitting at 14/15. Two units finished both: +26,400,000 TP**,
+  which took Tatooine from 143.7M to 170.1M and put the 191M star in reach; 4.1M of ship deploy
+  then crossed it. **That is the entire star, bought with two characters.**
+  It also drove `Wretched Hive` 4/6 → **6/6 = Disabled**, killing the enemy ability that hinders
+  Tatooine *and Kessel*.
+- ⇒ **THE FIRST THING TO DO IN ANY PHASE IS OPEN EVERY OPERATION SCREEN AND LOOK FOR 13/15 AND
+  14/15.** One unit into a 14/15 is worth 39 combat rows. Nothing else in the mode is close.
+- ⛔ **AND IT IS WHY `Special → Operations → Combat → Deploy` IS NOT NEGOTIABLE.** I ran Dathomir's
+  combat first, and when I came back to its operations **four slots refused with `UNIT ALREADY
+  DEPLOYED`** — they wanted units I had just spent on combat rows. Dathomir Op6 stalled at 9/15
+  instead of completing. Combat rows are mine alone and cannot be taken; operation slots are
+  guild-contested AND unit-specific. Fill operations first, always.
+- Slot refusals come in three flavours and all three need handling in any tap loop:
+  `UNIT ALREADY DEPLOYED`, `DUPLICATE UNIT SELECTION` (two slots want the same unit and you own
+  one), and `RELIC LEVEL REQUIREMENT` (owned but under the zone floor; CANCEL, not OK).
+
+### Results, row by row
+| Planet | Row | Squad | Result |
+|---|---|---|---|
+| Dathomir | special (Nightsister/Merrin) | Great Mothers (L) / Night Trooper / Morgan Elsbeth / Death Trooper (Peridea) / Merrin — 158,582 | **WON**, +260,828 |
+| Dathomir | Dr Aphra | Doctor Aphra (L) / IG-90 / BT-1 / 0-0-0 / HK-47 — 148,835 | **2/2**, +341,250 |
+| Dathomir | DS combat A | Dark Trooper Moff Gideon (L) / Scout Trooper / Captain Enoch / Death Trooper / Moff Gideon — 154,940 | ⛔ **0/2, +0** |
+| Dathomir | DS combat B | SLKR (L) / Dark Rey / Kylo Ren Unmasked / General Hux / Sith Trooper — 196,042 | **2/2**, +341,250 |
+| Dathomir | Empire | Lord Vader (L) / Darth Vader / Grand Moff Tarkin / Emperor Palpatine / Royal Guard — 189,119 | **2/2**, +341,250 |
+| Tatooine | mixed (ungated) | **SEE (L) / Darth Revan / The Stranger / Darth Bane / Darth Malak — 219,399** | **2/2**, +341,250 |
+| Tatooine | Jabba | Jabba (L) / Embo / Greedo / Gamorrean Guard / Cad Bane — 190,690 | **2/2**, +341,250 |
+| Tatooine | Fennec | Bossk (L) / Fennec Shand / Zam Wesell / Boba Fett / Jango Fett — 167,380 | **2/2**, +341,250 |
+| Tatooine | fleet | Executor auto-fill, 600,242 | **1/1**, **+682,500** |
+| Kashyyyk | special (Saw) | Saw Gerrera (L) / Captain Drogan / Cassian Andor (Undercover) / Captain Rex / Jyn Erso — 172,002 | **WON** |
+| Kashyyyk | Wookiees | Tarfful (L) / Clone Wars Chewbacca / Chewbacca / Threepio & Chewie / Zaalbar — 158,418 | **2/2**, +341,250 |
+| Kashyyyk | LS A | GL Rey (L) + auto-fill (Rotta / General Skywalker / Satele Shan / Commander Ahsoka) — 220,865 | **2/2**, +341,250 |
+| Kashyyyk | LS B | GL Leia + auto-fill mishmash — 216,797 | ⚠ **1/2, +162,500** |
+| Kashyyyk | fleet | — | ⛔ **requires Profundity, NOT OWNED** |
+
+### What the losses teach
+- ⛔ **swgohrote's `P3 DS Combat` LEGEND IS UNPLAYABLE HERE AND IT SAYS SO IN ITS OWN NOTES.**
+  "Dark Trooper Moff Gideon / Scout Trooper, **Captain Enoch (omi)**, Death Trooper, Moff Gideon".
+  `CAPTAINENOCH` has **0 omicrons** on this account, and the squad went **0/2** — wave 1, against
+  Dark Magick. This is the third time an omicron-gated guide comp has cost a row here
+  (`JEDIKNIGHTCAL`/Zeffo, `MARROK`/Reva, now `CAPTAINENOCH`/Dathomir).
+  ⇒ **Before fielding any swgohrote LEGEND, grep its note for `(omi)` and check `o` on that unit.**
+  The working substitute for a generic Dathomir DS row is a **GL**: SLKR went 2/2 at the same
+  relic floor.
+- ⚠ **Power-sorted AUTO-FILL is a coin flip: 1 win, 1 partial.** GL Rey's auto-fill went 2/2;
+  GL Leia's went 1/2. Every *coherent researched* squad went 2/2 except the omicron one.
+  Auto-fill is acceptable only on an ungated row when nothing else needs the units.
+- ⛔ **AUTO-FILL GRABS `JABBATHEHUTT` FOR UNGATED DARK/MIXED ROWS.** It did it twice. Jabba is the
+  gate unit for the Tatooine Jabba row, so accepting it forfeits a whole 341,250 row. **Always
+  CLEAR SQUAD on a gated planet before looking at what the game picked.**
+- ⭐ **The Tatooine `mixed` row is SOLVED.** Phase 3's Empire core went 1/2 (+162,500); the
+  **SEE Sith five went 2/2** (+341,250). Filter `SITH` and take the top five by power — it comes
+  out exactly SEE / Darth Revan / The Stranger / Darth Bane / Darth Malak, 219,399.
+
+### Device / UI notes
+- **Filter-by-faction then "tap the top tile N times" is the fast way to build a researched squad.**
+  Used units vanish from the filtered list, so the top-5-by-power under a faction filter often IS
+  the researched squad: `IMPERIAL REMNANT` → the Gideon five exactly (154,940), `FIRST ORDER` →
+  the SLKR five (196,042), `SITH` → the SEE five (219,399). Verify by squad power, which matches
+  the computed `gp` sum to the unit.
+- ⚠ **In-game `Pwr` is NOT the roster's `gp`** for every unit (mods count), and
+  `data/roster/swgoh_roster_fresh_20260911.json` is a week stale — Cad Bane, Grand Inquisitor and
+  several Empire units had all gone up a relic since. **Identify list tiles by portrait, then
+  confirm by the squad-power total, never by a remembered `gp`.**
+- `scripts/tapword.sh <Pwr number> --dy -55` taps a specific roster tile reliably; hardcoded grid
+  positions drift as soon as one unit is added (the list re-flows).
+- ⛔ **There are no `TB RotE` in-game preset tabs.** `SELECT SQUAD` shows only
+  GAC 5v5/3v3 Def+Off and TW 1-4. Every RotE squad had to be hand-built, ~10 taps each.
+  ⇒ **Push `output/rote_squads.json` with `scripts/push_ingame_presets.py` before the next phase**
+  (do it while the game is closed — the write kicks the BlueStacks client).
+- Deploy screen has a `SHIPS` / `CHARACTERS` / `DARK SIDE` / `LIGHT SIDE` filter plus SELECT ALL,
+  which is the only sane way to split a deploy: ships-only was 4,097,099 (exactly enough to star
+  Tatooine), Dark Side characters 2,679,836 → Dathomir, the rest 4,411,076 → Kashyyyk.
+- ⚠ **`back` from the galaxy map exits the whole event**, and two of them walk out of the game to
+  the BlueStacks launcher. One `back` per planet screen, verify with `ocr.sh panel` between.
