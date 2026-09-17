@@ -444,7 +444,12 @@ TACTICS = {
         "note": "5x Light Side Wookiees R7+. ⚠ The published lineup uses VANDOR CHEWBACCA, and "
                 "Astra's is R5 — below the phase-3 floor, so that squad is unfillable as printed. "
                 "CLONE WARS CHEWBACCA (R9) is the substitute. Caught by test_tactics_squads_are_"
-                "fillable, which is why that test exists. starwars-fans.com",
+                "fillable, which is why that test exists. starwars-fans.com "
+                "⭐ WON 2/2, +341,250, on AUTO at 158,418 power (2026-09-17). ⚠ TARFFUL MUST "
+                "LEAD: the auto-fill puts Clone Wars Chewbacca in slot 1 because he is the "
+                "highest power, and swgohrote's legend is 'Tarfull (Yoda and Chewie)'. Clear the "
+                "squad and tap Tarfful first. Yoda & Chewie is R5 here, under the floor, which "
+                "is why Zaalbar keeps the fifth slot.",
     },
     (3, "Kashyyyk", "ls_1"): {
         "squad": ["GLREY", "50RT", "BENSOLO", "CALKESTIS", "GENERALKENOBI"],
@@ -452,29 +457,40 @@ TACTICS = {
                 "(this is TW preset D03) rather than letting auto-fill power-sort five factions.",
     },
     (3, "Kashyyyk", "ls_2"): {
-        "squad": ["QUEENAMIDALA", "GRANDMASTERYODA", "MASTERQUIGON", "PADAWANOBIWAN", "SHAAKTI"],
-        "note": "No faction gate. Coherent Galactic Republic/Jedi under Queen Amidala. Kept clear "
-                "of JMK and GL Rey so those stay free for the other Light Side rows.",
+        "squad": ["GLAHSOKATANO", "PADAWANSABINE", "HUYANG", "FULCRUMAHSOKA", "EZRAEXILE"],
+        "note": "swgohrote's legend for 'P3 LS Right (Mara)' is 'Ahsoka Tano / Others: Padawan "
+                "Sabine, Huyang, Fulcrum, +1' with 'auto, use Ezra and Hera if available'. That "
+                "is the GL Ahsoka team; Hera Syndulla is R6 here, under the floor, so Ezra "
+                "(Exile) takes the last slot. About 186K power, all five R7+. "
+                "⛔ MEASURED 2026-09-17: this row was played with the game's power-sorted "
+                "AUTO-FILL instead (GL Leia plus a mishmash, 216,797) and it went **1 OF 2 "
+                "WAVES, +162,500**. Both Kashyyyk rows that used a coherent squad went 2/2. "
+                "Build the squad; do not accept the auto-fill on this one. "
+                "The old Queen Amidala / Grand Master Yoda / Master Qui-Gon / Padawan Obi-Wan / "
+                "Shaak Ti Galactic Republic comp remains a fillable spare.",
     },
     (3, "Tatooine", "mixed"): {
-        "squad": ["EMPERORPALPATINE", "GRANDADMIRALTHRAWN", "MARAJADE", "ROYALGUARD",
-                  "VADERDUELSEND"],
-        "note": "⛔ MEASURED 2026-09-16: this Empire core went 1 OF 2 WAVES (+162,500 of 325,000). "
-                "The row has NO gate, and the phase-1 finding is that an ungated row wants a "
-                "GALACTIC LEGEND plus a current-meta squad, not a themed non-GL wall. Every "
-                "GL-led squad that night went 2/2 and every GL-less one dropped a wave. "
-                "Keep the Empire core only as the fallback when no GL is free; otherwise lead "
-                "with whichever GL is still unspent. "
-                "(It is the GAC front_top #4 wall, which is why it was picked, and that is the "
-                "mistake: a GAC hold rate does not predict a TB clear.) "
+        "squad": ["SITHPALPATINE", "DARTHREVAN", "STRANGER", "DARTHBANE", "DARTHMALAK"],
+        "note": "⭐ SOLVED 2026-09-17: WON 2/2, +341,250, at 219,399 power on full AUTO. "
+                "Filter SITH in the squad picker and take the top five by power and this is "
+                "exactly what you get. SEE leads and every ally is Sith, so the lead applies. "
+                "⛔ It replaces the Empire core (Emperor Palpatine / Thrawn / Mara Jade / Royal "
+                "Guard / Vader Duel's End), which went 1 OF 2 WAVES here on 2026-09-16 "
+                "(+162,500 of 325,000). The row has NO gate, and the repeated finding is that an "
+                "ungated row wants a GALACTIC LEGEND plus a current-meta squad, not a themed "
+                "non-GL wall: a GAC hold rate does not predict a TB clear. "
                 "⚠ Do NOT reuse the Great Mothers Nightsisters here even "
-                "though Dathomir looks unreachable — they are Dathomir/special's only fillable "
+                "though Dathomir looks unreachable, they are Dathomir/special's only fillable "
                 "comp, and a unit can be spent once per phase. Caught by "
                 "test_no_unit_is_double_booked_inside_one_phase.",
     },
     (3, "Tatooine", "jabba"): {
-        "squad": ["JABBATHEHUTT", "CADBANE", "GREEDO", "GAMORREANGUARD", "HUMANTHUG"],
-        "note": "⛔⛔ THE PUBLISHED COMP IS NOT FIELDABLE: the game enforces a LARGE UNIT LIMIT "
+        "squad": ["JABBATHEHUTT", "EMBO", "GREEDO", "GAMORREANGUARD", "CADBANE"],
+        "note": "⭐ WON 2/2, +341,250, on AUTO at 190,690 power (2026-09-17). EMBO replaces Mob "
+                "Enforcer: he carries the HUTT CARTEL tag, so he shows up in the same filter, "
+                "and at 34,149 he is the strongest non-large unit in it. Cad Bane stays, which "
+                "is what keeps Boba Fett free for the Fennec row. "
+                "⛔⛔ THE PUBLISHED COMP IS NOT FIELDABLE: the game enforces a LARGE UNIT LIMIT "
                 "of 2 per squad, and JABBATHEHUTT, KRRSANTAN, RACCOON and GAMORREANGUARD are all "
                 "large. Jabba plus Gamorrean Guard already fills it and the third add is refused "
                 "with 'Your squad already contains the maximum number of large units'. The five "
@@ -491,8 +507,12 @@ TACTICS = {
                 "gaming-fans.com 2022/12 Phase 3 Neutral CM with Jabba the Hutt.",
     },
     (3, "Tatooine", "fennec"): {
-        "squad": ["BOSSK", "BOBAFETT", "FENNECSHAND", "ZAMWESELL", "EMBO"],
-        "note": "Bounty Hunter DoT team, 341,250 TP — the biggest single combat row in phase 3. "
+        "squad": ["BOSSK", "BOBAFETT", "FENNECSHAND", "ZAMWESELL", "JANGOFETT"],
+        "note": "⭐ WON 2/2, +341,250, on AUTO at 167,380 power (2026-09-17). JANGO FETT takes "
+                "the slot Embo used to hold, because Embo is now in the Jabba row; both are "
+                "R8 Bounty Hunters and the two rows stay disjoint. Filter BOUNTY HUNTER and the "
+                "five are all near the top. "
+                "Bounty Hunter DoT team, 341,250 TP, the biggest single combat row in phase 3. "
                 "Bossk leads and TAUNTS to build toward the BH payout; after payout the DoTs "
                 "dominate and the fight becomes an outlasting exercise. W2: open with the Bossk "
                 "taunt to soak while DoTs stack, kill the SHAMAN to enable another taunt, then the "
@@ -503,15 +523,85 @@ TACTICS = {
                 "gaming-fans.com 2022/12 Phase 3 Neutral CM with Fennec Shand.",
     },
     (3, "Kashyyyk", "special"): {
-        "squad": ["SAWGERRERA", "LUTHENRAEL", "CASSIANANDOR", "K2SO", "JYNERSO"],
+        "squad": ["SAWGERRERA", "CAPTAINDROGAN", "CASSIANUNDERCOVER", "CAPTAINREX", "JYNERSO"],
         "manual": True,
-        "note": "starwars-fans.com",
+        "note": "⭐ WON 2026-09-17 on full AUTO at 172,002 power, first attempt. This is the "
+                "game's own auto-fill under the 'Rebel Fighter (Relic 7+) + Saw Gerrera' gate, "
+                "and it needed no editing: Saw leads with a MAXED 'Freedom Isn't Free', Drogan "
+                "and Rex are both on swgohrote's recommended list, and Cassian (Undercover) and "
+                "Jyn are both community-listed variants ('Saw (Cassian)', 'Saw (Jyn)'). "
+                "swgohrote's legend is 'Saw with Drogan and Kyle' plus 'deselect the targeting "
+                "reticule at the beginning'; Kyle Katarn was not needed. "
+                "Earlier starwars-fans comp was Saw / Luthen / Cassian / K-2SO / Jyn.",
+    },
+    # ---- Dathomir combat, all four rows researched + MEASURED 2026-09-17 --------
+    # Every Dathomir battle carries the DARK MAGICK modifier and the Nightsister
+    # Acolytes stealth, so these are long attrition fights. All four are AUTO.
+    (3, "Dathomir", "aphra"): {
+        "squad": ["DOCTORAPHRA", "IG90", "BT1", "TRIPLEZERO", "HK47"],
+        "note": "⭐ WON 2/2, +341,250, on AUTO at 148,835 power (2026-09-17). Doctor Aphra is "
+                "the gate and leads with a MAXED 'Suspended Doctorate'; the other four are all "
+                "Droids, so filter DROID in the picker. swgohrote's legend is 'Aphra (IG 90)' "
+                "with 'Others: BT1, GG, HK47, IG 90' and the note 'auto, Use 0-0-0 if you have "
+                "him, IG 90 makes this super easy'. Astra owns 0-0-0, so General Grievous is "
+                "the one dropped. ⚠ The DROID filter is full of near-identical power values: "
+                "Dark Trooper and BT-1 are both 28,890 and KX Security Droid sits between "
+                "0-0-0 and HK-47. Read the slot label after every add. "
+                "gaming-fans.com 2023/03 ran Aphra / BT-1 / 0-0-0 / IG-88 / Darth Vader and "
+                "only got 1 of 2 waves, so the IG-90 version is the better one.",
+    },
+    (3, "Dathomir", "empire"): {
+        "squad": ["LORDVADER", "VADER", "GRANDMOFFTARKIN", "EMPERORPALPATINE", "ROYALGUARD"],
+        "note": "⭐ WON 2/2, +341,250, on AUTO at 189,119 power (2026-09-17). swgohrote's legend "
+                "is 'Lord Vader / Others: Any' with the explicit warning **'Dont use Piett'**, "
+                "which matters because ADMIRAL PIETT is 4th by power in the Empire pool and a "
+                "naive top-5-by-power pick lands on him. Emperor Palpatine is the substitute. "
+                "⚠ GRAND INQUISITOR also sits high in the Empire list (34,618) and is the gate "
+                "unit for the Tatooine Reva special, so do not let a power sort take him.",
+    },
+    (3, "Dathomir", "ds_1"): {
+        "squad": ["SUPREMELEADERKYLOREN", "DARKREY", "KYLORENUNMASKED", "GENERALHUX",
+                  "FOSITHTROOPER"],
+        "note": "⭐ WON 2/2, +341,250, on AUTO at 196,042 power (2026-09-17). Ungated row, so "
+                "it wants a GALACTIC LEGEND. Filter FIRST ORDER and take the top five by power "
+                "and this is exactly what you get. swgohrote lists SLKR among the alternatives "
+                "for this row.",
+    },
+    (3, "Dathomir", "ds_2"): {
+        "squad": ["BAYLANSKOLL", "MAULHATEFUELED", "STARKILLER", "SHINHATI", "MARROK"],
+        "note": "⚠ UNMEASURED, but it is the best untried answer and swgohrote lists 'Baylan' "
+                "among the alternatives for this row. Baylan Skoll leads Unaligned Force Users "
+                "and all four allies carry that tag, with Maul (Hate-Fueled) and Starkiller both "
+                "R10. About 182K power. Filter UNALIGNED FORCE USER, then drop the light-side "
+                "entries. "
+                "⛔⛔ WHAT NOT TO FIELD HERE: swgohrote's LEGEND for "
+                "'P3 DS Combat' is Dark Trooper Moff Gideon leading Scout Trooper, "
+                "**Captain Enoch (omi)**, Death Trooper and Moff Gideon. Astra fielded exactly "
+                "that on 2026-09-17 at 154,940 power and it went **0 OF 2 WAVES, +0**, dying in "
+                "wave 1. CAPTAINENOCH HAS 0 OMICRONS on this account, and that '(omi)' is the "
+                "whole comp. This is the third omicron-gated guide comp to cost a row here "
+                "(JEDIKNIGHTCAL on Zeffo, MARROK on Reva, now CAPTAINENOCH). "
+                "⇒ RULE: grep any swgohrote legend for '(omi)' and check that unit's `o` count "
+                "before fielding it. "
+                "⇒ If Baylan also drops a wave, the fix is a third dark GL, which means moving "
+                "SEE here from Tatooine/mixed and giving that ungated mixed row a light-side GL "
+                "instead (JMK and JML are both free in phase 3).",
     },
     (3, "Dathomir", "special"): {
-        "squad": ["GREATMOTHERS", "MORGANELSBETH", "MERRIN", "NIGHTSISTERSPIRIT",
-                  "ASAJVENTRESS"],
+        "squad": ["GREATMOTHERS", "NIGHTTROOPER", "MORGANELSBETH", "DEATHTROOPERPERIDEA",
+                  "MERRIN"],
         "manual": True,
-        "note": "Great Mothers lead is the MODERN clear and the one Astra can field: all "
+        "note": "⭐ WON 2026-09-17 on full AUTO at 158,582 power, first attempt, no losses. "
+                "This is swgohrote's legend comp (Great Mothers lead, Morgan, Death Trooper, "
+                "Night Trooper, Merrin) and it is ALSO exactly what the game's own auto-fill "
+                "picks, so this row costs zero squad-building taps. The Death Trooper wanted "
+                "here is DEATHTROOPERPERIDEA, the one with the Nightsister tag, NOT the "
+                "Imperial Remnant DEATHTROOPER, who belongs to the Dathomir DS combat row. "
+                "swgohrote's turn note is 'bless Morgan, doom Maul first in P2'; auto did not "
+                "need it. The older starwars-fans comp swapped Night Trooper and Death Trooper "
+                "(Peridea) for Nightsister Spirit and Asajj Ventress, which is fieldable but "
+                "weaker (both R7 against R8/R7). "
+                "Great Mothers lead is the MODERN clear and the one Astra can field: all "
                 "five of these are R7+, while the classic Old Daka / Mother Talzin / "
                 "Nightsister Zombie lineup is stranded at R5 and below the phase-3 floor. "
                 "MECHANIC: Merrin gains 100% TM the first time a Nightsister ally is "
