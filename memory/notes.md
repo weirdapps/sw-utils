@@ -5535,3 +5535,53 @@ spend to unlock relic currency, so it is an **owner decision**, not an autonomou
 - Dark stars under a planet = thresholds not yet earned, not a star count.
 - The gold diamond marker is the **special mission**; the dark-blue crate marker is
   **operations**. On Kessel they sit close together and the gold one is the more tempting tap.
+
+## 2026-09-19 (01:00-02:10) — dailies 8/8, arena #1, and two pointers this repo had wrong
+
+Daily Quests **8/8 + crate**, Guild Activities **600/600**. `farmbot.run --daily` did the PvE
+grind (5 energy nodes, 2 challenge sims, 6 collects, 1 bonus-energy, 1 PvE win, 1 token shop
+buy, 4 unknown-screen halts); everything below is what the bot structurally cannot do.
+
+### ⭐ ARENA: THE DATACRON BEATS 32K OF POWER, CONFIRMED A THIRD TIME
+**Squad Arena #4 to #1** by attacking the rank-1 board directly: the **165,222** Hutt Cartel
+five (Rotta the Hutt lead / Gamorrean Guard / Greedo / Krrsantan / Mob Enforcer, carrying the
+set-33 **level-15** Hutt cron) beat a **197,155** GL Leia team. That is a 32K power deficit
+overturned. Mechanism is the one already recorded: **omicrons do not fire in Squad Arena and
+datacrons do**, and Rotta's `A Legacy Reforged` lead is a BASE ability, so his squad keeps its
+whole kit while a GL squad loses most of its own.
+⇒ The game pre-fills this squad now, so the correct play is simply to accept it and attack the
+top of the board. **Defence is the squad you last attacked with**, so finishing on this one
+parks the right wall.
+**Fleet Arena #14 to #9 to #5** on the Leviathan build (B-28 / TIE Dagger / Fury starters).
+⚠ Fleet has a **6m49s cooldown between attacks and skipping it costs 50 crystals**. Never pay
+it; do something else and come back.
+
+### ⛔ THE GUILD STORE DOES NOT SELL MOD SLICING SALVAGE
+CLAUDE.md lists the farm for T06_02 / T05_06 as "Mod Battles Sector 9 · **Guild Store** ·
+Episode Shipments". The Guild Shipments tab was read end to end tonight and it sells **gear
+salvage only** (Mk 2 Pulse Modulator, Mk 9 BioTech, Mk 6 Arakyd, Mk 4 Sienar, Mk 3 Carbanti,
+Mk 10 BlasTech and so on), priced in guild tokens. **There is no mod slicing salvage in it.**
+Correct the pointer to Mod Battles and Episode Shipments.
+⚠ Also: the **Featured** Shipments tab is entirely crystal-priced (320-400 each). For the
+"Purchase 3 store Shipments" daily, go to a TOKEN tab (Guild, Cantina) and never Featured.
+
+### Coliseum: the attempts were left UNUSED on purpose, and that is the right call
+Krayt Dragon T7, high score **344,942 (98%)**, rank 260, **4 attempts unspent**.
+This repo's own 2026-09-15 measurement is the reason: AUTO landed **81-98% across four runs**,
+the high score is already 98% and is **best-of**, so no AUTO run can improve it, and the reward
+ladder pays nothing between 90% and 100%. The last two points need a MANUAL run that holds fire
+for the no-bonus-Protection windows. **Spending attempts on AUTO here is pure waste** — bank
+them for a session with the image budget to play it by hand.
+- The game pre-fills **Darth Maul (lead) + Starkiller (Luke Concept)**, and BOTH are the wrong
+  picks already documented above: the comp is **JKLS (L) / Darth Talon / Mara Jade Skywalker /
+  Yoda (DSV) / Stormtrooper (Concept)**.
+- `RANK REWARDS` is an INFO panel, not a claim button; Coliseum payouts arrive in the inbox
+  daily. Rank 260 sits in the `#251-500` band for 150 tokens; **breaking into `#91-250` doubles
+  it to 300**, which is the real argument for chasing a higher score.
+
+### Energy: spend the overflow, it is being wasted where it sits
+Regular energy was at **229/144** after the resupply claims, ie 85 over cap and regenerating
+into nothing. One `MULTI SIM` of **22 battles on Dark Side 8-E burned 220 of it** and closed
+both the 600-energy quest and the 600 guild tickets in a single action. Sim tickets are at
+39.2K, so they are not a constraint. Mod energy, by contrast, was drained to 5/144 by the
+farmbot, so Mod Battles was not available as the dump.
