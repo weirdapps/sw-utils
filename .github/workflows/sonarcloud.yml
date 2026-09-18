@@ -46,7 +46,14 @@ jobs:
       - name: Run tests with coverage
         if: steps.check-tests.outputs.has_tests == 'true'
         continue-on-error: true
-        run: pytest --cov=src --cov-report=xml --cov-report=term-missing || true
+        # --cov must name the packages that actually exist here. This said
+        # `--cov=src` and there is no src/ in this repo: the code is farmbot/ and
+        # scripts/, which is exactly what sonar-project.properties declares as
+        # sonar.sources. pytest-cov measured a package that was not there, wrote an
+        # empty coverage.xml, and the `|| true` swallowed it, so SonarCloud reported
+        # 0.0% coverage over all 11,301 ncloc and failed the new_coverage>=80 gate on
+        # every PR that touched Python. Keep these in step with sonar.sources.
+        run: pytest --cov=farmbot --cov=scripts --cov-report=xml --cov-report=term-missing || true
 
       - name: Check for SonarCloud token
         id: check-sonar
