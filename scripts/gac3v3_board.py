@@ -746,12 +746,18 @@ def main():
 
     if args.compare:
         print("STRUCTURE COMPARISON: same 15 squads, only the zone assignment changes")
+        # The baseline is the `back` STRUCTURE, ie the worst case where the best walls
+        # are stacked behind a front. It is NOT the live board: nothing here reads
+        # gac/get. This used to print "vs the Round-2 board", which invited a session to
+        # re-place 15 squads to chase a delta it had not actually measured. To compare
+        # against what is really deployed, read the live zones first (browser_recipes §4
+        # `gac/get`, home.zones[].squads) and check which structure they already match.
         base = results["back"][0]
         for n in ("free", "owner", "balanced", "back"):
             v, (fa, fb, kb) = results[n]
             pa = 1 - prod(1 - holds[i] for i in fa)
             pb = 1 - prod(1 - holds[i] for i in fb)
-            print(f"  {n:<9} denial {v:7.0f}  ({v-base:+6.0f} vs the Round-2 board)"
+            print(f"  {n:<9} denial {v:7.0f}  ({v-base:+6.0f} vs `back`, the stacked worst case)"
                   f"   P(front-A holds) {pa*100:4.0f}%   P(front-B holds) {pb*100:4.0f}%")
         print()
 
