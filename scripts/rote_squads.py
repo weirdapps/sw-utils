@@ -24,8 +24,15 @@ faction-gated, then the free rows.
 
 Run:  python3 scripts/rote_squads.py                 # all phases -> output/rote_squads.json
       python3 scripts/rote_squads.py --phase 3       # one phase, and print its play order
-      HU_SID=<live> python3 scripts/upload_hotutils.py --sync \\
+      HU_SID=<live> python3 scripts/upload_hotutils.py --create \\
           --payload output/rote_squads.json
+      HU_SID=<live> python3 scripts/push_ingame_presets.py --push \\
+          --payload output/rote_squads.json      # the in-game TB RotE - P<n> tabs
+
+⛔ --create, NEVER --sync, for this payload. `--sync` voids every definition the
+payload does not name, so `--sync --payload rote_squads.json` deletes all ~114
+GAC/TW squads and leaves the RotE ones. `--sync` is only for the whole-board
+output/upload_payload.json.
 """
 import argparse
 import json
@@ -140,8 +147,12 @@ def main():
     for cat, n in sorted(by_cat.items()):
         print(f"  {n:>3}  {cat}")
     if defs:
-        print("\npush with:  HU_SID=<live> python3 scripts/upload_hotutils.py --sync "
-              "--payload output/rote_squads.json")
+        print("\npush with:  HU_SID=<live> python3 scripts/upload_hotutils.py --create "
+              "--payload output/rote_squads.json"
+              "\n            HU_SID=<live> python3 scripts/push_ingame_presets.py --push "
+              "--payload output/rote_squads.json"
+              "\n            (--create, never --sync: --sync voids every squad the payload "
+              "does not name)")
 
 
 if __name__ == "__main__":

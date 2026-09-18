@@ -5431,3 +5431,107 @@ territory** (`Assigned Units: n/10`). A combat row pays at most 341,250. That is
   Tatooine), Dark Side characters 2,679,836 → Dathomir, the rest 4,411,076 → Kashyyyk.
 - ⚠ **`back` from the galaxy map exits the whole event**, and two of them walk out of the game to
   the BlueStacks launcher. One `back` per planet screen, verify with `ocr.sh panel` between.
+
+## 2026-09-18/19 — RotE PHASE 5: the 14/15 hunt paid 39.6M, and the preset pusher was a no-op
+
+Phase 5 opened ~20:08 local 09-18. Guild GP 518,601,610, **19/56 stars**, account guild rank
+**#1**. Open planets: **Kessel** (zone 4, newly unlocked by Tatooine starring in phase 4),
+**Dathomir** and **Kashyyyk** (zone 3, still fully open). Tatooine sat at 3★ MAXED with DEPLOY
+greyed. Vandor, Malachor and Ring of Kafrene all **LOCKED** (their zone-4 predecessors hold no
+star), so phase 5's own planets never opened.
+
+### ⛔⛔ `push_ingame_presets.py` COULD NOT PUSH RotE, AND FAILED SILENTLY
+The phase-4 note ended "Push `output/rote_squads.json` with `scripts/push_ingame_presets.py`
+before the next phase". **That command was incapable of doing it.** `CATEGORY_TO_TAB` listed
+only the six GAC/TW categories, so `build()` iterated those, found no `TB RotE - P<n>` rows,
+returned `[]`, printed the live tab list and exited **having sent nothing and warned nothing**.
+This is the "documented hook is not a wired hook" failure a second time: the instruction was
+written, never executed, and the next session hand-built all 14 squads at ~10 taps each.
+- Fixed: `ROTE_CAT_RE` discovers the RotE categories **from the payload** (a new phase needs no
+  edit), and `rote_preset_name()` strips the `P<n> ` prefix plus the `MANUAL` / `[aspir]`
+  planning markers, shortening the PLANET and keeping the ROW word whole when it must cut
+  (`P1 Coruscant jedi_named` → `Corus jedi_named`). `tests/test_push_ingame_presets.py`, 8 tests.
+- **Pushed and verified ON DEVICE**: `TB RotE - P1/P2/P3/P4/P6`, 32 squads, now appear in
+  SELECT SQUAD under the TW tabs. `Dathomir aphra` loaded at exactly the recorded **148,835**.
+- `rote_squads.py` was printing `upload_hotutils.py --sync --payload output/rote_squads.json`,
+  the precise command CLAUDE.md says deletes ~114 GAC/TW squads. Now prints `--create` plus the
+  preset push, with the reason inline.
+
+### ⭐⭐ KASHYYYK: 3 UNITS → 3 COMPLETED OPERATIONS → +39,600,000 TP
+Operations 1, 3 and 5 were each sitting at **14/15**. One unit each finished all three. The
+territory ability went `Formations (Disabled)` → **`Formations (Hindered)`, 4/6**. Final board:
+Op1 15/15, Op2 13/15, Op3 15/15, Op4 15/15, Op5 15/15, Op6 12/15, using 6 of the 10 allowance.
+**This is the single highest-value action available in the mode and it took four taps.** Open
+every operation screen on every open planet before doing anything else.
+
+### ⚠ BUT THE 14/15 RULE IS BOUNDED BY PER-SLOT UNIT REQUIREMENTS
+CLAUDE.md's "one unit into a 14/15 is worth 39 combat rows" is true and it is not free.
+**Each of the 15 slots demands one SPECIFIC unit.** On Dathomir, ~11 slots were open across
+four operations and only **3** were fillable. The tells, all seen the same night:
+- **No `UNDEPLOYED` label under a tile = you do not own that unit.** This is the fastest read
+  on the screen and it is the one that decides whether a 14/15 is actually free TP.
+- `RELIC LEVEL REQUIREMENT` = owned, under the zone floor. **CANCEL, never UNIT DETAILS.**
+- `DUPLICATE UNIT SELECTION` = two slots want a unit you own once, or it is already committed
+  (several Kessel ship slots refused because those ships are on the GAC defence fleets).
+⇒ Budget "I have 10 units for this territory" as an upper bound, never a plan.
+
+### Operations, all three planets
+| Planet | Zone | Gate | Per op | Before | After | Used |
+|---|---|---|---|---|---|---|
+| Kessel | 4 | **R8** + ships 7★ | **+18,480,000** | all 0/15 | Op1 **8/15**, Op2 2/15 | 10/10 |
+| Dathomir | 3 | R7 | +13,200,000 | 2/6 done | Op4 12/15, Op5 **14/15** | 3/10 |
+| Kashyyyk | 3 | R7 | +13,200,000 | 1/6 done | **4/6 done** | 6/10 |
+Kessel's six were untouched by the whole guild, so seeding Op1 to 8/15 makes it the natural
+completion target. Kashyyyk's operation reinforces **four** territories at once (Kashyyyk,
+Lothal, Ring of Kafrene, Scarif); Dathomir's reinforces the **Death Star**.
+
+### Dathomir combat: 3 wins, 1 loss, and the loss still paid
+137,449,467 → **152,429,269 / 158,960,938** after combat plus a full deploy. 6.53M short of its
+first star with 19h left, which the guild closes.
+| Row | Squad | Result |
+|---|---|---|
+| Doctor Aphra (gated) | preset `Dathomir aphra` 148,835 | **2/2, +341,250** |
+| DS/Neutral ungated | preset `Dathomir ds_1`, the SLKR five, 196,183 | **2/2, +341,250** |
+| DS/Neutral ungated | `ds_2` minus restricted, **plus Darth Revan**, 185,282 | **2/2, +341,250** |
+| DS/Neutral ungated | game AUTO-FILL: Vader/Grand Inquisitor/Tarkin/Piett/**Dark Trooper Moff Gideon**, 172,038 | ⛔ **0/2, +0** |
+- ⛔ **The auto-fill Jabba trap fired again**, exactly as phase 4 recorded: the first ungated DS
+  row pre-filled **Jabba the Hutt**, who gates Kessel's `jabba` row. CLEAR SQUAD every time.
+- ⛔ **A Gideon-led Empire comp lost on Dathomir for the SECOND event running.** Phase 4's
+  `Dark Trooper Moff Gideon / Scout Trooper / Captain Enoch / Death Trooper / Moff Gideon` went
+  0/2; this phase the auto-fill's `Vader / Grand Inquisitor / Tarkin / Piett / Dark Trooper Moff
+  Gideon` also went 0/2, at a HIGHER 172,038 power than two squads that won. **Stop bringing
+  Dark Trooper Moff Gideon to Dathomir.** The Nightsister waves beat it twice.
+- ⭐ **Confirmed first-party: a LOSS still credits the squad's GP as deployment.** The 0/2 row
+  logged `Astra: Deployed 172,038 points` and the planet total rose. `rote_run_mission.sh`'s
+  header claim is correct, so an unwinnable row is still worth entering rather than deploying
+  those units plainly.
+- ⚠ **`RESTRICTED CHARACTERS` on a preset means its units are already spent this phase.**
+  Baylan/Shin/Starkiller had gone into Kessel's operations an hour earlier. CONTINUE loads the
+  survivors and you top up from the left roster panel: **a dark tile there is unavailable, a
+  red-ringed one is free**. Darth Revan made the patched squad *stronger* (185,282) than the
+  preset it replaced (182,226).
+
+### Deploy: send it all to the ONE planet whose star is reachable
+13,093,604 unallocated. Kashyyyk needed 131M and Kessel 235M, both impossible this phase;
+Dathomir needed 19.6M. All of it went to Dathomir.
+- ⚠ **`Unit Required in another Territory` names the units you are about to strand** (Jabba and
+  three others here). The right test is not "is this unit gated somewhere" but **"can the
+  territory it is gated on actually star?"** Kessel cannot (0/235M), Dathomir could, so
+  deploying Jabba was correct despite forfeiting Kessel's 341,250 `jabba` row.
+- Assigning a unit to an OPERATION also credits its GP as deploy points immediately (two feed
+  entries, 33,705 and 126,405, appeared the moment the ASSIGN landed).
+
+### Kessel special is 1,000 Mk III tokens and is UNPLAYABLE HERE
+Gate is **5 characters at R8+ including Qi'ra and L3-37**. Both sit at **R7**, and the free-slot
+Marrok is R7 too; the game itself prints `REQUIRED UNITS 3/5`. `missions_4.json` already flags
+the row `aspirational` and it is still correct. Two R7→R8 upgrades unlock it. That is relic
+spend to unlock relic currency, so it is an **owner decision**, not an autonomous one.
+
+### Map-reading notes
+- **Resolve a planet by tapping it and reading the HEADER, never by position.** Three planets on
+  the phase-5 map show three dark stars and look identical at a glance; the big glowing one next
+  to Tatooine was Kessel, not Tatooine, and the planet directly "above" Tatooine was Vandor
+  (locked), not Kessel. Two wrong guesses cost two screenshots each.
+- Dark stars under a planet = thresholds not yet earned, not a star count.
+- The gold diamond marker is the **special mission**; the dark-blue crate marker is
+  **operations**. On Kessel they sit close together and the gold one is the more tempting tap.

@@ -24,6 +24,7 @@ Hard limits of `squads/game/set`, learned the hard way - do not re-discover:
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import unicodedata
@@ -59,6 +60,11 @@ TW_BOARD_TABS = [("FRONT", "TW 1 Def FRONT"), ("MID", "TW 2 Def MID"),
                  ("BACK", "TW 3 Def BACK")]
 TW_OFFENSE_TAB = "TW 4 Offense"
 
+# Rise of the Empire, from rote_squads.py. The category IS the tab: one per phase,
+# which is the unit you play. Discovered from the payload rather than listed, so a
+# new phase needs no edit here.
+ROTE_CAT_RE = re.compile(r"^TB RotE - P\d$")
+
 
 def api(path, body, sid, tries=4):
     payload = dict(body)
@@ -90,6 +96,25 @@ def preset_name(payload_name):
     return f"{slot} {label}"[:NAME_MAX].rstrip()
 
 
+def rote_preset_name(payload_name):
+    """'P3 Tatooine jabba' -> 'Tatooine jabba' (<= NAME_MAX).
+
+    The tab already carries the phase, and MANUAL / [aspir] are planning markers,
+    not something you need on a button mid-phase. When planet + row still will not
+    fit, the PLANET is shortened and the ROW kept whole: several rows share a
+    planet and differ only in that last word.
+    """
+    s = re.sub(r"^P\d\s+", "", payload_name)
+    s = re.sub(r"\s*(?:MANUAL|\[aspir\])", "", s).strip()
+    if len(s) <= NAME_MAX:
+        return s
+    planet, _, row = s.rpartition(" ")
+    keep = NAME_MAX - len(row) - 1
+    if row and keep >= 3:
+        return f"{planet[:keep]} {row}"
+    return s[:NAME_MAX].rstrip()
+
+
 def build(path=None, names_as_is=False):
     """Tabs from a HotUtils payload.
 
@@ -102,9 +127,11 @@ def build(path=None, names_as_is=False):
     by_cat = {}
     for p in payload:
         by_cat.setdefault(p["cat"], []).append(p)
+    rote = sorted(c for c in by_cat if ROTE_CAT_RE.match(c))
     out = []
-    for cat, tab in CATEGORY_TO_TAB:
-        squads = [{"name": p["n"] if names_as_is else preset_name(p["n"]),
+    for cat, tab in list(CATEGORY_TO_TAB) + [(c, c) for c in rote]:
+        namer = rote_preset_name if cat in rote else preset_name
+        squads = [{"name": p["n"] if names_as_is else namer(p["n"]),
                    "unitBaseIds": [u[0] for u in p["u"]]}
                   for p in by_cat.get(cat, [])]
         if squads:
