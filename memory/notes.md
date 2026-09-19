@@ -5686,3 +5686,92 @@ relic levels, not one, and `RELIC LEVEL REQUIREMENT` is what the slot answers wi
 12,684,762 unallocated, every point to **Kessel**, which closed at **146,759,366 / 235,143,105**.
 Kashyyyk was already past its 2nd star and its 3rd needs 108M more, so nothing was held back for
 it. Kessel needs 88.4M from the guild with 19h42m left, and 5 completed operations would be 92.4M.
+
+## 2026-09-19/20 (00:15-04:00) — dailies 8/8, and the mod PLACEMENT that had never run
+
+Daily Quests **8/8 + crate**, Guild Activities **600/600**, 5 login calendars claimed
+(including Signal Booster day 3 = 10 Fragmented Signal Data). `farmbot.run --daily` did the PvE
+grind in ~30 min (5 energy nodes, 2 challenge sims, 6 collects, 1 PvE win, 1 shop buy, 4 halts).
+**Fleet Arena #13 to #8**; Squad Arena left alone at #1, which also leaves the Hutt Cartel wall
+parked, since defence is the squad you last attacked with.
+
+### ⭐⭐ THE GRANDIVORY SELECTED-CHARACTER LIST WAS EMPTY, SO PLACEMENT HAD NEVER BEEN OPTIMISED
+`profiles.selectedCharacters` in the optimizer's IndexedDB was `[]`. Not stale, EMPTY. That is
+the direct cause of the gaps `mod_analysis.py` keeps reporting: Satele Shan and Bo-Katan on
+**5** total mod speed, Kleya on 0, Maul (Hate-Fueled) on **0**, The Stranger on 29 while he is
+the #2 hardest defence in the game. Nothing was ever allocating mods by priority.
+- ⛔ **CLAUDE.md's "re-run rarely, ~1,473 moves / ~7.4M credits for a measured <=0.12%" DOES NOT
+  APPLY TO THIS CASE.** That measurement was a re-run against an already-optimised list. Against
+  an empty one the same action is worth a great deal, and conflating the two is what let the
+  roster sit mis-allocated. **Check `selectedCharacters` before quoting that number.**
+- **`Auto-generate List` is the way in, and its default is WRONG for this account.** The modal
+  ships `ignore-arena` CHECKED, and it says so: *"unless you specify otherwise, your current
+  arena team will not be placed at the top of the list."* The owner's mod ladder is
+  **Arena first**. Uncheck it and the generated list opens with Rotta / Krrsantan / Greedo /
+  Gamorrean Guard / Mob Enforcer, which is exactly tier 1. Settings used: use case
+  **GAC / TW / ROTE**, all alignments, **minimum gear 13**, overwrite, omicron boosts all OFF
+  (they change the stat model and only one mode's omicrons ever fire at a time).
+- ⚠ **28 of the 321 generated entries had an ALL-ZERO target** (`"name":"unnamed"`), so the
+  optimizer had nothing to aim at for them, and they included **Rotta the Hutt (the arena
+  defence leader), The Stranger, Maul (Hate-Fueled), Satele Shan and Cassian (Undercover)**.
+  These are the characters too new for a swgoh.spineless.net preset. Filled them with the median
+  of the tool's own 231 `PvP` targets (speed 100, potency 10, physDmg 10, health 5) by writing
+  `selectedCharacters` back into IndexedDB and reloading, which the app rehydrates cleanly.
+
+### Result: 1,729 moves, 8,835,000 credits, and the deployed arena five up 33%
+| Unit | before | after | delta |
+|---|---|---|---|
+| **Rotta the Hutt** (arena lead) | 73 | **126** | **+53** |
+| **Krrsantan** | 37 | **108** | **+71** |
+| Greedo | 108 | 116 | +8 |
+| Gamorrean Guard | 109 | 85 | -24 |
+| **Mob Enforcer** | 98 | **130** | **+32** |
+| **DEPLOYED ARENA FIVE** | **425** | **565** | **+140 (+33%)** |
+| **Maul (Hate-Fueled)** | **0** | **93** | **+93** |
+| **The Stranger** | 29 | **105** | **+76** |
+| Darth Revan | 75 | 111 | +36 |
+Roster-wide `plusSpeed` **16,874 to 16,966**, 6-dot 182 to **185**, 6A 114 to **116**,
+modScore 2.85 to **2.88**. Paid for by stripping the hoarders the generator ranks low:
+Luminara Unduli 125 to 15, Visas Marr 141 to 46, Barriss Offee 69 to 25, Cad Bane 97 to 37.
+- ⚠ **Do not judge this by the top of `output/mod_priority.txt`.** Its top 25 sums to **-105**,
+  which reads like a regression, and it is an artefact: that list still carries **Cad Bane** in
+  the arena five and ranks Luminara #20 and Visas Marr #23. Score the squad that is actually
+  deployed instead.
+- ⛔ **`output/arena_result.json` IS STALE AND IT POISONS TIER 1.** Its `deployed` array is
+  `[RACCOON, HUMANTHUG, GREEDO, GAMORREANGUARD, CADBANE]` off a **shard snapshot dated
+  2026-08-08**, but the live wall has run **Krrsantan** in place of Cad Bane since 2026-09-19.
+  So `invest_plan.py` spends tier-1 priority on a unit that is not on the board. Grandivory read
+  the LIVE squad and got it right, which is the only reason Krrsantan gained 71.
+
+### ⛔ "HotUtils is taking a long time to respond" IS NOT A FAILURE, AND RETRYING IS THE TRAP
+The move timed out client-side after ~45s. A mid-flight re-measure looked like a disaster
+(plusSpeed 16,874 to **15,815**, 6-dot 185 to 178, only 5.17M of the 8.835M spent), because a
+1,729-move plan half-applied is worse than either endpoint. **The move was still running.**
+Pressing `Move mods in-game` again answered **`Player is already in a game action!`**, and five
+minutes later the full 8,835,000 had been drawn and every number was above where it started.
+⇒ On a timeout, **wait and re-measure; never re-fire.** The partial state is transient, not a
+result. Budget several minutes for a full-roster move before believing any score.
+
+### Store and material notes
+- ⛔ **`execute_upgrades.FARM` was sending you to two places that do not exist.** It named the
+  **Guild Store** for every 5-dot and 6-dot material (it sells GEAR salvage only, read end to end
+  2026-09-19) and **"Sector 9"** (the 2026-04-27 update cut Mod Battles to two tiers; the old
+  Map 9 is **chapter 2**, which is what `farmbot/config.json` actually sims). Both corrected.
+- ⭐ **Episode Shipments DOES sell Signal Data**, which contradicts CLAUDE.md's "SIGNAL DATA is
+  cantina-energy-only, no store sells it for a token". Live prices: **45 Fragmented for 4,500 EC**
+  and **40 Incomplete for 5,400 EC**. Episode Currency was sitting at **80.4K of a 100K cap**, so
+  it was actively being wasted; bought both, which also closed the 3-shipment daily.
+- Mod energy is **not** a farming lever here: the farmbot max-sims mod chapter 2-F every run and
+  leaves the pool at 4/144. The 600-energy quest was closed with **18x Dark Side 8-H (180 energy)**.
+- Calibration is still blocked: all 5 planned rerolls died on the first with
+  `rc=2 GOHServiceCall Error [40]` and attenuators never moved off 16, so it is not attenuators.
+  Unresolved.
+
+### Coliseum: new boss, and AUTO is still the wrong tool
+Krayt Dragon rotated out for **ZEFFO TOMB GUARDIANS**, tier 9, high score **196,314 (43%)** with
+the 40% crate claimed and the 50 / 60 / 70 / 100% tiers open. One attempt on the game's pre-filled
+Darth Maul squad scored **87,363 (19%)**, less than half the standing score. Banked the other
+three: the same conclusion the Krayt Dragon reached, now re-measured on a fresh boss. The tiers
+need a researched comp and a manual run, not another auto roll.
+Yesterday's rank #281 paid **150 Mk III tokens**; rank is now 144, inside the #91-250 band that
+pays 300.

@@ -1,15 +1,15 @@
 {
- "unitsWithMods": 327,
+ "unitsWithMods": 323,
  "validate": {
-  "source": "mods_full_20260914.json",
-  "gameDataAgeUtc": "2026-09-13T22:11:19.043",
-  "mods": 2138
+  "source": "mods_full_20260920.json",
+  "gameDataAgeUtc": "2026-09-19T22:53:45.503",
+  "mods": 2143
  },
  "units": {
   "MAGMATROOPER": {
-   "mods": 5,
-   "sets": "CritChancex2",
-   "speed": 14,
+   "mods": 6,
+   "sets": "Potencyx4",
+   "speed": 11,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -17,17 +17,17 @@
   },
   "HERMITYODA": {
    "mods": 6,
-   "sets": "Tenacityx2,CritChancex2",
-   "speed": 73,
+   "sets": "Speedx4",
+   "speed": 66,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
   "ZUCKUSS": {
-   "mods": 5,
-   "sets": "Healthx2",
-   "speed": 13,
+   "mods": 1,
+   "sets": "",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -35,17 +35,17 @@
   },
   "BARRISSOFFEE": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 69,
+   "sets": "Healthx6",
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 5,
+   "sixDot": 0,
    "spdArrow": false
   },
   "COLONELSTARCK": {
-   "mods": 4,
-   "sets": "",
-   "speed": 22,
+   "mods": 6,
+   "sets": "Tenacityx4,Defensex2",
+   "speed": 50,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -53,8 +53,8 @@
   },
   "VANGUARDTEMPLEGUARD": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 3,
+   "sets": "Healthx4",
+   "speed": 57,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -63,7 +63,7 @@
   "BB8": {
    "mods": 6,
    "sets": "Speedx4,CritChancex2",
-   "speed": 67,
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -72,7 +72,7 @@
   "POGGLETHELESSER": {
    "mods": 6,
    "sets": "Potencyx4",
-   "speed": 53,
+   "speed": 67,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -80,8 +80,8 @@
   },
   "FIRSTORDERSPECIALFORCESPILOT": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 11,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 13,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -90,61 +90,61 @@
   "GENERALKENOBI": {
    "mods": 6,
    "sets": "Defensex4,Healthx2",
-   "speed": 84,
+   "speed": 24,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 5,
+   "sixDot": 3,
    "spdArrow": false
   },
   "JAWASCAVENGER": {
    "mods": 6,
-   "sets": "CritChancex4",
-   "speed": 38,
+   "sets": "CritChancex6",
+   "speed": 27,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": false
   },
   "L3_37": {
    "mods": 6,
-   "sets": "Defensex6",
-   "speed": 51,
+   "sets": "Defensex4,Healthx2",
+   "speed": 23,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "DROIDEKA": {
    "mods": 6,
-   "sets": "Tenacityx4,Potencyx2",
-   "speed": 5,
+   "sets": "Healthx2,Tenacityx2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "SITHTROOPER": {
    "mods": 6,
    "sets": "Defensex6",
-   "speed": 3,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "BADBATCHHUNTER": {
-   "mods": 6,
-   "sets": "Tenacityx2,Potencyx2",
-   "speed": 45,
+   "speed": 34,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 1,
    "spdArrow": false
   },
+  "BADBATCHHUNTER": {
+   "mods": 6,
+   "sets": "Healthx2,Potencyx2",
+   "speed": 53,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
+  },
   "KYLOREN": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 17,
+   "sets": "CritDamagex4",
+   "speed": 51,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -153,7 +153,7 @@
   "DENGAR": {
    "mods": 6,
    "sets": "Potencyx4,CritChancex2",
-   "speed": 36,
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -161,8 +161,8 @@
   },
   "BOKATAN": {
    "mods": 6,
-   "sets": "CritChancex4",
-   "speed": 59,
+   "sets": "CritDamagex4",
+   "speed": 64,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -171,7 +171,7 @@
   "MAGNAGUARD": {
    "mods": 6,
    "sets": "Defensex6",
-   "speed": 69,
+   "speed": 44,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -179,8 +179,8 @@
   },
   "GEONOSIANSPY": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 23,
+   "sets": "CritChancex4,Healthx2",
+   "speed": 57,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -188,7 +188,7 @@
   },
   "BADBATCHOMEGA": {
    "mods": 6,
-   "sets": "Healthx2,Potencyx2",
+   "sets": "Healthx2",
    "speed": 9,
    "minLvl": 15,
    "minRar": 5,
@@ -198,16 +198,16 @@
   "EIGHTHBROTHER": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 19,
+   "speed": 43,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "TALIA": {
-   "mods": 5,
-   "sets": "Healthx2",
-   "speed": 13,
+   "mods": 6,
+   "sets": "CritChancex2,Healthx2",
+   "speed": 5,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -215,35 +215,35 @@
   },
   "ADMIRALRADDUS": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 54,
+   "sets": "Healthx4",
+   "speed": 65,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "NIGHTSISTERZOMBIE": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 28,
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "SABINEWRENS3": {
-   "mods": 3,
-   "sets": "Healthx2",
-   "speed": 5,
+   "mods": 6,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 18,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "YOUNGHAN": {
-   "mods": 6,
-   "sets": "Healthx4",
-   "speed": 15,
+   "mods": 5,
+   "sets": "Healthx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -251,17 +251,17 @@
   },
   "GLAHSOKATANO": {
    "mods": 6,
-   "sets": "Defensex6",
-   "speed": 30,
+   "sets": "Defensex4,Healthx2",
+   "speed": 57,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 5,
+   "spdArrow": true
   },
   "GENERALHUX": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 61,
+   "sets": "Healthx4,Tenacityx2",
+   "speed": 73,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -269,71 +269,71 @@
   },
   "COMMANDERAHSOKA": {
    "mods": 6,
-   "sets": "CritDamagex4",
-   "speed": 75,
+   "sets": "Offensex4,Defensex2",
+   "speed": 83,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 2,
    "spdArrow": true
   },
   "GRANDMASTERLUKE": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 55,
+   "sets": "Speedx4,Healthx2",
+   "speed": 117,
    "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "minRar": 6,
+   "sixDot": 6,
+   "spdArrow": true
   },
   "GOPHERANTS": {
    "mods": 6,
-   "sets": "Tenacityx2,Healthx2",
-   "speed": 22,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "GREATMOTHERS": {
-   "mods": 6,
-   "sets": "Speedx4,Healthx2",
+   "sets": "Tenacityx2,Healthx2,Potencyx2",
    "speed": 73,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
+  "GREATMOTHERS": {
+   "mods": 6,
+   "sets": "Speedx4",
+   "speed": 67,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 1,
+   "spdArrow": true
+  },
   "ANAKINKNIGHT": {
    "mods": 6,
-   "sets": "CritChancex6",
-   "speed": 43,
+   "sets": "CritChancex4",
+   "speed": 69,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "ADMIRALPIETT": {
    "mods": 6,
-   "sets": "Speedx4,CritChancex2",
-   "speed": 45,
+   "sets": "Speedx4,Potencyx2",
+   "speed": 74,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 2,
+   "spdArrow": true
   },
   "BAYLANSKOLL": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 109,
+   "speed": 72,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 2,
    "spdArrow": true
   },
   "FULCRUMAHSOKA": {
    "mods": 6,
    "sets": "CritDamagex4,CritChancex2",
-   "speed": 36,
+   "speed": 21,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -341,8 +341,8 @@
   },
   "DEDRAMEERO": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 7,
+   "sets": "Speedx4,Healthx2",
+   "speed": 24,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -351,7 +351,7 @@
   "HUNTERS3": {
    "mods": 6,
    "sets": "Speedx4,Potencyx2",
-   "speed": 35,
+   "speed": 32,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -359,8 +359,8 @@
   },
   "NUTEGUNRAY": {
    "mods": 6,
-   "sets": "Speedx4,Tenacityx2",
-   "speed": 54,
+   "sets": "Speedx4",
+   "speed": 69,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -368,17 +368,17 @@
   },
   "DISGUISEDCLONETROOPER": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 45,
+   "sets": "Offensex4",
+   "speed": 37,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "VEERS": {
    "mods": 6,
-   "sets": "Potencyx4,Healthx2",
-   "speed": 12,
+   "sets": "Offensex4",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -386,8 +386,8 @@
   },
   "PAO": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 10,
+   "sets": "Offensex4,CritChancex2",
+   "speed": 23,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -396,7 +396,7 @@
   "DARTHTALON": {
    "mods": 6,
    "sets": "Offensex4,Healthx2",
-   "speed": 34,
+   "speed": 29,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -404,8 +404,8 @@
   },
   "STORMTROOPERLUKE": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 8,
+   "sets": "Speedx4,Healthx2",
+   "speed": 46,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -413,8 +413,8 @@
   },
   "IG88": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 25,
+   "sets": "CritDamagex4",
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -422,8 +422,8 @@
   },
   "REY": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 40,
+   "sets": "CritDamagex4,Healthx2",
+   "speed": 31,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -431,17 +431,8 @@
   },
   "DARTHNIHILUS": {
    "mods": 6,
-   "sets": "Tenacityx4,Healthx2",
-   "speed": 56,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
-  },
-  "BRUTUS": {
-   "mods": 6,
-   "sets": "Tenacityx2",
-   "speed": 8,
+   "sets": "Healthx4,Tenacityx2",
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -450,16 +441,16 @@
   "MONMOTHMA": {
    "mods": 6,
    "sets": "Tenacityx4,Defensex2",
-   "speed": 75,
+   "speed": 73,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 0,
    "spdArrow": true
   },
   "PLOKOON": {
    "mods": 6,
-   "sets": "CritChancex2,Potencyx2",
-   "speed": 28,
+   "sets": "CritDamagex4,Healthx2",
+   "speed": 5,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -467,8 +458,8 @@
   },
   "LOGRAY": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 23,
+   "sets": "Potencyx4,Healthx2",
+   "speed": 41,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -477,7 +468,7 @@
   "KELLERANBEQ": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 12,
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -486,7 +477,7 @@
   "GEONOSIANSOLDIER": {
    "mods": 6,
    "sets": "CritChancex4",
-   "speed": 22,
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -495,16 +486,16 @@
   "CARADUNE": {
    "mods": 6,
    "sets": "CritDamagex4,Healthx2",
-   "speed": 38,
+   "speed": 43,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 2,
    "spdArrow": false
   },
   "RESISTANCETROOPER": {
    "mods": 6,
-   "sets": "CritChancex4",
-   "speed": 3,
+   "sets": "Healthx4,CritChancex2",
+   "speed": 5,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -512,8 +503,8 @@
   },
   "TUSKENRAIDER": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 18,
+   "sets": "Tenacityx2,CritChancex2",
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -521,17 +512,17 @@
   },
   "DASHRENDAR": {
    "mods": 6,
-   "sets": "CritDamagex4,Tenacityx2",
-   "speed": 105,
+   "sets": "Offensex4",
+   "speed": 60,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 1,
    "spdArrow": true
   },
   "CASSIANANDOR": {
    "mods": 6,
    "sets": "Potencyx6",
-   "speed": 34,
+   "speed": 31,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -539,26 +530,26 @@
   },
   "MARROK": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 92,
+   "sets": "Healthx6",
+   "speed": 62,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 5,
+   "sixDot": 0,
    "spdArrow": true
   },
   "BAZEMALBUS": {
    "mods": 6,
    "sets": "Defensex4,Healthx2",
-   "speed": 59,
+   "speed": 55,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "CLONEWARSCHEWBACCA": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 62,
+   "speed": 18,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -567,25 +558,25 @@
   "COMMANDERLUKESKYWALKER": {
    "mods": 6,
    "sets": "CritDamagex4,CritChancex2",
-   "speed": 60,
+   "speed": 76,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 1,
+   "spdArrow": true
   },
   "KYLORENUNMASKED": {
    "mods": 6,
    "sets": "Healthx4,Defensex2",
-   "speed": 39,
+   "speed": 63,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
+   "sixDot": 1,
+   "spdArrow": false
   },
   "PAZVIZSLA": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 30,
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -593,8 +584,8 @@
   },
   "YOUNGLANDO": {
    "mods": 6,
-   "sets": "CritDamagex4,Potencyx2",
-   "speed": 28,
+   "sets": "Speedx4",
+   "speed": 7,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -602,26 +593,26 @@
   },
   "VADERDUELSEND": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 4,
+   "sets": "Speedx4,Tenacityx2",
+   "speed": 78,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 1,
+   "spdArrow": true
   },
   "HANSOLO": {
    "mods": 6,
-   "sets": "CritDamagex4",
-   "speed": 61,
+   "sets": "CritDamagex4,Defensex2",
+   "speed": 75,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 1,
+   "spdArrow": true
   },
   "ARMORER": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 25,
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -638,8 +629,8 @@
   },
   "BADBATCHWRECKER": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 26,
+   "sets": "Healthx6",
+   "speed": 35,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -647,8 +638,8 @@
   },
   "THEMANDALORIAN": {
    "mods": 6,
-   "sets": "Healthx4,CritChancex2",
-   "speed": 69,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 67,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -657,16 +648,16 @@
   "FOSITHTROOPER": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 22,
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": false
   },
   "IG90": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 0,
+   "sets": "Tenacityx2,Healthx2",
+   "speed": 68,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -674,8 +665,8 @@
   },
   "WAMPA": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 25,
+   "sets": "Healthx6",
+   "speed": 16,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -683,8 +674,8 @@
   },
   "SMUGGLERCHEWBACCA": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 14,
+   "sets": "Healthx4",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -692,17 +683,17 @@
   },
   "R2D2_LEGENDARY": {
    "mods": 6,
-   "sets": "Healthx2,Potencyx2",
-   "speed": 75,
+   "sets": "CritChancex2,Healthx2,Potencyx2",
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
   "GARSAXON": {
-   "mods": 3,
-   "sets": "",
-   "speed": 17,
+   "mods": 6,
+   "sets": "Speedx4,Healthx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -710,17 +701,17 @@
   },
   "CORUSCANTUNDERWORLDPOLICE": {
    "mods": 6,
-   "sets": "Potencyx4",
-   "speed": 70,
+   "sets": "Tenacityx2",
+   "speed": 7,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "ITHANO": {
-   "mods": 6,
-   "sets": "Healthx2,CritChancex2",
-   "speed": 11,
+   "mods": 1,
+   "sets": "",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -729,7 +720,7 @@
   "MOTHERTALZIN": {
    "mods": 6,
    "sets": "Potencyx4",
-   "speed": 27,
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -737,26 +728,26 @@
   },
   "MORGANELSBETH": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 63,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
-  },
-  "C3POLEGENDARY": {
-   "mods": 6,
-   "sets": "Speedx4,Potencyx2",
-   "speed": 71,
+   "sets": "Healthx6",
+   "speed": 43,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
+  "C3POLEGENDARY": {
+   "mods": 6,
+   "sets": "Speedx4,Potencyx2",
+   "speed": 76,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 1,
+   "spdArrow": true
+  },
   "JEDIKNIGHTREVAN": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 88,
+   "sets": "CritDamagex4",
+   "speed": 86,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 3,
@@ -765,16 +756,16 @@
   "PADMEAMIDALA": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 41,
+   "speed": 64,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": true
   },
   "NIGHTSISTERINITIATE": {
-   "mods": 6,
-   "sets": "CritChancex2,Healthx2,Tenacityx2",
-   "speed": 11,
+   "mods": 3,
+   "sets": "Healthx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -782,17 +773,17 @@
   },
   "CT7567": {
    "mods": 6,
-   "sets": "Tenacityx4,Healthx2",
-   "speed": 72,
+   "sets": "Tenacityx2,Healthx2",
+   "speed": 78,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 2,
    "spdArrow": true
   },
   "MOFFGIDEONS3": {
    "mods": 6,
-   "sets": "CritChancex2,Tenacityx2",
-   "speed": 62,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 33,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -800,8 +791,8 @@
   },
   "MOFFGIDEONS1": {
    "mods": 6,
-   "sets": "Speedx4,Potencyx2",
-   "speed": 66,
+   "sets": "Speedx4",
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -810,7 +801,7 @@
   "ZAMWESELL": {
    "mods": 6,
    "sets": "Speedx4,Potencyx2",
-   "speed": 21,
+   "speed": 10,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -818,26 +809,26 @@
   },
   "TARONMALICOS": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 54,
+   "sets": "Offensex4,Healthx2",
+   "speed": 68,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 3,
+   "spdArrow": true
   },
   "RACCOON": {
    "mods": 6,
-   "sets": "Healthx4,Defensex2",
-   "speed": 73,
+   "sets": "Healthx4",
+   "speed": 126,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
-   "spdArrow": false
+   "spdArrow": true
   },
   "SANASTARROS": {
    "mods": 6,
    "sets": "Speedx4",
-   "speed": 22,
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -845,8 +836,8 @@
   },
   "TUSKENHUNTRESS": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 28,
+   "sets": "CritDamagex4",
+   "speed": 37,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -855,34 +846,34 @@
   "BOSSNASS": {
    "mods": 6,
    "sets": "Speedx4,Tenacityx2",
-   "speed": 78,
+   "speed": 35,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "STARKILLER": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 115,
+   "sets": "Offensex4",
+   "speed": 84,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 4,
    "spdArrow": false
   },
   "LOBOT": {
    "mods": 6,
-   "sets": "Defensex4,Tenacityx2",
-   "speed": 70,
+   "sets": "Defensex4,Healthx2",
+   "speed": 8,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "EETHKOTH": {
-   "mods": 6,
-   "sets": "Speedx4",
-   "speed": 11,
+   "mods": 4,
+   "sets": "Healthx2",
+   "speed": 4,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -891,16 +882,16 @@
   "OMEGAS3": {
    "mods": 6,
    "sets": "Tenacityx4,Healthx2",
-   "speed": 66,
+   "speed": 67,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "ASAJVENTRESS": {
    "mods": 6,
-   "sets": "CritDamagex4,Potencyx2",
-   "speed": 28,
+   "sets": "CritDamagex4,Defensex2",
+   "speed": 32,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -908,26 +899,26 @@
   },
   "CHIRRUTIMWE": {
    "mods": 6,
-   "sets": "CritDamagex4",
-   "speed": 75,
+   "sets": "Tenacityx4,CritChancex2",
+   "speed": 39,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "SHINHATI": {
    "mods": 6,
    "sets": "Healthx4",
-   "speed": 60,
+   "speed": 61,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 3,
-   "spdArrow": true
+   "sixDot": 1,
+   "spdArrow": false
   },
   "KANANJARRUSS3": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 27,
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -935,8 +926,8 @@
   },
   "ROSETICO": {
    "mods": 6,
-   "sets": "CritChancex2,Healthx2,Potencyx2",
-   "speed": 49,
+   "sets": "Speedx4,Healthx2",
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -944,8 +935,8 @@
   },
   "STORMTROOPERHAN": {
    "mods": 6,
-   "sets": "Defensex4,Potencyx2",
-   "speed": 51,
+   "sets": "Potencyx4,Defensex2",
+   "speed": 36,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -953,7 +944,7 @@
   },
   "HERASYNDULLAS3": {
    "mods": 6,
-   "sets": "Healthx6",
+   "sets": "Healthx4,Tenacityx2",
    "speed": 50,
    "minLvl": 15,
    "minRar": 5,
@@ -963,43 +954,43 @@
   "BOSSK": {
    "mods": 6,
    "sets": "Tenacityx4,Healthx2",
-   "speed": 64,
+   "speed": 66,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "VADER": {
    "mods": 6,
    "sets": "CritDamagex4,Potencyx2",
-   "speed": 68,
+   "speed": 75,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "JARJARBINKS": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 74,
+   "sets": "Potencyx4",
+   "speed": 63,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": true
   },
   "COUNTDOOKU": {
    "mods": 6,
    "sets": "Tenacityx4,Potencyx2",
-   "speed": 62,
+   "speed": 67,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "MISSIONVAO": {
    "mods": 6,
    "sets": "Offensex4,CritChancex2",
-   "speed": 72,
+   "speed": 7,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1007,35 +998,35 @@
   },
   "GEONOSIANBROODALPHA": {
    "mods": 6,
-   "sets": "Healthx4,Tenacityx2",
-   "speed": 46,
+   "sets": "Healthx6",
+   "speed": 50,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "JOLEEBINDO": {
    "mods": 6,
-   "sets": "Healthx4,Tenacityx2",
-   "speed": 84,
+   "sets": "Healthx6",
+   "speed": 54,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 3,
    "spdArrow": false
   },
   "CHIEFNEBIT": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 49,
+   "speed": 21,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "IMPERIALSUPERCOMMANDO": {
-   "mods": 5,
-   "sets": "",
-   "speed": 18,
+   "mods": 6,
+   "sets": "Healthx4",
+   "speed": 5,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1044,7 +1035,7 @@
   "KLEYA": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 0,
+   "speed": 49,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1062,7 +1053,7 @@
   "DARTHSION": {
    "mods": 6,
    "sets": "Defensex4,Healthx2",
-   "speed": 29,
+   "speed": 39,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1070,8 +1061,8 @@
   },
   "GREEDO": {
    "mods": 6,
-   "sets": "CritChancex2",
-   "speed": 108,
+   "sets": "Healthx2",
+   "speed": 116,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
@@ -1079,8 +1070,8 @@
   },
   "HOTHLEIA": {
    "mods": 6,
-   "sets": "Potencyx4",
-   "speed": 13,
+   "sets": "Potencyx6",
+   "speed": 16,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1088,17 +1079,17 @@
   },
   "GENERALSYNDULLA": {
    "mods": 6,
-   "sets": "Speedx4,Potencyx2",
-   "speed": 55,
+   "sets": "Speedx4,Healthx2",
+   "speed": 46,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "KXSECURITYDROID": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 3,
+   "speed": 19,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1107,16 +1098,16 @@
   "BOOMADIER": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 56,
+   "speed": 27,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "BODHIROOK": {
-   "mods": 6,
-   "sets": "Potencyx4,Healthx2",
-   "speed": 21,
+   "mods": 3,
+   "sets": "Healthx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1124,8 +1115,8 @@
   },
   "BOBAFETT": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 0,
+   "sets": "Offensex4,CritChancex2",
+   "speed": 13,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1133,8 +1124,8 @@
   },
   "TUSKENCHIEFTAIN": {
    "mods": 6,
-   "sets": "Healthx2,Tenacityx2",
-   "speed": 61,
+   "sets": "Healthx4,CritChancex2",
+   "speed": 55,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1142,8 +1133,8 @@
   },
   "WEDGEANTILLES": {
    "mods": 6,
-   "sets": "Healthx4,CritChancex2",
-   "speed": 27,
+   "sets": "Defensex2,CritChancex2",
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1152,16 +1143,16 @@
   "MARAJADE": {
    "mods": 6,
    "sets": "Speedx4",
-   "speed": 92,
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 5,
+   "sixDot": 0,
    "spdArrow": true
   },
   "CARTHONASI": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 20,
+   "sets": "Healthx2,Defensex2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1170,7 +1161,7 @@
   "ARCTROOPER501ST": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 61,
+   "speed": 29,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1179,7 +1170,7 @@
   "TRENCH": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 46,
+   "speed": 36,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1187,8 +1178,8 @@
   },
   "WICKET": {
    "mods": 6,
-   "sets": "Healthx4,CritChancex2",
-   "speed": 21,
+   "sets": "CritDamagex4,Healthx2",
+   "speed": 25,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1197,7 +1188,7 @@
   "SECONDSISTER": {
    "mods": 6,
    "sets": "Offensex4,Healthx2",
-   "speed": 28,
+   "speed": 31,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1205,48 +1196,48 @@
   },
   "MACEWINDU": {
    "mods": 6,
-   "sets": "Healthx4,Potencyx2",
-   "speed": 65,
+   "sets": "Healthx4,CritChancex2",
+   "speed": 59,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "MASTERQUIGON": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 79,
+   "sets": "Speedx4,Healthx2",
+   "speed": 54,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 0,
    "spdArrow": true
   },
   "DOCTORAPHRA": {
    "mods": 6,
    "sets": "Potencyx6",
-   "speed": 61,
+   "speed": 58,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "STRANGER": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 29,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 5,
-   "spdArrow": false
-  },
-  "GLREY": {
-   "mods": 6,
-   "sets": "Healthx6",
-   "speed": 55,
+   "sets": "Healthx2",
+   "speed": 105,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
    "spdArrow": true
+  },
+  "GLREY": {
+   "mods": 6,
+   "sets": "Healthx6",
+   "speed": 74,
+   "minLvl": 15,
+   "minRar": 6,
+   "sixDot": 6,
+   "spdArrow": false
   },
   "SITHASSASSIN": {
    "mods": 6,
@@ -1260,7 +1251,7 @@
   "SHORETROOPER": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 17,
+   "speed": 21,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1268,44 +1259,44 @@
   },
   "DARTHMALAK": {
    "mods": 6,
-   "sets": "Healthx4,Defensex2",
-   "speed": 47,
+   "sets": "Healthx2,Tenacityx2",
+   "speed": 90,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 5,
    "spdArrow": false
   },
   "FINN": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 11,
+   "sets": "CritDamagex4",
+   "speed": 5,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 2,
+   "spdArrow": false
+  },
+  "UNDERCOVERLANDO": {
+   "mods": 6,
+   "sets": "Healthx6",
+   "speed": 53,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
-  "UNDERCOVERLANDO": {
+  "R5D4": {
    "mods": 6,
-   "sets": "Offensex4,Defensex2",
-   "speed": 54,
+   "sets": "Speedx4,Potencyx2",
+   "speed": 58,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
-  "R5D4": {
-   "mods": 6,
-   "sets": "Healthx4",
-   "speed": 20,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
   "DARKREY": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 63,
+   "speed": 56,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1313,8 +1304,8 @@
   },
   "SEVENTHSISTER": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 35,
+   "sets": "Healthx4,Tenacityx2",
+   "speed": 59,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1322,16 +1313,16 @@
   },
   "DARTHMALGUS": {
    "mods": 6,
-   "sets": "Healthx4,Defensex2",
-   "speed": 62,
+   "sets": "Healthx2,Defensex2",
+   "speed": 70,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 3,
    "spdArrow": true
   },
   "RESISTANCEPILOT": {
    "mods": 6,
-   "sets": "Offensex4,CritChancex2",
+   "sets": "Healthx2,CritChancex2",
    "speed": 3,
    "minLvl": 15,
    "minRar": 5,
@@ -1339,18 +1330,18 @@
    "spdArrow": false
   },
   "KUIIL": {
-   "mods": 5,
-   "sets": "Speedx4",
-   "speed": 27,
+   "mods": 6,
+   "sets": "Healthx4",
+   "speed": 75,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "VANE": {
-   "mods": 6,
-   "sets": "CritChancex2,Healthx2",
-   "speed": 6,
+   "mods": 3,
+   "sets": "Healthx2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1359,34 +1350,34 @@
   "MAULS7": {
    "mods": 6,
    "sets": "Offensex4,Healthx2",
-   "speed": 58,
+   "speed": 54,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
+   "sixDot": 3,
+   "spdArrow": false
   },
   "CADBANE": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 97,
+   "sets": "Tenacityx2,Potencyx2,CritChancex2",
+   "speed": 37,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
-   "spdArrow": true
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
   },
   "SAWGERRERA": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 71,
+   "sets": "Healthx6",
+   "speed": 53,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "TIEFIGHTERPILOT": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 19,
+   "sets": "Speedx4,Tenacityx2",
+   "speed": 8,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1395,7 +1386,7 @@
   "GRANDMASTERYODA": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 62,
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1403,26 +1394,26 @@
   },
   "DARTHBANE": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 43,
+   "sets": "Healthx4",
+   "speed": 45,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
+   "sixDot": 4,
+   "spdArrow": false
   },
   "GREEFKARGA": {
    "mods": 6,
-   "sets": "Speedx4,CritChancex2",
-   "speed": 63,
+   "sets": "Tenacityx4",
+   "speed": 85,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "ZEBS3": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 26,
+   "speed": 12,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1430,17 +1421,17 @@
   },
   "LUTHENRAEL": {
    "mods": 6,
-   "sets": "Speedx4,Tenacityx2",
-   "speed": 83,
+   "sets": "Speedx4",
+   "speed": 51,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": true
   },
   "CT210408": {
    "mods": 6,
    "sets": "Offensex4,Potencyx2",
-   "speed": 28,
+   "speed": 24,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1449,34 +1440,34 @@
   "B1BATTLEDROIDV2": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 66,
+   "speed": 15,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
+  },
+  "CEREJUNDA": {
+   "mods": 6,
+   "sets": "Healthx4,Defensex2",
+   "speed": 33,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 1,
    "spdArrow": false
   },
-  "CEREJUNDA": {
+  "CAPTAINTARPALS": {
    "mods": 6,
-   "sets": "Defensex4,Healthx2",
-   "speed": 24,
+   "sets": "Healthx6",
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
-  "CAPTAINTARPALS": {
-   "mods": 6,
-   "sets": "Healthx6",
-   "speed": 54,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
-  },
   "EWOKSCOUT": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 44,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 10,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1485,7 +1476,7 @@
   "K2SO": {
    "mods": 6,
    "sets": "Tenacityx4,Healthx2",
-   "speed": 47,
+   "speed": 39,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1493,7 +1484,7 @@
   },
   "NIGHTSISTERACOLYTE": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
+   "sets": "CritDamagex4,Healthx2",
    "speed": 9,
    "minLvl": 15,
    "minRar": 5,
@@ -1503,16 +1494,16 @@
   "50RT": {
    "mods": 6,
    "sets": "Defensex6",
-   "speed": 56,
+   "speed": 65,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": true
   },
   "IG86SENTINELDROID": {
    "mods": 6,
-   "sets": "Healthx2,CritChancex2",
-   "speed": 24,
+   "sets": "CritChancex4,Healthx2",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1521,7 +1512,7 @@
   "SITHMARAUDER": {
    "mods": 6,
    "sets": "CritDamagex4,CritChancex2",
-   "speed": 75,
+   "speed": 59,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1529,35 +1520,35 @@
   },
   "REYJEDITRAINING": {
    "mods": 6,
-   "sets": "CritChancex2,Healthx2",
-   "speed": 37,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "C3POCHEWBACCA": {
-   "mods": 6,
-   "sets": "Offensex4",
-   "speed": 49,
-   "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
-   "spdArrow": false
-  },
-  "KRRSANTAN": {
-   "mods": 6,
-   "sets": "Defensex6",
-   "speed": 32,
+   "sets": "CritChancex4",
+   "speed": 59,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
+  "C3POCHEWBACCA": {
+   "mods": 6,
+   "sets": "Offensex4",
+   "speed": 41,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 1,
+   "spdArrow": false
+  },
+  "KRRSANTAN": {
+   "mods": 6,
+   "sets": "Defensex6",
+   "speed": 108,
+   "minLvl": 15,
+   "minRar": 6,
+   "sixDot": 6,
+   "spdArrow": true
+  },
   "BATCHERS3": {
    "mods": 6,
-   "sets": "Offensex4,Potencyx2",
-   "speed": 45,
+   "sets": "CritDamagex4,Potencyx2",
+   "speed": 13,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1566,7 +1557,7 @@
   "KIADIMUNDI": {
    "mods": 6,
    "sets": "Defensex6",
-   "speed": 40,
+   "speed": 50,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1574,35 +1565,35 @@
   },
   "GUNGANPHALANX": {
    "mods": 6,
-   "sets": "Healthx2,Defensex2",
-   "speed": 91,
+   "sets": "Healthx6",
+   "speed": 35,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 0,
    "spdArrow": false
   },
   "MANDALORBOKATAN": {
    "mods": 6,
-   "sets": "Offensex4,Defensex2",
-   "speed": 5,
+   "sets": "Offensex4",
+   "speed": 32,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 3,
    "spdArrow": false
   },
   "FIFTHBROTHER": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 53,
+   "sets": "Healthx4,Tenacityx2",
+   "speed": 57,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "RANGETROOPER": {
-   "mods": 5,
-   "sets": "CritChancex2",
-   "speed": 24,
+   "mods": 6,
+   "sets": "CritDamagex4",
+   "speed": 13,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1610,8 +1601,8 @@
   },
   "QUIGONJINN": {
    "mods": 6,
-   "sets": "Offensex4,CritChancex2",
-   "speed": 44,
+   "sets": "CritDamagex4,CritChancex2",
+   "speed": 35,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1619,26 +1610,26 @@
   },
   "BASTILASHAN": {
    "mods": 6,
-   "sets": "Potencyx4,Healthx2",
-   "speed": 81,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 70,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
+   "sixDot": 1,
    "spdArrow": true
   },
   "ROYALGUARD": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 28,
+   "speed": 12,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 3,
+   "sixDot": 0,
    "spdArrow": false
   },
   "BT1": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 26,
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1647,7 +1638,7 @@
   "JAWA": {
    "mods": 6,
    "sets": "Healthx2,CritChancex2",
-   "speed": 16,
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1655,8 +1646,8 @@
   },
   "QIRA": {
    "mods": 6,
-   "sets": "Healthx2",
-   "speed": 17,
+   "sets": "Speedx4",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1664,8 +1655,8 @@
   },
   "POE": {
    "mods": 6,
-   "sets": "Tenacityx6",
-   "speed": 60,
+   "sets": "Potencyx2,Tenacityx2,Healthx2",
+   "speed": 33,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1674,7 +1665,7 @@
   "MERRIN": {
    "mods": 6,
    "sets": "Potencyx6",
-   "speed": 17,
+   "speed": 10,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1683,7 +1674,7 @@
   "NIGHTTROOPER": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 54,
+   "speed": 50,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1691,35 +1682,35 @@
   },
   "STAP": {
    "mods": 6,
-   "sets": "Offensex4,Defensex2",
-   "speed": 75,
+   "sets": "Speedx4",
+   "speed": 30,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "GRANDADMIRALTHRAWN": {
    "mods": 6,
    "sets": "Speedx4,Healthx2",
-   "speed": 87,
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 4,
+   "sixDot": 0,
    "spdArrow": true
   },
   "SCARIFREBEL": {
    "mods": 6,
    "sets": "Defensex4,Healthx2",
-   "speed": 48,
+   "speed": 45,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "IMPERIALPROBEDROID": {
-   "mods": 3,
-   "sets": "",
-   "speed": 12,
+   "mods": 6,
+   "sets": "Healthx4",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1727,8 +1718,8 @@
   },
   "PAPLOO": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 34,
+   "sets": "Healthx4,Defensex2",
+   "speed": 27,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1736,12 +1727,12 @@
   },
   "SCOUTTROOPER_V3": {
    "mods": 6,
-   "sets": "Potencyx4,Healthx2",
-   "speed": 68,
+   "sets": "Tenacityx2,Healthx2,Potencyx2",
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "EWOKELDER": {
    "mods": 6,
@@ -1754,17 +1745,17 @@
   },
   "EPIXPOE": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 47,
+   "sets": "Potencyx2,CritChancex2",
+   "speed": 66,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 1,
+   "spdArrow": true
   },
   "CROSSHAIRS3": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 29,
+   "sets": "Offensex4,Healthx2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1772,8 +1763,8 @@
   },
   "QUEENAMIDALA": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 70,
+   "sets": "Healthx6",
+   "speed": 69,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1781,8 +1772,8 @@
   },
   "PADAWANSABINE": {
    "mods": 6,
-   "sets": "Defensex2,CritChancex2",
-   "speed": 69,
+   "sets": "Offensex4,Defensex2",
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1791,7 +1782,7 @@
   "CHIEFCHIRPA": {
    "mods": 6,
    "sets": "Healthx4",
-   "speed": 39,
+   "speed": 37,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1800,7 +1791,7 @@
   "CT5555": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 44,
+   "speed": 38,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 1,
@@ -1808,17 +1799,17 @@
   },
   "VISASMARR": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 141,
+   "sets": "Healthx6",
+   "speed": 46,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 0,
    "spdArrow": false
   },
   "LUKESKYWALKER": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 11,
+   "sets": "Offensex4,CritChancex2",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1826,17 +1817,17 @@
   },
   "BENSOLO": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 105,
+   "sets": "Offensex4,Healthx2",
+   "speed": 50,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 0,
    "spdArrow": true
   },
   "GAMORREANGUARD": {
    "mods": 6,
-   "sets": "Defensex4",
-   "speed": 109,
+   "sets": "Healthx2,Defensex2",
+   "speed": 85,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
@@ -1844,17 +1835,17 @@
   },
   "KITFISTO": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 21,
+   "sets": "CritDamagex4",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "ADMINISTRATORLANDO": {
-   "mods": 5,
-   "sets": "CritChancex2",
-   "speed": 33,
+   "mods": 6,
+   "sets": "CritChancex6",
+   "speed": 36,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1862,26 +1853,26 @@
   },
   "GENERALSKYWALKER": {
    "mods": 6,
-   "sets": "Tenacityx2,Defensex2,Healthx2",
-   "speed": 62,
+   "sets": "Healthx4,Defensex2",
+   "speed": 93,
    "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
+   "minRar": 6,
+   "sixDot": 6,
    "spdArrow": true
   },
   "NIGHTSISTERSPIRIT": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 83,
+   "sets": "CritChancex2,Potencyx2",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "CLONESERGEANTPHASEI": {
-   "mods": 6,
-   "sets": "CritChancex2,Healthx2",
-   "speed": 21,
+   "mods": 5,
+   "sets": "",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1889,17 +1880,17 @@
   },
   "SUPREMELEADERKYLOREN": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 56,
+   "sets": "Offensex4",
+   "speed": 91,
    "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
+   "minRar": 6,
+   "sixDot": 6,
    "spdArrow": true
   },
   "ADMIRALACKBAR": {
    "mods": 6,
-   "sets": "Healthx4,Tenacityx2",
-   "speed": 47,
+   "sets": "Healthx2,Tenacityx2",
+   "speed": 30,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1907,8 +1898,8 @@
   },
   "STORMTROOPER": {
    "mods": 6,
-   "sets": "Defensex6",
-   "speed": 5,
+   "sets": "Defensex2,Healthx2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1916,26 +1907,26 @@
   },
   "SCORCH": {
    "mods": 6,
-   "sets": "Defensex4",
-   "speed": 51,
+   "sets": "Defensex4,Healthx2",
+   "speed": 62,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": false
   },
   "LUMINARAUNDULI": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 125,
+   "speed": 15,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
+   "minRar": 5,
+   "sixDot": 0,
    "spdArrow": false
   },
   "JANGOFETT": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 30,
+   "sets": "Speedx4",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1943,26 +1934,8 @@
   },
   "HOTHREBELSCOUT": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 6,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "4LOM": {
-   "mods": 6,
-   "sets": "Tenacityx2,Healthx2",
-   "speed": 3,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "QUIGGOLD": {
-   "mods": 6,
-   "sets": "Defensex2,Healthx2",
-   "speed": 0,
+   "sets": "CritChancex4",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -1970,53 +1943,53 @@
   },
   "CAPTAINENOCH": {
    "mods": 6,
-   "sets": "Defensex2,Healthx2",
+   "sets": "Defensex6",
    "speed": 54,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "APPO": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 56,
+   "speed": 36,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "JEDIMASTERKENOBI": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 63,
+   "sets": "Speedx4,Healthx2",
+   "speed": 109,
    "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
+   "minRar": 6,
+   "sixDot": 6,
    "spdArrow": true
   },
   "SATELESHAN": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 5,
+   "sets": "Speedx4",
+   "speed": 89,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 5,
+   "spdArrow": true
   },
   "EMPERORPALPATINE": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 86,
+   "sets": "Offensex4,Potencyx2",
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 3,
+   "sixDot": 0,
    "spdArrow": true
   },
   "HOTHHAN": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 20,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 10,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2025,7 +1998,7 @@
   "DAKA": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 29,
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2033,8 +2006,8 @@
   },
   "GRANDMOFFTARKIN": {
    "mods": 6,
-   "sets": "CritChancex4",
-   "speed": 56,
+   "sets": "CritDamagex4",
+   "speed": 39,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2042,17 +2015,17 @@
   },
   "CALKESTIS": {
    "mods": 6,
-   "sets": "Healthx4,Defensex2",
-   "speed": 32,
+   "sets": "Defensex4,Healthx2",
+   "speed": 14,
    "minLvl": 15,
-   "minRar": 6,
-   "sixDot": 6,
-   "spdArrow": true
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
   },
   "CAPTAINREX": {
    "mods": 6,
-   "sets": "Potencyx2,Healthx2,CritChancex2",
-   "speed": 58,
+   "sets": "Healthx2,CritChancex2,Potencyx2",
+   "speed": 64,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2061,16 +2034,16 @@
   "LORDVADER": {
    "mods": 6,
    "sets": "Speedx4",
-   "speed": 54,
+   "speed": 99,
    "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "minRar": 6,
+   "sixDot": 6,
+   "spdArrow": true
   },
   "HK47": {
    "mods": 6,
-   "sets": "Defensex2,Tenacityx2,Healthx2",
-   "speed": 23,
+   "sets": "Speedx4",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2078,17 +2051,17 @@
   },
   "DARTHTRAYA": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 66,
+   "sets": "Healthx2,Defensex2",
+   "speed": 81,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "EZRAEXILE": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 51,
+   "sets": "Speedx4,Healthx2",
+   "speed": 66,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2096,17 +2069,17 @@
   },
   "EPIXFINN": {
    "mods": 6,
-   "sets": "Speedx4,Tenacityx2",
-   "speed": 41,
+   "sets": "CritDamagex4",
+   "speed": 60,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "CAPTAINDROGAN": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 51,
+   "sets": "Offensex4",
+   "speed": 70,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 1,
@@ -2115,7 +2088,7 @@
   "ZAALBAR": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 21,
+   "speed": 8,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2123,8 +2096,8 @@
   },
   "KIX": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 0,
+   "sets": "Speedx4,Healthx2",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2132,17 +2105,17 @@
   },
   "HUYANG": {
    "mods": 6,
-   "sets": "Tenacityx2,Healthx2,CritChancex2",
-   "speed": 67,
+   "sets": "Healthx6",
+   "speed": 37,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "B2SUPERBATTLEDROID": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 9,
+   "speed": 12,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2150,17 +2123,17 @@
   },
   "DEPABILLABA": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 3,
+   "sets": "Speedx4",
+   "speed": 21,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "DARTHSIDIOUS": {
-   "mods": 3,
-   "sets": "Healthx2",
-   "speed": 8,
+   "mods": 6,
+   "sets": "Speedx4,Potencyx2",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2168,17 +2141,17 @@
   },
   "OLDBENKENOBI": {
    "mods": 6,
-   "sets": "Potencyx4,Healthx2",
-   "speed": 44,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 65,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "YOUNGCHEWBACCA": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 17,
+   "speed": 6,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2186,8 +2159,8 @@
   },
   "CINTA": {
    "mods": 6,
-   "sets": "",
-   "speed": 17,
+   "sets": "Speedx4",
+   "speed": 58,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2195,8 +2168,8 @@
   },
   "SMUGGLERHAN": {
    "mods": 6,
-   "sets": "Potencyx2,CritChancex2",
-   "speed": 10,
+   "sets": "Speedx4",
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2204,17 +2177,17 @@
   },
   "ZORIIBLISS_V2": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 39,
+   "sets": "Speedx4",
+   "speed": 51,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "TRIPLEZERO": {
    "mods": 6,
-   "sets": "Speedx4,Potencyx2",
-   "speed": 60,
+   "sets": "Potencyx4",
+   "speed": 53,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2222,8 +2195,8 @@
   },
   "UGNAUGHT": {
    "mods": 6,
-   "sets": "Offensex4,Potencyx2",
-   "speed": 26,
+   "sets": "Healthx2,Tenacityx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2231,17 +2204,17 @@
   },
   "RANGERZEB": {
    "mods": 6,
-   "sets": "Healthx4",
-   "speed": 22,
+   "sets": "Speedx4",
+   "speed": 58,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "BOBAFETTSCION": {
    "mods": 6,
-   "sets": "Healthx4,CritChancex2",
-   "speed": 16,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2250,7 +2223,7 @@
   "OPERATIVE": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 45,
+   "speed": 44,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2258,17 +2231,17 @@
   },
   "GRANDINQUISITOR": {
    "mods": 6,
-   "sets": "Speedx4,Healthx2",
-   "speed": 39,
+   "sets": "Offensex4,Healthx2",
+   "speed": 60,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 1,
+   "spdArrow": true
   },
   "ASAJJDARKDISCIPLE": {
    "mods": 6,
-   "sets": "Healthx2",
-   "speed": 4,
+   "sets": "Tenacityx2,Healthx2,CritChancex2",
+   "speed": 75,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2276,80 +2249,71 @@
   },
   "DARKTROOPER": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 10,
+   "sets": "Offensex4,Healthx2",
+   "speed": 18,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "DARTHREVAN": {
    "mods": 6,
-   "sets": "CritDamagex4,Defensex2",
-   "speed": 75,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 1,
-   "spdArrow": true
-  },
-  "HONDO": {
-   "mods": 6,
-   "sets": "Offensex4",
-   "speed": 80,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 3,
-   "spdArrow": true
-  },
-  "JABBATHEHUTT": {
-   "mods": 6,
-   "sets": "Speedx4,Tenacityx2",
-   "speed": 54,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": true
-  },
-  "HUMANTHUG": {
-   "mods": 6,
-   "sets": "Offensex4",
-   "speed": 98,
+   "sets": "Defensex2,Tenacityx2",
+   "speed": 111,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
    "spdArrow": true
   },
-  "CAPTAINSILVO": {
+  "HONDO": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 3,
+   "sets": "Offensex4,Healthx2",
+   "speed": 29,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
+  "JABBATHEHUTT": {
+   "mods": 6,
+   "sets": "Speedx4,Healthx2",
+   "speed": 86,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 5,
+   "spdArrow": true
+  },
+  "HUMANTHUG": {
+   "mods": 6,
+   "sets": "Offensex4",
+   "speed": 130,
+   "minLvl": 15,
+   "minRar": 6,
+   "sixDot": 6,
+   "spdArrow": false
+  },
   "THEMANDALORIANBESKARARMOR": {
    "mods": 6,
+   "sets": "Offensex4,Healthx2",
+   "speed": 51,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 1,
+   "spdArrow": true
+  },
+  "BISHOP": {
+   "mods": 6,
    "sets": "Healthx2,Potencyx2",
-   "speed": 61,
+   "speed": 70,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
-  "BISHOP": {
-   "mods": 6,
-   "sets": "",
-   "speed": 10,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
   "ENFYSNEST": {
    "mods": 6,
    "sets": "Tenacityx6",
-   "speed": 33,
+   "speed": 22,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2357,17 +2321,17 @@
   },
   "MAULHATEFUELED": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 0,
+   "sets": "Speedx4",
+   "speed": 93,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
+   "sixDot": 5,
+   "spdArrow": true
   },
   "BIGGSDARKLIGHTER": {
    "mods": 6,
-   "sets": "CritDamagex4",
-   "speed": 25,
+   "sets": "CritDamagex4,CritChancex2",
+   "speed": 26,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2375,8 +2339,8 @@
   },
   "CC2224": {
    "mods": 6,
-   "sets": "Defensex6",
-   "speed": 30,
+   "sets": "Defensex4,CritChancex2",
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2385,7 +2349,7 @@
   "JAWAENGINEER": {
    "mods": 6,
    "sets": "Potencyx4,Healthx2",
-   "speed": 30,
+   "speed": 31,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2394,16 +2358,16 @@
   "JEDIKNIGHTCAL": {
    "mods": 6,
    "sets": "Offensex4,Healthx2",
-   "speed": 43,
+   "speed": 56,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "BOUSHH": {
    "mods": 6,
-   "sets": "Healthx2,Potencyx2",
-   "speed": 71,
+   "sets": "Speedx4,Healthx2",
+   "speed": 66,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2411,17 +2375,17 @@
   },
   "JEDIKNIGHTLUKE": {
    "mods": 6,
-   "sets": "Offensex4,Healthx2",
-   "speed": 7,
+   "sets": "Offensex4",
+   "speed": 56,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 5,
    "spdArrow": false
   },
   "SUNFAC": {
    "mods": 6,
    "sets": "Healthx4,Defensex2",
-   "speed": 27,
+   "speed": 36,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2430,7 +2394,7 @@
   "BADBATCHECHO": {
    "mods": 6,
    "sets": "Speedx4,Potencyx2",
-   "speed": 70,
+   "speed": 62,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2438,26 +2402,26 @@
   },
   "EMBO": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 53,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 55,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "IMAGUNDI": {
    "mods": 6,
-   "sets": "CritChancex2,Tenacityx2",
-   "speed": 16,
+   "sets": "Healthx2,Potencyx2",
+   "speed": 7,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "REMNANTSNOWCOMMANDER": {
-   "mods": 5,
-   "sets": "Healthx2",
-   "speed": 9,
+   "mods": 6,
+   "sets": "Speedx4,Healthx2",
+   "speed": 49,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2466,7 +2430,7 @@
   "PADAWANOBIWAN": {
    "mods": 6,
    "sets": "Offensex4",
-   "speed": 68,
+   "speed": 42,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 1,
@@ -2474,8 +2438,8 @@
   },
   "FENNECSHAND": {
    "mods": 6,
-   "sets": "Tenacityx2,Healthx2",
-   "speed": 38,
+   "sets": "Offensex4",
+   "speed": 46,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2483,8 +2447,8 @@
   },
   "T3_M4": {
    "mods": 6,
-   "sets": "Healthx4,Tenacityx2",
-   "speed": 58,
+   "sets": "Speedx4,Healthx2",
+   "speed": 8,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2493,7 +2457,7 @@
   "NINTHSISTER": {
    "mods": 6,
    "sets": "Defensex4,Healthx2",
-   "speed": 20,
+   "speed": 52,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2501,8 +2465,8 @@
   },
   "HOTHREBELSOLDIER": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 23,
+   "sets": "Healthx4",
+   "speed": 11,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2511,7 +2475,7 @@
   "GRIEVOUS": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 19,
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2519,17 +2483,17 @@
   },
   "JUHANI": {
    "mods": 6,
-   "sets": "Speedx4,Defensex2",
-   "speed": 51,
+   "sets": "Defensex4",
+   "speed": 19,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 3,
+   "sixDot": 0,
    "spdArrow": false
   },
   "JOCASTANU": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 18,
+   "sets": "Tenacityx2",
+   "speed": 67,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2538,7 +2502,7 @@
   "PRINCESSKNEESAA": {
    "mods": 6,
    "sets": "Healthx4,CritChancex2",
-   "speed": 28,
+   "speed": 35,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2547,25 +2511,25 @@
   "AHSOKATANO": {
    "mods": 6,
    "sets": "CritDamagex4,Healthx2",
-   "speed": 70,
+   "speed": 73,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": true
   },
   "JEDIKNIGHTCONSULAR": {
-   "mods": 6,
-   "sets": "Healthx6",
-   "speed": 7,
+   "mods": 3,
+   "sets": "Healthx2",
+   "speed": 0,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "DIRECTORKRENNIC": {
-   "mods": 3,
-   "sets": "",
-   "speed": 7,
+   "mods": 6,
+   "sets": "Potencyx2,CritChancex2",
+   "speed": 13,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2573,17 +2537,17 @@
   },
   "SITHPALPATINE": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 47,
+   "sets": "Healthx4",
+   "speed": 90,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 4,
    "spdArrow": false
   },
   "BASTILASHANDARK": {
    "mods": 6,
-   "sets": "Tenacityx2,Healthx2",
-   "speed": 72,
+   "sets": "Speedx4,Healthx2",
+   "speed": 73,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2591,8 +2555,8 @@
   },
   "FIRSTORDEREXECUTIONER": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 3,
+   "sets": "Healthx4,CritChancex2",
+   "speed": 11,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2601,16 +2565,16 @@
   "TARFFUL": {
    "mods": 6,
    "sets": "Defensex6",
-   "speed": 40,
+   "speed": 3,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "MAUL": {
    "mods": 6,
-   "sets": "Speedx4,Tenacityx2",
-   "speed": 49,
+   "sets": "Speedx4",
+   "speed": 24,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2618,8 +2582,8 @@
   },
   "TUSKENSHAMAN": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 56,
+   "sets": "Tenacityx2,Healthx2,Potencyx2",
+   "speed": 47,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2627,8 +2591,8 @@
   },
   "YODACHEWBACCA": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 3,
+   "sets": "Speedx4",
+   "speed": 39,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2636,17 +2600,17 @@
   },
   "IDENVERSIOEMPIRE": {
    "mods": 6,
-   "sets": "CritDamagex4,Potencyx2",
-   "speed": 45,
+   "sets": "CritDamagex4",
+   "speed": 14,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "FIRSTORDERTROOPER": {
-   "mods": 4,
-   "sets": "Defensex2,Healthx2",
-   "speed": 21,
+   "mods": 6,
+   "sets": "Defensex6",
+   "speed": 18,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2654,8 +2618,8 @@
   },
   "WRECKERS3": {
    "mods": 6,
-   "sets": "Tenacityx2,Healthx2",
-   "speed": 24,
+   "sets": "Healthx2",
+   "speed": 21,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2663,17 +2627,17 @@
   },
   "CHEWBACCALEGENDARY": {
    "mods": 6,
-   "sets": "CritDamagex4,CritChancex2",
-   "speed": 54,
+   "sets": "Offensex4,CritChancex2",
+   "speed": 87,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 0,
+   "sixDot": 1,
    "spdArrow": false
   },
   "CHOPPERS3": {
-   "mods": 3,
-   "sets": "",
-   "speed": 17,
+   "mods": 6,
+   "sets": "Healthx6",
+   "speed": 20,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2681,8 +2645,8 @@
   },
   "WATTAMBOR": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 48,
+   "sets": "Healthx4,Defensex2",
+   "speed": 54,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2690,8 +2654,8 @@
   },
   "DEATHTROOPER": {
    "mods": 6,
-   "sets": "CritChancex2,Potencyx2",
-   "speed": 71,
+   "sets": "CritDamagex4,Potencyx2",
+   "speed": 43,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2699,8 +2663,8 @@
   },
   "COBBVANTH": {
    "mods": 6,
-   "sets": "Healthx2",
-   "speed": 9,
+   "sets": "Speedx4",
+   "speed": 17,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2708,8 +2672,8 @@
   },
   "VEL": {
    "mods": 6,
-   "sets": "Speedx4",
-   "speed": 5,
+   "sets": "CritChancex2,Healthx2,Tenacityx2",
+   "speed": 72,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2717,8 +2681,8 @@
   },
   "DATHCHA": {
    "mods": 6,
-   "sets": "Potencyx2,CritChancex2",
-   "speed": 16,
+   "sets": "CritChancex4,Potencyx2",
+   "speed": 19,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2726,8 +2690,8 @@
   },
   "JYNERSO": {
    "mods": 6,
-   "sets": "CritChancex4",
-   "speed": 61,
+   "sets": "CritChancex4,Potencyx2",
+   "speed": 46,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2735,8 +2699,8 @@
   },
   "TEEBO": {
    "mods": 6,
-   "sets": "Potencyx6",
-   "speed": 12,
+   "sets": "Potencyx2",
+   "speed": 23,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2744,8 +2708,8 @@
   },
   "BADBATCHTECH": {
    "mods": 6,
-   "sets": "Speedx4,Potencyx2",
-   "speed": 39,
+   "sets": "Speedx4",
+   "speed": 20,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2753,17 +2717,17 @@
   },
   "CARSONTEVA": {
    "mods": 6,
-   "sets": "Healthx2,Defensex2",
-   "speed": 3,
+   "sets": "Healthx2,Potencyx2",
+   "speed": 71,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "AMILYNHOLDO": {
    "mods": 6,
-   "sets": "Healthx2,Defensex2,Tenacityx2",
-   "speed": 48,
+   "sets": "Healthx4,Potencyx2",
+   "speed": 15,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2771,8 +2735,8 @@
   },
   "GLLEIA": {
    "mods": 6,
-   "sets": "Defensex4,Healthx2",
-   "speed": 66,
+   "sets": "Healthx4,Defensex2",
+   "speed": 83,
    "minLvl": 15,
    "minRar": 6,
    "sixDot": 6,
@@ -2780,8 +2744,8 @@
   },
   "URORRURRR": {
    "mods": 6,
-   "sets": "Healthx6",
-   "speed": 52,
+   "sets": "Speedx4,Healthx2",
+   "speed": 28,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2789,8 +2753,8 @@
   },
   "SNOWTROOPER": {
    "mods": 6,
-   "sets": "CritDamagex4",
-   "speed": 19,
+   "sets": "Speedx4",
+   "speed": 11,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2798,8 +2762,8 @@
   },
   "MAJORPARTAGAZ": {
    "mods": 6,
-   "sets": "CritDamagex4,Healthx2",
-   "speed": 3,
+   "sets": "Defensex2,Healthx2",
+   "speed": 40,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2807,8 +2771,8 @@
   },
   "CASSIANUNDERCOVER": {
    "mods": 6,
-   "sets": "",
-   "speed": 3,
+   "sets": "Speedx4,CritChancex2",
+   "speed": 59,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2816,20 +2780,20 @@
   },
   "PRINCESSLEIA": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 70,
+   "sets": "CritDamagex4",
+   "speed": 31,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": true
+   "spdArrow": false
   },
   "SAVAGEOPRESS": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 20,
+   "speed": 7,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 1,
+   "sixDot": 0,
    "spdArrow": false
   },
   "PHASMA": {
@@ -2844,25 +2808,25 @@
   "EZRABRIDGERS3": {
    "mods": 6,
    "sets": "Speedx4,CritChancex2",
-   "speed": 51,
+   "speed": 24,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
    "spdArrow": false
   },
   "FIRSTORDEROFFICERMALE": {
-   "mods": 4,
-   "sets": "",
-   "speed": 23,
+   "mods": 6,
+   "sets": "Tenacityx2,Defensex2,CritChancex2",
+   "speed": 73,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
-   "spdArrow": false
+   "spdArrow": true
   },
   "AAYLASECURA": {
    "mods": 6,
-   "sets": "CritChancex4,Potencyx2",
-   "speed": 21,
+   "sets": "CritChancex2,Potencyx2",
+   "speed": 12,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2870,41 +2834,14 @@
   },
   "KYLEKATARN": {
    "mods": 6,
-   "sets": "Offensex4",
-   "speed": 45,
+   "sets": "Speedx4,Healthx2",
+   "speed": 32,
    "minLvl": 15,
    "minRar": 5,
-   "sixDot": 2,
-   "spdArrow": true
+   "sixDot": 0,
+   "spdArrow": false
   },
   "AURRA_SING": {
-   "mods": 6,
-   "sets": "Speedx4",
-   "speed": 3,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "JEDIKNIGHTGUARDIAN": {
-   "mods": 6,
-   "sets": "Healthx4",
-   "speed": 28,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "CANDEROUSORDO": {
-   "mods": 2,
-   "sets": "",
-   "speed": 0,
-   "minLvl": 15,
-   "minRar": 5,
-   "sixDot": 0,
-   "spdArrow": false
-  },
-  "INQUISITORBARRISS": {
    "mods": 6,
    "sets": "CritDamagex4,Healthx2",
    "speed": 4,
@@ -2913,10 +2850,37 @@
    "sixDot": 0,
    "spdArrow": false
   },
+  "JEDIKNIGHTGUARDIAN": {
+   "mods": 6,
+   "sets": "Healthx4,Defensex2",
+   "speed": 28,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
+  },
+  "CANDEROUSORDO": {
+   "mods": 6,
+   "sets": "Tenacityx2,Healthx2",
+   "speed": 3,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
+  },
+  "INQUISITORBARRISS": {
+   "mods": 6,
+   "sets": "Healthx4,Tenacityx2",
+   "speed": 55,
+   "minLvl": 15,
+   "minRar": 5,
+   "sixDot": 0,
+   "spdArrow": false
+  },
   "IG12": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 39,
+   "speed": 51,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2925,7 +2889,7 @@
   "SHAAKTI": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 69,
+   "speed": 65,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2934,7 +2898,7 @@
   "IG11": {
    "mods": 6,
    "sets": "Healthx6",
-   "speed": 21,
+   "speed": 47,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,
@@ -2942,8 +2906,8 @@
   },
   "BISTAN": {
    "mods": 6,
-   "sets": "Speedx4,CritChancex2",
-   "speed": 22,
+   "sets": "Speedx4",
+   "speed": 19,
    "minLvl": 15,
    "minRar": 5,
    "sixDot": 0,

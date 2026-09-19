@@ -98,17 +98,27 @@ NEEDS = int(sys.argv[sys.argv.index("--needs") + 1]) if "--needs" in sys.argv el
 
 # Where each binding material actually comes from (grounded, memory/notes.md 2026-07-27).
 # Printed with the shopping list so the farming target is on the same screen as the shortfall.
+#
+# ⛔ TWO CORRECTIONS, both device-verified, both of which used to send you somewhere useless:
+#   * THE GUILD STORE SELLS NO MOD SLICING SALVAGE. Its Shipments tab was read end to end on
+#     2026-09-19 and it carries GEAR salvage only (Mk 2 Pulse Modulator, Mk 9 BioTech, Mk 6
+#     Arakyd and so on). It was named here for every 5-dot and 6-dot material and it has never
+#     stocked one of them.
+#   * "SECTOR 9" NO LONGER EXISTS. The 2026-04-27 update cut Mod Battles to two tiers and
+#     deleted Mod Challenges; the old Map 9 is now CHAPTER 2, which is what farmbot/config.json
+#     actually sims.
+MOD_BATTLES = "Mod Battles chapter 2 (the old Sector 9) · Episode Shipments"
 FARM = {
-    "T06_01": "Mod Battles Sector 9 · Guild Store · Episode Shipments",
-    "T06_02": "Mod Battles Sector 9 · Guild Store · Episode Shipments",
-    "T06_03": "Mod Battles Sector 9 · Guild Store · Episode Shipments",
-    "T06_04": "Mod Battles Sector 9 · Guild Store · Episode Shipments",
-    "T05_05": "Mod Battles Sector 9 · Guild Store · Episode Shipments",
-    "T05_06": "Mod Battles Sector 9 · Guild Store · Episode Shipments (MASTER GATE)",
-    "T05_01": "Mod Battles (low sectors)", "T05_02": "Mod Battles (low sectors)",
-    "T05_03": "Mod Battles (low sectors)", "T05_04": "Mod Battles (low sectors)",
-    "PROMO_T5_T6": "Mod Battles Sector 9 · Guild Store",
-    "attenuators": "Smuggler's Run 2 (needs Jabba — owned; BEST) · Mod Battles 9 · GET3",
+    "T06_01": MOD_BATTLES,
+    "T06_02": MOD_BATTLES,
+    "T06_03": MOD_BATTLES,
+    "T06_04": MOD_BATTLES,
+    "T05_05": MOD_BATTLES,
+    "T05_06": MOD_BATTLES + " (MASTER GATE)",
+    "T05_01": "Mod Battles (low chapters)", "T05_02": "Mod Battles (low chapters)",
+    "T05_03": "Mod Battles (low chapters)", "T05_04": "Mod Battles (low chapters)",
+    "PROMO_T5_T6": MOD_BATTLES,
+    "attenuators": "Smuggler's Run 2 (needs Jabba, owned; BEST) · Mod Battles chapter 2 · GET3",
 }
 
 
