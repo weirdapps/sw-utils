@@ -169,7 +169,13 @@ PHASES = {
             {"id": "special", "kind": "special", "required": ["QIRA", "L3_37"],
              "reward": "1,000 Mk III tokens"},
         ], [{"id": "fleet", "required": ["GHOST"], "preset": "Home One",
-             "why": "Ghost is already in the Home One lineup."}]),
+             "why": "Ghost is already in the Home One lineup. ⛔ BUT IT LOST, measured "
+                    "2026-09-20: the saved Home One preset at 602,331 was beaten and the "
+                    "attempt counter still went 1/50 to 2/50, so the 987,188 TP was forfeit "
+                    "and only the fleet's GP landed as deployment. Coherence alone is not "
+                    "enough on this row. Ghost is the gate, not the carry, and the rest of "
+                    "Home One is not strong enough behind it; try the highest-power owned "
+                    "fleet that can still seat Ghost before repeating this preset."}]),
         ("Lothal", "light", [
             {"id": "jedi", "align": LS, "faction": "Jedi"},
             {"id": "phoenix", "align": LS, "faction": "Phoenix"},
@@ -661,6 +667,36 @@ TACTICS = {
         "note": "ASPIRATIONAL — not fillable today. Qi'ra + L3-37 R8+ are the gate and both sit "
                 "at R7, and the free slot Marrok is R7 against the phase-4 R8 floor too. "
                 "Baylan/Shin carry it once those three clear R8. starwars-fans.com",
+    },
+    (4, "Kessel", "jabba"): {
+        "squad": ["JABBATHEHUTT", "KRRSANTAN", "BOSSK", "EMBO", "JANGOFETT"],
+        "note": "⭐ MEASURED 2026-09-20 (phase 6, Kessel still open): 2/2, +493,594 on AUTO at "
+                "191,890. Jabba leads with a maxed 'His High Exaltedness' and every other slot is "
+                "a Bounty Hunter, so the whole squad is inside his lead. "
+                "⛔ THE PHASE-4 TATOOINE ANSWER DOES NOT TRANSFER: that one was Jabba / Embo / "
+                "Greedo / Gamorrean Guard / Cad Bane, and Greedo, Gamorrean Guard and Cad Bane are "
+                "all R7 against Kessel's R8 floor. "
+                "⛔ AND ROTTA CANNOT JOIN HIM: adding Rotta the Hutt raises 'Large Unit Limit, your "
+                "squad already contains the maximum number of large units'. Both Hutts are large "
+                "units and only one fits, which is not visible anywhere in the requirements.",
+    },
+    (4, "Kessel", "mixed_1"): {
+        "squad": ["DARTHBANE", "DARTHREVAN", "STRANGER", "DARTHMALAK", "MAULHATEFUELED"],
+        "note": "⭐ MEASURED 2026-09-20: 2/2, +493,594 on AUTO at 204,700. All five Sith, Darth "
+                "Bane leading with a maxed 'Only The Strong Survive'. "
+                "⚠ This is the SUBSTITUTE for the researched SEE Sith five (SEE / Darth Revan / "
+                "The Stranger / Darth Bane / Darth Malak, 219,399), which was unfieldable that "
+                "night because the operations fill had already spent Sith Eternal Emperor. Prefer "
+                "SEE leading when he is free; Bane leading is the measured fallback and it cleared.",
+    },
+    (4, "Kessel", "mixed_2"): {
+        "squad": ["JEDIMASTERKENOBI", "GENERALSKYWALKER", "CT7567", "CT5555", "CT210408"],
+        "note": "⛔ MEASURED 2026-09-20 AND IT UNDERPERFORMED: 1/2 waves, +219,375 on AUTO at "
+                "196,209, against 2/2 for both other Kessel rows the same night at LOWER power "
+                "(191,890 and 204,700). So it is not a power problem. JMK plus General Skywalker "
+                "is a protection and counter engine built for GAC, and on a timed PvE wave it "
+                "stalls. Bring a damage comp to the second mixed row instead and treat this entry "
+                "as the thing not to repeat.",
     },
     (5, "Vandor", "special"): {
         # Deliberately NO squad: the walkthrough every search returns for

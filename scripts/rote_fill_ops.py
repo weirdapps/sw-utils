@@ -9,7 +9,13 @@ probes every cell: tap it, and read two pixels.
 
     ASSIGN bright cyan  -> a real selection was made, commit it
     green OK dialog     -> "cannot be used here", dismiss and move on
+    RELIC LEVEL dialog  -> owned but under the zone floor. CANCEL, never UNIT DETAILS
+                           (UNIT DETAILS navigates out of the event and loses the popup).
     neither             -> unowned slot, nothing happened
+
+The relic dialog is a SECOND layout with two buttons, and the one-button dismissal
+cannot clear it: OK_DLG lands between CANCEL and UNIT DETAILS, so the dialog stays
+up and every later cell tap is swallowed by it. Tell them apart before tapping.
 
 The per-account cap ("Assigned Units: n/10") is enforced by the game, so the loop
 stops as soon as ASSIGN stops lighting up.
@@ -34,6 +40,9 @@ ROWS = (230, 350, 462)
 ASSIGN = (680, 566)
 CLOSE = (427, 566)
 OK_DLG = (550, 385)
+# RELIC LEVEL REQUIREMENT: CANCEL on the left, the green UNIT DETAILS on the right.
+RELIC_CANCEL = (418, 397)
+RELIC_DETAILS = (680, 397)
 COUNTER = (830, 20, 1010, 55)
 
 
@@ -67,6 +76,22 @@ def ok_dialog(c):
     return g > r + 50 and g > b + 50
 
 
+def dismiss(im):
+    """Clear whichever refusal dialog is up. Returns True if one was found.
+
+    Check the relic dialog FIRST: it also shows a green button, so the single-button
+    test matches it too, and dismissing it with OK_DLG taps dead space between the
+    two buttons and leaves it on screen.
+    """
+    if ok_dialog(box(im, *RELIC_DETAILS)):
+        tap(*RELIC_CANCEL, wait=1.2)
+        return True
+    if ok_dialog(box(im, *OK_DLG)):
+        tap(*OK_DLG, wait=1.2)
+        return True
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--op", type=int, required=True, choices=sorted(OP_BUTTON))
@@ -78,13 +103,11 @@ def main():
         for col in COLS:
             tap(col, row, wait=1.2)
             im = grab()
-            if ok_dialog(box(im, *OK_DLG)):
-                tap(*OK_DLG, wait=1.2)
+            if dismiss(im):
                 continue
             if assign_lit(box(im, *ASSIGN)):
                 tap(*ASSIGN, wait=2.5)
                 placed += 1
-    im = grab()
     print(f"op {a.op}: placed {placed}")
     tap(*CLOSE, wait=2)
 

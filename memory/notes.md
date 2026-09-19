@@ -5585,3 +5585,104 @@ into nothing. One `MULTI SIM` of **22 battles on Dark Side 8-E burned 220 of it*
 both the 600-energy quest and the 600 guild tickets in a single action. Sim tickets are at
 39.2K, so they are not a constraint. Mod energy, by contrast, was drained to 5/144 by the
 farmbot, so Mod Battles was not available as the dump.
+
+## 2026-09-19/20 — RotE PHASE 6: the operations fill EATS your Galactic Legends
+
+Phase 6/6 opened ~20:08 local 09-19 with 20h53m on the clock. Guild GP 518,871,451, **23/56
+stars** at the start and **24/56** by the end (Kashyyyk took its 2nd). Astra went **#3 to #1**
+on the phase contributor board.
+
+### The board: only TWO territories were contributable, and the rest of the map is scenery
+| Territory | Zone | State on arrival | Verdict |
+|---|---|---|---|
+| **Kessel** | 4 | 130,703,907 / 235,143,105, **0★** | the only reachable 1st star, everything went here |
+| **Kashyyyk** | 3 | 298,486,599 / 305,525,000, 1★ | starred during the session, 3rd star at 407M is out of reach |
+| Medical Station | 4 | 0★, **red no-entry overlay** | guild-flagged, obeyed, never entered |
+| 2 padlocked bonus zones | | locked | Zeffo/Mandalore gates never met |
+| Death Star · Hoth · Scarif | 6 | never unlocked | their zone-5 predecessors never held a star |
+Vandor, Malachor and Ring of Kafrene never opened either, so **phases 5 and 6 were played
+entirely on phase-3 and phase-4 planets**. `data/rote/missions_5.json` and `missions_6.json`
+were dead weight for this whole event.
+
+### ⭐⭐ THE OPERATIONS FILL SPENDS YOUR BEST UNITS, AND IT BREAKS THE RESEARCHED COMBAT COMPS
+`rote_fill_ops.py` placed 7 units into Kessel's operations, chosen by the GAME (each slot offers
+its highest-power eligible owned unit). It took **Sith Eternal Emperor, Emperor Palpatine,
+GL Rey and Ben Solo** among them. An hour later:
+- the researched Kessel `mixed_1` comp (the **SEE Sith five**, 219,399, proven 2/2 on Tatooine)
+  was unfieldable, and
+- the researched Kashyyyk `ls_1` comp (the **GL Rey five**) was unfieldable.
+Both rows had to be rebuilt from what was left, and `ls_1` then went **1/2**.
+⇒ Operations are still correct to run first: a unit in an op is worth 1/15 of 18,480,000, about
+**1.232M**, against roughly 99K for a fifth of a 493,594 combat row. That is 12x and it is not
+close. **But the fill must not be blind.** Either field the phase's gated and researched combat
+rows first when their units are R8+, or teach `rote_fill_ops.py` to skip any base id named in a
+`TACTICS` squad for the open phases. The phase-4 note's reason for ops-first (combat locks units
+out of operations with `UNIT ALREADY DEPLOYED`) is real; this is the equal and opposite cost, and
+neither note knew about the other.
+
+### ⛔ `rote_fill_ops.py` COULD NOT DISMISS THE RELIC DIALOG, AND THAT FAILS SILENTLY
+`RELIC LEVEL REQUIREMENT` is a **two-button** dialog (CANCEL, and a green UNIT DETAILS). The
+script only knew the one-button "cannot be used here" layout, and its `OK_DLG` point lands in the
+dead space between the two buttons: the dialog stays up, every later cell tap is swallowed by it,
+and the run reports `placed 0` with no error. Fixed with a `dismiss()` that checks the relic
+layout FIRST (its green button also satisfies the one-button test, so order of checks decides)
+and taps CANCEL, never UNIT DETAILS, which navigates out of the event.
+`tests/test_rote_fill_ops.py`, 5 tests.
+
+### ⭐ THE RED BADGE ON AN OPERATION BUTTON IS "SLOTS YOU CAN FILL", AND IT IS TRUSTWORTHY
+Kessel's six operations read 13/15 (**no badge**), 6/15 (3+), 8/15 (2), 4/15 (3+), 9/15 (2),
+8/15 (3). The fill script placed exactly 0 · 1 · 0 · 1 · 2 · 3, and stopped at **7/10 assigned**
+with every badge gone. So a missing badge really does mean "nothing here for you", and the
+13/15 that looked like the jackpot was unreachable. Board went 48/90 to 55/90.
+⚠ **Kessel's gate is R8, not the R9 this repo attributes to phases 5 and 6.** The gate belongs to
+the ZONE, not the phase: Kessel is zone 4 (`Relic 8 or Higher`), Kashyyyk zone 3 (`Relic 7`).
+
+### Kashyyyk operations were 5/6 done and the last slot is TWO relic levels away
+Operation 6 sat at **14/15**, worth 13,200,000 for one unit, and the empty slot wanted a **Hoth
+Rebel at R7**. Astra holds **Hoth Rebel Scout R5** and **Hoth Rebel Soldier R5**, so it is two
+relic levels, not one, and `RELIC LEVEL REQUIREMENT` is what the slot answers with.
+
+### Combat, all on AUTO. Six rows, 2,051,563 TP
+| Row | Squad | Power | Result |
+|---|---|---|---|
+| Kessel `jabba` | Jabba (L) / Krrsantan / Bossk / Embo / Jango Fett | 191,890 | **2/2, +493,594** |
+| Kessel `mixed_1` | Darth Bane (L) / Darth Revan / The Stranger / Darth Malak / Maul (Hate-Fueled) | 204,700 | **2/2, +493,594** |
+| Kessel `mixed_2` | JMK (L) / General Skywalker / Rex / Fives / Echo | 196,209 | ⛔ **1/2, +219,375** |
+| Kessel `fleet` | Home One preset | 602,331 | ⛔ **LOST**, attempt burned |
+| Kashyyyk `wookiee` | Tarfful (L) / Clone Wars Chewbacca / Threepio & Chewie / Zaalbar / Chewbacca | 158,418 | **2/2, +341,250** |
+| Kashyyyk `ls_1` | JML (L) / Grand Master Yoda / Cal Kestis / General Kenobi / Rey (Jedi Training) | 197,935 | ⛔ **1/2, +162,500** |
+| Kashyyyk `ls_2` | GL Ahsoka (L) / Huyang / Fulcrum / Ezra (Exile) / Padawan Sabine | 186,295 | **2/2, +341,250** |
+- ⛔ **POWER IS NOT THE DISCRIMINATOR, AGAIN.** The two highest-power ground squads of the night
+  (JMK 196,209 and JML 197,935) are the two that dropped a wave, while 158,418 of Wookiees went
+  2/2. JMK plus General Skywalker is a protection and counter engine built for GAC and it runs
+  the clock out on a timed PvE wave. **Bring damage to an ungated row.**
+- ⭐ **`TARFFUL MUST LEAD` is confirmed, and the trap is invisible.** The game restored the phase-3
+  Wookiee squad at the identical 158,418 but with **Clone Wars Chewbacca in slot 1** and his
+  `Wookiee Resolve` showing as the leader ability. Tarfful's is `It's All in the Fur`. Same five
+  units, same power, wrong leader. **Slot 1 is the leader; read the leader-ability name, not the
+  power.**
+- ⛔ **The Kessel fleet row is NOT solved by the coherent-lineup rule.** `missions_4.json` names
+  Home One because Ghost sits in that lineup, and Home One at 602,331 still lost, burning the
+  attempt (1/50 to 2/50) and the 987,188 TP. Only the fleet's GP landed, as deployment. Ghost is
+  the gate, not the carry.
+- ⛔ **`rote_autobattle.py` misreported that loss as `outcome=win`, then attached the PREVIOUS
+  row's feed line to it** (it echoed `1/2 waves, 219,375` a second time). The fleet fight ended in
+  50s and the feed had not refreshed. **A fleet row is 1 wave; any "n/2" on a fleet is a stale
+  read.** Confirm from the planet feed plus the attempt counter, never from the driver's label.
+
+### Three UI facts worth keeping
+- ⛔ **`Large Unit Limit`: Jabba the Hutt and Rotta the Hutt cannot share a squad.** Both are large
+  units and only one fits. Nothing in the mission requirements hints at it, and the dialog then
+  swallows the next several taps, so a scripted fill silently places nothing after it.
+- ⭐ **The in-squad TEXT SEARCH matches ABILITY TEXT, not just names.** Searching `Emperor`
+  returned **Darth Bane and Admiral Piett** and did NOT return Sith Eternal Emperor. Use a
+  distinctive name fragment, and treat "no result" as "unavailable" only after a second term.
+  `None of the units in this filter can be used in this mission` is the real "already spent" tell.
+- ⭐ **A SPECIAL MISSION IS ONCE PER EVENT, NOT ONCE PER PHASE.** Kashyyyk's Saw Gerrera special
+  read `COMPLETE`, greyed, with `Successful Attempts: 1 of 2`, because phase 3 had already run it
+  on 2026-09-17. Do not budget a special into a later phase's plan once it has been cleared.
+
+### Deploy went last, and all of it to the one territory that can star
+12,684,762 unallocated, every point to **Kessel**, which closed at **146,759,366 / 235,143,105**.
+Kashyyyk was already past its 2nd star and its 3rd needs 108M more, so nothing was held back for
+it. Kessel needs 88.4M from the guild with 19h42m left, and 5 completed operations would be 92.4M.
