@@ -1,6 +1,6 @@
 # Accurate Mod Gap Report — GAC (current vs swgoh.gg best-mods)
 
-Units: 142 | fully OK: 1 | wrong set: 126 | missing Speed arrow: 71 | low speed(<61): 85 | unleveled: 0 | not full 6-dot: 134
+Units: 142 | fully OK: 1 | wrong set: 126 | missing Speed arrow: 71 | low speed(<61): 84 | unleveled: 0 | not full 6-dot: 132
 
 Priority: current season **3v3** first. 'Action' lists what to fix, most-impactful first.
 
@@ -10,7 +10,7 @@ Priority: current season **3v3** first. 'Action' lists what to fix, most-impactf
 | 3v3-DEF | Asajj Ventress (Dark Disciple) | 4 | Healthx2 | set→Offense+CritChance (have Healthx2); add Speed arrow; low speed (4); slice to 6-dot (0/6) |
 | 3v3-DEF | Ben Solo | 105 | Speedx4 | set→Offense+Potency (have Speedx4) |
 | 3v3-DEF | Boushh (Leia Organa) | 71 | Healthx2,Potencyx2 | set→Speed+Potency (have Healthx2,Potencyx2); slice to 6-dot (0/6) |
-| 3v3-DEF | Captain Drogan | 50 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); low speed (50); slice to 6-dot (0/6) |
+| 3v3-DEF | Captain Drogan | 55 | Offensex4,Healthx2 | set→Offense+CritChance (have Offensex4,Healthx2); low speed (55) |
 | 3v3-DEF | Cassian Andor (Undercover) | 3 |  | set→Speed+Potency (have ); add Speed arrow; low speed (3); slice to 6-dot (0/6) |
 | 3v3-DEF | Darth Malak | 47 | Healthx4,Defensex2 | set→Tenacity+Tenacity+Tenacity (have Healthx4,Defensex2); add Speed arrow; low speed (47); slice to 6-dot (0/6) |
 | 3v3-DEF | Darth Malgus | 62 | Healthx4,Defensex2 | set→Health+Health+Health (have Healthx4,Defensex2); slice to 6-dot (0/6) |
@@ -18,9 +18,9 @@ Priority: current season **3v3** first. 'Action' lists what to fix, most-impactf
 | 3v3-DEF | Darth Revan | 75 | CritDamagex4,Defensex2 | set→Offense+CritChance (have CritDamagex4,Defensex2); slice to 6-dot (1/6) |
 | 3v3-DEF | Darth Traya | 66 | Healthx6 | set→Offense+CritChance (have Healthx6); slice to 6-dot (0/6) |
 | 3v3-DEF | Emperor Palpatine | 86 | Offensex4 | set→Speed+Potency (have Offensex4); slice to 6-dot (3/6) |
-| 3v3-DEF | Ezra Bridger (Exile) | 51 | Speedx4 | set→Health+Health+Health (have Speedx4); low speed (51); slice to 6-dot (0/6) |
+| 3v3-DEF | Ezra Bridger (Exile) | 55 | Speedx4 | set→Health+Health+Health (have Speedx4); low speed (55); slice to 6-dot (0/6) |
 | 3v3-DEF | Ahsoka Tano | 30 | Defensex6 | set→Health+Speed (have Defensex6); add Speed arrow; low speed (30); slice to 6-dot (0/6) |
-| 3v3-DEF | Leia Organa | 66 | Defensex4,Healthx2 | set→Health+Speed (have Defensex4,Healthx2) |
+| 3v3-DEF | Leia Organa | 73 | Defensex4,Healthx2 | set→Health+Speed (have Defensex4,Healthx2) |
 | 3v3-DEF | Rey | 55 | Healthx6 | set→Health+Speed (have Healthx6); low speed (55) |
 | 3v3-DEF | Great Mothers | 73 | Speedx4,Healthx2 | slice to 6-dot (0/6) |
 | 3v3-DEF | Huyang | 67 | Tenacityx2,Healthx2,CritChancex2 | set→Offense+CritChance (have Tenacityx2,Healthx2,CritChancex2); slice to 6-dot (0/6) |
@@ -30,7 +30,7 @@ Priority: current season **3v3** first. 'Action' lists what to fix, most-impactf
 | 3v3-DEF | Jedi Knight Revan | 88 | Speedx4 | set→Offense+CritChance (have Speedx4); slice to 6-dot (3/6) |
 | 3v3-DEF | Jolee Bindo | 84 | Healthx4,Tenacityx2 | set→Health+Health+Health (have Healthx4,Tenacityx2); add Speed arrow; slice to 6-dot (2/6) |
 | 3v3-DEF | Kleya Marki | 0 | Speedx4,Healthx2 | set→Offense+Potency (have Speedx4,Healthx2); add Speed arrow; low speed (0); slice to 6-dot (0/6) |
-| 3v3-DEF | Krrsantan | 32 | Defensex6 | set→Health+Health+Defense (have Defensex6); low speed (32); slice to 6-dot (0/6) |
+| 3v3-DEF | Krrsantan | 37 | Defensex6 | set→Health+Health+Defense (have Defensex6); low speed (37); slice to 6-dot (0/6) |
 | 3v3-DEF | Lord Vader | 54 | Speedx4 | set→Health+Speed (have Speedx4); add Speed arrow; low speed (54); slice to 6-dot (0/6) |
 | 3v3-DEF | Luminara Unduli | 125 | Healthx6 | set→Health+Speed (have Healthx6); add Speed arrow |
 | 3v3-DEF | Luthen Rael | 83 | Speedx4,Tenacityx2 | set→Health+Speed (have Speedx4,Tenacityx2); slice to 6-dot (1/6) |
@@ -56,7 +56,7 @@ Priority: current season **3v3** first. 'Action' lists what to fix, most-impactf
 | 3v3-OFF | Baylan Skoll | 109 | Speedx4,Healthx2 | OK |
 | 3v3-OFF | Boss Nass | 78 | Speedx4,Tenacityx2 | set→Health+Health+Potency (have Speedx4,Tenacityx2); slice to 6-dot (2/6) |
 | 3v3-OFF | BT-1 | 26 | Offensex4 | set→Offense+CritChance (have Offensex4); add Speed arrow; low speed (26); slice to 6-dot (0/6) |
-| 3v3-OFF | Threepio & Chewie | 49 | Offensex4 | set→CritChance+CritDamage (have Offensex4); add Speed arrow; low speed (49); slice to 6-dot (5/6) |
+| 3v3-OFF | Threepio & Chewie | 49 | Offensex4 | set→CritChance+CritDamage (have Offensex4); add Speed arrow; low speed (49) |
 | 3v3-OFF | C-3PO | 71 | Speedx4,Potencyx2 | add Speed arrow; slice to 6-dot (0/6) |
 | 3v3-OFF | Cal Kestis | 32 | Healthx4,Defensex2 | set→Health+Health+Potency (have Healthx4,Defensex2); low speed (32) |
 | 3v3-OFF | Captain Enoch | 54 | Defensex2,Healthx2 | set→Health+Speed (have Defensex2,Healthx2); add Speed arrow; low speed (54); slice to 6-dot (0/6) |
@@ -126,7 +126,7 @@ Priority: current season **3v3** first. 'Action' lists what to fix, most-impactf
 | 5v5-OFF | Batcher | 45 | Offensex4,Potencyx2 | set→Speed+CritChance (have Offensex4,Potencyx2); add Speed arrow; low speed (45); slice to 6-dot (0/6) |
 | 5v5-OFF | Bo-Katan Kryze | 59 | CritChancex4 | set→Health+CritDamage (have CritChancex4); low speed (59); slice to 6-dot (0/6) |
 | 5v5-OFF | Gungan Boomadier | 56 | Healthx6 | set→Speed+CritChance (have Healthx6); low speed (56); slice to 6-dot (2/6) |
-| 5v5-OFF | Captain Rex | 58 | Potencyx2,Healthx2,CritChancex2 | set→Speed+Potency (have Potencyx2,Healthx2,CritChancex2); low speed (58); slice to 6-dot (0/6) |
+| 5v5-OFF | Captain Rex | 61 | Potencyx2,Healthx2,CritChancex2 | set→Speed+Potency (have Potencyx2,Healthx2,CritChancex2); slice to 6-dot (3/6) |
 | 5v5-OFF | Crosshair (Scarred) | 29 | Offensex4 | set→Offense+CritChance (have Offensex4); low speed (29); slice to 6-dot (0/6) |
 | 5v5-OFF | CT-21-0408 "Echo" | 28 | Offensex4,Potencyx2 | set→Offense+CritChance (have Offensex4,Potencyx2); add Speed arrow; low speed (28); slice to 6-dot (0/6) |
 | 5v5-OFF | Darth Sion | 29 | Defensex4,Healthx2 | set→Defense+Speed (have Defensex4,Healthx2); add Speed arrow; low speed (29); slice to 6-dot (0/6) |

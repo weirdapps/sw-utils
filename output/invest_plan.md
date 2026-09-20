@@ -1,4 +1,4 @@
-# Investment plan — 2026-09-18
+# Investment plan — 2026-09-20
 
 Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displayed R9 (rt >= 11).
 
