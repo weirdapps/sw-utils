@@ -5880,3 +5880,75 @@ slicing gate is **T05_06, short 866**.
 Episode Shipments, bought with Episode Currency and not crystals (71K -> 60.3K of a 100K
 cap): **Ability Material Omicron x2** (owned 5 -> 7) and Ability Material Mk III.
 Signal Data was already bought out this cycle.
+
+### 2026-09-21 (03:00) — the board AUDITED, and three of my own claims corrected
+
+Owner pushed back on the GAC strategy, so I attacked it rather than defended it.
+Named teammates could not spawn (the Agent tool could not resolve a tmux pane even
+though `tmux list-panes` works from Bash, and `pretool-agent-guard.sh` blocks the
+unnamed fallback), so this was done single-handed.
+
+**VERIFIED CORRECT (do not re-litigate):**
+- **The gate structure IS modelled properly.** `board_denial` at
+  `scripts/gac3v3_board.py:195` computes `conceded = sa + sb + fall_a*sf + fall_b*sk`,
+  so each BACK zone's value is multiplied by the probability its own FRONT falls.
+  `TOTAL_AVAILABLE` 2082 = 3x(5x57+260) + (3x76+219), matching the first-party panels.
+- **`net` = denial + offense - 2082**, i.e. an expected MARGIN. Legitimate objective.
+- **The zone assignment is NOT sensitive to the fleet zone's hold q.** Run with the
+  model's fleets (q=31%) and with the best defensive fleets forced (q=44%): both give
+  FRONT-A 76-77%, FRONT-B 78%, BACK-B 54%. The optimiser BALANCES the fronts either
+  way, which is the concave-optimal thing to do. ⇒ CLAUDE.md's "below q~20% front-A
+  leads, above it front-B" is not operative here; it describes a stacked split the
+  optimiser never chooses.
+- **The placed board equals the planned board.** Confirmed first-party via HotUtils
+  `gac/get {refresh:true}` — all 15 squads present and all 3 units each, including
+  `GLLEIA/CAPTAINDROGAN/R2D2_LEGENDARY` and
+  `REMNANTSNOWCOMMANDER/SNOWTROOPER/TIEFIGHTERPILOT`, the two that raised RESTRICTED
+  CHARACTERS during placement. ⛔ **`gac/get` WITHOUT `refresh:true` served a
+  day-old snapshot** showing the superseded Cad Bane and Luminara builds, which reads
+  exactly like "your placement did not save". Always pass `refresh:true` to verify.
+- The Rotta datacron override moves the ESTIMATE (net +358 at 38.6% hold, +373 at 44%,
+  +385 at 48%) but never the SELECTION. So it is worth stating, not worth acting on.
+
+**⛔ THREE DEFECTS IN THE MODEL, FOUND BY AUDIT:**
+1. **`allocate_fleets` never receives `realization`.** `main()` calls it as
+   `allocate_fleets(fdef, foff, args.p_front_a_falls)` (~line 647), so the fleet split
+   is always decided at r=1.0 no matter what `--realization` says. Its `denial` term is
+   discounted by `p_front_a_falls` (0.25) while its `earn` term is not discounted at
+   all, which structurally favours attacking.
+2. **`allocate_fleets`'s `earn` is not gated by P(clearing THEIR front-A)**, though
+   `offense_value` does gate the equivalent term with `p1`. The account's top five
+   offence squads give P(clear a 5-squad front) = 0.539, so the fleet earn is nearly
+   doubled by this omission.
+3. **`--realization` does not change the squad SELECTION at all.** The 15 walls chosen
+   at r=1.0 and at r=0.37 are byte-identical; only the reported `offense` number moves.
+   Either contention between the pools is too low to bind, or the local search is not
+   exploring the defence/offence trade. Unresolved.
+
+**⭐ CORRECTIONS TO WHAT I WROTE EARLIER TONIGHT:**
+- I called the fleet split the **"root cause"** of losing round 2 and priced it at
+  **+57 banners**. Both wrong. Correcting defects 1 and 2 above and re-deriving:
+  attack-best beats wall-best by **+33 at r=1.0 and +6 at r=0.37**, and it wins at
+  every r from 1.0 down to 0.25, so the DIRECTION was right and the MAGNITUDE was
+  roughly double what it should be. It is not a root cause of a 461-banner loss.
+- The real round-2 story is denial, not offence: **the opponent scored 2,045 of the
+  2,082 available, a 98% conversion, so the board denied about 37 banners.** Astra
+  meanwhile cleared all 15 of their squads and took 3 territories.
+- ⇒ **`offense_value`'s "this account converts about 37%" is STALE.** CLAUDE.md dates
+  that figure to a period with "~493/round stranded behind a front zone he left at
+  3/4". Round 2 measured **squad conversion at essentially 100%** and overall 76%, and
+  the entire 498-banner shortfall was the fleet territory, which was forfeited because
+  the three best capitals were walling. **Use r ~= 1.0 for squads.**
+
+**WHY THE PLACED BOARD STANDS.** The pin set was hill-climbed at r=1.0. Re-climbing at
+r=0.37 finds a different optimum (add The Stranger and SLKR to the wall, net -312 to
+-283). But the two boards cross over at **r ~= 0.85**: the r=0.37 board is +29 at
+r=0.37, +3 at r=0.8 and **-10 at r=1.0**. Since measured squad conversion is ~1.0, the
+board already placed is the right one. Re-placing would be a downgrade.
+
+**WHY THE FLEET SPLIT WAS LEFT ALONE.** Worth +33. Against that: three full manual
+8-ship rebuilds, and walling Raddus/Home One locks a different crew set than
+Leviathan/Executor/Negotiator does. The crew-to-capital mapping is NOT in this repo, and
+a squad losing a unit costs a whole wall (the 21.6% GL Leia squad is 59 banners plus its
+share of the front-A gate). Spending +33 of expected value to risk more than that, on a
+board already verified correct, is a bad trade. Revisit once crew data exists.
