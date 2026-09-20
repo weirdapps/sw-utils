@@ -5775,3 +5775,108 @@ three: the same conclusion the Krayt Dragon reached, now re-measured on a fresh 
 need a researched comp and a manual run, not another auto roll.
 Yesterday's rank #281 paid **150 Mk III tokens**; rank is now 144, inside the #91-250 band that
 pays 300.
+
+## 2026-09-20/21 — S83 META RE-PULLED, and THE FLEET DEFENCE LOCKS ITS CREW
+
+Owner lifted all three standing rails for this session: **GAC offense, crystals and
+gear/relic/ability spending are all allowed now**; only real money is out. Standing
+instruction was "grounded in the current meta, optimal play only".
+
+### ⭐⭐ THE TIER LISTS WERE A SEASON STALE, AND THE #1 WALL CHANGED
+Re-pulled the live **Season 83** Kyber 3v3 lists (1.31M battles) into
+`tierlist_3v3_{def,off}_kyber_s83_20260921.json` and repointed `gac3v3_board.py`.
+- ⭐ **Rotta the Hutt / Gamorrean Guard / Mob Enforcer is now the best wall in the
+  format: 48.0% raw hold on n=8,676**, shrunk 38.6%. This file used to carry
+  "Rotta / Cad Bane / Gamorrean Guard 12.6% on n=665" — that is the OLD BUILD, and the
+  swap of Cad Bane for Mob Enforcer is the whole difference. Astra also holds the
+  level-15 Hutt cron that the published sample mostly does not, so 48% is a floor.
+- Rey's defensive third is now **Cal Kestis**, not Luminara Unduli.
+- The Stranger / Maul (Hate-Fueled) / Starkiller tops BOTH lists (34.0% hold n=28.1K,
+  91.6% win n=26.5K).
+- Transport, and it split by tool: **chrome-devtools MCP loaded `?side=defense` clean,
+  `?side=offense` drew a Cloudflare interstitial that never cleared even after a warm
+  base-page navigation and a reload.** **Playwright MCP then loaded the base
+  `/tier-list/3v3/` first try, and that URL defaults to the OFFENSE view.** So the
+  reliable recipe is now: chrome-devtools for defence, Playwright for offence.
+
+### The board, and a pin search worth +120 banners
+`--structure free` alone lands at net **+238**. Hill-climbing `--pin-def`:
++Rotta **+311**, +Lord Vader **+331**, +Ahsoka **+342**, +Leia **+358** (plateau; adding
+Rey, The Stranger or Kelleran changes nothing). So the greedy `free` search is leaving
+~120 banners on the table and **the pin set is worth searching every season**.
+`--doctrine` on the fresh data still says **K=5 GLs wall at every conversion rate**, and
+names the same five as before: Rey, Lord Vader, Ahsoka Tano, SLKR, Leia Organa.
+⚠ `--gl-wall` is a **no-op when combined with `--pin-def`** (K=3..6 all returned +311).
+
+### ⛔⛔ A PLACED DEFENSIVE FLEET LOCKS ITS CREW CHARACTERS, AND THE BOARD MODEL DOES NOT KNOW IT
+Placing the computed board in-game, `A4 GL Leia / Captain Drogan / R2-D2` raised
+**RESTRICTED CHARACTERS — "One or more of the characters in this squad can not be used
+in this Battle"**, and so did `K3 Snowtrooper Commander / Snowtrooper / TIE Fighter
+Pilot`. Both squads contain a **ship crew member** (R2-D2, TIE Fighter Pilot) already
+committed to a walling fleet. `gac3v3_board.py` treats ships and characters as separate
+pools and cannot see this, so **any board it produces may contain 1-2 unplaceable
+squads**. Push CONTINUE and the squad still goes down full if the crew unit is free at
+that moment; otherwise pick a substitute. Both eventually placed here, so the lock is
+evaluated live and is not a hard pre-filter. ⇒ **Place the crew-heavy squads LAST**, and
+if a zone will not fill, that is the reason, not a bad preset.
+
+### GAC S83 round 2 was lost before the session started, and the fleet split is why
+Score **1,584 vs 2,045**. It was already mathematically decided: 463 behind with only the
+3-fleet territory left, whose ceiling is 219 + 3x79 = **456**. The cause is structural:
+**Leviathan, Executor and Negotiator were all on DEFENCE**, so the only attackers left
+were Raddus (71.9%) and Endurance (51.9%), and both lost to 506-546K Kyber fleets for
+1 banner each. `gac3v3_board.py --fleets` says the opposite and should be obeyed:
+**wall Home One / Negotiator / Raddus, attack with Leviathan / Executor / Chimaera**
+(expected denial 24 against expected offense 360). Hand-priced the same way this repo
+priced rule 7: walling the best three is worth ~401 all-in, attacking with them ~458.
+⚠ Not fixed on the live board this session: rebuilding a defensive fleet is a full
+manual 8-ship job per fleet and the character zones were the bigger win.
+
+### Round 3 defence PLACED (5/5 · 5/5 · 5/5 · 3/3)
+`output/gac3v3_board_r3_s83.json`, pushed to the in-game preset tabs first with
+`push_ingame_presets.py --payload output/gac3v3_upload_r3_s83.json --names-as-is --push`
+so the whole board could be set from SELECT SQUAD. Crons re-attached to the two that
+depend on one: the **level-15 Hutt cron** on Rotta (+155% Defense, +140% Potency, +100%
+Health, +100% Crit Damage, no downgrade arrow) and the lightside/Jedi-Vanguard L9 on
+Kelleran Beq.
+- ⚠ **The cron picker's DEFAULT selection is usually wrong.** Twice the pre-selected
+  entry was an off-scope Dark Side/Empire cron whose own panel said *"Does not apply to
+  any characters in the current squad"*. Read the bonus panel before pressing EQUIP;
+  the right one shows character portraits under the Level 3 bonus.
+- ⚠ In the SELECT SQUAD picker you must tap the **squad NAME/header row**. Tapping a
+  portrait opens that character's sheet and costs two screens to back out of.
+
+### Coliseum: the boss is JOTAZ, and the green pip is a real optimiser
+Zeffo Tomb Guardians rotated out. Jotaz ends after **it** takes 20 turns, takes less
+damage the longer it lives, revives once at full health, and hits buffless targets for
++250%, so it is a front-loaded burst race. **81% -> 95% (264,585 -> 311,590), rank 202 ->
+172, the 90% crate claimed.**
+- ⛔ The community top comps are **unfieldable here**: Jedi Knight Cal Kestis is not in
+  this era's loan pool. And the squad-screen **search box matches ABILITY text, not
+  names** — "Mace" returned "none of the units in this filter can be used", while Mace
+  Windu was sitting in the pool and was found by eye.
+- ⭐ **The N/M green pip on each portrait is a synergy oracle and it predicted the
+  score.** One variable changed, same auto, same boss:
+  JKL(L) / Mace Windu(L) / Mara Jade Skywalker / Barriss Offee(L) / **Starkiller (Luke
+  Concept)** = 7/8 pips = **300,995 (92%)**; swap Starkiller for **Kit Fisto**, a Jedi so
+  JKL's lead crit bonus doubles, = 8/8 = **311,590 (95%)**.
+  Dropping the healer Barriss for a third attacker = **283,135 (87%)**, so she earns it.
+- JKL's lead is +10% crit chance AND crit damage to Light Side, **doubled for Jedi**,
+  which is why Dark-Side Yoda (DSV) reads 0/2 under it and 1/1 under Darth Maul's.
+- ⭐ **The banked high score is a MAX, not a last value.** A final attempt can only
+  help, so when you need to cross a threshold, maximise VARIANCE, not the mean.
+
+### The rest of the run
+Dailies **8/8 + crate**, Guild Activities **600/600**, all 5 login calendars, farmbot
+19 entries (5 energy nodes, 2 challenges, 8 collects, 1 PvE win, 4 halts).
+**Territory War (Jakku) JOINED** — guild was 15/50 against a 25 minimum.
+**Fleet Arena #11 -> #7 -> #3** on auto with the Leviathan arena build, picking the
+LOWEST-power opponent each time (at #7 the rank-3 holder was also the weakest at 360K).
+Did NOT buy the 50-crystal cooldown skips: payout was ~16h out, so the rank would decay
+before it paid.
+Mods session: 6-dot 185 -> 186, plusSpeed 16,966 -> 16,967, 872,000 credits, 15
+attenuators. **Calibration is still dead on `rc=2 GOHServiceCall Error [40]`.** The
+slicing gate is **T05_06, short 866**.
+Episode Shipments, bought with Episode Currency and not crystals (71K -> 60.3K of a 100K
+cap): **Ability Material Omicron x2** (owned 5 -> 7) and Ability Material Mk III.
+Signal Data was already bought out this cycle.

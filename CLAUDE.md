@@ -326,8 +326,11 @@ the live event was 3v3. **Read the mapId first, then pick the tier list.**
   `..._kylorenunmasked`. Meanwhile GL Rey on the live board carried an off-scope set-32 cron.
   **Audit cron-to-squad scope every season; a perfectly scoped cron sitting idle is free banners.**
 - **A published rate is a bound when a cron is involved**, exactly like the TW omicron rule below.
-  Rotta / Cad Bane / Gamorrean Guard publishes 12.6% on n=665 measured across players who mostly do
-  NOT hold a level-15 Hutt cron. Astra does, so 12.6% is his floor.
+  ⭐ **Re-measured on the live S83 list 2026-09-21: the meta build is Rotta / Gamorrean Guard /
+  MOB ENFORCER and it is the #1 wall in 3v3 at 48.0% hold on n=8,676** (shrunk 38.6%). The old
+  "Rotta / Cad Bane / Gamorrean Guard, 12.6% on n=665" was a different build and is superseded.
+  That sample is still mostly players who do NOT hold a level-15 Hutt cron. Astra does, so 48% is
+  his floor.
 - ⚠ **Two set-34 crons sit at level 0, unbuilt.** Levelling is a random affix roll, so it is a gamble
   and an owner decision, not an autonomous one.
 - ⚠ Base ids in cron scopes are lowercase and sometimes surprising: **`raccoon` is Rotta the Hutt**,

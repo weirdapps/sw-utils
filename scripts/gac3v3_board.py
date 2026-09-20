@@ -68,13 +68,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "output")
 
-# S81 is the newest COMPLETE 3v3 season (83 is the live one). Both files were
-# re-pulled on 2026-09-11 after the first pull was found to carry stats for only
-# 56 of 156 rows: the tier bands below S are <details> accordions whose "Show N
+# S83 is the LIVE 3v3 season, re-pulled 2026-09-21 off 1.31M battles; the S81
+# files it replaced are kept in data/meta/ for comparison. Both were pulled after
+# expanding the tier bands below S: they are <details> accordions whose "Show N
 # more" control is a <summary>, not a <button>, so a click loop over buttons
 # expands nothing and the extractor silently returns cards with null rates.
-DEF_TIERLIST = os.path.join(DATA, "meta", "tierlist_3v3_def_kyber_s81_20260911.json")
-OFF_TIERLIST = os.path.join(DATA, "meta", "tierlist_3v3_off_kyber_s81_20260911.json")
+DEF_TIERLIST = os.path.join(DATA, "meta", "tierlist_3v3_def_kyber_s83_20260921.json")
+OFF_TIERLIST = os.path.join(DATA, "meta", "tierlist_3v3_off_kyber_s83_20260921.json")
 FLEET_DEF = os.path.join(DATA, "meta", "tierlist_fleet_def_kyber_s82_20260911.json")
 FLEET_OFF = os.path.join(DATA, "meta", "tierlist_fleet_off_kyber_s82_20260911.json")
 

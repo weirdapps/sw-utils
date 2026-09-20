@@ -1,0 +1,1564 @@
+{
+ "title": "SWGOH GAC 3v3 Squad Offense Tier List \u2014 Season 83 - SWGOH.GG",
+ "url": "https://swgoh.gg/tier-list/3v3/?side=offense",
+ "side": "offense",
+ "format": "3v3",
+ "league": "kyber",
+ "pulled": "2026-09-21",
+ "rawCards": 112,
+ "n": 105,
+ "bySize": {
+  "1": 12,
+  "2": 4,
+  "3": 89
+ },
+ "cards": [
+  {
+   "leader": "Ugnaught",
+   "units": [
+    "Ugnaught",
+    "Ezra Bridger",
+    "Hondo Ohnaka"
+   ],
+   "size": 3,
+   "win": 93.1,
+   "elo": 2470,
+   "battles": "13.9K",
+   "builds": "2",
+   "rank": "10",
+   "dcDependent": true
+  },
+  {
+   "leader": "Lord Vader",
+   "units": [
+    "Lord Vader",
+    "CC-1119 \"Appo\"",
+    "CX-2"
+   ],
+   "size": 3,
+   "win": 92.5,
+   "elo": 2915,
+   "battles": "16K",
+   "builds": "14",
+   "rank": "3",
+   "dcDependent": false
+  },
+  {
+   "leader": "The Stranger",
+   "units": [
+    "The Stranger",
+    "Maul (Hate-Fueled)",
+    "Starkiller"
+   ],
+   "size": 3,
+   "win": 91.6,
+   "elo": 3023,
+   "battles": "26.5K",
+   "builds": "22",
+   "rank": "2",
+   "dcDependent": false
+  },
+  {
+   "leader": "Ahsoka Tano",
+   "units": [
+    "Ahsoka Tano",
+    "Ezra Bridger (Exile)",
+    "Padawan Sabine Wren"
+   ],
+   "size": 3,
+   "win": 91.6,
+   "elo": 2693,
+   "battles": "4,265",
+   "builds": "11",
+   "rank": "6",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Maul",
+   "units": [
+    "Darth Maul",
+    "Darth Bane"
+   ],
+   "size": 2,
+   "win": 91.2,
+   "elo": 2169,
+   "battles": "28",
+   "builds": null,
+   "rank": "19",
+   "dcDependent": false
+  },
+  {
+   "leader": "Sith Eternal Emperor",
+   "units": [
+    "Sith Eternal Emperor",
+    "Darth Bane"
+   ],
+   "size": 2,
+   "win": 90.3,
+   "elo": 3056,
+   "battles": "18.5K",
+   "builds": "78",
+   "rank": "1",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Malgus",
+   "units": [
+    "Darth Malgus",
+    "Darth Malak",
+    "Darth Revan"
+   ],
+   "size": 3,
+   "win": 90.3,
+   "elo": 2159,
+   "battles": "23.8K",
+   "builds": "21",
+   "rank": "21",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Bane",
+   "units": [
+    "Darth Bane",
+    "Count Dooku"
+   ],
+   "size": 2,
+   "win": 90.2,
+   "elo": 2880,
+   "battles": "33.6K",
+   "builds": "22",
+   "rank": "5",
+   "dcDependent": false
+  },
+  {
+   "leader": "Supreme Leader Kylo Ren",
+   "units": [
+    "Supreme Leader Kylo Ren",
+    "Rey (Dark Side Vision)",
+    "Kylo Ren (Unmasked)"
+   ],
+   "size": 3,
+   "win": 90,
+   "elo": 2914,
+   "battles": "39.7K",
+   "builds": "18",
+   "rank": "4",
+   "dcDependent": false
+  },
+  {
+   "leader": "Rey (Dark Side Vision)",
+   "units": [
+    "Rey (Dark Side Vision)"
+   ],
+   "size": 1,
+   "win": 88.6,
+   "elo": 1360,
+   "battles": "21",
+   "builds": null,
+   "rank": "52",
+   "dcDependent": false
+  },
+  {
+   "leader": "Maz Kanata",
+   "units": [
+    "Maz Kanata",
+    "Kix",
+    "Quiggold"
+   ],
+   "size": 3,
+   "win": 88.5,
+   "elo": 2134,
+   "battles": "3,482",
+   "builds": "25",
+   "rank": "22",
+   "dcDependent": false
+  },
+  {
+   "leader": "Hera Syndulla",
+   "units": [
+    "Hera Syndulla",
+    "Captain Rex",
+    "Chopper"
+   ],
+   "size": 3,
+   "win": 88.3,
+   "elo": 1493,
+   "battles": "1,301",
+   "builds": "5",
+   "rank": "41",
+   "dcDependent": false
+  },
+  {
+   "leader": "Dark Trooper Moff Gideon",
+   "units": [
+    "Dark Trooper Moff Gideon",
+    "Moff Gideon",
+    "Scout Trooper"
+   ],
+   "size": 3,
+   "win": 87.8,
+   "elo": 1508,
+   "battles": "3,204",
+   "builds": "16",
+   "rank": "40",
+   "dcDependent": false
+  },
+  {
+   "leader": "Cere Junda",
+   "units": [
+    "Cere Junda",
+    "Maul",
+    "Taron Malicos"
+   ],
+   "size": 3,
+   "win": 86.9,
+   "elo": 2429,
+   "battles": "32.2K",
+   "builds": "25",
+   "rank": "12",
+   "dcDependent": false
+  },
+  {
+   "leader": "Cassian Andor (Undercover)",
+   "units": [
+    "Cassian Andor (Undercover)",
+    "Kleya Marki",
+    "Luthen Rael"
+   ],
+   "size": 3,
+   "win": 86.5,
+   "elo": 2267,
+   "battles": "2,392",
+   "builds": "6",
+   "rank": "16",
+   "dcDependent": false
+  },
+  {
+   "leader": "Rotta the Hutt",
+   "units": [
+    "Rotta the Hutt"
+   ],
+   "size": 1,
+   "win": 86.1,
+   "elo": 2263,
+   "battles": "14.3K",
+   "builds": "16",
+   "rank": "17",
+   "dcDependent": false
+  },
+  {
+   "leader": "Baylan Skoll",
+   "units": [
+    "Baylan Skoll",
+    "Marrok",
+    "Shin Hati"
+   ],
+   "size": 3,
+   "win": 86.1,
+   "elo": 2029,
+   "battles": "32.6K",
+   "builds": "6",
+   "rank": "24",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jabba the Hutt",
+   "units": [
+    "Jabba the Hutt",
+    "Boushh (Leia Organa)",
+    "Krrsantan"
+   ],
+   "size": 3,
+   "win": 85.9,
+   "elo": 2108,
+   "battles": "15K",
+   "builds": "9",
+   "rank": "23",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Master Kenobi",
+   "units": [
+    "Jedi Master Kenobi",
+    "Commander Ahsoka Tano",
+    "General Kenobi"
+   ],
+   "size": 3,
+   "win": 85.7,
+   "elo": 2434,
+   "battles": "34.5K",
+   "builds": "29",
+   "rank": "11",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Master Luke Skywalker",
+   "units": [
+    "Jedi Master Luke Skywalker",
+    "Jedi Knight Cal Kestis",
+    "Jedi Knight Luke Skywalker"
+   ],
+   "size": 3,
+   "win": 85.2,
+   "elo": 2162,
+   "battles": "34.7K",
+   "builds": "36",
+   "rank": "20",
+   "dcDependent": false
+  },
+  {
+   "leader": "Bo-Katan (Mand'alor)",
+   "units": [
+    "Bo-Katan (Mand'alor)",
+    "IG-12 & Grogu",
+    "The Mandalorian (Beskar Armor)"
+   ],
+   "size": 3,
+   "win": 83.9,
+   "elo": 2400,
+   "battles": "33.2K",
+   "builds": "16",
+   "rank": "13",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Revan",
+   "units": [
+    "Darth Revan",
+    "Mission Vao",
+    "Zaalbar"
+   ],
+   "size": 3,
+   "win": 83.9,
+   "elo": 1893,
+   "battles": "6,769",
+   "builds": "19",
+   "rank": "28",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Knight Luke Skywalker",
+   "units": [
+    "Jedi Knight Luke Skywalker",
+    "Hermit Yoda",
+    "Jedi Knight Cal Kestis"
+   ],
+   "size": 3,
+   "win": 83.8,
+   "elo": 1731,
+   "battles": "516",
+   "builds": "27",
+   "rank": "34",
+   "dcDependent": false
+  },
+  {
+   "leader": "General Skywalker",
+   "units": [
+    "General Skywalker",
+    "CT-5555 \"Fives\"",
+    "CT-7567 \"Rex\""
+   ],
+   "size": 3,
+   "win": 82.4,
+   "elo": 1629,
+   "battles": "21.5K",
+   "builds": "18",
+   "rank": "37",
+   "dcDependent": false
+  },
+  {
+   "leader": "Queen Amidala",
+   "units": [
+    "Queen Amidala",
+    "Master Qui-Gon",
+    "Padawan Obi-Wan"
+   ],
+   "size": 3,
+   "win": 82.1,
+   "elo": 2636,
+   "battles": "33.5K",
+   "builds": "3",
+   "rank": "8",
+   "dcDependent": false
+  },
+  {
+   "leader": "Third Sister",
+   "units": [
+    "Third Sister",
+    "Grand Inquisitor",
+    "Seventh Sister"
+   ],
+   "size": 3,
+   "win": 82,
+   "elo": 1842,
+   "battles": "22K",
+   "builds": "18",
+   "rank": "30",
+   "dcDependent": false
+  },
+  {
+   "leader": "Taron Malicos",
+   "units": [
+    "Taron Malicos"
+   ],
+   "size": 1,
+   "win": 81.6,
+   "elo": 1355,
+   "battles": "45",
+   "builds": null,
+   "rank": "53",
+   "dcDependent": false
+  },
+  {
+   "leader": "CT-7567 \"Rex\"",
+   "units": [
+    "CT-7567 \"Rex\"",
+    "Captain Rex",
+    "CT-5555 \"Fives\""
+   ],
+   "size": 3,
+   "win": 81.5,
+   "elo": 1436,
+   "battles": "1,672",
+   "builds": "3",
+   "rank": "44",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Traya",
+   "units": [
+    "Darth Traya",
+    "Darth Nihilus",
+    "Savage Opress"
+   ],
+   "size": 3,
+   "win": 81.4,
+   "elo": 1922,
+   "battles": "37.5K",
+   "builds": "13",
+   "rank": "27",
+   "dcDependent": false
+  },
+  {
+   "leader": "Captain Enoch",
+   "units": [
+    "Captain Enoch",
+    "Death Trooper (Peridea)",
+    "Night Trooper"
+   ],
+   "size": 3,
+   "win": 81.1,
+   "elo": 1411,
+   "battles": "5,098",
+   "builds": "2",
+   "rank": "46",
+   "dcDependent": false
+  },
+  {
+   "leader": "Admiral Raddus",
+   "units": [
+    "Admiral Raddus",
+    "Cassian Andor",
+    "Jyn Erso"
+   ],
+   "size": 3,
+   "win": 80.8,
+   "elo": 1408,
+   "battles": "14.5K",
+   "builds": "9",
+   "rank": "48",
+   "dcDependent": false
+  },
+  {
+   "leader": "Leia Organa",
+   "units": [
+    "Leia Organa",
+    "Captain Drogan",
+    "R2-D2"
+   ],
+   "size": 3,
+   "win": 79.6,
+   "elo": 2693,
+   "battles": "63.7K",
+   "builds": "14",
+   "rank": "7",
+   "dcDependent": false
+  },
+  {
+   "leader": "Maul (Hate-Fueled)",
+   "units": [
+    "Maul (Hate-Fueled)"
+   ],
+   "size": 1,
+   "win": 79.5,
+   "elo": 1200,
+   "battles": "40",
+   "builds": null,
+   "rank": "61",
+   "dcDependent": false
+  },
+  {
+   "leader": "Rey",
+   "units": [
+    "Rey",
+    "Ben Solo",
+    "Rey (Jedi Training)"
+   ],
+   "size": 3,
+   "win": 79.3,
+   "elo": 2482,
+   "battles": "1,245",
+   "builds": "16",
+   "rank": "9",
+   "dcDependent": false
+  },
+  {
+   "leader": "Maul",
+   "units": [
+    "Maul",
+    "Gar Saxon",
+    "Imperial Super Commando"
+   ],
+   "size": 3,
+   "win": 79.1,
+   "elo": 1418,
+   "battles": "3,389",
+   "builds": "19",
+   "rank": "45",
+   "dcDependent": false
+  },
+  {
+   "leader": "Great Mothers",
+   "units": [
+    "Great Mothers",
+    "Morgan Elsbeth",
+    "Nightsister Spirit"
+   ],
+   "size": 3,
+   "win": 78.6,
+   "elo": 1989,
+   "battles": "27.8K",
+   "builds": "15",
+   "rank": "25",
+   "dcDependent": false
+  },
+  {
+   "leader": "Kylo Ren (Unmasked)",
+   "units": [
+    "Kylo Ren (Unmasked)",
+    "Rey (Dark Side Vision)",
+    "General Hux"
+   ],
+   "size": 3,
+   "win": 78.4,
+   "elo": 1542,
+   "battles": "44",
+   "builds": "5",
+   "rank": "39",
+   "dcDependent": true
+  },
+  {
+   "leader": "Mon Mothma",
+   "units": [
+    "Mon Mothma",
+    "Kyle Katarn",
+    "Luthen Rael"
+   ],
+   "size": 3,
+   "win": 77.8,
+   "elo": 1656,
+   "battles": "597",
+   "builds": "4",
+   "rank": "36",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Malak",
+   "units": [
+    "Darth Malak"
+   ],
+   "size": 1,
+   "win": 77.1,
+   "elo": 1043,
+   "battles": "872",
+   "builds": null,
+   "rank": "69",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Master Mace Windu",
+   "units": [
+    "Jedi Master Mace Windu",
+    "Depa Billaba",
+    "Temple Guard"
+   ],
+   "size": 3,
+   "win": 77,
+   "elo": 1463,
+   "battles": "3,350",
+   "builds": "11",
+   "rank": "43",
+   "dcDependent": false
+  },
+  {
+   "leader": "Padm\u00e9 Amidala",
+   "units": [
+    "Padm\u00e9 Amidala",
+    "Ahsoka Tano (Snips)",
+    "Grand Master Yoda"
+   ],
+   "size": 3,
+   "win": 76.7,
+   "elo": 1250,
+   "battles": "1,325",
+   "builds": "26",
+   "rank": "59",
+   "dcDependent": false
+  },
+  {
+   "leader": "Boss Nass",
+   "units": [
+    "Boss Nass",
+    "Captain Tarpals",
+    "Jar Jar Binks"
+   ],
+   "size": 3,
+   "win": 76.3,
+   "elo": 1770,
+   "battles": "3,340",
+   "builds": "6",
+   "rank": "33",
+   "dcDependent": true
+  },
+  {
+   "leader": "Emperor Palpatine",
+   "units": [
+    "Emperor Palpatine",
+    "Mara Jade, The Emperor's Hand",
+    "Darth Vader (Duel's End)"
+   ],
+   "size": 3,
+   "win": 76.2,
+   "elo": 1840,
+   "battles": "11.2K",
+   "builds": "14",
+   "rank": "31",
+   "dcDependent": false
+  },
+  {
+   "leader": "Dash Rendar",
+   "units": [
+    "Dash Rendar",
+    "Chewbacca",
+    "Han Solo"
+   ],
+   "size": 3,
+   "win": 76,
+   "elo": 1407,
+   "battles": "5,936",
+   "builds": "9",
+   "rank": "49",
+   "dcDependent": false
+  },
+  {
+   "leader": "Stormtrooper Luke",
+   "units": [
+    "Stormtrooper Luke",
+    "Princess Leia",
+    "Stormtrooper Han"
+   ],
+   "size": 3,
+   "win": 75.8,
+   "elo": 1411,
+   "battles": "1,677",
+   "builds": null,
+   "rank": "47",
+   "dcDependent": false
+  },
+  {
+   "leader": "Satele Shan",
+   "units": [
+    "Satele Shan",
+    "Bastila Shan",
+    "Jedi Knight Revan"
+   ],
+   "size": 3,
+   "win": 75.7,
+   "elo": 2305,
+   "battles": "42.1K",
+   "builds": "8",
+   "rank": "15",
+   "dcDependent": false
+  },
+  {
+   "leader": "Doctor Aphra",
+   "units": [
+    "Doctor Aphra",
+    "BT-1",
+    "IG-90"
+   ],
+   "size": 3,
+   "win": 74.7,
+   "elo": 1673,
+   "battles": "10.1K",
+   "builds": "7",
+   "rank": "35",
+   "dcDependent": false
+  },
+  {
+   "leader": "Grand Moff Tarkin",
+   "units": [
+    "Grand Moff Tarkin",
+    "Disguised Clone Trooper",
+    "RC-1262 \"Scorch\""
+   ],
+   "size": 3,
+   "win": 74.6,
+   "elo": 1377,
+   "battles": "3,219",
+   "builds": "9",
+   "rank": "51",
+   "dcDependent": false
+  },
+  {
+   "leader": "Pirate King Hondo Ohnaka",
+   "units": [
+    "Pirate King Hondo Ohnaka",
+    "SM-33",
+    "Vane"
+   ],
+   "size": 3,
+   "win": 74.3,
+   "elo": 1967,
+   "battles": "2,010",
+   "builds": "20",
+   "rank": "26",
+   "dcDependent": false
+  },
+  {
+   "leader": "Commander Luke Skywalker",
+   "units": [
+    "Commander Luke Skywalker",
+    "Chewbacca",
+    "Han Solo"
+   ],
+   "size": 3,
+   "win": 71.6,
+   "elo": 1086,
+   "battles": "10.6K",
+   "builds": "7",
+   "rank": "66",
+   "dcDependent": false
+  },
+  {
+   "leader": "Wampa",
+   "units": [
+    "Wampa"
+   ],
+   "size": 1,
+   "win": 71.3,
+   "elo": 947,
+   "battles": "15.8K",
+   "builds": null,
+   "rank": "76",
+   "dcDependent": false
+  },
+  {
+   "leader": "Cobb Vanth",
+   "units": [
+    "Cobb Vanth",
+    "Coruscant Underworld Police",
+    "Lobot"
+   ],
+   "size": 3,
+   "win": 70.9,
+   "elo": 1825,
+   "battles": "9,863",
+   "builds": "14",
+   "rank": "32",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Knight Revan",
+   "units": [
+    "Jedi Knight Revan",
+    "Bastila Shan",
+    "Grand Master Yoda"
+   ],
+   "size": 3,
+   "win": 70.4,
+   "elo": 1131,
+   "battles": "286",
+   "builds": "13",
+   "rank": "64",
+   "dcDependent": false
+  },
+  {
+   "leader": "Nute Gunray",
+   "units": [
+    "Nute Gunray",
+    "B1 Battle Droid",
+    "Jango Fett"
+   ],
+   "size": 3,
+   "win": 70.4,
+   "elo": 1037,
+   "battles": "183",
+   "builds": "2",
+   "rank": "70",
+   "dcDependent": false
+  },
+  {
+   "leader": "Grand Inquisitor",
+   "units": [
+    "Grand Inquisitor",
+    "Ninth Sister",
+    "Seventh Sister"
+   ],
+   "size": 3,
+   "win": 69,
+   "elo": 1168,
+   "battles": "1,023",
+   "builds": "13",
+   "rank": "63",
+   "dcDependent": false
+  },
+  {
+   "leader": "Hunter",
+   "units": [
+    "Hunter",
+    "Echo",
+    "Tech"
+   ],
+   "size": 3,
+   "win": 68.1,
+   "elo": 781,
+   "battles": "1,709",
+   "builds": "3",
+   "rank": "87",
+   "dcDependent": false
+  },
+  {
+   "leader": "General Veers",
+   "units": [
+    "General Veers",
+    "Admiral Piett",
+    "Dark Trooper"
+   ],
+   "size": 3,
+   "win": 66.8,
+   "elo": 887,
+   "battles": "1,487",
+   "builds": "6",
+   "rank": "80",
+   "dcDependent": false
+  },
+  {
+   "leader": "Qui-Gon Jinn",
+   "units": [
+    "Qui-Gon Jinn",
+    "Jedi Knight Anakin",
+    "Ki-Adi-Mundi"
+   ],
+   "size": 3,
+   "win": 66.6,
+   "elo": 1198,
+   "battles": "1,295",
+   "builds": "12",
+   "rank": "62",
+   "dcDependent": false
+  },
+  {
+   "leader": "Major Partagaz",
+   "units": [
+    "Major Partagaz",
+    "Dedra Meero",
+    "KX Security Droid"
+   ],
+   "size": 3,
+   "win": 66.1,
+   "elo": 1259,
+   "battles": "643",
+   "builds": null,
+   "rank": "57",
+   "dcDependent": false
+  },
+  {
+   "leader": "Boba Fett, Scion of Jango",
+   "units": [
+    "Boba Fett, Scion of Jango",
+    "Asajj Ventress (Dark Disciple)",
+    "Fennec Shand"
+   ],
+   "size": 3,
+   "win": 65.1,
+   "elo": 1258,
+   "battles": "485",
+   "builds": "5",
+   "rank": "58",
+   "dcDependent": false
+  },
+  {
+   "leader": "Tarfful",
+   "units": [
+    "Tarfful",
+    "Clone Wars Chewbacca",
+    "Yoda & Chewie"
+   ],
+   "size": 3,
+   "win": 64.9,
+   "elo": 1012,
+   "battles": "70",
+   "builds": "3",
+   "rank": "71",
+   "dcDependent": false
+  },
+  {
+   "leader": "Captain Carson Teva",
+   "units": [
+    "Captain Carson Teva",
+    "R5-D4",
+    "Zeb Orrelios (New Republic Pilot)"
+   ],
+   "size": 3,
+   "win": 63.7,
+   "elo": 1289,
+   "battles": "261",
+   "builds": "4",
+   "rank": "55",
+   "dcDependent": false
+  },
+  {
+   "leader": "Kelleran Beq",
+   "units": [
+    "Kelleran Beq",
+    "Jocasta Nu",
+    "Shaak Ti"
+   ],
+   "size": 3,
+   "win": 63.5,
+   "elo": 1260,
+   "battles": "805",
+   "builds": "27",
+   "rank": "56",
+   "dcDependent": true
+  },
+  {
+   "leader": "Kylo Ren",
+   "units": [
+    "Kylo Ren"
+   ],
+   "size": 1,
+   "win": 63.5,
+   "elo": 558,
+   "battles": "67",
+   "builds": null,
+   "rank": "95",
+   "dcDependent": false
+  },
+  {
+   "leader": "General Syndulla",
+   "units": [
+    "General Syndulla",
+    "Ahsoka Tano (Fulcrum)",
+    "Huyang"
+   ],
+   "size": 3,
+   "win": 63.1,
+   "elo": 1046,
+   "battles": "160",
+   "builds": "5",
+   "rank": "68",
+   "dcDependent": false
+  },
+  {
+   "leader": "Finn",
+   "units": [
+    "Finn",
+    "Resistance Hero Finn",
+    "Zorii Bliss"
+   ],
+   "size": 3,
+   "win": 63,
+   "elo": 1047,
+   "battles": "539",
+   "builds": "6",
+   "rank": "67",
+   "dcDependent": false
+  },
+  {
+   "leader": "Iden Versio",
+   "units": [
+    "Iden Versio",
+    "Death Trooper",
+    "Range Trooper"
+   ],
+   "size": 3,
+   "win": 62.4,
+   "elo": 975,
+   "battles": "110",
+   "builds": "9",
+   "rank": "74",
+   "dcDependent": false
+  },
+  {
+   "leader": "Tusken Chieftain",
+   "units": [
+    "Tusken Chieftain",
+    "Tusken Warrior",
+    "Tusken Raider"
+   ],
+   "size": 3,
+   "win": 61.7,
+   "elo": 1618,
+   "battles": "645",
+   "builds": "5",
+   "rank": "38",
+   "dcDependent": false
+  },
+  {
+   "leader": "Chief Nebit",
+   "units": [
+    "Chief Nebit",
+    "Jawa Engineer",
+    "Jawa Scavenger"
+   ],
+   "size": 3,
+   "win": 60,
+   "elo": 618,
+   "battles": "182",
+   "builds": "3",
+   "rank": "94",
+   "dcDependent": false
+  },
+  {
+   "leader": "Bastila Shan",
+   "units": [
+    "Bastila Shan",
+    "Jedi Knight Cal Kestis",
+    "Jedi Knight Revan"
+   ],
+   "size": 3,
+   "win": 59.8,
+   "elo": 1117,
+   "battles": "28",
+   "builds": "2",
+   "rank": "65",
+   "dcDependent": false
+  },
+  {
+   "leader": "Enfys Nest",
+   "units": [
+    "Enfys Nest"
+   ],
+   "size": 1,
+   "win": 59.1,
+   "elo": 553,
+   "battles": "62",
+   "builds": null,
+   "rank": "96",
+   "dcDependent": false
+  },
+  {
+   "leader": "General Hux",
+   "units": [
+    "General Hux",
+    "First Order TIE Pilot",
+    "Sith Trooper"
+   ],
+   "size": 3,
+   "win": 58.4,
+   "elo": 805,
+   "battles": "69",
+   "builds": "2",
+   "rank": "84",
+   "dcDependent": false
+  },
+  {
+   "leader": "The Mandalorian (Beskar Armor)",
+   "units": [
+    "The Mandalorian (Beskar Armor)",
+    "Chewbacca",
+    "Han Solo"
+   ],
+   "size": 3,
+   "win": 57.4,
+   "elo": 789,
+   "battles": "62",
+   "builds": null,
+   "rank": "85",
+   "dcDependent": false
+  },
+  {
+   "leader": "Snowtrooper Commander",
+   "units": [
+    "Snowtrooper Commander",
+    "Snowtrooper",
+    "TIE Fighter Pilot"
+   ],
+   "size": 3,
+   "win": 57.2,
+   "elo": 1006,
+   "battles": "147",
+   "builds": null,
+   "rank": "72",
+   "dcDependent": false
+  },
+  {
+   "leader": "Bossk",
+   "units": [
+    "Bossk",
+    "Greef Karga",
+    "The Mandalorian"
+   ],
+   "size": 3,
+   "win": 56.4,
+   "elo": 914,
+   "battles": "1,909",
+   "builds": "12",
+   "rank": "78",
+   "dcDependent": false
+  },
+  {
+   "leader": "Darth Vader",
+   "units": [
+    "Darth Vader",
+    "Admiral Piett",
+    "Grand Admiral Thrawn"
+   ],
+   "size": 3,
+   "win": 56.2,
+   "elo": 786,
+   "battles": "422",
+   "builds": "17",
+   "rank": "86",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Knight Cal Kestis",
+   "units": [
+    "Jedi Knight Cal Kestis",
+    "Grand Master Yoda",
+    "Shaak Ti"
+   ],
+   "size": 3,
+   "win": 55.3,
+   "elo": 878,
+   "battles": "22",
+   "builds": "2",
+   "rank": "82",
+   "dcDependent": false
+  },
+  {
+   "leader": "Rey (Jedi Training)",
+   "units": [
+    "Rey (Jedi Training)",
+    "BB-8",
+    "Rey (Scavenger)"
+   ],
+   "size": 3,
+   "win": 53.9,
+   "elo": 695,
+   "battles": "152",
+   "builds": "3",
+   "rank": "92",
+   "dcDependent": false
+  },
+  {
+   "leader": "Saw Gerrera",
+   "units": [
+    "Saw Gerrera",
+    "Captain Rex",
+    "Kyle Katarn"
+   ],
+   "size": 3,
+   "win": 53.6,
+   "elo": 1394,
+   "battles": "345",
+   "builds": "5",
+   "rank": "50",
+   "dcDependent": false
+  },
+  {
+   "leader": "Admiral Trench",
+   "units": [
+    "Admiral Trench",
+    "Count Dooku",
+    "Jango Fett"
+   ],
+   "size": 3,
+   "win": 51.5,
+   "elo": 712,
+   "battles": "166",
+   "builds": "5",
+   "rank": "89",
+   "dcDependent": false
+  },
+  {
+   "leader": "General Grievous",
+   "units": [
+    "General Grievous",
+    "B1 Battle Droid",
+    "B2 Super Battle Droid"
+   ],
+   "size": 3,
+   "win": 51.3,
+   "elo": 522,
+   "battles": "266",
+   "builds": "11",
+   "rank": "98",
+   "dcDependent": false
+  },
+  {
+   "leader": "Inquisitor Barriss",
+   "units": [
+    "Inquisitor Barriss",
+    "Ninth Sister",
+    "Second Sister"
+   ],
+   "size": 3,
+   "win": 50.7,
+   "elo": 860,
+   "battles": "398",
+   "builds": "5",
+   "rank": "83",
+   "dcDependent": false
+  },
+  {
+   "leader": "Chief Chirpa",
+   "units": [
+    "Chief Chirpa",
+    "Princess Kneesaa",
+    "Wicket"
+   ],
+   "size": 3,
+   "win": 50.7,
+   "elo": 762,
+   "battles": "91",
+   "builds": "2",
+   "rank": "88",
+   "dcDependent": false
+  },
+  {
+   "leader": "4-LOM",
+   "units": [
+    "4-LOM",
+    "Asajj Ventress (Dark Disciple)",
+    "Zuckuss"
+   ],
+   "size": 3,
+   "win": 50.6,
+   "elo": 982,
+   "battles": "34",
+   "builds": null,
+   "rank": "73",
+   "dcDependent": false
+  },
+  {
+   "leader": "Gar Saxon",
+   "units": [
+    "Gar Saxon",
+    "Imperial Super Commando"
+   ],
+   "size": 2,
+   "win": 50.6,
+   "elo": 949,
+   "battles": "34",
+   "builds": null,
+   "rank": "75",
+   "dcDependent": false
+  },
+  {
+   "leader": "Asajj Ventress",
+   "units": [
+    "Asajj Ventress",
+    "Old Daka",
+    "Nightsister Zombie"
+   ],
+   "size": 3,
+   "win": 49.9,
+   "elo": 401,
+   "battles": "24",
+   "builds": null,
+   "rank": "105",
+   "dcDependent": false
+  },
+  {
+   "leader": "Mother Talzin",
+   "units": [
+    "Mother Talzin",
+    "Old Daka",
+    "Merrin"
+   ],
+   "size": 3,
+   "win": 49.7,
+   "elo": 645,
+   "battles": "303",
+   "builds": "6",
+   "rank": "93",
+   "dcDependent": false
+  },
+  {
+   "leader": "Shaak Ti",
+   "units": [
+    "Shaak Ti",
+    "ARC Trooper",
+    "CT-21-0408 \"Echo\""
+   ],
+   "size": 3,
+   "win": 49.4,
+   "elo": 406,
+   "battles": "127",
+   "builds": "3",
+   "rank": "103",
+   "dcDependent": false
+  },
+  {
+   "leader": "Omega (Fugitive)",
+   "units": [
+    "Omega (Fugitive)",
+    "Crosshair (Scarred)",
+    "Wrecker (Mercenary)"
+   ],
+   "size": 3,
+   "win": 48.2,
+   "elo": 1477,
+   "battles": "856",
+   "builds": "6",
+   "rank": "42",
+   "dcDependent": false
+  },
+  {
+   "leader": "Geonosian Brood Alpha",
+   "units": [
+    "Geonosian Brood Alpha",
+    "Geonosian Spy",
+    "Sun Fac"
+   ],
+   "size": 3,
+   "win": 47,
+   "elo": 403,
+   "battles": "133",
+   "builds": "3",
+   "rank": "104",
+   "dcDependent": false
+  },
+  {
+   "leader": "Captain Ithano",
+   "units": [
+    "Captain Ithano",
+    "Brutus",
+    "Hondo Ohnaka"
+   ],
+   "size": 3,
+   "win": 45.4,
+   "elo": 879,
+   "battles": "51",
+   "builds": "10",
+   "rank": "81",
+   "dcDependent": false
+  },
+  {
+   "leader": "Grand Admiral Thrawn",
+   "units": [
+    "Grand Admiral Thrawn",
+    "Admiral Piett",
+    "Magmatrooper"
+   ],
+   "size": 3,
+   "win": 44.6,
+   "elo": 1214,
+   "battles": "748",
+   "builds": "25",
+   "rank": "60",
+   "dcDependent": false
+  },
+  {
+   "leader": "Captain Phasma",
+   "units": [
+    "Captain Phasma",
+    "First Order TIE Pilot",
+    "Sith Trooper"
+   ],
+   "size": 3,
+   "win": 43.8,
+   "elo": 488,
+   "battles": "23",
+   "builds": null,
+   "rank": "100",
+   "dcDependent": false
+  },
+  {
+   "leader": "CT-5555 \"Fives\"",
+   "units": [
+    "CT-5555 \"Fives\"",
+    "Captain Rex",
+    "CT-21-0408 \"Echo\""
+   ],
+   "size": 3,
+   "win": 42.2,
+   "elo": 701,
+   "battles": "42",
+   "builds": "2",
+   "rank": "91",
+   "dcDependent": false
+  },
+  {
+   "leader": "CC-2224 \"Cody\"",
+   "units": [
+    "CC-2224 \"Cody\"",
+    "ARC Trooper",
+    "Captain Rex"
+   ],
+   "size": 3,
+   "win": 41.9,
+   "elo": 708,
+   "battles": "30",
+   "builds": null,
+   "rank": "90",
+   "dcDependent": false
+  },
+  {
+   "leader": "Boba Fett",
+   "units": [
+    "Boba Fett",
+    "Dengar",
+    "Zam Wesell"
+   ],
+   "size": 3,
+   "win": 37,
+   "elo": 473,
+   "battles": "29",
+   "builds": "2",
+   "rank": "101",
+   "dcDependent": false
+  },
+  {
+   "leader": "Fifth Brother",
+   "units": [
+    "Fifth Brother",
+    "Eighth Brother",
+    "Ninth Sister"
+   ],
+   "size": 3,
+   "win": 30.9,
+   "elo": 354,
+   "battles": "119",
+   "builds": "7",
+   "rank": "106",
+   "dcDependent": false
+  },
+  {
+   "leader": "Captain Silvo",
+   "units": [
+    "Captain Silvo",
+    "Brutus",
+    "Hondo Ohnaka"
+   ],
+   "size": 3,
+   "win": 25.9,
+   "elo": 502,
+   "battles": "34",
+   "builds": "2",
+   "rank": "99",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jango Fett",
+   "units": [
+    "Jango Fett",
+    "Asajj Ventress (Dark Disciple)",
+    "The Mandalorian"
+   ],
+   "size": 3,
+   "win": 25.6,
+   "elo": 925,
+   "battles": "375",
+   "builds": "8",
+   "rank": "77",
+   "dcDependent": false
+  },
+  {
+   "leader": "Fennec Shand",
+   "units": [
+    "Fennec Shand",
+    "Greef Karga",
+    "The Mandalorian"
+   ],
+   "size": 3,
+   "win": 17.6,
+   "elo": 272,
+   "battles": "91",
+   "builds": null,
+   "rank": "108",
+   "dcDependent": false
+  },
+  {
+   "leader": "Aurra Sing",
+   "units": [
+    "Aurra Sing",
+    "Greef Karga",
+    "The Mandalorian"
+   ],
+   "size": 3,
+   "win": 12.9,
+   "elo": 94,
+   "battles": "54",
+   "builds": null,
+   "rank": "109",
+   "dcDependent": false
+  },
+  {
+   "leader": "Coruscant Underworld Police",
+   "units": [
+    "Coruscant Underworld Police"
+   ],
+   "size": 1,
+   "win": 5.9,
+   "elo": 316,
+   "battles": "21",
+   "builds": null,
+   "rank": "107",
+   "dcDependent": false
+  },
+  {
+   "leader": "Jedi Knight Guardian",
+   "units": [
+    "Jedi Knight Guardian"
+   ],
+   "size": 1,
+   "win": 1.1,
+   "elo": null,
+   "battles": "21",
+   "builds": null,
+   "rank": "110",
+   "dcDependent": false
+  },
+  {
+   "leader": "Hermit Yoda",
+   "units": [
+    "Hermit Yoda"
+   ],
+   "size": 1,
+   "win": 0,
+   "elo": null,
+   "battles": "24",
+   "builds": null,
+   "rank": "111",
+   "dcDependent": false
+  },
+  {
+   "leader": "C-3PO",
+   "units": [
+    "C-3PO"
+   ],
+   "size": 1,
+   "win": 0,
+   "elo": null,
+   "battles": "44",
+   "builds": null,
+   "rank": "112",
+   "dcDependent": false
+  }
+ ]
+}
