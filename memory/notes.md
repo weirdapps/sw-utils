@@ -5952,3 +5952,61 @@ Leviathan/Executor/Negotiator does. The crew-to-capital mapping is NOT in this r
 a squad losing a unit costs a whole wall (the 21.6% GL Leia squad is 59 banners plus its
 share of the front-A gate). Spending +33 of expected value to risk more than that, on a
 board already verified correct, is a bad trade. Revisit once crew data exists.
+
+### 2026-09-21 (05:40) — ⭐⭐ THE OWNER WAS RIGHT: DEFENCE DOES NOT HOLD, SO THE BEST SQUADS ATTACK
+
+Owner: *"you need to keep the best teams for offense. GLs on defense should be limited."*
+He is right, and there is first-party evidence for it that this repo had never looked at.
+
+**THE MEASUREMENT THAT SETTLES IT.** `gac/get` returns
+`gac.home.player.defensePercent9` and `defensePercent14`. For Astra they are **14 and 2**
+(opponent Kyp Durron: 66 and 10). And round 2 is unambiguous: **the opponent scored 2,045
+of the 2,082 available, 98.2%, so the board realised 1.8% denial** while
+`gac3v3_board.py` was predicting 66%. Astra's own offence cleared **15/15 squads**.
+⇒ **realised offence ~= 1.0, realised defence 0.02-0.14.** The model prices BOTH at 1.0,
+which is precisely why it over-walls. Scale the defensive rates by the measured d and the
+whole argument for walling GLs evaporates.
+
+**WHY Hold% IS NOT TRANSFERABLE AND Win% IS.** swgoh.gg measures Hold% over ALL attackers,
+including the ones who threw the wrong squad at it. A Kyber-3 opponent routes the correct
+counter, so what you realise is the lower tail, not the mean. Win% has no such problem
+because you also choose the matchup. The repo already half-knew this ("1 - Win% IS NEVER A
+HOLD RATE") without drawing the consequence.
+
+**AND THE MODEL'S OFFENCE TERM IS MATCHUP-BLIND, WHICH IS THE OTHER HALF.** `/gac/counters/`
+is genuinely Kyber and format scoped ("Season 83 - 3v3", 35.6K battles on Lord Vader alone)
+and the spread is enormous for the SAME wall:
+- **Lord Vader** wall: **Darth Bane + Count Dooku 98%**, Bo-Katan/IG-12/Mando 93%,
+  SLKR 87%, **GL Leia / Captain Drogan / R2-D2 86%**.
+- **SLKR** wall: **Darth Bane + partner 87-94%** (n=388, 117, 55), Stranger trio 100% (n=8).
+⇒ **Darth Bane is the universal answer and he is single-use**, so breadth of attackers is
+the binding constraint, not average win rate. `offense_value` sums generic rates over the
+top 15 and cannot see any of this, so it treats the 15th and 16th squads as interchangeable
+when they are not.
+
+**EVERY ONE OF THE NINE GLs HAS AN S83 OFFENCE ROW** (Rey 79.3% n=1,245 up to Lord Vader
+92.5% n=16K). By CLAUDE.md's own rule 7 - a GL walls only if it has NO offence role - none
+of them should wall. The 3v3 "K = 4 or 5 GLs wall" finding was measured on this same model
+and inherits its denial error.
+
+**WHAT WAS PLACED (verified via `gac/get {refresh:true}`, all 15 squads full 3-unit):**
+`output/gac3v3_board_r3_v3.json`, net +311, **only 2 GLs walling**.
+- FRONT-A: GL Rey · Kelleran Beq · GL Leia · Great Mothers · Stormtrooper Luke
+- FRONT-B: Rotta · Cassian (Undercover) · Carson Teva · Darth Traya · Iden Versio
+- BACK-B : Snowtroopers · Thrawn · Tuskens · Boss Nass · Satele Shan
+Freed for offence: **Lord Vader 92.5%, Ahsoka 91.6%, The Stranger 91.6%**, plus SLKR, Jabba,
+JMK, JML, SEE. Rey (79.3%) and Leia (79.6%) still wall because they are the 16th/17th best
+attackers and would not make a 15-attack rotation anyway.
+Cost against the 02:45 board: **-47 on the model objective, all of it in the denial term the
+data falsifies.** At the measured d the two are within ~10.
+
+**⛔ TWO PLACEMENT TRAPS, BOTH COST REAL TIME TONIGHT.**
+1. **Every HotUtils write kicks the client and the kick lands LATE.** Three separate
+   in-flight squad removals were silently discarded by a CONNECTION LOST that fired seconds
+   after a `squads/game/set`. Finish ALL pushes, reload once, then place, and touch nothing
+   HotUtils-side until the board is done.
+2. **RESTRICTED CHARACTERS is not always fatal and not always survivable.** The same dialog
+   placed A4 (with R2-D2) and K3 (with TIE Fighter Pilot) full 3-unit earlier, but returned
+   an EMPTY builder for the Stranger squad. Read the zone count after, never assume.
+3. In the preset picker, tap the squad NAME ROW. A portrait opens the character sheet, and
+   a header sitting in the bottom ~15% of the list does not register - nudge it up first.
