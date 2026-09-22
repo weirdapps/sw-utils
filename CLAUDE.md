@@ -616,8 +616,13 @@ python3 scripts/verify_facts.py --unit IMAGUNDI   # ground truth for one unit, i
   shadow prices for free: farming a material you already hold in surplus is waste, however good the
   node looks.
 - ⭐ **Two hard gates that raid tickets cannot buy, at any price:**
-  **SIGNAL DATA** is cantina-energy-only (no store sells it for a token) and is the largest line in
-  the basket — **100 Flawed per R7→R9**. **DROID BRAIN** has no repeatable token route at all.
+  **SIGNAL DATA** is the largest line in the basket (**100 Flawed per R7→R9**) and raid tokens
+  cannot touch it. ⛔ **CORRECTED 2026-09-22: "no store sells it for a token" IS FALSE.**
+  **Episode Shipments sells Fragmented Signal Data 45-for-4,500 and Incomplete Signal Data
+  40-for-5,400**, one of each per weekly refresh, and Episode currency has no competing claim
+  (60,900 banked on 2026-09-22). Buy both every refresh. The *Flawed* tier is still
+  cantina-only, so cantina 8-G stays the farm for it. **DROID BRAIN** has no repeatable token
+  route at all.
   ⇒ Cantina energy is NOT interchangeable with the other pools despite paying the same 1 ticket,
   and Assault Battles / Endor Escalation / Knightfall / Coven of Shadows are **mandatory**, not
   optional, for anything past R8.
