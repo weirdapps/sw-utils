@@ -6010,3 +6010,93 @@ data falsifies.** At the measured d the two are within ~10.
    an EMPTY builder for the Stranger squad. Read the zone count after, never assume.
 3. In the preset picker, tap the squad NAME ROW. A portrait opens the character sheet, and
    a header sitting in the bottom ~15% of the list does not register - nudge it up first.
+
+## 2026-09-22 (11:24-) — GAC ROUND 3 LOST ON THE FLEET SPLIT, AND ALL 15 CRONS ARE ON
+
+### ⛔⛔ THE OVERNIGHT NOTE WAS WRONG TWICE, AND BOTH ERRORS WERE FREE TO CHECK
+It said "1,603 to 0, three of four territories conquered" and "the fleet zone was two first
+attempts, so rule 6 says walk away". Live `gac/get` at 11:50 says **1,605 to 1,629**, and
+`away.zones[fleet].squads[].successfulDefends` reads **1, 2, 3**.
+- ⭐ **`successfulDefends` IS THE PER-TARGET ATTEMPT COUNTER.** Six fleet attempts were spent
+  and all six lost. Reading it as "we made two attempts" turns a zero-bonus fourth attempt
+  into an imagined free first. Read it before every attack decision.
+- ⭐ **`zones[].score` on YOUR side sums to the scoreline.** 550 + 537 + 2 + 516 = 1,605.
+  The `2` is the fleet zone: six losses paid one banner twice and nothing else.
+- ⇒ The round was never won. It ends 2026-09-23 00:00 EEST at a **24-banner loss**, and the
+  week is **1-2** (R1 win, R2 loss, R3 loss). Skill rating stays ~3,165, Kyber 3.
+
+### ⛔ THE FLEET POOL WAS EXHAUSTED, AND THAT IS THE WHOLE STORY
+The attack builder for the enemy Profundity offers **Raddus alone, 56,083 power, "No other
+Ships available"**. 23 ships sit on our three defensive fleets and the other ~46 were spent
+across the six attempts. There was nothing left to attack with at 11:50 and nothing to do.
+- ⭐⭐ **THE FIX IS THE INVERSION `gac3v3_board.py --fleets` HAS WANTED FOR WEEKS.**
+  Wall **Home One 13.7% / Negotiator 12.9% / Raddus 8.1%**, attack with **Leviathan 95.5% /
+  Executor 91.4% / Chimaera 81.7%**. Model: expected denial 24, expected offence 360.
+- ⭐ **WHY IT IS NOT A CLOSE CALL.** The live S83 `/gac/ship-counters/` pages for
+  CAPITALPROFUNDITY, CAPITALLEVIATHAN and CAPITALEXECUTOR return 50 rows each, and **every
+  single row attacks with Leviathan or Profundity**. Astra owns Leviathan and not
+  Profundity, so walling Leviathan deletes the only measured counter this roster has.
+  Scraped 2026-09-22 with Playwright MCP (chrome-devtools could not clear Cloudflare that
+  day; Playwright needed one retry after a 403 and then passed).
+- ⛔ **IT CANNOT BE DONE MID-ROUND.** In EDIT DEFENSES the fleet zone shows ALLIED FLEETS 3/3
+  with **ADD FLEET greyed out**, and every ship is spent, so removing one leaves a hole you
+  cannot refill. Do it in the next DEFENCE phase, off the fresh pool.
+- ⚠ Our walled Leviathan is running **7 of 8 slots**, donating one banner. Still not worth a
+  manual 8-ship rebuild on its own; fix it when the fleets are rebuilt anyway.
+
+### ⭐ ALL 15 DEFENSIVE SQUADS NOW CARRY A DATACRON (was 5)
+`gac_cron_assign.py` re-run against the fresh `account/data/all`; the allocation is unchanged.
+FRONT-A Rey L9 · Kelleran L9 · GL Leia L6 · Great Mothers L9▶8 · ST Luke L6.
+FRONT-B Rotta L15 · Iden L9▶8 · Traya L9▶8 · Cassian L9▶8 · Carson Teva L8.
+BACK-B Satele L9▶8 · Snowtroopers L3 · Thrawn L3 · Tuskens L4 · Boss Nass L6.
+- ⭐ **KELLERAN HAD THE WRONG TWIN.** Two set34 L9 crons scope
+  `lightside/jedivanguard/<character>`: one ends in **quigonjinn**, one in **jocastanu**.
+  The 06:03 pass equipped quigonjinn. Jocasta Nu is IN the squad, so the jocastanu twin
+  applies all three tiers **and shows plain `Lvl 9` with no relic downgrade** while the
+  other reads `Lvl 9 ▶ 8`. The downgrade arrow is a reliable tell that you picked wrong.
+- ⭐ **CARSON TEVA'S set33 Lvl 8 IS THE SECOND-BEST CRON ON THE BOARD**: **+120% Defense,
+  +50% Health, +50% Offense, +50% Crit Damage**, tier 2 scoped to him, and NO downgrade
+  despite the squad's lowest relic being 4. Set-33 focused crons cap differently from set 34.
+- ⚠ **READ THE PICKER, THE PLAN'S TAG FILE LIES BOTH WAYS.** GL Leia's squad matched tier 2
+  `resistance` only because **R2-D2 is Resistance**, which is not obvious; Great Mothers
+  matched `tank`+`support`; and the picker prints "Does not apply to any characters in the
+  current squad" per tier, in red, every time. Trust it over `data/unit_tags.json`.
+- ⚠ **SET 32 EXPIRES 2026-10-01** (swgoh.gg, checked 2026-09-22; set 35 "Duty and Defiance"
+  is already live to 2026-12-24, set 33 expires ~late Oct, set 34 on 2026-11-26). Great
+  Mothers, ST Luke and Cassian carry set-32 crons and will go bare partway through the next
+  event. Re-run `gac_cron_assign.py` on 1 Oct.
+- ⚠ **In EDIT DEFENSES the `5/5` badge IS the hit target.** Three taps that looked like a
+  wrong coordinate were taps issued while the board was still animating in from `back`.
+  Let the screen settle, then tap once.
+
+### TERRITORY WAR: 8 MORE SQUADS PLACED, AND THE DRIFT IS BEATEN BY UNGUARDED RE-SWEEPS
+Special Ops Center (a back territory, device (110,750)) went **24/38 to 32/38**, so **+240
+guaranteed banners**. All three preset tabs now report every row either committed or placed.
+- ⭐ **`tw_fill.py`'s row guard is what blocks the last rows, not the scroll.** At BACK idx 23
+  and 24 the paging slips exactly one row, so the guard correctly sees B23 where it wanted
+  B24 and refuses. `--loose` does not help: the neighbours are 37,833 GP apart, far outside
+  its 12,000 window. **Call `tw_fill.one(idx, TABS[tab], None)` directly instead** (expect
+  None disables the guard) and sweep the tail repeatedly; RESTRICTED still prevents any
+  double placement, and three passes converged. That is the concrete form of the
+  `tw-fill-index-drift` rule.
+- ⚠ A `CONNECTION ERROR / TRY AGAIN` popup during a sweep kills it with `not on PVP ('BS')`.
+  Tap TRY AGAIN, confirm the allied count, resume from the last index.
+- Jakku territories and capacity at 12:40: Command Post 38/38 FULL · Hangar 34 · Supply Depot
+  31 · Trenches 25 · Forward Turrets 25 · Ion Cannon 25 (gold note "Bugs/sisters") ·
+  Airspace 24 (fleet) · Special Ops Center 24 · Main Base 21 (fleet).
+- ⚠ `tw_goto.py --scan` OCRs the NOTE unreliably: nine of ten came back as noise and only
+  Ion Cannon parsed. Use it to find territories by NAME, not to read the officer note.
+
+### MODS AND EVENTS
+- Two slice steps executed: plusSpeed 16,967 to 16,971, 420,000 credits. **Micro Attenuators
+  are at 3 (currency id 41), so calibration is still dead.** Slicing is gated on T05_06
+  (short 905), T06_02 (225), T05_04 (221): Mod Battles chapter 2 and Episode Shipments.
+- ⭐ **PROFUNDITY'S NEXT EVENT IS 2026-09-30.** It ran 2026-08-31; the cadence is
+  end-of-month, monthly (04-30, 05-31, 06-30, 07-31, 08-31, 09-30). CLAUDE.md updated.
+  It is the single biggest free GAC upgrade available and it fixes the fleet problem above
+  from the other side.
+- ⛔ **The farmbot ran 19 minutes against the BlueStacks App Center and farmed nothing**
+  because SWGOH was never launched. `--doctor` says "device: ready", the report says
+  "run outcome: complete", and the only tell is `halted_entries=19`. Launch the game with
+  `adb shell monkey -p com.ea.game.starwarscapital_row -c android.intent.category.LAUNCHER 1`
+  and confirm `dumpsys window | grep mCurrentFocus` shows `CapitalGamesActivity` first.
