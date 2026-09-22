@@ -6100,3 +6100,47 @@ guaranteed banners**. All three preset tabs now report every row either committe
   "run outcome: complete", and the only tell is `halted_entries=19`. Launch the game with
   `adb shell monkey -p com.ea.game.starwarscapital_row -c android.intent.category.LAUNCHER 1`
   and confirm `dumpsys window | grep mCurrentFocus` shows `CapitalGamesActivity` first.
+
+### 2026-09-22 (14:00-17:00) — BOTH ARENAS TO #1, DAILIES 8/8, AND THE COLISEUM CEILING
+- ⭐ **SQUAD ARENA #5 to #1 and the payout was taken at #1** (16:58 EEST). Two battles with
+  the Hutt datacron squad (Rotta (L) / Gamorrean Guard / Greedo / Krrsantan / Mob Enforcer,
+  165,916), beating a 181,741 GL Leia team and then the live #1. Knocked back to #5 once
+  in between and re-climbed. Defence is the squad you last attacked with, so it is parked.
+- ⭐ **FLEET ARENA #11 to #1** in five battles (11>7, then knocked to 10, 10>6, 6>2, 2>1).
+  Target selection is the whole game: take the HIGHEST rank you can beat, because a win
+  SWAPS ranks. Fleet power 607,927 against opponents at 426-532K.
+- ⚠ **Two arena blockers to plan around.** `Somebody is already battling you` means an
+  opponent is mid-attack on your defence and EVERY attack of yours is refused until they
+  finish. And each opponent card carries its own 3-8 minute cooldown with a 50-crystal
+  skip; buy the skip only near the payout, which is the standing crystal rule.
+- ⚠ **The arena font's 5 reads as 9 again.** "My Rank: #9" on the battle result was #5
+  every time. Third session in a row this has bitten. Cross-read the Select-an-Arena panel.
+- **Daily quests 8/8 + the all-quests crate.** The 600-energy quest was closed by dumping
+  the **DARK SIDE overflow (229/144)** as 22 MULTI SIMs on Takodana 8-D NORMAL.
+  ⚠ The big overflowing pool on the home bar is dark side, NOT mod energy; mod was 18/144.
+- ⭐⭐ **EPISODE SHIPMENTS SELLS SIGNAL DATA, AND CLAUDE.md SAYS IT DOES NOT.**
+  Fragmented Signal Data 45 for 4,500 and Incomplete Signal Data 40 for 5,400, one of each
+  per refresh. The claim "SIGNAL DATA is cantina-energy-only, no store sells it for a
+  token" is wrong. Episode currency was 60,900 with no competing claim; 49,400 left after
+  three purchases (which also closed the 3-shipments quest). Signal Data is the largest
+  single line in every relic recipe from R6 to R9, so this is a real R7-to-R9 faucet the
+  repo did not know about. Buy it every refresh.
+- ⛔ **COLISEUM: THE COMMUNITY META SQUAD DOES NOT BEAT AUTO'S CEILING.** Boss DRYAX,
+  tier 9, high score stuck at **235,040 (47%)**, rank 267. Rebuilt to the #2 community
+  lineup (**JK Luke Skywalker (L, loaned) / Mara Jade Skywalker / JK Cal Kestis (loaned) /
+  Dark Trooper (loaned) / Stormtrooper (Concept)**, reported 93% on T11) and the in-game
+  synergy pips confirmed it: Mara and Cal go to **2/2** under the JKL lead against 0/1
+  under the Darth Maul lead the game pre-loads. It still did not beat 235,040 on AUTO.
+  The gap is the Dryax mechanic AUTO cannot play: while one Dryax is 12% off the other's
+  health it gains stacking Offense and inflicts Daze plus Buff Immunity, so the fight is
+  about keeping the two EVEN. **Two attempts banked on purpose.**
+- ⭐ **The filter dialog's TEXT SEARCH makes squad building cheap.** Tap the box,
+  `keyevent 123` then 20x `keyevent 67` to clear, `input text "Cal%sKestis"`,
+  `keyevent 66`, CONFIRM. The one matching portrait lands at device (115,480).
+- ⭐ **Image budget: `screencap | sips -Z 800 -s formatOptions 40` is ~45KB per full
+  screen** against ~130KB for `d.sh`'s 1100px/q55, with every button label still legible.
+  Use it for any long device session. `scripts/ocr.sh` against the native 1920px capture
+  is slow enough to blow a 120s Bash timeout; downscale to 1300px before tesseract.
+- Free Bronzium claimed. **68.9K ally points are idle** (250 per pull, ~275 pulls); no
+  other sink exists for them, so they are worth a batch run some session.
+- Inbox: a Kessel Run reward notice that can only be claimed on the EA website, not in game.
