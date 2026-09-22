@@ -1,13 +1,13 @@
 # Slice / calibrate priority queue
 
-Source: `mods_full_20260922.json` · 1912 equipped mods
+Source: `mods_full_20260923.json` · 1912 equipped mods
 
 
 ## Materials on hand
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 414 | 1413 | 15 | 42 | 307 | 6/13/9/59/174/43 | 217,844,991 |
+| 414 | 1413 | 15 | 42 | 313 | 6/13/9/59/176/48 | 218,875,331 |
 
 ## Queue: 1794 upgradeable mods (not yet 6A)
 
