@@ -7,14 +7,14 @@ Source: `mods_full_20260922.json` · 1912 equipped mods
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 424 | 1423 | 55 | 72 | 319 | 16/13/9/59/181/82 | 216,074,461 |
+| 414 | 1413 | 15 | 42 | 307 | 6/13/9/59/174/43 | 217,844,991 |
 
-## Queue: 1795 upgradeable mods (not yet 6A)
+## Queue: 1794 upgradeable mods (not yet 6A)
 
 By ladder rung × action:
 
 - **ARENA**: 6-dot slice-up=8, 5A->6 promote=28, 5-dot slice-up=37
-- **GAC**: 6-dot slice-up=56, 5A->6 promote=410, 5-dot slice-up=417
+- **GAC**: 6-dot slice-up=55, 5A->6 promote=410, 5-dot slice-up=417
 - **TW**: 6-dot slice-up=1, 5A->6 promote=66, 5-dot slice-up=93
 - **fleet**: 6-dot slice-up=1, 5A->6 promote=35, 5-dot slice-up=124
 - **other**: 6-dot slice-up=3, 5A->6 promote=106, 5-dot slice-up=410

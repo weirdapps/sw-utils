@@ -86,7 +86,9 @@ a front zone left at n-1. Fixing that is still the whole game. What changes:
     threshold**: Admiral Raddus R9, Cassian Andor R8, Dash Rendar R7 (then Mon Mothma/Bistan/Jyn R7,
     Hera R6). ⭐ **Profundity is event-gated: PLAY the Stardust Transmission, it cannot be automated.**
     Check the next occurrence at swgohevents.com/event/profundity rather than trusting a date here;
-    the last one written down was 2026-08-31 and went stale unnoticed.
+    the last one written down was 2026-08-31 and went stale unnoticed. **Checked 2026-09-22: it ran
+    2026-08-31 and the NEXT one is 2026-09-30.** Cadence is end-of-month, once a month
+    (2026-04-30 · 05-31 · 06-30 · 07-31 · 08-31 · 09-30).
     Gates re-verified against the 08-24 roster with the CORRECT base ids — the ones implied by the
     old note are guesses that do not resolve. Ships, all 7★: **UWINGSCARIF · UWINGROGUEONE ·
     XWINGRED3 · XWINGRED2 · YWINGREBEL · GHOST · OUTRIDER**; Hera is **HERASYNDULLAS3** (R6, gate R6).
