@@ -6144,3 +6144,25 @@ guaranteed banners**. All three preset tabs now report every row either committe
 - Free Bronzium claimed. **68.9K ally points are idle** (250 per pull, ~275 pulls); no
   other sink exists for them, so they are worth a batch run some session.
 - Inbox: a Kessel Run reward notice that can only be claimed on the EA website, not in game.
+
+### ⛔ CORRECTION, 2026-09-22 17:40 — ROUND 3 WAS FOUGHT WITH **ZERO** DATACRONS ON DEFENCE
+Owner caught this. Two errors of mine, one on top of the other.
+1. **`gac/get` HAS NO `datacron` FIELD ON A UNIT.** The unit object carries
+   `baseId, cellIndex, cqOmiCount, gacOmiCount, gearLevel, id, image, killed, level,
+   omiCount, rarity, relicLevel, state, stats, tbOmiCount, twOmiCount, ultimate,
+   unitDefId, zetaCount, zetaLead` and nothing else, on BOTH sides, all 90 units. So
+   `u.get('datacron')` returning None is not evidence of anything. **Never infer cron
+   state from `gac/get`.** The in-game EDIT DEFENSES squad row is the only oracle: a cron
+   shows as a fourth "portrait" with its level under it.
+2. **The five crons attached at 06:03 were PENDING, NOT LIVE, for round 3.** Round 3's
+   attack phase started 2026-09-22 00:00 EEST, so 06:03 is inside it, and the screen says
+   *"Defense changes deploy when the next Attack Phase starts."* The board the opponent
+   actually attacked was the one set during round 3's DEFENCE phase on 21 Sept, which the
+   06:03 note itself describes as "found with all fifteen squads carrying no datacron at
+   all". ⇒ **Kyp Durron attacked a datacron-free board.**
+⇒ The cron pass explains nothing about the 24-banner loss. All 15 land at the FIRST attack
+phase of the next weekly event, together with the fleet inversion. Two consequences:
+- **Attach crons during the DEFENCE phase, never during the attack phase**, or they sit
+  idle for a whole round. This is the sharp edge of `gac-defence-datacrons-are-mandatory`.
+- When auditing "is the board set", audit the DEPLOYED board, and remember EDIT DEFENSES
+  shows the PENDING one. The two differ for the whole of every attack phase.
