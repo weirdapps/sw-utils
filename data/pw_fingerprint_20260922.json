@@ -1,0 +1,2330 @@
+{
+"25191": {
+"b": "MAGMATROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31987": {
+"b": "OLDBENKENOBI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"17668": {
+"b": "ZUCKUSS",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G11, Z1"
+},
+"28981": {
+"b": "BARRISSOFFEE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"9288": {
+"b": "MARAJADESKYWALKER",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "5*, G9"
+},
+"26484": {
+"b": "DROIDEKA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28890": {
+"b": "IG11",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31963": {
+"b": "ZORIIBLISS_V2",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"24891": {
+"b": "POGGLETHELESSER",
+"r": 6,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"22404": {
+"b": "SITHASSASSIN",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"37630": {
+"b": "GENERALKENOBI",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R10, Z1"
+},
+"26463": {
+"b": "CHIEFNEBIT",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28869": {
+"b": "EZRABRIDGERS3",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"26091": {
+"b": "SITHTROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"27016": {
+"b": "BADBATCHHUNTER",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"26439": {
+"b": "JAWAENGINEER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28678": {
+"b": "DENGAR",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"28983": {
+"b": "MASTERQUIGON",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"29005": {
+"b": "PADAWANSABINE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"23304": {
+"b": "GEONOSIANSPY",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"24378": {
+"b": "BADBATCHOMEGA",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"26856": {
+"b": "EIGHTHBROTHER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"22281": {
+"b": "TALIA",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"36538": {
+"b": "ADMIRALRADDUS",
+"r": 9,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R9, Z2"
+},
+"23257": {
+"b": "NIGHTSISTERZOMBIE",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"26788": {
+"b": "SABINEWRENS3",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"25516": {
+"b": "YOUNGHAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"57186": {
+"b": "GLAHSOKATANO",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"32139": {
+"b": "NUTEGUNRAY",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"38359": {
+"b": "COMMANDERAHSOKA",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z3"
+},
+"57429": {
+"b": "GLLEIA",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"26400": {
+"b": "GOPHERANTS",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"10195": {
+"b": "YODADSV",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "5*, G10"
+},
+"33195": {
+"b": "GREATMOTHERS",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"29053": {
+"b": "EPIXPOE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"34444": {
+"b": "ADMIRALPIETT",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"37425": {
+"b": "BAYLANSKOLL",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"33607": {
+"b": "FULCRUMAHSOKA",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z1"
+},
+"29607": {
+"b": "DEDRAMEERO",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"27709": {
+"b": "HUNTERS3",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"33433": {
+"b": "DISGUISEDCLONETROOPER",
+"r": 8,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"28753": {
+"b": "VEERS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"26485": {
+"b": "PAO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"29442": {
+"b": "DARTHTALON",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"27756": {
+"b": "IG88",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"28800": {
+"b": "REY",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"32010": {
+"b": "GRIEVOUS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"4561": {
+"b": "BRUTUS",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "2*, G7"
+},
+"32058": {
+"b": "EMPERORPALPATINE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"28018": {
+"b": "PLOKOON",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8"
+},
+"28843": {
+"b": "VEL",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"33846": {
+"b": "KELLERANBEQ",
+"r": 8,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"22470": {
+"b": "GEONOSIANSOLDIER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"29050": {
+"b": "CARADUNE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"676": {
+"b": "JAXXON",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "3*, G1"
+},
+"23361": {
+"b": "RESISTANCETROOPER",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"30382": {
+"b": "TUSKENRAIDER",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8"
+},
+"29859": {
+"b": "DASHRENDAR",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31054": {
+"b": "CASSIANANDOR",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"29791": {
+"b": "MARROK",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"27175": {
+"b": "BAZEMALBUS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"33697": {
+"b": "CLONEWARSCHEWBACCA",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z1"
+},
+"37336": {
+"b": "COMMANDERLUKESKYWALKER",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"34380": {
+"b": "KYLORENUNMASKED",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"33364": {
+"b": "OPERATIVE",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"25695": {
+"b": "YOUNGLANDO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31912": {
+"b": "VADERDUELSEND",
+"r": 7,
+"tw": 0,
+"gac": 2,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"31399": {
+"b": "HANSOLO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"24628": {
+"b": "ARMORER",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"29007": {
+"b": "EPIXFINN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"24519": {
+"b": "BADBATCHWRECKER",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"31941": {
+"b": "DARTHTRAYA",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"31032": {
+"b": "FOSITHTROOPER",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"29814": {
+"b": "IG90",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"39609": {
+"b": "WAMPA",
+"r": 10,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R10, Z2"
+},
+"23752": {
+"b": "SMUGGLERCHEWBACCA",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"34264": {
+"b": "R2D2_LEGENDARY",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"31009": {
+"b": "GARSAXON",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"33444": {
+"b": "CORUSCANTUNDERWORLDPOLICE",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R10"
+},
+"7924": {
+"b": "ITHANO",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "4*, G10"
+},
+"29884": {
+"b": "MOTHERTALZIN",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z2"
+},
+"30843": {
+"b": "MORGANELSBETH",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"33612": {
+"b": "C3POLEGENDARY",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"37516": {
+"b": "JEDIKNIGHTREVAN",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"34287": {
+"b": "CT5555",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"21627": {
+"b": "NIGHTSISTERINITIATE",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"32229": {
+"b": "CT7567",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"33787": {
+"b": "MOFFGIDEONS3",
+"r": 7,
+"tw": 3,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"32692": {
+"b": "ZAMWESELL",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"34245": {
+"b": "TARONMALICOS",
+"r": 7,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"44785": {
+"b": "RACCOON",
+"r": 10,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R10, Z4"
+},
+"29584": {
+"b": "SANASTARROS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31110": {
+"b": "TUSKENHUNTRESS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"31918": {
+"b": "BOSSNASS",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"39385": {
+"b": "STARKILLER",
+"r": 10,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R10, Z2"
+},
+"27109": {
+"b": "LOBOT",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"21852": {
+"b": "EETHKOTH",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"32217": {
+"b": "OMEGAS3",
+"r": 6,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R6, Z3"
+},
+"31713": {
+"b": "ASAJVENTRESS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"27084": {
+"b": "CHIRRUTIMWE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"32136": {
+"b": "SHINHATI",
+"r": 8,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"25384": {
+"b": "KANANJARRUSS3",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"28731": {
+"b": "ROSETICO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"8713": {
+"b": "STORMTROOPERCONCEPT",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "5*, G9"
+},
+"28752": {
+"b": "STORMTROOPERHAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"27063": {
+"b": "HERASYNDULLAS3",
+"r": 6,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"35047": {
+"b": "BOSSK",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"35014": {
+"b": "VADER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"34020": {
+"b": "JARJARBINKS",
+"r": 7,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"13687": {
+"b": "LEIAJEDITRAINING",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G7, Z1"
+},
+"32068": {
+"b": "COUNTDOOKU",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"24427": {
+"b": "DAKA",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"30783": {
+"b": "GEONOSIANBROODALPHA",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z2"
+},
+"32472": {
+"b": "JOLEEBINDO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"28902": {
+"b": "IMPERIALSUPERCOMMANDO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8"
+},
+"28960": {
+"b": "CINTA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"22170": {
+"b": "FIRSTORDERTIEPILOT",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"29721": {
+"b": "KIADIMUNDI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31102": {
+"b": "GREEDO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"28686": {
+"b": "HOTHLEIA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31848": {
+"b": "GENERALSYNDULLA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"28845": {
+"b": "BOOMADIER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"25020": {
+"b": "BODHIROOK",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"32532": {
+"b": "BOBAFETT",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"31108": {
+"b": "SAWGERRERA",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"26440": {
+"b": "WEDGEANTILLES",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31017": {
+"b": "MARAJADE",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"25650": {
+"b": "CARTHONASI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"30501": {
+"b": "ARCTROOPER501ST",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"32982": {
+"b": "TRENCH",
+"r": 7,
+"tw": 3,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"30181": {
+"b": "SECONDSISTER",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"37150": {
+"b": "MACEWINDU",
+"r": 8,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"33949": {
+"b": "DOCTORAPHRA",
+"r": 7,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"42247": {
+"b": "STRANGER",
+"r": 10,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R10, Z3"
+},
+"25864": {
+"b": "SHORETROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"37347": {
+"b": "DARTHMALAK",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z2"
+},
+"29184": {
+"b": "FINN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"30957": {
+"b": "UNDERCOVERLANDO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"24483": {
+"b": "R5D4",
+"r": 4,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R4, Z1"
+},
+"41877": {
+"b": "DARKREY",
+"r": 10,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R10, Z3"
+},
+"32724": {
+"b": "SEVENTHSISTER",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"33906": {
+"b": "DARTHMALGUS",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"25212": {
+"b": "RESISTANCEPILOT",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"29031": {
+"b": "KUIIL",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"23013": {
+"b": "VANE",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"36798": {
+"b": "MAULS7",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"27523": {
+"b": "CADBANE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"21652": {
+"b": "TIEFIGHTERPILOT",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"34242": {
+"b": "GRANDMOFFTARKIN",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"41815": {
+"b": "DARTHBANE",
+"r": 10,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R10, Z3"
+},
+"32880": {
+"b": "GREEFKARGA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"22932": {
+"b": "ZEBS3",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"28306": {
+"b": "LUTHENRAEL",
+"r": 7,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31236": {
+"b": "CT210408",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"28822": {
+"b": "B1BATTLEDROIDV2",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"32103": {
+"b": "CHEWBACCALEGENDARY",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"28912": {
+"b": "JUHANI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"30534": {
+"b": "EWOKSCOUT",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9"
+},
+"21750": {
+"b": "NIGHTSISTERACOLYTE",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"32056": {
+"b": "50RT",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"21243": {
+"b": "IG86SENTINELDROID",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"25980": {
+"b": "TUSKENSHAMAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"34899": {
+"b": "REYJEDITRAINING",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"31282": {
+"b": "C3POCHEWBACCA",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"33523": {
+"b": "KRRSANTAN",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"26784": {
+"b": "BATCHERS3",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"28776": {
+"b": "CHIEFCHIRPA",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"36522": {
+"b": "MANDALORBOKATAN",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"32632": {
+"b": "FIFTHBROTHER",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"25819": {
+"b": "RANGETROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"32922": {
+"b": "BASTILASHAN",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"30337": {
+"b": "ROYALGUARD",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"25888": {
+"b": "JAWA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"29562": {
+"b": "QIRA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"26437": {
+"b": "POE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31777": {
+"b": "MERRIN",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"33456": {
+"b": "NIGHTTROOPER",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"28891": {
+"b": "STAP",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"25932": {
+"b": "SCARIFREBEL",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"29653": {
+"b": "IMPERIALPROBEDROID",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"25785": {
+"b": "PAPLOO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31227": {
+"b": "SCOUTTROOPER_V3",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"25398": {
+"b": "EWOKELDER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"26973": {
+"b": "CROSSHAIRS3",
+"r": 6,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"34054": {
+"b": "QUEENAMIDALA",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"31167": {
+"b": "VISASMARR",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"27579": {
+"b": "LUKESKYWALKER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z2"
+},
+"36250": {
+"b": "BENSOLO",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"29743": {
+"b": "GAMORREANGUARD",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"23023": {
+"b": "KITFISTO",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"26250": {
+"b": "ADMINISTRATORLANDO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"42552": {
+"b": "GENERALSKYWALKER",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z4"
+},
+"25911": {
+"b": "NIGHTSISTERSPIRIT",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"25009": {
+"b": "CLONESERGEANTPHASEI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"57363": {
+"b": "SUPREMELEADERKYLOREN",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"24543": {
+"b": "ADMIRALACKBAR",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"25518": {
+"b": "STORMTROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28957": {
+"b": "SCORCH",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31075": {
+"b": "LUMINARAUNDULI",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"32412": {
+"b": "JANGOFETT",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"21706": {
+"b": "HOTHREBELSCOUT",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"18109": {
+"b": "4LOM",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G11, Z1"
+},
+"7045": {
+"b": "QUIGGOLD",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "3*, G10"
+},
+"31273": {
+"b": "CAPTAINENOCH",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"33432": {
+"b": "APPO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"57297": {
+"b": "JEDIMASTERKENOBI",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"39084": {
+"b": "SATELESHAN",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z4"
+},
+"25762": {
+"b": "HOTHHAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31087": {
+"b": "CALKESTIS",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"33526": {
+"b": "CAPTAINREX",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"57231": {
+"b": "LORDVADER",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"27708": {
+"b": "HK47",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"36274": {
+"b": "EZRAEXILE",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"38988": {
+"b": "CAPTAINDROGAN",
+"r": 10,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R10, Z2"
+},
+"28914": {
+"b": "SAVAGEOPRESS",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"22500": {
+"b": "KIX",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"30855": {
+"b": "HUYANG",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"23713": {
+"b": "DEPABILLABA",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"28663": {
+"b": "DARTHSIDIOUS",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"22414": {
+"b": "YOUNGCHEWBACCA",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"25605": {
+"b": "SMUGGLERHAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28749": {
+"b": "TRIPLEZERO",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"33187": {
+"b": "UGNAUGHT",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R10"
+},
+"24250": {
+"b": "RANGERZEB",
+"r": 4,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R4, Z1"
+},
+"30133": {
+"b": "BOBAFETTSCION",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"34825": {
+"b": "GRANDINQUISITOR",
+"r": 7,
+"tw": 3,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"28702": {
+"b": "ASAJJDARKDISCIPLE",
+"r": 6,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R6, Z1"
+},
+"29095": {
+"b": "DARKTROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"43242": {
+"b": "DARTHREVAN",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R10, Z3"
+},
+"31780": {
+"b": "HONDO",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"57970": {
+"b": "JABBATHEHUTT",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"26763": {
+"b": "HUMANTHUG",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"5728": {
+"b": "CAPTAINSILVO",
+"r": 0,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "5*, G7"
+},
+"34240": {
+"b": "THEMANDALORIANBESKARARMOR",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"24553": {
+"b": "BISHOP",
+"r": 4,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R4, Z1"
+},
+"23821": {
+"b": "ENFYSNEST",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"42412": {
+"b": "MAULHATEFUELED",
+"r": 10,
+"tw": 3,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R10, Z3"
+},
+"25728": {
+"b": "BIGGSDARKLIGHTER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"22486": {
+"b": "CC2224",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"34729": {
+"b": "JEDIKNIGHTCAL",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"32713": {
+"b": "BOUSHH",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"34758": {
+"b": "JEDIKNIGHTLUKE",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"24774": {
+"b": "SUNFAC",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"28984": {
+"b": "BADBATCHECHO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"34125": {
+"b": "EMBO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z2"
+},
+"22234": {
+"b": "IMAGUNDI",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"25197": {
+"b": "REMNANTSNOWCOMMANDER",
+"r": 4,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R4, Z1"
+},
+"29028": {
+"b": "PADAWANOBIWAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"29745": {
+"b": "FENNECSHAND",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31756": {
+"b": "T3_M4",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"30874": {
+"b": "NINTHSISTER",
+"r": 6,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z2"
+},
+"21705": {
+"b": "HOTHREBELSOLDIER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"33445": {
+"b": "JOCASTANU",
+"r": 7,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R7, Z3"
+},
+"28635": {
+"b": "PRINCESSKNEESAA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"33790": {
+"b": "AHSOKATANO",
+"r": 9,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R9, Z1"
+},
+"21097": {
+"b": "JEDIKNIGHTCONSULAR",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"27823": {
+"b": "DIRECTORKRENNIC",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"57141": {
+"b": "SITHPALPATINE",
+"r": 10,
+"tw": 0,
+"gac": 0,
+"gl": true,
+"s": "7*, G13, R10, Z6, Ult: Yes"
+},
+"30600": {
+"b": "BASTILASHANDARK",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"21937": {
+"b": "FIRSTORDEREXECUTIONER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"31803": {
+"b": "TARFFUL",
+"r": 7,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"26394": {
+"b": "MAUL",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"25429": {
+"b": "YODACHEWBACCA",
+"r": 5,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"29328": {
+"b": "IDENVERSIOEMPIRE",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"24691": {
+"b": "FIRSTORDERTROOPER",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"29997": {
+"b": "WRECKERS3",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6, Z2"
+},
+"23164": {
+"b": "CHOPPERS3",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"31284": {
+"b": "WATTAMBOR",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"36298": {
+"b": "COBBVANTH",
+"r": 8,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"26370": {
+"b": "DATHCHA",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"31894": {
+"b": "JYNERSO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"25741": {
+"b": "TEEBO",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"24565": {
+"b": "BADBATCHTECH",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"25405": {
+"b": "CARSONTEVA",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"24003": {
+"b": "AMILYNHOLDO",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"26347": {
+"b": "URORRURRR",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"25330": {
+"b": "SNOWTROOPER",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+},
+"28755": {
+"b": "MAJORPARTAGAZ",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"36415": {
+"b": "CASSIANUNDERCOVER",
+"r": 8,
+"tw": 0,
+"gac": 3,
+"gl": false,
+"s": "7*, G13, R8, Z3"
+},
+"28936": {
+"b": "PRINCESSLEIA",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"24823": {
+"b": "PHASMA",
+"r": 5,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5, Z1"
+},
+"24175": {
+"b": "FIRSTORDEROFFICERMALE",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"23155": {
+"b": "AAYLASECURA",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"28704": {
+"b": "KYLEKATARN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"25201": {
+"b": "AURRA_SING",
+"r": 6,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R6"
+},
+"21888": {
+"b": "JEDIKNIGHTGUARDIAN",
+"r": 5,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R5"
+},
+"28318": {
+"b": "CANDEROUSORDO",
+"r": 8,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8"
+},
+"30297": {
+"b": "INQUISITORBARRISS",
+"r": 7,
+"tw": 0,
+"gac": 1,
+"gl": false,
+"s": "7*, G13, R7, Z1"
+},
+"31237": {
+"b": "IG12",
+"r": 8,
+"tw": 1,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R8, Z1"
+},
+"32034": {
+"b": "SHAAKTI",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7, Z2"
+},
+"26461": {
+"b": "BISTAN",
+"r": 7,
+"tw": 0,
+"gac": 0,
+"gl": false,
+"s": "7*, G13, R7"
+}
+}

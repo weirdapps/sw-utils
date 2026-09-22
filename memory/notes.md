@@ -6166,3 +6166,78 @@ phase of the next weekly event, together with the fleet inversion. Two consequen
   idle for a whole round. This is the sharp edge of `gac-defence-datacrons-are-mandatory`.
 - When auditing "is the board set", audit the DEPLOYED board, and remember EDIT DEFENSES
   shows the PENDING one. The two differ for the whole of every attack phase.
+
+---
+
+## 2026-09-23 (overnight) — TW offence failed 0-for-2, and the cause is the defence plan
+
+### GAC S83 is OVER. There is no round 4, and nothing was actionable tonight.
+`gac/list` is unambiguous: the event `...SEASON_83:O1789592400000` has **exactly three
+matches**, and match 3 ended 2026-09-22 21:00 UTC (00:00 EEST) at **1,605 to 1,629**.
+Round 1 win 1,080-68 vs Melkor, round 2 loss 1,584-2,045 vs Papam, round 3 loss vs Kyp
+Durron. Event record 1-2. Match 3 was mathematically lost well before the end: +25 banners
+were needed and the fleet pool was exhausted, so per the standing rule ("do not grind
+banners after the round is decided") nothing was thrown at it.
+⭐ **`squad.datacron` in `gac/get` IS readable and IS populated.** The 2026-09-22 note says
+"`gac/get` has no datacron key on a unit at all", which is true of the UNIT record and
+misleading: the key lives on the **squad**. Kyp Durron's board returned `dc:1` on two
+squads (Jabba, Boss Nass) while all fifteen of ours returned `dc:0`. That is independent
+first-party confirmation that round 3 was fought with a datacron-free board.
+
+### ⭐⭐ THE FLEET INVERSION, READY TO EXECUTE AT THE NEXT SETUP PHASE
+`gac3v3_board.py --fleets` against the live S83 lists:
+- **WALL: Home One 13.7% · Negotiator 12.9% · Raddus 8.1%**
+- **ATTACK: Leviathan 95.5% · Executor 91.4% · Chimaera 81.7%**
+- P(fleet territory holds) 31%, expected denial 24, expected offence **360**.
+We did the opposite in S83 and the attack pool topped out at Home One 77.3%, which is how
+six fleet attempts went 0-for-6. A fleet is 8 tiles in BOTH formats, so this split carries
+into a 5v5 season unchanged. ⛔ It can only be set in a DEFENCE phase.
+
+### TW: two attacks, two zero-kill losses, and it was not bad luck
+Jakku, attack phase, us 11,902 vs them 13,856 and falling. Forward Turrets 27/38 then
+26/38 (a guildmate killed Reznov mid-session). Conquer is **+830**, first-party off the
+territory panel; "Offense Win: +6-20", "Set Defense: +30".
+- **SEE solo, 57,141 + a set-34 dark-side Lvl 3 cron = 97,141** vs a 133,986 Gungan wall.
+  Lost, 5 enemies alive.
+- **JML (L) / Hermit Yoda / JK Cal / JK Luke / Jocasta Nu, 192,348** + a light-side Lvl 3
+  cron vs a 137,766 Gungan wall. Four Jedi dead by 3:19, JML alone, lost. 5 enemies alive.
+Both forfeited rather than submitted, because zero kills means the chip damage is
+negligible and SUBMIT would have gifted the wall the turn meter it built.
+
+⭐ **Root cause: the defence plan ate every counter.** A TW unit is single-use, and the ~300
+units placed on defence include Traya/Nihilus/Savage (this repo's own measured Boss Nass
+answer, n=5,947), JMK, SLKR, Satele, Queen Amidala, **Darth Bane, Wat Tambor, Shaak Ti,
+GM Yoda and Inquisitor Barriss**. Every one of those is a member of a measured top counter
+row. The offence bank was chosen by unit ECONOMY (`Net = 20p - 6U`) and never by matchup,
+so it reserved the three highest-GP leftovers instead of a squad that beats something.
+⇒ **Choose the TW offence reserve during SETUP, by naming the target archetype.**
+
+⚠ **`Net = 20p - 6U` is a SETUP-phase trade only.** Once the attack phase opens, no more
+defence can be placed, the 6-banner placement value is sunk, and an unused unit is worth 0.
+That argues "attack with everything" and it is WRONG, because a zero-kill loss leaves the
+defender its turn meter for the next guildmate. Attack only with squads that can win.
+
+⚠ **THE 3v3 COUNTER FILE IS THE WRONG TABLE FOR TW, AND IT IS WHAT COST SEE.**
+`counters_3v3_s83_20260922.json` ranks **SEE + Darth Bane 100% (n=111)** against a Boss
+Nass lead, which is why SEE went first. In 3v3 that lead fields **3** Gungans; TW fields
+**5**. The 5v5 files said it properly all along: `meta_def5v5_s82.txt` has Boss Nass at
+**23% hold on n=31.1K** and `meta_off5v5_s82.txt` has **SEE + Wat Tambor 86% on n=5,842**
+as the real 5v5 answer, with Wat Tambor sitting on our own defence. **TW is always 5v5.**
+
+⚠ **Power is an ANTI-signal for Gungan walls.** In Forward Turrets the four lowest-power
+squads (133,986 · 137,766 · 141,665 · 146,335) were ALL Boss Nass Gungans, because Gungans
+are cheap and tanky. Sorting targets by ascending power walks you straight into the hardest
+matchup on the board. Identify composition before choosing a target: crop the portrait row
+at native resolution (`sips -c 105 900 --cropOffset <322|592|862> 30`, then upscale 3x).
+
+### Technique that paid off
+⭐ **`power.total` from HotUtils `account/data/all` is a UNIQUE FINGERPRINT for reading the
+in-game available-unit list.** The TW attack screen shows `Pwr NNNNN` and no names, and
+OCR of that column maps straight onto the roster (291 of 333 characters have a unique
+total; the GL cluster at 57,429 is the notable collision). Saved to
+`data/pw_fingerprint_20260922.json`. That is how the offence pool was enumerated.
+⚠ **Scroll in SMALL steps when enumerating it.** A 430-490px swipe silently skipped rows and
+hid JK Cal, Hermit Yoda, Jocasta Nu and Ki-Adi-Mundi; a 200px swipe found all 25. The first
+pass produced a confident, wrong "the JML squad is not fieldable".
+⭐ A **Lvl 3 datacron is worth ~+40,000 squad power** (SEE 57,141 to 97,141). Never skip the
+cron on a TW attack. Free crons are the ones not in `output/gac_cron_plan.json`.
