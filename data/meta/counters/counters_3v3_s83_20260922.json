@@ -1,0 +1,10381 @@
+{
+ "JABBATHEHUTT": {
+  "meta": {
+   "battles": "35.1K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 34,
+  "rows": [
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "407",
+    "win": 100,
+    "avg": 56.87
+   },
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "961",
+    "win": 99,
+    "avg": 56.61
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "2,233",
+    "win": 99,
+    "avg": 55.47
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "FIRSTORDERTROOPER"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "244",
+    "win": 99,
+    "avg": 55.15
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "918",
+    "win": 99,
+    "avg": 55.09
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "275",
+    "win": 99,
+    "avg": 56.48
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "1,913",
+    "win": 98,
+    "avg": 53.07
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "4,207",
+    "win": 98,
+    "avg": 55.64
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "269",
+    "win": 95,
+    "avg": 54.42
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GREEDO"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "105",
+    "win": 93,
+    "avg": 52.37
+   },
+   {
+    "A": [
+     "CASSIANUNDERCOVER",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "604",
+    "win": 91,
+    "avg": 52.18
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "4,128",
+    "win": 91,
+    "avg": 51.88
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "385",
+    "win": 90,
+    "avg": 51.13
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "578",
+    "win": 84,
+    "avg": 47.55
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "279",
+    "win": 84,
+    "avg": 46.65
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "3,190",
+    "win": 83,
+    "avg": 47.45
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "169",
+    "win": 83,
+    "avg": 45.74
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "GREEDO"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "102",
+    "win": 83,
+    "avg": 46.52
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "919",
+    "win": 81,
+    "avg": 44
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "1,193",
+    "win": 79,
+    "avg": 47.47
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GAMORREANGUARD"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "89",
+    "win": 79,
+    "avg": 45.7
+   },
+   {
+    "A": [
+     "EMPERORPALPATINE",
+     "MARAJADE",
+     "VADERDUELSEND"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "1,730",
+    "win": 77,
+    "avg": 42.35
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "77",
+    "win": 58,
+    "avg": 32.6
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CORUSCANTUNDERWORLDPOLICE",
+     "LOBOT"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "2,613",
+    "win": 55,
+    "avg": 31.07
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CORUSCANTUNDERWORLDPOLICE",
+     "JAWASCAVENGER"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "116",
+    "win": 50,
+    "avg": 29.09
+   },
+   {
+    "A": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "2,193",
+    "win": 50,
+    "avg": 28.05
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "275",
+    "win": 45,
+    "avg": 26.95
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CHIEFNEBIT",
+     "CORUSCANTUNDERWORLDPOLICE"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "181",
+    "win": 44,
+    "avg": 25.87
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "217",
+    "win": 33,
+    "avg": 20.04
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "88",
+    "win": 23,
+    "avg": 13.57
+   },
+   {
+    "A": [
+     "DOCTORAPHRA",
+     "BT1",
+     "TRIPLEZERO"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "1,026",
+    "win": 14,
+    "avg": 7.65
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "126",
+    "win": 11,
+    "avg": 6.33
+   },
+   {
+    "A": [
+     "GRANDADMIRALTHRAWN",
+     "ADMIRALPIETT",
+     "MAGMATROOPER"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "91",
+    "win": 10,
+    "avg": 6.79
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "seen": "75",
+    "win": 8,
+    "avg": 5.53
+   }
+  ]
+ },
+ "JEDIMASTERKENOBI": {
+  "meta": {
+   "battles": null,
+   "season": null,
+   "format": "3v3"
+  },
+  "n": 46,
+  "rows": [
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "35",
+    "win": 100,
+    "avg": 54.69
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "24",
+    "win": 100,
+    "avg": 55.29
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 54.55
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "16",
+    "win": 100,
+    "avg": 55.75
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "10",
+    "win": 100,
+    "avg": 53.8
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "9",
+    "win": 100,
+    "avg": 54.11
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "8",
+    "win": 100,
+    "avg": 54.75
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 54
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALSKYWALKER"
+    ],
+    "seen": "6",
+    "win": 100,
+    "avg": 55
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "6",
+    "win": 100,
+    "avg": 53.67
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "MACEWINDU"
+    ],
+    "seen": "5",
+    "win": 100,
+    "avg": 55.6
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "5",
+    "win": 100,
+    "avg": 53.8
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "EZRAEXILE"
+    ],
+    "seen": "5",
+    "win": 100,
+    "avg": 54.6
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "5",
+    "win": 100,
+    "avg": 53.2
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "5",
+    "win": 100,
+    "avg": 54.8
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "154",
+    "win": 97,
+    "avg": 53.97
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "670",
+    "win": 97,
+    "avg": 54.06
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "33",
+    "win": 96,
+    "avg": 53.94
+   },
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "28",
+    "win": 96,
+    "avg": 53.89
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "264",
+    "win": 95,
+    "avg": 52.34
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "16",
+    "win": 93,
+    "avg": 49.88
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "13",
+    "win": 92,
+    "avg": 50.69
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "22",
+    "win": 90,
+    "avg": 50
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "92",
+    "win": 90,
+    "avg": 48.09
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "38",
+    "win": 89,
+    "avg": 48.18
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "PADMEAMIDALA"
+    ],
+    "seen": "9",
+    "win": 88,
+    "avg": 49.67
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "24",
+    "win": 87,
+    "avg": 49.25
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "446",
+    "win": 86,
+    "avg": 45.85
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "PLOKOON"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "13",
+    "win": 84,
+    "avg": 45.23
+   },
+   {
+    "A": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "6",
+    "win": 83,
+    "avg": 46
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "6",
+    "win": 83,
+    "avg": 45.33
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "seen": "6",
+    "win": 83,
+    "avg": 44.83
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "17",
+    "win": 82,
+    "avg": 43.71
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "PADMEAMIDALA"
+    ],
+    "seen": "10",
+    "win": 80,
+    "avg": 43.5
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "17",
+    "win": 70,
+    "avg": 38.12
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "133",
+    "win": 68,
+    "avg": 37.18
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "8",
+    "win": 62,
+    "avg": 35.5
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "47",
+    "win": 59,
+    "avg": 32.13
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "PAZVIZSLA",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "8",
+    "win": 50,
+    "avg": 26.75
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "6",
+    "win": 50,
+    "avg": 29.33
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "GEONOSIANBROODALPHA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "6",
+    "win": 50,
+    "avg": 26.17
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "9",
+    "win": 44,
+    "avg": 25.22
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "7",
+    "win": 28,
+    "avg": 15.14
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "21",
+    "win": 9,
+    "avg": 5.57
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "INQUISITORBARRISS"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "6",
+    "win": 0,
+    "avg": 0.17
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "seen": "5",
+    "win": 0,
+    "avg": 0
+   }
+  ]
+ },
+ "GRANDMOFFTARKIN": {
+  "meta": {
+   "battles": "33.3K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "421",
+    "win": 100,
+    "avg": 56.89
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "233",
+    "win": 100,
+    "avg": 55.05
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "169",
+    "win": 100,
+    "avg": 57.89
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "OPERATIVE",
+     "SCORCH"
+    ],
+    "seen": "90",
+    "win": 100,
+    "avg": 55.2
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "69",
+    "win": 100,
+    "avg": 54.96
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "69",
+    "win": 100,
+    "avg": 56.9
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "819",
+    "win": 99,
+    "avg": 56.59
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "2,552",
+    "win": 99,
+    "avg": 54.81
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "1,605",
+    "win": 99,
+    "avg": 54.85
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "1,443",
+    "win": 99,
+    "avg": 56.36
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "186",
+    "win": 99,
+    "avg": 55.47
+   },
+   {
+    "A": [
+     "JABBATHEHUTT"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "157",
+    "win": 99,
+    "avg": 58.42
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "607",
+    "win": 99,
+    "avg": 53.99
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "3,271",
+    "win": 99,
+    "avg": 54.86
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "742",
+    "win": 99,
+    "avg": 55.87
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "101",
+    "win": 99,
+    "avg": 54.34
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "1,088",
+    "win": 98,
+    "avg": 55.1
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "357",
+    "win": 98,
+    "avg": 56
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "385",
+    "win": 98,
+    "avg": 53.81
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "74",
+    "win": 98,
+    "avg": 56.18
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "73",
+    "win": 98,
+    "avg": 57.1
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "73",
+    "win": 98,
+    "avg": 55.79
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "186",
+    "win": 98,
+    "avg": 52.75
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "174",
+    "win": 98,
+    "avg": 55.74
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "390",
+    "win": 98,
+    "avg": 57.09
+   },
+   {
+    "A": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "513",
+    "win": 97,
+    "avg": 53.42
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "83",
+    "win": 97,
+    "avg": 54.71
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "77",
+    "win": 97,
+    "avg": 53.58
+   },
+   {
+    "A": [
+     "HONDO",
+     "EZRABRIDGERS3",
+     "UGNAUGHT"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "225",
+    "win": 97,
+    "avg": 53.14
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "564",
+    "win": 97,
+    "avg": 57.33
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "SITHASSASSIN",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "152",
+    "win": 96,
+    "avg": 51.5
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "779",
+    "win": 96,
+    "avg": 54.05
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "1,049",
+    "win": 96,
+    "avg": 52
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "SITHMARAUDER",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "82",
+    "win": 96,
+    "avg": 53.22
+   },
+   {
+    "A": [
+     "DARTHMALGUS"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "610",
+    "win": 95,
+    "avg": 55.85
+   },
+   {
+    "A": [
+     "BOBAFETTSCION",
+     "4LOM",
+     "ASAJJDARKDISCIPLE"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "162",
+    "win": 94,
+    "avg": 53.61
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "1,740",
+    "win": 93,
+    "avg": 52.46
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "283",
+    "win": 93,
+    "avg": 52.62
+   },
+   {
+    "A": [
+     "EMPERORPALPATINE",
+     "MARAJADE",
+     "VADERDUELSEND"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "447",
+    "win": 92,
+    "avg": 50.62
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "CALKESTIS",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "85",
+    "win": 91,
+    "avg": 51.91
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "695",
+    "win": 90,
+    "avg": 47.19
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "132",
+    "win": 89,
+    "avg": 48.93
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "850",
+    "win": 89,
+    "avg": 50.43
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "PAZVIZSLA",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "80",
+    "win": 86,
+    "avg": 46.25
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "447",
+    "win": 85,
+    "avg": 48.14
+   },
+   {
+    "A": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "433",
+    "win": 82,
+    "avg": 45.6
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "290",
+    "win": 81,
+    "avg": 44.05
+   },
+   {
+    "A": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "267",
+    "win": 80,
+    "avg": 45.57
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "66",
+    "win": 80,
+    "avg": 45.2
+   },
+   {
+    "A": [
+     "CT7567",
+     "CAPTAINREX",
+     "CT5555"
+    ],
+    "D": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "seen": "164",
+    "win": 78,
+    "avg": 42.62
+   }
+  ]
+ },
+ "SATELESHAN": {
+  "meta": {
+   "battles": null,
+   "season": null,
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "125",
+    "win": 100,
+    "avg": 55.43
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "57",
+    "win": 100,
+    "avg": 52.51
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "52",
+    "win": 100,
+    "avg": 57.67
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "49",
+    "win": 100,
+    "avg": 51.96
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "47",
+    "win": 100,
+    "avg": 55.19
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "40",
+    "win": 100,
+    "avg": 55.5
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "GEONOSIANBROODALPHA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "29",
+    "win": 100,
+    "avg": 53.83
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "28",
+    "win": 100,
+    "avg": 51.75
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 55.5
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "VADER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "19",
+    "win": 100,
+    "avg": 56.21
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "19",
+    "win": 100,
+    "avg": 55.63
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHSIDIOUS",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "18",
+    "win": 100,
+    "avg": 51.83
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHSION",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "17",
+    "win": 100,
+    "avg": 52.82
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "16",
+    "win": 100,
+    "avg": 55.38
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "16",
+    "win": 100,
+    "avg": 56.69
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "15",
+    "win": 100,
+    "avg": 55.47
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "14",
+    "win": 100,
+    "avg": 51.86
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHTALON",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "14",
+    "win": 100,
+    "avg": 52.43
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHSION",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "13",
+    "win": 100,
+    "avg": 52.15
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "12",
+    "win": 100,
+    "avg": 57.67
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "10",
+    "win": 100,
+    "avg": 54
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHMARAUDER",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "10",
+    "win": 100,
+    "avg": 53.1
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHSIDIOUS",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "9",
+    "win": 100,
+    "avg": 52.67
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHTALON",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "9",
+    "win": 100,
+    "avg": 51.44
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 56.14
+   },
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 56.57
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "GEONOSIANBROODALPHA"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 51.86
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "GEONOSIANBROODALPHA",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 51.86
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "VADER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 53.29
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "7",
+    "win": 100,
+    "avg": 58.29
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "405",
+    "win": 99,
+    "avg": 52.99
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "510",
+    "win": 99,
+    "avg": 55.06
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "120",
+    "win": 99,
+    "avg": 57.61
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHSIDIOUS",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "73",
+    "win": 98,
+    "avg": 52.23
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "112",
+    "win": 98,
+    "avg": 52.14
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "COUNTDOOKU",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "46",
+    "win": 97,
+    "avg": 51
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "41",
+    "win": 97,
+    "avg": 56.93
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "69",
+    "win": 97,
+    "avg": 53.64
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "34",
+    "win": 97,
+    "avg": 54.29
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "96",
+    "win": 95,
+    "avg": 53.54
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "18",
+    "win": 94,
+    "avg": 52
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "15",
+    "win": 93,
+    "avg": 51.47
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "37",
+    "win": 91,
+    "avg": 48.95
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHSIDIOUS"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "18",
+    "win": 88,
+    "avg": 49.67
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "25",
+    "win": 88,
+    "avg": 50.32
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 85,
+    "avg": 47
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "seen": "16",
+    "win": 81,
+    "avg": 44.75
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "74",
+    "win": 78,
+    "avg": 44.2
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "INQUISITORBARRISS"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "20",
+    "win": 75,
+    "avg": 41.1
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "seen": "7",
+    "win": 71,
+    "avg": 42.14
+   }
+  ]
+ },
+ "SAWGERRERA": {
+  "meta": {
+   "battles": "15.3K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "373",
+    "win": 100,
+    "avg": 55.49
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "236",
+    "win": 100,
+    "avg": 56.47
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "FOSITHTROOPER"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "139",
+    "win": 100,
+    "avg": 55.47
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "113",
+    "win": 100,
+    "avg": 55.39
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "98",
+    "win": 100,
+    "avg": 53.51
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CINTA",
+     "VEL"
+    ],
+    "seen": "81",
+    "win": 100,
+    "avg": 56.74
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE"
+    ],
+    "seen": "67",
+    "win": 100,
+    "avg": 56.27
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "66",
+    "win": 100,
+    "avg": 56.59
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "60",
+    "win": 100,
+    "avg": 56.37
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "55",
+    "win": 100,
+    "avg": 56.15
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "51",
+    "win": 100,
+    "avg": 58.98
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "51",
+    "win": 100,
+    "avg": 56.12
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "49",
+    "win": 100,
+    "avg": 54.1
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE"
+    ],
+    "seen": "43",
+    "win": 100,
+    "avg": 56.05
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "43",
+    "win": 100,
+    "avg": 57.84
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "38",
+    "win": 100,
+    "avg": 56
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE"
+    ],
+    "seen": "38",
+    "win": 100,
+    "avg": 54.74
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "BAZEMALBUS",
+     "CHIRRUTIMWE"
+    ],
+    "seen": "36",
+    "win": 100,
+    "avg": 55.19
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "VADER"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "35",
+    "win": 100,
+    "avg": 55.49
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CINTA",
+     "VEL"
+    ],
+    "seen": "32",
+    "win": 100,
+    "avg": 53.47
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CARADUNE",
+     "KYLEKATARN"
+    ],
+    "seen": "31",
+    "win": 100,
+    "avg": 56.77
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "30",
+    "win": 100,
+    "avg": 56.13
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "30",
+    "win": 100,
+    "avg": 56.3
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "30",
+    "win": 100,
+    "avg": 53.23
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "LUTHENRAEL"
+    ],
+    "seen": "169",
+    "win": 99,
+    "avg": 56.25
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "106",
+    "win": 99,
+    "avg": 54.18
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "453",
+    "win": 98,
+    "avg": 55.07
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "75",
+    "win": 98,
+    "avg": 55
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "176",
+    "win": 98,
+    "avg": 51.94
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "693",
+    "win": 98,
+    "avg": 55.6
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "1,092",
+    "win": 98,
+    "avg": 52.71
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "144",
+    "win": 97,
+    "avg": 52.83
+   },
+   {
+    "A": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "70",
+    "win": 97,
+    "avg": 54.36
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "35",
+    "win": 97,
+    "avg": 54.86
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "66",
+    "win": 96,
+    "avg": 54.47
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "33",
+    "win": 96,
+    "avg": 52.94
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "311",
+    "win": 96,
+    "avg": 54.41
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CAPTAINREX",
+     "KYLEKATARN"
+    ],
+    "seen": "30",
+    "win": 96,
+    "avg": 50.9
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "351",
+    "win": 96,
+    "avg": 54.27
+   },
+   {
+    "A": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "231",
+    "win": 96,
+    "avg": 52.81
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "66",
+    "win": 95,
+    "avg": 53.21
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "103",
+    "win": 95,
+    "avg": 51.22
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "195",
+    "win": 94,
+    "avg": 50.23
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "230",
+    "win": 94,
+    "avg": 55.56
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "CASSIANUNDERCOVER",
+     "LUTHENRAEL"
+    ],
+    "seen": "65",
+    "win": 93,
+    "avg": 53.23
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "337",
+    "win": 93,
+    "avg": 50.12
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT210408",
+     "CT5555"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "seen": "70",
+    "win": 92,
+    "avg": 50.57
+   },
+   {
+    "A": [
+     "HONDO",
+     "EZRABRIDGERS3",
+     "UGNAUGHT"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "108",
+    "win": 91,
+    "avg": 50.46
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "1,327",
+    "win": 89,
+    "avg": 49.71
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "SAWGERRERA",
+     "KLEYA",
+     "LUTHENRAEL"
+    ],
+    "seen": "209",
+    "win": 88,
+    "avg": 49.14
+   }
+  ]
+ },
+ "GLAHSOKATANO": {
+  "meta": {
+   "battles": "36.5K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 26,
+  "rows": [
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "HERMITYODA",
+     "WATTAMBOR"
+    ],
+    "seen": "120",
+    "win": 100,
+    "avg": 56.57
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "GENERALSYNDULLA",
+     "PADAWANSABINE"
+    ],
+    "seen": "110",
+    "win": 100,
+    "avg": 56.55
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "GENERALSYNDULLA",
+     "HUYANG"
+    ],
+    "seen": "100",
+    "win": 100,
+    "avg": 56.53
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "FULCRUMAHSOKA"
+    ],
+    "seen": "89",
+    "win": 100,
+    "avg": 57.9
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "PADAWANSABINE",
+     "WATTAMBOR"
+    ],
+    "seen": "87",
+    "win": 100,
+    "avg": 56.59
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "FULCRUMAHSOKA",
+     "HUYANG"
+    ],
+    "seen": "81",
+    "win": 100,
+    "avg": 56.52
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "HUYANG",
+     "PADAWANSABINE"
+    ],
+    "seen": "388",
+    "win": 99,
+    "avg": 56.33
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "1,238",
+    "win": 94,
+    "avg": 55.05
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "684",
+    "win": 93,
+    "avg": 50.77
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "283",
+    "win": 92,
+    "avg": 51.11
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "985",
+    "win": 92,
+    "avg": 50.23
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "598",
+    "win": 90,
+    "avg": 49.88
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "606",
+    "win": 89,
+    "avg": 51.9
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "461",
+    "win": 88,
+    "avg": 48.96
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "2,197",
+    "win": 87,
+    "avg": 50.75
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "113",
+    "win": 85,
+    "avg": 47.46
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "2,534",
+    "win": 85,
+    "avg": 45.76
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "FULCRUMAHSOKA"
+    ],
+    "seen": "444",
+    "win": 82,
+    "avg": 46.32
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "2,759",
+    "win": 80,
+    "avg": 45.09
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "5,885",
+    "win": 77,
+    "avg": 43.09
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "204",
+    "win": 76,
+    "avg": 42.57
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "1,010",
+    "win": 75,
+    "avg": 41.44
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "10.9K",
+    "win": 70,
+    "avg": 39.09
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "seen": "436",
+    "win": 48,
+    "avg": 27.91
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "seen": "833",
+    "win": 43,
+    "avg": 25.31
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "GENERALSYNDULLA"
+    ],
+    "seen": "176",
+    "win": 31,
+    "avg": 18.06
+   }
+  ]
+ },
+ "GLHONDO": {
+  "meta": {
+   "battles": "36.9K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "401",
+    "win": 100,
+    "avg": 56.63
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "QUIGGOLD",
+     "VANE"
+    ],
+    "seen": "259",
+    "win": 100,
+    "avg": 56.77
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLHONDO",
+     "QUIGGOLD",
+     "VANE"
+    ],
+    "seen": "213",
+    "win": 100,
+    "avg": 55.75
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLHONDO",
+     "QUIGGOLD",
+     "VANE"
+    ],
+    "seen": "93",
+    "win": 100,
+    "avg": 55.88
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "1,004",
+    "win": 99,
+    "avg": 56.12
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "2,247",
+    "win": 99,
+    "avg": 56.62
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "1,839",
+    "win": 99,
+    "avg": 55.45
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "414",
+    "win": 99,
+    "avg": 55.72
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "387",
+    "win": 99,
+    "avg": 55.4
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "198",
+    "win": 98,
+    "avg": 55.89
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "490",
+    "win": 98,
+    "avg": 55.76
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "264",
+    "win": 98,
+    "avg": 55.66
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "CAPTAINSILVO"
+    ],
+    "seen": "84",
+    "win": 98,
+    "avg": 55.9
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "978",
+    "win": 98,
+    "avg": 55.56
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "121",
+    "win": 98,
+    "avg": 55.7
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "791",
+    "win": 98,
+    "avg": 54.28
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "156",
+    "win": 98,
+    "avg": 53.79
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "308",
+    "win": 97,
+    "avg": 55.17
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "129",
+    "win": 97,
+    "avg": 56.27
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "1,441",
+    "win": 97,
+    "avg": 52.52
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "390",
+    "win": 97,
+    "avg": 55.03
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "STARKILLER",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "190",
+    "win": 97,
+    "avg": 54.99
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "256",
+    "win": 97,
+    "avg": 53.39
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "99",
+    "win": 96,
+    "avg": 55.17
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "637",
+    "win": 96,
+    "avg": 51.92
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "QUIGGOLD",
+     "VANE"
+    ],
+    "seen": "1,213",
+    "win": 96,
+    "avg": 53.55
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "132",
+    "win": 96,
+    "avg": 54.59
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "SM33"
+    ],
+    "seen": "75",
+    "win": 96,
+    "avg": 54.25
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "8,429",
+    "win": 95,
+    "avg": 53.13
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "1,435",
+    "win": 94,
+    "avg": 52.71
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "300",
+    "win": 94,
+    "avg": 50.79
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "92",
+    "win": 93,
+    "avg": 50.71
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "3,639",
+    "win": 92,
+    "avg": 50.88
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "seen": "92",
+    "win": 92,
+    "avg": 52.07
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "274",
+    "win": 91,
+    "avg": 50.93
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "SM33"
+    ],
+    "seen": "145",
+    "win": 91,
+    "avg": 49.89
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "BRUTUS",
+     "CAPTAINSILVO"
+    ],
+    "seen": "102",
+    "win": 90,
+    "avg": 49.91
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "REY",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "92",
+    "win": 83,
+    "avg": 46.3
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "CALKESTIS",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "135",
+    "win": 81,
+    "avg": 45.75
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "QUIGGOLD",
+     "VANE"
+    ],
+    "seen": "132",
+    "win": 81,
+    "avg": 43.61
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "895",
+    "win": 80,
+    "avg": 44.59
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "CALKESTIS",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "300",
+    "win": 80,
+    "avg": 45.16
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "138",
+    "win": 76,
+    "avg": 41.68
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "151",
+    "win": 73,
+    "avg": 42.27
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "KYLORENUNMASKED",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "seen": "73",
+    "win": 72,
+    "avg": 40.08
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "156",
+    "win": 64,
+    "avg": 36.74
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "78",
+    "win": 64,
+    "avg": 35.94
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "KYLORENUNMASKED",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "150",
+    "win": 63,
+    "avg": 35.39
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "seen": "127",
+    "win": 62,
+    "avg": 35.7
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLHONDO",
+     "HONDO",
+     "VANE"
+    ],
+    "seen": "204",
+    "win": 55,
+    "avg": 30.45
+   }
+  ]
+ },
+ "LORDVADER": {
+  "meta": {
+   "battles": "35.6K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 43,
+  "rows": [
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER"
+    ],
+    "seen": "113",
+    "win": 98,
+    "avg": 54.04
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "SCORCH"
+    ],
+    "seen": "263",
+    "win": 96,
+    "avg": 53.12
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER"
+    ],
+    "seen": "116",
+    "win": 93,
+    "avg": 50.61
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "SCORCH"
+    ],
+    "seen": "285",
+    "win": 89,
+    "avg": 47.97
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "1,142",
+    "win": 87,
+    "avg": 47.85
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "3,593",
+    "win": 87,
+    "avg": 50.01
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "DISGUISEDCLONETROOPER"
+    ],
+    "seen": "81",
+    "win": 86,
+    "avg": 48.64
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "LORDVADER",
+     "OPERATIVE",
+     "SCORCH"
+    ],
+    "seen": "90",
+    "win": 85,
+    "avg": 46.93
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "152",
+    "win": 85,
+    "avg": 46.83
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "SCORCH"
+    ],
+    "seen": "179",
+    "win": 85,
+    "avg": 48.13
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "MAUL"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "175",
+    "win": 85,
+    "avg": 46.64
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "2,131",
+    "win": 84,
+    "avg": 46.49
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "433",
+    "win": 84,
+    "avg": 46.42
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "FOSITHTROOPER"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "203",
+    "win": 84,
+    "avg": 46.4
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "SCORCH"
+    ],
+    "seen": "97",
+    "win": 84,
+    "avg": 45.6
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHSIDIOUS"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "318",
+    "win": 83,
+    "avg": 46.01
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "638",
+    "win": 83,
+    "avg": 45.93
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHTALON"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "103",
+    "win": 83,
+    "avg": 45.76
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "6,664",
+    "win": 82,
+    "avg": 45.22
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "132",
+    "win": 81,
+    "avg": 44.79
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "LORDVADER",
+     "OPERATIVE",
+     "SCORCH"
+    ],
+    "seen": "99",
+    "win": 81,
+    "avg": 46.25
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "342",
+    "win": 79,
+    "avg": 42
+   },
+   {
+    "A": [
+     "MAZKANATA",
+     "HONDO",
+     "SM33"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "73",
+    "win": 73,
+    "avg": 40.51
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "284",
+    "win": 73,
+    "avg": 39.3
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "VADER"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "251",
+    "win": 72,
+    "avg": 39.48
+   },
+   {
+    "A": [
+     "MAZKANATA",
+     "QUIGGOLD",
+     "SM33"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "1,381",
+    "win": 70,
+    "avg": 38.69
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "LORDVADER",
+     "OPERATIVE",
+     "SCORCH"
+    ],
+    "seen": "120",
+    "win": 70,
+    "avg": 37.35
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "93",
+    "win": 63,
+    "avg": 37.59
+   },
+   {
+    "A": [
+     "MAZKANATA",
+     "KIX",
+     "SM33"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "96",
+    "win": 62,
+    "avg": 35.09
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "4,202",
+    "win": 61,
+    "avg": 34.52
+   },
+   {
+    "A": [
+     "HONDO",
+     "EZRABRIDGERS3",
+     "UGNAUGHT"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "137",
+    "win": 57,
+    "avg": 31.01
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "4,386",
+    "win": 55,
+    "avg": 29.55
+   },
+   {
+    "A": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "401",
+    "win": 54,
+    "avg": 29.28
+   },
+   {
+    "A": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "127",
+    "win": 54,
+    "avg": 30.86
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "147",
+    "win": 53,
+    "avg": 28.84
+   },
+   {
+    "A": [
+     "MAZKANATA",
+     "ITHANO",
+     "QUIGGOLD"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "97",
+    "win": 53,
+    "avg": 28.78
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "1,767",
+    "win": 53,
+    "avg": 30.14
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "767",
+    "win": 45,
+    "avg": 24.32
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "134",
+    "win": 28,
+    "avg": 16.13
+   },
+   {
+    "A": [
+     "GLHONDO",
+     "SM33",
+     "VANE"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "125",
+    "win": 28,
+    "avg": 16.23
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "159",
+    "win": 20,
+    "avg": 11.53
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "152",
+    "win": 19,
+    "avg": 10.74
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "PAZVIZSLA",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "seen": "105",
+    "win": 16,
+    "avg": 8.53
+   }
+  ]
+ },
+ "GLREY": {
+  "meta": {
+   "battles": "51.6K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ],
+    "seen": "280",
+    "win": 98,
+    "avg": 54.64
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REY"
+    ],
+    "seen": "183",
+    "win": 97,
+    "avg": 53.78
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "50RT",
+     "BENSOLO"
+    ],
+    "seen": "353",
+    "win": 95,
+    "avg": 52.87
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "ZAALBAR"
+    ],
+    "seen": "178",
+    "win": 95,
+    "avg": 52.13
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "1,320",
+    "win": 93,
+    "avg": 51.68
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ],
+    "seen": "108",
+    "win": 93,
+    "avg": 48.73
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "AMILYNHOLDO",
+     "BENSOLO"
+    ],
+    "seen": "181",
+    "win": 93,
+    "avg": 51.41
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "286",
+    "win": 93,
+    "avg": 50.96
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ],
+    "seen": "732",
+    "win": 92,
+    "avg": 52.1
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "AMILYNHOLDO",
+     "BENSOLO"
+    ],
+    "seen": "166",
+    "win": 91,
+    "avg": 46.67
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "724",
+    "win": 90,
+    "avg": 49.58
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "GENERALKENOBI"
+    ],
+    "seen": "360",
+    "win": 90,
+    "avg": 49.27
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "50RT",
+     "BENSOLO"
+    ],
+    "seen": "132",
+    "win": 90,
+    "avg": 46.66
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "GENERALKENOBI"
+    ],
+    "seen": "263",
+    "win": 89,
+    "avg": 45.16
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "GENERALKENOBI"
+    ],
+    "seen": "175",
+    "win": 88,
+    "avg": 44.98
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "seen": "4,227",
+    "win": 88,
+    "avg": 48.16
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "321",
+    "win": 87,
+    "avg": 44.55
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "50RT",
+     "BENSOLO"
+    ],
+    "seen": "562",
+    "win": 86,
+    "avg": 49.09
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "EZRAEXILE"
+    ],
+    "seen": "249",
+    "win": 86,
+    "avg": 47.28
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REY"
+    ],
+    "seen": "285",
+    "win": 86,
+    "avg": 48.85
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "606",
+    "win": 85,
+    "avg": 44.27
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "50RT",
+     "BENSOLO"
+    ],
+    "seen": "259",
+    "win": 85,
+    "avg": 43.47
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "ARCTROOPER501ST",
+     "BENSOLO"
+    ],
+    "seen": "163",
+    "win": 85,
+    "avg": 48.42
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ],
+    "seen": "236",
+    "win": 85,
+    "avg": 43.54
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "STARKILLER",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "263",
+    "win": 84,
+    "avg": 46.24
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "ZAALBAR"
+    ],
+    "seen": "456",
+    "win": 83,
+    "avg": 47.51
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLREY",
+     "50RT",
+     "BENSOLO"
+    ],
+    "seen": "160",
+    "win": 83,
+    "avg": 45.56
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BB8",
+     "BENSOLO"
+    ],
+    "seen": "106",
+    "win": 83,
+    "avg": 47.08
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "695",
+    "win": 82,
+    "avg": 44.97
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "STARKILLER",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "104",
+    "win": 82,
+    "avg": 44.93
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "1,363",
+    "win": 82,
+    "avg": 42.14
+   },
+   {
+    "A": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "seen": "118",
+    "win": 82,
+    "avg": 43.99
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "seen": "1,723",
+    "win": 81,
+    "avg": 41.47
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "LUMINARAUNDULI"
+    ],
+    "seen": "229",
+    "win": 81,
+    "avg": 44.11
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "GENERALKENOBI"
+    ],
+    "seen": "662",
+    "win": 80,
+    "avg": 45.96
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REY"
+    ],
+    "seen": "189",
+    "win": 80,
+    "avg": 41.6
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "EZRAEXILE"
+    ],
+    "seen": "288",
+    "win": 80,
+    "avg": 45.87
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "486",
+    "win": 80,
+    "avg": 40.91
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "AMILYNHOLDO",
+     "BENSOLO"
+    ],
+    "seen": "195",
+    "win": 80,
+    "avg": 45.63
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "REYJEDITRAINING"
+    ],
+    "seen": "1,953",
+    "win": 80,
+    "avg": 45.6
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "EZRAEXILE"
+    ],
+    "seen": "139",
+    "win": 78,
+    "avg": 39.95
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "1,225",
+    "win": 76,
+    "avg": 43.12
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "seen": "7,538",
+    "win": 75,
+    "avg": 42.73
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "COMMANDERAHSOKA"
+    ],
+    "seen": "128",
+    "win": 72,
+    "avg": 36.65
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "CALKESTIS"
+    ],
+    "seen": "2,573",
+    "win": 71,
+    "avg": 36.36
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLREY",
+     "AMILYNHOLDO",
+     "BENSOLO"
+    ],
+    "seen": "121",
+    "win": 71,
+    "avg": 38.13
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "260",
+    "win": 68,
+    "avg": 37.35
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "EZRAEXILE"
+    ],
+    "seen": "221",
+    "win": 68,
+    "avg": 37.05
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLREY",
+     "BENSOLO",
+     "EZRAEXILE"
+    ],
+    "seen": "292",
+    "win": 68,
+    "avg": 34.69
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GLREY",
+     "BARRISSOFFEE",
+     "BENSOLO"
+    ],
+    "seen": "145",
+    "win": 67,
+    "avg": 37.03
+   }
+  ]
+ },
+ "GLLEIA": {
+  "meta": {
+   "battles": null,
+   "season": null,
+   "format": "3v3"
+  },
+  "n": 42,
+  "rows": [
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "FIRSTORDERTROOPER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "10",
+    "win": 100,
+    "avg": 53.5
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "FOSITHTROOPER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "21",
+    "win": 95,
+    "avg": 50.86
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "CAPTAINREX"
+    ],
+    "seen": "21",
+    "win": 95,
+    "avg": 52.71
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "1,027",
+    "win": 95,
+    "avg": 52.28
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "607",
+    "win": 92,
+    "avg": 50.18
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLOREN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "11",
+    "win": 90,
+    "avg": 50
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "326",
+    "win": 90,
+    "avg": 53.42
+   },
+   {
+    "A": [
+     "STRANGER",
+     "STARKILLER",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "67",
+    "win": 89,
+    "avg": 49.63
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "409",
+    "win": 89,
+    "avg": 49
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "29",
+    "win": 86,
+    "avg": 47.48
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "29",
+    "win": 86,
+    "avg": 47.34
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULS7",
+     "STARKILLER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "36",
+    "win": 86,
+    "avg": 48.11
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "100",
+    "win": 84,
+    "avg": 47.08
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "GREEDO"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "31",
+    "win": 83,
+    "avg": 45.68
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "286",
+    "win": 81,
+    "avg": 46.15
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GREEDO",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "15",
+    "win": 80,
+    "avg": 45
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "FOSITHTROOPER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "19",
+    "win": 78,
+    "avg": 43.37
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "22",
+    "win": 77,
+    "avg": 40.27
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "MAUL"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "17",
+    "win": 76,
+    "avg": 41.82
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "321",
+    "win": 74,
+    "avg": 41.09
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GAMORREANGUARD"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "22",
+    "win": 72,
+    "avg": 40.77
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "86",
+    "win": 72,
+    "avg": 41.01
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GREEDO"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "38",
+    "win": 71,
+    "avg": 37.79
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "20",
+    "win": 70,
+    "avg": 38.4
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "367",
+    "win": 69,
+    "avg": 38.12
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "DARTHSIDIOUS"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "35",
+    "win": 68,
+    "avg": 37.77
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHASSASSIN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "88",
+    "win": 67,
+    "avg": 36.78
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "56",
+    "win": 66,
+    "avg": 36.52
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "VADER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "23",
+    "win": 65,
+    "avg": 35.83
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "INQUISITORBARRISS"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "24",
+    "win": 37,
+    "avg": 20.58
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "25",
+    "win": 36,
+    "avg": 18.68
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "35",
+    "win": 28,
+    "avg": 16.83
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "61",
+    "win": 26,
+    "avg": 14.92
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "21",
+    "win": 23,
+    "avg": 13.62
+   },
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "PADAWANSABINE"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "17",
+    "win": 23,
+    "avg": 13.35
+   },
+   {
+    "A": [
+     "GLHONDO",
+     "BRUTUS",
+     "VANE"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "11",
+    "win": 18,
+    "avg": 10
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "28",
+    "win": 17,
+    "avg": 10.43
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "57",
+    "win": 14,
+    "avg": 8.11
+   },
+   {
+    "A": [
+     "GLAHSOKATANO",
+     "EZRAEXILE",
+     "HUYANG"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "9",
+    "win": 11,
+    "avg": 6.56
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "30",
+    "win": 10,
+    "avg": 5.63
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "10",
+    "win": 10,
+    "avg": 6
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "ARMORER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "seen": "9",
+    "win": 0,
+    "avg": 0.44
+   }
+  ]
+ },
+ "JEDIMASTERMACEWINDU": {
+  "meta": {
+   "battles": "29.7K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "238",
+    "win": 100,
+    "avg": 56.27
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "208",
+    "win": 100,
+    "avg": 56.08
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "172",
+    "win": 100,
+    "avg": 55.88
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "162",
+    "win": 100,
+    "avg": 54.81
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "147",
+    "win": 100,
+    "avg": 55.06
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "106",
+    "win": 100,
+    "avg": 53.66
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "95",
+    "win": 100,
+    "avg": 55.95
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "91",
+    "win": 100,
+    "avg": 57.52
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "SHAAKTI"
+    ],
+    "seen": "90",
+    "win": 100,
+    "avg": 56.54
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "87",
+    "win": 100,
+    "avg": 55.05
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "SHAAKTI"
+    ],
+    "seen": "82",
+    "win": 100,
+    "avg": 56.29
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "77",
+    "win": 100,
+    "avg": 56.69
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "71",
+    "win": 100,
+    "avg": 55.37
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "SHAAKTI"
+    ],
+    "seen": "69",
+    "win": 100,
+    "avg": 56.38
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "62",
+    "win": 100,
+    "avg": 54.11
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "SHAAKTI"
+    ],
+    "seen": "62",
+    "win": 100,
+    "avg": 55.08
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "61",
+    "win": 100,
+    "avg": 56.49
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "59",
+    "win": 100,
+    "avg": 57.8
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "542",
+    "win": 99,
+    "avg": 55.64
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "1,823",
+    "win": 99,
+    "avg": 54.82
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "118",
+    "win": 99,
+    "avg": 52.79
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "297",
+    "win": 98,
+    "avg": 56.25
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JOCASTANU"
+    ],
+    "seen": "85",
+    "win": 98,
+    "avg": 55.94
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "69",
+    "win": 98,
+    "avg": 55.84
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "69",
+    "win": 98,
+    "avg": 55.48
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "63",
+    "win": 98,
+    "avg": 58.02
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "184",
+    "win": 98,
+    "avg": 55.79
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "60",
+    "win": 98,
+    "avg": 54.1
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "79",
+    "win": 97,
+    "avg": 53.82
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "74",
+    "win": 97,
+    "avg": 54.74
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "316",
+    "win": 97,
+    "avg": 54.93
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "100",
+    "win": 97,
+    "avg": 56.28
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "2,196",
+    "win": 96,
+    "avg": 53.03
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "244",
+    "win": 96,
+    "avg": 53.11
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "450",
+    "win": 96,
+    "avg": 50.18
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "seen": "129",
+    "win": 96,
+    "avg": 51.65
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JEDIKNIGHTGUARDIAN"
+    ],
+    "seen": "197",
+    "win": 95,
+    "avg": 53.16
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "119",
+    "win": 95,
+    "avg": 52.85
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "91",
+    "win": 95,
+    "avg": 51.13
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "356",
+    "win": 95,
+    "avg": 49.56
+   },
+   {
+    "A": [
+     "LORDVADER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "60",
+    "win": 95,
+    "avg": 54.88
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "91",
+    "win": 94,
+    "avg": 52.93
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JOCASTANU"
+    ],
+    "seen": "138",
+    "win": 94,
+    "avg": 48.53
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "SITHMARAUDER"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "144",
+    "win": 93,
+    "avg": 50.49
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "93",
+    "win": 93,
+    "avg": 51.33
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "829",
+    "win": 93,
+    "avg": 50.05
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JOCASTANU"
+    ],
+    "seen": "87",
+    "win": 93,
+    "avg": 50.95
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "168",
+    "win": 92,
+    "avg": 51.08
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "JOCASTANU",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "seen": "129",
+    "win": 92,
+    "avg": 53.6
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "JOCASTANU"
+    ],
+    "seen": "150",
+    "win": 92,
+    "avg": 51.11
+   }
+  ]
+ },
+ "GREATMOTHERS": {
+  "meta": {
+   "battles": null,
+   "season": null,
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "121",
+    "win": 100,
+    "avg": 55.39
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "96",
+    "win": 100,
+    "avg": 53.62
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "74",
+    "win": 100,
+    "avg": 56
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "64",
+    "win": 100,
+    "avg": 54.62
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "60",
+    "win": 100,
+    "avg": 55.87
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "59",
+    "win": 100,
+    "avg": 55.49
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "DEATHTROOPERPERIDEA",
+     "MORGANELSBETH"
+    ],
+    "seen": "45",
+    "win": 100,
+    "avg": 54.22
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "39",
+    "win": 100,
+    "avg": 54.95
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "36",
+    "win": 100,
+    "avg": 55.31
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "36",
+    "win": 100,
+    "avg": 55.89
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "33",
+    "win": 100,
+    "avg": 56
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "31",
+    "win": 100,
+    "avg": 55.13
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "30",
+    "win": 100,
+    "avg": 53.73
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "26",
+    "win": 100,
+    "avg": 54.69
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "25",
+    "win": 100,
+    "avg": 55.8
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "25",
+    "win": 100,
+    "avg": 57.64
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERZOMBIE"
+    ],
+    "seen": "21",
+    "win": 100,
+    "avg": 55.67
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 55.65
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "DEATHTROOPERPERIDEA",
+     "MORGANELSBETH"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 54.55
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERZOMBIE"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 54.55
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "20",
+    "win": 100,
+    "avg": 55.3
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "19",
+    "win": 100,
+    "avg": 55.53
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "18",
+    "win": 100,
+    "avg": 56.5
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "281",
+    "win": 99,
+    "avg": 54.59
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "91",
+    "win": 98,
+    "avg": 53.75
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "175",
+    "win": 98,
+    "avg": 54.86
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "222",
+    "win": 98,
+    "avg": 54.84
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "95",
+    "win": 97,
+    "avg": 54.19
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "135",
+    "win": 97,
+    "avg": 53.57
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "39",
+    "win": 97,
+    "avg": 53.41
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "35",
+    "win": 97,
+    "avg": 53.66
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "31",
+    "win": 96,
+    "avg": 53.16
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "89",
+    "win": 96,
+    "avg": 50.82
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "seen": "29",
+    "win": 96,
+    "avg": 50.69
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT7567"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "74",
+    "win": 95,
+    "avg": 52.03
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "47",
+    "win": 95,
+    "avg": 53.85
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "ASAJJDARKDISCIPLE",
+     "MORGANELSBETH"
+    ],
+    "seen": "23",
+    "win": 95,
+    "avg": 51.65
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "22",
+    "win": 95,
+    "avg": 53.05
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "438",
+    "win": 94,
+    "avg": 49.63
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "63",
+    "win": 93,
+    "avg": 52.75
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "57",
+    "win": 92,
+    "avg": 47.25
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "24",
+    "win": 91,
+    "avg": 48.33
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "654",
+    "win": 91,
+    "avg": 49.65
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "59",
+    "win": 91,
+    "avg": 49.05
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "176",
+    "win": 90,
+    "avg": 47.95
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "32",
+    "win": 90,
+    "avg": 49.56
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "seen": "21",
+    "win": 90,
+    "avg": 49.52
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "seen": "30",
+    "win": 90,
+    "avg": 48.23
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "159",
+    "win": 89,
+    "avg": 49.01
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "seen": "258",
+    "win": 89,
+    "avg": 49.18
+   }
+  ]
+ },
+ "STORMTROOPERLUKE": {
+  "meta": {
+   "battles": null,
+   "season": null,
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "248",
+    "win": 100,
+    "avg": 56.69
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "133",
+    "win": 100,
+    "avg": 56.79
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "122",
+    "win": 100,
+    "avg": 55.35
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "120",
+    "win": 100,
+    "avg": 56.23
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "SITHTROOPER",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "92",
+    "win": 100,
+    "avg": 55.58
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "77",
+    "win": 100,
+    "avg": 56.92
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "71",
+    "win": 100,
+    "avg": 57.8
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "62",
+    "win": 100,
+    "avg": 56.71
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "53",
+    "win": 100,
+    "avg": 53.98
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "34",
+    "win": 100,
+    "avg": 57
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GAMORREANGUARD"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "30",
+    "win": 100,
+    "avg": 56.43
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "22",
+    "win": 100,
+    "avg": 57.5
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "GREEDO"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "19",
+    "win": 100,
+    "avg": 55.84
+   },
+   {
+    "A": [
+     "EMPERORPALPATINE",
+     "VADER",
+     "VADERDUELSEND"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "18",
+    "win": 100,
+    "avg": 55.83
+   },
+   {
+    "A": [
+     "LORDVADER"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "18",
+    "win": 100,
+    "avg": 58
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "481",
+    "win": 99,
+    "avg": 56.57
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "299",
+    "win": 99,
+    "avg": 58.1
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "81",
+    "win": 98,
+    "avg": 56.79
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "65",
+    "win": 98,
+    "avg": 55.8
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "62",
+    "win": 98,
+    "avg": 55.08
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "604",
+    "win": 98,
+    "avg": 54.83
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "52",
+    "win": 98,
+    "avg": 55.44
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "141",
+    "win": 97,
+    "avg": 55.48
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "599",
+    "win": 97,
+    "avg": 52.43
+   },
+   {
+    "A": [
+     "RACCOON",
+     "GAMORREANGUARD",
+     "HUMANTHUG"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "32",
+    "win": 96,
+    "avg": 54.25
+   },
+   {
+    "A": [
+     "RACCOON",
+     "CADBANE",
+     "GREEDO"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "27",
+    "win": 96,
+    "avg": 54.19
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "187",
+    "win": 96,
+    "avg": 54.77
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "415",
+    "win": 96,
+    "avg": 56.43
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CORUSCANTUNDERWORLDPOLICE",
+     "LOBOT"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "659",
+    "win": 95,
+    "avg": 54.11
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "238",
+    "win": 94,
+    "avg": 52.09
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CARADUNE",
+     "CORUSCANTUNDERWORLDPOLICE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "36",
+    "win": 94,
+    "avg": 53.5
+   },
+   {
+    "A": [
+     "COBBVANTH",
+     "CHIEFNEBIT",
+     "CORUSCANTUNDERWORLDPOLICE"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "34",
+    "win": 94,
+    "avg": 53.06
+   },
+   {
+    "A": [
+     "JABBATHEHUTT"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "48",
+    "win": 91,
+    "avg": 54.17
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "306",
+    "win": 90,
+    "avg": 50.44
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTTROOPER"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "20",
+    "win": 90,
+    "avg": 51.05
+   },
+   {
+    "A": [
+     "UGNAUGHT",
+     "EZRABRIDGERS3",
+     "HONDO"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "85",
+    "win": 89,
+    "avg": 50.12
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "39",
+    "win": 87,
+    "avg": 48.44
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "339",
+    "win": 84,
+    "avg": 47.6
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "293",
+    "win": 81,
+    "avg": 45.6
+   },
+   {
+    "A": [
+     "HONDO",
+     "EZRABRIDGERS3",
+     "UGNAUGHT"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "38",
+    "win": 81,
+    "avg": 45.63
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "48",
+    "win": 81,
+    "avg": 44.75
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "INQUISITORBARRISS"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "29",
+    "win": 79,
+    "avg": 45.03
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "125",
+    "win": 79,
+    "avg": 43.66
+   },
+   {
+    "A": [
+     "EMPERORPALPATINE",
+     "MARAJADE",
+     "VADERDUELSEND"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "153",
+    "win": 79,
+    "avg": 43.05
+   },
+   {
+    "A": [
+     "MAJORPARTAGAZ",
+     "DEDRAMEERO",
+     "KXSECURITYDROID"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "66",
+    "win": 77,
+    "avg": 43.56
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "BASTILASHANDARK",
+     "DARTHMALAK"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "61",
+    "win": 77,
+    "avg": 41.46
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "ASAJVENTRESS",
+     "MORGANELSBETH"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "63",
+    "win": 74,
+    "avg": 42.21
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "26",
+    "win": 73,
+    "avg": 41.54
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "67",
+    "win": 67,
+    "avg": 37.13
+   },
+   {
+    "A": [
+     "DOCTORAPHRA",
+     "BT1",
+     "TRIPLEZERO"
+    ],
+    "D": [
+     "STORMTROOPERLUKE",
+     "PRINCESSLEIA",
+     "STORMTROOPERHAN"
+    ],
+    "seen": "54",
+    "win": 64,
+    "avg": 36.28
+   }
+  ]
+ },
+ "BOSSNASS": {
+  "meta": {
+   "battles": "29.1K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "SITHPALPATINE",
+     "DARTHBANE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "111",
+    "win": 100,
+    "avg": 57.3
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "71",
+    "win": 100,
+    "avg": 56.93
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "62",
+    "win": 100,
+    "avg": 55.92
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS"
+    ],
+    "seen": "138",
+    "win": 99,
+    "avg": 55.7
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "501",
+    "win": 98,
+    "avg": 55.96
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "JARJARBINKS"
+    ],
+    "seen": "305",
+    "win": 97,
+    "avg": 55.26
+   },
+   {
+    "A": [
+     "SAVAGEOPRESS",
+     "DARTHTALON",
+     "DARTHTRAYA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "139",
+    "win": 97,
+    "avg": 55.05
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "GUNGANPHALANX"
+    ],
+    "seen": "60",
+    "win": 96,
+    "avg": 54.87
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "GENERALHUX"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "177",
+    "win": 96,
+    "avg": 53.76
+   },
+   {
+    "A": [
+     "SAVAGEOPRESS",
+     "DARTHNIHILUS",
+     "DARTHTRAYA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "312",
+    "win": 95,
+    "avg": 54.28
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "271",
+    "win": 95,
+    "avg": 53.88
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "278",
+    "win": 94,
+    "avg": 53.43
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "JARJARBINKS"
+    ],
+    "seen": "85",
+    "win": 94,
+    "avg": 53.16
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "5,947",
+    "win": 93,
+    "avg": 53.09
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "234",
+    "win": 93,
+    "avg": 51.75
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS"
+    ],
+    "seen": "434",
+    "win": 92,
+    "avg": 52.49
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "GUNGANPHALANX"
+    ],
+    "seen": "94",
+    "win": 92,
+    "avg": 52.37
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "114",
+    "win": 91,
+    "avg": 49.39
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "215",
+    "win": 90,
+    "avg": 51.41
+   },
+   {
+    "A": [
+     "LORDVADER",
+     "APPO",
+     "OPERATIVE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "86",
+    "win": 90,
+    "avg": 46.95
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "322",
+    "win": 90,
+    "avg": 51.11
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "381",
+    "win": 90,
+    "avg": 48.74
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "438",
+    "win": 89,
+    "avg": 53.01
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "AHSOKATANO",
+     "COMMANDERAHSOKA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "117",
+    "win": 89,
+    "avg": 49.79
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "105",
+    "win": 89,
+    "avg": 50.38
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "66",
+    "win": 89,
+    "avg": 48.39
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "PAZVIZSLA",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "72",
+    "win": 88,
+    "avg": 48.31
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "PAZVIZSLA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "295",
+    "win": 88,
+    "avg": 48.24
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "262",
+    "win": 87,
+    "avg": 47.65
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "BOOMADIER",
+     "CAPTAINTARPALS"
+    ],
+    "seen": "82",
+    "win": 86,
+    "avg": 47.78
+   },
+   {
+    "A": [
+     "MONMOTHMA",
+     "KYLEKATARN",
+     "LUTHENRAEL"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "139",
+    "win": 86,
+    "avg": 49.14
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "MACEWINDU"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "199",
+    "win": 84,
+    "avg": 46.92
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "3,096",
+    "win": 84,
+    "avg": 47.89
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "339",
+    "win": 83,
+    "avg": 46.7
+   },
+   {
+    "A": [
+     "JEDIMASTERKENOBI",
+     "COMMANDERAHSOKA",
+     "GENERALKENOBI"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "842",
+    "win": 83,
+    "avg": 46.29
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MERRIN",
+     "MORGANELSBETH"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "211",
+    "win": 81,
+    "avg": 45.92
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "449",
+    "win": 81,
+    "avg": 44.22
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "296",
+    "win": 80,
+    "avg": 43.2
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "422",
+    "win": 80,
+    "avg": 44.43
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "90",
+    "win": 80,
+    "avg": 43.83
+   },
+   {
+    "A": [
+     "GLHONDO",
+     "CAPTAINSILVO",
+     "VANE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "152",
+    "win": 78,
+    "avg": 44.09
+   },
+   {
+    "A": [
+     "THIRDSISTER",
+     "GRANDINQUISITOR",
+     "SEVENTHSISTER"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "72",
+    "win": 77,
+    "avg": 42.18
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "GUNGANPHALANX"
+    ],
+    "seen": "186",
+    "win": 77,
+    "avg": 43.91
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "3,137",
+    "win": 77,
+    "avg": 43.43
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "316",
+    "win": 71,
+    "avg": 38.65
+   },
+   {
+    "A": [
+     "DARTHMALGUS",
+     "DARTHMALAK",
+     "DARTHREVAN"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "123",
+    "win": 70,
+    "avg": 37.84
+   },
+   {
+    "A": [
+     "SAVAGEOPRESS",
+     "DARTHNIHILUS",
+     "DARTHTRAYA"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "276",
+    "win": 70,
+    "avg": 39.29
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "980",
+    "win": 64,
+    "avg": 36.21
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION"
+    ],
+    "D": [
+     "BOSSNASS",
+     "CAPTAINTARPALS",
+     "JARJARBINKS"
+    ],
+    "seen": "92",
+    "win": 64,
+    "avg": 34.53
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "BOSSNASS",
+     "GUNGANPHALANX",
+     "JARJARBINKS"
+    ],
+    "seen": "82",
+    "win": 51,
+    "avg": 30.21
+   }
+  ]
+ },
+ "TUSKENCHIEFTAIN": {
+  "meta": {
+   "battles": "10.1K",
+   "season": "83",
+   "format": "3v3"
+  },
+  "n": 50,
+  "rows": [
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "URORRURRR"
+    ],
+    "seen": "114",
+    "win": 100,
+    "avg": 56.32
+   },
+   {
+    "A": [
+     "JABBATHEHUTT",
+     "BOUSHH",
+     "KRRSANTAN"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "112",
+    "win": 100,
+    "avg": 56.87
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "BASTILASHAN",
+     "JEDIKNIGHTREVAN"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "112",
+    "win": 100,
+    "avg": 56.79
+   },
+   {
+    "A": [
+     "MANDALORBOKATAN",
+     "IG12",
+     "THEMANDALORIANBESKARARMOR"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "96",
+    "win": 100,
+    "avg": 55.18
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "79",
+    "win": 100,
+    "avg": 56.8
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "76",
+    "win": 100,
+    "avg": 56.14
+   },
+   {
+    "A": [
+     "QUEENAMIDALA",
+     "MASTERQUIGON",
+     "PADAWANOBIWAN"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "55",
+    "win": 100,
+    "avg": 56.93
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "URORRURRR"
+    ],
+    "seen": "37",
+    "win": 100,
+    "avg": 56.3
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "36",
+    "win": 100,
+    "avg": 56.36
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "34",
+    "win": 100,
+    "avg": 58.47
+   },
+   {
+    "A": [
+     "LORDVADER"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "32",
+    "win": 100,
+    "avg": 58
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "URORRURRR"
+    ],
+    "seen": "25",
+    "win": 100,
+    "avg": 56.96
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "23",
+    "win": 100,
+    "avg": 56.83
+   },
+   {
+    "A": [
+     "GREATMOTHERS",
+     "MORGANELSBETH",
+     "NIGHTSISTERSPIRIT"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "404",
+    "win": 99,
+    "avg": 56.47
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "255",
+    "win": 99,
+    "avg": 55.58
+   },
+   {
+    "A": [
+     "SITHPALPATINE",
+     "WATTAMBOR"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "155",
+    "win": 99,
+    "avg": 54.88
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "146",
+    "win": 99,
+    "avg": 55.71
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "JEDIKNIGHTCAL",
+     "JEDIKNIGHTLUKE"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "99",
+    "win": 98,
+    "avg": 55.81
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "URORRURRR"
+    ],
+    "seen": "88",
+    "win": 98,
+    "avg": 55.65
+   },
+   {
+    "A": [
+     "DARTHBANE",
+     "COUNTDOOKU"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "61",
+    "win": 98,
+    "avg": 56.16
+   },
+   {
+    "A": [
+     "BAYLANSKOLL",
+     "MARROK",
+     "SHINHATI"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "200",
+    "win": 98,
+    "avg": 54.94
+   },
+   {
+    "A": [
+     "GRANDMASTERLUKE",
+     "HERMITYODA",
+     "JEDIKNIGHTCAL"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "48",
+    "win": 97,
+    "avg": 55.29
+   },
+   {
+    "A": [
+     "STRANGER",
+     "MAULHATEFUELED",
+     "STARKILLER"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "45",
+    "win": 97,
+    "avg": 54.73
+   },
+   {
+    "A": [
+     "SUPREMELEADERKYLOREN",
+     "DARKREY",
+     "KYLORENUNMASKED"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "41",
+    "win": 97,
+    "avg": 55.66
+   },
+   {
+    "A": [
+     "SITHPALPATINE"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "38",
+    "win": 97,
+    "avg": 56.58
+   },
+   {
+    "A": [
+     "ADMIRALRADDUS",
+     "C3POCHEWBACCA",
+     "JYNERSO"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "144",
+    "win": 97,
+    "avg": 55.12
+   },
+   {
+    "A": [
+     "DARTHREVAN",
+     "MISSIONVAO",
+     "ZAALBAR"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "34",
+    "win": 97,
+    "avg": 52.15
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "1,770",
+    "win": 96,
+    "avg": 52.88
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "CALKESTIS",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "29",
+    "win": 96,
+    "avg": 54.07
+   },
+   {
+    "A": [
+     "GLLEIA",
+     "CAPTAINDROGAN",
+     "R2D2_LEGENDARY"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "29",
+    "win": 96,
+    "avg": 54.79
+   },
+   {
+    "A": [
+     "SATELESHAN",
+     "JEDIKNIGHTREVAN",
+     "JOLEEBINDO"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "28",
+    "win": 96,
+    "avg": 54.82
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT210408",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "47",
+    "win": 95,
+    "avg": 53
+   },
+   {
+    "A": [
+     "CEREJUNDA",
+     "MAULS7",
+     "TARONMALICOS"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "93",
+    "win": 95,
+    "avg": 53.88
+   },
+   {
+    "A": [
+     "GRANDMOFFTARKIN",
+     "DISGUISEDCLONETROOPER",
+     "SCORCH"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "221",
+    "win": 95,
+    "avg": 54.1
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "494",
+    "win": 95,
+    "avg": 52.87
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT210408"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "1,181",
+    "win": 94,
+    "avg": 52.45
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "ARCTROOPER501ST",
+     "CT5555"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "111",
+    "win": 93,
+    "avg": 51.72
+   },
+   {
+    "A": [
+     "JEDIMASTERMACEWINDU",
+     "DEPABILLABA",
+     "VANGUARDTEMPLEGUARD"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "60",
+    "win": 93,
+    "avg": 52.93
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "SAVAGEOPRESS"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "208",
+    "win": 92,
+    "avg": 52.64
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT5555",
+     "CT7567"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENSHAMAN"
+    ],
+    "seen": "54",
+    "win": 90,
+    "avg": 50.78
+   },
+   {
+    "A": [
+     "JEDIMASTERMACEWINDU",
+     "AAYLASECURA",
+     "DEPABILLABA"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "32",
+    "win": 90,
+    "avg": 50.91
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "AHSOKATANO",
+     "ARCTROOPER501ST"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "21",
+    "win": 90,
+    "avg": 50.43
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER",
+     "CT210408",
+     "CT5555"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "33",
+    "win": 87,
+    "avg": 47.36
+   },
+   {
+    "A": [
+     "GENERALSKYWALKER"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "33",
+    "win": 87,
+    "avg": 51.27
+   },
+   {
+    "A": [
+     "RACCOON"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "55",
+    "win": 87,
+    "avg": 51.58
+   },
+   {
+    "A": [
+     "ADMIRALRADDUS",
+     "CASSIANANDOR",
+     "JYNERSO"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENRAIDER",
+     "URORRURRR"
+    ],
+    "seen": "21",
+    "win": 80,
+    "avg": 46
+   },
+   {
+    "A": [
+     "ADMIRALRADDUS",
+     "CASSIANANDOR",
+     "JYNERSO"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "214",
+    "win": 78,
+    "avg": 44.36
+   },
+   {
+    "A": [
+     "ADMIRALRADDUS",
+     "JYNERSO",
+     "K2SO"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "24",
+    "win": 70,
+    "avg": 40.54
+   },
+   {
+    "A": [
+     "DOCTORAPHRA",
+     "BT1",
+     "IG90"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "29",
+    "win": 65,
+    "avg": 37.14
+   },
+   {
+    "A": [
+     "DARTHTRAYA",
+     "DARTHNIHILUS",
+     "DARTHSION"
+    ],
+    "D": [
+     "TUSKENCHIEFTAIN",
+     "TUSKENHUNTRESS",
+     "TUSKENRAIDER"
+    ],
+    "seen": "22",
+    "win": 63,
+    "avg": 34.5
+   }
+  ]
+ }
+}

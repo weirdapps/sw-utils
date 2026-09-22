@@ -1,0 +1,2582 @@
+{
+  "CAPITALPROFUNDITY": {
+    "meta": {
+      "battles": null,
+      "season": null,
+      "head": " Units All Units Browse the full unit database Factions Roles Alignments Light Side Dark Side Neutral Collection Characters Every playable character Ships Capital ships and fighters Relic Images Relic art by tier Stats C"
+    },
+    "n": 50,
+    "rows": [
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "274",
+        "win": 100,
+        "avg": 70.54
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "64",
+        "win": 100,
+        "avg": 69.39
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "35",
+        "win": 100,
+        "avg": 69.34
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "29",
+        "win": 100,
+        "avg": 71.79
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "27",
+        "win": 100,
+        "avg": 69.11
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "27",
+        "win": 100,
+        "avg": 71.48
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "27",
+        "win": 100,
+        "avg": 70.3
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "26",
+        "win": 100,
+        "avg": 70.54
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "24",
+        "win": 100,
+        "avg": 71.42
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "24",
+        "win": 100,
+        "avg": 70.08
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "22",
+        "win": 100,
+        "avg": 70.18
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "22",
+        "win": 100,
+        "avg": 75.05
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "20",
+        "win": 100,
+        "avg": 70.5
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "17",
+        "win": 100,
+        "avg": 68.71
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "17",
+        "win": 100,
+        "avg": 71.41
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "16",
+        "win": 100,
+        "avg": 70
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "16",
+        "win": 100,
+        "avg": 71
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "15",
+        "win": 100,
+        "avg": 71.67
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "15",
+        "win": 100,
+        "avg": 71.6
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 70.14
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 69
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 69.57
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 69.43
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 71.29
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 72
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 73.93
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 72.64
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 100,
+        "avg": 68.07
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "13",
+        "win": 100,
+        "avg": 73.54
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "12",
+        "win": 100,
+        "avg": 70.42
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "11",
+        "win": 100,
+        "avg": 71.64
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "11",
+        "win": 100,
+        "avg": 69.18
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 71.1
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 71.5
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 70.8
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 71.4
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 70.9
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 100,
+        "avg": 70.9
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "9",
+        "win": 100,
+        "avg": 72.44
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "9",
+        "win": 100,
+        "avg": 72
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "177",
+        "win": 99,
+        "avg": 70.72
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "145",
+        "win": 99,
+        "avg": 71.14
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "61",
+        "win": 96,
+        "avg": 68.61
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "22",
+        "win": 95,
+        "avg": 69.27
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "14",
+        "win": 92,
+        "avg": 65.07
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "13",
+        "win": 92,
+        "avg": 64.62
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "12",
+        "win": 91,
+        "avg": 66.08
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "82",
+        "win": 90,
+        "avg": 64.74
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 90,
+        "avg": 60.9
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "seen": "10",
+        "win": 90,
+        "avg": 61.4
+      }
+    ]
+  },
+  "CAPITALLEVIATHAN": {
+    "meta": {
+      "battles": null,
+      "season": null,
+      "head": " Units All Units Browse the full unit database Factions Roles Alignments Light Side Dark Side Neutral Collection Characters Every playable character Ships Capital ships and fighters Relic Images Relic art by tier Stats C"
+    },
+    "n": 50,
+    "rows": [
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "211",
+        "win": 100,
+        "avg": 69.36
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "161",
+        "win": 100,
+        "avg": 68.98
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "57",
+        "win": 100,
+        "avg": 67.6
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "36",
+        "win": 100,
+        "avg": 70.78
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "SITHFIGHTER"
+        ],
+        "seen": "32",
+        "win": 100,
+        "avg": 71.44
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "31",
+        "win": 100,
+        "avg": 70.03
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "26",
+        "win": 100,
+        "avg": 71.92
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "22",
+        "win": 100,
+        "avg": 68.05
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "SITHFIGHTER"
+        ],
+        "seen": "19",
+        "win": 100,
+        "avg": 69.84
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "15",
+        "win": 100,
+        "avg": 71.2
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "187",
+        "win": 99,
+        "avg": 68.75
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "140",
+        "win": 99,
+        "avg": 69.91
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "186",
+        "win": 98,
+        "avg": 69.64
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "168",
+        "win": 98,
+        "avg": 69.47
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "822",
+        "win": 98,
+        "avg": 69.5
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "105",
+        "win": 98,
+        "avg": 66.62
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "134",
+        "win": 97,
+        "avg": 67.49
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "SITHFIGHTER"
+        ],
+        "seen": "42",
+        "win": 97,
+        "avg": 68.33
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "30",
+        "win": 96,
+        "avg": 66.7
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "992",
+        "win": 96,
+        "avg": 66.24
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "25",
+        "win": 96,
+        "avg": 65.12
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "194",
+        "win": 95,
+        "avg": 66.37
+      },
+      {
+        "A": [
+          "CAPITALMONCALAMARICRUISER",
+          "SCYTHE",
+          "TIEADVANCED",
+          "TIEBOMBERIMPERIAL"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "24",
+        "win": 95,
+        "avg": 64.79
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "45",
+        "win": 95,
+        "avg": 66.24
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "108",
+        "win": 95,
+        "avg": 67.11
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "42",
+        "win": 95,
+        "avg": 67.67
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "21",
+        "win": 95,
+        "avg": 67
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "19",
+        "win": 94,
+        "avg": 65.37
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "18",
+        "win": 94,
+        "avg": 64.22
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "18",
+        "win": 94,
+        "avg": 66.67
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "227",
+        "win": 93,
+        "avg": 66.33
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "24",
+        "win": 91,
+        "avg": 65.21
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "20",
+        "win": 90,
+        "avg": 61
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "17",
+        "win": 88,
+        "avg": 59.94
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "17",
+        "win": 88,
+        "avg": 60.12
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "16",
+        "win": 87,
+        "avg": 61.38
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "22",
+        "win": 86,
+        "avg": 59.82
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "21",
+        "win": 85,
+        "avg": 57.76
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "21",
+        "win": 85,
+        "avg": 59.38
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "19",
+        "win": 84,
+        "avg": 57.68
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "240",
+        "win": 82,
+        "avg": 57.61
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "106",
+        "win": 81,
+        "avg": 54.75
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "86",
+        "win": 80,
+        "avg": 52.13
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "23",
+        "win": 78,
+        "avg": 54.43
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "19",
+        "win": 73,
+        "avg": 48.16
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "15",
+        "win": 73,
+        "avg": 51.2
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "21",
+        "win": 71,
+        "avg": 47.67
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "55",
+        "win": 67,
+        "avg": 44.24
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "18",
+        "win": 66,
+        "avg": 46.94
+      },
+      {
+        "A": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "D": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "seen": "29",
+        "win": 65,
+        "avg": 44.52
+      }
+    ]
+  },
+  "CAPITALEXECUTOR": {
+    "meta": {
+      "battles": "12.7K",
+      "season": "83",
+      "head": " Units All Units Browse the full unit database Factions Roles Alignments Light Side Dark Side Neutral Collection Characters Every playable character Ships Capital ships and fighters Relic Images Relic art by tier Stats C"
+    },
+    "n": 50,
+    "rows": [
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "77",
+        "win": 100,
+        "avg": 72.09
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "62",
+        "win": 100,
+        "avg": 72.69
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "58",
+        "win": 100,
+        "avg": 74.19
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "52",
+        "win": 100,
+        "avg": 72.9
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "43",
+        "win": 100,
+        "avg": 73.02
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "42",
+        "win": 100,
+        "avg": 72.86
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "39",
+        "win": 100,
+        "avg": 73
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "39",
+        "win": 100,
+        "avg": 75.59
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "38",
+        "win": 100,
+        "avg": 76
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "37",
+        "win": 100,
+        "avg": 74
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "33",
+        "win": 100,
+        "avg": 71.21
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "32",
+        "win": 100,
+        "avg": 73.34
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "30",
+        "win": 100,
+        "avg": 73.1
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "29",
+        "win": 100,
+        "avg": 72.9
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "28",
+        "win": 100,
+        "avg": 74.43
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "28",
+        "win": 100,
+        "avg": 74.57
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "26",
+        "win": 100,
+        "avg": 73.12
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "262",
+        "win": 99,
+        "avg": 73.27
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "232",
+        "win": 99,
+        "avg": 73.65
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "1,356",
+        "win": 99,
+        "avg": 74.65
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "269",
+        "win": 99,
+        "avg": 73.17
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "130",
+        "win": 99,
+        "avg": 74.92
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "196",
+        "win": 98,
+        "avg": 73.39
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "1,136",
+        "win": 98,
+        "avg": 74.43
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "251",
+        "win": 98,
+        "avg": 73.12
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "71",
+        "win": 98,
+        "avg": 74.34
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "269",
+        "win": 98,
+        "avg": 74.19
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "460",
+        "win": 98,
+        "avg": 71.96
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "589",
+        "win": 98,
+        "avg": 71.92
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "60",
+        "win": 98,
+        "avg": 72.02
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "166",
+        "win": 98,
+        "avg": 70.43
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "226",
+        "win": 97,
+        "avg": 71.79
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "41",
+        "win": 97,
+        "avg": 72.2
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "40",
+        "win": 97,
+        "avg": 72.47
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "170",
+        "win": 97,
+        "avg": 69.32
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "33",
+        "win": 96,
+        "avg": 70.61
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "63",
+        "win": 96,
+        "avg": 66.02
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "56",
+        "win": 96,
+        "avg": 69.88
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "27",
+        "win": 96,
+        "avg": 67.19
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "27",
+        "win": 96,
+        "avg": 70.48
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "IG2000",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "27",
+        "win": 96,
+        "avg": 72.7
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "38",
+        "win": 94,
+        "avg": 65.11
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "368",
+        "win": 94,
+        "avg": 65.04
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "27",
+        "win": 92,
+        "avg": 68.56
+      },
+      {
+        "A": [
+          "CAPITALPROFUNDITY",
+          "MILLENNIUMFALCON",
+          "OUTRIDER",
+          "YWINGREBEL"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "39",
+        "win": 92,
+        "avg": 68.79
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "63",
+        "win": 92,
+        "avg": 63.57
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "439",
+        "win": 89,
+        "avg": 62
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "117",
+        "win": 88,
+        "avg": 60.98
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "PUNISHINGONE",
+          "RAZORCREST",
+          "XANADUBLOOD"
+        ],
+        "seen": "32",
+        "win": 87,
+        "avg": 60.28
+      },
+      {
+        "A": [
+          "CAPITALLEVIATHAN",
+          "FURYCLASSINTERCEPTOR",
+          "SITHBOMBER",
+          "TIEDAGGER"
+        ],
+        "D": [
+          "CAPITALEXECUTOR",
+          "HOUNDSTOOTH",
+          "PUNISHINGONE",
+          "RAZORCREST"
+        ],
+        "seen": "110",
+        "win": 85,
+        "avg": 59.23
+      }
+    ]
+  }
+}

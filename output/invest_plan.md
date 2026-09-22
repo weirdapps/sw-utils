@@ -1,6 +1,6 @@
-# Investment plan — 2026-09-21
+# Investment plan — 2026-09-22
 
-Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displayed R9 (rt >= 11).
+Roster 401 units (pulled 2026-09-22, source file-fallback). Relic target = displayed R9 (rt >= 11).
 
 > Missing inputs: rote_plan.json — those rungs of the ladder contributed nothing.
 
@@ -18,7 +18,7 @@ Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displ
 | 9 | 26 | Kit Fisto — TW defense (12%) |
 | 10 | 1 | Obi-Wan Kenobi (Old Ben) — TW offense (81%) |
 | 11 | 71 | Admiral Ackbar — GAC Fleet - Defense: Home One (crew) |
-| 12 | 116 | Ewok Scout — not on any board |
+| 12 | 117 | Ewok Scout — not on any board |
 
 ## Relic queue (204)
 
@@ -31,7 +31,7 @@ Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displ
 | 5 | Threepio & Chewie | R8 | +1 | 2 | Squad Arena climb |
 | 6 | Captain Rex | R8 | +1 | 2 | Squad Arena climb |
 | 7 | R2-D2 | R8 | +1 | 2 | Squad Arena climb |
-| 8 | Darth Malgus | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
+| 8 | Darth Malgus | R8 | +1 | 3 | Fleet - Arena: Leviathan (crew) |
 | 9 | Sith Marauder | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
 | 10 | Sith Trooper | R8 | +1 | 3 | Fleet - Arena: Leviathan (crew) |
 | 11 | Darth Maul | R7 | +2 | 3 | Fleet - Arena: Leviathan (crew) |
@@ -133,9 +133,9 @@ Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displ
 | 107 | IG-12 & Grogu | R8 | +1 | 6 | GAC 5v5 offense (74%) |
 | 108 | Paz Vizsla | R8 | +1 | 6 | GAC 5v5 offense (74%) |
 | 109 | The Mandalorian (Beskar Armor) | R8 | +1 | 6 | GAC 5v5 offense (74%) |
-| 110 | CC-1119 "Appo" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 111 | Disguised Clone Trooper | R7 | +2 | 6 | GAC 5v5 offense (73%) |
-| 112 | CX-2 | R7 | +2 | 6 | GAC 5v5 offense (73%) |
+| 110 | CC-1119 "Appo" | R8 | +1 | 6 | GAC 5v5 offense (73%) |
+| 111 | Disguised Clone Trooper | R8 | +1 | 6 | GAC 5v5 offense (73%) |
+| 112 | CX-2 | R8 | +1 | 6 | GAC 5v5 offense (73%) |
 | 113 | RC-1262 "Scorch" | R7 | +2 | 6 | GAC 5v5 offense (73%) |
 | 114 | Commander Luke Skywalker | R8 | +1 | 6 | GAC 5v5 offense (68%) |
 | 115 | C-3PO | R7 | +2 | 6 | GAC 5v5 offense (68%) |
@@ -166,14 +166,14 @@ Roster 400 units (pulled 2026-09-11, source file-fallback). Relic target = displ
 | 140 | Wrecker (Mercenary) | R6 | +3 | 6 | GAC 5v5 offense (36%) |
 | 141 | Cassian Andor | R8 | +1 | 7 | GAC 3v3 offense (78%) |
 | 142 | Jyn Erso | R7 | +2 | 7 | GAC 3v3 offense (78%) |
-| 143 | Ezra Bridger | R5 | +4 | 7 | GAC 3v3 offense (74%) |
+| 143 | Ezra Bridger | R7 | +2 | 7 | GAC 3v3 offense (74%) |
 | 144 | Bossk | R8 | +1 | 7 | GAC 3v3 offense (71%) |
 | 145 | Grand Moff Tarkin | R8 | +1 | 7 | GAC 3v3 offense (71%) |
 | 146 | Greef Karga | R7 | +2 | 7 | GAC 3v3 offense (71%) |
 | 147 | The Mandalorian | R7 | +2 | 7 | GAC 3v3 offense (71%) |
-| 148 | Qui-Gon Jinn | R6 | +3 | 7 | GAC 3v3 offense (49%) |
+| 148 | Qui-Gon Jinn | R7 | +2 | 7 | GAC 3v3 offense (49%) |
 | 149 | Jedi Knight Anakin | R7 | +2 | 7 | GAC 3v3 offense (49%) |
-| 150 | Ki-Adi-Mundi | R5 | +4 | 7 | GAC 3v3 offense (49%) |
+| 150 | Ki-Adi-Mundi | R7 | +2 | 7 | GAC 3v3 offense (49%) |
 | 151 | Kit Fisto | R5 | +4 | 9 | TW defense (12%) |
 | 152 | Captain Carson Teva | R5 | +4 | 9 | TW defense (10%) |
 | 153 | Colonel Ward | R4 | +5 | 9 | TW defense (10%) |
