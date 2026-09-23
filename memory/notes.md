@@ -6450,3 +6450,23 @@ defeated, or they revive; loss if any loaned unit dies.
 - **DJJ 0 → 91**: 1,050 + 50 + 100 + 2,750 + 454,500 era credits (1.01M → 556K).
 - ⭐ The binding material is the FIRST icon on the level panel (silver stack): 3,350 → 300
   after both. DJJ 92 needs 350. Coliseum loans sit at EL 91, so 91 is the useful floor.
+
+### Coliseum payoff the same evening: Krayt Dragon T9 25% → 40%
+With DJJ at EL 91 the holotables DJJ board became fieldable: **DJJ (L) / Qi'ra / Yoda DSV /
+JK Cal Kestis / Commander Luke** (loans at EL 91; only Yoda reads a full pip under DJJ).
+Opening (JakeSkywalker's T9 line, adapted): DJJ S1 → Yoda S2 on DJJ (or Consume) → CLS Call
+to Action + Use the Force → Qi'ra Scattering Blast → JK Cal (pistol, then Whirlwind Slam) →
+DJJ S2 → then AUTO once only the Sith pair is left.
+- Attempt 1: **160,618 = 40%**, new high (was 101,981 / 25%), paid the 30% and 40% rungs,
+  rank 326 → 274. Attempt 2 with a 6-debuff stack before the eruption: 150,515 (37%).
+- ⚠ **The loans die to the first surfacing either way at EL 91.** The Krayt's own tooltips:
+  Violent Eruption **can't be evaded** and deals **9% less per debuff on it (max −50%)**;
+  Corrosive Venom Spray (cd 3) **dispels all buffs first**, then AoE + Daze + Poison. So
+  Foresight does not dodge either hit at this level; debuffs are the only mitigation.
+- The DJJ pair then carries ~75K on AUTO. The 100% T9 boards run DJJ/Yoda at **EL 103+**;
+  the gap is era levels, not play. More DJJ levels need the first-slot material (300/350).
+
+### Era Shipment sells DROID BRAIN (corrects the "no token route" line above)
+Era Shipment: **Droid Brain ×10 = 5,000 era tokens**, Aeromagnifier ×10 = 4,000, Gyrda Keypad
+×10 = 4,500, Flawed Signal Data further down. Era tokens were 1,908 on 2026-09-23, so it is a
+route, just not an affordable one yet. Era tokens come from Coliseum and era play.
