@@ -6241,3 +6241,98 @@ hid JK Cal, Hermit Yoda, Jocasta Nu and Ki-Adi-Mundi; a 200px swipe found all 25
 pass produced a confident, wrong "the JML squad is not fieldable".
 ⭐ A **Lvl 3 datacron is worth ~+40,000 squad power** (SEE 57,141 to 97,141). Never skip the
 cron on a TW attack. Free crons are the ones not in `output/gac_cron_plan.json`.
+
+---
+
+## 2026-09-23 (daytime) — the Scavenger is the lever, and crystals are not
+
+Owner lifted the spending rail: "any resource EXCEPT real money". Every crystal sink was
+tested and **4,858 crystals were deliberately NOT spent**, because none of them buys
+anything this account needs. What DID move was free.
+
+### ⭐⭐ THE SCAVENGER CONVERTS JUNK GEAR INTO THE FORCED RELIC MATERIALS
+`action_value.py` names three materials as FORCED (no substitute at any price):
+**Aeromagnifier** (Mk III raid tokens only) and **Chromium Transistor / Aurodium Heatsink**
+(Mk II only). The GET3 balance is **5 tokens**, so the Mk III route is effectively shut.
+The Scavenger (hub far-right pan, next to Galactic Battles) targets all three directly.
+- **Aeromagnifier: 2 → 230.** Pool was Mk IX / Mk VII / Mk XII at 9 value, 175 value each,
+  roughly 19.4 pieces per unit. Spent ~4,400 pieces, kept 365 Mk IX + 96 Mk XII in reserve.
+- **Aurodium Heatsink: 386 → 821.** Pool is a DIFFERENT gear tier (Mk III / V / VII / VIII
+  at 5 value), 50 value each, so the two targets do not compete for input.
+- **Chromium Transistor left alone on purpose**: its pool is Mk VIII-XI, which is real
+  gearing stock, not junk, and it already sits at 474.
+- Mechanics: multiplier cycles **x1 → x10 → x50 → x1** (x50 is the max). Leftover value is
+  **credited to the next unit**, so nothing is wasted and big batches are safe.
+  ⚠ The input list re-sorts by COUNT as you assign, so a long tap-loop drifts onto a
+  different item. Assign in batches of ~20 taps and re-read. One batch consumed all 426
+  remaining Mk VII instead of leaving the reserve I intended. Junk, so harmless, but the
+  drift is real.
+⇒ At 40 Aeromagnifiers per R7→R9, 230 is about **6 units' worth of the hardest line**, and
+it cost nothing but gear that had no other use. **Do this every time gear piles up.**
+
+### ⭐ COLISEUM: THE BLOCKER WAS THE SQUAD, NOT THE ATTEMPTS
+The 2026-09-22 note banked attempts because "the meta squad does not beat AUTO's ceiling".
+That was measured against **Dryax**. The boss rotated to **Krayt Dragon** and the correct
+board is different. holotables.xyz/boss/krayt-dragon ranks by score; the top three all run
+**Darth Jar Jar + Yoda (Dark Side Vision)** and Darth Jar Jar is **NOT OWNED**, so the
+fieldable optimum is board #4:
+**JKL (L, loaned) / Mara Jade Skywalker / JK Cal Kestis (loaned) / Mace Windu (loaned) /
+Barriss Offee (loaned)** — every non-leader pip reads **2/2**.
+- Tier 8 went to **100% / 380,000 on the FIRST attempt**, which **unlocked tier 9 AND
+  refilled attempts 4 → 5**, exactly as `coliseum-squad-synergy-indicator` says. Rank
+  417 → 300.
+- ⚠ The game pre-loads a **Darth Maul** lead that reads 0/1 on three units. Always re-lead.
+- ⚠ **Yoda DSV reads 0/2 under a JKL lead** despite being the highest era unit (93). He
+  only earns his place next to Darth Jar Jar. Do not force him in.
+- Tier 9 converged at **25% (101,981)** across three AUTO attempts, including one after the
+  era upgrade below. Two attempts left deliberately unspent.
+- ⭐ Squad building is cheap via the filter's **TEXT SEARCH**: tap filter, tap the box, clear
+  with `keyevent 123` + 24x `keyevent 67`, `input text "Mace%sWindu"`, tap OK (1838,1015),
+  CONFIRM (1495,958), then the single match lands at **(115,480)**.
+
+### ⭐ ERA LEVELS ARE THE COLISEUM GATE, AND COLISEUM PAYS FOR THEM
+The Coliseum runs paid **~23,000 era_upgrade_basic_1, ~10,500 each basic_2/3, 2,750
+basic_4, 1,060 advanced_1** and more. Era Units screen (Collection → Era Units) shows
+**Total Era Level 363, next reward at 425**.
+**Mara Jade Skywalker 90 → 92** (+122 Special Damage, +31.19% Resistance), which puts her
+above the **loanedUnitEraLevel of 91** and she is the ONLY owned unit in the Krayt board.
+⚠ The star-gate material is SHARED across era units and Mara consumed it (835 → 185), so
+Yoda (needs 450), Starkiller (300) and Stormtrooper Concept are now blocked. Spending it on
+the Coliseum squad member was the right sink.
+
+### EVENTS BEAT NODES FOR SLICING SALVAGE, BY A LOT
+- **Smuggler's Run II** (Resource Event, one tier, R3+/Jabba/5 Hutt-Smuggler, SIM x2) and
+  **Rebel Roundup** (Assault Battle, tiers I-III, all SIM-able) were both sitting unplayed.
+- Together they paid **T05_06 49 → 201 (+152)** and **attenuators 6 → 98 (+92)**, plus 9
+  mods and relic mats.
+- Against that, **Mod Battles 2-F measured +1 T05_06 and +2 attenuators per 126 mod
+  energy** (7 sims). ⇒ **That settles the farmbot config's open 2-F vs 2-D question the
+  way it asked to be settled: neither node is a viable T05_06 farm. The events are.**
+  Do NOT buy mod-energy refreshes for slicing salvage.
+- With the new stock `execute_upgrades.py` promoted **Threepio & Chewie 5A → 6E**, and the
+  binding material moved off T05_06 onto **T05_04 (59)** and **T06_02 (15)**.
+- Calibration now runs (98 attenuators) but still throws `rc=2 GOHServiceCall Error [40]`
+  after one attempt, so a second material gates it. One reroll missed and reverted cleanly.
+
+### WHY NO CRYSTALS WERE SPENT (all seven sinks tested)
+1. **Mod energy refresh** (50c/120) — measured above, ~1 T05_06. Worthless for a 900 gap.
+2. **Cantina refresh** (100c/120) — Flawed Signal Data is cantina-only, but the need is
+   **16,200**. Rounding error.
+3. **Episode Shipment refresh** — **not offered**; it runs a fixed 5d20h cycle with no
+   crystal button. Signal Data cannot be re-bought early.
+4. **Era Shipment** — 1,278 era tokens against a 1,380 floor, and it sells Coaxial
+   Servomotor, not era XP.
+5. **Conquest** — **not running, next event in 5d 7h**, so Stim Packs buy nothing.
+6. **Arena refreshes** — both arenas already **#1**.
+7. **Hard-node refreshes** — no named unit is gated on shards; the named gaps are
+   event-gated (Profundity 09-30, Third Sister via RotE) or gear-gated.
+⇒ The honest answer is that this account's bottlenecks are event-, guild- and
+farm-gated. Crystals stay banked at 4,858.
+
+### TW closed out 0-for-3
+Inquisitorius (GI lead, 7 TW omicrons, 161,236 + a Lvl 3 dark cron) went into **beeeeer**,
+the lowest-power AND lowest-relic (all R5) Gungan wall left, and lost with **zero kills**;
+forfeited. That is three zero-kill losses from the three best available squads.
+⭐ Corroboration that it is not just our roster: **beeeeer showed `Battles: 5` and was still
+at FULL health**, so five guildmates had already attacked and every one of them forfeited.
+War ended 12,144 vs 23,928 with Forward Turrets at 16/38.
