@@ -6,7 +6,12 @@ swgoh.gg meta + the player's live roster, and pushes them into **HotUtils** as o
 "Grounded" is the whole point: every defense pick is a top-**Hold%** team on swgoh.gg and every
 offense pick a top-**Win%** team — so when the player sorts swgoh.gg the same way, they see the same teams.
 
-> **Read `memory/notes.md` FIRST.** It's the durable knowledge base — live board counts, GL allocation,
+> ⭐ **Read `memory/standing_orders.md` FIRST, before anything else.** Owner put this account
+> under active management on 2026-09-23: work its WATCH LIST top-down, act on every trigger that
+> has passed, and report. Do not wait to be asked. It also carries the hard prohibitions
+> (no real money, no crystals, protect the Profundity gate relics).
+>
+> **Then read `memory/notes.md`.** It's the durable knowledge base — live board counts, GL allocation,
 > every HotUtils API recipe (squads, in-game presets, mods slice/calibrate/level) and the gotchas learned
 > the hard way. `scripts/browser_recipes.md` has the copy-paste browser JS. This CLAUDE.md is the map;
 > notes.md is the territory. Session ids rotate — recapture each session (browser_recipes.md §4).
