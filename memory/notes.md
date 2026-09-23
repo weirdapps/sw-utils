@@ -6470,3 +6470,60 @@ DJJ S2 → then AUTO once only the Sith pair is left.
 Era Shipment: **Droid Brain ×10 = 5,000 era tokens**, Aeromagnifier ×10 = 4,000, Gyrda Keypad
 ×10 = 4,500, Flawed Signal Data further down. Era tokens were 1,908 on 2026-09-23, so it is a
 route, just not an affordable one yet. Era tokens come from Coliseum and era play.
+
+## 2026-09-23 late / 09-24 00:30 — "do all pending items including upgrades"
+
+### Context for the upgrades
+A large era-material and relic-material delivery arrived via the inbox around 20:40. The era
+materials are what let DJJ jump from EL 93 to 106. The relic deliveries did NOT lift the
+binding material (Flawed).
+
+### Upgrades done
+- **Darth Jar Jar EL 91 → 93 → 106** (Mk V Cresh Ability Module is the first-slot material and
+  the contested one: every target from EL 103 up costs the same 950; above ~100 the grey
+  box scales instead). EL 106 is above the 103 the 100% Krayt T9 boards run.
+- **Mob Enforcer R7 → R8** (#1 of the invest_plan relic queue: arena defense + #1 3v3 wall).
+- **Mods:** `mods_session.sh` +8 speed, +1 six-dot; calibration still dies on Error [40].
+- **Scavenger: Zinbiddle 2 → 46** (all 220 Mk XII salvage of its pool, 18 pts each, 90/card),
+  **Impulse 10 → 14** (41 pieces, 12 pts, 110/card). ⭐ The `*_SURPLUS` ids in
+  `pull_mods.py` all_mats are the Scavenger's BANKED POINTS toward the next unit
+  (`SCV_006_SURPLUS=54` == Zinbiddle "54/90"), not usable materials.
+- ⭐ **Era Shipment sells Flawed Signal Data ×25 for 1,250 era tokens** — the first non-cantina
+  Flawed route found. Bought once (28 → 53). Buy it every Era Shipment refresh.
+- Ninth Sister was ALREADY R7 (the 09-22 roster said R6). Standing item closed.
+- ⛔ Still gated: every R7→R8 needs **Flawed 45 (have 27 after cantina 8-G)** and **Impulse 20
+  (have 10-14)**; omicrons cost **20 omicron mats (have 18)**, Episode Shipment omicron slots
+  sold out until its refresh.
+
+### Resource ids, verified against in-game counts
+RM_001 Fragmented 2041 · RM_002 Incomplete 872 · **RM_003 Flawed 28** · RM_004 Corrupted 144 ·
+SCV_001 Carbonite · 002 Bronzium · 003 Chromium · 004 Aurodium · 005 Electrium · 006 Zinbiddle ·
+007 Impulse · 008 Aeromagnifier · 009 Gyrda · 010 Droid Brain.
+
+### Near-unlocks nobody had recorded
+**Third Sister 232/330**, **Maz Kanata 309/330**, **SM-33 ~320/330** shards (all unlock at 7★).
+
+### Coliseum: Zeffo Tomb Guardians T9 43% → 62%, rank #92
+DJJ(L)/Yoda/Starkiller/Mara/Jaxxon (all owned era units, DJJ at 106) scored **60% then 56% on
+AUTO**; JKL(L)/Mara/JK Cal/Mace/Moff Gideon scored **62% on AUTO** (new high, 279,721). Both
+have plateaued; the 70% rung (625) and rank ≤90 (600/day era currency vs 300) need a MANUAL
+run. Researched line (holotables, The End, 100% at MJ 95): *"Mara basic, JKL call JKC, Gid
+shred, JKC basic and call Mara so all armor stacks are gone. Mara AoE... focus the one with
+defense down: JKL AoE into Mara sp2, then kill the second before it gets its AoE back."*
+Daily Coliseum rank rewards are ERA CURRENCY: #1-10 3,000 · 11-30 1,500 · 31-60 900 ·
+61-90 600 · 91-250 300. That is the Era Shipment's currency (Flawed, Droid Brain).
+
+### GAC: the midnight trigger is the DEFENCE phase, not the attack phase
+At 00:00 the tile read **"GA: SET DEFENSES! 23h 56m"**. Round 1 vs **DarkBane** (13.41M GP,
+**10 GLs**, modScore 6.17 vs our 2.86, relic 9+ 14 vs our 29). Our 4 zones are placed
+(Rey/Leia front-A, Rotta front-B, Negotiator/Home One/Raddus fleet, Satele back). The ATTACK
+phase opens ~00:00 on 09-25. ⚠ The first `gac/get` at 00:02 still returned the PREVIOUS match;
+re-pull after the round flips.
+- Counters for new leaders: **Playwright MCP** loads `/gac/counters/<LEADER>/` (chrome-devtools
+  hit Cloudflare today). Extractor: every "Seen" label's nearest ancestor holding ≥2
+  `[data-unit-def-tooltip-app]` is one row; attacker ids first, then the defender lineup from
+  the LAST occurrence of the defending leader; stats regex `Seen ([\d.,K]+) Win % (\d+)% Avg`.
+
+### Arena payout times, read off the PRIZES tabs
+**Squad Arena ~17:00**, Fleet Arena ~18:00 (the watch list said 07:00 / 17:55). Fleet #9 → #5
+tonight (daily done); Squad #3 (not climbed: payout 17h away).
