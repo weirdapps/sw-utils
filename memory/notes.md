@@ -6336,3 +6336,63 @@ forfeited. That is three zero-kill losses from the three best available squads.
 ⭐ Corroboration that it is not just our roster: **beeeeer showed `Battles: 5` and was still
 at FULL health**, so five guildmates had already attacked and every one of them forfeited.
 War ended 12,144 vs 23,928 with Forward Turrets at 16/38.
+
+---
+
+## EVENT UNITS TO GRAB, AND WHAT TO PREPARE (written 2026-09-23)
+
+### ⭐⭐ 1. PROFUNDITY — 2026-09-30, READY, NOTHING TO PREPARE
+Re-verified against `swgoh_roster_fresh_20260922.json` today: **all 14 gates PASS.**
+- Ships, all 7★: UWINGSCARIF · UWINGROGUEONE · XWINGRED3 · XWINGRED2 · YWINGREBEL ·
+  GHOST · OUTRIDER
+- Characters: Admiral Raddus **R9**, Cassian Andor **R8**, Dash Rendar **R7**,
+  Mon Mothma R7, Bistan R7, Jyn Erso R7, Hera (HERASYNDULLAS3) R6
+⛔ **Raddus, Cassian and Dash sit EXACTLY at threshold.** Do not strip or re-assign their
+relics for anything between now and the event, and do not let a relic plan touch them.
+⛔ **PLAY IT MANUALLY. The Stardust Transmission cannot be simmed or auto-farmed.**
+Profundity is 24.8% hold AND 98.4% win, the best capital in the game on both sides, and it
+is the biggest free upgrade available to this account. It is also exactly what beat us in
+GAC S83: the opponent's fleet zone ran Profundity and we had no answer.
+⚠ Confirm the date on swgohevents.com/event/profundity in the days before, do NOT trust this
+line. Cadence is end-of-month monthly (04-30 · 05-31 · 06-30 · 07-31 · 08-31 · 09-30) and
+this repo has already been burned once by a stale Profundity date.
+
+### ⭐ 2. THIRD SISTER (Reva) — PREP NEEDED: NINTH SISTER R6 → R7
+Farmed from the RotE **Phase 3 · TATOOINE** special `special_reva` (1 shard per guild
+victory, guild max 50), NOT bought. Zone 3 applies a blanket rule: **every unit must be
+7★ AND Relic 7+**.
+Verified today, the account clears it with **EXACTLY five and zero slack**:
+**Grand Inquisitor · Seventh Sister · Fifth Brother · Marrok · Inquisitor Barriss**
+(all 7★ R7). **Ninth Sister is R6 (FAIL) and Eighth Brother R5 (FAIL).**
+⇒ **The one prep action worth doing: take Ninth Sister R6 → R7.** It is a single relic
+level, it restores the comp the published guides actually use (GI / 7th / 9th / 5th / 8th),
+and it gives a spare body so one bad relic move cannot lock us out of the farm entirely.
+The 230 Aeromagnifiers and 821 Aurodium Heatsinks banked from the Scavenger today are
+exactly the forced materials that feed this.
+⛔ **One attempt, no retries** — Special Missions complete once. Do not auto-battle it.
+⚠ Do not confuse it with the PHASE 4 Medical Station special, which *requires* an owned
+Third Sister at R8 and pays 1,000 Mk III tokens. One mission FARMS her, the other SPENDS her.
+Why she is worth it: turns an already-owned R7 Inquisitor bench into both a **26% wall** and
+an **85% attacker**.
+
+### 3. UNITS WE DO NOT HAVE AND WHAT THEY WOULD BUY
+- **Darth Jar Jar — NOT OWNED.** Gates the #1 Coliseum board by a wide margin: the top three
+  holotables Krayt Dragon boards all run him, scoring **1,054,555 / 656,663 / 629,089**
+  against the **226,793** board we can actually field. If a Darth Jar Jar event or farm
+  appears, it is the single biggest Coliseum upgrade on the table.
+- **The Ronin — NOT OWNED** (era unit, listed in Collection → Era Units).
+- **GL Hondo — NOT OWNED, and explicitly NOT a gap.** Do not spend on him.
+- **Jaxxon — 15/30 shards**, marquee has ~6d left. Tier 3 needs him at 4★, so the marquee
+  self-blocks until 30 shards. Keep clearing whatever tiers unlock; Tier 1 also paid a
+  5,000-point Episode quest.
+
+### 4. NEAR-TERM EVENTS TO NOT MISS
+- **Smuggler's Run III — 2026-09-25** (swgohevents front page). Smuggler's Run II paid a
+  large part of today's **+92 attenuators / +152 T05_06**, so III is worth clearing the day
+  it lands. See [[events-beat-nodes-for-slicing-salvage]].
+- **Assault Battles and Resource Events generally**: nothing red-dots them, they are
+  SIM-able once starred, and they out-earn energy nodes by orders of magnitude. Check the
+  EVENT ACTIVE tile every session.
+- ⚠ **Journey Guide unlocks are largely PERMANENT now** (Solo Journeys / Guild Journeys /
+  Galactic Legends tabs), so most GL and Hero's Journey unlocks are no longer date-gated;
+  only rotating Legendary/Mythic events are. Profundity is one of the date-gated ones.
