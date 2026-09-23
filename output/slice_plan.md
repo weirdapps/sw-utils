@@ -7,13 +7,13 @@ Source: `mods_full_20260923.json` · 1912 equipped mods
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 414 | 1413 | 15 | 42 | 313 | 6/13/9/59/176/48 | 218,875,331 |
+| 450 | 1473 | 15 | 42 | 316 | 6/13/11/16/364/139 | 218,408,831 |
 
 ## Queue: 1794 upgradeable mods (not yet 6A)
 
 By ladder rung × action:
 
-- **ARENA**: 6-dot slice-up=8, 5A->6 promote=28, 5-dot slice-up=37
+- **ARENA**: 6-dot slice-up=10, 5A->6 promote=28, 5-dot slice-up=35
 - **GAC**: 6-dot slice-up=55, 5A->6 promote=410, 5-dot slice-up=417
 - **TW**: 6-dot slice-up=1, 5A->6 promote=66, 5-dot slice-up=93
 - **fleet**: 6-dot slice-up=1, 5A->6 promote=35, 5-dot slice-up=124
@@ -23,15 +23,15 @@ By ladder rung × action:
 
 | # | rung | char | mod | speed | state | action |
 |--:|---|---|---|--:|---|---|
-| 1 | ARENA | Cad Bane | set5 slot6 | 10 | 6-dot t1 | 6-dot slice-up |
-| 2 | ARENA | Cad Bane | set8 slot7 | 10 | 5-dot t4 | 5-dot slice-up |
-| 3 | ARENA | Cad Bane | set8 slot2 | 9 | 5-dot t4 | 5-dot slice-up |
+| 1 | ARENA | Cad Bane | set8 slot7 | 14 | 5-dot t5 | 5A->6 promote |
+| 2 | ARENA | Cad Bane | set8 slot2 | 12 | 5-dot t5 | 5A->6 promote |
+| 3 | ARENA | Cad Bane | set5 slot6 | 10 | 6-dot t1 | 6-dot slice-up |
 | 4 | ARENA | Cad Bane | set7 slot4 | 5 | 5-dot t4 | 5-dot slice-up |
 | 5 | ARENA | Cad Bane | set7 slot3 | 4 | 5-dot t3 | 5-dot slice-up |
 | 6 | ARENA | Cad Bane | set5 slot5 | 0 | 5-dot t2 | 5-dot slice-up |
-| 7 | ARENA | Threepio & Chewie | set1 slot3 | 15 | 5-dot t5 | 5A->6 promote |
+| 7 | ARENA | Threepio & Chewie | set1 slot3 | 16 | 6-dot t1 | 6-dot slice-up |
 | 8 | ARENA | Threepio & Chewie | set8 slot2 | 11 | 6-dot t1 | 6-dot slice-up |
-| 9 | ARENA | Threepio & Chewie | set2 slot6 | 4 | 5-dot t5 | 5A->6 promote |
+| 9 | ARENA | Threepio & Chewie | set2 slot6 | 5 | 6-dot t1 | 6-dot slice-up |
 | 10 | ARENA | Threepio & Chewie | set2 slot4 | 4 | 5-dot t4 | 5-dot slice-up |
 | 11 | ARENA | Threepio & Chewie | set2 slot5 | 4 | 5-dot t4 | 5-dot slice-up |
 | 12 | ARENA | Threepio & Chewie | set2 slot7 | 3 | 5-dot t2 | 5-dot slice-up |
