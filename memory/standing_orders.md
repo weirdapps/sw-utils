@@ -42,17 +42,18 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 
 | When | Item | First action | Rule |
 |---|---|---|---|
-| **~23:58 daily** | **GAC round attack phase** | `gac/get` then `gac3v3_attack.py`, then attack | ⭐⭐ TOP PRIORITY, standing rule. Fleets: attack with **Leviathan / Executor**, they are free now. |
-| ~17:55 daily | Fleet Arena payout | Check rank ~17:45, re-climb if knocked | Currently #1. 5 battles/day. No crystal skips at >2h out. |
-| ~07:00 daily | Squad Arena payout | Check rank, re-climb if knocked | Currently #1. Defence = the squad you LAST attacked with. |
+| **~00:00 on 09-25** | **GAC round 1 ATTACK phase vs DarkBane** | re-pull `gac/get` (the first pull after a flip returns the OLD match), scrape counters for NEW leaders via Playwright, `gac3v3_attack.py`, attack | ⭐⭐ TOP PRIORITY. ⚠ Corrected 09-24: midnight on 09-23 opened the DEFENCE phase ("SET DEFENSES! 23h 56m"), not the attack phase. Opponent: 13.41M GP, 10 GLs, modScore 6.17. Fleets: attack with Leviathan / Executor. |
+| ~18:00 daily | Fleet Arena payout | Check rank ~17:45, re-climb if knocked | **#5** at 09-24 00:00 (was #9). 5 battles/day. No crystal skips at >2h out. |
+| **~17:00 daily** | Squad Arena payout | Check rank ~16:30, re-climb if knocked | **#3** at 09-24 00:07. ⚠ Corrected: the PRIZES tab reads ~17:00, not 07:00. Defence = the squad you LAST attacked with (Rotta). |
 | 23:00 daily | Daily quests reset | farmbot once, then finish by hand | Farmbot misses the shop step and the arena battle. |
-| **on boss rotation** | **Coliseum** | Look the NEW boss up on holotables, rebuild, run | ⭐ Maxing a tier refills attempts and opens the next. The blocker is always the SQUAD. |
-| **~20:55 daily** | **Action Jaxxon marquee, Tier III daily** | Replay/SIM Tier III, claim **5 Jaxxon shards** | Jaxxon 45/65 on 09-23. Four claims = 5★. Marquee ends ~09-29. |
+| **on boss rotation** | **Coliseum** | Look the NEW boss up on holotables, rebuild, run | ⭐ Maxing a tier refills attempts and opens the next. The blocker is always the SQUAD. **Zeffo T9 62%, rank #92, 2 attempts left until ~21:05 09-24**: AUTO has plateaued at ~60% on both boards, so play the researched MANUAL line (notes.md) to reach 70% and rank ≤90 (600/day). |
+| **~20:55 daily** | **Action Jaxxon marquee, Tiers I-III daily** | SIM all three, claim **5 Jaxxon shards** from Tier III | Jaxxon **50/65** after the 09-23 claim. Three more claims (09-24, 25, 26) = 5★. Marquee ends ~09-29. |
 | **when Jaxxon hits 5★ (~09-26)** | **DJJ "Terrible Tings" Tier II** | EVENT ACTIVE → Terrible Tings → Tier II | Starkiller vs 3 Stormtroopers: Son of the Suns when up, basic the buffed trooper, watch Air Supply. Recipe in `notes.md`. 65 shards → DJJ 5★ + 6,700 Mk VII Aurek + 330 Mk VII cores. |
 | 2026-09-25 | Smuggler's Run III | SIM every tier | Run II paid a big share of +92 attenuators and +152 T05_06. |
 | ~2026-09-28 | **Conquest opens** | Plan squads before entering | Stamina-gated, not energy-gated (12,449 banked). |
-| ~2026-09-29 | Episode Shipment refresh | Buy Fragmented + Incomplete Signal Data | The only non-cantina Signal Data route. ~47K episode currency banked. |
-| ~2026-09-29 | Jaxxon marquee ends | Clear any newly unlocked tier | Tier 3 needs 4 stars = 30 shards, have 15. |
+| ~2026-09-29 | Episode Shipment refresh | Buy Fragmented + Incomplete Signal Data + Omicron mats | ~53K episode currency banked. Omicrons cost 20 mats; 18 on hand. |
+| **every Era Shipment refresh (~09-29)** | **Era Shipment: Flawed Signal Data ×25 for 1,250 era tokens** | Buy it first | Flawed is the binding relic material (27 on hand, 45 per R7→R8). Era tokens come from Coliseum rank. |
+| ~2026-09-29 | Jaxxon marquee ends | Clear Tier IV once Jaxxon is 5★ | Jaxxon **50/65** after the 09-23 claim. |
 | **2026-09-30** | **PROFUNDITY** | **PLAY IT BY HAND** | ⛔ Cannot be simmed. All 14 gates verified PASS. |
 | 2026-10-01 | Set 32 datacrons expire | Re-run `gac_cron_assign.py`, re-attach | Great Mothers, ST Luke, Cassian carry set-32. |
 
@@ -62,7 +63,7 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 2. **Check the EVENT ACTIVE tile every session.** Resource Events and Assault Battles never
    red-dot, are SIM-able once starred, and out-earn energy nodes by orders of magnitude.
 3. **`mods_session.sh` after any farming**, it spends whatever arrived in ladder order.
-4. **Ninth Sister R6 to R7** when relic mats allow. Unblocks Third Sister slack.
+4. ✅ **Ninth Sister is R7** (found already done on 09-24). Relic spend now follows `invest_plan.py`; every R7→R8 is gated on Flawed 45 + Impulse 20.
 5. Claim every red dot: inbox, Episode Track, quests, Coliseum, guild.
 
 ## HARD PROHIBITIONS
