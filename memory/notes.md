@@ -6396,3 +6396,57 @@ an **85% attacker**.
 - ⚠ **Journey Guide unlocks are largely PERMANENT now** (Solo Journeys / Guild Journeys /
   Galactic Legends tabs), so most GL and Hero's Journey unlocks are no longer date-gated;
   only rotating Legendary/Mythic events are. Profundity is one of the date-gated ones.
+
+---
+
+## 2026-09-23 (evening) — DARTH JAR JAR: "Terrible Tings" Legendary Event
+
+**Where:** home → EVENT ACTIVE → Solo Events → **Terrible Tings** (Legendary Event, ends
+~2026-10-20, same day as the Era of Myths & Legends). Four tiers pay **80 / 65 / 85 / 100
+shards** (330 = 7★). Victory counts unlimited, rewards once.
+
+### Tier gates, read off the in-game panels (NOT the web, which guessed wrong)
+- **Tier I: NO requirements.** Borrowed Yoda (DSV) EL 130, solo. ✅ **WON 2026-09-23, 3★,
+  35 turns, first attempt.** DJJ activated at **4★** (activation cost 100 credits).
+- **Tier II (65):** Mara Jade / Yoda DSV / Starkiller / Stormtrooper (Concept) at 5★ (all
+  met), **Starkiller EL 95** (✅ done 2026-09-23), **Jaxxon 5★** (the only open gate).
+- **Tier III (85):** all six at 6★ **including The Ronin (NOT OWNED)** + a 7th line.
+- **Tier IV (100):** all six at 7★ + six era-level lines.
+⇒ Tiers III/IV are out of reach free-to-play while The Ronin is unowned. Do not spend on them.
+
+### ⭐ Jaxxon 5★ is FREE by ~2026-09-26: the marquee pays 5 shards per daily refresh
+Jaxxon was **4★ at 45/65** on 2026-09-23. The Action Jaxxon marquee's **Tier III replays daily**
+("Refresh in" timer, ~20:55 EEST) and pays **5 Jaxxon shards** + Mk IX×2 + Mk VII×2 + 15.
+Four refreshes = 65 = 5★. Marquee ends ~2026-09-29, so there is slack of ~3 days.
+⛔ The shard-source screen puts a **€89.99 Jaxxon Bundle II** card where the unit page's
+left arrow sits. A blind tap at (682,1008) opened its store page on 2026-09-23. Verify the
+screen before every tap on that flow. Crystal packs (1,299 / 5,999 / 12,990) are not needed.
+
+### Tier I recipe (Yoda DSV vs Grand Master Yoda) — solved, scripted
+Each GMY stance takes damage from ONE ability: **Peace → Force Fisticuffs (x=1344)**,
+**Justice → Consume, I Will (1505, cd 3)**, **Guardian → Hear Me, You Will (1663, cd 4)**;
+matching ability on cooldown → **Bide (1824, cd 5)**. No AUTO button exists in this fight.
+- Stance read: long-press GMY at (1183,199), full-screen OCR, grep "peace/justice/guardian
+  stance". Dismiss with a tap at (300,900).
+- Cooldown read: the countdown digit is white; **white-pixel fraction of the icon > 0.05 = on
+  cooldown** (0.163 vs 0.000, clean separation).
+- Driver: `~/Downloads/djj/yoda_loop.py` + `bt.py`. The stance cycle was near-regular
+  (peace → justice → guardian); Bide covered every other Guardian. Zero forced misplays.
+
+### Tier II recipe (Starkiller vs 3 Stormtroopers) — researched, not yet played
+GAC Film Room, 2026-09-23 (won first try, 25 turns, 25 Air Supply left): Air Supply drops per
+buff on each Stormtrooper at the start of its turn; 0 = loss. **Son of the Suns (1st special)
+every time it is up** (Buff Immunity 2 turns + Shared Fate). **Laser-Sword Strike (basic)
+the trooper that has buffs** (dispels all). **Grip of Tython (2nd special) only when nobody
+has buffs.** Watch Air Supply, not health.
+
+### Tier III / IV mechanics (web, for later): Luuke only takes damage with 2+ of
+Blind/Defense Down/Stagger/Stun/Vulnerable, and you lose if Mara or JKL dies. Final tier:
+Jaxxon must have Massively Overpowered, Viper Target Lock, Cal Kestis Manipulated when
+defeated, or they revive; loss if any loaned unit dies.
+
+### Era levels spent
+- Starkiller 90 → **95** (Tier II gate): 2,000 of the first material + 100 rare + 47,700.
+- **DJJ 0 → 91**: 1,050 + 50 + 100 + 2,750 + 454,500 era credits (1.01M → 556K).
+- ⭐ The binding material is the FIRST icon on the level panel (silver stack): 3,350 → 300
+  after both. DJJ 92 needs 350. Coliseum loans sit at EL 91, so 91 is the useful floor.
