@@ -5,9 +5,36 @@ any pending items and act on them as soon as they become available."*
 **Read this at the START of every session, before doing anything else.** Work the WATCH LIST
 top-down, act on anything whose trigger has passed, then report. Do not wait to be asked.
 
+## OPERATING MODEL (owner decision, 2026-09-23)
+**The owner starts the session. My job is to make sure nothing is forgotten while I am
+already running, and to PROMPT him.** No cron, no resident loop.
+
+Three obligations that follow from that:
+1. ⭐ **"Run the daily tasks" ALWAYS includes a full WATCH LIST sweep.** It is not just the
+   farmbot and the 8 dailies. Work the table below top-down, act on every trigger that has
+   passed, and say what you skipped and why. See DAILY TASKS below for the exact routine.
+2. ⭐ **PROMPT THE OWNER, unasked, the moment a deadline is near or an opportunity opens.**
+   If something is due in the next few hours, say so in that session even if he asked about
+   something else entirely. He is relying on me to raise it, not on himself to remember.
+3. ⭐ **END EVERY SESSION with the next three triggers and their times**, so he knows when to
+   start the next one. This is the whole substitute for a wake mechanism; skipping it is how
+   a deadline gets missed.
+
 ⚠ **Honest limit:** I only run while a session is open, and the game lives on local
-BlueStacks, so no VPS or GitHub Action can drive it. "As soon as available" means *first
-action of the next session after the trigger*, unless a wake mechanism is set up.
+BlueStacks, so no VPS or GitHub Action can drive it. A trigger that passes with no session
+open is simply missed, which is exactly why obligation 3 is not optional.
+
+---
+
+## DAILY TASKS ROUTINE (what "run the daily tasks" means)
+0. **Read this file. Sweep the WATCH LIST. Act on anything whose trigger has passed.**
+1. Check live timers on the hub rail; never trust the times written here.
+2. Farmbot once, then finish by hand what it misses (shop purchases, the arena battle).
+3. Claim every red dot: inbox, Episode Track, quests, Coliseum, guild, login calendars.
+4. Both arenas to #1 if a payout is near.
+5. Check the EVENT ACTIVE tile for SIM-able Resource Events and Assault Battles.
+6. Scavenger if low-tier gear has piled up; `mods_session.sh` if materials arrived.
+7. **Report, then list the next three triggers with times.**
 
 ---
 
@@ -49,3 +76,13 @@ action of the next session after the trigger*, unless a wake mechanism is set up
 ## REPORTING
 Every session: state what the trigger was, what was done, and what is next. Report failures
 with the actual output. Never claim something landed without verifying it on screen.
+
+⭐ **Close every session with this block, always:**
+```
+NEXT TRIGGERS
+  <time>  <item>  <what I will do>
+  <time>  <item>  <what I will do>
+  <time>  <item>  <what I will do>
+```
+The owner starts the sessions, so this block is the only thing standing between a deadline
+and a missed deadline. Write it even when the session was about something unrelated.
