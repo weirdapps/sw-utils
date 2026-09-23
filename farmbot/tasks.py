@@ -232,11 +232,19 @@ TPL_SHOP_CANCEL = "shop_cancel"            # the dialog's close-X — backs out 
 TPL_BUNDLE_OFFER = "bundle_offer"
 BUNDLE_OFFER_TAP_OFFSET = (980, 1)       # match centre (877,142) -> the close X (1857,143)
 
+# The full-screen "New Era Units!" grant modal (Jaxxon and Darth Jar Jar, 2026-09-23). The
+# overnight run had no template for it and burned 8 halts sitting on it. Marker is the title
+# text; its only exit is OKAY far below. Measured: 1.000 on both modals, at most 0.464 on the
+# other 70 halt captures, and OKAY at (955,930) in both.
+TPL_NEW_ERA_UNITS = "new_era_units"
+NEW_ERA_UNITS_TAP_OFFSET = (-7, 640)     # match centre (962,290) -> OKAY (955,930)
+
 DEFAULT_POPUP_CLOSERS = ("popup_close", "newsletter_close", TPL_COLISEUM_HIGHSCORE,
                          TPL_TIER_COMPLETE, TPL_CELEBRATION, "bronzium_skip",
                          (TPL_COLISEUM_RESULTS, COLISEUM_RESULTS_TAP_OFFSET),
                          (TPL_BUNDLE_OFFER, BUNDLE_OFFER_TAP_OFFSET),
-                         (TPL_DEFEAT_UPSELL, DEFEAT_UPSELL_TAP_OFFSET))
+                         (TPL_DEFEAT_UPSELL, DEFEAT_UPSELL_TAP_OFFSET),
+                         (TPL_NEW_ERA_UNITS, NEW_ERA_UNITS_TAP_OFFSET))
 
 # Campaigns whose chapter/tier tabs have a distinct visual from the shared LS/DS/Cantina/Fleet
 # chapter tabs, so their tab templates are campaign-scoped (chapter_tab_<campaign>_<n>).

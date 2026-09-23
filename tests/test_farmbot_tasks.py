@@ -990,6 +990,23 @@ def test_the_coliseum_results_continue_is_wired_as_an_offset_closer():
     assert targets["coliseum_results"] == (0, 464)
 
 
+def test_the_new_era_units_modal_is_dismissed_as_an_offset_closer():
+    """Granting an era unit (Jaxxon, then Darth Jar Jar, both 2026-09-23) throws a full-screen
+    "New Era Units!" modal whose only exit is OKAY, 640px below the title. The overnight run had
+    no template for it and burned 8 halts on it. Measured: the title crop scores 1.000 on both
+    modals and at most 0.464 on the other 70 halt captures; OKAY sits at (955,930) in both."""
+    from farmbot.tasks import DEFAULT_POPUP_CLOSERS, tap_target
+    targets = dict(tap_target(c) for c in DEFAULT_POPUP_CLOSERS)
+    assert targets["new_era_units"] == (-7, 640)
+
+
+def test_the_new_era_units_template_is_shipped():
+    """An uncaptured closer silently never matches, so wiring the name is not enough."""
+    import os
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    assert os.path.isfile(os.path.join(root, "farmbot", "templates", "new_era_units.png"))
+
+
 def test_tap_target_normalises_a_bare_template_name():
     from farmbot.tasks import tap_target
     assert tap_target("popup_close") == ("popup_close", (0, 0))
