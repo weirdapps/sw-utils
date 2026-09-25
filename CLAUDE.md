@@ -626,8 +626,11 @@ python3 scripts/verify_facts.py --unit IMAGUNDI   # ground truth for one unit, i
   **Episode Shipments sells Fragmented Signal Data 45-for-4,500 and Incomplete Signal Data
   40-for-5,400**, one of each per weekly refresh, and Episode currency has no competing claim
   (60,900 banked on 2026-09-22). Buy both every refresh. The *Flawed* tier is still
-  cantina-only, so cantina 8-G stays the farm for it. **DROID BRAIN** has no repeatable token
-  route at all.
+  cantina-only, so cantina 8-G stays the farm for it (plus the Era Shipment's 25 per refresh;
+  a 100-crystal cantina refill measured **+6 Flawed** on 2026-09-25, ~17 crystals each).
+  **DROID BRAIN** has no token route, ⛔ **but the SCAVENGER makes it (found 2026-09-25)**: it
+  eats the Aeromagnifier pool (Mk VII / IX / XII at 9 points) at 245 per unit, and one pass took
+  it **1 → 19**. Feed Droid Brain before Aeromagnifier, which already sits at 228.
   ⇒ Cantina energy is NOT interchangeable with the other pools despite paying the same 1 ticket,
   and Assault Battles / Endor Escalation / Knightfall / Coven of Shadows are **mandatory**, not
   optional, for anything past R8.
