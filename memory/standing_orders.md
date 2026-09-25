@@ -42,18 +42,17 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 
 | When | Item | First action | Rule |
 |---|---|---|---|
-| **~00:00 on 09-25** | **GAC round 1 ATTACK phase vs DarkBane** | re-pull `gac/get` (the first pull after a flip returns the OLD match), scrape counters for NEW leaders via Playwright, `gac3v3_attack.py`, attack | ⭐⭐ TOP PRIORITY. ⚠ Corrected 09-24: midnight on 09-23 opened the DEFENCE phase ("SET DEFENSES! 23h 56m"), not the attack phase. Opponent: 13.41M GP, 10 GLs, modScore 6.17. Fleets: attack with Leviathan / Executor. |
-| ~18:00 daily | Fleet Arena payout | Check rank ~17:45, re-climb if knocked | **#5** at 09-24 00:00 (was #9). 5 battles/day. No crystal skips at >2h out. |
-| **~17:00 daily** | Squad Arena payout | Check rank ~16:30, re-climb if knocked | **#3** at 09-24 00:07. ⚠ Corrected: the PRIZES tab reads ~17:00, not 07:00. Defence = the squad you LAST attacked with (Rotta). |
-| 23:00 daily | Daily quests reset | farmbot once, then finish by hand | Farmbot misses the shop step and the arena battle. |
-| **on boss rotation** | **Coliseum** | Look the NEW boss up on holotables, rebuild, run | ⭐ Maxing a tier refills attempts and opens the next. The blocker is always the SQUAD. **Zeffo T9 62%, rank #92, 2 attempts left until ~21:05 09-24**: AUTO has plateaued at ~60% on both boards, so play the researched MANUAL line (notes.md) to reach 70% and rank ≤90 (600/day). |
-| **~20:55 daily** | **Action Jaxxon marquee, Tiers I-III daily** | SIM all three, claim **5 Jaxxon shards** from Tier III | Jaxxon **50/65** after the 09-23 claim. Three more claims (09-24, 25, 26) = 5★. Marquee ends ~09-29. |
-| **when Jaxxon hits 5★ (~09-26)** | **DJJ "Terrible Tings" Tier II** | EVENT ACTIVE → Terrible Tings → Tier II | Starkiller vs 3 Stormtroopers: Son of the Suns when up, basic the buffed trooper, watch Air Supply. Recipe in `notes.md`. 65 shards → DJJ 5★ + 6,700 Mk VII Aurek + 330 Mk VII cores. |
-| 2026-09-25 | Smuggler's Run III | SIM every tier | Run II paid a big share of +92 attenuators and +152 T05_06. |
-| ~2026-09-28 | **Conquest opens** | Plan squads before entering | Stamina-gated, not energy-gated (12,449 banked). |
-| ~2026-09-29 | Episode Shipment refresh | Buy Fragmented + Incomplete Signal Data + Omicron mats | ~53K episode currency banked. Omicrons cost 20 mats; 18 on hand. |
-| **every Era Shipment refresh (~09-29)** | **Era Shipment: Flawed Signal Data ×25 for 1,250 era tokens** | Buy it first | Flawed is the binding relic material (27 on hand, 45 per R7→R8). Era tokens come from Coliseum rank. |
-| ~2026-09-29 | Jaxxon marquee ends | Clear Tier IV once Jaxxon is 5★ | Jaxxon **50/65** after the 09-23 claim. |
+| **~16:30 09-25** | **Squad Arena re-climb** (payout ~17:00) | 4 battles left; Rotta Hutt squad | Hit #1 at 00:50 09-25, knocked to **#3** by 03:00. Climb in the last 30 min. |
+| **~17:45 09-25** | **Fleet Arena** (payout ~18:00) | 2 battles left; Leviathan preset | **#1** at 01:50 09-25. Re-climb only if knocked. |
+| **~20:55 daily** | **Action Jaxxon marquee Tiers I-III** | SIM all three, claim Tier III shards | **55/65** after the 09-24 claim. Two more (09-25, 09-26) = 5★ → DJJ Tier II. |
+| **by ~20:55 09-25** | **Coliseum Jotaz T8** (boss rotates then) | 3 attempts banked | AUTO converged 92-93% (high 95%) on both the 8/8-pip Jedi board and holotables' 98% board. Only a MANUAL run reaches 100%. |
+| **~21:00 09-25** | **TW Jakku setup phase** (joined 09-25 03:05, 22/50, min 25) | `tw_scan_notes.py`, obey the gold notes, place from `tw_placement_sheet.txt` | SET is irreversible. Do not attack Gungan walls. |
+| **00:00 09-26** | **GAC round 1 ends / round 2** | `pull_gac.py` twice (first pull after a flip is stale), scrape new leaders, plan | R1: **us 1,709** vs DarkBane (0 at 03:00). Defence edits made during R1 deploy at R2. |
+| 09-26 ~10:00 | **Ground War** (Assault Battles) | Play/star, then SIM | Assault Battles are a Droid Brain / relic source. |
+| 09-27 ~10:00 | **Galactic Bounties II** ("very rare") | Check tiers and rewards | |
+| 09-28 ~10:00 | **Endor (Omega Battles)**, Conquest ~09-28 | Plan squads before entering | |
+| ~09-29 | **Coven of Shadows**; Episode + Era Shipment refresh | Buy Fragmented + Incomplete (Episode) and **Flawed ×25 (Era, 1,250 tokens)** | Flawed is the binding relic mat (1 after GG R8). |
+| ~09-29 | Jaxxon marquee ends | Clear Tier IV once Jaxxon is 5★ | |
 | **2026-09-30** | **PROFUNDITY** | **PLAY IT BY HAND** | ⛔ Cannot be simmed. All 14 gates verified PASS. |
 | 2026-10-01 | Set 32 datacrons expire | Re-run `gac_cron_assign.py`, re-attach | Great Mothers, ST Luke, Cassian carry set-32. |
 
@@ -70,8 +69,9 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 - ⛔ **Do not touch relics on Admiral Raddus (R9), Cassian Andor (R8), Dash Rendar (R7)**
   before Profundity is played. All three sit exactly at threshold.
 - ⛔ **Never spend real money.** Suggest only; the owner decides.
-- ⛔ **Do not spend crystals** on energy refreshes, the Jawa Daily Deal, or arena skips.
-  All eight sinks were tested and priced on 2026-09-23; none is worth it. Banked: 5,708.
+- ⛔ **Crystals only for a measured, significant gain** (owner, 2026-09-24: "any other currency,
+  only if the value is significant"). One 100c cantina refill bought +6 Flawed and unlocked
+  Gamorrean Guard R8 on 2026-09-25; that is the bar. Never the Jawa deal or early arena skips. Banked: 7,798.
 - ⛔ **Do not attack a TW Gungan wall** with this account's leftover pool. 0-for-3, and five
   guildmates forfeited the same wall.
 - ⛔ **Do not burn Coliseum attempts on AUTO** once a tier has converged.

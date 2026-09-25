@@ -6527,3 +6527,45 @@ re-pull after the round flips.
 ### Arena payout times, read off the PRIZES tabs
 **Squad Arena ~17:00**, Fleet Arena ~18:00 (the watch list said 07:00 / 17:55). Fleet #9 → #5
 tonight (daily done); Squad #3 (not climbed: payout 17h away).
+
+## 2026-09-24 23:09 → 09-25 03:45 — GAC R1 attack 1,709-0, both arenas #1, Droid Brain via Scavenger
+
+### GAC S83 R1 vs DarkBane (13.41M, 10 GLs): 1,709 banners, all 3 character zones
+- Board seen at 00:01 (`output/gac_current_20260925_0001.json`): front-A EP / Saw / JML / Mace / GL Hondo,
+  front-B Rex / GL Ahsoka / 50R-T / Malgus / Grievous, back-B Maz / Jabba / Finn / Thrawn / GL Rey,
+  fleets Raddus / Executor / Negotiator.
+- Order that worked: **clear front-B first** (it is the only zone that reveals a CHARACTER zone), plan front-A
+  plus back-B together once back-B is visible, fleets whenever front-A falls.
+- Winners: Wampa solo (Grievous, 67 banners), Aphra/BT-1/IG-90 (50R-T), JML/JKCal/JKL (Malgus), JMK/CAT (Rex),
+  **SLKR/Dark Rey/Hux + a DS health cron (GL Ahsoka, the 93% exact row)**, LV/Appo (EP), Baylan trio (Saw),
+  SEE/Wat (JML), GAS solo (Jocasta remnant), Bane/Dooku (GL Hondo remnant), Bo-Katan/IG-12/Paz (Maz),
+  GL Ahsoka/Ezra Exile/Sabine (Jabba), Jabba trio (Finn), Malgus/Malak/Revan (Thrawn, 2nd attempt),
+  Stranger/Maul HF/Starkiller (GL Rey, steered: tap Ben Solo first, then Rey).
+- Losses, all on LEADER-level rows: QA trio vs Mace, Cere trio vs GL Hondo, Ugnaught trio vs Thrawn. SUBMIT kept
+  the killed defenders dead each time. Memory: `gac-leader-rows-lose-exact-rows-win`.
+- Fleets: Leviathan beat Executor, Executor beat Negotiator; **Executrix and Finalizer both timed out vs Raddus**.
+- Presets: `output/gac3v3_attack_presets_r1*.json` pushed to the in-game "GAC 3v3 - Offense" tab
+  (`push_ingame_presets.py --payload ... --names-as-is --push`); one SELECT SQUAD tap per battle.
+- ⭐ **Counter scraping in ONE call**: from any swgoh.gg page in Playwright MCP, `fetch('/gac/counters/<L>/?season_id=…')`
+  in a loop + `DOMParser` gives every leader's rows without navigating (same-origin, Cloudflare cookie rides along).
+  56 leaders + 11 capitals in ~2 minutes. chrome-devtools was blocked by Turnstile the same night.
+- New `scripts/pull_gac.py` (HU creds from `output/_hu_sid.json`).
+
+### Arenas, dailies, events
+- Squad #3 → #1 (Rotta Hutt squad beat #1 SLKR 188,826); knocked to #3 by 03:00. Fleet #12 → #8 → #4 → #1.
+- Dailies 8/8 + prize box; 600 regular energy → Light Side 9-F ×60 (12 Mk XII Bayonet salvage). Guild 600/600.
+- Ghosts of Dathomir bonus tier simmed ×2 (expired 10:00 09-25). Upcoming: Ground War 09-26, Galactic Bounties II
+  09-27, Endor 09-28, Coven of Shadows 09-29. Smuggler's Run III was NOT in the event list at 03:40.
+- TW Jakku joined (22/50, min 25); setup opens after lock-in ~21:00 09-25.
+
+### Upgrades and materials
+- ⭐⭐ **Scavenger → Droid Brain 1 → 19** (Mk IX 374 + Mk XII 96 + Mk VII 19 at 9 pts, 245/unit),
+  **Electrium 24 → 45** (Mk XII at 15, 80/unit), **Gyrda 2 → 11**, **Impulse 19 → 20**.
+- Cantina refill 100c → 9 sims on 8-G → **Flawed 40 → 46** → **Gamorrean Guard R7 → R8**. Flawed now 1.
+- Next R8→R9 needs Impulse 20 (0), Gyrda 20 (11), Droid Brain 20 (19), Flawed 55.
+- Mara Jade Skywalker era 92 → 96 (spent the 50 silver first-slot material); total era level 570 reward claimed.
+- Guild Events store: attenuators 5 for 125 GET3 (bought), Mk 12 ArmaTek Fusion Furnace + Holo Lens salvage for GET2.
+  Mk III raid tokens = 5, so the Guild Activity Gyrda/Impulse route is shut.
+- Mods: `mods_session.sh` +1 six-dot; binding T05_06 93, T06_02 15, T06_03 42, T05_04 16.
+- Coliseum Jotaz T8: 92% (holotables 98% board JKL/Mara/JKCal/CLS/Yoda DSV) and 93% (8/8-pip JKL/Mara/JKCal/Mace/Barriss)
+  on AUTO; 95% high score stands; 3 attempts banked; rank 265-277.
