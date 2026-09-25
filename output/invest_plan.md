@@ -1,6 +1,6 @@
-# Investment plan — 2026-09-23
+# Investment plan — 2026-09-25
 
-Roster 401 units (pulled 2026-09-22, source file-fallback). Relic target = displayed R9 (rt >= 11).
+Roster 403 units (pulled 2026-09-24, source file-fallback). Relic target = displayed R9 (rt >= 11).
 
 > Missing inputs: rote_plan.json — those rungs of the ladder contributed nothing.
 
@@ -18,13 +18,13 @@ Roster 401 units (pulled 2026-09-22, source file-fallback). Relic target = displ
 | 9 | 26 | Kit Fisto — TW defense (12%) |
 | 10 | 1 | Obi-Wan Kenobi (Old Ben) — TW offense (81%) |
 | 11 | 71 | Admiral Ackbar — GAC Fleet - Defense: Home One (crew) |
-| 12 | 117 | Ewok Scout — not on any board |
+| 12 | 119 | Ewok Scout — not on any board |
 
 ## Relic queue (204)
 
 | # | unit | relic | to go | tier | why |
 |---|---|---|---|---|---|
-| 1 | Mob Enforcer | R7 | +2 | 1 | Squad Arena defense (deployed) |
+| 1 | Mob Enforcer | R8 | +1 | 1 | Squad Arena defense (deployed) |
 | 2 | Greedo | R7 | +2 | 1 | Squad Arena defense (deployed) |
 | 3 | Gamorrean Guard | R7 | +2 | 1 | Squad Arena defense (deployed) |
 | 4 | Cad Bane | R7 | +2 | 1 | Squad Arena defense (deployed) |
@@ -147,7 +147,7 @@ Roster 401 units (pulled 2026-09-22, source file-fallback). Relic target = displ
 | 121 | Jawa Scavenger | R7 | +2 | 6 | GAC 5v5 offense (65%) |
 | 122 | Cere Junda | R7 | +2 | 6 | GAC 5v5 offense (61%) |
 | 123 | Inquisitor Barriss | R7 | +2 | 6 | GAC 5v5 offense (61%) |
-| 124 | Ninth Sister | R6 | +3 | 6 | GAC 5v5 offense (61%) |
+| 124 | Ninth Sister | R7 | +2 | 6 | GAC 5v5 offense (61%) |
 | 125 | Taron Malicos | R7 | +2 | 6 | GAC 5v5 offense (61%) |
 | 126 | Doctor Aphra | R7 | +2 | 6 | GAC 5v5 offense (59%) |
 | 127 | BT-1 | R7 | +2 | 6 | GAC 5v5 offense (59%) |
