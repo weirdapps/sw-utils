@@ -49,6 +49,7 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 | **~20:55 09-26** | **Coliseum boss rotates** (Dryax done at 97%) | holotables.xyz/boss/<new>, owned-only board | Rank 86 pays 600 era tokens/day. |
 | **00:00 09-27** | **GAC R2 attack vs ИваН** | `pull_gac.py` twice, scrape new leaders, exact rows only | SR 3,164 (Kyber 3). His answers are all ≥81%; the round is won on offence. |
 | **before 02:30 09-27** | **Raid tickets** | Spend all four energy pools (Dark Side nodes) | Guild day resets ~02:32, NOT 22:59. 0/600 for the 09-26 guild day. |
+| 09-26 ~10:00 | **Ground War** (Assault Battles) | Play/star, then SIM | Assault Battles are a Droid Brain / relic source. Starts after the 03:10 session; play it in the evening one. |
 | 09-27 ~10:00 | **Galactic Bounties II** ("very rare") | Check tiers and rewards | |
 | ~20:00 09-28 | **Rise of the Empire TB** | Specials → ops → combat → deploy | P3 Tatooine `special_reva` = Third Sister shards (232/330). |
 | 09-28 ~10:00 | **Endor (Omega Battles)**, Conquest ~09-28 | Plan squads before entering | |
