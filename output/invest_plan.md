@@ -1,6 +1,6 @@
-# Investment plan — 2026-09-25
+# Investment plan — 2026-09-26
 
-Roster 403 units (pulled 2026-09-24, source file-fallback). Relic target = displayed R9 (rt >= 11).
+Roster 403 units (pulled 2026-09-26, source file-fallback). Relic target = displayed R9 (rt >= 11).
 
 > Missing inputs: rote_plan.json — those rungs of the ladder contributed nothing.
 
@@ -26,7 +26,7 @@ Roster 403 units (pulled 2026-09-24, source file-fallback). Relic target = displ
 |---|---|---|---|---|---|
 | 1 | Mob Enforcer | R8 | +1 | 1 | Squad Arena defense (deployed) |
 | 2 | Greedo | R7 | +2 | 1 | Squad Arena defense (deployed) |
-| 3 | Gamorrean Guard | R7 | +2 | 1 | Squad Arena defense (deployed) |
+| 3 | Gamorrean Guard | R8 | +1 | 1 | Squad Arena defense (deployed) |
 | 4 | Cad Bane | R7 | +2 | 1 | Squad Arena defense (deployed) |
 | 5 | Threepio & Chewie | R8 | +1 | 2 | Squad Arena climb |
 | 6 | Captain Rex | R8 | +1 | 2 | Squad Arena climb |

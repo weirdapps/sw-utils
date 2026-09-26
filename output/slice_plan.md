@@ -1,19 +1,19 @@
 # Slice / calibrate priority queue
 
-Source: `mods_full_20260925.json` · 1912 equipped mods
+Source: `mods_full_20260926.json` · 1912 equipped mods
 
 
 ## Materials on hand
 
 | promo 5->6 | T06-1 | T06-2 | T06-3 | T06-4 | T05-1..6 | credits |
 |---:|---:|---:|---:|---:|---|---:|
-| 430 | 1473 | 15 | 42 | 322 | 6/13/11/16/315/93 | 221,008,371 |
+| 390 | 1473 | 15 | 162 | 328 | 6/13/11/16/215/155 | 220,581,181 |
 
 ## Queue: 1794 upgradeable mods (not yet 6A)
 
 By ladder rung × action:
 
-- **ARENA**: 6-dot slice-up=11, 5A->6 promote=27, 5-dot slice-up=35
+- **ARENA**: 6-dot slice-up=13, 5A->6 promote=25, 5-dot slice-up=35
 - **GAC**: 6-dot slice-up=55, 5A->6 promote=410, 5-dot slice-up=417
 - **TW**: 6-dot slice-up=1, 5A->6 promote=66, 5-dot slice-up=93
 - **fleet**: 6-dot slice-up=1, 5A->6 promote=35, 5-dot slice-up=124
@@ -24,7 +24,7 @@ By ladder rung × action:
 | # | rung | char | mod | speed | state | action |
 |--:|---|---|---|--:|---|---|
 | 1 | ARENA | Cad Bane | set8 slot7 | 15 | 6-dot t1 | 6-dot slice-up |
-| 2 | ARENA | Cad Bane | set8 slot2 | 12 | 5-dot t5 | 5A->6 promote |
+| 2 | ARENA | Cad Bane | set8 slot2 | 13 | 6-dot t1 | 6-dot slice-up |
 | 3 | ARENA | Cad Bane | set5 slot6 | 10 | 6-dot t1 | 6-dot slice-up |
 | 4 | ARENA | Cad Bane | set7 slot4 | 5 | 5-dot t4 | 5-dot slice-up |
 | 5 | ARENA | Cad Bane | set7 slot3 | 4 | 5-dot t3 | 5-dot slice-up |
@@ -35,7 +35,7 @@ By ladder rung × action:
 | 10 | ARENA | Threepio & Chewie | set2 slot4 | 4 | 5-dot t4 | 5-dot slice-up |
 | 11 | ARENA | Threepio & Chewie | set2 slot5 | 4 | 5-dot t4 | 5-dot slice-up |
 | 12 | ARENA | Threepio & Chewie | set2 slot7 | 3 | 5-dot t2 | 5-dot slice-up |
-| 13 | ARENA | Captain Drogan | set2 slot2 | 15 | 5-dot t5 | 5A->6 promote |
+| 13 | ARENA | Captain Drogan | set2 slot2 | 16 | 6-dot t1 | 6-dot slice-up |
 | 14 | ARENA | Captain Drogan | set2 slot5 | 15 | 5-dot t5 | 5A->6 promote |
 | 15 | ARENA | Captain Drogan | set2 slot6 | 15 | 5-dot t5 | 5A->6 promote |
 | 16 | ARENA | Captain Drogan | set6 slot7 | 15 | 5-dot t5 | 5A->6 promote |
