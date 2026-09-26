@@ -223,6 +223,9 @@ def one(idx, tab, expect=None):
             # bad row must not abandon the other twenty in the batch. Re-sweep the
             # tab afterwards and RESTRICTED will report whatever already landed.
             return "skip", f"idx {idx}: WRONG SQUAD LOADED, {why}"
+    # ⛔ BTN_SET doubles as a store pack's BUY button (2026-09-26, 1,250 crystals).
+    if tp.store_screen():
+        return "fatal", f"idx {idx}: STORE/purchase screen, refusing to tap SET"
     tp.tap(*tp.BTN_SET, wait=4.5)
     after = tp.allied_count()
     if after is None:

@@ -291,6 +291,21 @@ def screen_title():
     return ocr((90, 10, 520, 70), thresh=170, psm='7').upper()
 
 
+def store_screen():
+    """True if the frame is a STORE page or a purchase prompt.
+
+    ⛔ 2026-09-26: tw_fleetfill's blind BTN_SET (1670,1008) landed on a pack's
+    BUY button, which sits at the same spot, and WARN_OK (960,692) then
+    confirmed a 1,250-crystal purchase. Call this before every SET/OK tap.
+    """
+    shot()
+    title = ocr((90, 10, 520, 70), thresh=170, psm='7').upper()
+    button = ocr((1400, 930, 1910, 1060), thresh=170, psm='7').upper()
+    popup = ocr((450, 300, 1500, 800), thresh=170).upper()
+    return ('STORE' in title or 'BUY' in button or 'PURCHASE' in popup
+            or 'BUY' in popup)
+
+
 def allied_count():
     """'ALLIED SQUADS 21/39' -> 21, or None if not on the PVP MISSION screen."""
     shot()

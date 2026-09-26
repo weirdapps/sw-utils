@@ -85,11 +85,19 @@ def one(idx, total):
         f.back_to_pvp()
         return "skip", f"idx {idx}: nothing loaded"
 
+    # ⛔ BTN_SET is where a store pack's BUY button sits; a 1,250-crystal
+    # Raddus pack was bought this way on 2026-09-26. Never tap blind.
+    if tp.store_screen():
+        return "fatal", f"idx {idx}: STORE/purchase screen, refusing to tap"
     tp.tap(*tp.BTN_SET, wait=4.0)
     # A lineup shorter than the 8 slots raises "not full"; OK only DISMISSES it,
     # so the SET has to be pressed a second time.
     if tp.allied_count() is None:
+        if tp.store_screen():
+            return "fatal", f"idx {idx}: purchase prompt, refusing to tap OK"
         tp.tap(*WARN_OK, wait=2.5)
+        if tp.store_screen():
+            return "fatal", f"idx {idx}: STORE screen, refusing to tap SET"
         tp.tap(*tp.BTN_SET, wait=4.0)
     after = tp.allied_count()
     if after is None:
