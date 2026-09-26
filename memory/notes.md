@@ -6569,3 +6569,71 @@ tonight (daily done); Squad #3 (not climbed: payout 17h away).
 - Mods: `mods_session.sh` +1 six-dot; binding T05_06 93, T06_02 15, T06_03 42, T05_04 16.
 - Coliseum Jotaz T8: 92% (holotables 98% board JKL/Mara/JKCal/CLS/Yoda DSV) and 93% (8/8-pip JKL/Mara/JKCal/Mace/Barriss)
   on AUTO; 95% high score stands; 3 attempts banked; rank 265-277.
+
+## 2026-09-26 00:14 → 03:10 — dailies 8/8, both arenas #1, Coliseum 97%, TW placed by the orders, and a 1,250-crystal mistake
+
+### ⛔ A blind SET tap bought a crystal pack. Guard added; read this before any TW fleet fill
+`tw_fleetfill.py` hit two "nothing loaded" rows, lost the fleet browser, and ended on the
+**Resistance Star Cruiser Pack** store page. Its fixed `BTN_SET` (1670,1008) is exactly where a
+pack's **BUY** button sits, and `WARN_OK` (960,692) confirmed the purchase: **1,250 crystals**
+(9,198 → 7,948) for 10 Raddus shards (already 7★), 100K ship mats, 15/10/5 ability mats.
+`tw_place.store_screen()` (title reads STORE, button reads BUY, or popup says BUY/PURCHASE)
+now gates every SET and OK tap in `tw_fill.py` and `tw_fleetfill.py`; verified True on the
+store page and False on the fleet builder. A slow swipe across the Shipments grid ALSO
+registered as a tap and opened a 500-crystal BUY dialog; swipe store lists in the column gap
+(device x≈1320) at ≥800 ms. Memory: `never-click-blind-on-device`.
+
+### GAC S83 round 1 WON; round 2 vs ИваН
+- R1 scored as a win; skill rating **3,128 → 3,164** (Kyber 3 regained). Bracket: four players 1-0.
+- R2 opponent **ИваН** (337255517): 12.28M GP, SR 3,233, 9 GLs (**no SLKR**; GL Hondo R9, LV R10,
+  GL Ahsoka/GL Leia/JML R9, JMK/Jabba/GL Rey R8, SEE R7), Darth Bane + Dooku R8, Third Sister R8,
+  Maz R7, 776 six-dot mods vs our 189. Roster saved to `data/roster/opp_ivan_337255517_20260926.json`.
+- Defence KEPT as placed (15 squads + Negotiator/Home One/Raddus, crons verified on the device:
+  GL Rey Lvl 9, GL Leia Lvl 6). `~/Downloads/gac_r2/opp_walls.py` ranks every fieldable wall by the
+  opponent's best fieldable counter: **every wall has one at ≥81%**; the lowest are GL Rey 81%
+  (his R8 mirror), GL Ahsoka 84% (SEE+Bane), SLKR 89% and GL Leia 88%. Nothing on the board beats
+  the doctrine's "offence wins the round", so the round is decided in the 00:00 09-27 attack phase.
+- ⚠ HotUtils `gac/get` in the defence phase returns NO `datacron` key on home squads at all; the
+  crons ARE on (checked in EDIT DEFENSE). Do not read the absence as "no crons".
+
+### Coliseum DRYAX tier 9: 47% → 97%, rank Unranked → 86
+- **JKL (L, loan EL93) / Mara Jade (EL96) / JK Cal (loan) / Darth Jar Jar (EL106) / Yoda DSV (EL95)**,
+  the #1 holotables Dryax lineup, on plain AUTO: **97% (486,460), 92%, 97% (487,007)**. Swapping
+  Yoda for Starkiller (1/2 pip) did not beat it. DJJ and Yoda read 0/2 under the JKL lead and the
+  board still wins; the pips are not the whole story on this boss.
+- Pixel-based steering to keep the two Dryax even failed: the bars change colour (green → yellow →
+  red) and drift with the animation, and AUTO already spread the damage evenly on its own.
+- ⛔ **Era levels are hard-gated by Mk VI Besh Ability Module** (DJJ 107 needs 600, Mara 97 needs
+  100; own 0). Sources: Episode Track, Terrible Tings tiers, Action Jaxxon marquee tiers. No
+  crystal route; the store's "Era Modules Slice-a-Bundle" is real money.
+
+### Territory War (Jakku) placed to the officer orders: 19 squads + 7 fleets = 808 banners
+Orders (gold notes, unchanged after the 01:50 "New Guild Orders" mail): Command Post
+**Phasma/Sisters**, Airspace **Meta** (fleet), Hangar **Republic**, Trenches **Rey**, Main Base
+(fleet, no note), Supply Depot **GL wall**, Forward Turrets **Jabba/LV**, Ion Cannon **Gungan**,
+Special Ops Center **Geo/GG**. Every character territory carries a note, so nothing off-note was
+placed. Placed: Forward Turrets LV + Jabba · Trenches GL Rey + Rey (JT) · Supply Depot SLKR,
+GL Leia, JMK, GL Ahsoka · Hangar Kelleran, Queen Amidala, GAS 501st, CC-2224, Qui-Gon ·
+Command Post Great Mothers, Phasma, Mother Talzin · Ion Cannon Boss Nass · Special Ops Grievous,
+Geonosians · Airspace Executor, Executrix, Home One · Main Base Negotiator, Finalizer, Raddus,
+Malevolence. Kept for offence: **SEE, JML (+Hermit Yoda/JK Cal/JKL), Leviathan**, Inquisitorius
+and every unplaced squad. Endurance could not go (its ships were committed).
+- `tw_goto.py "Ion Cannon"` never matches: OCR reads "lon Cannon". Use `"Cannon Fortification"`.
+- The first tap after backing out to the map is eaten by the zoom-out animation; wait ≥6 s.
+
+### Economy facts found tonight
+- **The guild day (raid tickets, Guild Activities) resets ~02:32 EEST**, not at the 22:59 player
+  reset. ~800 energy spent 00:30-02:30 counted for the PREVIOUS guild day; tickets read 0/600 at
+  02:40. Next session: spend the capped pools BEFORE 02:30 (Dark Side nodes: today's guild tier is
+  "spend energy in Dark Side battles").
+- **Era Shipment sells Impulse Detector ×10 for 3,000 era tokens** (Impulse is the binding R8 mat,
+  1 owned). Era tokens 1,808 (+600/day at Coliseum rank 61-90). Flawed ×25 already bought this cycle.
+- **Weekly Shipment** this week: ship ability mats for ALLY POINTS (bought Mk III ×25 for 15K, Omega
+  ×10 for 27K; kept for Profundity's abilities on 09-30), Light/Dark Side currency for crystals
+  (GL mission currency, not needed). No Impulse/Gyrda/Droid Brain this week.
+- Smuggler's Run III needs **Pirate King Hondo** (not owned): unplayable. Training Droid Smuggling
+  tier IV simmed ×2. Kyrotech Ascension and the Slice-a-Bundles are real-money offers.
+- Cantina refill 100c → 8 sims on 8-G → **Flawed 4 → 11**. Scavenger: Impulse 0 → 1 (6 bayonets).
+- Mods: +2 six-dots, T05_06 93 → 155; binding T06_02 15, T05_04 16; calibration still Error [40].
+- RotE Territory Battle starts in 2d17h (~2026-09-28 ~20:00): P3 Tatooine `special_reva` farms
+  Third Sister shards (232/330).

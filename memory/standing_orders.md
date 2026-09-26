@@ -42,16 +42,17 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 
 | When | Item | First action | Rule |
 |---|---|---|---|
-| **~16:30 09-25** | **Squad Arena re-climb** (payout ~17:00) | 4 battles left; Rotta Hutt squad | Hit #1 at 00:50 09-25, knocked to **#3** by 03:00. Climb in the last 30 min. |
-| **~17:45 09-25** | **Fleet Arena** (payout ~18:00) | 2 battles left; Leviathan preset | **#1** at 01:50 09-25. Re-climb only if knocked. |
-| **~20:55 daily** | **Action Jaxxon marquee Tiers I-III** | SIM all three, claim Tier III shards | **55/65** after the 09-24 claim. Two more (09-25, 09-26) = 5★ → DJJ Tier II. |
-| **by ~20:55 09-25** | **Coliseum Jotaz T8** (boss rotates then) | 3 attempts banked | AUTO converged 92-93% (high 95%) on both the 8/8-pip Jedi board and holotables' 98% board. Only a MANUAL run reaches 100%. |
-| **~21:00 09-25** | **TW Jakku setup phase** (joined 09-25 03:05, 22/50, min 25) | `tw_scan_notes.py`, obey the gold notes, place from `tw_placement_sheet.txt` | SET is irreversible. Do not attack Gungan walls. |
-| **00:00 09-26** | **GAC round 1 ends / round 2** | `pull_gac.py` twice (first pull after a flip is stale), scrape new leaders, plan | R1: **us 1,709** vs DarkBane (0 at 03:00). Defence edits made during R1 deploy at R2. |
-| 09-26 ~10:00 | **Ground War** (Assault Battles) | Play/star, then SIM | Assault Battles are a Droid Brain / relic source. |
+| **~16:30 09-26** | **Squad Arena** (payout ~17:00) | 4 battles left; Rotta Hutt squad | **#1** at 01:10 09-26. Re-climb only if knocked. |
+| **~17:45 09-26** | **Fleet Arena** (payout ~18:00) | 5 battles left; Leviathan preset | **#1** since 09-25. Re-climb only if knocked. |
+| **~20:00 09-26** | **TW Jakku attack phase** (24h) | Attack with SEE / JML trio / Leviathan / Inquisitorius by matchup | 19 squads + 7 fleets placed to the notes (808). Never a Gungan wall. |
+| **~20:59 09-26** | **Jaxxon marquee Tier III → 5★** | Claim (+5 = 65/65), promote Jaxxon, clear Tier IV, then **DJJ Tier II** | The game lists this marquee and Terrible Tings as Mk VI Besh sources (the era-level gate); check which tier pays it. |
+| **~20:55 09-26** | **Coliseum boss rotates** (Dryax done at 97%) | holotables.xyz/boss/<new>, owned-only board | Rank 86 pays 600 era tokens/day. |
+| **00:00 09-27** | **GAC R2 attack vs ИваН** | `pull_gac.py` twice, scrape new leaders, exact rows only | SR 3,164 (Kyber 3). His answers are all ≥81%; the round is won on offence. |
+| **before 02:30 09-27** | **Raid tickets** | Spend all four energy pools (Dark Side nodes) | Guild day resets ~02:32, NOT 22:59. 0/600 for the 09-26 guild day. |
 | 09-27 ~10:00 | **Galactic Bounties II** ("very rare") | Check tiers and rewards | |
+| ~20:00 09-28 | **Rise of the Empire TB** | Specials → ops → combat → deploy | P3 Tatooine `special_reva` = Third Sister shards (232/330). |
 | 09-28 ~10:00 | **Endor (Omega Battles)**, Conquest ~09-28 | Plan squads before entering | |
-| ~09-29 | **Coven of Shadows**; Episode + Era Shipment refresh | Buy Fragmented + Incomplete (Episode) and **Flawed ×25 (Era, 1,250 tokens)** | Flawed is the binding relic mat (1 after GG R8). |
+| ~09-29 10:00 | **Coven of Shadows**; Episode + Era Shipment refresh | Buy Fragmented + Incomplete (Episode), **Flawed ×25 (Era, 1,250)** and **Impulse ×10 (Era, 3,000)** | Binding R8 mats: Flawed 11/45, Impulse 1/20. |
 | ~09-29 | Jaxxon marquee ends | Clear Tier IV once Jaxxon is 5★ | |
 | **2026-09-30** | **PROFUNDITY** | **PLAY IT BY HAND** | ⛔ Cannot be simmed. All 14 gates verified PASS. |
 | 2026-10-01 | Set 32 datacrons expire | Re-run `gac_cron_assign.py`, re-attach | Great Mothers, ST Luke, Cassian carry set-32. |
@@ -71,7 +72,7 @@ open is simply missed, which is exactly why obligation 3 is not optional.
 - ⛔ **Never spend real money.** Suggest only; the owner decides.
 - ⛔ **Crystals only for a measured, significant gain** (owner, 2026-09-24: "any other currency,
   only if the value is significant"). One 100c cantina refill bought +6 Flawed and unlocked
-  Gamorrean Guard R8 on 2026-09-25; that is the bar. Never the Jawa deal or early arena skips. Banked: 7,798.
+  Gamorrean Guard R8 on 2026-09-25; that is the bar. Never the Jawa deal or early arena skips. Banked: 7,938 (1,250 lost to a scripted mis-tap on 09-26).
 - ⛔ **Do not attack a TW Gungan wall** with this account's leftover pool. 0-for-3, and five
   guildmates forfeited the same wall.
 - ⛔ **Do not burn Coliseum attempts on AUTO** once a tier has converged.
